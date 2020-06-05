@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Addres List" blockClass="table-border-style">      
+        <button [routerLink]="['/create-address']" class="btn btn-primary">Add Address</button><br>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Direccion Principal</th>
+              <th>Direccion Secundaria</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let address of addresses | async">
+                    <td>{{address.id}}</td>
+                    <td>{{address.direccion_principal}}</td>
+                    <td>{{address.direccion_secundaria}}</td>
+                    <td>                 
+                        <button (click)="deleteAddress(address.id)" class="btn btn-danger">Delete</button>
+                        <button (click)="updateAddress(address.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                        <button (click)="addressDetails(address.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

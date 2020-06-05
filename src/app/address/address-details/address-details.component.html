@@ -1,0 +1,17 @@
+<div class="row justify-content-center">
+  <div class="col-sm-12">
+      <!--<div class="col-md-6"></div>-->
+    <app-card cardTitle="Addres Details" [options]="false">
+      <div *ngIf="address">
+        <div>
+          <label><b>Dirreción 1: </b></label> {{address.direccion_principal}}
+        </div>
+        <div>
+          <label><b>Dirección 2: </b></label> {{address.direccion_secundaria}}
+        </div>  
+      </div>
+      <br>
+      <button [routerLink]="['/address-list']" class="btn btn-primary">Back to Address List</button><br>
+      </app-card>
+    </div>
+  </div>

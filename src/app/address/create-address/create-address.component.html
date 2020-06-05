@@ -1,0 +1,20 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Create Address" [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Dirección Principal</label>
+              <input type="text" class="form-control" id="direccion_principal" required [(ngModel)]="address.direccion_principal" name="direccion_principal">
+            </div>        
+            <div class="form-group">
+              <label for="name">Dirección Secundaria</label>
+              <input type="text" class="form-control" id="direccion_secundaria" required [(ngModel)]="address.direccion_secundaria" name="direccion_secundaria">
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button [routerLink]="['/address-list']" class="btn btn-danger" style="margin-left: 10px">Cancel</button>
+          </form>
+        </app-card>
+      </div>
+    </div>
+</div>

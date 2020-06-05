@@ -1,0 +1,29 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Update General" [options]="false">
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Nombre Completo</label>
+                    <select  class="form-control" id="nombre_id" required [(ngModel)]="general.nombre_id" name="nombre_id" >
+                      <option *ngFor="let employee of employees | async" value="{{employee.id}}">{{employee.nombre_principal}} {{employee.apellido_paterno}} {{employee.apellido_materno}}</option>
+                    </select>
+                </div>                
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Direccion Completa</label>
+                    <select  class="form-control" id="direcciones_id" required [(ngModel)]="general.direcciones_id" name="direcciones_id" >
+                    <option *ngFor="let address of addresses | async" value="{{address.id}}">{{address.direccion_principal}} {{address.direccion_secundaria}}</option>
+                    </select>
+                </div>            
+                <div class="form-group">
+                  <label for="name">Comentarios</label>
+                  <input type="text" class="form-control" id="comentarios" required [(ngModel)]="general.comentarios" name="comentarios">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success">Submit</button>                
+                <button [routerLink]="['/general-list']" class="btn btn-danger" style="margin-left: 10px">Cancel</button>            
+            </form>
+        </app-card>
+      </div>
+    </div>
+  </div>

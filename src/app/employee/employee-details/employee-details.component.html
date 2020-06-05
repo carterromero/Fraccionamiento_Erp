@@ -1,0 +1,20 @@
+<div class="row justify-content-center">
+  <div class="col-sm-12">
+    <!--<div class="col-md-6"></div>-->
+    <app-card cardTitle="Employee Details" [options]="false">
+      <div *ngIf="employee">
+        <div>
+          <label><b>Nombre(s): </b></label> {{employee.nombre_principal}}
+        </div>
+        <div>
+          <label><b>Apellido Paterno: </b></label> {{employee.apellido_paterno}}
+        </div>
+        <div>
+          <label><b>Apellido Materno: </b></label> {{employee.apellido_materno}}
+        </div>
+      </div>
+      <br>
+      <button [routerLink]="['/employee-list']" class="btn btn-primary">Back to Employee List</button><br>
+    </app-card>
+    </div>
+</div>
