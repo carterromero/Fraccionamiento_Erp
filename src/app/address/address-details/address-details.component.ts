@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./address-details.component.scss']
 })
 export class AddressDetailsComponent implements OnInit {
+  
 
   id: number;
   address: Address;
