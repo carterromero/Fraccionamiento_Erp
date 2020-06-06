@@ -8,11 +8,17 @@ const routes: Routes = [
     component: AddressDetailsComponent
   }
 
-];
+
+
+
+];  
+
+
 
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
+
 export class AddressDetailsRoutingModule { }
