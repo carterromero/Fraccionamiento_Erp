@@ -3,10 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddressListComponent} from './address-list.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: AddressListComponent
-  }
+
 ];
 
 @NgModule({
