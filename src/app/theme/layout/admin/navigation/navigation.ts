@@ -130,7 +130,84 @@ const NavigationItems = [
         ]
       }
     ]
-  }/*,
+  },
+  
+
+
+  {    
+    id: 'admin-main',
+    title: 'Administración',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'admin-catalog',
+        title: 'Catalogos',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'legals',
+            title: 'Empresas',
+            type: 'item',            
+            url: '/legals-list'
+            
+          },
+
+          {
+            id: 'condominus',
+            title: 'Fraccionamientos',
+            type: 'item',            
+            url: '/condominus-list'
+            
+          }
+                              
+        ]
+      },
+
+      {
+        id: 'security-catalog',
+        title: 'Seguridad',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'rols',
+            title: 'Roles',
+            type: 'item',            
+            url: '/rols-list'
+            
+          },
+
+          {
+            id: 'permisos',
+            title: 'Permisos',
+            type: 'item',            
+            url: '/permisos-list'
+            
+          },
+
+          {
+            id: 'usuarios',
+            title: 'Usuarios',
+            type: 'item',            
+            url: '/usuarios-list'
+            
+          }
+
+
+                              
+        ]
+      }
+    ]
+  }
+  
+  
+  //Aqui los demanas
+
+
+
+  /*,
   {
     id: 'ui-element',
     title: 'UI ELEMENT',
