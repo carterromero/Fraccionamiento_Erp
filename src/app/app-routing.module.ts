@@ -16,6 +16,7 @@ import { CreateGeneralComponent } from './general/create-general/create-general.
 import { GeneralDetailsComponent } from './general/general-details/general-details.component';
 import { UpdateGeneralComponent } from './general/update-general/update-general.component';
 import { LegalsListComponent } from './legals/legals-list/legals-list.component';
+import { CreateLegalsComponent } from './legals/create-legals/create-legals.component';
 
 
 const routes: Routes = [
@@ -198,6 +199,16 @@ const routes: Routes = [
           {
             path: 'legals-list',
             loadChildren: () => import('./legals/legals-list/legals-list.module').then(module => module.LegalsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateLegalsComponent ,
+        children: [  
+          {
+            path: 'create-legals',
+            loadChildren: () => import('./legals/create-legals/create-legals.module').then(module => module.CreateLegalsModule)
           }
         ]
       }
