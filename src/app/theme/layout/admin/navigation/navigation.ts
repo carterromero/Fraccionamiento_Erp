@@ -239,7 +239,7 @@ const NavigationItems = [
   },
   {    
     id: 'Treasury-main',
-    title: 'Treasury',
+    title: 'Tesoreria',
     type: 'group',
     icon: 'feather icon-monitor',
     children: [
@@ -251,7 +251,7 @@ const NavigationItems = [
         children: [
           {
             id: 'bankCodes',
-            title: 'CodigosBancarios',
+            title: 'Codigos Bancarios',
             type: 'item',            
             url: '/bankCodes-list'
             
@@ -266,7 +266,7 @@ const NavigationItems = [
           },
           {
             id: 'bankAccounts',
-            title: 'CuentasBancarias',
+            title: 'Cuentas Bancarias',
             type: 'item',            
             url: '/bankAccounts-list'
             
