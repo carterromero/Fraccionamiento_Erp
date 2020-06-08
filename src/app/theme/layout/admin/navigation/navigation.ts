@@ -237,7 +237,45 @@ const NavigationItems = [
 
     ]
   },
+  {    
+    id: 'Treasury-main',
+    title: 'Treasury',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'Treasury-catalog',
+        title: 'Catalogos',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'bankCodes',
+            title: 'CodigosBancarios',
+            type: 'item',            
+            url: '/bankCodes-list'
+            
+          },
 
+          {
+            id: 'banks',
+            title: 'Bancos',
+            type: 'item',            
+            url: '/banks-list'
+            
+          },
+          {
+            id: 'bankAccounts',
+            title: 'CuentasBancarias',
+            type: 'item',            
+            url: '/bankAccounts-list'
+            
+          }
+                                
+        ]
+      },
+    ]
+  },
   /*,
   {
     id: 'ui-element',
