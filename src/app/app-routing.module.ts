@@ -15,6 +15,7 @@ import { GeneralListComponent } from './general/general-list/general-list.compon
 import { CreateGeneralComponent } from './general/create-general/create-general.component';
 import { GeneralDetailsComponent } from './general/general-details/general-details.component';
 import { UpdateGeneralComponent } from './general/update-general/update-general.component';
+import { LegalsListComponent } from './legals/legals-list/legals-list.component';
 
 
 const routes: Routes = [
@@ -187,6 +188,16 @@ const routes: Routes = [
           {
             path: 'update-general/:id',
             loadChildren: () => import('./general/update-general/update-general.module').then(module => module.UpdateGeneralModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: LegalsListComponent,
+        children: [  
+          {
+            path: 'legals-list',
+            loadChildren: () => import('./legals/legals-list/legals-list.module').then(module => module.LegalsListModule)
           }
         ]
       }
