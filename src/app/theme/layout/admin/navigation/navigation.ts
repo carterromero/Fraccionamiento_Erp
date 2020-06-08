@@ -200,18 +200,8 @@ const NavigationItems = [
         ]
       }
     ]
-<<<<<<< HEAD
-  }    
-=======
-  },
-
-  
->>>>>>> dc528dfd25e57560ead5173c32ffb4984b99988f
-  
-  //Aqui los demanas
-
+  }
   ,
-  
 
 
   {    
