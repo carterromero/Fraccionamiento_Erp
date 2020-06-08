@@ -200,11 +200,53 @@ const NavigationItems = [
         ]
       }
     ]
+<<<<<<< HEAD
   }    
+=======
+  },
+
+  
+>>>>>>> dc528dfd25e57560ead5173c32ffb4984b99988f
   
   //Aqui los demanas
 
+  ,
+  
 
+
+  {    
+    id: 'AP-main',
+    title: 'Cuentas por pagar ',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'ap-catalog',
+        title: 'Catalogos',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'creditor',
+            title: 'acreedor',
+            type: 'item',            
+            url: '/creditor-list'
+            
+          },
+
+          {
+            id: 'crear_cuenta',
+            title: 'Fraccionacrear una cuenta ',
+            type: 'item',            
+            url: '/cuenta-list'
+            
+          }
+                              
+        ]
+      },
+
+    ]
+  },
 
   /*,
   {
