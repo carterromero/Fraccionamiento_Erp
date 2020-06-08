@@ -201,12 +201,81 @@ const NavigationItems = [
       }
     ]
   }
-  
-  
-  //Aqui los demanas
+  ,
 
 
+  {    
+    id: 'AP-main',
+    title: 'Cuentas por pagar ',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'ap-catalog',
+        title: 'Catalogos',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'creditor',
+            title: 'acreedor',
+            type: 'item',            
+            url: '/creditor-list'
+            
+          },
 
+          {
+            id: 'crear_cuenta',
+            title: 'Fraccionacrear una cuenta ',
+            type: 'item',            
+            url: '/cuenta-list'
+            
+          }
+                              
+        ]
+      },
+
+    ]
+  },
+  {    
+    id: 'Treasury-main',
+    title: 'Tesoreria',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'Treasury-catalog',
+        title: 'Catalogos',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'bankCodes',
+            title: 'Codigos Bancarios',
+            type: 'item',            
+            url: '/bankCodes-list'
+            
+          },
+
+          {
+            id: 'banks',
+            title: 'Bancos',
+            type: 'item',            
+            url: '/banks-list'
+            
+          },
+          {
+            id: 'bankAccounts',
+            title: 'Cuentas Bancarias',
+            type: 'item',            
+            url: '/bankAccounts-list'
+            
+          }
+                                
+        ]
+      },
+    ]
+  },
   /*,
   {
     id: 'ui-element',
