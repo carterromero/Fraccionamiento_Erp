@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Crear Empresa" [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name"> Nombre o Razón Social</label>
+              <input type="text" class="form-control" id="creditor_business_name" required [(ngModel)]="employee.creditor_business_name" name="creditor_business_name">
+            </div>      
+            <div class="form-group">
+              <label for="name">Dirección</label>
+              <input type="text" class="form-control" id="creditor_addres" required [(ngModel)]="employee.creditor_addres" name="creditor_addres">
+            </div>  
+            <div class="form-group">
+              <label for="name">Giro</label>
+              <input type="text" class="form-control" id="creditor_turn" required [(ngModel)]="employee.creditor_turn" name="creditor_turn">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <input type="checkbox"  id="creditor_status"  [(ngModel)]="employee.creditor_status" name="creditor_status"  style="margin-left: 10px" >
+            </div>
+         
+            
+
+            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button [routerLink]="['/creditor-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

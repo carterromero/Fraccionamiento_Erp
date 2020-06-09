@@ -50,12 +50,12 @@ export class CreditorListComponent implements OnInit {
     //  );
   //}
 
-  generalDetails(id: number){
-    this.router.navigate(['general-details', id]);
-  }
+  //generalDetails(id: number){
+ //   this.router.navigate(['general-details', id]);
+ // }
 
-  updateGeneral(id: number){
-    this.router.navigate(['update-general', id]);
-  }
+ // updateGeneral(id: number){
+  //  this.router.navigate(['update-general', id]);
+ // }
 
 }

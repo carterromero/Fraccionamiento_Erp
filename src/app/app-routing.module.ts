@@ -19,9 +19,9 @@ import { LegalsListComponent } from './legals/legals-list/legals-list.component'
 
 
 import { CreditorListComponent } from './creditor/creditor-list/creditor-list.component';
+import { CreateCreditorComponent } from './creditor/create-creditor/create-creditor.component';
 
 import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
-
 import { CreateLegalsComponent } from './legals/create-legals/create-legals.component';
 import { LegalsDetailsComponent } from './legals/legals-details/legals-details.component';
 import { UpdateLegalsComponent } from './legals/update-legals/update-legals.component';
@@ -222,6 +222,18 @@ const routes: Routes = [
           }
         ]
       },
+      {
+        path: '',
+
+        component: CreateCreditorComponent,
+        children: [  
+          {
+            path: 'create-creditor',
+            loadChildren: () => import('./creditor/create-creditor/create-creditor.module').then(module => module.CreateCreditorModule)
+          }
+        ]
+      }
+      ,
       { 
       path: '',
 
