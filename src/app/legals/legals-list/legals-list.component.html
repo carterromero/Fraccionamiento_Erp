@@ -21,7 +21,7 @@
                     <td>{{general.legals_address}}</td>
                     <td>{{general.legals_description}}</td>
                     <td>{{general.legals_rfc}}</td>
-                    <td><input  class="form-control" type="checkbox" [checked]="general.legals_status == 'true'"></td>
+                    <td><input   type="checkbox" [checked]="general.legals_status == 'true'" style="margin-left: 10px"></td>
                     
                     <td>                 
                         <button (click)="deleteGeneral(general.legasl_id)" class="btn btn-danger">Eliminar</button>
