@@ -33,6 +33,8 @@ export class LegalsListComponent implements OnInit {
         //localStorage.setItem('token', "");
         //this.router.navigate(['login']);     
       });
+
+      
   }
 
   deleteGeneral(id: number) {

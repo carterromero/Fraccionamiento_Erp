@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Crear Empresa" [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Nombre Completo</label>
+              <input type="text" class="form-control" id="legals_name" required [(ngModel)]="employee.legals_name" name="legals_name">
+            </div>      
+            <div class="form-group">
+              <label for="name">Dirección</label>
+              <input type="text" class="form-control" id="legals_address" required [(ngModel)]="employee.legals_address" name="legals_address">
+            </div>  
+            <div class="form-group">
+              <label for="name">Descripción</label>
+              <input type="text" class="form-control" id="legals_description" required [(ngModel)]="employee.legals_description" name="legals_description">
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <input type="checkbox" class="form-control" id="legals_status" required [(ngModel)]="employee.legals_status" name="legals_status">
+            </div>
+
+            <div class="form-group">
+                <label for="name">RFC</label>
+                <input type="text" class="form-control" id="legals_rfc" required [(ngModel)]="employee.legals_rfc" name="legals_rfc">
+            </div>
+            
+            <button type="submit" class="btn btn-success">Submit</button>          
+            <button [routerLink]="['/legals-list']" class="btn btn-danger" style="margin-left: 10px">Cancel</button>
+          </form>
+        </app-card>
+      </div>
+    </div>
