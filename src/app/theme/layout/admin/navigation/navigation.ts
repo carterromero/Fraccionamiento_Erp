@@ -312,9 +312,7 @@ const NavigationItems = [
             type: 'item',            
             url: '/payment_terms-list'
             
-          }
-
-                                
+          }           
         ]
       },
 
