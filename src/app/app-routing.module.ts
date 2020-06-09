@@ -16,7 +16,12 @@ import { CreateGeneralComponent } from './general/create-general/create-general.
 import { GeneralDetailsComponent } from './general/general-details/general-details.component';
 import { UpdateGeneralComponent } from './general/update-general/update-general.component';
 import { LegalsListComponent } from './legals/legals-list/legals-list.component';
+
 import { CreditorListComponent } from './creditor/creditor-list/creditor-list.component';
+
+import { CreateLegalsComponent } from './legals/create-legals/create-legals.component';
+
+
 
 const routes: Routes = [
   /* Default page */
@@ -211,18 +216,30 @@ const routes: Routes = [
           }
         ]
       },
-    ]
-  },
-  {
-    path: '',
-    component: AuthComponent,
-    children: [
+      { 
+      path: '',
+        component: CreateLegalsComponent ,
+        children: [  
+          {
+            path: 'create-legals',
+            loadChildren: () => import('./legals/create-legals/create-legals.module').then(module => module.CreateLegalsModule)
+          }
+        ]
+      },
       {
-        path: 'auth',
-        loadChildren: () => import('./authentication/authentication.module').then(module => module.AuthenticationModule)
+        path: '',
+        component: AuthComponent,
+        children: [
+          {
+            path: 'auth',
+            loadChildren: () => import('./authentication/authentication.module').then(module => module.AuthenticationModule)
+          }
+        ]
       }
-    ]
+    ] 
   }
+
+ 
 ];
 
 @NgModule({

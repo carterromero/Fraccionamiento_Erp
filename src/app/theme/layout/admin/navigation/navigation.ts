@@ -39,7 +39,9 @@ const NavigationItems = [
         url: '/dashboard/default',
         classes: 'nav-item',
         icon: 'feather icon-home'
-      },
+      }
+  /*    
+      ,
       {
         id: 'page-layouts',
         title: 'Page Layouts',
@@ -62,8 +64,12 @@ const NavigationItems = [
           }
         ]
       }
+*/
+
     ]
   },
+
+/*
   {
     id: 'main',
     title: 'Main',
@@ -131,7 +137,7 @@ const NavigationItems = [
       }
     ]
   },
-  
+  */
 
 
   {    
@@ -235,6 +241,134 @@ const NavigationItems = [
 
     ]
   },
+
+
+  {    
+    id: 'Treasury-main',
+    title: 'Tesoreria',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'Treasury-catalog',
+        title: 'Catalogos',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'bankCodes',
+            title: 'Codigos Bancarios',
+            type: 'item',            
+            url: '/bankCodes-list'
+            
+          },
+
+          {
+            id: 'banks',
+            title: 'Bancos',
+            type: 'item',            
+            url: '/banks-list'
+            
+          },
+          {
+            id: 'bankAccounts',
+            title: 'Cuentas Bancarias',
+            type: 'item',            
+            url: '/bankAccounts-list'
+            
+          }
+                                
+        ]
+      },
+    ]
+  },
+
+
+{    
+    id: 'po-main',
+    title: 'Compras',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'po-catalog',
+        title: 'Catalogos',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'supplier',
+            title: 'Provedores',
+            type: 'item',            
+            url: '/supplier-list'
+            
+          },
+
+          {
+            id: 'payment_terms',
+            title: 'Terminos de Pago',
+            type: 'item',            
+            url: '/payment_terms-list'
+            
+          }           
+        ]
+      },
+
+      {
+        id: 'po-opercion',
+        title: 'Operacion',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'purchase_orders',
+            title: 'Ordenes de Compra',
+            type: 'item',            
+            url: '/purchase_orders-list'
+            
+          }
+
+                                
+        ]
+      },
+      {
+        id: 'po-reporte',
+        title: 'Reportes Proveedores',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'Reports',
+            title: 'Reportes',
+            type: 'item',            
+            url: '/purchase_orders-list'
+            
+          }
+
+                                
+        ]
+      }, {
+        id: 'po-reporte',
+        title: 'Reportes Ordenes de compra',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'Reports',
+            title: 'Reportes',
+            type: 'item',            
+            url: '/purchase_orders-list'
+            
+          }
+
+                                
+        ]
+      }
+
+
+    ]
+  },
+
 
   /*,
   {
