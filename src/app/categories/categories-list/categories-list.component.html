@@ -1,0 +1,36 @@
+<p>categories-list works!</p>
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Categorias Lista" blockClass="table-border-style">      
+        <button [routerLink]="['/create-general']" class="btn btn-primary">+Categoria</button><br>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>              
+             
+              <th>Nombre Categoria</th>
+              <th>Estatus</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                    <td>{{general.name}}</td>
+                    <td>
+                        <input id="status" type="checkbox" ng-checked="leader" aria-label="Follower input">
+
+                    </td>
+                    <td>                 
+                        <button (click)="deleteGeneral(general.inv_categories_id)" class="btn btn-danger">Delete</button>
+                        <button (click)="updateGeneral(general.inv_categories_id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                        <button (click)="generalDetails(general.inv_categories_id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                        
+                        
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

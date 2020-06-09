@@ -131,6 +131,29 @@ const NavigationItems = [
       }
     ]
   },
+  {    
+    id: 'categories_main',
+    title: 'Inventarios',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'categories',
+        title: 'Categorias',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'categories-list',
+            title: 'Categorias List',
+            type: 'item',            
+            url: '/categories-list'
+            
+          }                    
+        ]
+      }
+    ]
+  },
   
 
 
@@ -160,10 +183,11 @@ const NavigationItems = [
             type: 'item',            
             url: '/condominus-list'
             
-          }
-                              
+          }                 
         ]
       },
+
+      
 
       {
         id: 'security-catalog',
