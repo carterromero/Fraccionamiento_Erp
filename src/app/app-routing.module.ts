@@ -24,6 +24,7 @@ import { CategoriesListComponent } from './categories/categories-list/categories
 
 import { CreateLegalsComponent } from './legals/create-legals/create-legals.component';
 import { LegalsDetailsComponent } from './legals/legals-details/legals-details.component';
+import { UpdateLegalsComponent } from './legals/update-legals/update-legals.component';
 
 
 
@@ -260,11 +261,11 @@ const routes: Routes = [
 
       {
         path: '',
-        component: LegalsDetailsComponent,
+        component: UpdateLegalsComponent,
         children: [  
           {
             path: 'update-legals/:id',
-            loadChildren: () => import('./legals/legals-details/legals_details.module').then(module => module.LegalsDetailsModule)
+            loadChildren: () => import('./legals/update-legals/update-legals.module').then(module => module.UpdateLegalsModule)
           }
         ]
       }

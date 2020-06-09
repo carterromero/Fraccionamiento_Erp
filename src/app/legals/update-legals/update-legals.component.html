@@ -1,0 +1,34 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Actualizar Empresa" [options]="false">
+          <form (ngSubmit)="onSubmit()"     novalidate>
+            <div class="form-group">
+              <label for="name">Nombre Completo</label>
+              <input type="text" class="form-control" id="legals_name" required [(ngModel)]="employee.legals_name" name="legals_name">
+            </div>      
+            <div class="form-group">
+              <label for="name">Dirección</label>
+              <input type="text" class="form-control" id="legals_address" required [(ngModel)]="employee.legals_address" name="legals_address">
+            </div>  
+            <div class="form-group">
+              <label for="name">Descripción</label>
+              <input type="text" class="form-control" id="legals_description" required [(ngModel)]="employee.legals_description" name="legals_description">
+            </div>
+            
+            <div class="form-group">
+                <label for="name">RFC</label>
+                <input type="text" class="form-control" id="legals_rfc" required [(ngModel)]="employee.legals_rfc" name="legals_rfc">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Estatus</label> 
+                <input type="checkbox"  id="legals_status"  [(ngModel)]="employee.legals_status"   name="legals_status" value="legals_status"  style="margin-left: 10px" >
+            </div>
+            
+            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button [routerLink]="['/legals-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

@@ -25,6 +25,8 @@ import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +46,7 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
     ToggleFullScreenDirective,
     ToggleFullScreenDirective,
 
+
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,9 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
     NgbDropdownModule,
     NgbTooltipModule,
     NgbButtonsModule,
-    NgbTabsetModule
+    NgbTabsetModule,
+    
+
   ],
   providers: [NavigationItem],
   bootstrap: [AppComponent]
