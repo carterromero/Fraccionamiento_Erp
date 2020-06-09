@@ -39,7 +39,9 @@ const NavigationItems = [
         url: '/dashboard/default',
         classes: 'nav-item',
         icon: 'feather icon-home'
-      },
+      }
+  /*    
+      ,
       {
         id: 'page-layouts',
         title: 'Page Layouts',
@@ -62,8 +64,12 @@ const NavigationItems = [
           }
         ]
       }
+*/
+
     ]
   },
+
+/*
   {
     id: 'main',
     title: 'Main',
@@ -131,7 +137,7 @@ const NavigationItems = [
       }
     ]
   },
-  
+  */
 
 
   {    
