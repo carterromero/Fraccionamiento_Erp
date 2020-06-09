@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="General List" blockClass="table-border-style">      
+        <button [routerLink]="['/create-creditor']" class="btn btn-primary">Add General</button><br>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>              
+              <th> Nombre o Razón Social</th>
+              <th>Direccion</th>
+              <th>Giro</th>
+              <th>Estatus</th>
+              
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                    <td>{{general.creditor_business_name}}</td>
+                    <td>{{general.creditor_addres}}</td>
+                    <td>{{general.creditor_turn}}</td>
+                    <td>
+                      <input   type="checkbox" [checked]="general.creditor_status == 'true'" style="margin-left: 10px">
+                    </td>
+                    
+                    <td>                 
+                      <button (click)="deleteGeneral(general)" class="btn btn-danger">Eliminar</button>
+                      <button (click)="updateGeneral(general)" class="btn btn-info" style="margin-left: 10px">Actualizar</button>
+                      <button (click)="generalDetails(general)" class="btn btn-info" style="margin-left: 10px">Detalles</button>    
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

@@ -11,7 +11,7 @@ export class Legals
     create_date : string;
     last_update_by : number;
     last_update_date :string;
-    userid : number;
+    userid : string;
 
 }
     

@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Legals } from 'src/app/legals';
-import { LegalsService } from 'src/app/legals.service';
+import { Creditor } from 'src/app/creditor';
+import { CreditorService } from 'src/app/creditor.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-create-legals',
-  templateUrl: './create-legals.component.html',
-  styleUrls: ['./create-legals.component.scss']
+  selector: 'app-create-creditor',
+  templateUrl: './create-creditor.component.html',
+  styleUrls: ['./create-creditor.component.scss']
 })
+export class CreateCreditorComponent implements OnInit {
 
-export class CreateLegalsComponent implements OnInit {
-
-  employee: Legals = new Legals();
+  employee: Creditor = new Creditor();
   submitted = false;
 
-  constructor(private employeeService: LegalsService,
+  constructor(private employeeService: CreditorService,
     private router: Router) { }
 
   ngOnInit() {
@@ -23,12 +22,13 @@ export class CreateLegalsComponent implements OnInit {
 
   newEmployee(): void {
     this.submitted = false;
-    this.employee = new Legals();
+    this.employee = new Creditor();
   }
 
   save() {
 
-    this.employee.userid="3";
+    this.employee.user_id="3" 
+
 
 
     this.employeeService.createEmployee(this.employee)
@@ -51,7 +51,7 @@ export class CreateLegalsComponent implements OnInit {
 
   gotoList() 
   {
-    this.router.navigate(['legals-list']);
+    this.router.navigate(['creditor-list']);
   }
 
 }

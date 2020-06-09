@@ -17,10 +17,14 @@ import { GeneralDetailsComponent } from './general/general-details/general-detai
 import { UpdateGeneralComponent } from './general/update-general/update-general.component';
 import { LegalsListComponent } from './legals/legals-list/legals-list.component';
 
-import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
 
+import { CreditorListComponent } from './creditor/creditor-list/creditor-list.component';
+import { CreateCreditorComponent } from './creditor/create-creditor/create-creditor.component';
+
+import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
 import { CreateLegalsComponent } from './legals/create-legals/create-legals.component';
 import { LegalsDetailsComponent } from './legals/legals-details/legals-details.component';
+import { UpdateLegalsComponent } from './legals/update-legals/update-legals.component';
 
 import { CategoriesDetailsComponent } from './categories/categories-details/categories-details.component';
 
@@ -211,6 +215,30 @@ const routes: Routes = [
       },
       {
         path: '',
+
+        component: CreditorListComponent,
+        children: [  
+          {
+            path: 'creditor-list',
+            loadChildren: () => import('./creditor/creditor-list/creditor-list.module').then(module => module.CreditorListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: CreateCreditorComponent,
+        children: [  
+          {
+            path: 'create-creditor',
+            loadChildren: () => import('./creditor/create-creditor/create-creditor.module').then(module => module.CreateCreditorModule)
+          }
+        ]
+      }
+      ,
+      { 
+      path: '',
+
         component: CategoriesListComponent,
         children: [  
           {
@@ -221,6 +249,7 @@ const routes: Routes = [
       },
         {
         path: '',
+
         component: CreateLegalsComponent ,
         children: [  
           {
@@ -229,6 +258,7 @@ const routes: Routes = [
 
           }
         ]
+
       },
       {
         path: '',
@@ -253,11 +283,11 @@ const routes: Routes = [
 
       {
         path: '',
-        component: LegalsDetailsComponent,
+        component: UpdateLegalsComponent,
         children: [  
           {
             path: 'update-legals/:id',
-            loadChildren: () => import('./legals/legals-details/legals_details.module').then(module => module.LegalsDetailsModule)
+            loadChildren: () => import('./legals/update-legals/update-legals.module').then(module => module.UpdateLegalsModule)
           }
         ]
       }
@@ -271,12 +301,21 @@ const routes: Routes = [
     path: '',
     component: AuthComponent,
     children: [
+
       {
-        path: 'auth',
-        loadChildren: () => import('./authentication/authentication.module').then(module => module.AuthenticationModule)
+        path: '',
+        component: AuthComponent,
+        children: [
+          {
+            path: 'auth',
+            loadChildren: () => import('./authentication/authentication.module').then(module => module.AuthenticationModule)
+          }
+        ]
       }
-    ]
+    ] 
   }
+
+ 
 ];
 
 @NgModule({
