@@ -22,6 +22,8 @@ import { CategoriesListComponent } from './categories/categories-list/categories
 import { CreateLegalsComponent } from './legals/create-legals/create-legals.component';
 import { LegalsDetailsComponent } from './legals/legals-details/legals-details.component';
 
+import { CategoriesDetailsComponent } from './categories/categories-details/categories-details.component';
+
 
 
 const routes: Routes = [
@@ -227,8 +229,17 @@ const routes: Routes = [
 
           }
         ]
-      }
-      ,
+      },
+      {
+        path: '',
+        component: CategoriesDetailsComponent,
+        children: [  
+          {
+            path: 'categories-details/:id',
+            loadChildren: () => import('./categories/categories-details/categories_details.module').then(module => module.CategoriesDetailsModule)
+          }
+        ]
+      },
       {
         path: '',
         component: LegalsDetailsComponent,
