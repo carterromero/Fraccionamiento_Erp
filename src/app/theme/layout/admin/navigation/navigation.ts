@@ -243,6 +243,8 @@ const NavigationItems = [
 
     ]
   },
+
+
   {    
     id: 'Treasury-main',
     title: 'Tesoreria',
@@ -282,6 +284,65 @@ const NavigationItems = [
       },
     ]
   },
+
+
+{    
+    id: 'po-main',
+    title: 'Compras',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'po-catalog',
+        title: 'Catalogos',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'supplier',
+            title: 'Provedores',
+            type: 'item',            
+            url: '/supplier-list'
+            
+          },
+
+          {
+            id: 'payment_terms',
+            title: 'Terminos de Pago',
+            type: 'item',            
+            url: '/payment_terms-list'
+            
+          }
+
+                                
+        ]
+      },
+
+      {
+        id: 'po-opercion',
+        title: 'Operacion',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'purchase_orders',
+            title: 'Ordenes de Compra',
+            type: 'item',            
+            url: '/purchase_orders-list'
+            
+          }
+
+                                
+        ]
+      },
+
+
+
+
+    ]
+  },
+
+
   /*,
   {
     id: 'ui-element',
