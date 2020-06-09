@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle="General List" blockClass="table-border-style">      
-        <button [routerLink]="['/create-general']" class="btn btn-primary">Add General</button><br>
+        <button [routerLink]="['/create-creditor']" class="btn btn-primary">Add General</button><br>
         <div class="table-responsive">
           <table class="table">
             <thead>
@@ -19,15 +19,14 @@
                     <td>{{general.creditor_addres}}</td>
                     <td>{{general.creditor_turn}}</td>
                     <td>
-
-                        <input id="creditor_status" type="checkbox" ng-checked="leader" aria-label="Follower input">
-
+                      <input   type="checkbox" [checked]="general.creditor_status == 'true'" style="margin-left: 10px">
                     </td>
                     
                     <td>                 
-                      
-                        
-                    </td>
+                      <button (click)="deleteGeneral(general)" class="btn btn-danger">Eliminar</button>
+                      <button (click)="updateGeneral(general)" class="btn btn-info" style="margin-left: 10px">Actualizar</button>
+                      <button (click)="generalDetails(general)" class="btn btn-info" style="margin-left: 10px">Detalles</button>    
+                  </td>
                 </tr>
             </tbody>
           </table>
