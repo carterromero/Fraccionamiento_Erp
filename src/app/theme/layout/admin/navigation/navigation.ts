@@ -202,8 +202,6 @@ const NavigationItems = [
     ]
   }
   ,
-
-
   {    
     id: 'AP-main',
     title: 'Cuentas por pagar ',
@@ -226,7 +224,7 @@ const NavigationItems = [
 
           {
             id: 'crear_cuenta',
-            title: 'Fraccionacrear una cuenta ',
+            title: 'crear una cuenta ',
             type: 'item',            
             url: '/cuenta-list'
             

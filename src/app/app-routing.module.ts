@@ -16,7 +16,7 @@ import { CreateGeneralComponent } from './general/create-general/create-general.
 import { GeneralDetailsComponent } from './general/general-details/general-details.component';
 import { UpdateGeneralComponent } from './general/update-general/update-general.component';
 import { LegalsListComponent } from './legals/legals-list/legals-list.component';
-
+import { CreditorListComponent } from './creditor/creditor-list/creditor-list.component';
 
 const routes: Routes = [
   /* Default page */
@@ -200,7 +200,17 @@ const routes: Routes = [
             loadChildren: () => import('./legals/legals-list/legals-list.module').then(module => module.LegalsListModule)
           }
         ]
-      }
+      },
+      {
+        path: '',
+        component: CreditorListComponent,
+        children: [  
+          {
+            path: 'creditor-list',
+            loadChildren: () => import('./creditor/creditor-list/creditor-list.module').then(module => module.CreditorListModule)
+          }
+        ]
+      },
     ]
   },
   {
