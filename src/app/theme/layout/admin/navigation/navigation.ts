@@ -333,7 +333,23 @@ const NavigationItems = [
                                 
         ]
       },
+      {
+        id: 'po-reporte',
+        title: 'Reportes',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'Reports',
+            title: 'Reportes',
+            type: 'item',            
+            url: '/purchase_orders-list'
+            
+          }
 
+                                
+        ]
+      },
 
 
 
