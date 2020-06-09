@@ -22,17 +22,17 @@ export class CategoriesService {
 
   getEmployee(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ONE_CATEGO/1.0/categories/{id}`,{headers});
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ONE_CATEGO/1.0/categories/${id}`,{headers});
   }
 
   updateEmployee(id: number, value: any): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_UPDATE_CATEGORI/1.0/categories/{id}`, value,{headers});
+    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_UPDATE_CATEGORI/1.0/categories/${id}`, value,{headers});
   }
 
   deleteEmployee(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.delete(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_DELETE_CATEGORI/1.0/categories/{id}`, { responseType: 'text', headers});
+    return this.http.delete(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_DELETE_CATEGORI/1.0/categories/${id}`, { responseType: 'text', headers});
   }
 
   getEmployeeList(): Observable<any> {
