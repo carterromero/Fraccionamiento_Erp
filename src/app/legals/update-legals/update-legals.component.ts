@@ -13,8 +13,7 @@ export class UpdateLegalsComponent implements OnInit {
 
   id: number;
   employee: Legals;
-  ids:string;
-
+  
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: LegalsService) { }
 
@@ -36,6 +35,8 @@ export class UpdateLegalsComponent implements OnInit {
 
 
   }
+
+   
 
   updateEmployee() {
 
