@@ -37,8 +37,8 @@ export class CreateLegalsComponent implements OnInit {
 
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
-        {console.log(data);
-          //this.employee = new Legals();
+        {
+          console.log(data);
           this.gotoList();    
         }, 
       error => {
@@ -47,12 +47,14 @@ export class CreateLegalsComponent implements OnInit {
 
   }
 
-  onSubmit() {
+  onSubmit() 
+  {
     this.submitted = true;
     this.save();    
   }
 
-  gotoList() {
+  gotoList() 
+  {
     this.router.navigate(['legals-list']);
   }
 
