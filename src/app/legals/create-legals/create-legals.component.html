@@ -16,18 +16,20 @@
               <input type="text" class="form-control" id="legals_description" required [(ngModel)]="employee.legals_description" name="legals_description">
             </div>
             
-            <div class="form-group">
-                <label for="name">Estatus</label>
-                <input type="checkbox" class="form-control" id="legals_status" required [(ngModel)]="employee.legals_status" name="legals_status">
-            </div>
+            
 
             <div class="form-group">
                 <label for="name">RFC</label>
                 <input type="text" class="form-control" id="legals_rfc" required [(ngModel)]="employee.legals_rfc" name="legals_rfc">
             </div>
+
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <input type="checkbox"  id="legals_status" required [(ngModel)]="employee.legals_status" name="legals_status"  style="margin-left: 10px" >
+            </div>
             
-            <button type="submit" class="btn btn-success">Submit</button>          
-            <button [routerLink]="['/legals-list']" class="btn btn-danger" style="margin-left: 10px">Cancel</button>
+            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button [routerLink]="['/legals-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
           </form>
         </app-card>
       </div>

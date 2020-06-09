@@ -17,6 +17,7 @@ import { GeneralDetailsComponent } from './general/general-details/general-detai
 import { UpdateGeneralComponent } from './general/update-general/update-general.component';
 import { LegalsListComponent } from './legals/legals-list/legals-list.component';
 import { CreateLegalsComponent } from './legals/create-legals/create-legals.component';
+import { LegalsDetailsComponent } from './legals/legals-details/legals-details.component';
 
 
 const routes: Routes = [
@@ -212,8 +213,34 @@ const routes: Routes = [
           }
         ]
       }
+      ,
+      {
+        path: '',
+        component: LegalsDetailsComponent,
+        children: [  
+          {
+            path: 'legals-details/:id',
+            loadChildren: () => import('./legals/legals-details/legals_details.module').then(module => module.LegalsDetailsModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+        component: LegalsDetailsComponent,
+        children: [  
+          {
+            path: 'update-legals/:id',
+            loadChildren: () => import('./legals/legals-details/legals_details.module').then(module => module.LegalsDetailsModule)
+          }
+        ]
+      }
+
+
     ]
   },
+
+
   {
     path: '',
     component: AuthComponent,
