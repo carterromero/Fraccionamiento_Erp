@@ -1,0 +1,26 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Empresa Detalle" [options]="false">
+        <div *ngIf="employee">
+          <div>
+            <label><b>Nombre(s): </b></label> {{employee.legals_name}}
+          </div>
+          <div>
+            <label><b>Direcciones: </b></label> {{employee.legals_address}}
+          </div>
+          <div>
+            <label><b>Descripcion: </b></label> {{employee.legals_description}}
+          </div>
+          <div>
+            <label><b>RFC: </b></label> {{employee.legals_rfc}}
+          </div>
+          <div>
+            <label><b>Estatus:  </b></label>
+          <input style="margin-left: 10px"  type="checkbox" [checked]="employee.legals_status == 'true'">
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/legals-list']" class="btn btn-primary">Regresar a Empresas</button><br>
+      </app-card>
+      </div>
+  </div>

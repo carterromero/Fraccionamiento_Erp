@@ -10,7 +10,7 @@ export class LegalsService {
 
   private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/';
   private username='victor.garcia@dti-consultores.com';
-  private password='KaledKeyter236kf'
+  private password='KaledKeyter236kf';
   
 
   constructor(private http: HttpClient) { }

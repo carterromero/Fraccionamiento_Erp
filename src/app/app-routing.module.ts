@@ -23,6 +23,7 @@ import { CreditorListComponent } from './creditor/creditor-list/creditor-list.co
 import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
 
 import { CreateLegalsComponent } from './legals/create-legals/create-legals.component';
+import { LegalsDetailsComponent } from './legals/legals-details/legals-details.component';
 
 
 
@@ -242,7 +243,42 @@ const routes: Routes = [
 
           }
         ]
+
       },
+      
+      ,
+      {
+        path: '',
+        component: LegalsDetailsComponent,
+        children: [  
+          {
+            path: 'legals-details/:id',
+            loadChildren: () => import('./legals/legals-details/legals_details.module').then(module => module.LegalsDetailsModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+        component: LegalsDetailsComponent,
+        children: [  
+          {
+            path: 'update-legals/:id',
+            loadChildren: () => import('./legals/legals-details/legals_details.module').then(module => module.LegalsDetailsModule)
+          }
+        ]
+      }
+
+
+    ]
+  },
+
+
+  {
+    path: '',
+    component: AuthComponent,
+    children: [
+
       {
         path: '',
         component: AuthComponent,
