@@ -12,6 +12,8 @@ export class Legals
     last_update_by : number;
     last_update_date :string;
     userid : string;
+    legals_employer_registration :string;
+    legals_tax_regime :string;
 
 }
     
