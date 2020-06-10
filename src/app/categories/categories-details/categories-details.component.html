@@ -1,0 +1,21 @@
+<p>categories-details works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Categorias Detalle" [options]="false">
+        <div *ngIf="employee">
+          <div>
+            <label><b>Nombre Categoria: </b></label> {{employee.categories_name}}
+          </div>
+          <div>
+            <label><b>Estatus:  </b></label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="categories_status"       name="categories_status"   style="margin-left: 10px" [checked]="employee.categories_status == 'true'">
+                <label class="custom-control-label" for="categories_status">Active</label>
+             </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/categories-list']" class="btn btn-primary">Regresar a Categorias</button><br>
+      </app-card>
+      </div>
+  </div>

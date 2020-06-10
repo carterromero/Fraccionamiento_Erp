@@ -28,12 +28,8 @@ export class CreateLegalsComponent implements OnInit {
 
   save() {
 
-    if(this.employee.legals_status=="False" || this.employee.legals_status==null){
-      this.employee.legals_status="0";
-    }
-    else{
-      this.employee.legals_status="1";
-    }
+    this.employee.userid="3";
+
 
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 

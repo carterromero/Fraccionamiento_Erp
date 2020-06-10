@@ -1,11 +1,11 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <div class="col-md-6">
-        <app-card cardTitle="Crear Empresa" [options]="false">
+        <app-card cardTitle="Actualizar Empresa" [options]="false">
           <form (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="name">Nombre Completo</label>
-              <input type="text" class="form-control" id="legals_name"  [(ngModel)]="employee.legals_name" name="legals_name" required> 
+              <input type="text" class="form-control" id="legals_name"  [(ngModel)]="employee.legals_name" name="legals_name" required>
             </div>      
             <div class="form-group">
               <label for="name">Dirección</label>
@@ -15,6 +15,7 @@
               <label for="name">Descripción</label>
               <input type="text" class="form-control" id="legals_description"  [(ngModel)]="employee.legals_description" name="legals_description" required>
             </div>
+            
             <div class="form-group">
                 <label for="name">RFC</label>
                 <input type="text" class="form-control" id="legals_rfc"  [(ngModel)]="employee.legals_rfc" name="legals_rfc" required>
@@ -31,12 +32,14 @@
         </div>
 
             <div class="form-group">
-                <label for="name">Estatus</label>
+                <label for="name">Estatus</label> 
+
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input"  id="legals_status"  [(ngModel)]="employee.legals_status"     name="legals_status"   style="margin-left: 10px">
                     <label class="custom-control-label" for="legals_status">Active</label>
                  </div>
             </div>
+            
             <button type="submit" class="btn btn-success">Guardar</button>          
             <button [routerLink]="['/legals-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
           </form>

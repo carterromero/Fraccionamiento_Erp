@@ -372,7 +372,6 @@ const NavigationItems = [
 
     ]
   },
-
   {    
     id: 'categories_main',
     title: 'Inventarios',
@@ -381,24 +380,102 @@ const NavigationItems = [
     children: [
       {
         id: 'categories',
-        title: 'Categorias',
+        title: 'Catalogos',
         type: 'collapse',
         icon: 'feather icon-monitor',
         children: [
           {
-            id: 'categories-list',
-            title: 'Categorias List',
+            id: 'categories',
+            title: 'Categorias',
             type: 'item',            
             url: '/categories-list'
             
-          }                    
+          },                    
+          {
+            id: 'sub_categories',
+            title: 'Sub Categorias',
+            type: 'item',            
+            url: '/sub_categories-list'
+            
+          },
+          {
+            id: 'unit_of_measures',
+            title: 'Unidad Medidas',
+            type: 'item',            
+            url: '/unit_of_measures-list'
+            
+          },
+          {
+            id: 'sub_inventarys',
+            title: 'Sub Inventarios',
+            type: 'item',            
+            url: '/sub_inventarys-list'
+            
+          },
+          {
+            id: 'master_inventarys',
+            title: 'Maestro Inventarios',
+            type: 'item',            
+            url: '/master_inventarys-list'
+            
+          }, 
         ]
-      }
+      },
+      {
+        id: 'po-opercion',
+        title: 'Operación',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'articles',
+            title: 'Articulos',
+            type: 'item',            
+            url: '/articles-list'
+            
+          },
+          {
+            id: 'transactions_entrys',
+            title: 'Entradas Transacciones',
+            type: 'item',            
+            url: '/transactions_entrys-list'
+            
+          }
+
+                                
+        ]
+      }, 
+      {
+        id: 'report',
+        title: 'Reporte Inventarios',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'report',
+            title: 'Reporte Articulo General',
+            type: 'item',            
+            url: '/report-list'
+            
+          },
+          {
+            id: 'report',
+            title: 'Reporte Historial Articulo',
+            type: 'item',            
+            url: '/report-list'
+            
+          }
+
+                                
+        ]
+      },
     ]
+    
+
   },
 
 
-  /*,
+  
   {
     id: 'ui-element',
     title: 'UI ELEMENT',
@@ -598,7 +675,7 @@ const NavigationItems = [
         icon: 'feather icon-sidebar'
       }
     ]
-  }*/
+  }
 ];
 
 @Injectable()
