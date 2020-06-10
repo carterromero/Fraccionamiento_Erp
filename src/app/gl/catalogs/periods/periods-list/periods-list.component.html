@@ -1,0 +1,55 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <app-card cardTitle="Periods List" blockClass="table-border-style">      
+        <button [routerLink]="['/create-periods']" class="btn btn-primary">Add Periods</button><br>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Periods Number</th>
+              <th>Periods Name</th>
+              <th>Periods Year</th>
+              <th>Periods Start Date</th>
+              <th>Periods End Date</th>
+              <th>Periods Current Status</th>
+              <th>Created By</th>
+              <th>Created Date</th>
+              <th>Last Updated By</th>
+              <th>Last Updated Date</th>
+              <th>Periods Status</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let periods of periods | async">                  
+                    <td>{{periods.periodId}}</td>
+                    <td>{{periods.periodsNumber}}</td>
+                    <td>{{periods.periodsName}}</td>
+                    <td>{{periods.periodsYear}}</td>
+                    <td>{{periods.periodsStartDate}}</td>
+                    <td>{{periods.periodsEndDate}}</td>
+                    <td>{{periods.periodsCurrentStatus}}</td>
+                    <td>{{periods.createdBy}}</td>
+                    <td>{{periods.createdDate}}</td>
+                    <td>{{periods.lastUpdatedBy}}</td>
+                    <td>
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" [checked]="periods.periodsStatus == 'true'">
+                        <label class="custom-control-label" for="periodsStatus">Active</label>
+                    </div>
+                    </td>
+                    <td>                 
+                        <button (click)="deletePeriods(periods.periodsId)" class="btn btn-danger">Delete</button>
+                        <button (click)="updatePeriods(periods.periodsId)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                        <button (click)="periodsDetails(periods.periodsId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>
+</div>

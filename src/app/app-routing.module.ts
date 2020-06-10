@@ -27,6 +27,11 @@ import { LegalsDetailsComponent } from './legals/legals-details/legals-details.c
 import { UpdateLegalsComponent } from './legals/update-legals/update-legals.component';
 
 import { CategoriesDetailsComponent } from './categories/categories-details/categories-details.component';
+//gl/Catalogs/periods
+import { PeriodsListComponent } from './gl/catalogs/periods/periods-list/periods-list.component';
+import { CreatePeriodsComponent } from './gl/catalogs/periods/create-periods/create-periods.component';
+import { PeriodsDetailsComponent } from './gl/catalogs/periods/periods-details/periods-details.component';
+import { UpdatePeriodsComponent } from './gl/catalogs/periods/update-periods/update-periods.component';
 
 
 
@@ -200,6 +205,46 @@ const routes: Routes = [
           {
             path: 'update-general/:id',
             loadChildren: () => import('./general/update-general/update-general.module').then(module => module.UpdateGeneralModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: PeriodsListComponent,              
+        children: [    
+          {
+            path: 'periods-list',
+            loadChildren: () => import('./gl/catalogs/periods/periods-list/periods-list.module').then(module => module.PeriodsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreatePeriodsComponent,
+        children: [    
+          {
+            path: 'create-periods',
+            loadChildren: () => import('./gl/catalogs/periods/create-periods/create-periods.module').then(module => module.CreatePeriodsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: PeriodsDetailsComponent,
+        children: [          
+          {
+            path: 'periods-details/:id',
+            loadChildren: () => import('./gl/catalogs/periods/periods-details/periods-details.module').then(module => module.PeriodsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdatePeriodsComponent,
+        children: [  
+          {
+            path: 'update-periods/:id',
+            loadChildren: () => import('./gl/catalogs/periods/update-periods/update-periods.module').then(module => module.UpdatePeriodsModule)
           }
         ]
       },

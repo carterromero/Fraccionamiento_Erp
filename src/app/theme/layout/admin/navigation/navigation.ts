@@ -116,6 +116,9 @@ const NavigationItems = [
       }
     ]
   },
+  */
+  
+
   {    
     id: 'general_main',
     title: 'General',
@@ -139,10 +142,59 @@ const NavigationItems = [
       }
     ]
   },
-  */
-  
-
-
+  {
+    id: 'gl_main',
+    title: 'General Ledger',
+    type: 'group',
+    icon: 'feather icon-book',
+    children: [
+      {
+        id: 'gl_catalogs',
+        title: 'Catalogs',
+        type: 'collapse',
+        icon: 'feather icon-list',
+        children: [
+          {
+            id: 'periods-list',
+            title: 'Periods List',
+            type: 'item',            
+            url: '/periods-list'
+            
+          }                    
+        ]
+      },
+      {
+        id: 'gl_operatios',
+        title: 'Operations',
+        type: 'collapse',
+        icon: 'feather icon-package',
+        children: [
+          {
+            id: 'periods-list',
+            title: 'Periods List',
+            type: 'item',            
+            url: '/periods-list'
+            
+          }                    
+        ]
+      },
+      {
+        id: 'gl_reports',
+        title: 'Reports',
+        type: 'collapse',
+        icon: 'feather icon-bar-chart',
+        children: [
+          {
+            id: 'periods-list',
+            title: 'Periods List',
+            type: 'item',            
+            url: '/periods-list'
+            
+          }                    
+        ]
+      }
+    ] 
+  },
   {    
     id: 'admin-main',
     title: 'Administración',

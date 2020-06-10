@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <app-card cardTitle="Periods Details" [options]="false">
+        <div *ngIf="periods">
+          <div>    
+            <label><b>Periods Id: </b></label> {{periods.periodsId}}
+          </div>    
+          <div>    
+            <label><b>Periods Number: </b></label> {{periods.periodsNumber}}
+          </div>    
+          <div>    
+            <label><b>Periods Name: </b></label> {{periods.periodsName}}
+          </div>    
+          <div>    
+            <label><b>Periods Year: </b></label> {{periods.periodsYear}}
+          </div>    
+          <div>    
+            <label><b>Periods Start Date: </b></label> {{periods.periodsStartDate}}
+          </div>    
+          <div>    
+            <label><b>Periods End Date: </b></label> {{periods.periodsEndDate}}
+          </div>    
+          <div>    
+            <label><b>Periods Current Status: </b></label> {{periods.periodsCurrentStatus}}
+          </div>    
+          <div>    
+            <label><b>Created By: </b></label> {{periods.createdBy}}
+          </div>    
+          <div>    
+            <label><b>Created Date: </b></label> {{periods.createdDate}}
+          </div>    
+          <div>    
+            <label><b>Last Updated By: </b></label> {{periods.lastUpdatedBy}}
+          </div>    
+          <div>    
+            <label><b>Last Updated Date: </b></label> {{periods.lastUpdatedDate}}
+          </div>    
+          <div>    
+            <label><b>Periods Status: </b></label> {{periods.periodsStatus}}
+          </div>          
+        </div>
+        <br>
+        <button [routerLink]="['/periods-list']" class="btn btn-primary">Back to Periods List</button><br>
+      </app-card>
+      </div>
+    </div>
+  </div>

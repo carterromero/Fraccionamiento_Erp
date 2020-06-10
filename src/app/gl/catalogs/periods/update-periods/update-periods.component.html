@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <app-card cardTitle="Update Periods" [options]="false">
+          <form (ngSubmit)="onSubmit()">    
+            <div class="form-group">
+                <label for="name">Periods Number</label>
+                <input type="number" class="form-control" id="periodsNumber" required [(ngModel)]="periods.periodsNumber" name="periodsNumber">
+            </div>    
+                
+            <div class="form-group">
+                <label for="name">Periods Name</label>
+                <input type="text" class="form-control" id="periodsName" required [(ngModel)]="periods.periodsName" name="periodsName">
+            </div>    
+                
+            <div class="form-group">
+                <label for="name">Periods Year</label>
+                <input type="number" class="form-control" id="periodsYear" required [(ngModel)]="periods.periodsYear" name="periodsYear">
+            </div>    
+                
+            <div class="form-group">
+                <label for="name">Periods Start Date</label>
+                <input type="datetime-local" class="form-control" id="periodsStartDate" required [(ngModel)]="periods.periodsStartDate" name="periodsStartDate">
+            </div>    
+                
+            <div class="form-group">
+                <label for="name">Periods End Date</label>
+                <input type="datetime-local" class="form-control" id="periodsEndDate" required [(ngModel)]="periods.periodsEndDate" name="periodsEndDate">
+            </div>    
+                
+            <div class="form-group">
+                <label for="name">Periods Current Status</label>
+                <input type="text" class="form-control" id="periodsCurrentStatus" required [(ngModel)]="periods.periodsCurrentStatus" name="periodsCurrentStatus">
+            </div>    
+                
+            <div class="form-group">
+                <label for="name">Created By</label>
+                <input type="number" class="form-control" id="createdBy" required [(ngModel)]="periods.createdBy" name="createdBy">
+            </div>    
+                
+            <div class="form-group">
+                <label for="name">Created Date</label>
+                <input type="datetime-local" class="form-control" id="createdDate" required [(ngModel)]="periods.createdDate" name="createdDate">
+            </div>    
+                
+            <div class="form-group">
+                <label for="name">Last Updated By</label>
+                <input type="number" class="form-control" id="lastUpdatedBy" required [(ngModel)]="periods.lastUpdatedBy" name="lastUpdatedBy">
+            </div>    
+                
+            <div class="form-group">
+                <label for="name">Last Updated Date</label>
+                <input type="datetime-local" class="form-control" id="lastUpdatedDate" required [(ngModel)]="periods.lastUpdatedDate" name="lastUpdatedDate">
+            </div>    
+                
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="periodsStatus" required [(ngModel)]="periods.periodsStatus" name="periodsStatus">
+                <label class="custom-control-label" for="periodsStatus">Active</label>
+            </div>
+            
+            <button [routerLink]="['/periods-list']" class="btn btn-secondary app-modal-footer" style="margin-left: 10px">Cancel</button>
+            <button type="button" class="btn btn-primary " data-toggle="modal" (click)="updatePeriodsDialog.show()">Submit</button>
+            <app-ui-modal #updatePeriodsDialog dialogClass="modal-dialog-centered">
+                <div class="app-modal-header">
+                <h5 class="modal-title">Update Period: {{periods.periodsName}}</h5>
+                <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="updatePeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="app-modal-body">
+                <p>you want to save your changes?</p>
+                </div>
+                <div class="app-modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="updatePeriodsDialog.hide()">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </app-ui-modal>            
+          </form>
+        </app-card>
+      </div>
+    </div>
+</div>
+  
