@@ -8,7 +8,10 @@
           </div>
           <div>
             <label><b>Estatus:  </b></label>
-          <input style="margin-left: 10px"  type="checkbox" [checked]="employee.categories_status == 'true'">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="categories_status"       name="categories_status"   style="margin-left: 10px" [checked]="employee.categories_status == 'true'">
+                <label class="custom-control-label" for="categories_status">Active</label>
+             </div>
         </div>
         </div>
         <br>

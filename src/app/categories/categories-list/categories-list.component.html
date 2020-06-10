@@ -1,36 +1,38 @@
-<p>categories-list works!</p>
 <div class="row">
-    <div class="col-xl-12">
-      <app-card cardTitle="Categorias Lista" blockClass="table-border-style">      
-        <button [routerLink]="['/create-general']" class="btn btn-primary">+Categoria</button><br>
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-            <tr>              
-             
-              <th>Nombre Categoria</th>
-              <th>Estatus</th>
-              <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let general of general | async">
-                    <td>{{general.categories_name}}</td>
-                    <td>
-                        <input id="status" type="checkbox" ng-checked="leader" aria-label="Follower input">
+  <div class="col-xl-12">
+    <app-card cardTitle="Empresas" blockClass="table-border-style">      
+      <button [routerLink]="['/create-legals']" class="btn btn-primary">Agregar Empresa</button><br>
+      <br>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+          <tr>              
+            <th>Nombre Categoria</th>
+            <th>Estatus </th>
+            <th>Acciones</th>
+          </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let general of general | async">
+                  <td>{{general.categories_name}}</td>
+                  <td>
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" [checked]="general.categories_status == 'true'">
+                        <label class="custom-control-label" for="periodsStatus">Active</label>
+                     </div>
+                    </td>
 
-                    </td>
                     <td>                 
-                        <button (click)="deleteGeneral(general.inv_categories_id)" class="btn btn-danger">Delete</button>
-                        <button (click)="updateGeneral(general.inv_categories_id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-                        <button (click)="generalDetails(general.inv_categories_id)" class="btn btn-info" style="margin-left: 10px">Details</button>
-                        
-                        
-                    </td>
-                </tr>
-            </tbody>
-          </table>
-        </div>
-      </app-card>
-    </div>
+                      <button (click)="deleteGeneral(general.inv_categories_id)" class="btn btn-outline-danger">Eliminar</button>
+                      <button (click)="updateGeneral(general.inv_categories_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                      <button (click)="generalDetails(general.inv_categories_id)" class="btn btn-outline-primary" style="margin-left: 10px">Detalles</button>
+                      
+                      
+                  </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
   </div>
+</div>
