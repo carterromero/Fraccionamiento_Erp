@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Legals } from 'src/app/legals';
+import { Legals } from 'src/app/services/admin/legals';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LegalsService } from 'src/app/legals.service';
+import { LegalsService } from 'src/app/services/admin/legals.service';
 
 @Component({
   selector: 'app-legals-details',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LegalsService } from 'src/app/legals.service';
+import { LegalsService } from 'src/app/services/admin/legals.service';
 import { Router } from '@angular/router';
-import { Legals } from 'src/app/legals';
+import { Legals } from 'src/app/services/admin/legals';
 import { Observable } from 'rxjs';
 
 @Component({

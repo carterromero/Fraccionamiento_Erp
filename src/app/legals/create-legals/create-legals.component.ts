@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Legals } from 'src/app/legals';
-import { LegalsService } from 'src/app/legals.service';
+import { Legals } from 'src/app/services/admin/legals';
+import { LegalsService } from 'src/app/services/admin/legals.service';
 import { Router } from '@angular/router';
 
 @Component({
