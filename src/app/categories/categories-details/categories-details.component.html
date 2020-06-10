@@ -4,11 +4,11 @@
       <app-card cardTitle="Categorias Detalle" [options]="false">
         <div *ngIf="employee">
           <div>
-            <label><b>Nombre Categoria: </b></label> {{employee.name}}
+            <label><b>Nombre Categoria: </b></label> {{employee.categories_name}}
           </div>
           <div>
             <label><b>Estatus:  </b></label>
-          <input style="margin-left: 10px"  type="checkbox" [checked]="employee.status == 'true'">
+          <input style="margin-left: 10px"  type="checkbox" [checked]="employee.categories_status == 'true'">
         </div>
         </div>
         <br>

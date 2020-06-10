@@ -2,8 +2,8 @@ export class Categories
 {
     
     inv_categories_id :number;
-    name : string;
-    status : string;
+    categories_name : string;
+    categories_status : string;
     create_by : number;
     create_date : string;
     last_update_by : number;
