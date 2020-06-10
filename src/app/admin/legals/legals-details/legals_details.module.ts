@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LegalsDetailsRoutingModule } from './legals_details-routing.module';
 import { LegalsDetailsComponent } from './legals-details.component';
-import {SharedModule} from '../../theme/shared/shared.module';
+import {SharedModule} from '../../../theme/shared/shared.module';
 
 @NgModule({
   declarations: [LegalsDetailsComponent],

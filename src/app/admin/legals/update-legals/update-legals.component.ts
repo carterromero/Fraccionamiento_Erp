@@ -30,24 +30,15 @@ export class UpdateLegalsComponent implements OnInit {
         console.log(this.employee.legals_status);
       }, error => {
         console.log(error);
-        
       });
-      
-
-
   }
 
    
 
   updateEmployee() {
 
-    
-
     this.employee.userid="3";
     console.log(this.employee.legals_status);
-    
-
-    
     
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {console.log(data);

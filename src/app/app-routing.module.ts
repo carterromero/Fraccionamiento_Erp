@@ -15,16 +15,16 @@ import { GeneralListComponent } from './general/general-list/general-list.compon
 import { CreateGeneralComponent } from './general/create-general/create-general.component';
 import { GeneralDetailsComponent } from './general/general-details/general-details.component';
 import { UpdateGeneralComponent } from './general/update-general/update-general.component';
-import { LegalsListComponent } from './legals/legals-list/legals-list.component';
+import { LegalsListComponent } from './admin/legals/legals-list/legals-list.component';
 
 
 import { CreditorListComponent } from './creditor/creditor-list/creditor-list.component';
 import { CreateCreditorComponent } from './creditor/create-creditor/create-creditor.component';
 
 import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
-import { CreateLegalsComponent } from './legals/create-legals/create-legals.component';
-import { LegalsDetailsComponent } from './legals/legals-details/legals-details.component';
-import { UpdateLegalsComponent } from './legals/update-legals/update-legals.component';
+import { CreateLegalsComponent } from './admin/legals/create-legals/create-legals.component';
+import { LegalsDetailsComponent } from './admin/legals/legals-details/legals-details.component';
+import { UpdateLegalsComponent } from './admin/legals/update-legals/update-legals.component';
 
 import { CategoriesDetailsComponent } from './categories/categories-details/categories-details.component';
 //gl/Catalogs/periods
@@ -254,7 +254,7 @@ const routes: Routes = [
         children: [  
           {
             path: 'legals-list',
-            loadChildren: () => import('./legals/legals-list/legals-list.module').then(module => module.LegalsListModule)
+            loadChildren: () => import('./admin/legals/legals-list/legals-list.module').then(module => module.LegalsListModule)
           }
         ]
       },
@@ -299,7 +299,7 @@ const routes: Routes = [
         children: [  
           {
             path: 'create-legals',
-            loadChildren: () => import('./legals/create-legals/create-legals.module').then(module => module.CreateLegalsModule)
+            loadChildren: () => import('./admin/legals/create-legals/create-legals.module').then(module => module.CreateLegalsModule)
 
           }
         ]
@@ -321,7 +321,7 @@ const routes: Routes = [
         children: [  
           {
             path: 'legals-details/:id',
-            loadChildren: () => import('./legals/legals-details/legals_details.module').then(module => module.LegalsDetailsModule)
+            loadChildren: () => import('./admin/legals/legals-details/legals_details.module').then(module => module.LegalsDetailsModule)
           }
         ]
       },
@@ -332,7 +332,7 @@ const routes: Routes = [
         children: [  
           {
             path: 'update-legals/:id',
-            loadChildren: () => import('./legals/update-legals/update-legals.module').then(module => module.UpdateLegalsModule)
+            loadChildren: () => import('./admin/legals/update-legals/update-legals.module').then(module => module.UpdateLegalsModule)
           }
         ]
       }
