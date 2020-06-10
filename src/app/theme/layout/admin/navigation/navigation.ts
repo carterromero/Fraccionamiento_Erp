@@ -398,7 +398,7 @@ const NavigationItems = [
   },
 
 
-  /*,
+  
   {
     id: 'ui-element',
     title: 'UI ELEMENT',
@@ -598,7 +598,7 @@ const NavigationItems = [
         icon: 'feather icon-sidebar'
       }
     ]
-  }*/
+  }
 ];
 
 @Injectable()

@@ -2,28 +2,42 @@
     <div class="col-sm-12">
       <div class="col-md-6">
         <app-card cardTitle="Actualizar Empresa" [options]="false">
-          <form (ngSubmit)="onSubmit()"     novalidate>
+          <form (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="name">Nombre Completo</label>
-              <input type="text" class="form-control" id="legals_name" required [(ngModel)]="employee.legals_name" name="legals_name">
+              <input type="text" class="form-control" id="legals_name"  [(ngModel)]="employee.legals_name" name="legals_name" required>
             </div>      
             <div class="form-group">
               <label for="name">Dirección</label>
-              <input type="text" class="form-control" id="legals_address" required [(ngModel)]="employee.legals_address" name="legals_address">
+              <input type="text" class="form-control" id="legals_address"  [(ngModel)]="employee.legals_address" name="legals_address" required>
             </div>  
             <div class="form-group">
               <label for="name">Descripción</label>
-              <input type="text" class="form-control" id="legals_description" required [(ngModel)]="employee.legals_description" name="legals_description">
+              <input type="text" class="form-control" id="legals_description"  [(ngModel)]="employee.legals_description" name="legals_description" required>
             </div>
             
             <div class="form-group">
                 <label for="name">RFC</label>
-                <input type="text" class="form-control" id="legals_rfc" required [(ngModel)]="employee.legals_rfc" name="legals_rfc">
+                <input type="text" class="form-control" id="legals_rfc"  [(ngModel)]="employee.legals_rfc" name="legals_rfc" required>
             </div>
 
             <div class="form-group">
+              <label for="name">Registro Patronal</label>
+              <input type="text" class="form-control" id="legals_employer_registration"  [(ngModel)]="employee.legals_employer_registration" name="legals_employer_registration" required>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Regimen Fiscal</label>
+            <input type="text" class="form-control" id="legals_tax_regime"  [(ngModel)]="employee.legals_tax_regime" name="legals_tax_regime" required>
+        </div>
+
+            <div class="form-group">
                 <label for="name">Estatus</label> 
-                <input type="checkbox" id="employee.legals_status"  [(ngModel)]="employee.legals_status"   name="employee.legals_status"   style="margin-left: 10px" >
+
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="legals_status"  [(ngModel)]="employee.legals_status"     name="legals_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="legals_status">Active</label>
+                 </div>
             </div>
             
             <button type="submit" class="btn btn-success">Guardar</button>          

@@ -24,8 +24,9 @@ export class UpdateLegalsComponent implements OnInit {
     console.log(this.employee.legals_status);
     this.employeeService.getEmployee(this.id)
       .subscribe(data => {
-        console.log(data)
+        console.log(data);
         this.employee = data;
+        this.employee.legals_status = (String(this.employee.legals_status) == "false") ? null:"false";
         console.log(this.employee.legals_status);
       }, error => {
         console.log(error);
