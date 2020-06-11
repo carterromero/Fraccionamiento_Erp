@@ -1,0 +1,22 @@
+
+  <p>categories-details works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle=" Detalle" [options]="false">
+        <div *ngIf="employee">
+          <div>
+            <label><b>Nombre Completo: </b></label> {{employee.creditor_business_name}}
+          </div>
+          <div>
+            <label><b>Estatus:  </b></label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="creditor_status"       name="creditor_status"   style="margin-left: 10px" [checked]="employee.creditor_status == 'true'">
+                <label class="custom-control-label" for="creditor_status">Active</label>
+             </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/creditor-list']" class="btn btn-primary">Regresar a Categorias</button><br>
+      </app-card>
+      </div>
+  </div>
