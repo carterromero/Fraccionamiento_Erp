@@ -34,8 +34,12 @@ import { PeriodsDetailsComponent } from './gl/catalogs/periods/periods-details/p
 import { UpdatePeriodsComponent } from './gl/catalogs/periods/update-periods/update-periods.component';
 import { CondominumsListComponent } from './admin/condominus/condominums-list/condominums-list.component';
 import { CreateCondominumsComponent } from './admin/condominus/create-condominums/create-condominums.component';
+
+import { UpdateCreditorComponent } from './creditor/update-creditor/update-creditor.component';
+
 import { CondominumsDetailsComponent } from './admin/condominus/condominums-details/condominums-details.component';
 import { UpdateCondominumsComponent } from './admin/condominus/update-condominums/update-condominums.component';
+
 
 
 
@@ -283,7 +287,19 @@ const routes: Routes = [
             loadChildren: () => import('./creditor/create-creditor/create-creditor.module').then(module => module.CreateCreditorModule)
           }
         ]
+      },
+      {
+        path: '',
+
+        component: UpdateCreditorComponent,
+        children: [  
+          {
+            path: 'update-creditor',
+            loadChildren: () => import('./creditor/update-creditor/update-creditor.module').then(module => module.UpdateCreditorModule)
+          }
+        ]
       }
+     
       ,
       { 
       path: '',

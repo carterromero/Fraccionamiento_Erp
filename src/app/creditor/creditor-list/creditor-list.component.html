@@ -18,15 +18,19 @@
                     <td>{{general.creditor_business_name}}</td>
                     <td>{{general.creditor_addres}}</td>
                     <td>{{general.creditor_turn}}</td>
+        
                     <td>
-                      <input   type="checkbox" [checked]="general.creditor_status == 'true'" style="margin-left: 10px">
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" [checked]="general.creditor_status == 'true'">
+                        <label class="custom-control-label" for="creditor_status">Active</label>
+                     </div>
                     </td>
                     
                     <td>                 
-                      <!--
-                      <button (click)="deleteGeneral(general)" class="btn btn-danger">Eliminar</button>
-                      <button (click)="updateGeneral(general)" class="btn btn-info" style="margin-left: 10px">Actualizar</button>
-                      <button (click)="generalDetails(general)" class="btn btn-info" style="margin-left: 10px">Detalles</button>    -->
+
+                      <button (click)="deleteGeneral(general.creditor_id)" class="btn btn-danger">Eliminar</button>
+                      <button (click)="updateGeneral(general.creditor_id)" class="btn btn-info" style="margin-left: 10px">Actualizar</button>
+                     <button (click)="generalDetails(general.creditor_id)" class="btn btn-info" style="margin-left: 10px">Detalles</button>    
                   </td>
                 </tr>
             </tbody>
