@@ -32,6 +32,8 @@ import { PeriodsListComponent } from './gl/catalogs/periods/periods-list/periods
 import { CreatePeriodsComponent } from './gl/catalogs/periods/create-periods/create-periods.component';
 import { PeriodsDetailsComponent } from './gl/catalogs/periods/periods-details/periods-details.component';
 import { UpdatePeriodsComponent } from './gl/catalogs/periods/update-periods/update-periods.component';
+import { CondominumsListComponent } from './admin/condominus/condominums-list/condominums-list.component';
+import { CreateCondominumsComponent } from './admin/condominus/create-condominums/create-condominums.component';
 
 
 
@@ -335,8 +337,29 @@ const routes: Routes = [
             loadChildren: () => import('./admin/legals/update-legals/update-legals.module').then(module => module.UpdateLegalsModule)
           }
         ]
+      },
+      {
+        path: '',
+        component: CondominumsListComponent ,
+        children: [  
+          {
+            path: 'condominus-list',
+            loadChildren: () => import('./admin/condominus/condominums-list/condominums-list.module').then(module => module.CondominumsListModule)
+          }
+        ]
       }
+,
 
+{
+  path: '',
+  component: CreateCondominumsComponent ,
+  children: [  
+    {
+      path: 'create-condominums',
+      loadChildren: () => import('./admin/condominus/create-condominums/create-condominums.module').then(module => module.CreateCondominumsModule)
+    }
+  ]
+}
 
     ]
   },
