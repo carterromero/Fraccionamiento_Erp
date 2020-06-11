@@ -36,7 +36,6 @@ import { CondominumsListComponent } from './admin/condominus/condominums-list/co
 import { CreateCondominumsComponent } from './admin/condominus/create-condominums/create-condominums.component';
 
 import { UpdateCreditorComponent } from './creditor/update-creditor/update-creditor.component';
-import { CreditorDetailsComponent } from './creditor/creditor-details/creditor-details.component';
 
 import { CondominumsDetailsComponent } from './admin/condominus/condominums-details/condominums-details.component';
 
@@ -298,18 +297,8 @@ const routes: Routes = [
             loadChildren: () => import('./creditor/update-creditor/update-creditor.module').then(module => module.UpdateCreditorModule)
           }
         ]
-      },
-      {
-        path: '',
-
-        component: CreditorDetailsComponent,
-        children: [  
-          {
-            path: 'creditor-details',
-            loadChildren: () => import('./creditor/creditor-details/creditor-details.module').then(module => module.CreditorDetailsModule)
-          }
-        ]
       }
+     
       ,
       { 
       path: '',
