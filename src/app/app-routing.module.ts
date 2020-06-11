@@ -34,8 +34,12 @@ import { PeriodsDetailsComponent } from './gl/catalogs/periods/periods-details/p
 import { UpdatePeriodsComponent } from './gl/catalogs/periods/update-periods/update-periods.component';
 import { CondominumsListComponent } from './admin/condominus/condominums-list/condominums-list.component';
 import { CreateCondominumsComponent } from './admin/condominus/create-condominums/create-condominums.component';
+
 import { UpdateCreditorComponent } from './creditor/update-creditor/update-creditor.component';
 import { CreditorDetailsComponent } from './creditor/creditor-details/creditor-details.component';
+
+import { CondominumsDetailsComponent } from './admin/condominus/condominums-details/condominums-details.component';
+
 
 
 
@@ -381,6 +385,17 @@ const routes: Routes = [
     {
       path: 'create-condominums',
       loadChildren: () => import('./admin/condominus/create-condominums/create-condominums.module').then(module => module.CreateCondominumsModule)
+    }
+  ]
+},
+
+{
+  path: '',
+  component: CondominumsDetailsComponent,
+  children: [  
+    {
+      path: 'condominums-details/:id',
+      loadChildren: () => import('./admin/condominus/condominums-details/condominums-details.module').then(module => module.CondominumsDetailsModule)
     }
   ]
 }
