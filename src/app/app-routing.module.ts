@@ -35,6 +35,7 @@ import { UpdatePeriodsComponent } from './gl/catalogs/periods/update-periods/upd
 import { CondominumsListComponent } from './admin/condominus/condominums-list/condominums-list.component';
 import { CreateCondominumsComponent } from './admin/condominus/create-condominums/create-condominums.component';
 import { CondominumsDetailsComponent } from './admin/condominus/condominums-details/condominums-details.component';
+import { UpdateCondominumsComponent } from './admin/condominus/update-condominums/update-condominums.component';
 
 
 
@@ -369,6 +370,18 @@ const routes: Routes = [
     {
       path: 'condominums-details/:id',
       loadChildren: () => import('./admin/condominus/condominums-details/condominums-details.module').then(module => module.CondominumsDetailsModule)
+    }
+  ]
+},
+
+
+{
+  path: '',
+  component: UpdateCondominumsComponent,
+  children: [  
+    {
+      path: 'update-condominums/:id',
+      loadChildren: () => import('./admin/condominus/update-condominums/update-condominums.module').then(module => module.UpdateCondominumsModule)
     }
   ]
 }

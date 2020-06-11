@@ -56,7 +56,7 @@ export class CondominumsListComponent implements OnInit {
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-legals', id]);
+    this.router.navigate(['update-condominums', id]);
   }
 
 
