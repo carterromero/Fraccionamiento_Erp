@@ -52,7 +52,7 @@ export class CondominumsListComponent implements OnInit {
   }
 
   generalDetails(id: number){
-    this.router.navigate(['legals-details', id]);
+    this.router.navigate(['condominums-details', id]);
   }
 
   updateGeneral(id: number){
