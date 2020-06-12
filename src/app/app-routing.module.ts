@@ -16,8 +16,6 @@ import { CreateGeneralComponent } from './general/create-general/create-general.
 import { GeneralDetailsComponent } from './general/general-details/general-details.component';
 import { UpdateGeneralComponent } from './general/update-general/update-general.component';
 
-import { LegalsListComponent } from './legals/legals-list/legals-list.component';
-import { LegalsListComponent } from './admin/legals/legals-list/legals-list.component';
 
 
 import { CreditorListComponent } from './creditor/creditor-list/creditor-list.component';
@@ -47,6 +45,7 @@ import { UpdateCreditorComponent } from './creditor/update-creditor/update-credi
 import { CondominumsDetailsComponent } from './admin/condominus/condominums-details/condominums-details.component';
 import { UpdateCondominumsComponent } from './admin/condominus/update-condominums/update-condominums.component';
 import { CreditorDetailsComponent } from './creditor/creditor-details/creditor-details.component';
+import { LegalsListComponent } from './admin/legals/legals-list/legals-list.component';
 
 
 
