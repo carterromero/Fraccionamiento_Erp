@@ -33,9 +33,12 @@ export class UpdateLegalsComponent implements OnInit {
         this.employee.legals_status = (String(this.employee.legals_status) == "false") ? null:"false";
         console.log(this.employee.legals_status);
       }, error => {
-        console.log(error);
-        this.alertDisable = false;
-        this.alertMessage = error['statusText'];
+        console.log(error);let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+        
       });
   }
 
@@ -47,14 +50,18 @@ export class UpdateLegalsComponent implements OnInit {
     console.log(this.employee.legals_status);
     
     this.employeeService.updateEmployee(this.id, this.employee)
-      .subscribe(data => {console.log(data);
+      .subscribe(data => {
+        console.log(data);
         this.alertDisables = false;
         this.alertMessages ="Se actualizo la empresa correctamente";
       }, 
       error => {
         console.log(error);
-        this.alertDisable = false;
-        this.alertMessage = error['statusText'];
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
         
       });
     

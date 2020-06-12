@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle="Empresas" blockClass="table-border-style">      
-        <button [routerLink]="['/create-legals']" class="btn btn-primary">Agregar Empresa</button><br>
+        <button [routerLink]="['/create-legals']" class="btn btn-outline-primary">Agregar Empresa</button><br>
         <br>
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
@@ -40,7 +40,7 @@
                         <button (click)="generalDetails(general.legasl_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
                         <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                           <div class="app-modal-header">
-                          <h5 class="modal-title">Crear Empresa</h5>
+                          <h5 class="modal-title">Eliminar Empresa</h5>
                           <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
                           </div>
                           <div class="app-modal-body">

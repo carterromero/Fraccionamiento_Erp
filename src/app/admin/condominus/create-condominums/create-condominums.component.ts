@@ -16,6 +16,10 @@ export class CreateCondominumsComponent implements OnInit {
   employee: Condominums = new Condominums();
   submitted = false;
   addresses: Observable<Legals[]>;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private employeeService: CondominumsService,
     private addressService: LegalsService,
@@ -36,44 +40,56 @@ export class CreateCondominumsComponent implements OnInit {
       },
       error => {
         console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']);     
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
       }
     );      
   }
 
-  newEmployee(): void {
-    this.submitted = false;
-    this.employee = new Condominums();
-  }
-
-  save() {
-
+  save()
+   {
     this.employee.user_id="3";
-
-
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
         {
           console.log(data);
-          this.gotoList();    
+          this.alertDisables = false;
+          this.alertMessages ="Se inserto el fraccionamiento correctamente";
+          this.employee  = new Condominums();
         }, 
       error => {
-        console.log(error);    
+        console.log(error);  
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }    
       });
-
   }
 
   onSubmit() 
   {
-    this.submitted = true;
+  this.alertDisable = true;
+  this.alertDisables = true;
+  if(this.employee.condominums_description =="" ||  this.employee.condominums_description ==null ){
+    this.alertDisable = false;
+    this.alertMessage = "Descripción Incompleto";          
+  }
+  else if(this.employee.legals_id =="" ||  this.employee.legals_id ==null ){
+    this.alertDisable = false;
+    this.alertMessage = "Empresa Incompleta";          
+  }
+  else{
     this.save();    
+  } 
   }
 
   gotoList() 
   {
     this.router.navigate(['condominus-list']);
   }
-
 
 }

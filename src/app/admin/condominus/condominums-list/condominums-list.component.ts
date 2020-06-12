@@ -12,6 +12,10 @@ import { Router } from '@angular/router';
 export class CondominumsListComponent implements OnInit {
 
   general: Observable<Condominums[]>;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private generalService: CondominumsService,
     private router: Router) { }
@@ -29,9 +33,12 @@ export class CondominumsListComponent implements OnInit {
         this.general = this.generalService.getEmployeeList();
       },
       error => {
-        console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']);     
+        console.log(error);   
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
       });
 
       
@@ -43,10 +50,15 @@ export class CondominumsListComponent implements OnInit {
         data => {
           console.log(data);
           this.reloadData();
+          this.alertDisables = false;
+          this.alertMessages ="El fraccionamiento se a eliminado correctamente";
         },
         error => {console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']); 
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = error['statusText'];          
+          }
         }
       );
   }
