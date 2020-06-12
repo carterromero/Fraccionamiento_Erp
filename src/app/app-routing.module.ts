@@ -16,15 +16,18 @@ import { CreateGeneralComponent } from './general/create-general/create-general.
 import { GeneralDetailsComponent } from './general/general-details/general-details.component';
 import { UpdateGeneralComponent } from './general/update-general/update-general.component';
 import { LegalsListComponent } from './legals/legals-list/legals-list.component';
-
-
 import { CreditorListComponent } from './creditor/creditor-list/creditor-list.component';
 import { CreateCreditorComponent } from './creditor/create-creditor/create-creditor.component';
-
 import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
 import { CreateLegalsComponent } from './legals/create-legals/create-legals.component';
 import { LegalsDetailsComponent } from './legals/legals-details/legals-details.component';
 import { UpdateLegalsComponent } from './legals/update-legals/update-legals.component';
+
+
+import { CreateCategoriesComponent } from './categories/create-categories/create-categories.component';
+
+
+import { UpdateCategoriesComponent } from './categories/update-categories/update-categories.component';
 
 import { CategoriesDetailsComponent } from './categories/categories-details/categories-details.component';
 //gl/Catalogs/periods
@@ -292,14 +295,35 @@ const routes: Routes = [
           }
         ]
       },
+      {
+        path: '',
+        component: UpdateCategoriesComponent,
+        children: [  
+          {
+            path: 'update-categories/:id',
+            loadChildren: () => import('./categories/update-categories/update-categories.module').then(module => module.UpdateCategoriesModule)
+          }
+        ]
+      },
         {
         path: '',
-
         component: CreateLegalsComponent ,
         children: [  
           {
             path: 'create-legals',
             loadChildren: () => import('./legals/create-legals/create-legals.module').then(module => module.CreateLegalsModule)
+
+          }
+        ]
+
+      },
+      {
+        path: '',
+        component: CreateCategoriesComponent,
+        children: [  
+          {
+            path: 'create-categories',
+            loadChildren: () => import('./categories/create-categories/create-categories.module').then(module => module.CreateCategoriesModule)
 
           }
         ]
