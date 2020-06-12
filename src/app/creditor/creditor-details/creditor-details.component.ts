@@ -3,6 +3,9 @@ import { Creditor } from 'src/app/creditor';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CreditorService } from 'src/app/creditor.service';
 
+
+
+
 @Component({
   selector: 'app-creditor-details',
   templateUrl: './creditor-details.component.html',
@@ -32,7 +35,7 @@ export class CreditorDetailsComponent implements OnInit {
         //this.router.navigate(['auth/signin']);
       });
 
-
+ 
   }
 
 }

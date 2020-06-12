@@ -295,7 +295,7 @@ const routes: Routes = [
         component: UpdateCreditorComponent,
         children: [  
           {
-            path: 'update-creditor',
+            path: 'update-creditor/:id',
             loadChildren: () => import('./creditor/update-creditor/update-creditor.module').then(module => module.UpdateCreditorModule)
           }
         ]
@@ -307,7 +307,7 @@ const routes: Routes = [
       component: CreditorDetailsComponent,
       children: [  
         {
-          path: 'creditor-details',
+          path: 'creditor-details/:id',
           loadChildren: () => import('./creditor/creditor-details/creditor-details.module').then(module => module.CreditorDetailsModule)
         }
       ]
