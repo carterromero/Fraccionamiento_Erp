@@ -2,7 +2,10 @@
     <div class="col-sm-12">
       <div class="col-md-6">
         <app-card cardTitle="Crear Empresa" [options]="false">
-          <form (ngSubmit)="onSubmit()">   
+          <form (ngSubmit)="onSubmit()" action="javascript:" class="was-validated">  
+            
+            
+
             <div class="form-group">
                 <label for="name">Descripciòn</label>
                 <input type="text" class="form-control" id="condominums_description"  [(ngModel)]="employee.condominums_description" name="condominums_description" required> 

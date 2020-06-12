@@ -2,6 +2,8 @@
     <div class="col-sm-12">
       <app-card cardTitle="Empresa Detalle" [options]="false">
         <div *ngIf="employee">
+
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <div>
             <label><b>Nombre Completo: </b></label> {{employee.legals_name}}
           </div>

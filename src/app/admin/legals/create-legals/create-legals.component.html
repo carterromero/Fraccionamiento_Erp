@@ -2,7 +2,8 @@
     <div class="col-sm-12">
       <div class="col-md-6">
         <app-card cardTitle="Crear Empresa" [options]="false">
-          <form (ngSubmit)="onSubmit()">
+           
+          <form (ngSubmit)="onSubmit()" >
             <div class="form-group">
               <label for="name">Nombre Completo</label>
               <input type="text" class="form-control" id="legals_name"  [(ngModel)]="employee.legals_name" name="legals_name" required> 
@@ -37,8 +38,24 @@
                     <label class="custom-control-label" for="legals_status">Active</label>
                  </div>
             </div>
-            <button type="submit" class="btn btn-success">Guardar</button>          
-            <button [routerLink]="['/legals-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Crear Empresa</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de insertar la empresa</p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+            <button type="button"  class="btn btn-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>          
+            <button [routerLink]="['/legals-list']" class="btn btn-secondary" style="margin-left: 10px">Regresar</button>
           </form>
         </app-card>
       </div>
