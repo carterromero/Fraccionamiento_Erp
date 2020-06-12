@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { CreditorService } from 'src/app/creditor.service';
-import { Router } from '@angular/router';
-import { Creditor } from 'src/app/creditor';
+import { Condominums } from 'src/app/services/admin/condominums';
 import { Observable } from 'rxjs';
-
+import { CondominumsService } from 'src/app/services/admin/condominums.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-creditor-list',
-  templateUrl: './creditor-list.component.html',
-  styleUrls: ['./creditor-list.component.scss']
+  selector: 'app-condominums-list',
+  templateUrl: './condominums-list.component.html',
+  styleUrls: ['./condominums-list.component.scss']
 })
-export class CreditorListComponent implements OnInit {
+export class CondominumsListComponent implements OnInit {
 
-  general: Observable<Creditor[]>;
+  general: Observable<Condominums[]>;
 
-  constructor(private generalService: CreditorService,
+  constructor(private generalService: CondominumsService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -53,11 +52,12 @@ export class CreditorListComponent implements OnInit {
   }
 
   generalDetails(id: number){
-    this.router.navigate(['creditor-details', id]);
+    this.router.navigate(['condominums-details', id]);
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-creditor', id]);
+    this.router.navigate(['update-condominums', id]);
   }
+
 
 }
