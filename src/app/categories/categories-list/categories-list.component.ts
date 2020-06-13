@@ -53,8 +53,8 @@ export class CategoriesListComponent implements OnInit {
     this.router.navigate(['categories-details', id]);
   }
 
-  updateGeneral(id: number){
-    this.router.navigate(['update-general', id]);
+  updateCategories(id: number){
+    this.router.navigate(['update-categories', id]);
   }
 
 }

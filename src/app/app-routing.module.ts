@@ -15,16 +15,21 @@ import { GeneralListComponent } from './general/general-list/general-list.compon
 import { CreateGeneralComponent } from './general/create-general/create-general.component';
 import { GeneralDetailsComponent } from './general/general-details/general-details.component';
 import { UpdateGeneralComponent } from './general/update-general/update-general.component';
-import { LegalsListComponent } from './admin/legals/legals-list/legals-list.component';
+
 
 
 import { CreditorListComponent } from './creditor/creditor-list/creditor-list.component';
 import { CreateCreditorComponent } from './creditor/create-creditor/create-creditor.component';
-
 import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
 import { CreateLegalsComponent } from './admin/legals/create-legals/create-legals.component';
 import { LegalsDetailsComponent } from './admin/legals/legals-details/legals-details.component';
 import { UpdateLegalsComponent } from './admin/legals/update-legals/update-legals.component';
+
+
+import { CreateCategoriesComponent } from './categories/create-categories/create-categories.component';
+
+
+import { UpdateCategoriesComponent } from './categories/update-categories/update-categories.component';
 
 import { CategoriesDetailsComponent } from './categories/categories-details/categories-details.component';
 //gl/Catalogs/periods
@@ -32,10 +37,19 @@ import { PeriodsListComponent } from './gl/catalogs/periods/periods-list/periods
 import { CreatePeriodsComponent } from './gl/catalogs/periods/create-periods/create-periods.component';
 import { PeriodsDetailsComponent } from './gl/catalogs/periods/periods-details/periods-details.component';
 import { UpdatePeriodsComponent } from './gl/catalogs/periods/update-periods/update-periods.component';
+
 import { SupplierListComponent } from './po/supplier/supplier-list/supplier-list.component';
 import { CreateSupplierComponent } from './po/create-supplier/create-supplier.component';
 import { SupplierDetailsComponent } from './po/supplier-details/supplier-details.component';
 import { UpdateSupplierComponent } from './po/update-supplier/update-supplier.component';
+import { LegalsListComponent } from './admin/legals/legals-list/legals-list.component';
+import { UpdateCreditorComponent } from './creditor/update-creditor/update-creditor.component';
+import { CreditorDetailsComponent } from './creditor/creditor-details/creditor-details.component';
+import { CondominumsListComponent } from './admin/condominus/condominums-list/condominums-list.component';
+import { CreateCondominumsComponent } from './admin/condominus/create-condominums/create-condominums.component';
+import { CondominumsDetailsComponent } from './admin/condominus/condominums-details/condominums-details.component';
+import { UpdateCondominumsComponent } from './admin/condominus/update-condominums/update-condominums.component';
+
 
 
 
@@ -49,7 +63,7 @@ const routes: Routes = [
   {
     path: '',
     component: AdminComponent,
-    children: [ 
+    children: [
       {
         path: 'dashboard',
         loadChildren: () => import('./demo/dashboard/dashboard.module').then(module => module.DashboardModule)
@@ -95,7 +109,7 @@ const routes: Routes = [
       {
         path: '',
         component: EmployeeListComponent,
-        children: [    
+        children: [
           {
             path: 'employee-list',
             loadChildren: () => import('./employee/employee-list/employee-list.module').then(module => module.EmployeeListModule)
@@ -105,7 +119,7 @@ const routes: Routes = [
       {
         path: '',
         component: CreateEmployeeComponent,
-        children: [    
+        children: [
           {
             path: 'create-employee',
             loadChildren: () => import('./employee/create-employee/create-employee.module').then(module => module.CreateEmployeeModule)
@@ -115,7 +129,7 @@ const routes: Routes = [
       {
         path: '',
         component: EmployeeDetailsComponent,
-        children: [          
+        children: [
           {
             path: 'employee-details/:id',
             loadChildren: () => import('./employee/employee-details/employee-details.module').then(module => module.EmployeeDetailsModule)
@@ -125,17 +139,17 @@ const routes: Routes = [
       {
         path: '',
         component: UpdateEmployeeComponent,
-        children: [  
+        children: [
           {
             path: 'update-employee/:id',
             loadChildren: () => import('./employee/update-employee/update-employee.module').then(module => module.UpdateEmployeeModule)
           }
         ]
-      },      
+      },
       {
         path: '',
         component: AddressListComponent,
-        children: [    
+        children: [
           {
             path: 'address-list',
             loadChildren: () => import('./address/address-list/address-list.module').then(module => module.AddressListModule)
@@ -145,7 +159,7 @@ const routes: Routes = [
       {
         path: '',
         component: CreateAddressComponent,
-        children: [    
+        children: [
           {
             path: 'create-address',
             loadChildren: () => import('./address/create-address/create-address.module').then(module => module.CreateAddressModule)
@@ -155,7 +169,7 @@ const routes: Routes = [
       {
         path: '',
         component: AddressDetailsComponent,
-        children: [          
+        children: [
           {
             path: 'address-details/:id',
             loadChildren: () => import('./address/address-details/address-details.module').then(module => module.AddressDetailsModule)
@@ -165,7 +179,7 @@ const routes: Routes = [
       {
         path: '',
         component: UpdateAddressComponent,
-        children: [  
+        children: [
           {
             path: 'update-address/:id',
             loadChildren: () => import('./address/update-address/update-address.module').then(module => module.UpdateAddressModule)
@@ -175,7 +189,7 @@ const routes: Routes = [
       {
         path: '',
         component: GeneralListComponent,
-        children: [    
+        children: [
           {
             path: 'general-list',
             loadChildren: () => import('./general/general-list/general-list.module').then(module => module.GeneralListModule)
@@ -185,7 +199,7 @@ const routes: Routes = [
       {
         path: '',
         component: CreateGeneralComponent,
-        children: [    
+        children: [
           {
             path: 'create-general',
             loadChildren: () => import('./general/create-general/create-general.module').then(module => module.CreateGeneralModule)
@@ -195,7 +209,7 @@ const routes: Routes = [
       {
         path: '',
         component: GeneralDetailsComponent,
-        children: [          
+        children: [
           {
             path: 'general-details/:id',
             loadChildren: () => import('./general/general-details/general-details.module').then(module => module.GeneralDetailsModule)
@@ -205,7 +219,7 @@ const routes: Routes = [
       {
         path: '',
         component: UpdateGeneralComponent,
-        children: [  
+        children: [
           {
             path: 'update-general/:id',
             loadChildren: () => import('./general/update-general/update-general.module').then(module => module.UpdateGeneralModule)
@@ -214,8 +228,8 @@ const routes: Routes = [
       },
       {
         path: '',
-        component: PeriodsListComponent,              
-        children: [    
+        component: PeriodsListComponent,
+        children: [
           {
             path: 'periods-list',
             loadChildren: () => import('./gl/catalogs/periods/periods-list/periods-list.module').then(module => module.PeriodsListModule)
@@ -225,7 +239,7 @@ const routes: Routes = [
       {
         path: '',
         component: CreatePeriodsComponent,
-        children: [    
+        children: [
           {
             path: 'create-periods',
             loadChildren: () => import('./gl/catalogs/periods/create-periods/create-periods.module').then(module => module.CreatePeriodsModule)
@@ -235,7 +249,7 @@ const routes: Routes = [
       {
         path: '',
         component: PeriodsDetailsComponent,
-        children: [          
+        children: [
           {
             path: 'periods-details/:id',
             loadChildren: () => import('./gl/catalogs/periods/periods-details/periods-details.module').then(module => module.PeriodsDetailsModule)
@@ -245,7 +259,7 @@ const routes: Routes = [
       {
         path: '',
         component: UpdatePeriodsComponent,
-        children: [  
+        children: [
           {
             path: 'update-periods/:id',
             loadChildren: () => import('./gl/catalogs/periods/update-periods/update-periods.module').then(module => module.UpdatePeriodsModule)
@@ -255,7 +269,7 @@ const routes: Routes = [
       {
         path: '',
         component: LegalsListComponent,
-        children: [  
+        children: [
           {
             path: 'legals-list',
             loadChildren: () => import('./admin/legals/legals-list/legals-list.module').then(module => module.LegalsListModule)
@@ -266,7 +280,7 @@ const routes: Routes = [
         path: '',
 
         component: CreditorListComponent,
-        children: [  
+        children: [
           {
             path: 'creditor-list',
             loadChildren: () => import('./creditor/creditor-list/creditor-list.module').then(module => module.CreditorListModule)
@@ -277,30 +291,62 @@ const routes: Routes = [
         path: '',
 
         component: CreateCreditorComponent,
-        children: [  
+        children: [
           {
             path: 'create-creditor',
             loadChildren: () => import('./creditor/create-creditor/create-creditor.module').then(module => module.CreateCreditorModule)
           }
         ]
+      },
+      {
+        path: '',
+
+        component: UpdateCreditorComponent,
+        children: [
+          {
+            path: 'update-creditor/:id',
+            loadChildren: () => import('./creditor/update-creditor/update-creditor.module').then(module => module.UpdateCreditorModule)
+          }
+        ]
       }
+     ,
+     {
+      path: '',
+
+      component: CreditorDetailsComponent,
+      children: [
+        {
+          path: 'creditor-details/:id',
+          loadChildren: () => import('./creditor/creditor-details/creditor-details.module').then(module => module.CreditorDetailsModule)
+        }
+      ]
+    }
       ,
-      { 
+      {
       path: '',
 
         component: CategoriesListComponent,
-        children: [  
+        children: [
           {
             path: 'categories-list',
             loadChildren: () => import('./categories/categories-list/categories-list.module').then(module => module.CategoriesListModule)
           }
         ]
       },
+      {
+        path: '',
+        component: UpdateCategoriesComponent,
+        children: [
+          {
+            path: 'update-categories/:id',
+            loadChildren: () => import('./categories/update-categories/update-categories.module').then(module => module.UpdateCategoriesModule)
+          }
+        ]
+      },
         {
         path: '',
-
         component: CreateLegalsComponent ,
-        children: [  
+        children: [
           {
             path: 'create-legals',
             loadChildren: () => import('./admin/legals/create-legals/create-legals.module').then(module => module.CreateLegalsModule)
@@ -311,8 +357,20 @@ const routes: Routes = [
       },
       {
         path: '',
+        component: CreateCategoriesComponent,
+        children: [
+          {
+            path: 'create-categories',
+            loadChildren: () => import('./categories/create-categories/create-categories.module').then(module => module.CreateCategoriesModule)
+
+          }
+        ]
+
+      },
+      {
+        path: '',
         component: CategoriesDetailsComponent,
-        children: [  
+        children: [
           {
             path: 'categories-details/:id',
             loadChildren: () => import('./categories/categories-details/categories_details.module').then(module => module.CategoriesDetailsModule)
@@ -324,7 +382,7 @@ const routes: Routes = [
       {
         path: '',
         component: LegalsDetailsComponent,
-        children: [  
+        children: [
           {
             path: 'legals-details/:id',
             loadChildren: () => import('./admin/legals/legals-details/legals_details.module').then(module => module.LegalsDetailsModule)
@@ -335,14 +393,58 @@ const routes: Routes = [
       {
         path: '',
         component: UpdateLegalsComponent,
-        children: [  
+        children: [
           {
             path: 'update-legals/:id',
             loadChildren: () => import('./admin/legals/update-legals/update-legals.module').then(module => module.UpdateLegalsModule)
           }
         ]
+      },
+      {
+        path: '',
+        component: CondominumsListComponent ,
+        children: [
+          {
+            path: 'condominus-list',
+            loadChildren: () => import('./admin/condominus/condominums-list/condominums-list.module').then(module => module.CondominumsListModule)
+          }
+        ]
       }
+,
 
+{
+  path: '',
+  component: CreateCondominumsComponent ,
+  children: [
+    {
+      path: 'create-condominums',
+      loadChildren: () => import('./admin/condominus/create-condominums/create-condominums.module').then(module => module.CreateCondominumsModule)
+    }
+  ]
+},
+
+{
+  path: '',
+  component: CondominumsDetailsComponent,
+  children: [
+    {
+      path: 'condominums-details/:id',
+      loadChildren: () => import('./admin/condominus/condominums-details/condominums-details.module').then(module => module.CondominumsDetailsModule)
+    }
+  ]
+},
+
+
+{
+  path: '',
+  component: UpdateCondominumsComponent,
+  children: [
+    {
+      path: 'update-condominums/:id',
+      loadChildren: () => import('./admin/condominus/update-condominums/update-condominums.module').then(module => module.UpdateCondominumsModule)
+    }
+  ]
+}
 
 
       ,
@@ -417,13 +519,11 @@ const routes: Routes = [
           }
         ]
       }
-    ] 
+    ]
   }
 
 
- 
 
- 
 ];
 
 @NgModule({

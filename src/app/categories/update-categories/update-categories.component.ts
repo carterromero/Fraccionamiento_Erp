@@ -23,8 +23,9 @@ export class UpdateCategoriesComponent implements OnInit {
     console.log(this.employee.categories_status);
     this.employeeService.getEmployee(this.id)
       .subscribe(data => {
-        console.log(data)
+        console.log(data);
         this.employee = data;
+        this.employee.categories_status = (String(this.employee.categories_status) == "false") ? null:"false";
         console.log(this.employee.categories_status);
       }, error => {
         console.log(error);
@@ -40,10 +41,11 @@ export class UpdateCategoriesComponent implements OnInit {
   updateEmployee() {
 
     
-
-    console.log(this.employee.categories_status);
     
-
+    this.employee.last_update_by=3;
+    console.log(this.employee);
+    
+ console.log(this.id);
     
     
     this.employeeService.updateEmployee(this.id, this.employee)

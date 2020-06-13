@@ -12,6 +12,10 @@ import { Observable } from 'rxjs';
 export class LegalsListComponent implements OnInit {
 
   general: Observable<Legals[]>;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private generalService: LegalsService,
     private router: Router) { }
@@ -25,28 +29,35 @@ export class LegalsListComponent implements OnInit {
     
     this.generalService.getEmployeeList().subscribe(
       data => {
-        console.log(data);
         this.general = this.generalService.getEmployeeList();
       },
       error => {
         console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']);     
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
       });
-
-      
   }
 
   deleteGeneral(id: number) {
+    this.alertDisable = true;
+    this.alertDisables = true;
     this.generalService.deleteEmployee(id)
       .subscribe(
         data => {
           console.log(data);
           this.reloadData();
+          this.alertDisables = false;
+          this.alertMessages ="La empresa se a eliminado correctamente";
         },
-        error => {console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']); 
+        error => {
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = error['statusText'];          
+          }  
         }
       );
   }

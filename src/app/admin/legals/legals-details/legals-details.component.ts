@@ -11,7 +11,9 @@ import { LegalsService } from 'src/app/services/admin/legals.service';
 export class LegalsDetailsComponent implements OnInit {
 
   id: number;
-  employee: Legals;
+  employee: Legals;  
+  alertDisable = true;
+  alertMessage = "null";
 
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: LegalsService) { }
@@ -28,11 +30,11 @@ export class LegalsDetailsComponent implements OnInit {
         this.employee = data;
       }, error => {
         console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['auth/signin']);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
       });
-
-
   }
-
 }

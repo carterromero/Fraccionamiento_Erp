@@ -46,12 +46,15 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
     NavSearchComponent,
     NavRightComponent,
     ConfigurationComponent,
+
     ToggleFullScreenDirective,
     
     
 
     
   
+
+
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,7 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
     NgbTooltipModule,
     NgbButtonsModule,
     NgbTabsetModule,
-    
+
 
   ],
   providers: [NavigationItem],

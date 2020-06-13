@@ -39,4 +39,10 @@ export class LegalsService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_ADMIN_GET_ALL_LEGALS/1.0/legals`,{headers});
   }
+
+  getEmployeeListcombo(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_ADMIN_GET_ALL_LEGAL_COMBO/1.0/legals`,{headers});
+  }
+
 }
