@@ -20,7 +20,7 @@ export class BankCodesService {
 
   getEmployee(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}api/integration/v1/flows/rest/ERP_TS_GET_ONE_BANK_CODE/1.0/bankCodes/${id}`,{headers});
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_TS_GET_ONE_BANK_CODE/1.0/bankCodes/${id}`,{headers});
   }
 
   updateEmployee(id: number, value: any): Observable<Object> {
