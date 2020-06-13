@@ -389,29 +389,20 @@ const NavigationItems = [
       },
       {
         id: 'po-reporte',
-        title: 'Reportes Proveedores',
+        title: 'Reportes ',
         type: 'collapse',
         icon: 'feather icon-monitor',
         children: [
           {
             id: 'Reports',
-            title: 'Reportes',
+            title: 'Proveedores',
             type: 'item',            
             url: '/purchase_orders-list'
             
-          }
-
-                                
-        ]
-      }, {
-        id: 'po-reporte',
-        title: 'Reportes Ordenes de compra',
-        type: 'collapse',
-        icon: 'feather icon-monitor',
-        children: [
+          },
           {
             id: 'Reports',
-            title: 'Reportes',
+            title: 'Ordenes de Compra',
             type: 'item',            
             url: '/purchase_orders-list'
             

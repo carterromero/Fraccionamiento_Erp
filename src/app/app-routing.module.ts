@@ -32,6 +32,10 @@ import { PeriodsListComponent } from './gl/catalogs/periods/periods-list/periods
 import { CreatePeriodsComponent } from './gl/catalogs/periods/create-periods/create-periods.component';
 import { PeriodsDetailsComponent } from './gl/catalogs/periods/periods-details/periods-details.component';
 import { UpdatePeriodsComponent } from './gl/catalogs/periods/update-periods/update-periods.component';
+import { SupplierListComponent } from './po/supplier/supplier-list/supplier-list.component';
+import { CreateSupplierComponent } from './po/create-supplier/create-supplier.component';
+import { SupplierDetailsComponent } from './po/supplier-details/supplier-details.component';
+import { UpdateSupplierComponent } from './po/update-supplier/update-supplier.component';
 
 
 
@@ -315,6 +319,8 @@ const routes: Routes = [
           }
         ]
       },
+
+      
       {
         path: '',
         component: LegalsDetailsComponent,
@@ -338,6 +344,60 @@ const routes: Routes = [
       }
 
 
+
+      ,
+
+  {
+    path: '',
+  component: SupplierListComponent,
+   children: [   
+     {
+        path: 'supplier-list',
+       loadChildren: () => import('./po/supplier/supplier-list/supplier-list.module').then(module => module.SupplierListModule)
+      }
+    ]
+
+
+   
+  } 
+  ,
+
+  {
+    path: '',
+  component: CreateSupplierComponent,
+   children: [   
+     {
+        path: 'supplier-create',
+       loadChildren: () => import('./po/create-supplier/supplier-create.module').then(module => module.SupplierCreateModule)
+      }
+    ]
+
+
+   
+  }
+  ,
+      {
+        path: '',
+        component: SupplierDetailsComponent,
+        children: [          
+          {
+            path: 'supplier-details/:id',
+            loadChildren: () => import('./po/supplier-details/supplier-details.module').then(module => module.SupplierDetailsModule)
+          }
+        ]
+      }  ,
+      {
+        path: '',
+        component: UpdateSupplierComponent,
+        children: [  
+          {
+            path: 'update-supplier/:id',
+            loadChildren: () => import('./po/update-supplier/supplier-update.module').then(module => module.SupplierUpdateModule)
+          }
+        ]
+      }
+ 
+
     ]
   },
 
@@ -359,6 +419,9 @@ const routes: Routes = [
       }
     ] 
   }
+
+
+ 
 
  
 ];

@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-xl-12">
+    <app-card cardTitle="Proveedores" blockClass="table-border-style">      
+      <button [routerLink]="['/supplier-create']" class="btn btn-primary">Agregar Proveedores</button><br>
+      <br>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+          <tr>              
+            <th>Nombre </th>
+            <th>Dirección Completa</th>
+           
+            <th>RFC</th>
+            <th>Email</th>
+
+            <th>Telefono</th>
+            <th>Giro</th>
+           
+            <th>Estatus </th>
+            <th>#</th>
+          </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let general of general | async">
+                 
+                  <td>{{general.supplier_name}}</td>
+                  <td>{{general.supplier_address}}</td>
+                  <td>{{general.supplier_rfc}}</td>
+                  <td>{{general.supplier_email}}</td>
+                  <td>{{general.supplier_phone}}</td>
+                  <td>{{general.supplier_turn}}</td>
+                  
+                  <td>
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" [checked]="general.supplier_status == 'true'">
+                        <label class="custom-control-label" for="supplier_status">Active</label>
+                     </div>
+                    </td>
+
+                  <td>
+                      <button (click)="deleteGeneral(general.supplier_id)"  class="btn btn-outline-danger">Eliminar</button>
+                      <button (click)="updateGeneral(general.supplier_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                      <button (click)="generalDetails(general.supplier_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                  </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+</div>

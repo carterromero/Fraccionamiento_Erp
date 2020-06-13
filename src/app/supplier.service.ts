@@ -1,0 +1,40 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class SupplierService {
+  private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/';
+  private username='evelin.picazo@dti-consultores.com';
+  private password='ASDFGHJ1234+*n';
+  
+
+  constructor(private http: HttpClient) { }
+
+  createEmployee(employee: Object): Observable<Object> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_INSERT_SUPPLIER/1.0/supplier`, employee,{headers});
+  }
+
+  getEmployee(id: number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_GET_ONE_SUPPLI/1.0/supplier/${id}`,{headers});
+  }
+
+  updateEmployee(id: number, value: any): Observable<Object> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_UPDATE_SUPPLIER/1.0/supplier/${id}`, value,{headers});
+  }
+
+  deleteEmployee(id: number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.delete(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_DELETE_SUPPLIER/1.0/supplier/${id}`, { responseType: 'text', headers});
+  }
+
+  getEmployeeList(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_GET_ALL_SUPPLI/1.0/supplier`,{headers});
+  }
+}

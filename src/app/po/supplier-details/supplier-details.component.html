@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Proveedor Detalles" [options]="false">
+        <div *ngIf="employee">
+          <div>
+            <label><b>Nombre: </b></label> {{employee.supplier_name}}
+          </div>
+          <div>
+            <label><b>Dirección: </b></label> {{employee.supplier_address}}
+          </div>
+          <div>
+            <label><b>RFC:</b></label> {{employee.supplier_rfc}}
+          </div>
+          <div>
+            <label><b>EMAIL: </b></label> {{employee.supplier_email}}
+          </div>
+
+          <div>
+            <label><b>GIRO: </b></label> {{employee.supplier_turn}}
+          </div>
+
+          <div>
+            <label><b>Estatus: </b></label> {{employee.supplier_status}}
+          </div>
+
+
+        
+
+
+          <div>
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="supplier_status"  name="supplier_status"   style="margin-left: 10px" [checked]="employee.supplier_status == 'true'">
+            <label class="custom-control-label" for="supplier_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/supplier-list']" class="btn btn-primary">Regresar a Empresas</button><br>
+      </app-card>
+      </div>
+  </div>
