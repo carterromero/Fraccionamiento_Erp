@@ -20,13 +20,13 @@ export class UpdateBankCodesComponent implements OnInit {
 
     this.employee = new BankCodes();
     this.id = this.route.firstChild.snapshot.params['id']
-    console.log(this.employee.bank_codes_status);
+    console.log(this.employee.status);
     this.employeeService.getEmployee(this.id)
       .subscribe(data => {
         console.log(data);
         this.employee = data;
-        this.employee.bank_codes_status = (String(this.employee.bank_codes_status) == "false") ? null:"false";
-        console.log(this.employee.bank_codes_status);
+        this.employee.status = (String(this.employee.status) == "false") ? null:"false";
+        console.log(this.employee.status);
       }, error => {
         console.log(error);
       });
@@ -37,7 +37,7 @@ export class UpdateBankCodesComponent implements OnInit {
   updateEmployee() {
 
     //this.employee.userid="3";
-    console.log(this.employee.bank_codes_status);
+    console.log(this.employee.status);
     
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {console.log(data);
