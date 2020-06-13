@@ -1,0 +1,30 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Cuentas Bancarias Detalles" [options]="false">
+        <div *ngIf="employee">
+          <div>
+            <label><b>Codigo de banco: </b></label> {{employee.bank_codes_bank_code}}
+          </div>
+          <div>
+            <label><b>Descripcion: </b></label> {{employee.bank_codes_description}}
+          </div>
+          <div>
+            <label><b>Tipo:</b></label> {{employee.bank_codes_type_displacement}}
+          </div>
+          <div>
+            <label><b>Estatus: </b></label> {{employee.bank_codes_status}}
+          </div>
+   
+          <div>
+            <label for="name">Estatus</label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="bank_codes_status"  name="bank_codes_status"   style="margin-left: 10px" [checked]="employee.bank_codes_status == 'true'">
+            <label class="custom-control-label" for="bank_codes_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/bank-codes-list']" class="btn btn-primary">Regresar a Lista de Codigos Bancarios</button><br>
+      </app-card>
+      </div>
+  </div>
