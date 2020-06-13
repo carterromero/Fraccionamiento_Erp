@@ -3,8 +3,6 @@ import { Observable } from 'rxjs';
 import { BankCodes } from '../../../bankCodes';
 import { Router } from '@angular/router';
 import { BankCodesService } from '../../../bank-codes.service';
-import { Legals } from 'src/app/services/admin/legals';
-import { LegalsService } from 'src/app/services/admin/legals.service';
 
 @Component({
   selector: 'app-bank-codes-list',
