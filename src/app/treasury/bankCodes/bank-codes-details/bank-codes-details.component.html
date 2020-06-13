@@ -3,23 +3,23 @@
       <app-card cardTitle="Codigos de Bancos Detalles" [options]="false">
         <div *ngIf="employee">
           <div>
-            <label><b>Codigo de banco: </b></label> {{employee.bank_codes_bank_code}}
+            <label><b>Codigo de banco: </b></label> {{employee.bank_code}}
           </div>
           <div>
-            <label><b>Descripcion: </b></label> {{employee.bank_codes_description}}
+            <label><b>Descripcion: </b></label> {{employee.description}}
           </div>
           <div>
-            <label><b>Tipo:</b></label> {{employee.bank_codes_type_displacement}}
+            <label><b>Tipo:</b></label> {{employee.type_displacement}}
           </div>
           <div>
-            <label><b>Estatus: </b></label> {{employee.bank_codes_status}}
+            <label><b>Estatus: </b></label> {{employee.status}}
           </div>
    
           <div>
             <label for="name">Estatus</label>
           <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input"  id="bank_codes_status"  name="bank_codes_status"   style="margin-left: 10px" [checked]="employee.bank_codes_status == 'true'">
-            <label class="custom-control-label" for="bank_codes_status">Active</label>
+            <input type="checkbox" class="custom-control-input"  id="status"  name="status"   style="margin-left: 10px" [checked]="employee.status == 'true'">
+            <label class="custom-control-label" for="status">Active</label>
          </div>
         </div>
         </div>

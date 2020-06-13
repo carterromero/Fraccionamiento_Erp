@@ -16,14 +16,14 @@
             <tbody>
                 <tr *ngFor="let general of general | async">
                    
-                    <td>{{general.bank_codes_bank_code}}</td>
-                    <td>{{general.bank_codes_description}}</td>
-                    <td>{{general.bank_codes_type_displacement}}</td>
-                    <td>{{general.bank_codes_status}}</td>
+                    <td>{{general.bank_code}}</td>
+                    <td>{{general.description}}</td>
+                    <td>{{general.type_displacement}}</td>
+                    <td>{{general.status}}</td>
                     <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.bank_codes_status == 'true'">
-                          <label class="custom-control-label" for="bank_codes_status">Active</label>
+                          <input type="checkbox" class="custom-control-input" [checked]="general.status == 'true'">
+                          <label class="custom-control-label" for="status">Active</label>
                        </div>
                       </td>
   

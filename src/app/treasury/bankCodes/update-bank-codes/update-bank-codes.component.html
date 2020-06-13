@@ -5,23 +5,23 @@
           <form (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="name">Codigo de banco</label>
-              <input type="text" class="form-control" id="bank_codes_bank_code"  [(ngModel)]="employee.bank_codes_bank_code" name="bank_codes_bank_code" required>
+              <input type="text" class="form-control" id="bank_code"  [(ngModel)]="employee.bank_code" name="bank_code" required>
             </div>      
             <div class="form-group">
               <label for="name">Descripcion</label>
-              <input type="text" class="form-control" id="bank_codes_description"  [(ngModel)]="employee.bank_codes_description" name="bank_codes_description" required>
+              <input type="text" class="form-control" id="description"  [(ngModel)]="employee.description" name="description" required>
             </div>  
             <div class="form-group">
               <label for="name">Tipo</label>
-              <input type="text" class="form-control" id="bank_codes_type_displacement"  [(ngModel)]="employee.bank_codes_type_displacement" name="bank_codes_type_displacement" required>
+              <input type="text" class="form-control" id="type_displacement"  [(ngModel)]="employee.type_displacement" name="type_displacement" required>
             </div>        
 
             <div class="form-group">
                 <label for="name">Estatus</label> 
 
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input"  id="bank_codes_status"  [(ngModel)]="employee.bank_codes_status" name="bank_codes_status"   style="margin-left: 10px">
-                    <label class="custom-control-label" for="bank_codes_status">Active</label>
+                    <input type="checkbox" class="custom-control-input"  id="status"  [(ngModel)]="employee.status" name="status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="status">Active</label>
                  </div>
             </div>
             
