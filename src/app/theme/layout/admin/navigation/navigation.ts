@@ -214,13 +214,13 @@ const NavigationItems = [
   },
   {
     id: 'gl_main',
-    title: 'General Ledger',
+    title: 'Contabilidad',
     type: 'group',
     icon: 'feather icon-book',
     children: [
       {
         id: 'gl_catalogs',
-        title: 'Catalogs',
+        title: 'Catalogos',
         type: 'collapse',
         icon: 'feather icon-list',
         children: [
@@ -235,7 +235,7 @@ const NavigationItems = [
       },
       {
         id: 'gl_operatios',
-        title: 'Operations',
+        title: 'Operación',
         type: 'collapse',
         icon: 'feather icon-package',
         children: [
@@ -250,7 +250,7 @@ const NavigationItems = [
       },
       {
         id: 'gl_reports',
-        title: 'Reports',
+        title: 'Reportes',
         type: 'collapse',
         icon: 'feather icon-bar-chart',
         children: [
@@ -280,7 +280,7 @@ const NavigationItems = [
         children: [
           {
             id: 'creditor',
-            title: 'acreedor',
+            title: 'Acreedor',
             type: 'item',            
             url: '/creditor-list'
             
@@ -288,7 +288,7 @@ const NavigationItems = [
 
           {
             id: 'crear_cuenta',
-            title: 'crear una cuenta ',
+            title: 'Crear una cuenta ',
             type: 'item',            
             url: '/cuenta-list'
             
@@ -492,7 +492,7 @@ const NavigationItems = [
       }, 
       {
         id: 'report',
-        title: 'Reporte Inventarios',
+        title: 'Reportes',
         type: 'collapse',
         icon: 'feather icon-monitor',
         children: [
@@ -522,7 +522,7 @@ const NavigationItems = [
 
 
 
-  
+  /*
  
   ,
 
@@ -733,7 +733,7 @@ const NavigationItems = [
   }
 
 
-
+*/
 
 
 ];
