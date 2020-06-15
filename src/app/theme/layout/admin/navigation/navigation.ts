@@ -222,7 +222,7 @@ const NavigationItems = [
         id: 'gl_catalogs',
         title: 'Catalogos',
         type: 'collapse',
-        icon: 'feather icon-list',
+        icon: 'feather icon-monitor',
         children: [
           {
             id: 'periods-list',
@@ -237,7 +237,7 @@ const NavigationItems = [
         id: 'gl_operatios',
         title: 'Operación',
         type: 'collapse',
-        icon: 'feather icon-package',
+        icon: 'feather icon-monitor',
         children: [
           {
             id: 'periods-list',
@@ -252,7 +252,7 @@ const NavigationItems = [
         id: 'gl_reports',
         title: 'Reportes',
         type: 'collapse',
-        icon: 'feather icon-bar-chart',
+        icon: 'feather icon-monitor',
         children: [
           {
             id: 'periods-list',
