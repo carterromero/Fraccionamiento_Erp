@@ -30,7 +30,7 @@ export class ManageBanksService {
 
   deleteEmployee(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.delete(`${this.baseUrl}api/integration/v1/flows/rest/ERP_TS_DELETE_MANAGE_BANKS/1.0/manageBanks/${id}`, { responseType: 'text', headers});
+    return this.http.delete(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_TS_DELETE_MANAGE_BANKS/1.0/manageBanks/${id}`, { responseType: 'text', headers});
   }
 
   getEmployeeList(): Observable<any> {
