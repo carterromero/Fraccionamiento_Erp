@@ -317,7 +317,7 @@ const NavigationItems = [
             id: 'bankCodes',
             title: 'Codigos Bancarios',
             type: 'item',            
-            url: '/bankCodes-list'
+            url: '/bank-codes-list'
             
           },
 
@@ -325,14 +325,14 @@ const NavigationItems = [
             id: 'banks',
             title: 'Bancos',
             type: 'item',            
-            url: '/banks-list'
+            url: '/manage-banks-list'
             
           },
           {
             id: 'bankAccounts',
             title: 'Cuentas Bancarias',
             type: 'item',            
-            url: '/bankAccounts-list'
+            url: '/bank-accounts-list'
             
           }
                                 

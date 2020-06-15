@@ -49,7 +49,10 @@ import { CondominumsListComponent } from './admin/condominus/condominums-list/co
 import { CreateCondominumsComponent } from './admin/condominus/create-condominums/create-condominums.component';
 import { CondominumsDetailsComponent } from './admin/condominus/condominums-details/condominums-details.component';
 import { UpdateCondominumsComponent } from './admin/condominus/update-condominums/update-condominums.component';
-
+import { BankCodesListComponent } from './treasury/bankCodes/bank-codes-list/bank-codes-list.component';
+import { CreateBankCodesComponent } from './treasury/bankCodes/create-bank-codes/create-bank-codes.component';
+import { BankCodesDetailsComponent } from './treasury/bankCodes/bank-codes-details/bank-codes-details.component';
+import { UpdateBankCodesComponent} from './treasury/bankCodes/update-bank-codes/update-bank-codes.component';
 
 
 
@@ -498,8 +501,58 @@ const routes: Routes = [
           }
         ]
       }
- 
+/// 
+,
 
+  {
+    path: '',
+  component: BankCodesListComponent,
+   children: [   
+     {
+        path: 'bank-codes-list',
+       loadChildren: () => import('./treasury/bankCodes/bank-codes-list/bank-codes-list.module').then(module => module.BankCodesListModule)
+      }
+    ]
+
+
+   
+  } 
+  ,
+
+  {
+    path: '',
+  component: CreateBankCodesComponent,
+   children: [   
+     {
+        path: 'bank-codes-create',
+       loadChildren: () => import('./treasury/bankCodes/create-bank-codes/bank-codes-create.module').then(module => module.BankCodesCreateModule)
+      }
+    ]
+
+
+   
+  }
+  ,
+      {
+        path: '',
+        component: BankCodesDetailsComponent,
+        children: [          
+          {
+            path: 'bank-codes-details/:id',
+            loadChildren: () => import('./treasury/bankCodes/bank-codes-details/bank-codes-details.module').then(module => module.BankCodesDetailsModule)
+          }
+        ]
+      }  ,
+      {
+        path: '',
+        component: UpdateBankCodesComponent,
+        children: [  
+          {
+            path: 'update-bank-codes/:id',
+            loadChildren: () => import('./treasury/bankCodes/update-bank-codes/bank-codes-update.module').then(module => module.BankCodesUpdateModule)
+          }
+        ]
+      }
     ]
   },
 
