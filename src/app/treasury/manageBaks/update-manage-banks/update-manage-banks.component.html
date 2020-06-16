@@ -1,1 +1,36 @@
-<p>update-manage-banks works!</p>
+<div class="row justify-content-center">
+  <div class="col-sm-12">
+    <div class="col-md-6">
+      <app-card cardTitle="Actualizar Banco" [options]="false">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Nombre del Banco</label>
+            <input type="text" class="form-control" id="mab_bank_name"  [(ngModel)]="employee.mab_bank_name" name="mab_bank_name" required>
+          </div>      
+          <div class="form-group">
+            <label for="name">Codigo del Banco</label>
+            <input type="text" class="form-control" id="mab_bank_code"  [(ngModel)]="employee.mab_bank_code" name="mab_bank_code" required>
+          </div>  
+          <div class="form-group">
+            <label for="name">Pais</label>
+            <input type="text" class="form-control" id="mab_country"  [(ngModel)]="employee.mab_country" name="mab_country" required>
+          </div>
+          <div class="form-group">
+            <label for="name">Nombre Alternativo del Banco</label>
+            <input type="text" class="form-control" id="mab_alternative_bank_name"  [(ngModel)]="employee.mab_alternative_bank_name" name="mab_alternative_bank_name" required>
+          </div>
+          <div class="form-group">
+              <label for="name">Estatus</label> 
+
+              <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input"  id="mab_status"  [(ngModel)]="employee.mab_status" name="mab_status"   style="margin-left: 10px">
+                  <label class="custom-control-label" for="mab_status">Active</label>
+               </div>
+          </div>
+          
+          <button type="submit" class="btn btn-success">Guardar</button>          
+          <button [routerLink]="['/manage-banks-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+        </form>
+      </app-card>
+    </div>
+  </div>

@@ -13,6 +13,10 @@ import { Observable } from 'rxjs';
 export class CreditorListComponent implements OnInit {
 
   general: Observable<Creditor[]>;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private generalService: CreditorService,
     private router: Router) { }
@@ -31,8 +35,11 @@ export class CreditorListComponent implements OnInit {
       },
       error => {
         console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']);     
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }    
       });
 
       
@@ -45,9 +52,12 @@ export class CreditorListComponent implements OnInit {
           console.log(data);
           this.reloadData();
         },
-        error => {console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']); 
+        error => {
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = error['statusText'];          
+          }  
         }
       );
   }
@@ -61,3 +71,4 @@ export class CreditorListComponent implements OnInit {
   }
 
 }
+
