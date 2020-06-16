@@ -16,6 +16,8 @@ export class CondominumsDetailsComponent implements OnInit {
   id: number;
   employee: Condominums;
   addresses: Observable<Legals[]>;
+  alertDisable = true;
+  alertMessage = "null";
 
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: CondominumsService,
@@ -36,6 +38,12 @@ export class CondominumsDetailsComponent implements OnInit {
         this.employee = data;
       }, error => {
         console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+
       });
   }
 
@@ -50,9 +58,12 @@ export class CondominumsDetailsComponent implements OnInit {
       },
       error => {
         console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
       }
     );      
   }
-
-
 }

@@ -17,7 +17,7 @@ export class ChartDB {
     colors: ['#1abc9c'],
     series: [{
       name: 'Desktops',
-      data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+      data: [10, 41, 35, 51, 49, 62, 69, 91, 1]
     }],
     title: {
       text: 'Product Trends by Month',

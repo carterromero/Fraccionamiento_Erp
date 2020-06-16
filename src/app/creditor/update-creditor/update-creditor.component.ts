@@ -10,8 +10,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpdateCreditorComponent implements OnInit {
 
+  
   id: number;
   employee: Creditor;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
   
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: CreditorService) { }
@@ -28,7 +33,12 @@ export class UpdateCreditorComponent implements OnInit {
         this.employee.creditor_status = (String(this.employee.creditor_status) == "false") ? null:"false";
         console.log(this.employee.creditor_status);
       }, error => {
-        console.log(error);
+        console.log(error);let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+        
       });
   }
 
@@ -36,19 +46,22 @@ export class UpdateCreditorComponent implements OnInit {
 
   updateEmployee() {
 
-    
-
+    this.employee.user_id="3";
     console.log(this.employee.creditor_status);
     
-
-    
-    
     this.employeeService.updateEmployee(this.id, this.employee)
-      .subscribe(data => {console.log(data);
-        this.gotoList();  
+      .subscribe(data => {
+        console.log(data);
+        this.alertDisables = false;
+        this.alertMessages ="Se actualizo acreedor correctamente";
       }, 
       error => {
         console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
         
       });
     
@@ -56,7 +69,34 @@ export class UpdateCreditorComponent implements OnInit {
   }
 
   onSubmit() {
-    this.updateEmployee();    
+    
+
+    this.alertDisable = true;
+    this.alertDisables = true;
+  
+    if(this.employee.creditor_business_name =="" ||  this.employee.creditor_business_name ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "Nombre Incompleto";          
+    }
+  
+    else if(this.employee.creditor_addres =="" ||  this.employee.creditor_addres ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "Dirección Incompleta";          
+    }
+  
+    else if(this.employee.creditor_turn =="" ||  this.employee.creditor_turn ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "Giro Incompleta";          
+    }
+  
+
+  
+  
+    else{
+      this.updateEmployee();    
+    }
+
+
   }
 
   gotoList() {
@@ -64,3 +104,4 @@ export class UpdateCreditorComponent implements OnInit {
   }
 
 }
+

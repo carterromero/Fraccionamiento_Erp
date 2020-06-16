@@ -214,15 +214,15 @@ const NavigationItems = [
   },
   {
     id: 'gl_main',
-    title: 'General Ledger',
+    title: 'Contabilidad',
     type: 'group',
     icon: 'feather icon-book',
     children: [
       {
         id: 'gl_catalogs',
-        title: 'Catalogs',
+        title: 'Catalogos',
         type: 'collapse',
-        icon: 'feather icon-list',
+        icon: 'feather icon-monitor',
         children: [
           {
             id: 'periods-list',
@@ -235,9 +235,9 @@ const NavigationItems = [
       },
       {
         id: 'gl_operatios',
-        title: 'Operations',
+        title: 'Operación',
         type: 'collapse',
-        icon: 'feather icon-package',
+        icon: 'feather icon-monitor',
         children: [
           {
             id: 'periods-list',
@@ -250,9 +250,9 @@ const NavigationItems = [
       },
       {
         id: 'gl_reports',
-        title: 'Reports',
+        title: 'Reportes',
         type: 'collapse',
-        icon: 'feather icon-bar-chart',
+        icon: 'feather icon-monitor',
         children: [
           {
             id: 'periods-list',
@@ -280,7 +280,7 @@ const NavigationItems = [
         children: [
           {
             id: 'creditor',
-            title: 'acreedor',
+            title: 'Acreedor',
             type: 'item',            
             url: '/creditor-list'
             
@@ -288,7 +288,7 @@ const NavigationItems = [
 
           {
             id: 'crear_cuenta',
-            title: 'crear una cuenta ',
+            title: 'Crear una cuenta ',
             type: 'item',            
             url: '/cuenta-list'
             
@@ -317,7 +317,7 @@ const NavigationItems = [
             id: 'bankCodes',
             title: 'Codigos Bancarios',
             type: 'item',            
-            url: '/bankCodes-list'
+            url: '/bank-codes-list'
             
           },
 
@@ -325,14 +325,14 @@ const NavigationItems = [
             id: 'banks',
             title: 'Bancos',
             type: 'item',            
-            url: '/banks-list'
+            url: '/manage-banks-list'
             
           },
           {
             id: 'bankAccounts',
             title: 'Cuentas Bancarias',
             type: 'item',            
-            url: '/bankAccounts-list'
+            url: '/bank-accounts-list'
             
           }
                                 
@@ -391,29 +391,20 @@ const NavigationItems = [
       },
       {
         id: 'po-reporte',
-        title: 'Reportes Proveedores',
+        title: 'Reportes ',
         type: 'collapse',
         icon: 'feather icon-monitor',
         children: [
           {
             id: 'Reports',
-            title: 'Reportes',
+            title: 'Proveedores',
             type: 'item',            
             url: '/purchase_orders-list'
             
-          }
-
-                                
-        ]
-      }, {
-        id: 'po-reporte',
-        title: 'Reportes Ordenes de compra',
-        type: 'collapse',
-        icon: 'feather icon-monitor',
-        children: [
+          },
           {
             id: 'Reports',
-            title: 'Reportes',
+            title: 'Ordenes de Compra',
             type: 'item',            
             url: '/purchase_orders-list'
             
@@ -501,7 +492,7 @@ const NavigationItems = [
       }, 
       {
         id: 'report',
-        title: 'Reporte Inventarios',
+        title: 'Reportes',
         type: 'collapse',
         icon: 'feather icon-monitor',
         children: [

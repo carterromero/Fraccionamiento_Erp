@@ -39,16 +39,26 @@ import { PeriodsListComponent } from './gl/catalogs/periods/periods-list/periods
 import { CreatePeriodsComponent } from './gl/catalogs/periods/create-periods/create-periods.component';
 import { PeriodsDetailsComponent } from './gl/catalogs/periods/periods-details/periods-details.component';
 import { UpdatePeriodsComponent } from './gl/catalogs/periods/update-periods/update-periods.component';
+
+import { SupplierListComponent } from './po/supplier/supplier-list/supplier-list.component';
+import { CreateSupplierComponent } from './po/create-supplier/create-supplier.component';
+import { SupplierDetailsComponent } from './po/supplier-details/supplier-details.component';
+import { UpdateSupplierComponent } from './po/update-supplier/update-supplier.component';
+import { LegalsListComponent } from './admin/legals/legals-list/legals-list.component';
+import { UpdateCreditorComponent } from './creditor/update-creditor/update-creditor.component';
+import { CreditorDetailsComponent } from './creditor/creditor-details/creditor-details.component';
 import { CondominumsListComponent } from './admin/condominus/condominums-list/condominums-list.component';
 import { CreateCondominumsComponent } from './admin/condominus/create-condominums/create-condominums.component';
-
-import { UpdateCreditorComponent } from './creditor/update-creditor/update-creditor.component';
-
 import { CondominumsDetailsComponent } from './admin/condominus/condominums-details/condominums-details.component';
 import { UpdateCondominumsComponent } from './admin/condominus/update-condominums/update-condominums.component';
-import { CreditorDetailsComponent } from './creditor/creditor-details/creditor-details.component';
-import { LegalsListComponent } from './admin/legals/legals-list/legals-list.component';
-
+import { BankCodesListComponent } from './treasury/bankCodes/bank-codes-list/bank-codes-list.component';
+import { CreateBankCodesComponent } from './treasury/bankCodes/create-bank-codes/create-bank-codes.component';
+import { BankCodesDetailsComponent } from './treasury/bankCodes/bank-codes-details/bank-codes-details.component';
+import { UpdateBankCodesComponent} from './treasury/bankCodes/update-bank-codes/update-bank-codes.component';
+import { ManageBanksListComponent } from './treasury/manageBaks/manage-banks-list/manage-banks-list.component';
+import { CreateManageBanksComponent } from './treasury/manageBaks/create-manage-banks/create-manage-banks.component';
+import { ManageBanksDetailsComponent } from './treasury/manageBaks/manage-banks-details/manage-banks-details.component';
+import { UpdateManageBanksComponent} from './treasury/manageBaks/update-manage-banks/update-manage-banks.component';
 
 
 
@@ -386,6 +396,8 @@ const routes: Routes = [
           }
         ]
       },
+
+      
       {
         path: '',
         component: LegalsDetailsComponent,
@@ -453,6 +465,214 @@ const routes: Routes = [
   ]
 }
 
+
+      ,
+
+  {
+    path: '',
+  component: SupplierListComponent,
+   children: [   
+     {
+        path: 'supplier-list',
+       loadChildren: () => import('./po/supplier/supplier-list/supplier-list.module').then(module => module.SupplierListModule)
+      }
+    ]
+
+
+   
+  } 
+  ,
+
+  {
+    path: '',
+  component: CreateSupplierComponent,
+   children: [   
+     {
+        path: 'supplier-create',
+       loadChildren: () => import('./po/create-supplier/supplier-create.module').then(module => module.SupplierCreateModule)
+      }
+    ]
+
+
+   
+  }
+  ,
+      {
+        path: '',
+        component: SupplierDetailsComponent,
+        children: [          
+          {
+            path: 'supplier-details/:id',
+            loadChildren: () => import('./po/supplier-details/supplier-details.module').then(module => module.SupplierDetailsModule)
+          }
+        ]
+      }  ,
+      {
+        path: '',
+        component: UpdateSupplierComponent,
+        children: [  
+          {
+            path: 'update-supplier/:id',
+            loadChildren: () => import('./po/update-supplier/supplier-update.module').then(module => module.SupplierUpdateModule)
+          }
+        ]
+      }
+/// 
+,
+
+  {
+    path: '',
+  component: BankCodesListComponent,
+   children: [   
+     {
+        path: 'bank-codes-list',
+       loadChildren: () => import('./treasury/bankCodes/bank-codes-list/bank-codes-list.module').then(module => module.BankCodesListModule)
+      }
+    ]
+
+
+   
+  } 
+  ,
+
+  {
+    path: '',
+  component: CreateBankCodesComponent,
+   children: [   
+     {
+        path: 'bank-codes-create',
+       loadChildren: () => import('./treasury/bankCodes/create-bank-codes/bank-codes-create.module').then(module => module.BankCodesCreateModule)
+      }
+    ]
+
+
+   
+  }
+  ,
+      {
+        path: '',
+        component: BankCodesDetailsComponent,
+        children: [          
+          {
+            path: 'bank-codes-details/:id',
+            loadChildren: () => import('./treasury/bankCodes/bank-codes-details/bank-codes-details.module').then(module => module.BankCodesDetailsModule)
+          }
+        ]
+      }  ,
+      {
+        path: '',
+        component: UpdateBankCodesComponent,
+        children: [  
+          {
+            path: 'update-bank-codes/:id',
+            loadChildren: () => import('./treasury/bankCodes/update-bank-codes/bank-codes-update.module').then(module => module.BankCodesUpdateModule)
+          }
+        ]
+      }
+      /// 
+,
+
+  {
+    path: '',
+  component: BankCodesListComponent,
+   children: [   
+     {
+        path: 'bank-codes-list',
+       loadChildren: () => import('./treasury/bankCodes/bank-codes-list/bank-codes-list.module').then(module => module.BankCodesListModule)
+      }
+    ]
+
+
+   
+  } 
+  ,
+
+  {
+    path: '',
+  component: CreateBankCodesComponent,
+   children: [   
+     {
+        path: 'bank-codes-create',
+       loadChildren: () => import('./treasury/bankCodes/create-bank-codes/bank-codes-create.module').then(module => module.BankCodesCreateModule)
+      }
+    ]
+
+
+   
+  }
+  ,
+      {
+        path: '',
+        component: BankCodesDetailsComponent,
+        children: [          
+          {
+            path: 'bank-codes-details/:id',
+            loadChildren: () => import('./treasury/bankCodes/bank-codes-details/bank-codes-details.module').then(module => module.BankCodesDetailsModule)
+          }
+        ]
+      }  ,
+      {
+        path: '',
+        component: UpdateBankCodesComponent,
+        children: [  
+          {
+            path: 'update-bank-codes/:id',
+            loadChildren: () => import('./treasury/bankCodes/update-bank-codes/bank-codes-update.module').then(module => module.BankCodesUpdateModule)
+          }
+        ]
+      }
+      /// 
+,
+
+{
+  path: '',
+component: ManageBanksListComponent,
+ children: [   
+   {
+      path: 'manage-banks-list',
+     loadChildren: () => import('./treasury/manageBaks/manage-banks-list/manage-banks-list.module').then(module => module.ManageBanksListModule)
+    }
+  ]
+
+
+ 
+} 
+,
+
+{
+  path: '',
+component: CreateManageBanksComponent,
+ children: [   
+   {
+      path: 'manage-banks-create',
+     loadChildren: () => import('./treasury/manageBaks/create-manage-banks/manage-banks-create.module').then(module => module.ManageBanksCreateModule)
+    }
+  ]
+
+
+ 
+}
+,
+    {
+      path: '',
+      component: ManageBanksDetailsComponent,
+      children: [          
+        {
+          path: 'manage-banks-details/:id',
+          loadChildren: () => import('./treasury/manageBaks/manage-banks-details/manage-banks-details.module').then(module => module.ManageBanksDetailsModule)
+        }
+      ]
+    }  ,
+    {
+      path: '',
+      component: UpdateManageBanksComponent,
+      children: [  
+        {
+          path: 'update-manage-banks/:id',
+          loadChildren: () => import('./treasury/manageBaks/update-manage-banks/manage-banks-update.module').then(module => module.ManageBanksUpdateModule)
+        }
+      ]
+    }
     ]
   },
 
@@ -474,6 +694,7 @@ const routes: Routes = [
       }
     ]
   }
+
 
 
 ];

@@ -16,6 +16,11 @@ export class UpdateCondominumsComponent implements OnInit {
   id: number;
   employee: Condominums;
   addresses: Observable<Legals[]>;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
+  
   
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: CondominumsService ,
@@ -36,6 +41,12 @@ export class UpdateCondominumsComponent implements OnInit {
         console.log(this.employee.condominums_status);
       }, error => {
         console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+
       });
       this.reloadDatas() ;
   }
@@ -48,12 +59,19 @@ export class UpdateCondominumsComponent implements OnInit {
     console.log(this.employee.condominums_status);
     
     this.employeeService.updateEmployee(this.id, this.employee)
-      .subscribe(data => {console.log(data);
-        this.gotoList();  
+      .subscribe(data => {
+        console.log(data);
+        this.alertDisables = false;
+        this.alertMessages ="Se actualizo la empresa correctamente";  
       }, 
-      error => {
+      error => 
+      {
         console.log(error);
-        
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
       });
     
   
@@ -69,12 +87,35 @@ export class UpdateCondominumsComponent implements OnInit {
       },
       error => {
         console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
       }
     );      
   }
 
   onSubmit() {
-    this.updateEmployee();    
+    this.alertDisable = true;
+    this.alertDisables = true;
+  
+    if(this.employee.condominums_description =="" ||  this.employee.condominums_description ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "Nombre Incompleto";          
+    }
+  
+    else if(this.employee.legals_id =="" ||  this.employee.legals_id ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "Dirección Incompleta";          
+    }
+  
+    
+  
+  
+    else{
+      this.updateEmployee();    
+    }
   }
 
   gotoList() {
