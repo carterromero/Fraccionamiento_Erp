@@ -25,6 +25,8 @@ import { CreateLegalsComponent } from './admin/legals/create-legals/create-legal
 import { LegalsDetailsComponent } from './admin/legals/legals-details/legals-details.component';
 import { UpdateLegalsComponent } from './admin/legals/update-legals/update-legals.component';
 
+import { SubCategoriesListComponent } from './sub_categories/sub-categories-list/subcategories-list.component';
+
 
 import { CreateCategoriesComponent } from './categories/create-categories/create-categories.component';
 
@@ -363,6 +365,16 @@ const routes: Routes = [
           }
         ]
 
+      },
+      {
+        path: '',
+        component: SubCategoriesListComponent,
+        children: [
+          {
+            path: 'sub_categories-list',
+            loadChildren: () => import('./sub_categories/sub-categories-list/subcategories-list.module').then(module => module.SubCategoriesListModule)
+          }
+        ]
       },
       {
         path: '',

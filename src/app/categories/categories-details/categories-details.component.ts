@@ -11,11 +11,13 @@ import { CategoriesService } from 'src/app/categories.service';
 export class CategoriesDetailsComponent implements OnInit {
   id: number;
   employee: Categories;
-
+  alertDisable = true;
+  alertMessage = "null";
+  
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: CategoriesService) { }
 
-  ngOnInit() {
+ ngOnInit() {
     this.employee = new Categories();    
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
@@ -27,10 +29,11 @@ export class CategoriesDetailsComponent implements OnInit {
         this.employee = data;
       }, error => {
         console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['auth/signin']);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
       });
-
-
   }
 }
