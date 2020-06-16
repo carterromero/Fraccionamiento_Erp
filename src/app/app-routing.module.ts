@@ -197,7 +197,7 @@ const routes: Routes = [
         children: [
           {
             path: 'departments-details/:id',
-            loadChildren: () => import('./RH/catalogs/departments/departments-details/departments-details.module').then(module => module.DepartmentsDetailsModule)
+            loadChildren: () => import('./RH/catalogs/departments/departments-details/departments_details.module').then(module => module.DepartmentsDetailsModule)
           }
         ]
       },
