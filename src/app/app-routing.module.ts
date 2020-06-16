@@ -59,9 +59,11 @@ import { ManageBanksListComponent } from './treasury/manageBaks/manage-banks-lis
 import { CreateManageBanksComponent } from './treasury/manageBaks/create-manage-banks/create-manage-banks.component';
 import { ManageBanksDetailsComponent } from './treasury/manageBaks/manage-banks-details/manage-banks-details.component';
 import { UpdateManageBanksComponent} from './treasury/manageBaks/update-manage-banks/update-manage-banks.component';
-
-
-
+//RH
+import { CreateDepartmentsComponent } from './RH/catalogs/departments/create-departments/create-departments.component';
+import { DepartmentsListComponent } from './RH/catalogs/departments/departments-list/departments-list.component';
+import { UpdateDepartmentsComponent } from './RH/catalogs/departments/update-departments/update-departments.component';
+import { DepartmentsDetailsComponent } from './RH/catalogs/departments/departments-details/departments-details.component';
 const routes: Routes = [
   /* Default page */
   {
@@ -152,6 +154,50 @@ const routes: Routes = [
           {
             path: 'update-employee/:id',
             loadChildren: () => import('./employee/update-employee/update-employee.module').then(module => module.UpdateEmployeeModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateDepartmentsComponent,
+        children: [
+          {
+            path: 'create-departments',
+            loadChildren: () => import('./RH/catalogs/departments/create-departments/create-departments.module').then(module => module.CreateDepartmentsModule)
+
+          }
+        ]
+
+      },
+      {
+        path: '',
+        component: UpdateDepartmentsComponent,
+        children: [
+          {
+            path: 'update-departments',
+            loadChildren: () => import('./RH/catalogs/departments/update-departments/update-departments.module').then(module => module.UpdateDepartmentsModule)
+
+          }
+        ]
+
+      },
+      {
+        path: '',
+        component: DepartmentsListComponent ,
+        children: [
+          {
+            path: 'departments-list',
+            loadChildren: () => import('./RH/catalogs/departments/departments-list/departments-list.module').then(module => module.DepartmentsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: DepartmentsDetailsComponent,
+        children: [
+          {
+            path: 'departments-details/:id',
+            loadChildren: () => import('./RH/catalogs/departments/departments-details/departments-details.module').then(module => module.DepartmentsDetailsModule)
           }
         ]
       },
