@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,39 +7,29 @@ import { Observable } from 'rxjs';
 })
 export class EmployeeService {
 
-  private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/';
-  private username='idania.gonzalez@dti-consultores.com';
-  private password='Paramore7804$$..';
-  
+  //private baseUrl = 'http://127.0.0.1:8000/api/employee';
+  private baseUrl = 'http://apifraccionamientos.superhouse.mx/api/nombres';
+
 
   constructor(private http: HttpClient) { }
 
   createEmployee(employee: Object): Observable<Object> {
-    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_INSERT_EMPLOYEE/1.0/employees`, employee,{headers});
+    return this.http.post(`${this.baseUrl}?token=` + localStorage.getItem('token'), employee);
   }
 
   getEmployee(id: number): Observable<any> {
-    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ONE_EMPLOY/1.0/employees/${id}`,{headers});
+    return this.http.get(`${this.baseUrl}/${id}?token=` + localStorage.getItem('token'));
   }
 
   updateEmployee(id: number, value: any): Observable<Object> {
-    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_UPDATE_EMPLOYEE/1.0/employees/${id}`, value,{headers});
+    return this.http.put(`${this.baseUrl}/${id}?token=` + localStorage.getItem('token'), value);
   }
 
   deleteEmployee(id: number): Observable<any> {
-    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.delete(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_DELETE_EMPLOYEE/1.0/employees/${id}`, { responseType: 'text', headers});
+    return this.http.delete(`${this.baseUrl}/${id}?token=` + localStorage.getItem('token'), { responseType: 'text' });
   }
 
   getEmployeeList(): Observable<any> {
-    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ALL_EMPLOY/1.0/employees`,{headers});
-  }
-  getEmployeeListQ(): Observable<any> {
-    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ALL_EMPLOY/1.0/employees`,{headers});
+    return this.http.get(`${this.baseUrl}?token=` + localStorage.getItem('token'));
   }
 }
