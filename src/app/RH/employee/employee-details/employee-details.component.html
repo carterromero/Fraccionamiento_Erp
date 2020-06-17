@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+  <div class="col-sm-12">
+    <!--<div class="col-md-6"></div>-->
+    <app-card cardTitle="Employee Details" [options]="false">
+      <div *ngIf="employee">
+        <div>
+          <label><b>Nombre(s): </b></label> {{employee.employees_name}}
+        </div>
+        <div>
+          <label><b>Apellido Paterno: </b></label> {{employee.employees_father_surname}}
+        </div>
+        <div>
+          <label><b>Apellido Materno: </b></label> {{employee.employees_mother_surname}}
+        </div>
+        <div>
+          <label><b>Direccion: </b></label> {{employee.employees_address}}
+        </div>
+        <div>
+          <label><b>CV: </b></label> {{employee.employees_cv}}
+        </div>
+        <div>
+          <label><b>Contrato: </b></label> {{employee.employees_contract}}
+        </div>
+        <div>
+          <label><b>Apellido Materno: </b></label> {{employee.employees_mother_surname}}
+        </div>
+        <div>
+          <label><b>NSS: </b></label> {{employee.employees_nss}}
+        </div>
+        <div>
+          <label><b>RFC: </b></label> {{employee.employees_rfc}}
+        </div>
+        <div>
+          <label><b>CURP: </b></label> {{employee.employees_curp}}
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Condominio</label>
+          <select disabled class="form-control" id="condominums_id" required [(ngModel)]="employee.condominums_id" name="condominums_id" >
+              <option *ngFor="let employee of employee | async" value="{{employee.condominums_id}}">{{employee.condominums_description}}</option>
+          </select>
+      </div>    
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Departamento</label>
+        <select disabled class="form-control" id="departments_id" required [(ngModel)]="employee.departments_id" name="departments_id" >
+            <option *ngFor="let employee of employee | async" value="{{employee.departments_id}}">{{employee.departments_name}}</option>
+        </select>
+    </div>   
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Puesto</label>
+      <select disabled class="form-control" id="workplaces_id" required [(ngModel)]="employee.workplaces_id" name="workplaces_id" >
+          <option *ngFor="let employee of employee | async" value="{{employee.workplaces_id}}">{{employee.workplaces_name}}</option>
+      </select>
+  </div>   
+      </div>
+      <br>
+      <button [routerLink]="['/employee-list']" class="btn btn-primary">Back to Employee List</button><br>
+    </app-card>
+    </div>
+</div>
