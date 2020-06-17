@@ -57,6 +57,18 @@ import { ManageBanksListComponent } from './treasury/manageBaks/manage-banks-lis
 import { CreateManageBanksComponent } from './treasury/manageBaks/create-manage-banks/create-manage-banks.component';
 import { ManageBanksDetailsComponent } from './treasury/manageBaks/manage-banks-details/manage-banks-details.component';
 import { UpdateManageBanksComponent} from './treasury/manageBaks/update-manage-banks/update-manage-banks.component';
+import { CreateRolComponent } from './admin/rol/create-rol/create-rol.component';
+import { RolDetailsComponent } from './admin/rol/rol-details/rol-details.component';
+import { RolListComponent } from './admin/rol/rol-list/rol-list.component';
+import { UpdateRolComponent } from './admin/rol/update-rol/update-rol.component';
+import { CreatePermissionsComponent } from './admin/permissions/create-permissions/create-permissions.component';
+import { PermissionsDetailsComponent } from './admin/permissions/permissions-details/permissions-details.component';
+import { PermissionsListComponent } from './admin/permissions/permissions-list/permissions-list.component';
+import { UpdatePermissionsComponent } from './admin/permissions/update-permissions/update-permissions.component';
+import { CreateUserComponent } from './admin/user/create-user/create-user.component';
+import { UserDetailsComponent } from './admin/user/user-details/user-details.component';
+import { UserListComponent } from './admin/user/user-list/user-list.component';
+import { UpdateUserComponent } from './admin/user/update-user/update-user.component';
 
 
 
@@ -64,7 +76,8 @@ const routes: Routes = [
   /* Default page */
   {
     path: '',
-    redirectTo: 'auth/signin',
+    //redirectTo: 'auth/signin',
+    redirectTo: 'dashboard/default',
     pathMatch: 'full'
   },
   {
@@ -661,6 +674,159 @@ component: CreateManageBanksComponent,
         }
       ]
     }
+
+    ,
+    {
+      path: '',
+      component: CreateRolComponent,
+      children: [  
+        {
+          path: 'create-rols',
+          loadChildren: () => import('./admin/rol/create-rol/create-rol.module').then(module => module.CreateRolModule)
+        }
+      ]
+    }
+
+    ,
+    {
+      path: '',
+      component: RolDetailsComponent,
+      children: [  
+        {
+          path: 'rols-details/:id',
+          loadChildren: () => import('./admin/rol/rol-details/rol-details.module').then(module => module.RolDetailsModule)
+        }
+      ]
+    }
+
+    ,
+    {
+      path: '',
+      component: RolListComponent,
+      children: [  
+        {
+          path: 'rols-list',
+          loadChildren: () => import('./admin/rol/rol-list/rol-list.module').then(module => module.RolListModule)
+        }
+      ]
+    }
+
+
+    ,
+    {
+      path: '',
+      component: UpdateRolComponent,
+      children: [  
+        {
+          path: 'update-rols/:id',
+          loadChildren: () => import('./admin/rol/update-rol/update-rol.module').then(module => module.UpdateRolModule)
+        }
+      ]
+    }
+  
+    ,
+    {
+      path: '',
+      component: CreatePermissionsComponent,
+      children: [  
+        {
+          path: 'create-permissions',
+          loadChildren: () => import('./admin/permissions/create-permissions/create-permissions.module').then(module => module.CreatePermissionsModule)
+        }
+      ]
+    }
+
+    ,
+    {
+      path: '',
+      component: PermissionsDetailsComponent,
+      children: [  
+        {
+          path: 'permissions-details/:id',
+          loadChildren: () => import('./admin/permissions/permissions-details/permissions-details.module').then(module => module.PermissionsDetailsModule)
+        }
+      ]
+    }
+
+    ,
+    {
+      path: '',
+      component: PermissionsListComponent,
+      children: [  
+        {
+          path: 'permissions-list',
+          loadChildren: () => import('./admin/permissions/permissions-list/permissions-list.module').then(module => module.PermissionsListModule)
+        }
+      ]
+    }
+
+
+    ,
+    {
+      path: '',
+      component: UpdatePermissionsComponent,
+      children: [  
+        {
+          path: 'update-permissions/:id',
+          loadChildren: () => import('./admin/permissions/update-permissions/update-permissions.module').then(module => module.UpdatePermissionsModule)
+        }
+      ]
+    }
+
+
+
+
+    ,
+    {
+      path: '',
+      component: CreateUserComponent,
+      children: [  
+        {
+          path: 'create-usuarios',
+          loadChildren: () => import('./admin/user/create-user/create-user.module').then(module => module.CreateUserModule)
+        }
+      ]
+    }
+
+    ,
+    {
+      path: '',
+      component: UserDetailsComponent,
+      children: [  
+        {
+          path: 'usuarios-details/:id',
+          loadChildren: () => import('./admin/user/user-details/user-details.module').then(module => module.UserDetailsModule)
+        }
+      ]
+    }
+
+    ,
+    {
+      path: '',
+      component: UserListComponent,
+      children: [  
+        {
+          path: 'usuarios-list',
+          loadChildren: () => import('./admin/user/user-list/user-list.module').then(module => module.UserListModule)
+        }
+      ]
+    }
+
+
+    ,
+    {
+      path: '',
+      component: UpdateUserComponent,
+      children: [  
+        {
+          path: 'update-usuarios/:id',
+          loadChildren: () => import('./admin/user/update-user/update-user.module').then(module => module.UpdateUserModule)
+        }
+      ]
+    }
+
+
+
     ]
   },
 

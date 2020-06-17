@@ -1,0 +1,173 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Crear Permiso" [options]="false">
+          <form (ngSubmit)="onSubmit()" >
+
+            <div class="form-group">
+              <label for="name">Descripción</label>
+              <input type="text" class="form-control" id="permissions_description"  [(ngModel)]="employee.permissions_description" name="permissions_description" required> 
+            </div>          
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Rol</label>
+                <select  class="custom-select"  id="rol_id" required [(ngModel)]="employee.rol_id" name="rol_id" >
+                <option *ngFor="let address of addresses | async" value="{{address.rol_id}}">{{address.rol_description}}</option>
+                </select>
+            </div>
+                    
+            <div class="form-group">
+                <label for="name">Compras</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_compras"  [(ngModel)]="employee.permissions_compras"     name="permissions_compras"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_compras">Active</label>
+                 </div>
+            </div>
+
+
+             
+            <div class="form-group">
+                <label for="name">Cuentas por Pagar</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_cxp"  [(ngModel)]="employee.permissions_cxp"     name="permissions_cxp"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_cxp">Active</label>
+                 </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="name">Nomina</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_nomina"  [(ngModel)]="employee.permissions_nomina"     name="permissions_nomina"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_nomina">Active</label>
+                 </div>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="name">Tesoreria</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_tesoreria"  [(ngModel)]="employee.permissions_tesoreria"     name="permissions_tesoreria"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_tesoreria">Active</label>
+                 </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="name">Contabilidad</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_contabilidad"  [(ngModel)]="employee.permissions_contabilidad"     name="permissions_contabilidad"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_contabilidad">Active</label>
+                 </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="name">Cuentas por Cobrar</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_cxc"  [(ngModel)]="employee.permissions_cxc"     name="permissions_cxc"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_cxc">Active</label>
+                 </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="name">Inventarios</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_inventario"  [(ngModel)]="employee.permissions_inventario"     name="permissions_inventario"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_inventario">Active</label>
+                 </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="name">RH</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_rh"  [(ngModel)]="employee.permissions_rh"     name="permissions_rh"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_rh">Active</label>
+                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Administración</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_admin"  [(ngModel)]="employee.permissions_admin"     name="permissions_admin"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_admin">Active</label>
+                 </div>
+            </div>
+
+
+            
+            <div class="form-group">
+                <label for="name">Dashboard</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_dashboard"  [(ngModel)]="employee.permissions_dashboard"     name="permissions_dashboard"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_dashboard">Active</label>
+                 </div>
+            </div>
+
+
+                 
+            <div class="form-group">
+                <label for="name">Consultar</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_consult"  [(ngModel)]="employee.permissions_consult"     name="permissions_consult"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_consult">Active</label>
+                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Insertar</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_create"  [(ngModel)]="employee.permissions_create"     name="permissions_create"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_create">Active</label>
+                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Actualizar</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_update"  [(ngModel)]="employee.permissions_update"     name="permissions_update"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_update">Active</label>
+                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Eliminar</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_delete"  [(ngModel)]="employee.permissions_delete"     name="permissions_delete"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_delete">Active</label>
+                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="permissions_status"  [(ngModel)]="employee.permissions_status"     name="permissions_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="permissions_status">Active</label>
+                 </div>
+            </div>
+
+
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Crear Permiso</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de insertar el permiso?</p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+            <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>          
+            <button [routerLink]="['/permissions-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

@@ -194,7 +194,7 @@ const NavigationItems = [
             id: 'permisos',
             title: 'Permisos',
             type: 'item',            
-            url: '/permisos-list'
+            url: '/permissions-list'
             
           },
 
