@@ -25,6 +25,8 @@ import { CreateLegalsComponent } from './admin/legals/create-legals/create-legal
 import { LegalsDetailsComponent } from './admin/legals/legals-details/legals-details.component';
 import { UpdateLegalsComponent } from './admin/legals/update-legals/update-legals.component';
 
+import { SubCategoriesListComponent } from './sub_categories/sub-categories-list/subcategories-list.component';
+
 
 import { CreateCategoriesComponent } from './categories/create-categories/create-categories.component';
 
@@ -57,6 +59,7 @@ import { ManageBanksListComponent } from './treasury/manageBaks/manage-banks-lis
 import { CreateManageBanksComponent } from './treasury/manageBaks/create-manage-banks/create-manage-banks.component';
 import { ManageBanksDetailsComponent } from './treasury/manageBaks/manage-banks-details/manage-banks-details.component';
 import { UpdateManageBanksComponent} from './treasury/manageBaks/update-manage-banks/update-manage-banks.component';
+
 import { CreateRolComponent } from './admin/rol/create-rol/create-rol.component';
 import { RolDetailsComponent } from './admin/rol/rol-details/rol-details.component';
 import { RolListComponent } from './admin/rol/rol-list/rol-list.component';
@@ -71,6 +74,13 @@ import { UserListComponent } from './admin/user/user-list/user-list.component';
 import { UpdateUserComponent } from './admin/user/update-user/update-user.component';
 
 
+
+
+//RH
+import { CreateDepartmentsComponent } from './RH/catalogs/departments/create-departments/create-departments.component';
+import { DepartmentsListComponent } from './RH/catalogs/departments/departments-list/departments-list.component';
+import { UpdateDepartmentsComponent } from './RH/catalogs/departments/update-departments/update-departments.component';
+import { DepartmentsDetailsComponent } from './RH/catalogs/departments/departments-details/departments-details.component';
 
 const routes: Routes = [
   /* Default page */
@@ -163,6 +173,50 @@ const routes: Routes = [
           {
             path: 'update-employee/:id',
             loadChildren: () => import('./employee/update-employee/update-employee.module').then(module => module.UpdateEmployeeModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateDepartmentsComponent,
+        children: [
+          {
+            path: 'create-departments',
+            loadChildren: () => import('./RH/catalogs/departments/create-departments/create-departments.module').then(module => module.CreateDepartmentsModule)
+
+          }
+        ]
+
+      },
+      {
+        path: '',
+        component: UpdateDepartmentsComponent,
+        children: [
+          {
+            path: 'update-departments',
+            loadChildren: () => import('./RH/catalogs/departments/update-departments/update-departments.module').then(module => module.UpdateDepartmentsModule)
+
+          }
+        ]
+
+      },
+      {
+        path: '',
+        component: DepartmentsListComponent ,
+        children: [
+          {
+            path: 'departments-list',
+            loadChildren: () => import('./RH/catalogs/departments/departments-list/departments-list.module').then(module => module.DepartmentsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: DepartmentsDetailsComponent,
+        children: [
+          {
+            path: 'departments-details/:id',
+            loadChildren: () => import('./RH/catalogs/departments/departments-details/departments_details.module').then(module => module.DepartmentsDetailsModule)
           }
         ]
       },
@@ -386,6 +440,16 @@ const routes: Routes = [
           }
         ]
 
+      },
+      {
+        path: '',
+        component: SubCategoriesListComponent,
+        children: [
+          {
+            path: 'sub_categories-list',
+            loadChildren: () => import('./sub_categories/sub-categories-list/subcategories-list.module').then(module => module.SubCategoriesListModule)
+          }
+        ]
       },
       {
         path: '',

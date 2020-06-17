@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Categories } from 'src/app/categories';
+import { Departments } from 'src/app/departments';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CategoriesService } from 'src/app/categories.service';
+import { DepartmentsService } from 'src/app/departments.service';
 
 @Component({
-  selector: 'app-categories-details',
-  templateUrl: './categories-details.component.html',
-  styleUrls: ['./categories-details.component.scss']
+  selector: 'app-departments-details',
+  templateUrl: './departments-details.component.html',
+  styleUrls: ['./departments-details.component.scss']
 })
-export class CategoriesDetailsComponent implements OnInit {
+export class DepartmentsDetailsComponent implements OnInit {
   id: number;
-  employee: Categories;
+  employee: Departments;
   alertDisable = true;
   alertMessage = "null";
   
   constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: CategoriesService) { }
+    private employeeService: DepartmentsService) { }
 
  ngOnInit() {
-    this.employee = new Categories();    
+    this.employee = new Departments();    
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
     
