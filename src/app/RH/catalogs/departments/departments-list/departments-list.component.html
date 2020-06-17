@@ -18,10 +18,9 @@
                     <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="employee.departments_status == 'true'">
-                          <label class="custom-control-label" for="periodsStatus">Active</label>
+                          <label class="custom-control-label" for="departments_status">Active</label>
                        </div>
                       </td>
-  
                       <td>                 
                         <button (click)="deleteEmployee(employee.departments_id)" class="btn btn-outline-danger">Eliminar</button>
                         <button (click)="updateEmployee(employee.departments_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>

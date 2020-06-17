@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { DepartmentsService } from 'src/app/departments.service';
-import { Departments } from 'src/app/departments';
+import { WorkplacesService } from 'src/app/workplaces.service';
+import { Workplaces } from 'src/app/workplaces';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-create-departments',
-  templateUrl: './create-departments.component.html',
-  styleUrls: ['./create-departments.component.scss']
+  selector: 'app-create-workplaces',
+  templateUrl: './create-workplaces.component.html',
+  styleUrls: ['./create-workplaces.component.scss']
 })
-export class CreateDepartmentsComponent implements OnInit {
+export class CreateWorkplacesComponent implements OnInit {
   
-  employee: Departments = new Departments();
+  employee: Workplaces = new Workplaces();
   submitted = false;
 
-  constructor(private employeeService: DepartmentsService,
+  constructor(private employeeService: WorkplacesService,
     private router: Router) { }
 
   ngOnInit() {
@@ -22,7 +22,7 @@ export class CreateDepartmentsComponent implements OnInit {
 
   newEmployee(): void {
     this.submitted = false;
-    this.employee = new Departments();
+    this.employee = new Workplaces();
   }
 
   save() {
@@ -34,10 +34,10 @@ export class CreateDepartmentsComponent implements OnInit {
       .subscribe(data => console.log(data), 
       error => {
         console.log(error);
-        localStorage.setItem('token', "");
-        this.router.navigate(['auth/signin']);
+       // localStorage.setItem('token', "");
+        //this.router.navigate(['auth/signin']);
       });
-    this.employee = new Departments();
+    this.employee = new Workplaces();
     this.gotoList();
   }
 
@@ -47,6 +47,6 @@ export class CreateDepartmentsComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['departments-list']);
+    this.router.navigate(['workplaces-list']);
   }
 }
