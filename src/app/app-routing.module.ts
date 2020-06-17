@@ -18,8 +18,8 @@ import { UpdateGeneralComponent } from './general/update-general/update-general.
 
 
 
-import { CreditorListComponent } from './creditor/creditor-list/creditor-list.component';
-import { CreateCreditorComponent } from './creditor/create-creditor/create-creditor.component';
+import { CreditorListComponent } from './AP/ap_creditor/creditor-list/creditor-list.component';
+import { CreateCreditorComponent } from './AP/ap_creditor/create-creditor/create-creditor.component';
 import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
 import { CreateLegalsComponent } from './admin/legals/create-legals/create-legals.component';
 import { LegalsDetailsComponent } from './admin/legals/legals-details/legals-details.component';
@@ -45,8 +45,8 @@ import { CreateSupplierComponent } from './po/create-supplier/create-supplier.co
 import { SupplierDetailsComponent } from './po/supplier-details/supplier-details.component';
 import { UpdateSupplierComponent } from './po/update-supplier/update-supplier.component';
 import { LegalsListComponent } from './admin/legals/legals-list/legals-list.component';
-import { UpdateCreditorComponent } from './creditor/update-creditor/update-creditor.component';
-import { CreditorDetailsComponent } from './creditor/creditor-details/creditor-details.component';
+import { UpdateCreditorComponent } from './AP/ap_creditor/update-creditor/update-creditor.component';
+import { CreditorDetailsComponent } from './AP/ap_creditor/creditor-details/creditor-details.component';
 import { CondominumsListComponent } from './admin/condominus/condominums-list/condominums-list.component';
 import { CreateCondominumsComponent } from './admin/condominus/create-condominums/create-condominums.component';
 import { CondominumsDetailsComponent } from './admin/condominus/condominums-details/condominums-details.component';
@@ -367,7 +367,7 @@ const routes: Routes = [
         children: [
           {
             path: 'creditor-list',
-            loadChildren: () => import('./creditor/creditor-list/creditor-list.module').then(module => module.CreditorListModule)
+            loadChildren: () => import('./AP/ap_creditor/creditor-list/creditor-list.module').then(module => module.CreditorListModule)
           }
         ]
       },
@@ -378,7 +378,7 @@ const routes: Routes = [
         children: [
           {
             path: 'create-creditor',
-            loadChildren: () => import('./creditor/create-creditor/create-creditor.module').then(module => module.CreateCreditorModule)
+            loadChildren: () => import('./AP/ap_creditor/create-creditor/create-creditor.module').then(module => module.CreateCreditorModule)
           }
         ]
       },
@@ -389,7 +389,7 @@ const routes: Routes = [
         children: [
           {
             path: 'update-creditor/:id',
-            loadChildren: () => import('./creditor/update-creditor/update-creditor.module').then(module => module.UpdateCreditorModule)
+            loadChildren: () => import('./AP/ap_creditor/update-creditor/update-creditor.module').then(module => module.UpdateCreditorModule)
           }
         ]
       }
@@ -401,7 +401,7 @@ const routes: Routes = [
       children: [
         {
           path: 'creditor-details/:id',
-          loadChildren: () => import('./creditor/creditor-details/creditor-details.module').then(module => module.CreditorDetailsModule)
+          loadChildren: () => import('./AP/ap_creditor/creditor-details/creditor-details.module').then(module => module.CreditorDetailsModule)
         }
       ]
     }

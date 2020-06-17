@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CreateCreditorRoutingModule } from './create-creditor-routing.module';
 import { CreateCreditorComponent } from './create-creditor.component';
-import {SharedModule} from '../../theme/shared/shared.module';
+import {SharedModule} from '../../../theme/shared/shared.module';
 
 @NgModule({
   declarations: [CreateCreditorComponent],

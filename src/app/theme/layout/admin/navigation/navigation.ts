@@ -285,10 +285,37 @@ const NavigationItems = [
             url: '/creditor-list'
             
           },
+                              
+        ]
+      }, {
+        id: 'ap-catalog',
+        title: 'Operacion',
+        type: 'collapse',
+        icon: 'feather icon-file-text',
+        children: [
+  
 
           {
             id: 'crear_cuenta',
             title: 'Crear una cuenta ',
+            type: 'item',            
+            url: '/billtopay-list'
+            
+          }
+                              
+        ]
+      },
+      {
+        id: 'ap-catalog',
+        title: 'Reportes',
+        type: 'collapse',
+        icon: 'feather icon-server',
+        children: [
+  
+
+          {
+            id: 'crear_cuenta',
+            title: 'Reporte de cuenta ',
             type: 'item',            
             url: '/cuenta-list'
             
