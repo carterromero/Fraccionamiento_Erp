@@ -12,6 +12,10 @@ export class UpdateCategoriesComponent implements OnInit {
 
   id: number;
   employee: Categories;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
   
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: CategoriesService) { }
@@ -50,10 +54,13 @@ export class UpdateCategoriesComponent implements OnInit {
     
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {console.log(data);
-        this.gotoList();  
+        this.alertDisables = false;
+        this.alertMessages ="Se actualizo la categoria correctamente";
       }, 
       error => {
         console.log(error);
+        this.alertDisable = false;
+        this.alertMessage = error['statusText'];
         
       });
     
@@ -61,7 +68,20 @@ export class UpdateCategoriesComponent implements OnInit {
   }
 
   onSubmit() {
-    this.updateEmployee();    
+    
+
+    this.alertDisable = true;
+    this.alertDisables = true;
+  
+    if(this.employee.categories_name =="" ||  this.employee.categories_name ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "El nombre de la categoria esta incompleto";          
+    }
+    else{
+      this.updateEmployee();    
+    }
+
+
   }
 
   gotoList() {

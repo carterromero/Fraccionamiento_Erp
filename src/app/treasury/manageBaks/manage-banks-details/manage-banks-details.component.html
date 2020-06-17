@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+  <div class="col-sm-12">
+    <app-card cardTitle="Detalles de Banco" [options]="false">
+      <div *ngIf="employee">
+        <div>
+          <label><b>Nombre del Banco</b></label> {{employee.mab_bank_name}}
+        </div>
+        <div>
+          <label><b>Codigo del Banco</b></label> {{employee.mab_bank_code}}
+        </div>
+        <div>
+          <label><b>Pais</b></label> {{employee.mab_country}}
+        </div>
+        <div>
+          <label><b>Nombre Alternativo del Banco</b></label> {{employee.mab_alternative_bank_name}}
+        </div>
+        <div>
+          <label><b>Estatus: </b></label> {{employee.mab_status}}
+        </div>
+ 
+        <div>
+          <label for="name">Estatus</label>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input"  id="mab_status"  name="mab_status"   style="margin-left: 10px" [checked]="employee.mab_status == 'true'">
+          <label class="custom-control-label" for="mab_status">Active</label>
+       </div>
+      </div>
+      </div>
+      <br>
+      <button [routerLink]="['/manage-banks-list']" class="btn btn-primary">Regresar a Lista de Codigos Bancarios</button><br>
+    </app-card>
+    </div>
+</div>

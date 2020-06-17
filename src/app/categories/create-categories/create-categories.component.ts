@@ -5,27 +5,29 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-categories',
-  templateUrl: './create-categories.component.html',
-  styleUrls: ['./create-categories.component.scss']
+  templateUrl: './create-categories.component.html'
+  ,styleUrls: ['./create-categries.component.scss']
 })
+
 export class CreateCategoriesComponent implements OnInit {
-employee: Categories = new Categories();
-  submitted = false;
+
+  employee: Categories = new Categories();
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private employeeService: CategoriesService,
     private router: Router) { }
 
   ngOnInit() {
-    //code
   }
 
   newEmployee(): void {
-    this.submitted = false;
     this.employee = new Categories();
   }
 
   save() {
-
     this.employee.last_update_by=3;
     console.log(this.employee);
     
@@ -35,18 +37,33 @@ employee: Categories = new Categories();
       .subscribe(data => 
         {
           console.log(data);
-          this.gotoList();    
+          this.alertDisables = false;
+          this.alertMessages ="Se inserto la categoria correctamente";
+          this.employee= new Categories();
         }, 
       error => {
         console.log(error);    
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }      
       });
-
   }
 
   onSubmit() 
   {
-    this.submitted = true;
+
+  this.alertDisable = true;
+  this.alertDisables = true;
+
+  if(this.employee.categories_name =="" ||  this.employee.categories_name ==null ){
+    this.alertDisable = false;
+    this.alertMessage = "Nombre Incompleto";          
+  }
+  else{
     this.save();    
+  }
   }
 
   gotoList() 

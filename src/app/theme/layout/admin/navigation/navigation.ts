@@ -28,7 +28,7 @@ export interface Navigation extends NavigationItem {
 const NavigationItems = [
   {
     id: 'navigation',
-    title: 'Navigation',
+    title: 'Principal',
     type: 'group',
     icon: 'feather icon-monitor',
     children: [
@@ -194,7 +194,7 @@ const NavigationItems = [
             id: 'permisos',
             title: 'Permisos',
             type: 'item',            
-            url: '/permisos-list'
+            url: '/permissions-list'
             
           },
 
@@ -222,7 +222,7 @@ const NavigationItems = [
         id: 'gl_catalogs',
         title: 'Catalogos',
         type: 'collapse',
-        icon: 'feather icon-list',
+        icon: 'feather icon-monitor',
         children: [
           {
             id: 'periods-list',
@@ -237,7 +237,7 @@ const NavigationItems = [
         id: 'gl_operatios',
         title: 'Operación',
         type: 'collapse',
-        icon: 'feather icon-package',
+        icon: 'feather icon-monitor',
         children: [
           {
             id: 'periods-list',
@@ -252,7 +252,7 @@ const NavigationItems = [
         id: 'gl_reports',
         title: 'Reportes',
         type: 'collapse',
-        icon: 'feather icon-bar-chart',
+        icon: 'feather icon-monitor',
         children: [
           {
             id: 'periods-list',
@@ -317,7 +317,7 @@ const NavigationItems = [
             id: 'bankCodes',
             title: 'Codigos Bancarios',
             type: 'item',            
-            url: '/bankCodes-list'
+            url: '/bank-codes-list'
             
           },
 
@@ -325,14 +325,14 @@ const NavigationItems = [
             id: 'banks',
             title: 'Bancos',
             type: 'item',            
-            url: '/banks-list'
+            url: '/manage-banks-list'
             
           },
           {
             id: 'bankAccounts',
             title: 'Cuentas Bancarias',
             type: 'item',            
-            url: '/bankAccounts-list'
+            url: '/bank-accounts-list'
             
           }
                                 
@@ -464,6 +464,30 @@ const NavigationItems = [
             url: '/master_inventarys-list'
             
           }, 
+        ]
+      },
+      {    
+        id: 'RH-main',
+        title: 'Recursos Humanos ',
+        type: 'group',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'rh-catalog',
+            title: 'Catalogos',
+            type: 'collapse',
+            icon: 'feather icon-monitor',
+            children: [
+              {
+                id: 'departments',
+                title: 'Departamentos',
+                type: 'item',            
+                url: '/departments-list'
+                
+              }                    
+            ]
+          },
+    
         ]
       },
       {
@@ -732,8 +756,8 @@ const NavigationItems = [
     ]
   }
 
-
 */
+
 
 
 ];
