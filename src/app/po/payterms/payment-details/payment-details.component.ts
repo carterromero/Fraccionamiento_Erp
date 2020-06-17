@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Supplier } from 'src/app/supplier';
+import { Payment } from 'src/app/payment';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SupplierService } from 'src/app/supplier.service';
+import { PaytmentService } from 'src/app/paytment.service';
 
 @Component({
-  selector: 'app-supplier-details',
-  templateUrl: './supplier-details.component.html',
-  styleUrls: ['./supplier-details.component.scss']
+  selector: 'app-payment-details',
+  templateUrl: './payment-details.component.html',
+  styleUrls: ['./payment-details.component.scss']
 })
-export class SupplierDetailsComponent implements OnInit {
+export class PaymentDetailsComponent implements OnInit {
+
   id: number;
-  employee: Supplier;
+  employee: Payment;
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: SupplierService) { }
+    private employeeService: PaytmentService) { }
 
   ngOnInit() {
-    this.employee = new Supplier();    
-    this.id = this.route.firstChild.snapshot.params['p_id']
+    this.employee = new Payment();    
+    this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
     
     
@@ -34,6 +35,5 @@ export class SupplierDetailsComponent implements OnInit {
 
   }
  
-  
 
 }

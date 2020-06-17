@@ -49,6 +49,11 @@ import { CondominumsListComponent } from './admin/condominus/condominums-list/co
 import { CreateCondominumsComponent } from './admin/condominus/create-condominums/create-condominums.component';
 import { CondominumsDetailsComponent } from './admin/condominus/condominums-details/condominums-details.component';
 import { UpdateCondominumsComponent } from './admin/condominus/update-condominums/update-condominums.component';
+import { PaytmentListComponent } from './po/payterms/paytment-list/paytment-list.component';
+import { CreatePaytmentComponent } from './po/payterms/create-paytment/create-paytment.component';
+import { PaymentDetailsComponent } from './po/payterms/payment-details/payment-details.component';
+import { UpdatePaymentComponent } from './po/payterms/update-payment/update-payment.component';
+
 
 
 
@@ -476,8 +481,8 @@ const routes: Routes = [
 
 
    
-  }
-  ,
+      }
+      ,
       {
         path: '',
         component: SupplierDetailsComponent,
@@ -498,8 +503,58 @@ const routes: Routes = [
           }
         ]
       }
- 
+      ,{
+        path: '',
+      component: PaytmentListComponent,
+       children: [   
+         {
+            path: 'payment_terms-list',
+           loadChildren: () => import('./po/payterms/paytment-list/paytment-list.module').then(module => module.PaymentListModule)
+          }
+        ]
+  
+      },
+      {
+        path: '',
+      component: CreatePaytmentComponent,
+       children: [   
+         {
+            path: 'payment-create',
+           loadChildren: () => import('./po/payterms/create-paytment/paytment-create.module').then(module => module.PaytmentCreateModule)
+          }
+        ]
 
+          },
+          {
+            path: '',
+            component: PaymentDetailsComponent,
+            children: [          
+              {
+                path: 'payment-details/:id',
+                loadChildren: () => import('./po/payterms/payment-details/payment-details.module').then(module => module.PaymentDetailsModule)
+              }
+            ]
+          }
+          ,
+          {
+            path: '',
+            component: UpdatePaymentComponent,
+            children: [  
+              {
+                path: 'update-payment/:id',
+                loadChildren: () => import('./po/payterms/update-payment/payment-update.module').then(module => module.PaymentUpdateModule)
+              }
+            ]
+          }
+      
+
+    
+    
+    
+    
+    
+    
+    
     ]
   },
 
