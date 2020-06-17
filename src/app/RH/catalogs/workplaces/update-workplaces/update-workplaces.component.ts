@@ -12,6 +12,10 @@ export class UpdateWorkplacesComponent implements OnInit {
 
   id: number;
   employee: Workplaces;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: WorkplacesService) { }
@@ -29,11 +33,15 @@ export class UpdateWorkplacesComponent implements OnInit {
         this.employee.workplaces_status = (String(this.employee.workplaces_status) == "false") ? null:"false";
         console.log(this.employee.workplaces_status);
       }, error => {
-        console.log(error);
+        console.log(error);let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
         
       });
-      
   }
+
 
   updateEmployee() {
 
@@ -48,9 +56,16 @@ export class UpdateWorkplacesComponent implements OnInit {
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {console.log(data);
         this.gotoList();  
+        this.alertDisables = false;
+        this.alertMessages ="Se actualizo la empresa correctamente";
       }, 
       error => {
         console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
         
       });
     
