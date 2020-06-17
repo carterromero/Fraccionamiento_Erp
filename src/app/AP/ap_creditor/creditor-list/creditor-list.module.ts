@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CreditorListRoutingModule } from './creditor-list-routing.module';
 import { CreditorListComponent } from './creditor-list.component';
-import {SharedModule} from '../../theme/shared/shared.module';
+import {SharedModule} from '../../../theme/shared/shared.module';
 
 @NgModule({
   declarations: [CreditorListComponent],

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { UpdateCreditorRoutingModule } from './update-creditor-routing.module';
 import { UpdateCreditorComponent } from './update-creditor.component';
-import {SharedModule} from '../../theme/shared/shared.module';
+import {SharedModule} from '../../../theme/shared/shared.module';
 
 @NgModule({
   declarations: [UpdateCreditorComponent],
