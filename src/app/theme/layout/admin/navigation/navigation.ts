@@ -297,7 +297,7 @@ const NavigationItems = [
 
           {
             id: 'crear_cuenta',
-            title: 'Crear una cuenta ',
+            title: 'Crear una factura ',
             type: 'item',            
             url: '/billtopay-list'
             

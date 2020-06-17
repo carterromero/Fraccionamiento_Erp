@@ -90,6 +90,7 @@ import { CreateDepartmentsComponent } from './RH/catalogs/departments/create-dep
 import { DepartmentsListComponent } from './RH/catalogs/departments/departments-list/departments-list.component';
 import { UpdateDepartmentsComponent } from './RH/catalogs/departments/update-departments/update-departments.component';
 import { DepartmentsDetailsComponent } from './RH/catalogs/departments/departments-details/departments-details.component';
+import { BilltopayListComponent } from './AP/ap_billtopay/billtopay-list/billtopay-list.component';
 
 
 const routes: Routes = [
@@ -402,6 +403,17 @@ const routes: Routes = [
         {
           path: 'creditor-details/:id',
           loadChildren: () => import('./AP/ap_creditor/creditor-details/creditor-details.module').then(module => module.CreditorDetailsModule)
+        }
+      ]
+    },
+    {
+      path: '',
+
+      component: BilltopayListComponent,
+      children: [
+        {
+          path: 'billtopay-list',
+          loadChildren: () => import('./AP/ap_billtopay/billtopay-list/billtopay-list.module').then(module => module.BilltopayListModule)
         }
       ]
     }
