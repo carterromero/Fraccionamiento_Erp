@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class DepartmentsService {
 
-  //private baseUrl = 'http://127.0.0.1:8000/api/employee';
   private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/';
   private username='idania.gonzalez@dti-consultores.com';
   private password='Paramore7804$$..';

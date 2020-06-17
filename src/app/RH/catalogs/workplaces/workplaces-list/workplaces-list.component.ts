@@ -57,7 +57,6 @@ export class WorkplacesListComponent implements OnInit {
       //    this.router.navigate(['auth/signin']);
         });
   }
-
   employeeDetails(id: number){
     console.log(id);
     this.router.navigate(['workplaces-details', id]);
