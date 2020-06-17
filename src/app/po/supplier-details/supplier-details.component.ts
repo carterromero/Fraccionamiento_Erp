@@ -17,7 +17,7 @@ export class SupplierDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.employee = new Supplier();    
-    this.id = this.route.firstChild.snapshot.params['p_id']
+    this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
     
     

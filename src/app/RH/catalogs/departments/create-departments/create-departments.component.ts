@@ -30,8 +30,8 @@ export class CreateDepartmentsComponent implements OnInit {
       .subscribe(data => console.log(data), 
       error => {
         console.log(error);
-        localStorage.setItem('token', "");
-        this.router.navigate(['auth/signin']);
+       // localStorage.setItem('token', "");
+     //   this.router.navigate(['auth/signin']);
       });
     this.employee = new Departments();
     this.gotoList();

@@ -1,19 +1,19 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { DepartmentsService } from "src/app/departments.service";
-import { Departments } from "src/app/departments";
+import { WorkplacesService } from "src/app/workplaces.service";
+import { Workplaces } from "src/app/workplaces";
 import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-departments-list",
-  templateUrl: "./departments-list.component.html",
-  styleUrls: ["./departments-list.component.scss"]
+  selector: "app-workplaces-list",
+  templateUrl: "./workplaces-list.component.html",
+  styleUrls: ["./workplaces-list.component.scss"]
 })
-export class DepartmentsListComponent implements OnInit {
-  employees: Observable<Departments[]>;
+export class WorkplacesListComponent implements OnInit {
+  employees: Observable<Workplaces[]>;
   elements: any = [];
 
-  constructor(private employeeService: DepartmentsService,
+  constructor(private employeeService: WorkplacesService,
     private router: Router) {}
 
   ngOnInit() {    
@@ -39,8 +39,8 @@ export class DepartmentsListComponent implements OnInit {
       },
       error => {
         console.log(error);
-        localStorage.setItem('token', "");
-        this.router.navigate(['auth/signin']);     
+     localStorage.setItem('token', "");
+      this.router.navigate(['auth/signin']);     
       });
   }
 
@@ -53,18 +53,17 @@ export class DepartmentsListComponent implements OnInit {
         },
         error => {
           console.log(error);
-         // localStorage.setItem('token', "");
-         // this.router.navigate(['auth/signin']);
+       //   localStorage.setItem('token', "");
+      //    this.router.navigate(['auth/signin']);
         });
   }
-
   employeeDetails(id: number){
     console.log(id);
-    this.router.navigate(['departments-details', id]);
+    this.router.navigate(['workplaces-details', id]);
   }
 
   updateEmployee(id: number){
     console.log(id);
-    this.router.navigate(['update-departments', id]);
+    this.router.navigate(['update-workplaces', id]);
   }
 }

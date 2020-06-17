@@ -3,31 +3,31 @@
     <app-card cardTitle="Detalles de Banco" [options]="false">
       <div *ngIf="employee">
         <div>
-          <label><b>Nombre del Banco</b></label> {{employee.mab_bank_name}}
+          <label><b>Nombre del Banco</b></label> {{employee.manage_banks_bank_name}}
         </div>
         <div>
-          <label><b>Codigo del Banco</b></label> {{employee.mab_bank_code}}
+          <label><b>Codigo del Banco</b></label> {{employee.manage_banks_bank_code}}
         </div>
         <div>
-          <label><b>Pais</b></label> {{employee.mab_country}}
+          <label><b>Pais</b></label> {{employee.manage_banks_country}}
         </div>
         <div>
-          <label><b>Nombre Alternativo del Banco</b></label> {{employee.mab_alternative_bank_name}}
+          <label><b>Nombre Alternativo del Banco</b></label> {{employee.manage_banks_alternative_bank_name}}
         </div>
         <div>
-          <label><b>Estatus: </b></label> {{employee.mab_status}}
+          <label><b>Estatus: </b></label> {{employee.manage_banks_status}}
         </div>
  
         <div>
           <label for="name">Estatus</label>
         <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input"  id="mab_status"  name="mab_status"   style="margin-left: 10px" [checked]="employee.mab_status == 'true'">
-          <label class="custom-control-label" for="mab_status">Active</label>
+          <input type="checkbox" class="custom-control-input"  id="manage_banks_status"  name="manage_banks_status"   style="margin-left: 10px" [checked]="employee.manage_banks_status == 'true'">
+          <label class="custom-control-label" for="manage_banks_status">Active</label>
        </div>
       </div>
       </div>
       <br>
-      <button [routerLink]="['/manage-banks-list']" class="btn btn-primary">Regresar a Lista de Codigos Bancarios</button><br>
+      <button [routerLink]="['/manage-banks-list']" class="btn btn-primary">Regresar a Lista de Bancos</button><br>
     </app-card>
     </div>
 </div>
