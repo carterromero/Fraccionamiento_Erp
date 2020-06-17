@@ -367,8 +367,36 @@ const NavigationItems = [
       },
     ]
   },
-
-
+  {    
+    id: 'RH-main',
+    title: 'Recursos Humanos ',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'rh-catalog',
+        title: 'Catalogos',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'departments',
+            title: 'Departamentos',
+            type: 'item',            
+            url: '/departments-list'
+            
+          },
+          {
+            id: 'workplaces',
+            title: 'Puestos',
+            type: 'item',            
+            url: '/workplaces-list'
+            
+          }                              
+        ]
+      }
+    ]
+  },
 {    
     id: 'po-main',
     title: 'Compras',

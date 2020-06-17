@@ -90,7 +90,10 @@ import { CreateDepartmentsComponent } from './RH/catalogs/departments/create-dep
 import { DepartmentsListComponent } from './RH/catalogs/departments/departments-list/departments-list.component';
 import { UpdateDepartmentsComponent } from './RH/catalogs/departments/update-departments/update-departments.component';
 import { DepartmentsDetailsComponent } from './RH/catalogs/departments/departments-details/departments-details.component';
-
+import { CreateWorkplacesComponent } from './RH/catalogs/workplaces/create-workplaces/create-workplaces.component';
+import { WorkplacesListComponent } from './RH/catalogs/workplaces/workplaces-list/workplaces-list.component';
+import { UpdateWorkplacesComponent } from './RH/catalogs/workplaces/update-workplaces/update-workplaces.component';
+import { WorkplacesDetailsComponent } from './RH/catalogs/workplaces/workplaces-details/workplaces-details.component';
 
 const routes: Routes = [
   /* Default page */
@@ -226,7 +229,49 @@ const routes: Routes = [
         children: [
           {
             path: 'departments-details/:id',
-            loadChildren: () => import('./RH/catalogs/departments/departments-details/departments_details.module').then(module => module.DepartmentsDetailsModule)
+            loadChildren: () => import('./RH/catalogs/departments/departments-details/departments-details.module').then(module => module.DepartmentsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateWorkplacesComponent,
+        children: [
+          {
+            path: 'create-workplaces',
+            loadChildren: () => import('./RH/catalogs/workplaces/create-workplaces/create-workplaces.module').then(module => module.CreateWorkplacesModule)
+
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateWorkplacesComponent,
+        children: [
+          {
+            path: 'update-workplaces/:id',
+            loadChildren: () => import('./RH/catalogs/workplaces/update-workplaces/update-workplaces.module').then(module => module.UpdateWorkplacesModule)
+
+          }
+        ]
+      },
+      {
+        path: '',
+        component: WorkplacesListComponent ,
+        children: [
+          {
+            path: 'workplaces-list',
+            loadChildren: () => import('./RH/catalogs/workplaces/workplaces-list/workplaces-list.module').then(module => module.WorkplacesListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: WorkplacesDetailsComponent,
+        children: [
+          {
+            path: 'workplaces-details/:id',
+            loadChildren: () => import('./RH/catalogs/workplaces/workplaces-details/workplaces-details.module').then(module => module.WorkplacesDetailsModule)
           }
         ]
       },
