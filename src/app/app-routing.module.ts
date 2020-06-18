@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { AuthComponent} from './theme/layout/auth/auth.component';
@@ -100,6 +100,7 @@ import { CreateWorkplacesComponent } from './RH/catalogs/workplaces/create-workp
 import { WorkplacesListComponent } from './RH/catalogs/workplaces/workplaces-list/workplaces-list.component';
 import { UpdateWorkplacesComponent } from './RH/catalogs/workplaces/update-workplaces/update-workplaces.component';
 import { WorkplacesDetailsComponent } from './RH/catalogs/workplaces/workplaces-details/workplaces-details.component';
+import { CreateSubcategoriesComponent } from './sub_categories/create-subcategories/create-subcategories.component';
 
 const routes: Routes = [
   /* Default page */
@@ -779,11 +780,17 @@ const routes: Routes = [
        loadChildren: () => import('./treasury/bankCodes/create-bank-codes/bank-codes-create.module').then(module => module.BankCodesCreateModule)
       }
     ]
-
-
-
-  }
-  ,
+  },
+  {
+    path: '',
+  component: CreateSubcategoriesComponent,
+   children: [
+     {
+        path: 'subcategories-create',
+       loadChildren: () => import('./sub_categories/create-subcategories/create-subcategories.module').then(module => module.CreateSubcategoriesModule)
+      }
+    ]
+  },
       {
         path: '',
         component: BankCodesDetailsComponent,
@@ -892,7 +899,12 @@ component: CreateManageBanksComponent,
         {
           path: 'update-bank-codes/:id',
           loadChildren: () => import('./treasury/bankCodes/update-bank-codes/bank-codes-update.module').then(module => module.BankCodesUpdateModule)
-
+        }
+      ]
+    },
+         
+          {
+            path: '',
       component: RolDetailsComponent,
       children: [
         {
@@ -1053,9 +1065,6 @@ component: CreateManageBanksComponent,
       }
     ]
   }
-
-
-
 ];
 
 @NgModule({
