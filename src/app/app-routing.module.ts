@@ -101,6 +101,7 @@ import { WorkplacesListComponent } from './RH/catalogs/workplaces/workplaces-lis
 import { UpdateWorkplacesComponent } from './RH/catalogs/workplaces/update-workplaces/update-workplaces.component';
 import { WorkplacesDetailsComponent } from './RH/catalogs/workplaces/workplaces-details/workplaces-details.component';
 import { CreateSubcategoriesComponent } from './inventarios/sub_categories/create-subcategories/create-subcategories.component';
+import { SubinventarysListComponent } from './inventarios/sub_inventarys/subinventarys-list/subinventarys-list.component';
 
 const routes: Routes = [
   /* Default page */
@@ -1039,7 +1040,18 @@ component: CreateManageBanksComponent,
 
         }
       ]
+    },
+    {
+      path: '',
+      component: SubinventarysListComponent,
+      children: [
+        {
+          path: 'sub_inventarys-list',
+          loadChildren: () => import('./inventarios/sub_inventarys/subinventarys-list/subinventarys-list.module').then(module => module.SubinventarysListModule)
+        }
+      ]
     }
+
 
 
 
