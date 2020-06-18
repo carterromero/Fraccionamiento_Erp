@@ -98,6 +98,9 @@ import { CreateWorkplacesComponent } from './RH/catalogs/workplaces/create-workp
 import { WorkplacesListComponent } from './RH/catalogs/workplaces/workplaces-list/workplaces-list.component';
 import { UpdateWorkplacesComponent } from './RH/catalogs/workplaces/update-workplaces/update-workplaces.component';
 import { WorkplacesDetailsComponent } from './RH/catalogs/workplaces/workplaces-details/workplaces-details.component';
+import { CreateBilltopayComponent } from './AP/ap_billtopay/create-billtopay/create-billtopay.component';
+import { BilltopayDetailsComponent } from './AP/ap_billtopay/billtopay-details/billtopay-details.component';
+import { UpdateBilltopayComponent } from './AP/ap_billtopay/update-billtopay/update-billtopay.component';
 
 const routes: Routes = [
   /* Default page */
@@ -462,6 +465,40 @@ const routes: Routes = [
         {
           path: 'billtopay-list',
           loadChildren: () => import('./AP/ap_billtopay/billtopay-list/billtopay-list.module').then(module => module.BilltopayListModule)
+        }
+      ]
+    },
+    
+    {
+      path: '',
+
+      component: CreateBilltopayComponent,
+      children: [
+        {
+          path: 'create-billtopay',
+          loadChildren: () => import('./AP/ap_billtopay/create-billtopay/create-billtopay.module').then(module => module.CreateBilltopayModule)
+        }
+      ]
+    },
+    {
+      path: '',
+
+      component: BilltopayDetailsComponent,
+      children: [
+        {
+          path: 'billtopay-details/:id',
+          loadChildren: () => import('./AP/ap_billtopay/billtopay-details/billtopay-details.module').then(module => module.BilltopayDetailsModule)
+        }
+      ]
+    },
+    {
+      path: '',
+
+      component: UpdateBilltopayComponent,
+      children: [
+        {
+          path: 'update-billtopay/:id',
+          loadChildren: () => import('./AP/ap_billtopay/update-billtopay/update-billtopay.module').then(module => module.UpdateBilltopayModule)
         }
       ]
     }
