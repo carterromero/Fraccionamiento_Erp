@@ -104,11 +104,6 @@ import { WorkplacesDetailsComponent } from './RH/catalogs/workplaces/workplaces-
 import { CreateBilltopayComponent } from './AP/ap_billtopay/create-billtopay/create-billtopay.component';
 import { BilltopayDetailsComponent } from './AP/ap_billtopay/billtopay-details/billtopay-details.component';
 import { UpdateBilltopayComponent } from './AP/ap_billtopay/update-billtopay/update-billtopay.component';
-import { CreateSubcategoriesComponent } from './inventarios/sub_categories/create-subcategories/create-subcategories.component';
-import { SubinventarysListComponent } from './inventarios/sub_inventarys/subinventarys-list/subinventarys-list.component';
-
-import { CreateSubcategoriesComponent } from './inventarios/sub_categories/create-subcategories/create-subcategories.component';
-import { SubinventarysListComponent } from './inventarios/sub_inventarys/subinventarys-list/subinventarys-list.component';
 
 
 const routes: Routes = [
@@ -824,16 +819,7 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path: '',
-  component: CreateSubcategoriesComponent,
-   children: [
-     {
-        path: 'subcategories-create',
-       loadChildren: () => import('./inventarios/sub_categories/create-subcategories/create-subcategories.module').then(module => module.CreateSubcategoriesModule)
-      }
-    ]
-  },
+  
       {
         path: '',
         component: BankCodesDetailsComponent,
@@ -1080,16 +1066,6 @@ component: CreateManageBanksComponent,
           path: 'update-usuarios/:id',
           loadChildren: () => import('./admin/user/update-user/update-user.module').then(module => module.UpdateUserModule)
 
-        }
-      ]
-    },
-    {
-      path: '',
-      component: SubinventarysListComponent,
-      children: [
-        {
-          path: 'sub_inventarys-list',
-          loadChildren: () => import('./inventarios/sub_inventarys/subinventarys-list/subinventarys-list.module').then(module => module.SubinventarysListModule)
         }
       ]
     }
