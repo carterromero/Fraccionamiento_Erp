@@ -59,6 +59,8 @@ import { ManageBanksListComponent } from './treasury/manageBaks/manage-banks-lis
 import { CreateManageBanksComponent } from './treasury/manageBaks/create-manage-banks/create-manage-banks.component';
 import { ManageBanksDetailsComponent } from './treasury/manageBaks/manage-banks-details/manage-banks-details.component';
 import { UpdateManageBanksComponent} from './treasury/manageBaks/update-manage-banks/update-manage-banks.component';
+import { SubcategoriesDetailsComponent } from './sub_categories/subcategories-details/subcategories-details.component';
+import { UpdateSubcategoriesComponent } from './sub_categories/update-subcategories/update-subcategories.component';
 
 
 
@@ -396,7 +398,7 @@ const routes: Routes = [
           }
         ]
       },
-
+      
       
       {
         path: '',
@@ -613,11 +615,11 @@ const routes: Routes = [
       }  ,
       {
         path: '',
-        component: UpdateBankCodesComponent,
+        component: UpdateSubcategoriesComponent,
         children: [  
           {
-            path: 'update-bank-codes/:id',
-            loadChildren: () => import('./treasury/bankCodes/update-bank-codes/bank-codes-update.module').then(module => module.BankCodesUpdateModule)
+            path: 'update-subcategories/:id',
+            loadChildren: () => import('./sub_categories/update-subcategories/update-subcategories.module').then(module => module.UpdateSubCategoriesModule)
           }
         ]
       }
@@ -671,8 +673,37 @@ component: CreateManageBanksComponent,
           path: 'update-manage-banks/:id',
           loadChildren: () => import('./treasury/manageBaks/update-manage-banks/manage-banks-update.module').then(module => module.ManageBanksUpdateModule)
         }
+     
+     
+     
       ]
     }
+
+
+    ,
+    {
+      path: '',
+      component: SubcategoriesDetailsComponent,
+      children: [  
+        {
+          path:'sub-details/:id',
+          loadChildren: () => import('./sub_categories/subcategories-details/subcategories-details.module').then(module => module.SubCategoriesDetailsModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component:  UpdateBankCodesComponent,
+      children: [  
+        {
+          path: 'update-bank-codes/:id',
+          loadChildren: () => import('./treasury/bankCodes/update-bank-codes/bank-codes-update.module').then(module => module.BankCodesUpdateModule)
+        }
+      ]
+    }
+
+
+
     ]
   },
 

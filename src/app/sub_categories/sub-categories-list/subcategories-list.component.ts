@@ -52,10 +52,11 @@ export class SubCategoriesListComponent implements OnInit {
   }
 
   generalDetails(id: number){
-    this.router.navigate(['condominums-details', id]);
+console.log(id);
+    this.router.navigate(['sub-details', id]);
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-condominums', id]);
+    this.router.navigate(['update-subcategories', id]);
   }
 }
