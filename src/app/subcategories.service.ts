@@ -20,9 +20,9 @@ export class SubCategoriesService {
     return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_INSERT_SUB_CATEGO/1.0/sub_categories`, employee,{headers});
   }
 
-  getEmployee(p_id: number): Observable<any> {
+  getEmployee(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}ic/ic/api/integration/v1/flows/rest/ERP_INV_GET_ONE_SUB_CATEG/1.0/sub_categories/${p_id}`,{headers});
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ONE_SUB_CATEG/1.0/sub_categories/${id}`,{headers});
   }
 
   updateEmployee(id: number, value: any): Observable<Object> {
@@ -38,5 +38,11 @@ export class SubCategoriesService {
   getEmployeeList(): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_SUB_CATEG/1.0/sub_categories`,{headers});
+  
   }
+  getEmployeeListcombo(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_CATEG_COMBO/1.0/categories`,{headers});
+  }
+  
 }

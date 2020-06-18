@@ -3,6 +3,7 @@ import { SubCategoriesService } from 'src/app/subcategories.service';
 import { Router } from '@angular/router';
 import { SubCategories } from 'src/app/subcategories';
 import { Observable } from 'rxjs';
+import { Categories } from 'src/app/categories';
 
 @Component({
   selector: 'app-sub-categories-list',
@@ -12,6 +13,10 @@ import { Observable } from 'rxjs';
 export class SubCategoriesListComponent implements OnInit {
 
   general: Observable<SubCategories[]>;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private generalService: SubCategoriesService,
     private router: Router) { }
@@ -29,9 +34,12 @@ export class SubCategoriesListComponent implements OnInit {
         this.general = this.generalService.getEmployeeList();
       },
       error => {
-        console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']);     
+        console.log(error);   
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
       });
 
       
@@ -43,19 +51,25 @@ export class SubCategoriesListComponent implements OnInit {
         data => {
           console.log(data);
           this.reloadData();
+          this.alertDisables = false;
+          this.alertMessages ="La sub categoria se a eliminado correctamente";
         },
         error => {console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']); 
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = error['statusText'];          
+          }
         }
       );
   }
 
   generalDetails(id: number){
-    this.router.navigate(['condominums-details', id]);
+console.log(id);
+    this.router.navigate(['sub-details', id]);
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-condominums', id]);
+    this.router.navigate(['update-subcategories', id]);
   }
 }
