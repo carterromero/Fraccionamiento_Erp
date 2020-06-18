@@ -285,10 +285,37 @@ const NavigationItems = [
             url: '/creditor-list'
             
           },
+                              
+        ]
+      }, {
+        id: 'ap-catalog',
+        title: 'Operacion',
+        type: 'collapse',
+        icon: 'feather icon-file-text',
+        children: [
+  
 
           {
             id: 'crear_cuenta',
-            title: 'Crear una cuenta ',
+            title: 'Crear una factura ',
+            type: 'item',            
+            url: '/billtopay-list'
+            
+          }
+                              
+        ]
+      },
+      {
+        id: 'ap-catalog',
+        title: 'Reportes',
+        type: 'collapse',
+        icon: 'feather icon-server',
+        children: [
+  
+
+          {
+            id: 'crear_cuenta',
+            title: 'Reporte de cuenta ',
             type: 'item',            
             url: '/cuenta-list'
             
@@ -309,7 +336,7 @@ const NavigationItems = [
     children: [
       {
         id: 'Treasury-catalog',
-        title: 'Catalogos',
+        title: 'Configuración y Mantenimiento',
         type: 'collapse',
         icon: 'feather icon-monitor',
         children: [
@@ -323,7 +350,7 @@ const NavigationItems = [
 
           {
             id: 'banks',
-            title: 'Bancos',
+            title: 'Gestionar Bancos',
             type: 'item',            
             url: '/manage-banks-list'
             
@@ -334,14 +361,88 @@ const NavigationItems = [
             type: 'item',            
             url: '/bank-accounts-list'
             
+          },
+          {
+            id: 'transfers',
+            title: 'Transferencias',
+            type: 'item',            
+            url: '/transfers-list'
+            
+          },
+          {
+            id: 'paymentDocuments',
+            title: 'Documentos de Pago',
+            type: 'item',            
+            url: '/payment-documents-list'
+            
           }
                                 
         ]
       },
+      {
+        id: 'Treasury-operation',
+        title: 'Conciliación y Estados de Cuenta',
+        type: 'collapse',
+        icon: 'feather icon-file-text',
+        children: [
+  
+
+          {
+            id: 'account_statements',
+            title: 'Estado de Cuenta',
+            type: 'item',            
+            url: '/account-statements-list'
+            
+          },
+          {
+            id: 'automaticConciliation',
+            title: 'Conciliación Automática',
+            type: 'item',            
+            url: '/automatic-conciliation-list'
+            
+          },
+          {
+            id: 'manualConciliation',
+            title: 'Conciliación Manual',
+            type: 'item',            
+            url: '/manual-conciliation-list'
+            
+          }
+                              
+        ]
+      },
     ]
   },
-
-
+  {    
+    id: 'RH-main',
+    title: 'Recursos Humanos ',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'rh-catalog',
+        title: 'Catalogos',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'departments',
+            title: 'Departamentos',
+            type: 'item',            
+            url: '/departments-list'
+            
+          },
+          {
+            id: 'workplaces',
+            title: 'Puestos',
+            type: 'item',            
+            url: '/workplaces-list'
+            
+          }                              
+        ]
+      }
+    ]
+  },
 {    
     id: 'po-main',
     title: 'Compras',
@@ -464,30 +565,6 @@ const NavigationItems = [
             url: '/master_inventarys-list'
             
           }, 
-        ]
-      },
-      {    
-        id: 'RH-main',
-        title: 'Recursos Humanos ',
-        type: 'group',
-        icon: 'feather icon-monitor',
-        children: [
-          {
-            id: 'rh-catalog',
-            title: 'Catalogos',
-            type: 'collapse',
-            icon: 'feather icon-monitor',
-            children: [
-              {
-                id: 'departments',
-                title: 'Departamentos',
-                type: 'item',            
-                url: '/departments-list'
-                
-              }                    
-            ]
-          },
-    
         ]
       },
       {

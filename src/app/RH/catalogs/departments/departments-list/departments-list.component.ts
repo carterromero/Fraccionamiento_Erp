@@ -53,8 +53,8 @@ export class DepartmentsListComponent implements OnInit {
         },
         error => {
           console.log(error);
-          localStorage.setItem('token', "");
-          this.router.navigate(['auth/signin']);
+         // localStorage.setItem('token', "");
+         // this.router.navigate(['auth/signin']);
         });
   }
 

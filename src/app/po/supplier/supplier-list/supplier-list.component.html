@@ -38,9 +38,28 @@
                     </td>
 
                   <td>
-                      <button (click)="deleteGeneral(general.supplier_id)"  class="btn btn-outline-danger">Eliminar</button>
+                      <button  (click)="createPeriodsDialog.show()"  class="btn btn-outline-danger">Eliminar</button>
                       <button (click)="updateGeneral(general.supplier_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                      <button (click)="generalDetails(general.supplier_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                      <button (click)="generalDetails(general.supplier_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>  
+                      
+                      
+
+                      <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+                        <div class="app-modal-header">
+                        <h5 class="modal-title">Eliminar Proveedores</h5>
+                        <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+                        </div>
+
+                        <div class="app-modal-body">
+                        <p>Esta seguro de eliminar la empresa?</p>
+                        </div>
+                        <div class="app-modal-footer">
+                        <button type="button" class="btn btn-secondary"  style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+                        <button type="submit" class="btn btn-danger"  (click)="deleteGeneral(general.supplier_id)"   (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Eliminar</button>
+                        </div>
+                    </app-ui-modal>
+
+
                   </td>
               </tr>
           </tbody>
