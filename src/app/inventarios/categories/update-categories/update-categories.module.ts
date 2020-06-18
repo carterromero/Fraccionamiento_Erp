@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { UpdateCategoriesRoutingModule } from './update-categories-routing.module';
 import { UpdateCategoriesComponent } from './update-categories.component';
-import {SharedModule} from '../../theme/shared/shared.module';
+import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 @NgModule({
   declarations: [UpdateCategoriesComponent],
