@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CategoriesListRoutingModule } from './categories-list-routing.module';
 import { CategoriesListComponent } from './categories-list.component';
-import {SharedModule} from '../../theme/shared/shared.module';
+import { SharedModule } from 'src/app/theme/shared/shared.module';
 
 @NgModule({
   declarations: [CategoriesListComponent],

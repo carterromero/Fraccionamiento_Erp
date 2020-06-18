@@ -20,20 +20,20 @@ import { UpdateGeneralComponent } from './general/update-general/update-general.
 
 import { CreditorListComponent } from './AP/ap_creditor/creditor-list/creditor-list.component';
 import { CreateCreditorComponent } from './AP/ap_creditor/create-creditor/create-creditor.component';
-import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
+import { CategoriesListComponent } from './inventarios/categories/categories-list/categories-list.component';
 import { CreateLegalsComponent } from './admin/legals/create-legals/create-legals.component';
 import { LegalsDetailsComponent } from './admin/legals/legals-details/legals-details.component';
 import { UpdateLegalsComponent } from './admin/legals/update-legals/update-legals.component';
 
-import { SubCategoriesListComponent } from './sub_categories/sub-categories-list/subcategories-list.component';
+import { SubCategoriesListComponent } from './inventarios/sub_categories/sub-categories-list/subcategories-list.component';
 
 
-import { CreateCategoriesComponent } from './categories/create-categories/create-categories.component';
+import { CreateCategoriesComponent } from './inventarios/categories/create-categories/create-categories.component';
 
 
-import { UpdateCategoriesComponent } from './categories/update-categories/update-categories.component';
+import { UpdateCategoriesComponent } from './inventarios/categories/update-categories/update-categories.component';
 
-import { CategoriesDetailsComponent } from './categories/categories-details/categories-details.component';
+import { CategoriesDetailsComponent } from './inventarios/categories/categories-details/categories-details.component';
 //gl/Catalogs/periods
 import { PeriodsListComponent } from './gl/catalogs/periods/periods-list/periods-list.component';
 import { CreatePeriodsComponent } from './gl/catalogs/periods/create-periods/create-periods.component';
@@ -68,8 +68,8 @@ import { ManageBanksListComponent } from './treasury/manageBaks/manage-banks-lis
 import { CreateManageBanksComponent } from './treasury/manageBaks/create-manage-banks/create-manage-banks.component';
 import { ManageBanksDetailsComponent } from './treasury/manageBaks/manage-banks-details/manage-banks-details.component';
 import { UpdateManageBanksComponent} from './treasury/manageBaks/update-manage-banks/update-manage-banks.component';
-import { SubcategoriesDetailsComponent } from './sub_categories/subcategories-details/subcategories-details.component';
-import { UpdateSubcategoriesComponent } from './sub_categories/update-subcategories/update-subcategories.component';
+import { SubcategoriesDetailsComponent } from './inventarios/sub_categories/subcategories-details/subcategories-details.component';
+import { UpdateSubcategoriesComponent } from './inventarios/sub_categories/update-subcategories/update-subcategories.component';
 
 import { CreateRolComponent } from './admin/rol/create-rol/create-rol.component';
 import { RolDetailsComponent } from './admin/rol/rol-details/rol-details.component';
@@ -100,7 +100,8 @@ import { CreateWorkplacesComponent } from './RH/catalogs/workplaces/create-workp
 import { WorkplacesListComponent } from './RH/catalogs/workplaces/workplaces-list/workplaces-list.component';
 import { UpdateWorkplacesComponent } from './RH/catalogs/workplaces/update-workplaces/update-workplaces.component';
 import { WorkplacesDetailsComponent } from './RH/catalogs/workplaces/workplaces-details/workplaces-details.component';
-import { CreateSubcategoriesComponent } from './sub_categories/create-subcategories/create-subcategories.component';
+import { CreateSubcategoriesComponent } from './inventarios/sub_categories/create-subcategories/create-subcategories.component';
+import { SubinventarysListComponent } from './inventarios/sub_inventarys/subinventarys-list/subinventarys-list.component';
 
 const routes: Routes = [
   /* Default page */
@@ -476,7 +477,7 @@ const routes: Routes = [
         children: [
           {
             path: 'categories-list',
-            loadChildren: () => import('./categories/categories-list/categories-list.module').then(module => module.CategoriesListModule)
+            loadChildren: () => import('./inventarios/categories/categories-list/categories-list.module').then(module => module.CategoriesListModule)
           }
         ]
       },
@@ -486,7 +487,7 @@ const routes: Routes = [
         children: [
           {
             path: 'update-categories/:id',
-            loadChildren: () => import('./categories/update-categories/update-categories.module').then(module => module.UpdateCategoriesModule)
+            loadChildren: () => import('./inventarios/categories/update-categories/update-categories.module').then(module => module.UpdateCategoriesModule)
           }
         ]
       },
@@ -508,7 +509,7 @@ const routes: Routes = [
         children: [
           {
             path: 'create-categories',
-            loadChildren: () => import('./categories/create-categories/create-categories.module').then(module => module.CreateCategoriesModule)
+            loadChildren: () => import('./inventarios/categories/create-categories/create-categories.module').then(module => module.CreateCategoriesModule)
 
           }
         ]
@@ -520,7 +521,7 @@ const routes: Routes = [
         children: [
           {
             path: 'sub_categories-list',
-            loadChildren: () => import('./sub_categories/sub-categories-list/subcategories-list.module').then(module => module.SubCategoriesListModule)
+            loadChildren: () => import('./inventarios/sub_categories/sub-categories-list/subcategories-list.module').then(module => module.SubCategoriesListModule)
           }
         ]
       },
@@ -530,7 +531,7 @@ const routes: Routes = [
         children: [
           {
             path: 'categories-details/:id',
-            loadChildren: () => import('./categories/categories-details/categories_details.module').then(module => module.CategoriesDetailsModule)
+            loadChildren: () => import('./inventarios/categories/categories-details/categories_details.module').then(module => module.CategoriesDetailsModule)
           }
         ]
       },
@@ -787,7 +788,7 @@ const routes: Routes = [
    children: [
      {
         path: 'subcategories-create',
-       loadChildren: () => import('./sub_categories/create-subcategories/create-subcategories.module').then(module => module.CreateSubcategoriesModule)
+       loadChildren: () => import('./inventarios/sub_categories/create-subcategories/create-subcategories.module').then(module => module.CreateSubcategoriesModule)
       }
     ]
   },
@@ -807,7 +808,7 @@ const routes: Routes = [
         children: [
           {
             path: 'update-subcategories/:id',
-            loadChildren: () => import('./sub_categories/update-subcategories/update-subcategories.module').then(module => module.UpdateSubCategoriesModule)
+            loadChildren: () => import('./inventarios/sub_categories/update-subcategories/update-subcategories.module').then(module => module.UpdateSubCategoriesModule)
           }
         ]
       }
@@ -888,7 +889,7 @@ component: CreateManageBanksComponent,
       children: [
         {
           path:'sub-details/:id',
-          loadChildren: () => import('./sub_categories/subcategories-details/subcategories-details.module').then(module => module.SubCategoriesDetailsModule)
+          loadChildren: () => import('./inventarios/sub_categories/subcategories-details/subcategories-details.module').then(module => module.SubCategoriesDetailsModule)
         }
       ]
     },
@@ -1039,7 +1040,18 @@ component: CreateManageBanksComponent,
 
         }
       ]
+    },
+    {
+      path: '',
+      component: SubinventarysListComponent,
+      children: [
+        {
+          path: 'sub_inventarys-list',
+          loadChildren: () => import('./inventarios/sub_inventarys/subinventarys-list/subinventarys-list.module').then(module => module.SubinventarysListModule)
+        }
+      ]
     }
+
 
 
 
