@@ -81,6 +81,9 @@ import { CreateDepartmentsComponent } from './RH/catalogs/departments/create-dep
 import { DepartmentsListComponent } from './RH/catalogs/departments/departments-list/departments-list.component';
 import { UpdateDepartmentsComponent } from './RH/catalogs/departments/update-departments/update-departments.component';
 import { DepartmentsDetailsComponent } from './RH/catalogs/departments/departments-details/departments-details.component';
+import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
+import { TransactionDetailsComponent } from './admin/transaction/transaction-details/transaction-details.component';
+import { UpdateTransactionComponent } from './admin/transaction/update-transaction/update-transaction.component';
 
 const routes: Routes = [
   /* Default page */
@@ -885,6 +888,42 @@ component: CreateManageBanksComponent,
         {
           path: 'update-usuarios/:id',
           loadChildren: () => import('./admin/user/update-user/update-user.module').then(module => module.UpdateUserModule)
+        }
+      ]
+    }
+
+    ,
+    {
+      path: '',
+      component: TransactionListComponent,
+      children: [  
+        {
+          path: 'transaction-list/:id',
+          loadChildren: () => import('./admin/transaction/transaction-list/transaction-list.module').then(module => module.TransactionListModule)
+        }
+      ]
+    }
+
+    ,
+    {
+      path: '',
+      component: TransactionDetailsComponent,
+      children: [  
+        {
+          path: 'transaction-details/:id',
+          loadChildren: () => import('./admin/transaction/transaction-details/transaction-details.module').then(module => module.TransactionDetailsModule)
+        }
+      ]
+    }
+
+    ,
+    {
+      path: '',
+      component: UpdateTransactionComponent,
+      children: [  
+        {
+          path: 'update-transaction/:id',
+          loadChildren: () => import('./admin/transaction/update-transaction/update-transaction.module').then(module => module.TransactionListModule)
         }
       ]
     }

@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Condominums } from 'src/app/services/admin/condominums';
-import { ActivatedRoute, Router } from '@angular/router';
-import { CondominumsService } from 'src/app/services/admin/condominums.service';
-import { LegalsService } from 'src/app/services/admin/legals.service';
+import { Transaction } from 'src/app/services/admin/transaction';
 import { Observable } from 'rxjs';
-import { Legals } from 'src/app/services/admin/legals';
+import { Module } from 'src/app/services/admin/module';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TransactionService } from 'src/app/services/admin/transaction.service';
+import { ModuleService } from 'src/app/services/admin/module.service';
 
 @Component({
-  selector: 'app-update-condominums',
-  templateUrl: './update-condominums.component.html',
-  styleUrls: ['./update-condominums.component.scss']
+  selector: 'app-update-transaction',
+  templateUrl: './update-transaction.component.html',
+  styleUrls: ['./update-transaction.component.scss']
 })
-export class UpdateCondominumsComponent implements OnInit {
+export class UpdateTransactionComponent implements OnInit {
 
   id: number;
-  employee: Condominums;
-  addresses: Observable<Legals[]>;
+  employee: Transaction;
+  addresses: Observable<Module[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -23,14 +23,14 @@ export class UpdateCondominumsComponent implements OnInit {
   
   
   constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: CondominumsService ,
-    private addressService: LegalsService
+    private employeeService: TransactionService ,
+    private addressService: ModuleService
     
     ) { }
 
   ngOnInit() {
 
-    this.employee = new Condominums();
+    this.employee = new Transaction();
     this.id = this.route.firstChild.snapshot.params['id']
     
     this.employeeService.getEmployee(this.id)
@@ -38,8 +38,11 @@ export class UpdateCondominumsComponent implements OnInit {
         {
         console.log(data);
         this.employee = data;
-        this.employee.condominums_status = (String(this.employee.condominums_status) == "false") ? null:"true";
-        console.log(this.employee.condominums_status);
+        this.employee.transaction_consult = (String(this.employee.transaction_consult) == "false") ? null:"true";
+        this.employee.transaction_insert = (String(this.employee.transaction_insert) == "false") ? null:"true";
+        this.employee.transaction_update = (String(this.employee.transaction_update) == "false") ? null:"true";
+        this.employee.transaction_delete = (String(this.employee.transaction_delete) == "false") ? null:"true";
+    
         },
        error => {
         console.log(error);
@@ -58,14 +61,14 @@ export class UpdateCondominumsComponent implements OnInit {
   updateEmployee() 
   {
 
-    this.employee.user_id="3";
+    this.employee.userid="3";
     console.log(this.employee)
     
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {
         console.log(data);
         this.alertDisables = false;
-        this.alertMessages ="Se actualizo la empresa correctamente";  
+        this.alertMessages ="Se actualizo las transacciones del modulo correctamente";  
       }, 
       error => 
       {
@@ -81,10 +84,10 @@ export class UpdateCondominumsComponent implements OnInit {
   reloadDatas() 
   {
 
-    this.addressService.getEmployeeListcombo().subscribe(
+    this.addressService.getEmployeeList().subscribe(
       data => {
         console.log(data);
-        this.addresses = this.addressService.getEmployeeListcombo();
+        this.addresses = this.addressService.getEmployeeList();
       },
       error => {
         console.log(error);
@@ -101,23 +104,13 @@ export class UpdateCondominumsComponent implements OnInit {
     this.alertDisable = true;
     this.alertDisables = true;
   
-    if(this.employee.condominums_description =="" ||  this.employee.condominums_description ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Nombre Incompleto";          
-    }
-  
-    else if(this.employee.legals_id =="" ||  this.employee.legals_id ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Dirección Incompleta";          
-    }
-  
-    else{
+    
       this.updateEmployee();    
-    }
+    
   }
 
-  gotoList() {
-    this.router.navigate(['condominus-list']);
+  gotoList(id:string) {
+    this.router.navigate(['transaction-list',id]);
   }
 
 }

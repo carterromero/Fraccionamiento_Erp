@@ -39,6 +39,10 @@ export class CondominumsService {
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_ADMIN_GET_ALL_COND/1.0/condominiums`,{headers});
   }
 
+  getEmployeeListcombo(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_ADMIN_GET_ALL_COND_COMBO/1.0/condominiums`,{headers});
+  }
   
 
 }

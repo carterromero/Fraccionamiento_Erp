@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Transacciones" blockClass="table-border-style">      
+        <button [routerLink]="['/permissions-list']"   class="btn btn-outline-primary" >Regresar</button>
+        <br><br>
+        <div class="table-responsive">
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+          <table class="table">
+            <thead>
+            <tr>              
+              <th>Modulo</th>
+              <th>Consultar</th>
+              <th>Insertar</th>
+              <th>Actualizar</th>
+              <th>Eliminar</th>
+              <th>#</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                    <td>{{general.module_description}}</td>
+                    
+                    <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.transaction_consult == 'true'">
+                          <label class="custom-control-label" for="transaction_consult">Active</label>
+                       </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.transaction_insert == 'true'">
+                          <label class="custom-control-label" for="transaction_insert">Active</label>
+                       </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.transaction_update == 'true'">
+                          <label class="custom-control-label" for="transaction_update">Active</label>
+                       </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.transaction_delete == 'true'">
+                          <label class="custom-control-label" for="transaction_delete">Active</label>
+                       </div>
+                      </td>
+
+                    <td>
+                        
+                        <button (click)="updateGeneral(general.transaction_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        <button (click)="generalDetails(general.transaction_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                    </td>          
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

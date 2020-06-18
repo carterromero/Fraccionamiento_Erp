@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Transaccion Detalle" [options]="false">
+        <div *ngIf="employee">
+
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Modulo</label>
+            <select  disabled class="custom-select"  id="module_id" required [(ngModel)]="employee.module_id" name="module_id" >
+            <option *ngFor="let address of addresses | async" value="{{address.module_id}}">{{address.module_description}}</option>
+            </select>
+        </div> 
+          
+          <div>
+            <label><b>Consultar:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="transaction_consult"  name="transaction_consult"   style="margin-left: 10px" [checked]="employee.transaction_consult == 'true'">
+            <label class="custom-control-label" for="transaction_consult">Active</label>
+         </div>
+        </div>
+
+        <div>
+          <label><b>Insertar:  </b></label>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input"  id="transaction_insert"  name="transaction_insert"   style="margin-left: 10px" [checked]="employee.transaction_insert == 'true'">
+          <label class="custom-control-label" for="transaction_insert">Active</label>
+       </div>
+      </div>
+
+      <div>
+        <label><b>Actualizar:  </b></label>
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input"  id="transaction_update"  name="transaction_update"   style="margin-left: 10px" [checked]="employee.transaction_update == 'true'">
+        <label class="custom-control-label" for="transaction_update">Active</label>
+     </div>
+    </div>
+
+    <div>
+      <label><b>Eliminar:  </b></label>
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input"  id="transaction_delete"  name="transaction_delete"   style="margin-left: 10px" [checked]="employee.transaction_delete == 'true'">
+      <label class="custom-control-label" for="transaction_delete">Active</label>
+   </div>
+  </div>
+
+
+
+        </div>
+        <br>
+        <button (click)="generalDetails(employee.permissions_id)" class="btn btn-outline-info" style="margin-left: 10px">Regresar</button>    
+        <br>
+
+
+      </app-card>
+      </div>
+  </div>

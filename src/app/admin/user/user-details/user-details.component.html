@@ -1,1 +1,46 @@
-<p>user-details works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Usuario Detalle" [options]="false">
+        <div *ngIf="employee">
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          
+
+          <div class="form-group">
+            <label for="name">User Name:</label>
+            {{employee.user_name}}
+          </div> 
+          
+
+          <div class="form-group">
+            <label for="name">Email:</label>
+            {{employee.user_email}}
+          </div> 
+
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Fraccionamiento</label>
+            <select  disabled class="custom-select"  id="condominums_id" required [(ngModel)]="employee.condominums_id" name="condominums_id" >
+            <option *ngFor="let address of condominus | async" value="{{address.condominums_id}}">{{address.condominums_description}}</option>
+            </select>
+        </div>    
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Rol</label>
+            <select  disabled class="custom-select"  id="rol_id" required [(ngModel)]="employee.rol_id" name="rol_id" >
+            <option *ngFor="let address of addresses | async" value="{{address.rol_id}}">{{address.rol_description}}</option>
+            </select>
+        </div>    
+
+          <div class="form-group">
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="user_status"       name="user_status"   style="margin-left: 10px" [checked]="employee.user_status == 'true'">
+            <label class="custom-control-label" for="user_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/usuarios-list']" class="btn btn-outline-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>
