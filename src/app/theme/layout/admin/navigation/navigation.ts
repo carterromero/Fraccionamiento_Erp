@@ -28,7 +28,7 @@ export interface Navigation extends NavigationItem {
 const NavigationItems = [
   {
     id: 'navigation',
-    title: 'Navigation',
+    title: 'Principal',
     type: 'group',
     icon: 'feather icon-monitor',
     children: [
@@ -194,7 +194,7 @@ const NavigationItems = [
             id: 'permisos',
             title: 'Permisos',
             type: 'item',            
-            url: '/permisos-list'
+            url: '/permissions-list'
             
           },
 
@@ -285,10 +285,37 @@ const NavigationItems = [
             url: '/creditor-list'
             
           },
+                              
+        ]
+      }, {
+        id: 'ap-catalog',
+        title: 'Operacion',
+        type: 'collapse',
+        icon: 'feather icon-file-text',
+        children: [
+  
 
           {
             id: 'crear_cuenta',
-            title: 'Crear una cuenta ',
+            title: 'Crear una factura ',
+            type: 'item',            
+            url: '/billtopay-list'
+            
+          }
+                              
+        ]
+      },
+      {
+        id: 'ap-catalog',
+        title: 'Reportes',
+        type: 'collapse',
+        icon: 'feather icon-server',
+        children: [
+  
+
+          {
+            id: 'crear_cuenta',
+            title: 'Reporte de cuenta ',
             type: 'item',            
             url: '/cuenta-list'
             
@@ -340,8 +367,36 @@ const NavigationItems = [
       },
     ]
   },
-
-
+  {    
+    id: 'RH-main',
+    title: 'Recursos Humanos ',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'rh-catalog',
+        title: 'Catalogos',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'departments',
+            title: 'Departamentos',
+            type: 'item',            
+            url: '/departments-list'
+            
+          },
+          {
+            id: 'workplaces',
+            title: 'Puestos',
+            type: 'item',            
+            url: '/workplaces-list'
+            
+          }                              
+        ]
+      }
+    ]
+  },
 {    
     id: 'po-main',
     title: 'Compras',
@@ -522,7 +577,7 @@ const NavigationItems = [
 
 
 
-  
+  /*
  
   ,
 
@@ -732,7 +787,7 @@ const NavigationItems = [
     ]
   }
 
-
+*/
 
 
 

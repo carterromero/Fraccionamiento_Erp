@@ -47,15 +47,18 @@ export class AdminComponent implements OnInit {
     }   
 //#region 
     //validar token para restringir acceso a la master page
+
+    /*
     if((localStorage.getItem('token')==""))
     {
       this.router.navigate(['auth/signin']); 
     }
     else
     {
-      this.router.navigate(['dashboard/default']);   
+      */
+      //this.router.navigate(['dashboard/default']);   
 
-    }
+//    }
 //#endregion
   }
 
