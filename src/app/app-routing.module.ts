@@ -84,7 +84,10 @@ import { UserDetailsComponent } from './admin/user/user-details/user-details.com
 import { UserListComponent } from './admin/user/user-list/user-list.component';
 import { UpdateUserComponent } from './admin/user/update-user/update-user.component';
 
-
+import { CreateBankAccountsComponent } from './treasury/bankAccounts/create-bank-accounts/create-bank-accounts.component';
+import { BankAccountsDetailsComponent } from './treasury/bankAccounts/bank-accounts-details/bank-accounts-details.component';
+import { UpdateBankAccountsComponent } from './treasury/bankAccounts/update-bank-accounts/update-bank-accounts.component';
+import { BankAccountsListComponent } from './treasury/bankAccounts/bank-accounts-list/bank-accounts-list.component';
 
 
 //RH
@@ -1168,7 +1171,62 @@ component: CreateManageBanksComponent,
           loadChildren: () => import('./admin/transaction/update-transaction/update-transaction.module').then(module => module.TransactionListModule)
         }
       ]
+    },
+    {
+      path: '',
+      component: BankAccountsDetailsComponent,
+      children: [
+        {
+          path: 'bank-accounts-details/:id',
+          loadChildren: () => import('./treasury/bankAccounts/bank-accounts-details/bank-accounts-details.module').then(module => module.BankAccountsDetailsModule)
+        }
+      ]
+    }  ,
+    {
+      path: '',
+      component: UpdateBankAccountsComponent,
+      children: [
+        {
+          path: 'update-bank-accounts/:id',
+          loadChildren: () => import('./treasury/bankAccounts/update-bank-accounts/bank-accounts-update.module').then(module => module.BankAccountsUpdateModule)
+        }
+
+
+
+      ]
     }
+
+    ,
+
+    {
+      path: '',
+    component: BankAccountsListComponent,
+     children: [
+       {
+          path: 'bank-accounts-list',
+         loadChildren: () => import('./treasury/bankAccounts/bank-accounts-list/bank-accounts-list.module').then(module => module.BankAccountsListModule)
+        }
+      ]
+    
+    
+    
+    }
+    ,
+    
+    {
+      path: '',
+    component: CreateBankAccountsComponent,
+     children: [
+       {
+          path: 'bank-accounts-create',
+         loadChildren: () => import('./treasury/bankAccounts/create-bank-accounts/bank-accounts-create.module').then(module => module.BankAccountsCreateModule)
+        }
+      ]
+    
+    
+    
+    }
+    
 
 
 
