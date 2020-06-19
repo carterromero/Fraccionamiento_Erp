@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
   templateUrl: './permissions-list.component.html',
   styleUrls: ['./permissions-list.component.scss']
 })
-export class PermissionsListComponent implements OnInit {
+
+export class PermissionsListComponent implements OnInit 
+{
 
   general: Observable<Permissions[]>;
   alertDisable = true;
@@ -25,7 +27,8 @@ export class PermissionsListComponent implements OnInit {
       this.reloadData();
   }
   
-  reloadData() {
+  reloadData() 
+  {
     
     this.generalService.getEmployeeList().subscribe(
       data => {
@@ -62,12 +65,19 @@ export class PermissionsListComponent implements OnInit {
       );
   }
 
-  generalDetails(id: number){
+  generalDetails(id: number)
+  {
     this.router.navigate(['permissions-details', id]);
   }
 
-  updateGeneral(id: number){
+  updateGeneral(id: number)
+  {
     this.router.navigate(['update-permissions', id]);
+  }
+
+  transacciones(id: number)
+  {
+    this.router.navigate(['transaction-list', id]);
   }
 
 }

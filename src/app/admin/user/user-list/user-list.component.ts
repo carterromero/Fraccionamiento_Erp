@@ -31,6 +31,7 @@ export class UserListComponent implements OnInit {
     this.generalService.getEmployeeList().subscribe(
       data => {
         this.general = this.generalService.getEmployeeList();
+        console.log(data);
       },
       error => {
         console.log(error);
@@ -64,11 +65,11 @@ export class UserListComponent implements OnInit {
   }
 
   generalDetails(id: number){
-    this.router.navigate(['permissions-details', id]);
+    this.router.navigate(['usuarios-details', id]);
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-permissions', id]);
+    this.router.navigate(['update-usuarios', id]);
   }
 
 

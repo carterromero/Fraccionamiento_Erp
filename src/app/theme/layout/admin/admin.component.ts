@@ -45,6 +45,7 @@ export class AdminComponent implements OnInit {
         (document.querySelector('#nav-ps-flat-able') as HTMLElement).style.maxHeight = '100%'; // 100% amit
       }, 500);      
     }   
+
 //#region 
     //validar token para restringir acceso a la master page
 
@@ -59,7 +60,9 @@ export class AdminComponent implements OnInit {
       //this.router.navigate(['dashboard/default']);   
 
 //    }
+
 //#endregion
+
   }
 
   navMobClick() {

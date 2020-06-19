@@ -16,11 +16,6 @@ export class Permissions
     created_date : string;
     last_updated_by : string;
     last_updated_date : string;
-    permissions_consult : string;
-    permissions_create : string;
-    permissions_update : string;
-    permissions_delete : string;
-    permissions_dashboard : string;
     rol_description : string;
     userid:string;
     rol_id : string;
