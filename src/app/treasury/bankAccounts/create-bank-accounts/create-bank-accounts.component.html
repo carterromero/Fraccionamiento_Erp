@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+  <div class="col-sm-12">
+    <div class="col-md-6">
+      <app-card cardTitle="Crear Cuenta Bancaria" [options]="false">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Nombre de Cuenta Bancaria</label>
+            <input type="text" class="form-control" id="bank_accounts_bank_account_name"  [(ngModel)]="employee.bank_accounts_bank_account_name" name="bank_accounts_bank_account_name" required> 
+          </div>      
+          <div class="form-group">
+            <label for="name">Numero de Cuenta Bancaria</label>
+            <input type="text" class="form-control" id="bank_accounts_bank_account_number"  [(ngModel)]="employee.bank_accounts_bank_account_number" name="bank_accounts_bank_account_number" required>
+          </div>  
+          <div class="form-group">
+            <label for="name">Moneda</label>
+            <input type="text" class="form-control" id="bank_accounts_currency"  [(ngModel)]="employee.bank_accounts_currency" name="bank_accounts_currency" required>
+          </div>
+          <div class="form-group">
+            <label for="name">Cuenta Bancaria</label>
+            <input type="text" class="form-control" id="bank_accounts_bank"  [(ngModel)]="employee.bank_accounts_bank" name="bank_accounts_bank" required> 
+          </div>      
+          <div class="form-group">
+            <label for="name">Uso</label>
+            <input type="text" class="form-control" id="bank_accounts_use_account"  [(ngModel)]="employee.bank_accounts_use_account" name="bank_accounts_use_account" required>
+          </div>  
+          <div class="form-group">
+            <label for="name">Combinacion de Cuenta Contable</label>
+            <input type="text" class="form-control" id="bank_accounts_accounting_combination_cash"  [(ngModel)]="employee.bank_accounts_accounting_combination_cash" name="bank_accounts_accounting_combination_cash" required>
+          </div>
+          <div class="form-group">
+            <label for="name">Compensacion</label>
+            <input type="text" class="form-control" id="bank_accounts_compensation_combination"  [(ngModel)]="employee.bank_accounts_compensation_combination" name="bank_accounts_compensation_combination" required>
+          </div>  
+          <div class="form-group">
+            <label for="name">Documento de Pago</label>
+            <input type="text" class="form-control" id="bank_accounts_payment_documents"  [(ngModel)]="employee.bank_accounts_payment_documents" name="bank_accounts_payment_documents" required>
+          </div>
+          <div class="form-group">
+              <label for="name">Estatus</label>
+              <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input"  id="bank_accounts_status"  [(ngModel)]="employee.bank_accounts_status"     name="bank_accounts_status"   style="margin-left: 10px">
+                  <label class="custom-control-label" for="bank_accounts_status">Active</label>
+               </div>
+          </div>
+          <button type="submit" class="btn btn-success">Guardar</button>          
+          <button [routerLink]="['/bank-accounts-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+        </form>
+      </app-card>
+    </div>
+  </div>

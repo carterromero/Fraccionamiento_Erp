@@ -65,11 +65,11 @@ export class SubinventarysListComponent implements OnInit {
 
   generalDetails(id: number){
 console.log(id);
-    this.router.navigate(['sub-details', id]);
+    this.router.navigate(['sub_inventarys-details', id]);
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-subcategories', id]);
+    this.router.navigate(['update-subinventarys', id]);
   }
 
 }

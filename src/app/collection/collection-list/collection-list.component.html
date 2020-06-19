@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-xl-12">
+        <app-card cardTitle="cliente" blockClass="table-border-style">
+            <button [routerLink]="['/create-collection']" class="btn btn-primary">Agregar cliente</button><br>
+            <br>
+            <div class="table-responsive">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>collection_id</th>
+                            <th>collection_transaction_type</th>
+                            <th>collection_name_resident</th>
+                            <th>collection_payment_term</th>
+                            <th>collection_collection_concept</th>
+                            <th>collection_amount</th>
+                            <th>collection_referral_address</th>
+                            <th>collection_status</th>
+                            <th>condominums_id</th>
+                            <th>created_by</th>
+                            <th>create_date</th>
+                            <th>last_updated_by</th>
+                            <th>last_updated_date</th>
+                            <th>customer_customer_id</th>
+                            <th>payment_terms_id</th>
+                            <th>referral_address_id</th>
+                            <th>transaction_types_id</th>
+                            <th>payments_id</th>
+                            <th>purcharse_id</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let general of general | async">
+                            <td>{{general.collection_id}}</td>
+                            <td>{{general.collection_transaction_type}}</td>
+                            <td>{{general.collection_name_resident}}</td>
+                            <td>{{general.collection_payment_term}}</td>
+                            <td>{{general.collection_collection_concept}}</td>
+                            <td>{{general.collection_amount}}</td>
+                            <td>{{general.collection_referral_address}}</td>
+                            <td>{{general.collection_status}}</td>
+                            <td>{{general.condominums_id}}</td>
+                            <td>{{general.created_by}}</td>
+                            <td>{{general.create_date}}</td>
+                            <td>{{general.last_updated_by}}</td>
+                            <td>{{general.last_updated_date}}</td>
+                            <td>{{general.customer_customer_id}}</td>
+                            <td>{{general.payment_terms_id}}</td>
+                            <td>{{general.referral_address_id}}</td>
+                            <td>{{general.transaction_types_id}}</td>
+                            <td>{{general.payments_id}}</td>
+                            <td>{{general.purcharse_id}}</td>
+                            <td>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input"
+                                        [checked]="general.collection_status == true ">
+                                    <label class="custom-control-label" for="periodsStatus">Active</label>
+                                </div>
+                            </td>
+
+                            <td>
+                                <button (click)="deleteGeneral(general.collection_id)"
+                                    class="btn btn-outline-danger">Eliminar</button>
+                                <button (click)="updateGeneral(general.collection_id)" class="btn btn-outline-info"
+                                    style="margin-left: 10px">Actualizar</button>
+                                <button (click)="generalDetails(general.collection_id)" class="btn btn-outline-info"
+                                    style="margin-left: 10px">Detalles</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </app-card>
+    </div>
+</div>

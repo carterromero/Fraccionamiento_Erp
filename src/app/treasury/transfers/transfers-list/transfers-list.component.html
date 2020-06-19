@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Codigos de Bancos" blockClass="table-border-style">      
+        <button [routerLink]="['/transfers-create']" class="btn btn-primary">Agregar Transferencia</button><br>
+        <br>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>              
+              <th>Nombre de Documento de Pago</th>
+              <th>Formato de Pago</th>             
+              <th>Estado de Transferencia</th>
+              <th>Categoria del Documento</th>
+              <th>Numero del Primer Documento Activo</th>            
+              <th>Estatus</th>  
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                   
+                    <td>{{general.transfers_payment_document_name}}</td>
+                    <td>{{general.transfers_payment_format}}</td>
+                    <td>{{general.transfers_status_state}}</td>
+                    <td>{{general.transfers_category_shit_document}}</td>
+                    <td>{{general.transfers_number_first_available_document}}</td>                  
+                    <td>{{general.transfers_status}}</td>
+                    <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.transfers_status == 'true'">
+                          <label class="custom-control-label" for="transfers_status">Active</label>
+                       </div>
+                      </td>
+  
+                    <td>
+                        <button (click)="deleteGeneral(general.transfers_id)"  class="btn btn-outline-danger">Eliminar</button>
+                        <button (click)="updateGeneral(general.transfers_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        <button (click)="generalDetails(general.transfers_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

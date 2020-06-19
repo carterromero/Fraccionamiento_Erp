@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-xl-12">
+    <app-card cardTitle="Cuentas Bancarias" blockClass="table-border-style">      
+      <button [routerLink]="['/bank-accounts-create']" class="btn btn-primary">Agregar Cuenta Bancaria</button><br>
+      <br>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+          <tr>              
+            <th>Nombre de Cuenta Bancaria</th>
+            <th>Numero de Cuenta Bancaria</th>             
+            <th>Moneda</th>
+            <th>Cuenta Bancaria</th>
+            <th>Uso</th>
+            <th>Combinacion de Cuenta Contable</th>             
+            <th>Compensacion</th>
+            <th>Documento de Pago</th>  
+            <th>Estatus</th>  
+          </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let general of general | async">
+                 
+                  <td>{{general.bank_accounts_bank_account_name}}</td>
+                  <td>{{general.bank_accounts_bank_account_number}}</td>
+                  <td>{{general.bank_accounts_currency}}</td>
+                  <td>{{general.bank_accounts_bank}}</td>
+                  <td>{{general.bank_accounts_use_account}}</td>
+                  <td>{{general.bank_accounts_accounting_combination_cash}}</td>
+                  <td>{{general.bank_accounts_compensation_combination}}</td>
+                  <td>{{general.bank_accounts_payment_documents}}</td>
+                  <td>{{general.bank_accounts_status}}</td>
+                  <td>
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" [checked]="general.bank_accounts_status == 'true'">
+                        <label class="custom-control-label" for="bank_accounts_status">Active</label>
+                     </div>
+                    </td>
+
+                  <td>
+                      <button (click)="deleteGeneral(general.bank_accounts_id)"  class="btn btn-outline-danger">Eliminar</button>
+                      <button (click)="updateGeneral(general.bank_accounts_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                      <button (click)="generalDetails(general.bank_accounts_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                  </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+</div>

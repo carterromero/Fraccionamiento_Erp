@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Detalles de Documento de Pago" [options]="false">
+        <div *ngIf="employee">
+          <div>
+            <label><b>Nombre de Documento de Pago: </b></label> {{employee.payment_documents_name_payment_document}}
+          </div>
+          <div>
+            <label><b>Formato de Pago: </b></label> {{employee.payment_documents_payment_format}}
+          </div>
+          <div>
+            <label><b>Estado de Pago:</b></label> {{employee.payment_documents_status_state}}
+          </div>
+          <div>
+            <label><b>Categoria de Documento de Pago: </b></label> {{employee.payment_documents_payment_document_category}}
+          </div>
+          <div>
+            <label><b>Datos de la Chequera:</b></label> {{employee.payment_documents_checkbook_data}}
+          </div>
+          <div>
+            <label><b>Banco: </b></label> {{employee.bank_accounts_id}}
+          </div>
+          <div>
+            <label for="name">Estatus</label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="payment_documents_status"  name="payment_documents_status"   style="margin-left: 10px" [checked]="employee.payment_documents_status == 'true'">
+            <label class="custom-control-label" for="payment_documents_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/payment-documents-list']" class="btn btn-primary">Regresar a Lista de Documentos de Pago</button><br>
+      </app-card>
+      </div>
+  </div>
+  
