@@ -62,6 +62,10 @@ import { PaymentDocumentsDetailsComponent } from './treasury/paymentDocuments/pa
 import { PaymentDocumentsListComponent } from './treasury/paymentDocuments/payment-documents-list/payment-documents-list.component';
 import { UpdatePaymentDocumentsComponent } from './treasury/paymentDocuments/update-payment-documents/update-payment-documents.component';
 
+import { CreateTransfersComponent } from './treasury/transfers/create-transfers/create-transfers.component';
+import { TransfersDetailsComponent } from './treasury/transfers/transfers-details/transfers-details.component';
+import { TransfersListComponent } from './treasury/transfers/transfers-list/transfers-list.component';
+import { UpdateTransfersComponent } from './treasury/transfers/update-transfers/update-transfers.component';
 
 import { BankCodesListComponent } from './treasury/bankCodes/bank-codes-list/bank-codes-list.component';
 import { CreateBankCodesComponent } from './treasury/bankCodes/create-bank-codes/create-bank-codes.component';
@@ -1263,6 +1267,56 @@ component: CreateManageBanksComponent,
     
     }
     ,
+                ///
+
+
+{
+  path: '',
+component: TransfersListComponent,
+ children: [
+   {
+      path: 'transfers-list',
+     loadChildren: () => import('./treasury/transfers/transfers-list/transfers-list.module').then(module => module.TransfersListModule)
+    }
+  ]
+
+
+
+}
+,
+
+{
+  path: '',
+component: CreateTransfersComponent,
+ children: [
+   {
+      path: 'transfers-create',
+     loadChildren: () => import('./treasury/transfers/create-transfers/transfers-create.module').then(module => module.TransfersCreateModule)
+    }
+  ]
+},
+
+    {
+      path: '',
+      component: TransfersDetailsComponent,
+      children: [
+        {
+          path: 'transfers-details/:id',
+          loadChildren: () => import('./treasury/transfers/transfers-details/transfers-details.module').then(module => module.TransfersDetailsModule)
+        }
+      ]
+    }  ,
+    {
+      path: '',
+      component:  UpdateTransfersComponent,
+      children: [
+        {
+          path: 'update-transfers/:id',
+          loadChildren: () => import('./treasury/transfers/update-transfers/transfers-update.module').then(module => module.TransfersUpdateModule)
+        }
+      ]
+    },
+
     
     {
       path: '',

@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Crear Transferencia" [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Nombre de Documento de Pago</label>
+              <input type="text" class="form-control" id="transfers_payment_document_name"  [(ngModel)]="employee.transfers_payment_document_name" name="transfers_payment_document_name" required> 
+            </div>      
+            <div class="form-group">
+              <label for="name">Formato de Pago</label>
+              <input type="text" class="form-control" id="transfers_payment_format"  [(ngModel)]="employee.transfers_payment_format" name="transfers_payment_format" required>
+            </div>  
+            <div class="form-group">
+              <label for="name">Estado de Transferencia</label>
+              <input type="text" class="form-control" id="transfers_status_state"  [(ngModel)]="employee.transfers_status_state" name="transfers_status_state" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Categoria del Documento</label>
+              <input type="text" class="form-control" id="transfers_category_shit_document"  [(ngModel)]="employee.transfers_category_shit_document" name="transfers_category_shit_document" required> 
+            </div>      
+            <div class="form-group">
+              <label for="name">Numero del Primer Documento Activo</label>
+              <input type="text" class="form-control" id="transfers_number_first_available_document"  [(ngModel)]="employee.transfers_number_first_available_document" name="transfers_number_first_available_document" required>
+            </div>  
+            <div class="form-group">
+              <label for="name">Documento Relacionado</label>
+              <input type="text" class="form-control" id="payment_documents_id"  [(ngModel)]="employee.payment_documents_id" name="payment_documents_id" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Condominio</label>
+              <input type="text" class="form-control" id="condominums_id"  [(ngModel)]="employee.condominums_id" name="condominums_id" required>
+            </div> 
+            
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="transfers_status"  [(ngModel)]="employee.transfers_status"     name="transfers_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="transfers_status">Active</label>
+                 </div>
+            </div>
+            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button [routerLink]="['/transfers-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>
