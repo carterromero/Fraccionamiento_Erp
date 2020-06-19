@@ -57,8 +57,10 @@ import { CreatePaytmentComponent } from './po/payterms/create-paytment/create-pa
 import { PaymentDetailsComponent } from './po/payterms/payment-details/payment-details.component';
 import { UpdatePaymentComponent } from './po/payterms/update-payment/update-payment.component';
 
-
-
+import { CreateBankAccountsComponent } from './treasury/bankAccounts/create-bank-accounts/create-bank-accounts.component';
+import { BankAccountsDetailsComponent } from './treasury/bankAccounts/bank-accounts-details/bank-accounts-details.component';
+import { UpdateBankAccountsComponent } from './treasury/bankAccounts/update-bank-accounts/update-bank-accounts.component';
+import { BankAccountsListComponent } from './treasury/bankAccounts/bank-accounts-list/bank-accounts-list.component';
 
 import { BankCodesListComponent } from './treasury/bankCodes/bank-codes-list/bank-codes-list.component';
 import { CreateBankCodesComponent } from './treasury/bankCodes/create-bank-codes/create-bank-codes.component';
@@ -877,21 +879,21 @@ component: CreateManageBanksComponent,
 ,
     {
       path: '',
-      component: ManageBanksDetailsComponent,
+      component: BankAccountsDetailsComponent,
       children: [
         {
-          path: 'manage-banks-details/:id',
-          loadChildren: () => import('./treasury/manageBaks/manage-banks-details/manage-banks-details.module').then(module => module.ManageBanksDetailsModule)
+          path: 'bank-accounts-details/:id',
+          loadChildren: () => import('./treasury/bankAccounts/bank-accounts-details/bank-accounts-details.module').then(module => module.BankAccountsDetailsModule)
         }
       ]
     }  ,
     {
       path: '',
-      component: UpdateManageBanksComponent,
+      component: UpdateBankAccountsComponent,
       children: [
         {
-          path: 'update-manage-banks/:id',
-          loadChildren: () => import('./treasury/manageBaks/update-manage-banks/manage-banks-update.module').then(module => module.ManageBanksUpdateModule)
+          path: 'update-bank-accounts/:id',
+          loadChildren: () => import('./treasury/bankAccounts/update-bank-accounts/bank-accounts-update.module').then(module => module.BankAccountsUpdateModule)
         }
 
 
@@ -899,7 +901,60 @@ component: CreateManageBanksComponent,
       ]
     }
 
+    ,
 
+    {
+      path: '',
+    component: BankAccountsListComponent,
+     children: [
+       {
+          path: 'bank-accounts-list',
+         loadChildren: () => import('./treasury/bankAccounts/bank-accounts-list/bank-accounts-list.module').then(module => module.BankAccountsListModule)
+        }
+      ]
+    
+    
+    
+    }
+    ,
+    
+    {
+      path: '',
+    component: CreateBankAccountsComponent,
+     children: [
+       {
+          path: 'bank-accounts-create',
+         loadChildren: () => import('./treasury/bankAccounts/create-bank-accounts/bank-accounts-create.module').then(module => module.BankAccountsCreateModule)
+        }
+      ]
+    
+    
+    
+    }
+    ,
+        {
+          path: '',
+          component: ManageBanksDetailsComponent,
+          children: [
+            {
+              path: 'manage-banks-details/:id',
+              loadChildren: () => import('./treasury/manageBaks/manage-banks-details/manage-banks-details.module').then(module => module.ManageBanksDetailsModule)
+            }
+          ]
+        }  ,
+        {
+          path: '',
+          component: UpdateManageBanksComponent,
+          children: [
+            {
+              path: 'update-manage-banks/:id',
+              loadChildren: () => import('./treasury/manageBaks/update-manage-banks/manage-banks-update.module').then(module => module.ManageBanksUpdateModule)
+            }
+    
+    
+    
+          ]
+        }
     ,
     {
       path: '',
