@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UpdateSubcategoriesComponent } from './update-subcategories.component';
+import { UpdateSubinventarysRoutingModule } from './update-subinventarys-routing.module';
+import { UpdateSubinventarysComponent } from './update-subinventarys.component';
 import { SharedModule } from 'src/app/theme/shared/shared.module';
-import { UpdateSubCategoriesRoutingModule } from './update-subcategories-routing.module';
 
 
 @NgModule({
-  declarations: [UpdateSubcategoriesComponent],
+  declarations: [UpdateSubinventarysComponent],
   imports: [
     CommonModule,
-    UpdateSubCategoriesRoutingModule,
+    UpdateSubinventarysRoutingModule,
     SharedModule
   ]
 })

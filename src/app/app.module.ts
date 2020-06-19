@@ -39,6 +39,7 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +70,15 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
 
 
+   
+    
+
+   
+
+
+
+
+   
 
 
 
