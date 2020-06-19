@@ -1,25 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserDashboard } from 'src/app/services/admin/userdashboard';
+import { UserdashboardngService } from 'src/app/services/admin/userdashboardng.service';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/services/admin/user';
-import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/admin/user.service';
-
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
+  selector: 'app-userdashboard-list',
+  templateUrl: './userdashboard-list.component.html',
+  styleUrls: ['./userdashboard-list.component.scss']
 })
-export class UserListComponent implements OnInit {
+export class UserdashboardListComponent implements OnInit {
 
-  general: Observable<User[]>;
+  id: number;
+  general: Observable<UserDashboard[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private generalService:  UserService ,
-    private router: Router) { }
+  constructor(private generalService: UserdashboardngService,
+    private router: Router,
+    private route: ActivatedRoute
+    
+    ) { }
 
   ngOnInit(): void {
       
@@ -28,10 +31,11 @@ export class UserListComponent implements OnInit {
   
   reloadData() {
     
-    this.generalService.getEmployeeList().subscribe(
+    this.id = this.route.firstChild.snapshot.params['id']
+
+    this.generalService.getEmployeeList(this.id).subscribe(
       data => {
-        this.general = this.generalService.getEmployeeList();
-        console.log(data);
+        this.general = this.generalService.getEmployeeList(this.id);
       },
       error => {
         console.log(error);
@@ -43,6 +47,7 @@ export class UserListComponent implements OnInit {
       });
   }
 
+
   deleteGeneral(id: number) {
     this.alertDisable = true;
     this.alertDisables = true;
@@ -52,7 +57,7 @@ export class UserListComponent implements OnInit {
           console.log(data);
           this.reloadData();
           this.alertDisables = false;
-          this.alertMessages ="El usuario se a eliminado correctamente";
+          this.alertMessages ="El Dashboard se a eliminado correctamente";
         },
         error => {
           let coins = [];
@@ -63,19 +68,18 @@ export class UserListComponent implements OnInit {
         }
       );
   }
+ 
 
   generalDetails(id: number){
-    this.router.navigate(['usuarios-details', id]);
+    this.router.navigate(['details-userd', id]);
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-usuarios', id]);
+    this.router.navigate(['update-userd', id]);
   }
 
-  userdashboard(id: number){
-    this.router.navigate(['userd-list', id]);
+  asignar(){
+    this.router.navigate(['create-userd', this.id]);
   }
-
- 
 
 }

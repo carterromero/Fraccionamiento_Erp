@@ -119,6 +119,12 @@ import { CreatePurcharseComponent } from './purcharse/create-purcharse/create-pu
 import { CreateBilltopayComponent } from './AP/ap_billtopay/create-billtopay/create-billtopay.component';
 import { BilltopayDetailsComponent } from './AP/ap_billtopay/billtopay-details/billtopay-details.component';
 import { UpdateBilltopayComponent } from './AP/ap_billtopay/update-billtopay/update-billtopay.component';
+
+import { CreateUserdashboardComponent } from './admin/userdashboard/create-userdashboard/create-userdashboard.component';
+import { UpdateUserdashboardComponent } from './admin/userdashboard/update-userdashboard/update-userdashboard.component';
+import { UserdashboardDetailsComponent } from './admin/userdashboard/userdashboard-details/userdashboard-details.component';
+import { UserdashboardListComponent } from './admin/userdashboard/userdashboard-list/userdashboard-list.component';
+
 import { SubinventarysListComponent } from './inventarios/sub_inventarys/subinventarys-list/subinventarys-list.component';
 import { SubinventarysDetailsComponent } from './inventarios/sub_inventarys/subinventarys-details/subinventarys-details.component';
 import { UpdateSubinventarysComponent } from './inventarios/sub_inventarys/update-subinventarys/update-subinventarys.component';
@@ -129,6 +135,11 @@ import { PaymentRecordListComponent } from './AP/ap_payment-record/payment-recor
 import { CreatePaymentRecordComponent } from './AP/ap_payment-record/create-payment-record/create-payment-record.component';
 import { PaymentRecordDetailsComponent } from './AP/ap_payment-record/payment-record-details/payment-record-details.component';
 import { UpdatePaymentRecordComponent } from './AP/ap_payment-record/update-payment-record/update-payment-record.component';
+
+//AR
+import { collectionListComponent } from './collection/collection-list/collection-list.component';
+import { CreatecollectionComponent } from './collection/create-collection/create-collection.component';
+
 
 
 const routes: Routes = [
@@ -698,6 +709,27 @@ const routes: Routes = [
           {
             path: 'update-legals/:id',
             loadChildren: () => import('./admin/legals/update-legals/update-legals.module').then(module => module.UpdateLegalsModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+        component: collectionListComponent,
+        children: [
+          {
+            path: 'collection-list',
+            loadChildren: () => import('./collection/collection-list/collection-list.module').then(module => module.collectionListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreatecollectionComponent,
+        children: [
+          {
+            path: 'create-collection',
+            loadChildren: () => import('./collection/create-collection/create-collection.module').then(module => module.createcollectionModule)
           }
         ]
       },
@@ -1405,11 +1437,56 @@ component: CreateTransfersComponent,
     
     
     }
-    
+
+  
+    ,
+    {
+      path: '',
+      component: CreateUserdashboardComponent,
+      children: [  
+        {
+          path: 'create-userd/:id',
+          loadChildren: () => import('./admin/userdashboard/create-userdashboard/create-userdashboard.module').then(module => module.CreateUserdashboardModule)
+        }
+      ]
+    }
+    ,
+    {
+      path: '',
+      component: UpdateUserdashboardComponent,
+      children: [  
+        {
+          path: 'update-userd/:id',
+          loadChildren: () => import('./admin/userdashboard/update-userdashboard/update-userdashboard.module').then(module => module.UpdateUserdashboardModule)
+        }
+      ]
+    }
 
 
+    ,
+    {
+      path: '',
+      component: UserdashboardDetailsComponent,
+      children: [  
+        {
+          path: 'details-userd/:id',
+          loadChildren: () => import('./admin/userdashboard/userdashboard-details/userdashboard-details.module').then(module => module.UserdashboardModule)
+        }
+      ]
+    }
 
 
+    ,
+    {
+      path: '',
+      component: UserdashboardListComponent,
+      children: [  
+        {
+          path: 'userd-list/:id',
+          loadChildren: () => import('./admin/userdashboard/userdashboard-list/userdashboard-list.module').then(module => module.UserdashboardListModule)
+        }
+      ]
+    }
 
     ]
   },

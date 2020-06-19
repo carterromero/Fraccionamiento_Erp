@@ -53,7 +53,29 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
     ToggleFullScreenDirective,   
 
-  
+
+
+    ToggleFullScreenDirective,
+
+
+   
+    
+
+   
+
+
+    ToggleFullScreenDirective
+
+
+
+
+
+
+
+
+
+
+
   ],
   imports: [
     BrowserModule,
