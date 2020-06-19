@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/services/admin/user';
+import { PaymentRecordService } from 'src/app/payment-record.service';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/admin/user.service';
-
+import { PaymentRecord } from 'src/app/payment-record';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
+  selector: 'app-payment-record-list',
+  templateUrl: './payment-record-list.component.html',
+  styleUrls: ['./payment-record-list.component.scss']
 })
-export class UserListComponent implements OnInit {
+export class PaymentRecordListComponent implements OnInit {
 
-  general: Observable<User[]>;
+  general: Observable<PaymentRecord[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private generalService:  UserService ,
+  constructor(private generalService: PaymentRecordService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -30,52 +29,48 @@ export class UserListComponent implements OnInit {
     
     this.generalService.getEmployeeList().subscribe(
       data => {
-        this.general = this.generalService.getEmployeeList();
         console.log(data);
+        this.general = this.generalService.getEmployeeList();
       },
       error => {
-        console.log(error);
+        console.log(error);   
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
           this.alertMessage = error['statusText'];          
         }
       });
+
+      
   }
 
   deleteGeneral(id: number) {
-    this.alertDisable = true;
-    this.alertDisables = true;
     this.generalService.deleteEmployee(id)
       .subscribe(
         data => {
           console.log(data);
           this.reloadData();
           this.alertDisables = false;
-          this.alertMessages ="El usuario se a eliminado correctamente";
+          this.alertMessages =" se a eliminado correctamente";
         },
-        error => {
+        error => {console.log(error);
           let coins = [];
           for (let key in error) {
             this.alertDisable = false;
             this.alertMessage = error['statusText'];          
-          }  
+          }
         }
       );
   }
 
   generalDetails(id: number){
-    this.router.navigate(['usuarios-details', id]);
+    this.router.navigate(['payment-record-details', id]);
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-usuarios', id]);
+    this.router.navigate(['update-payment-record', id]);
   }
 
-  userdashboard(id: number){
-    this.router.navigate(['userd-list', id]);
-  }
-
- 
 
 }
+
