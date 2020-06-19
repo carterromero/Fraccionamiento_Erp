@@ -94,6 +94,9 @@ import { CreateWorkplacesComponent } from './RH/catalogs/workplaces/create-workp
 import { WorkplacesListComponent } from './RH/catalogs/workplaces/workplaces-list/workplaces-list.component';
 import { UpdateWorkplacesComponent } from './RH/catalogs/workplaces/update-workplaces/update-workplaces.component';
 import { WorkplacesDetailsComponent } from './RH/catalogs/workplaces/workplaces-details/workplaces-details.component';
+import { PurcharseListModule } from './purcharse/purcharse-list/purcharse-list.module';
+import { PurcharseListComponent } from './purcharse/purcharse-list/purcharse-list.component';
+import { CreatePurcharseComponent } from './purcharse/create-purcharse/create-purcharse.component';
 
 const routes: Routes = [
   /* Default page */
@@ -989,6 +992,27 @@ component: CreateManageBanksComponent,
         }
       ]
     }
+    ,
+    {
+      path: '',
+      component: PurcharseListComponent,
+      children: [  
+        {
+          path: 'purchase_orders-list',
+          loadChildren: () => import('./purcharse/purcharse-list/purcharse-list.module').then(module => module.PurcharseListModule)
+        }
+      ]
+    },{
+      path: '',
+      component: CreatePurcharseComponent,
+      children: [  
+        {
+          path: 'create-purcharse',
+          loadChildren: () => import('./purcharse/create-purcharse/create-purcharse.module').then(module => module.PurcharseCreateModule)
+        }
+      ]
+    }
+
 
 
 
