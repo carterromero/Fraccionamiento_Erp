@@ -106,7 +106,6 @@ import { TransactionListComponent } from './admin/transaction/transaction-list/t
 import { TransactionDetailsComponent } from './admin/transaction/transaction-details/transaction-details.component';
 import { UpdateTransactionComponent } from './admin/transaction/update-transaction/update-transaction.component';
 
-import { BilltopayListComponent } from './AP/ap_billtopay/billtopay-list/billtopay-list.component';
 
 
 import { CreateWorkplacesComponent } from './RH/catalogs/workplaces/create-workplaces/create-workplaces.component';
@@ -125,6 +124,11 @@ import { SubinventarysDetailsComponent } from './inventarios/sub_inventarys/subi
 import { UpdateSubinventarysComponent } from './inventarios/sub_inventarys/update-subinventarys/update-subinventarys.component';
 import { CreateSubcategoriesComponent } from './inventarios/sub_categories/create-subcategories/create-subcategories.component';
 import { CreateSubinventarysComponent } from './inventarios/sub_inventarys/create-subinventarys/create-subinventarys.component';
+import { BilltopayListComponent } from './AP/ap_billtopay/billtopay-list/billtopay-list.component';
+import { PaymentRecordListComponent } from './AP/ap_payment-record/payment-record-list/payment-record-list.component';
+import { CreatePaymentRecordComponent } from './AP/ap_payment-record/create-payment-record/create-payment-record.component';
+import { PaymentRecordDetailsComponent } from './AP/ap_payment-record/payment-record-details/payment-record-details.component';
+import { UpdatePaymentRecordComponent } from './AP/ap_payment-record/update-payment-record/update-payment-record.component';
 
 
 const routes: Routes = [
@@ -527,6 +531,52 @@ const routes: Routes = [
         }
       ]
     }
+      ,
+      {
+        path: '',
+  
+        component: PaymentRecordListComponent,
+        children: [
+          {
+            path: 'payment-record-list',
+            loadChildren: () => import('./AP/ap_payment-record/payment-record-list/payment-record-list.module').then(module => module.PaymentRecordListModule)
+          }
+        ]
+      },
+      
+      {
+        path: '',
+  
+        component: CreatePaymentRecordComponent,
+        children: [
+          {
+            path: 'create-payment-record',
+            loadChildren: () => import('./AP/ap_payment-record/create-payment-record/create-payment-record.module').then(module => module.CreatePaymentRecordModule)
+          }
+        ]
+      },
+      {
+        path: '',
+  
+        component: PaymentRecordDetailsComponent,
+        children: [
+          {
+            path: 'payment-record-details/:id',
+            loadChildren: () => import('./AP/ap_payment-record/payment-record-details/payment-record-details.module').then(module => module.PaymentRecordDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+  
+        component: UpdatePaymentRecordComponent,
+        children: [
+          {
+            path: 'update-payment-record/:id',
+            loadChildren: () => import('./AP/ap_payment-record/update-payment-record/update-payment-record.module').then(module => module.UpdatePaymentRecordModule)
+          }
+        ]
+      }
       ,
       {
       path: '',

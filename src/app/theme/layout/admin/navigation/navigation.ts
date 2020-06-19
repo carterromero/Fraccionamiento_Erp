@@ -276,7 +276,7 @@ const NavigationItems = [
         id: 'ap-catalog',
         title: 'Catalogos',
         type: 'collapse',
-        icon: 'feather icon-monitor',
+        icon: 'feather icon-layout',
         children: [
           {
             id: 'creditor',
@@ -285,6 +285,14 @@ const NavigationItems = [
             url: '/creditor-list'
             
           },
+          
+          {
+            id: 'crear_cuenta',
+            title: 'Crear una factura ',
+            type: 'item',            
+            url: '/billtopay-list'
+            
+          }
                               
         ]
       }, {
@@ -296,10 +304,10 @@ const NavigationItems = [
   
 
           {
-            id: 'crear_cuenta',
-            title: 'Crear una factura ',
+            id: 'cuenta_pagar',
+            title: 'cuenta por pagar factura ',
             type: 'item',            
-            url: '/billtopay-list'
+            url: '/payment-record-list'
             
           }
                               
