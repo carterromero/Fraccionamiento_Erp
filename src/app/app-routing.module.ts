@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { AuthComponent} from './theme/layout/auth/auth.component';
@@ -20,20 +20,20 @@ import { UpdateGeneralComponent } from './general/update-general/update-general.
 
 import { CreditorListComponent } from './AP/ap_creditor/creditor-list/creditor-list.component';
 import { CreateCreditorComponent } from './AP/ap_creditor/create-creditor/create-creditor.component';
-import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
+import { CategoriesListComponent } from './inventarios/categories/categories-list/categories-list.component';
 import { CreateLegalsComponent } from './admin/legals/create-legals/create-legals.component';
 import { LegalsDetailsComponent } from './admin/legals/legals-details/legals-details.component';
 import { UpdateLegalsComponent } from './admin/legals/update-legals/update-legals.component';
 
-import { SubCategoriesListComponent } from './sub_categories/sub-categories-list/subcategories-list.component';
+import { SubCategoriesListComponent } from './inventarios/sub_categories/sub-categories-list/subcategories-list.component';
 
 
-import { CreateCategoriesComponent } from './categories/create-categories/create-categories.component';
+import { CreateCategoriesComponent } from './inventarios/categories/create-categories/create-categories.component';
 
 
-import { UpdateCategoriesComponent } from './categories/update-categories/update-categories.component';
+import { UpdateCategoriesComponent } from './inventarios/categories/update-categories/update-categories.component';
 
-import { CategoriesDetailsComponent } from './categories/categories-details/categories-details.component';
+import { CategoriesDetailsComponent } from './inventarios/categories/categories-details/categories-details.component';
 //gl/Catalogs/periods
 import { PeriodsListComponent } from './gl/catalogs/periods/periods-list/periods-list.component';
 import { CreatePeriodsComponent } from './gl/catalogs/periods/create-periods/create-periods.component';
@@ -57,7 +57,10 @@ import { CreatePaytmentComponent } from './po/payterms/create-paytment/create-pa
 import { PaymentDetailsComponent } from './po/payterms/payment-details/payment-details.component';
 import { UpdatePaymentComponent } from './po/payterms/update-payment/update-payment.component';
 
-
+import { CreatePaymentDocumentsComponent } from './treasury/paymentDocuments/create-payment-documents/create-payment-documents.component';
+import { PaymentDocumentsDetailsComponent } from './treasury/paymentDocuments/payment-documents-details/payment-documents-details.component';
+import { PaymentDocumentsListComponent } from './treasury/paymentDocuments/payment-documents-list/payment-documents-list.component';
+import { UpdatePaymentDocumentsComponent } from './treasury/paymentDocuments/update-payment-documents/update-payment-documents.component';
 
 
 import { BankCodesListComponent } from './treasury/bankCodes/bank-codes-list/bank-codes-list.component';
@@ -68,6 +71,8 @@ import { ManageBanksListComponent } from './treasury/manageBaks/manage-banks-lis
 import { CreateManageBanksComponent } from './treasury/manageBaks/create-manage-banks/create-manage-banks.component';
 import { ManageBanksDetailsComponent } from './treasury/manageBaks/manage-banks-details/manage-banks-details.component';
 import { UpdateManageBanksComponent} from './treasury/manageBaks/update-manage-banks/update-manage-banks.component';
+import { SubcategoriesDetailsComponent } from './inventarios/sub_categories/subcategories-details/subcategories-details.component';
+import { UpdateSubcategoriesComponent } from './inventarios/sub_categories/update-subcategories/update-subcategories.component';
 
 import { CreateRolComponent } from './admin/rol/create-rol/create-rol.component';
 import { RolDetailsComponent } from './admin/rol/rol-details/rol-details.component';
@@ -82,7 +87,10 @@ import { UserDetailsComponent } from './admin/user/user-details/user-details.com
 import { UserListComponent } from './admin/user/user-list/user-list.component';
 import { UpdateUserComponent } from './admin/user/update-user/update-user.component';
 
-
+import { CreateBankAccountsComponent } from './treasury/bankAccounts/create-bank-accounts/create-bank-accounts.component';
+import { BankAccountsDetailsComponent } from './treasury/bankAccounts/bank-accounts-details/bank-accounts-details.component';
+import { UpdateBankAccountsComponent } from './treasury/bankAccounts/update-bank-accounts/update-bank-accounts.component';
+import { BankAccountsListComponent } from './treasury/bankAccounts/bank-accounts-list/bank-accounts-list.component';
 
 
 //RH
@@ -90,6 +98,13 @@ import { CreateDepartmentsComponent } from './RH/catalogs/departments/create-dep
 import { DepartmentsListComponent } from './RH/catalogs/departments/departments-list/departments-list.component';
 import { UpdateDepartmentsComponent } from './RH/catalogs/departments/update-departments/update-departments.component';
 import { DepartmentsDetailsComponent } from './RH/catalogs/departments/departments-details/departments-details.component';
+import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
+import { TransactionDetailsComponent } from './admin/transaction/transaction-details/transaction-details.component';
+import { UpdateTransactionComponent } from './admin/transaction/update-transaction/update-transaction.component';
+
+import { BilltopayListComponent } from './AP/ap_billtopay/billtopay-list/billtopay-list.component';
+
+
 import { CreateWorkplacesComponent } from './RH/catalogs/workplaces/create-workplaces/create-workplaces.component';
 import { WorkplacesListComponent } from './RH/catalogs/workplaces/workplaces-list/workplaces-list.component';
 import { UpdateWorkplacesComponent } from './RH/catalogs/workplaces/update-workplaces/update-workplaces.component';
@@ -97,6 +112,16 @@ import { WorkplacesDetailsComponent } from './RH/catalogs/workplaces/workplaces-
 import { PurcharseListModule } from './purcharse/purcharse-list/purcharse-list.module';
 import { PurcharseListComponent } from './purcharse/purcharse-list/purcharse-list.component';
 import { CreatePurcharseComponent } from './purcharse/create-purcharse/create-purcharse.component';
+
+import { CreateBilltopayComponent } from './AP/ap_billtopay/create-billtopay/create-billtopay.component';
+import { BilltopayDetailsComponent } from './AP/ap_billtopay/billtopay-details/billtopay-details.component';
+import { UpdateBilltopayComponent } from './AP/ap_billtopay/update-billtopay/update-billtopay.component';
+import { SubinventarysListComponent } from './inventarios/sub_inventarys/subinventarys-list/subinventarys-list.component';
+import { SubinventarysDetailsComponent } from './inventarios/sub_inventarys/subinventarys-details/subinventarys-details.component';
+import { UpdateSubinventarysComponent } from './inventarios/sub_inventarys/update-subinventarys/update-subinventarys.component';
+import { CreateSubcategoriesComponent } from './inventarios/sub_categories/create-subcategories/create-subcategories.component';
+import { CreateSubinventarysComponent } from './inventarios/sub_inventarys/create-subinventarys/create-subinventarys.component';
+
 
 const routes: Routes = [
   /* Default page */
@@ -452,6 +477,51 @@ const routes: Routes = [
           loadChildren: () => import('./AP/ap_creditor/creditor-details/creditor-details.module').then(module => module.CreditorDetailsModule)
         }
       ]
+    },
+    {
+      path: '',
+
+      component: BilltopayListComponent,
+      children: [
+        {
+          path: 'billtopay-list',
+          loadChildren: () => import('./AP/ap_billtopay/billtopay-list/billtopay-list.module').then(module => module.BilltopayListModule)
+        }
+      ]
+    },
+    
+    {
+      path: '',
+
+      component: CreateBilltopayComponent,
+      children: [
+        {
+          path: 'create-billtopay',
+          loadChildren: () => import('./AP/ap_billtopay/create-billtopay/create-billtopay.module').then(module => module.CreateBilltopayModule)
+        }
+      ]
+    },
+    {
+      path: '',
+
+      component: BilltopayDetailsComponent,
+      children: [
+        {
+          path: 'billtopay-details/:id',
+          loadChildren: () => import('./AP/ap_billtopay/billtopay-details/billtopay-details.module').then(module => module.BilltopayDetailsModule)
+        }
+      ]
+    },
+    {
+      path: '',
+
+      component: UpdateBilltopayComponent,
+      children: [
+        {
+          path: 'update-billtopay/:id',
+          loadChildren: () => import('./AP/ap_billtopay/update-billtopay/update-billtopay.module').then(module => module.UpdateBilltopayModule)
+        }
+      ]
     }
       ,
       {
@@ -461,17 +531,28 @@ const routes: Routes = [
         children: [
           {
             path: 'categories-list',
-            loadChildren: () => import('./categories/categories-list/categories-list.module').then(module => module.CategoriesListModule)
+            loadChildren: () => import('./inventarios/categories/categories-list/categories-list.module').then(module => module.CategoriesListModule)
           }
         ]
       },
+      {
+        path: '',
+  
+          component: SubinventarysListComponent,
+          children: [
+            {
+              path: 'sub_inventarys-list',
+              loadChildren: () => import('./inventarios/sub_inventarys/subinventarys-list/subinventarys-list.module').then(module => module.SubinventarysListModule)
+            }
+          ]
+        },
       {
         path: '',
         component: UpdateCategoriesComponent,
         children: [
           {
             path: 'update-categories/:id',
-            loadChildren: () => import('./categories/update-categories/update-categories.module').then(module => module.UpdateCategoriesModule)
+            loadChildren: () => import('./inventarios/categories/update-categories/update-categories.module').then(module => module.UpdateCategoriesModule)
           }
         ]
       },
@@ -493,7 +574,31 @@ const routes: Routes = [
         children: [
           {
             path: 'create-categories',
-            loadChildren: () => import('./categories/create-categories/create-categories.module').then(module => module.CreateCategoriesModule)
+            loadChildren: () => import('./inventarios/categories/create-categories/create-categories.module').then(module => module.CreateCategoriesModule)
+
+          }
+        ]
+
+      },
+      {
+        path: '',
+        component: CreateSubcategoriesComponent,
+        children: [
+          {
+            path: 'subcategories-create',
+            loadChildren: () => import('./inventarios/sub_categories/create-subcategories/create-subcategories.module').then(module => module.CreateSubcategoriesModule)
+
+          }
+        ]
+
+      },
+      {
+        path: '',
+        component: CreateSubinventarysComponent,
+        children: [
+          {
+            path: 'subinventarys-create',
+            loadChildren: () => import('./inventarios/sub_inventarys/create-subinventarys/create-subinventarys.module').then(module => module.CreateSubinventarysModule)
 
           }
         ]
@@ -505,7 +610,7 @@ const routes: Routes = [
         children: [
           {
             path: 'sub_categories-list',
-            loadChildren: () => import('./sub_categories/sub-categories-list/subcategories-list.module').then(module => module.SubCategoriesListModule)
+            loadChildren: () => import('./inventarios/sub_categories/sub-categories-list/subcategories-list.module').then(module => module.SubCategoriesListModule)
           }
         ]
       },
@@ -515,12 +620,12 @@ const routes: Routes = [
         children: [
           {
             path: 'categories-details/:id',
-            loadChildren: () => import('./categories/categories-details/categories_details.module').then(module => module.CategoriesDetailsModule)
+            loadChildren: () => import('./inventarios/categories/categories-details/categories_details.module').then(module => module.CategoriesDetailsModule)
           }
         ]
       },
 
-      
+
       {
         path: '',
         component: LegalsDetailsComponent,
@@ -594,7 +699,7 @@ const routes: Routes = [
   {
     path: '',
   component: SupplierListComponent,
-   children: [   
+   children: [
      {
         path: 'supplier-list',
        loadChildren: () => import('./po/supplier/supplier-list/supplier-list.module').then(module => module.SupplierListModule)
@@ -602,14 +707,14 @@ const routes: Routes = [
     ]
 
 
-   
-  } 
+
+  }
   ,
 
   {
     path: '',
   component: CreateSupplierComponent,
-   children: [   
+   children: [
      {
         path: 'supplier-create',
        loadChildren: () => import('./po/create-supplier/supplier-create.module').then(module => module.SupplierCreateModule)
@@ -617,13 +722,13 @@ const routes: Routes = [
     ]
 
 
-   
+
       }
       ,
       {
         path: '',
         component: SupplierDetailsComponent,
-        children: [          
+        children: [
           {
             path: 'supplier-details/:id',
             loadChildren: () => import('./po/supplier-details/supplier-details.module').then(module => module.SupplierDetailsModule)
@@ -633,7 +738,7 @@ const routes: Routes = [
       {
         path: '',
         component: UpdateSupplierComponent,
-        children: [  
+        children: [
           {
             path: 'update-supplier/:id',
             loadChildren: () => import('./po/update-supplier/supplier-update.module').then(module => module.SupplierUpdateModule)
@@ -644,18 +749,18 @@ const routes: Routes = [
       ,{
         path: '',
       component: PaytmentListComponent,
-       children: [   
+       children: [
          {
             path: 'payment_terms-list',
            loadChildren: () => import('./po/payterms/paytment-list/paytment-list.module').then(module => module.PaymentListModule)
           }
         ]
-  
+
       },
       {
         path: '',
       component: CreatePaytmentComponent,
-       children: [   
+       children: [
          {
             path: 'payment-create',
            loadChildren: () => import('./po/payterms/create-paytment/paytment-create.module').then(module => module.PaytmentCreateModule)
@@ -666,7 +771,7 @@ const routes: Routes = [
           {
             path: '',
             component: PaymentDetailsComponent,
-            children: [          
+            children: [
               {
                 path: 'payment-details/:id',
                 loadChildren: () => import('./po/payterms/payment-details/payment-details.module').then(module => module.PaymentDetailsModule)
@@ -677,22 +782,22 @@ const routes: Routes = [
           {
             path: '',
             component: UpdatePaymentComponent,
-            children: [  
+            children: [
               {
                 path: 'update-payment/:id',
                 loadChildren: () => import('./po/payterms/update-payment/payment-update.module').then(module => module.PaymentUpdateModule)
               }
             ]
           }
-      
 
-/// 
+
+///
 ,
 
   {
     path: '',
   component: BankCodesListComponent,
-   children: [   
+   children: [
      {
         path: 'bank-codes-list',
        loadChildren: () => import('./treasury/bankCodes/bank-codes-list/bank-codes-list.module').then(module => module.BankCodesListModule)
@@ -700,14 +805,14 @@ const routes: Routes = [
     ]
 
 
-   
-  } 
+
+  }
   ,
 
   {
     path: '',
   component: CreateBankCodesComponent,
-   children: [   
+   children: [
      {
         path: 'bank-codes-create',
        loadChildren: () => import('./treasury/bankCodes/create-bank-codes/bank-codes-create.module').then(module => module.BankCodesCreateModule)
@@ -715,13 +820,13 @@ const routes: Routes = [
     ]
 
 
-   
+
   }
   ,
       {
         path: '',
         component: BankCodesDetailsComponent,
-        children: [          
+        children: [
           {
             path: 'bank-codes-details/:id',
             loadChildren: () => import('./treasury/bankCodes/bank-codes-details/bank-codes-details.module').then(module => module.BankCodesDetailsModule)
@@ -731,20 +836,20 @@ const routes: Routes = [
       {
         path: '',
         component: UpdateBankCodesComponent,
-        children: [  
+        children: [
           {
             path: 'update-bank-codes/:id',
             loadChildren: () => import('./treasury/bankCodes/update-bank-codes/bank-codes-update.module').then(module => module.BankCodesUpdateModule)
           }
         ]
       }
-      /// 
+      ///
 ,
 
   {
     path: '',
   component: BankCodesListComponent,
-   children: [   
+   children: [
      {
         path: 'bank-codes-list',
        loadChildren: () => import('./treasury/bankCodes/bank-codes-list/bank-codes-list.module').then(module => module.BankCodesListModule)
@@ -752,28 +857,25 @@ const routes: Routes = [
     ]
 
 
-   
-  } 
+
+  }
   ,
 
   {
     path: '',
   component: CreateBankCodesComponent,
-   children: [   
+   children: [
      {
         path: 'bank-codes-create',
        loadChildren: () => import('./treasury/bankCodes/create-bank-codes/bank-codes-create.module').then(module => module.BankCodesCreateModule)
       }
     ]
-
-
-   
-  }
-  ,
+  },
+  
       {
         path: '',
         component: BankCodesDetailsComponent,
-        children: [          
+        children: [
           {
             path: 'bank-codes-details/:id',
             loadChildren: () => import('./treasury/bankCodes/bank-codes-details/bank-codes-details.module').then(module => module.BankCodesDetailsModule)
@@ -782,21 +884,21 @@ const routes: Routes = [
       }  ,
       {
         path: '',
-        component: UpdateBankCodesComponent,
-        children: [  
+        component: UpdateSubcategoriesComponent,
+        children: [
           {
-            path: 'update-bank-codes/:id',
-            loadChildren: () => import('./treasury/bankCodes/update-bank-codes/bank-codes-update.module').then(module => module.BankCodesUpdateModule)
+            path: 'update-subcategories/:id',
+            loadChildren: () => import('./inventarios/sub_categories/update-subcategories/update-subcategories.module').then(module => module.UpdateSubCategoriesModule)
           }
         ]
       }
-      /// 
+      ///
 ,
 
 {
   path: '',
 component: ManageBanksListComponent,
- children: [   
+ children: [
    {
       path: 'manage-banks-list',
      loadChildren: () => import('./treasury/manageBaks/manage-banks-list/manage-banks-list.module').then(module => module.ManageBanksListModule)
@@ -804,14 +906,14 @@ component: ManageBanksListComponent,
   ]
 
 
- 
-} 
+
+}
 ,
 
 {
   path: '',
 component: CreateManageBanksComponent,
- children: [   
+ children: [
    {
       path: 'manage-banks-create',
      loadChildren: () => import('./treasury/manageBaks/create-manage-banks/manage-banks-create.module').then(module => module.ManageBanksCreateModule)
@@ -819,13 +921,13 @@ component: CreateManageBanksComponent,
   ]
 
 
- 
+
 }
 ,
     {
       path: '',
       component: ManageBanksDetailsComponent,
-      children: [          
+      children: [
         {
           path: 'manage-banks-details/:id',
           loadChildren: () => import('./treasury/manageBaks/manage-banks-details/manage-banks-details.module').then(module => module.ManageBanksDetailsModule)
@@ -835,19 +937,23 @@ component: CreateManageBanksComponent,
     {
       path: '',
       component: UpdateManageBanksComponent,
-      children: [  
+      children: [
         {
           path: 'update-manage-banks/:id',
           loadChildren: () => import('./treasury/manageBaks/update-manage-banks/manage-banks-update.module').then(module => module.ManageBanksUpdateModule)
         }
+
+
+
       ]
     }
+
 
     ,
     {
       path: '',
       component: CreateRolComponent,
-      children: [  
+      children: [
         {
           path: 'create-rols',
           loadChildren: () => import('./admin/rol/create-rol/create-rol.module').then(module => module.CreateRolModule)
@@ -858,8 +964,51 @@ component: CreateManageBanksComponent,
     ,
     {
       path: '',
+
+      component: SubcategoriesDetailsComponent,
+      children: [
+        {
+          path:'sub-details/:id',
+          loadChildren: () => import('./inventarios/sub_categories/subcategories-details/subcategories-details.module').then(module => module.SubCategoriesDetailsModule)
+        }
+      ]
+    },
+    {
+      path: '',
+
+      component: SubinventarysDetailsComponent,
+      children: [
+        {
+          path:'sub_inventarys-details/:id',
+          loadChildren: () => import('./inventarios/sub_inventarys/subinventarys-details/subinventarys-details.module').then(module => module.SubinventarysDetailsModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component:  UpdateSubinventarysComponent,
+      children: [
+        {
+          path: 'update-subinventarys/:id',
+          loadChildren: () => import('./inventarios/sub_inventarys/update-subinventarys/update-subinventarys.module').then(module => module.UpdateSubCategoriesModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component:  UpdateBankCodesComponent,
+      children: [
+        {
+          path: 'update-bank-codes/:id',
+          loadChildren: () => import('./treasury/bankCodes/update-bank-codes/bank-codes-update.module').then(module => module.BankCodesUpdateModule)
+        }
+      ]
+    },
+         
+          {
+            path: '',
       component: RolDetailsComponent,
-      children: [  
+      children: [
         {
           path: 'rols-details/:id',
           loadChildren: () => import('./admin/rol/rol-details/rol-details.module').then(module => module.RolDetailsModule)
@@ -871,7 +1020,7 @@ component: CreateManageBanksComponent,
     {
       path: '',
       component: RolListComponent,
-      children: [  
+      children: [
         {
           path: 'rols-list',
           loadChildren: () => import('./admin/rol/rol-list/rol-list.module').then(module => module.RolListModule)
@@ -884,19 +1033,19 @@ component: CreateManageBanksComponent,
     {
       path: '',
       component: UpdateRolComponent,
-      children: [  
+      children: [
         {
           path: 'update-rols/:id',
           loadChildren: () => import('./admin/rol/update-rol/update-rol.module').then(module => module.UpdateRolModule)
         }
       ]
     }
-  
+
     ,
     {
       path: '',
       component: CreatePermissionsComponent,
-      children: [  
+      children: [
         {
           path: 'create-permissions',
           loadChildren: () => import('./admin/permissions/create-permissions/create-permissions.module').then(module => module.CreatePermissionsModule)
@@ -908,7 +1057,7 @@ component: CreateManageBanksComponent,
     {
       path: '',
       component: PermissionsDetailsComponent,
-      children: [  
+      children: [
         {
           path: 'permissions-details/:id',
           loadChildren: () => import('./admin/permissions/permissions-details/permissions-details.module').then(module => module.PermissionsDetailsModule)
@@ -920,7 +1069,7 @@ component: CreateManageBanksComponent,
     {
       path: '',
       component: PermissionsListComponent,
-      children: [  
+      children: [
         {
           path: 'permissions-list',
           loadChildren: () => import('./admin/permissions/permissions-list/permissions-list.module').then(module => module.PermissionsListModule)
@@ -933,7 +1082,7 @@ component: CreateManageBanksComponent,
     {
       path: '',
       component: UpdatePermissionsComponent,
-      children: [  
+      children: [
         {
           path: 'update-permissions/:id',
           loadChildren: () => import('./admin/permissions/update-permissions/update-permissions.module').then(module => module.UpdatePermissionsModule)
@@ -948,7 +1097,7 @@ component: CreateManageBanksComponent,
     {
       path: '',
       component: CreateUserComponent,
-      children: [  
+      children: [
         {
           path: 'create-usuarios',
           loadChildren: () => import('./admin/user/create-user/create-user.module').then(module => module.CreateUserModule)
@@ -960,7 +1109,7 @@ component: CreateManageBanksComponent,
     {
       path: '',
       component: UserDetailsComponent,
-      children: [  
+      children: [
         {
           path: 'usuarios-details/:id',
           loadChildren: () => import('./admin/user/user-details/user-details.module').then(module => module.UserDetailsModule)
@@ -972,7 +1121,7 @@ component: CreateManageBanksComponent,
     {
       path: '',
       component: UserListComponent,
-      children: [  
+      children: [
         {
           path: 'usuarios-list',
           loadChildren: () => import('./admin/user/user-list/user-list.module').then(module => module.UserListModule)
@@ -985,10 +1134,11 @@ component: CreateManageBanksComponent,
     {
       path: '',
       component: UpdateUserComponent,
-      children: [  
+      children: [
         {
           path: 'update-usuarios/:id',
           loadChildren: () => import('./admin/user/update-user/update-user.module').then(module => module.UpdateUserModule)
+
         }
       ]
     }
@@ -1014,15 +1164,149 @@ component: CreateManageBanksComponent,
     }
 
 
+    ,
+    {
+      path: '',
+      component: TransactionListComponent,
+      children: [  
+        {
+          path: 'transaction-list/:id',
+          loadChildren: () => import('./admin/transaction/transaction-list/transaction-list.module').then(module => module.TransactionListModule)
+        }
+      ]
+    }
+
+    ,
+    {
+      path: '',
+      component: TransactionDetailsComponent,
+      children: [  
+        {
+          path: 'transaction-details/:id',
+          loadChildren: () => import('./admin/transaction/transaction-details/transaction-details.module').then(module => module.TransactionDetailsModule)
+        }
+      ]
+    }
+///
+,
+
+  {
+    path: '',
+  component: PaymentDocumentsListComponent,
+   children: [
+     {
+        path: 'payment-documents-list',
+       loadChildren: () => import('./treasury/paymentDocuments/payment-documents-list/payment-documents-list.module').then(module => module.PaymentDocumentsListModule)
+      }
+    ]
 
 
+
+  }
+  ,
+
+  {
+    path: '',
+  component: CreatePaymentDocumentsComponent,
+   children: [
+     {
+        path: 'payment-documents-create',
+       loadChildren: () => import('./treasury/paymentDocuments/create-payment-documents/payment-documents-create.module').then(module => module.PaymentDocumentsCreateModule)
+      }
+    ]
+  },
+  
+      {
+        path: '',
+        component: PaymentDocumentsDetailsComponent,
+        children: [
+          {
+            path: 'payment-documents-details/:id',
+            loadChildren: () => import('./treasury/paymentDocuments/payment-documents-details/payment-documents-details.module').then(module => module.PaymentDocumentsDetailsModule)
+          }
+        ]
+      }  ,
+      {
+        path: '',
+        component:  UpdatePaymentDocumentsComponent,
+        children: [
+          {
+            path: 'update-payment-documents/:id',
+            loadChildren: () => import('./treasury/paymentDocuments/update-payment-documents/payment-documents-update.module').then(module => module.PaymentDocumentsUpdateModule)
+          }
+        ]
+      }
+    ,
+    {
+      path: '',
+      component: UpdateTransactionComponent,
+      children: [  
+        {
+          path: 'update-transaction/:id',
+          loadChildren: () => import('./admin/transaction/update-transaction/update-transaction.module').then(module => module.TransactionListModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component: BankAccountsDetailsComponent,
+      children: [
+        {
+          path: 'bank-accounts-details/:id',
+          loadChildren: () => import('./treasury/bankAccounts/bank-accounts-details/bank-accounts-details.module').then(module => module.BankAccountsDetailsModule)
+        }
+      ]
+    }  ,
+    {
+      path: '',
+      component: UpdateBankAccountsComponent,
+      children: [
+        {
+          path: 'update-bank-accounts/:id',
+          loadChildren: () => import('./treasury/bankAccounts/update-bank-accounts/bank-accounts-update.module').then(module => module.BankAccountsUpdateModule)
+        }
+
+
+
+      ]
+    }
+
+    ,
+
+    {
+      path: '',
+    component: BankAccountsListComponent,
+     children: [
+       {
+          path: 'bank-accounts-list',
+         loadChildren: () => import('./treasury/bankAccounts/bank-accounts-list/bank-accounts-list.module').then(module => module.BankAccountsListModule)
+        }
+      ]
     
     
     
+    }
+    ,
+    
+    {
+      path: '',
+    component: CreateBankAccountsComponent,
+     children: [
+       {
+          path: 'bank-accounts-create',
+         loadChildren: () => import('./treasury/bankAccounts/create-bank-accounts/bank-accounts-create.module').then(module => module.BankAccountsCreateModule)
+        }
+      ]
     
     
     
+    }
     
+
+
+
+
+
     ]
   },
 
@@ -1044,9 +1328,6 @@ component: CreateManageBanksComponent,
       }
     ]
   }
-
-
-
 ];
 
 @NgModule({

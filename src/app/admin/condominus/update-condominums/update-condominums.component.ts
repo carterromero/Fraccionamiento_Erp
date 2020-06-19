@@ -34,12 +34,14 @@ export class UpdateCondominumsComponent implements OnInit {
     this.id = this.route.firstChild.snapshot.params['id']
     
     this.employeeService.getEmployee(this.id)
-      .subscribe(data => {
+      .subscribe(data => 
+        {
         console.log(data);
         this.employee = data;
-        this.employee.condominums_status = (String(this.employee.condominums_status) == "false") ? null:"false";
+        this.employee.condominums_status = (String(this.employee.condominums_status) == "false") ? null:"true";
         console.log(this.employee.condominums_status);
-      }, error => {
+        },
+       error => {
         console.log(error);
         let coins = [];
         for (let key in error) {
@@ -53,10 +55,11 @@ export class UpdateCondominumsComponent implements OnInit {
 
    
 
-  updateEmployee() {
+  updateEmployee() 
+  {
 
     this.employee.user_id="3";
-    console.log(this.employee.condominums_status);
+    console.log(this.employee)
     
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {
@@ -73,8 +76,6 @@ export class UpdateCondominumsComponent implements OnInit {
           this.alertMessage = error['statusText'];          
         }
       });
-    
-  
   }
 
   reloadDatas() 
@@ -109,9 +110,6 @@ export class UpdateCondominumsComponent implements OnInit {
       this.alertDisable = false;
       this.alertMessage = "Dirección Incompleta";          
     }
-  
-    
-  
   
     else{
       this.updateEmployee();    

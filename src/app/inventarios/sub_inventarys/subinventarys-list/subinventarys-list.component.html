@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Fraccionamientos" blockClass="table-border-style">      
+        <button [routerLink]="['/subinventarys-create']" class="btn btn-outline-info">Agregar Sub Inventario</button><br>
+        <br>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+                <tr>              
+                    <th>Descripción</th>
+                    <th>Estatus </th>
+                    <th>Acciones</th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                    <td>{{general.sub_inventarys_description}} </td>
+                    
+                    <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.sub_inventarys_status == 'true'">
+                          <label class="custom-control-label" for="sub_inventarys_status">Active</label>
+                       </div>
+                      </td>
+
+                    <td>
+                        <button (click)="deleteGeneral(general.sub_inventarys_id)"  class="btn btn-outline-danger">Eliminar</button>
+                        <button (click)="updateGeneral(general.sub_inventarys_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        <button (click)="generalDetails(general.sub_inventarys_id )" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                        
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

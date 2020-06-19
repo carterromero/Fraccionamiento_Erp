@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xl-12">
-      <app-card cardTitle="Roles" blockClass="table-border-style">      
+      <app-card cardTitle="Permisos" blockClass="table-border-style">      
         <button [routerLink]="['/create-permissions']"   class="btn btn-outline-primary" >Agregar Permisos</button>
         <br><br>
         <div class="table-responsive">
@@ -18,13 +18,8 @@
               <th>Contabilidad</th>
               <th>Cuentas por Cobrar</th>
               <th>Inventario</th>
-              <th>RH</th>
+              <th>Recursos Humanos</th>
               <th>Administración</th>
-              <th>Dashboard</th>
-              <th>Consultar</th>
-              <th>Insertar</th>
-              <th>Actualizar</th>
-              <th>Eliminar</th>
               <th>Estatus</th>
               <th>#</th>
             </tr>
@@ -99,39 +94,6 @@
                        </div>
                       </td>
 
-                      <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_dashboard == 'true'">
-                          <label class="custom-control-label" for="permissions_dashboard">Active</label>
-                       </div>
-                      </td>
-
-
-                      <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_consult == 'true'">
-                          <label class="custom-control-label" for="permissions_consult">Active</label>
-                       </div>
-                      </td>
-                      <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_create == 'true'">
-                          <label class="custom-control-label" for="permissions_create">Active</label>
-                       </div>
-                      </td>
-
-                      <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_update == 'true'">
-                          <label class="custom-control-label" for="permissions_update">Active</label>
-                       </div>
-                      </td>
-                      <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_delete == 'true'">
-                          <label class="custom-control-label" for="permissions_delete">Active</label>
-                       </div>
-                      </td>
 
                       <td>
                         <div class="custom-control custom-switch">
@@ -139,12 +101,11 @@
                           <label class="custom-control-label" for="permissions_status">Active</label>
                        </div>
                       </td>
-
-
                     <td>
-                        <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
+                        <button (click)="transacciones(general.permissions_id)" class="btn btn-outline-info" style="margin-left: 10px">Transacciones</button>   
+                        <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()" style="margin-left: 10px">Eliminar</button>
                         <button (click)="updateGeneral(general.permissions_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                        <button (click)="generalDetails(general.permissions_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                        <button (click)="generalDetails(general.permissions_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button> 
                         <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                           <div class="app-modal-header">
                           <h5 class="modal-title">Eliminar Permisos</h5>

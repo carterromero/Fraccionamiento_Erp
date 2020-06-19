@@ -297,7 +297,7 @@ const NavigationItems = [
 
           {
             id: 'crear_cuenta',
-            title: 'Crear una cuenta ',
+            title: 'Crear una factura ',
             type: 'item',            
             url: '/billtopay-list'
             
@@ -336,7 +336,7 @@ const NavigationItems = [
     children: [
       {
         id: 'Treasury-catalog',
-        title: 'Catalogos',
+        title: 'Configuración y Mantenimiento',
         type: 'collapse',
         icon: 'feather icon-monitor',
         children: [
@@ -350,7 +350,7 @@ const NavigationItems = [
 
           {
             id: 'banks',
-            title: 'Bancos',
+            title: 'Gestionar Bancos',
             type: 'item',            
             url: '/manage-banks-list'
             
@@ -361,8 +361,54 @@ const NavigationItems = [
             type: 'item',            
             url: '/bank-accounts-list'
             
+          },
+          {
+            id: 'transfers',
+            title: 'Transferencias',
+            type: 'item',            
+            url: '/transfers-list'
+            
+          },
+          {
+            id: 'paymentDocuments',
+            title: 'Documentos de Pago',
+            type: 'item',            
+            url: '/payment-documents-list'
+            
           }
                                 
+        ]
+      },
+      {
+        id: 'Treasury-operation',
+        title: 'Conciliación y Estados de Cuenta',
+        type: 'collapse',
+        icon: 'feather icon-file-text',
+        children: [
+  
+
+          {
+            id: 'account_statements',
+            title: 'Estado de Cuenta',
+            type: 'item',            
+            url: '/account-statements-list'
+            
+          },
+          {
+            id: 'automaticConciliation',
+            title: 'Conciliación Automática',
+            type: 'item',            
+            url: '/automatic-conciliation-list'
+            
+          },
+          {
+            id: 'manualConciliation',
+            title: 'Conciliación Manual',
+            type: 'item',            
+            url: '/manual-conciliation-list'
+            
+          }
+                              
         ]
       },
     ]
@@ -577,7 +623,7 @@ const NavigationItems = [
 
 
 
-  /*
+ 
  
   ,
 
@@ -787,7 +833,7 @@ const NavigationItems = [
     ]
   }
 
-*/
+
 
 
 
