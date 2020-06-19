@@ -57,7 +57,10 @@ import { CreatePaytmentComponent } from './po/payterms/create-paytment/create-pa
 import { PaymentDetailsComponent } from './po/payterms/payment-details/payment-details.component';
 import { UpdatePaymentComponent } from './po/payterms/update-payment/update-payment.component';
 
-
+import { CreatePaymentDocumentsComponent } from './treasury/paymentDocuments/create-payment-documents/create-payment-documents.component';
+import { PaymentDocumentsDetailsComponent } from './treasury/paymentDocuments/payment-documents-details/payment-documents-details.component';
+import { PaymentDocumentsListComponent } from './treasury/paymentDocuments/payment-documents-list/payment-documents-list.component';
+import { UpdatePaymentDocumentsComponent } from './treasury/paymentDocuments/update-payment-documents/update-payment-documents.component';
 
 
 import { BankCodesListComponent } from './treasury/bankCodes/bank-codes-list/bank-codes-list.component';
@@ -1160,7 +1163,55 @@ component: CreateManageBanksComponent,
         }
       ]
     }
+///
+,
 
+  {
+    path: '',
+  component: PaymentDocumentsListComponent,
+   children: [
+     {
+        path: 'payment-documents-list',
+       loadChildren: () => import('./treasury/paymentDocuments/payment-documents-list/payment-documents-list.module').then(module => module.PaymentDocumentsListModule)
+      }
+    ]
+
+
+
+  }
+  ,
+
+  {
+    path: '',
+  component: CreatePaymentDocumentsComponent,
+   children: [
+     {
+        path: 'payment-documents-create',
+       loadChildren: () => import('./treasury/paymentDocuments/create-payment-documents/payment-documents-create.module').then(module => module.PaymentDocumentsCreateModule)
+      }
+    ]
+  },
+  
+      {
+        path: '',
+        component: PaymentDocumentsDetailsComponent,
+        children: [
+          {
+            path: 'payment-documents-details/:id',
+            loadChildren: () => import('./treasury/paymentDocuments/payment-documents-details/payment-documents-details.module').then(module => module.PaymentDocumentsDetailsModule)
+          }
+        ]
+      }  ,
+      {
+        path: '',
+        component:  UpdatePaymentDocumentsComponent,
+        children: [
+          {
+            path: 'update-payment-documents/:id',
+            loadChildren: () => import('./treasury/paymentDocuments/update-payment-documents/payment-documents-update.module').then(module => module.PaymentDocumentsUpdateModule)
+          }
+        ]
+      }
     ,
     {
       path: '',
