@@ -126,6 +126,10 @@ import { UpdateSubinventarysComponent } from './inventarios/sub_inventarys/updat
 import { CreateSubcategoriesComponent } from './inventarios/sub_categories/create-subcategories/create-subcategories.component';
 import { CreateSubinventarysComponent } from './inventarios/sub_inventarys/create-subinventarys/create-subinventarys.component';
 
+//AR
+import { collectionListComponent } from './collection/collection-list/collection-list.component';
+import { CreatecollectionComponent } from './collection/create-collection/create-collection.component';
+
 
 const routes: Routes = [
   /* Default page */
@@ -648,6 +652,27 @@ const routes: Routes = [
           {
             path: 'update-legals/:id',
             loadChildren: () => import('./admin/legals/update-legals/update-legals.module').then(module => module.UpdateLegalsModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+        component: collectionListComponent,
+        children: [
+          {
+            path: 'collection-list',
+            loadChildren: () => import('./collection/collection-list/collection-list.module').then(module => module.collectionListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreatecollectionComponent,
+        children: [
+          {
+            path: 'create-collection',
+            loadChildren: () => import('./collection/create-collection/create-collection.module').then(module => module.createcollectionModule)
           }
         ]
       },
