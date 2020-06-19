@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Observable } from 'rxjs';
 import { Rol } from 'src/app/services/admin/rol';
 import { UserService } from 'src/app/services/admin/user.service';
@@ -129,13 +128,8 @@ export class CreateUserComponent implements OnInit {
     this.alertDisable = false;
     this.alertMessage = "Rol Incompleto";          
   }
-
-
   else
   {
-
-    
-
     this.save();    
   } 
   }
