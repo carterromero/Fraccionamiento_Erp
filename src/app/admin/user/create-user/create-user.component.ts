@@ -9,12 +9,12 @@ import { TenantsC } from 'src/app/services/admin/tenants';
 import { Condominums } from 'src/app/services/admin/condominums';
 import { CondominumsService } from 'src/app/services/admin/condominums.service';
 
-
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
   styleUrls: ['./create-user.component.scss']
 })
+
 export class CreateUserComponent implements OnInit {
 
   employee: User = new User();
@@ -57,14 +57,8 @@ export class CreateUserComponent implements OnInit {
     );      
   }
 
-
-
-  
-
-
   reloadDatasss() 
   {
-
     this.condService.getEmployeeListcombo().subscribe(
       data => {
         console.log(data);
@@ -134,7 +128,7 @@ export class CreateUserComponent implements OnInit {
   } 
   }
 
-  gotoList() 
+  gotoList()
   {
     this.router.navigate(['usuarios-list']);
   }
