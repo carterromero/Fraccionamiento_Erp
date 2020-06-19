@@ -143,7 +143,6 @@ export class CreatePurcharseComponent implements OnInit {
   } 
   }
 
-
   gotoList() 
   {
     this.router.navigate(['purchase_orders-list']);

@@ -68,7 +68,7 @@ export class PurcharseListComponent implements OnInit {
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-condominums', id]);
+    this.router.navigate(['update-purcharse', id]);
   }
 
 

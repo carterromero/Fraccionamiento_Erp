@@ -31,9 +31,11 @@
               <p>Esta seguro de actualizar el fraccionamiento</p>
               </div>
               <div class="app-modal-footer">
-              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+             
+                <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
               <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
-              </div>
+            
+            </div>
           </app-ui-modal>
           <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>                   
             <button [routerLink]="['/condominus-list']"  class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>

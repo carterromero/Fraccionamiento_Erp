@@ -125,6 +125,7 @@ import { SubinventarysDetailsComponent } from './inventarios/sub_inventarys/subi
 import { UpdateSubinventarysComponent } from './inventarios/sub_inventarys/update-subinventarys/update-subinventarys.component';
 import { CreateSubcategoriesComponent } from './inventarios/sub_categories/create-subcategories/create-subcategories.component';
 import { CreateSubinventarysComponent } from './inventarios/sub_inventarys/create-subinventarys/create-subinventarys.component';
+import { UpdatePurcharseComponent } from './purcharse/update-purcharse/update-purcharse.component';
 
 
 const routes: Routes = [
@@ -1163,6 +1164,18 @@ component: CreateManageBanksComponent,
         {
           path: 'create-purcharse',
           loadChildren: () => import('./purcharse/create-purcharse/create-purcharse.module').then(module => module.PurcharseCreateModule)
+        }
+      ]
+    }
+
+    ,
+    {
+      path: '',
+      component: UpdatePurcharseComponent,
+      children: [
+        {
+          path: 'update-purcharse/:id',
+          loadChildren: () => import('./purcharse/update-purcharse/update-purcharse.module').then(module => module.UpdatePurcharseModule)
         }
       ]
     }
