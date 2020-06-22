@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 })
 export class CreateDepartmentsComponent implements OnInit {
   
-  employee: Departments = new Departments();
+  department: Departments = new Departments();
   submitted = false;
 
-  constructor(private employeeService: DepartmentsService,
+  constructor(private departmentService: DepartmentsService,
     private router: Router) { }
 
   ngOnInit() {
@@ -22,18 +22,18 @@ export class CreateDepartmentsComponent implements OnInit {
 
   newEmployee(): void {
     this.submitted = false;
-    this.employee = new Departments();
+    this.department = new Departments();
   }
 
   save() {
-    this.employeeService.createEmployee(this.employee)
+    this.departmentService.createDepartment(this.department)
       .subscribe(data => console.log(data), 
       error => {
         console.log(error);
        // localStorage.setItem('token', "");
      //   this.router.navigate(['auth/signin']);
       });
-    this.employee = new Departments();
+    this.department = new Departments();
     this.gotoList();
   }
 

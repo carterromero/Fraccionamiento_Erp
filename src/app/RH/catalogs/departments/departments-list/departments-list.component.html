@@ -13,18 +13,18 @@
             </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let employee of employees | async">
-                    <td>{{employee.departments_name}}</td>
+                <tr *ngFor="let department of departments | async">
+                    <td>{{department.departments_name}}</td>
                     <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="employee.departments_status == 'true'">
+                          <input type="checkbox" class="custom-control-input" [checked]="department.departments_status == 'true'">
                           <label class="custom-control-label" for="departments_status">Active</label>
                        </div>
                       </td>
                       <td>                 
-                        <button (click)="deleteEmployee(employee.departments_id)" class="btn btn-outline-danger">Eliminar</button>
-                        <button (click)="updateEmployee(employee.departments_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                        <button (click)="employeeDetails(employee.departments_id)" class="btn btn-outline-primary" style="margin-left: 10px">Detalles</button>
+                        <button (click)="deleteDepartment(department.departments_id)" class="btn btn-outline-danger">Eliminar</button>
+                        <button (click)="updateDepartment(department.departments_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        <button (click)="departmentDetails(department.departments_id)" class="btn btn-outline-primary" style="margin-left: 10px">Detalles</button>
                     </td>
                 </tr>
             </tbody>

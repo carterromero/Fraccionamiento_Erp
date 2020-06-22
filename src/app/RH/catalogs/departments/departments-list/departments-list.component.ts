@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ["./departments-list.component.scss"]
 })
 export class DepartmentsListComponent implements OnInit {
-  employees: Observable<Departments[]>;
+  departments: Observable<Departments[]>;
   elements: any = [];
 
-  constructor(private employeeService: DepartmentsService,
+  constructor(private departmentService: DepartmentsService,
     private router: Router) {}
 
   ngOnInit() {    
@@ -32,10 +32,10 @@ export class DepartmentsListComponent implements OnInit {
   reloadData() {
     /*localStorage.setItem('token', "");*/
     /*this.employees = this.employeeService.getEmployeeList();*/
-    this.employeeService.getEmployeeList().subscribe(
+    this.departmentService.getDepartmentList().subscribe(
       data => {
         console.log(data);
-        this.employees = this.employeeService.getEmployeeList();
+        this.departments = this.departmentService.getDepartmentList();
       },
       error => {
         console.log(error);
@@ -44,8 +44,8 @@ export class DepartmentsListComponent implements OnInit {
       });
   }
 
-  deleteEmployee(id: number) {
-    this.employeeService.deleteEmployee(id)
+  deleteDepartment(id: number) {
+    this.departmentService.deleteDepartment(id)
       .subscribe(
         data => {
           console.log(data);
@@ -58,12 +58,12 @@ export class DepartmentsListComponent implements OnInit {
         });
   }
 
-  employeeDetails(id: number){
+  departmentDetails(id: number){
     console.log(id);
     this.router.navigate(['departments-details', id]);
   }
 
-  updateEmployee(id: number){
+  updateDepartment(id: number){
     console.log(id);
     this.router.navigate(['update-departments', id]);
   }

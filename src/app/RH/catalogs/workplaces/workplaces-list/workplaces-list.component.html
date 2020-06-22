@@ -13,19 +13,19 @@
             </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let employee of employees | async">
-                    <td>{{employee.workplaces_name}}</td>
+                <tr *ngFor="let workplace of workplaces | async">
+                    <td>{{workplace.workplaces_name}}</td>
                     <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="employee.workplaces_status == 'true'">
+                          <input type="checkbox" class="custom-control-input" [checked]="workplace.workplaces_status == 'true'">
                           <label class="custom-control-label" for="workplaces_status">Active</label>
                        </div>
                       </td>
   
                       <td>                 
-                        <button (click)="deleteEmployee(employee.workplaces_id)" class="btn btn-outline-danger">Eliminar</button>
-                        <button (click)="updateEmployee(employee.workplaces_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                        <button (click)="employeeDetails(employee.workplaces_id)" class="btn btn-outline-primary" style="margin-left: 10px">Detalles</button>
+                        <button (click)="deleteWorkplace(workplace.workplaces_id)" class="btn btn-outline-danger">Eliminar</button>
+                        <button (click)="updateWorkplace(workplace.workplaces_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        <button (click)="workplaceDetails(workplace.workplaces_id)" class="btn btn-outline-primary" style="margin-left: 10px">Detalles</button>
                     </td>
                 </tr>
             </tbody>

@@ -10,34 +10,34 @@ import { Router } from '@angular/router';
 })
 export class CreateWorkplacesComponent implements OnInit {
   
-  employee: Workplaces = new Workplaces();
+  workplace: Workplaces = new Workplaces();
   submitted = false;
 
-  constructor(private employeeService: WorkplacesService,
+  constructor(private workplaceService: WorkplacesService,
     private router: Router) { }
 
   ngOnInit() {
     //code
   }
 
-  newEmployee(): void {
+  newWorkplace(): void {
     this.submitted = false;
-    this.employee = new Workplaces();
+    this.workplace = new Workplaces();
   }
 
   save() {
-    this.employee.last_update_by=3;
-    console.log(this.employee);
-    this.employee.create_by=1;
-    console.log(this.employee);
-    this.employeeService.createEmployee(this.employee)
+    this.workplace.last_update_by=3;
+    console.log(this.workplace);
+    this.workplace.create_by=1;
+    console.log(this.workplace);
+    this.workplaceService.createWorkplace(this.workplace)
       .subscribe(data => console.log(data), 
       error => {
         console.log(error);
        // localStorage.setItem('token', "");
         //this.router.navigate(['auth/signin']);
       });
-    this.employee = new Workplaces();
+    this.workplace = new Workplaces();
     this.gotoList();
   }
 
