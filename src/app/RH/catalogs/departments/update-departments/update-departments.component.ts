@@ -36,13 +36,9 @@ export class UpdateDepartmentsComponent implements OnInit {
   }
 
   updateDepartment() {
-
-    
-    
     this.department.last_update_by=3;
     console.log(this.department);
-    
- console.log(this.id);
+    console.log(this.id);
     
     
     this.departmentService.updateDepartment(this.id, this.department)
