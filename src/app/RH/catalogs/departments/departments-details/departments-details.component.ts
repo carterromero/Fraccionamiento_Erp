@@ -10,23 +10,23 @@ import { DepartmentsService } from 'src/app/departments.service';
 })
 export class DepartmentsDetailsComponent implements OnInit {
   id: number;
-  employee: Departments;
+  department: Departments;
   alertDisable = true;
   alertMessage = "null";
   
   constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: DepartmentsService) { }
+    private departmentService: DepartmentsService) { }
 
  ngOnInit() {
-    this.employee = new Departments();    
+    this.department = new Departments();    
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
     
     
-    this.employeeService.getEmployee(this.id)
+    this.departmentService.getDepartment(this.id)
       .subscribe(data => {
         console.log(data);
-        this.employee = data;
+        this.department = data;
       }, error => {
         console.log(error);
         let coins = [];

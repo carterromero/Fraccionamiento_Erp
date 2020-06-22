@@ -2,10 +2,6 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { AuthComponent} from './theme/layout/auth/auth.component';
-import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
-import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
-import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
-import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { AddressListComponent } from './address/address-list/address-list.component';
 import { CreateAddressComponent } from './address/create-address/create-address.component';
@@ -105,6 +101,11 @@ import { DepartmentsDetailsComponent } from './RH/catalogs/departments/departmen
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
 import { TransactionDetailsComponent } from './admin/transaction/transaction-details/transaction-details.component';
 import { UpdateTransactionComponent } from './admin/transaction/update-transaction/update-transaction.component';
+import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
+import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
+import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
+
 
 
 

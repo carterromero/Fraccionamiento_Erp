@@ -11,23 +11,23 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class UpdateDepartmentsComponent implements OnInit {
 
   id: number;
-  employee: Departments;
+  department: Departments;
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: DepartmentsService) { }
+    private departmentService: DepartmentsService) { }
 
   ngOnInit() {
-    this.employee = new Departments();
+    this.department = new Departments();
 
 
     this.id = this.route.firstChild.snapshot.params['id']
-    console.log(this.employee.departments_status);
-    this.employeeService.getEmployee(this.id)
+    console.log(this.department.departments_status);
+    this.departmentService.getDepartment(this.id)
       .subscribe(data => {
         console.log(data);
-        this.employee = data;
-        this.employee.departments_status = (String(this.employee.departments_status) == "false") ? null:"false";
-        console.log(this.employee.departments_status);
+        this.department = data;
+        this.department.departments_status = (String(this.department.departments_status) == "false") ? null:"false";
+        console.log(this.department.departments_status);
       }, error => {
         console.log(error);
         
@@ -35,17 +35,17 @@ export class UpdateDepartmentsComponent implements OnInit {
       
   }
 
-  updateEmployee() {
+  updateDepartment() {
 
     
     
-    this.employee.last_update_by=3;
-    console.log(this.employee);
+    this.department.last_update_by=3;
+    console.log(this.department);
     
  console.log(this.id);
     
     
-    this.employeeService.updateEmployee(this.id, this.employee)
+    this.departmentService.updateDepartment(this.id, this.department)
       .subscribe(data => {console.log(data);
         this.gotoList();  
       }, 
@@ -58,7 +58,7 @@ export class UpdateDepartmentsComponent implements OnInit {
   }
 
   onSubmit() {
-    this.updateEmployee();    
+    this.updateDepartment();    
   }
 
   gotoList() {

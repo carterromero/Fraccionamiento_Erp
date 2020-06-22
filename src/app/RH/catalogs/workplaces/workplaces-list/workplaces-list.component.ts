@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ["./workplaces-list.component.scss"]
 })
 export class WorkplacesListComponent implements OnInit {
-  employees: Observable<Workplaces[]>;
+  workplaces: Observable<Workplaces[]>;
   elements: any = [];
 
-  constructor(private employeeService: WorkplacesService,
+  constructor(private workplaceService: WorkplacesService,
     private router: Router) {}
 
   ngOnInit() {    
@@ -32,20 +32,20 @@ export class WorkplacesListComponent implements OnInit {
   reloadData() {
     /*localStorage.setItem('token', "");*/
     /*this.employees = this.employeeService.getEmployeeList();*/
-    this.employeeService.getEmployeeList().subscribe(
+    this.workplaceService.getWorkplaceList().subscribe(
       data => {
         console.log(data);
-        this.employees = this.employeeService.getEmployeeList();
+        this.workplaces = this.workplaceService.getWorkplaceList();
       },
       error => {
         console.log(error);
-     localStorage.setItem('token', "");
-      this.router.navigate(['auth/signin']);     
+   //  localStorage.setItem('token', "");
+    //  this.router.navigate(['auth/signin']);     
       });
   }
 
-  deleteEmployee(id: number) {
-    this.employeeService.deleteEmployee(id)
+  deleteWorkplace(id: number) {
+    this.workplaceService.deleteWorkplace(id)
       .subscribe(
         data => {
           console.log(data);
@@ -57,12 +57,12 @@ export class WorkplacesListComponent implements OnInit {
       //    this.router.navigate(['auth/signin']);
         });
   }
-  employeeDetails(id: number){
+  workplaceDetails(id: number){
     console.log(id);
     this.router.navigate(['workplaces-details', id]);
   }
 
-  updateEmployee(id: number){
+  updateWorkplace(id: number){
     console.log(id);
     this.router.navigate(['update-workplaces', id]);
   }
