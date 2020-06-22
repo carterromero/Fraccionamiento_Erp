@@ -98,21 +98,25 @@ import { CreateDepartmentsComponent } from './RH/catalogs/departments/create-dep
 import { DepartmentsListComponent } from './RH/catalogs/departments/departments-list/departments-list.component';
 import { UpdateDepartmentsComponent } from './RH/catalogs/departments/update-departments/update-departments.component';
 import { DepartmentsDetailsComponent } from './RH/catalogs/departments/departments-details/departments-details.component';
-import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
-import { TransactionDetailsComponent } from './admin/transaction/transaction-details/transaction-details.component';
-import { UpdateTransactionComponent } from './admin/transaction/update-transaction/update-transaction.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
 import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
 import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
-
-
-
-
 import { CreateWorkplacesComponent } from './RH/catalogs/workplaces/create-workplaces/create-workplaces.component';
 import { WorkplacesListComponent } from './RH/catalogs/workplaces/workplaces-list/workplaces-list.component';
 import { UpdateWorkplacesComponent } from './RH/catalogs/workplaces/update-workplaces/update-workplaces.component';
 import { WorkplacesDetailsComponent } from './RH/catalogs/workplaces/workplaces-details/workplaces-details.component';
+import { CreateTenantsComponent } from './RH/Inquilinos/create-tenants/create-tenants.component';
+import { TenantsListComponent } from './RH/Inquilinos/tenants-list/tenants-list.component';
+import { UpdateTenantsComponent } from './RH/Inquilinos/update-tenants/update-tenants.component';
+import { TenantsDetailsComponent } from './RH/Inquilinos/tenants-details/tenants-details.component';
+
+
+import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
+import { TransactionDetailsComponent } from './admin/transaction/transaction-details/transaction-details.component';
+import { UpdateTransactionComponent } from './admin/transaction/update-transaction/update-transaction.component';
+
+
 import { PurcharseListModule } from './purcharse/purcharse-list/purcharse-list.module';
 import { PurcharseListComponent } from './purcharse/purcharse-list/purcharse-list.component';
 import { CreatePurcharseComponent } from './purcharse/create-purcharse/create-purcharse.component';
@@ -259,7 +263,7 @@ const routes: Routes = [
         component: UpdateDepartmentsComponent,
         children: [
           {
-            path: 'update-departments',
+            path: 'update-departments/:id',
             loadChildren: () => import('./RH/catalogs/departments/update-departments/update-departments.module').then(module => module.UpdateDepartmentsModule)
 
           }
@@ -283,6 +287,50 @@ const routes: Routes = [
           {
             path: 'departments-details/:id',
             loadChildren: () => import('./RH/catalogs/departments/departments-details/departments-details.module').then(module => module.DepartmentsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateTenantsComponent,
+        children: [
+          {
+            path: 'create-tenants',
+            loadChildren: () => import('./RH/Inquilinos/create-tenants/create-tenants.module').then(module => module.CreateTenantsModule)
+
+          }
+        ]
+
+      },
+      {
+        path: '',
+        component: UpdateTenantsComponent,
+        children: [
+          {
+            path: 'update-tenants/:id',
+            loadChildren: () => import('./RH/Inquilinos/update-tenants/update-tenants.module').then(module => module.UpdateTenantsModule)
+
+          }
+        ]
+
+      },
+      {
+        path: '',
+        component: TenantsListComponent ,
+        children: [
+          {
+            path: 'tenants-list',
+            loadChildren: () => import('./RH/Inquilinos/tenants-list/tenants-list.module').then(module => module.TenantsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: TenantsDetailsComponent,
+        children: [
+          {
+            path: 'tenants-details/:id',
+            loadChildren: () => import('./RH/Inquilinos/tenants-details/tenants-details.module').then(module => module.TenantsDetailsModule)
           }
         ]
       },

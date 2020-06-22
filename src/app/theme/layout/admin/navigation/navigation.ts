@@ -505,15 +505,28 @@ const NavigationItems = [
             type: 'collapse',
             icon: 'feather icon-user',
             children: [
-      
-    
               {
                  id: 'rh-employee',
                 title: 'Empleados',
                 type: 'item',            
                 url: '/employee-list'
                 
-              }                    
+              }               
+            ]
+          },
+          {
+            id: 'rh-tenants',
+            title: 'Inquilinos',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-tenant',
+                title: 'Inquilinos',
+                type: 'item',            
+                url: '/tenants-list'
+                
+              }               
             ]
           },
         ]

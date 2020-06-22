@@ -1,0 +1,50 @@
+<p>tenants-list works!</p>
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Inquilinos" blockClass="table-border-style">      
+        <button [routerLink]="['/create-tenants']" class="btn btn-outline-primary">Agregar Residente</button><br>
+        <br>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>              
+              <th>Nombre inquilino</th>
+              <th>Apellido paterno</th>
+              <th>Apeliido materno</th>
+              <th>Marca de auto</th>
+              <th>Placa de auto</th>
+              <th>Ubicacion</th>
+              <th>Numero de residencia</th>
+              <th>Tipo de inquilino</th>
+              <th>Estatus </th>
+              <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tenant of tenants | async">
+                    <td>{{tenant.tenants_name}}</td>
+                    <td>{{tenant.tenants_father_surname}}</td>
+                    <td>{{tenant.tenants_mother_surname}}</td>
+                    <td>{{tenant.tenants_car_brand}}</td>
+                    <td>{{tenant.tenants_car_plate}}</td>
+                    <td>{{tenant.tenants_location}}</td>
+                    <td>{{tenant.tenants_residential_number}}</td>
+                    <td>{{tenant.tenants_type}}</td>
+                    <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="tenant.tenants_status == 'true'">
+                          <label class="custom-control-label" for="tenants_status">Active</label>
+                       </div>
+                      </td>
+                      <td>                 
+                        <button (click)="deleteTenant(tenant.tenants_id)" class="btn btn-outline-danger">Eliminar</button>
+                        <button (click)="updateTenant(tenant.tenants_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        <button (click)="tenantDetails(tenant.tenants_id)" class="btn btn-outline-primary" style="margin-left: 10px">Detalles</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>
