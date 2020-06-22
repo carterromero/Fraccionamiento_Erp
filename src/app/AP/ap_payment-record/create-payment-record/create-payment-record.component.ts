@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { PaymentRecord } from 'src/app/payment-record';
 import { PaymentRecordService } from 'src/app/payment-record.service';
 import { Router } from '@angular/router';
+import { STRING_TYPE } from '@angular/compiler';
 
 @Component({
   selector: 'app-create-payment-record',
   templateUrl: './create-payment-record.component.html',
   styleUrls: ['./create-payment-record.component.scss']
+  
 })
 export class CreatePaymentRecordComponent implements OnInit {
 
@@ -16,9 +18,12 @@ export class CreatePaymentRecordComponent implements OnInit {
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
-
+  files: any;
   constructor(private employeeService: PaymentRecordService,
-    private router: Router) { }
+    private router: Router) {
+
+      
+     }
 
     ngOnInit() {
     }
@@ -66,7 +71,8 @@ export class CreatePaymentRecordComponent implements OnInit {
 
   else if(this.employee.payment_method =="" ||  this.employee.payment_method ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Método de pago";          
+    this.alertMessage = "Método de pago";    
+
   }
 
 
@@ -79,5 +85,10 @@ export class CreatePaymentRecordComponent implements OnInit {
   {
     this.router.navigate(['payment-record-list']);
   }
+
+
+
+
+  
 
 }

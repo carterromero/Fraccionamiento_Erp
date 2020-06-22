@@ -2,13 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaymentRecord } from 'src/app/payment-record';
 import { PaymentRecordService } from 'src/app/payment-record.service';
+
+
 @Component({
   selector: 'app-update-payment-record',
   templateUrl: './update-payment-record.component.html',
   styleUrls: ['./update-payment-record.component.scss']
 })
 export class UpdatePaymentRecordComponent implements OnInit {
-
+ 
+  
   id: number;
   employee: PaymentRecord;
   alertDisable = true;
@@ -84,15 +87,10 @@ export class UpdatePaymentRecordComponent implements OnInit {
   
     else if(this.employee.payment_method =="" ||  this.employee.payment_method ==null ){
       this.alertDisable = false;
-      this.alertMessage = "Método de pago:";          
+      this.alertMessage = "Método de pago:";    
+            
     }
-  
-  
-  
-  
-   
-  
-  
+    
     else{
       this.updateEmployee();    
     }
@@ -103,6 +101,10 @@ export class UpdatePaymentRecordComponent implements OnInit {
   gotoList() {
     this.router.navigate(['payment-record-list']);
   }
+
+  
+
+  
 
 }
 
