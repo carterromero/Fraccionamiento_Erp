@@ -142,6 +142,7 @@ import { PaymentRecordListComponent } from './AP/ap_payment-record/payment-recor
 import { CreatePaymentRecordComponent } from './AP/ap_payment-record/create-payment-record/create-payment-record.component';
 import { PaymentRecordDetailsComponent } from './AP/ap_payment-record/payment-record-details/payment-record-details.component';
 import { UpdatePaymentRecordComponent } from './AP/ap_payment-record/update-payment-record/update-payment-record.component';
+import { PurcharseDetailsComponent } from './purcharse/purcharse-details/purcharse-details.component';
 
 
 
@@ -1264,6 +1265,21 @@ component: CreateManageBanksComponent,
         }
       ]
     }
+
+
+    ,
+
+
+      {
+        path: '',
+        component: PurcharseDetailsComponent,
+        children: [
+          {
+            path: 'purcharse-details/:id',
+            loadChildren: () => import('./purcharse/purcharse-details/purcharse-details.module').then(module => module.PurcharseDetailsModule)
+          }
+        ]
+      }
 
 
     ,
