@@ -1479,7 +1479,8 @@ component: CreateManageBanksComponent,
         }
       ]
     },
-
+    {
+      path: '',
       component: BankAccountsDetailsComponent,
       children: [
         {
