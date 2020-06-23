@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './theme/shared/shared.module';
-
 import { AppComponent } from './app.component';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { AuthComponent } from './theme/layout/auth/auth.component';
@@ -30,6 +29,7 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +46,7 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
     NavRightComponent,
     ConfigurationComponent,
 
-    ToggleFullScreenDirective,   
+    ToggleFullScreenDirective,
 
 
 
@@ -60,6 +60,13 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
 
     ToggleFullScreenDirective,
+
+
+
+
+
+
+
 
 
 

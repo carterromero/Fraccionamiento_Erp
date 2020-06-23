@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Crear acredor" [options]="false">
+          <form (ngSubmit)="onSubmit()" >
+
+            <div class="form-group">
+                <label for="name">Fecha de pago</label>
+                <input type="date" id="start" name="trip-start"
+                value="2020-01-01"
+                min="2020-01-01" max="2030-12-31" 
+                 class="form-control" id="payment_record_payment_date"  [(ngModel)]="employee.payment_record_payment_date" name="payment_record_payment_date" required>
+              </div> 
+                
+            <div class="form-group">
+              <label for="name">Monto</label>
+              <input type="text" class="form-control" id="payment_record_amount"  [(ngModel)]="employee.payment_record_amount" name="payment_record_amount" required>
+            </div>
+
+
+              <div class="input-group">
+                <select class="custom-select" id="payment_method"  [(ngModel)]="employee.payment_method" name="payment_method" required>
+                  <option value="efectivo">efectivo</option>
+                  <option value="targeta">targeta</option>
+                  <option class="custom-file-input" value="archivo" type="file"  for="validatedCustomFile"  > archivo pdf
+                  </option>   
+                </select>
+              </div>
+              
+
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="payment_status"  [(ngModel)]="employee.payment_status"     name="payment_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="payment_status">Active</label>
+                 </div>
+            </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Crear cuenta por pagar</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de insertar cuenta por pagar </p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+            <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>          
+            <button [routerLink]="['/payment-record-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

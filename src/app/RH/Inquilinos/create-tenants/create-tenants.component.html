@@ -1,0 +1,51 @@
+<p>create-tenants works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Registrar inquilino" [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" class="form-control" id="tenants_name" required [(ngModel)]="tenant.tenants_name" name="tenants_name">
+            </div>      
+            <div class="form-group">
+                <label for="name">Apellido paterno</label>
+                <input type="text" class="form-control" id="tenants_father_surname" required [(ngModel)]="tenant.tenants_father_surname" name="tenants_father_surname">
+              </div>      
+              <div class="form-group">
+                <label for="name">Apellido materno</label>
+                <input type="text" class="form-control" id="tenants_mother_surname" required [(ngModel)]="tenant.tenants_mother_surname" name="tenants_mother_surname">
+              </div>      
+              <div class="form-group">
+                <label for="name">Marca de auto</label>
+                <input type="text" class="form-control" id="tenants_car_brand" required [(ngModel)]="tenant.tenants_car_brand" name="tenants_car_brand">
+              </div> 
+              <div class="form-group">
+                <label for="name">Placa de auto</label>
+                <input type="text" class="form-control" id="tenants_car_plate" required [(ngModel)]="tenant.tenants_car_plate" name="tenants_car_plate">
+              </div> 
+              <div class="form-group">
+                <label for="name">Ubicacion</label>
+                <input type="text" class="form-control" id="tenants_location" required [(ngModel)]="tenant.tenants_location" name="tenants_location">
+              </div>
+              <div class="form-group">
+                <label for="name">Numero de residencia</label>
+                <input type="text" class="form-control" id="tenants_residential_number" required [(ngModel)]="tenant.tenants_residential_number" name="tenants_residential_number">
+              </div>
+              <div class="form-group">
+                <label for="name">Tipo de inquilino</label>
+                <input type="text" class="form-control" id="tenants_type" required [(ngModel)]="tenant.tenants_type" name="tenants_type">
+              </div>
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="tenants_status"  [(ngModel)]="tenant.tenants_status"     name="tenants_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="tenants_status">Active</label>
+                 </div>
+            </div>
+            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button [routerLink]="['/tenants-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

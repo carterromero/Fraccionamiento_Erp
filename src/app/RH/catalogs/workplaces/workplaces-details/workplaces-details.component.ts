@@ -10,23 +10,23 @@ import { WorkplacesService } from 'src/app/workplaces.service';
 })
 export class WorkplacesDetailsComponent implements OnInit {
   id: number;
-  employee: Workplaces;
+  workplace: Workplaces;
   alertDisable = true;
   alertMessage = "null";
   
   constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: WorkplacesService) { }
+    private workplaceService: WorkplacesService) { }
 
  ngOnInit() {
-    this.employee = new Workplaces();    
+    this.workplace = new Workplaces();    
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
     
     
-    this.employeeService.getEmployee(this.id)
+    this.workplaceService.getWorkplace(this.id)
       .subscribe(data => {
         console.log(data);
-        this.employee = data;
+        this.workplace = data;
       }, error => {
         console.log(error);
         let coins = [];

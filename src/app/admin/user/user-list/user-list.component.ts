@@ -72,5 +72,10 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['update-usuarios', id]);
   }
 
+  userdashboard(id: number){
+    this.router.navigate(['userd-list', id]);
+  }
+
+ 
 
 }

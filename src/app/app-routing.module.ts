@@ -2,10 +2,6 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { AuthComponent} from './theme/layout/auth/auth.component';
-import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
-import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
-import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
-import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { AddressListComponent } from './address/address-list/address-list.component';
 import { CreateAddressComponent } from './address/create-address/create-address.component';
@@ -57,8 +53,15 @@ import { CreatePaytmentComponent } from './po/payterms/create-paytment/create-pa
 import { PaymentDetailsComponent } from './po/payterms/payment-details/payment-details.component';
 import { UpdatePaymentComponent } from './po/payterms/update-payment/update-payment.component';
 
+import { CreatePaymentDocumentsComponent } from './treasury/paymentDocuments/create-payment-documents/create-payment-documents.component';
+import { PaymentDocumentsDetailsComponent } from './treasury/paymentDocuments/payment-documents-details/payment-documents-details.component';
+import { PaymentDocumentsListComponent } from './treasury/paymentDocuments/payment-documents-list/payment-documents-list.component';
+import { UpdatePaymentDocumentsComponent } from './treasury/paymentDocuments/update-payment-documents/update-payment-documents.component';
 
-
+import { CreateTransfersComponent } from './treasury/transfers/create-transfers/create-transfers.component';
+import { TransfersDetailsComponent } from './treasury/transfers/transfers-details/transfers-details.component';
+import { TransfersListComponent } from './treasury/transfers/transfers-list/transfers-list.component';
+import { UpdateTransfersComponent } from './treasury/transfers/update-transfers/update-transfers.component';
 
 import { BankCodesListComponent } from './treasury/bankCodes/bank-codes-list/bank-codes-list.component';
 import { CreateBankCodesComponent } from './treasury/bankCodes/create-bank-codes/create-bank-codes.component';
@@ -84,7 +87,10 @@ import { UserDetailsComponent } from './admin/user/user-details/user-details.com
 import { UserListComponent } from './admin/user/user-list/user-list.component';
 import { UpdateUserComponent } from './admin/user/update-user/update-user.component';
 
-
+import { CreateBankAccountsComponent } from './treasury/bankAccounts/create-bank-accounts/create-bank-accounts.component';
+import { BankAccountsDetailsComponent } from './treasury/bankAccounts/bank-accounts-details/bank-accounts-details.component';
+import { UpdateBankAccountsComponent } from './treasury/bankAccounts/update-bank-accounts/update-bank-accounts.component';
+import { BankAccountsListComponent } from './treasury/bankAccounts/bank-accounts-list/bank-accounts-list.component';
 
 
 //RH
@@ -92,21 +98,38 @@ import { CreateDepartmentsComponent } from './RH/catalogs/departments/create-dep
 import { DepartmentsListComponent } from './RH/catalogs/departments/departments-list/departments-list.component';
 import { UpdateDepartmentsComponent } from './RH/catalogs/departments/update-departments/update-departments.component';
 import { DepartmentsDetailsComponent } from './RH/catalogs/departments/departments-details/departments-details.component';
-import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
-import { TransactionDetailsComponent } from './admin/transaction/transaction-details/transaction-details.component';
-import { UpdateTransactionComponent } from './admin/transaction/update-transaction/update-transaction.component';
-
-import { BilltopayListComponent } from './AP/ap_billtopay/billtopay-list/billtopay-list.component';
-
-
+import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { CreateEmployeeComponent } from './employee/create-employee/create-employee.component';
+import { EmployeeDetailsComponent } from './employee/employee-details/employee-details.component';
+import { UpdateEmployeeComponent } from './employee/update-employee/update-employee.component';
 import { CreateWorkplacesComponent } from './RH/catalogs/workplaces/create-workplaces/create-workplaces.component';
 import { WorkplacesListComponent } from './RH/catalogs/workplaces/workplaces-list/workplaces-list.component';
 import { UpdateWorkplacesComponent } from './RH/catalogs/workplaces/update-workplaces/update-workplaces.component';
 import { WorkplacesDetailsComponent } from './RH/catalogs/workplaces/workplaces-details/workplaces-details.component';
+import { CreateTenantsComponent } from './RH/Inquilinos/create-tenants/create-tenants.component';
+import { TenantsListComponent } from './RH/Inquilinos/tenants-list/tenants-list.component';
+import { UpdateTenantsComponent } from './RH/Inquilinos/update-tenants/update-tenants.component';
+import { TenantsDetailsComponent } from './RH/Inquilinos/tenants-details/tenants-details.component';
+
+
+import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
+import { TransactionDetailsComponent } from './admin/transaction/transaction-details/transaction-details.component';
+import { UpdateTransactionComponent } from './admin/transaction/update-transaction/update-transaction.component';
+
+
+import { PurcharseListModule } from './purcharse/purcharse-list/purcharse-list.module';
+import { PurcharseListComponent } from './purcharse/purcharse-list/purcharse-list.component';
+import { CreatePurcharseComponent } from './purcharse/create-purcharse/create-purcharse.component';
 
 import { CreateBilltopayComponent } from './AP/ap_billtopay/create-billtopay/create-billtopay.component';
 import { BilltopayDetailsComponent } from './AP/ap_billtopay/billtopay-details/billtopay-details.component';
 import { UpdateBilltopayComponent } from './AP/ap_billtopay/update-billtopay/update-billtopay.component';
+
+import { CreateUserdashboardComponent } from './admin/userdashboard/create-userdashboard/create-userdashboard.component';
+import { UpdateUserdashboardComponent } from './admin/userdashboard/update-userdashboard/update-userdashboard.component';
+import { UserdashboardDetailsComponent } from './admin/userdashboard/userdashboard-details/userdashboard-details.component';
+import { UserdashboardListComponent } from './admin/userdashboard/userdashboard-list/userdashboard-list.component';
+
 import { SubinventarysListComponent } from './inventarios/sub_inventarys/subinventarys-list/subinventarys-list.component';
 import { SubinventarysDetailsComponent } from './inventarios/sub_inventarys/subinventarys-details/subinventarys-details.component';
 import { UpdateSubinventarysComponent } from './inventarios/sub_inventarys/update-subinventarys/update-subinventarys.component';
@@ -116,6 +139,21 @@ import { MasterinventarysListComponent } from './inventarios/master_inventarys/m
 import { CreateMasterinventarysComponent } from './inventarios/master_inventarys/create-masterinventarys/create-masterinventarys.component';
 import { UnitOfMeasuresListComponent } from './inventarios/unit_of_measures/unit-of-measures-list/unit-of-measures-list.component';
 import { ArticlesListComponent } from './inventarios/articles/articles-list/articles-list.component';
+
+import { UpdatePurcharseComponent } from './purcharse/update-purcharse/update-purcharse.component';
+
+
+
+import { collectionListComponent } from './collection/collection-list/collection-list.component';
+import { CreatecollectionComponent } from './collection/create-collection/create-collection.component';
+import { BilltopayListComponent } from './AP/ap_billtopay/billtopay-list/billtopay-list.component';
+import { PaymentRecordListComponent } from './AP/ap_payment-record/payment-record-list/payment-record-list.component';
+import { CreatePaymentRecordComponent } from './AP/ap_payment-record/create-payment-record/create-payment-record.component';
+import { PaymentRecordDetailsComponent } from './AP/ap_payment-record/payment-record-details/payment-record-details.component';
+import { UpdatePaymentRecordComponent } from './AP/ap_payment-record/update-payment-record/update-payment-record.component';
+import { PurcharseDetailsComponent } from './purcharse/purcharse-details/purcharse-details.component';
+
+
 
 
 const routes: Routes = [
@@ -229,7 +267,7 @@ const routes: Routes = [
         component: UpdateDepartmentsComponent,
         children: [
           {
-            path: 'update-departments',
+            path: 'update-departments/:id',
             loadChildren: () => import('./RH/catalogs/departments/update-departments/update-departments.module').then(module => module.UpdateDepartmentsModule)
 
           }
@@ -253,6 +291,50 @@ const routes: Routes = [
           {
             path: 'departments-details/:id',
             loadChildren: () => import('./RH/catalogs/departments/departments-details/departments-details.module').then(module => module.DepartmentsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateTenantsComponent,
+        children: [
+          {
+            path: 'create-tenants',
+            loadChildren: () => import('./RH/Inquilinos/create-tenants/create-tenants.module').then(module => module.CreateTenantsModule)
+
+          }
+        ]
+
+      },
+      {
+        path: '',
+        component: UpdateTenantsComponent,
+        children: [
+          {
+            path: 'update-tenants/:id',
+            loadChildren: () => import('./RH/Inquilinos/update-tenants/update-tenants.module').then(module => module.UpdateTenantsModule)
+
+          }
+        ]
+
+      },
+      {
+        path: '',
+        component: TenantsListComponent ,
+        children: [
+          {
+            path: 'tenants-list',
+            loadChildren: () => import('./RH/Inquilinos/tenants-list/tenants-list.module').then(module => module.TenantsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: TenantsDetailsComponent,
+        children: [
+          {
+            path: 'tenants-details/:id',
+            loadChildren: () => import('./RH/Inquilinos/tenants-details/tenants-details.module').then(module => module.TenantsDetailsModule)
           }
         ]
       },
@@ -484,7 +566,7 @@ const routes: Routes = [
         }
       ]
     },
-    
+
     {
       path: '',
 
@@ -520,6 +602,52 @@ const routes: Routes = [
     }
       ,
       {
+        path: '',
+
+        component: PaymentRecordListComponent,
+        children: [
+          {
+            path: 'payment-record-list',
+            loadChildren: () => import('./AP/ap_payment-record/payment-record-list/payment-record-list.module').then(module => module.PaymentRecordListModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+
+        component: CreatePaymentRecordComponent,
+        children: [
+          {
+            path: 'create-payment-record',
+            loadChildren: () => import('./AP/ap_payment-record/create-payment-record/create-payment-record.module').then(module => module.CreatePaymentRecordModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: PaymentRecordDetailsComponent,
+        children: [
+          {
+            path: 'payment-record-details/:id',
+            loadChildren: () => import('./AP/ap_payment-record/payment-record-details/payment-record-details.module').then(module => module.PaymentRecordDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: UpdatePaymentRecordComponent,
+        children: [
+          {
+            path: 'update-payment-record/:id',
+            loadChildren: () => import('./AP/ap_payment-record/update-payment-record/update-payment-record.module').then(module => module.UpdatePaymentRecordModule)
+          }
+        ]
+      }
+      ,
+      {
       path: '',
 
         component: CategoriesListComponent,
@@ -532,7 +660,7 @@ const routes: Routes = [
       },
       {
         path: '',
-  
+
           component: SubinventarysListComponent,
           children: [
             {
@@ -649,6 +777,27 @@ const routes: Routes = [
           {
             path: 'update-legals/:id',
             loadChildren: () => import('./admin/legals/update-legals/update-legals.module').then(module => module.UpdateLegalsModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+        component: collectionListComponent,
+        children: [
+          {
+            path: 'collection-list',
+            loadChildren: () => import('./collection/collection-list/collection-list.module').then(module => module.collectionListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreatecollectionComponent,
+        children: [
+          {
+            path: 'create-collection',
+            loadChildren: () => import('./collection/create-collection/create-collection.module').then(module => module.createcollectionModule)
           }
         ]
       },
@@ -876,7 +1025,7 @@ const routes: Routes = [
       }
     ]
   },
-  
+
       {
         path: '',
         component: BankCodesDetailsComponent,
@@ -1009,7 +1158,7 @@ component: CreateManageBanksComponent,
         }
       ]
     },
-         
+
           {
             path: '',
       component: RolDetailsComponent,
@@ -1157,12 +1306,60 @@ component: CreateManageBanksComponent,
         }
       ]
     }
+    ,
+    {
+      path: '',
+      component: PurcharseListComponent,
+      children: [
+        {
+          path: 'purchase_orders-list',
+          loadChildren: () => import('./purcharse/purcharse-list/purcharse-list.module').then(module => module.PurcharseListModule)
+        }
+      ]
+    },{
+      path: '',
+      component: CreatePurcharseComponent,
+      children: [
+        {
+          path: 'create-purcharse',
+          loadChildren: () => import('./purcharse/create-purcharse/create-purcharse.module').then(module => module.PurcharseCreateModule)
+        }
+      ]
+    }
+
+    ,
+    {
+      path: '',
+      component: UpdatePurcharseComponent,
+      children: [
+        {
+          path: 'update-purcharse/:id',
+          loadChildren: () => import('./purcharse/update-purcharse/update-purcharse.module').then(module => module.UpdatePurcharseModule)
+        }
+      ]
+    }
+
+
+    ,
+
+
+      {
+        path: '',
+        component: PurcharseDetailsComponent,
+        children: [
+          {
+            path: 'purcharse-details/:id',
+            loadChildren: () => import('./purcharse/purcharse-details/purcharse-details.module').then(module => module.PurcharseDetailsModule)
+          }
+        ]
+      }
+
 
     ,
     {
       path: '',
       component: TransactionListComponent,
-      children: [  
+      children: [
         {
           path: 'transaction-list/:id',
           loadChildren: () => import('./admin/transaction/transaction-list/transaction-list.module').then(module => module.TransactionListModule)
@@ -1174,19 +1371,67 @@ component: CreateManageBanksComponent,
     {
       path: '',
       component: TransactionDetailsComponent,
-      children: [  
+      children: [
         {
           path: 'transaction-details/:id',
           loadChildren: () => import('./admin/transaction/transaction-details/transaction-details.module').then(module => module.TransactionDetailsModule)
         }
       ]
     }
+///
+,
 
+  {
+    path: '',
+  component: PaymentDocumentsListComponent,
+   children: [
+     {
+        path: 'payment-documents-list',
+       loadChildren: () => import('./treasury/paymentDocuments/payment-documents-list/payment-documents-list.module').then(module => module.PaymentDocumentsListModule)
+      }
+    ]
+
+
+
+  }
+  ,
+
+  {
+    path: '',
+  component: CreatePaymentDocumentsComponent,
+   children: [
+     {
+        path: 'payment-documents-create',
+       loadChildren: () => import('./treasury/paymentDocuments/create-payment-documents/payment-documents-create.module').then(module => module.PaymentDocumentsCreateModule)
+      }
+    ]
+  },
+
+      {
+        path: '',
+        component: PaymentDocumentsDetailsComponent,
+        children: [
+          {
+            path: 'payment-documents-details/:id',
+            loadChildren: () => import('./treasury/paymentDocuments/payment-documents-details/payment-documents-details.module').then(module => module.PaymentDocumentsDetailsModule)
+          }
+        ]
+      }  ,
+      {
+        path: '',
+        component:  UpdatePaymentDocumentsComponent,
+        children: [
+          {
+            path: 'update-payment-documents/:id',
+            loadChildren: () => import('./treasury/paymentDocuments/update-payment-documents/payment-documents-update.module').then(module => module.PaymentDocumentsUpdateModule)
+          }
+        ]
+      }
     ,
     {
       path: '',
       component: UpdateTransactionComponent,
-      children: [  
+      children: [
         {
           path: 'update-transaction/:id',
           loadChildren: () => import('./admin/transaction/update-transaction/update-transaction.module').then(module => module.TransactionListModule)
@@ -1195,6 +1440,7 @@ component: CreateManageBanksComponent,
     },
     {
       path: '',
+
       component: UnitOfMeasuresListComponent,
       children: [
         {
@@ -1206,7 +1452,7 @@ component: CreateManageBanksComponent,
     {
       path: '',
       component: UnitOfMeasuresListComponent,
-      children: [  
+      children: [
         {
           path: 'unitofmeasures-list',
           loadChildren: () => import('./inventarios/unit_of_measures/unit-of-measures-list/unit-of-measures-list.module').then(module => module.UnitOfMeasuresListModule)
@@ -1226,15 +1472,170 @@ component: CreateManageBanksComponent,
     {
       path: '',
       component: ArticlesListComponent,
-      children: [  
+      children: [
         {
           path: 'Articles-list',
           loadChildren: () => import('./inventarios/articles/articles-list/articles-list.module').then(module => module.CreateArticlesListModule)
         }
       ]
     },
+
+      component: BankAccountsDetailsComponent,
+      children: [
+        {
+          path: 'bank-accounts-details/:id',
+          loadChildren: () => import('./treasury/bankAccounts/bank-accounts-details/bank-accounts-details.module').then(module => module.BankAccountsDetailsModule)
+        }
+      ]
+    }  ,
+    {
+      path: '',
+      component: UpdateBankAccountsComponent,
+      children: [
+        {
+          path: 'update-bank-accounts/:id',
+          loadChildren: () => import('./treasury/bankAccounts/update-bank-accounts/bank-accounts-update.module').then(module => module.BankAccountsUpdateModule)
+        }
+
+
+
+      ]
+    }
+
+    ,
+
+    {
+      path: '',
+    component: BankAccountsListComponent,
+     children: [
+       {
+          path: 'bank-accounts-list',
+         loadChildren: () => import('./treasury/bankAccounts/bank-accounts-list/bank-accounts-list.module').then(module => module.BankAccountsListModule)
+        }
+      ]
+
+
+
+    }
+    ,
+                ///
+
+
+{
+  path: '',
+component: TransfersListComponent,
+ children: [
+   {
+      path: 'transfers-list',
+     loadChildren: () => import('./treasury/transfers/transfers-list/transfers-list.module').then(module => module.TransfersListModule)
+    }
+  ]
+
+
+
+}
+,
+
+{
+  path: '',
+component: CreateTransfersComponent,
+ children: [
+   {
+      path: 'transfers-create',
+     loadChildren: () => import('./treasury/transfers/create-transfers/transfers-create.module').then(module => module.TransfersCreateModule)
+    }
+  ]
+},
+
+    {
+      path: '',
+      component: TransfersDetailsComponent,
+      children: [
+        {
+          path: 'transfers-details/:id',
+          loadChildren: () => import('./treasury/transfers/transfers-details/transfers-details.module').then(module => module.TransfersDetailsModule)
+        }
+      ]
+    }  ,
+    {
+      path: '',
+      component:  UpdateTransfersComponent,
+      children: [
+        {
+          path: 'update-transfers/:id',
+          loadChildren: () => import('./treasury/transfers/update-transfers/transfers-update.module').then(module => module.TransfersUpdateModule)
+        }
+      ]
+    },
+
+
+    {
+      path: '',
+    component: CreateBankAccountsComponent,
+     children: [
+       {
+          path: 'bank-accounts-create',
+         loadChildren: () => import('./treasury/bankAccounts/create-bank-accounts/bank-accounts-create.module').then(module => module.BankAccountsCreateModule)
+        }
+      ]
+
+
+
+    }
+
+
+    ,
+    {
+      path: '',
+      component: CreateUserdashboardComponent,
+      children: [
+        {
+          path: 'create-userd/:id',
+          loadChildren: () => import('./admin/userdashboard/create-userdashboard/create-userdashboard.module').then(module => module.CreateUserdashboardModule)
+        }
+      ]
+    }
+    ,
+    {
+      path: '',
+      component: UpdateUserdashboardComponent,
+      children: [
+        {
+          path: 'update-userd/:id',
+          loadChildren: () => import('./admin/userdashboard/update-userdashboard/update-userdashboard.module').then(module => module.UpdateUserdashboardModule)
+        }
+      ]
+    }
+
+
+    ,
+    {
+      path: '',
+      component: UserdashboardDetailsComponent,
+      children: [
+        {
+          path: 'details-userd/:id',
+          loadChildren: () => import('./admin/userdashboard/userdashboard-details/userdashboard-details.module').then(module => module.UserdashboardModule)
+        }
+      ]
+    }
+
+
+    ,
+    {
+      path: '',
+      component: UserdashboardListComponent,
+      children: [
+        {
+          path: 'userd-list/:id',
+          loadChildren: () => import('./admin/userdashboard/userdashboard-list/userdashboard-list.module').then(module => module.UserdashboardListModule)
+        }
+      ]
+    }
+
+
     ]
-    
+
   },
 
 
