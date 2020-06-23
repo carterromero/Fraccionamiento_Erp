@@ -112,6 +112,10 @@ import { SubinventarysDetailsComponent } from './inventarios/sub_inventarys/subi
 import { UpdateSubinventarysComponent } from './inventarios/sub_inventarys/update-subinventarys/update-subinventarys.component';
 import { CreateSubcategoriesComponent } from './inventarios/sub_categories/create-subcategories/create-subcategories.component';
 import { CreateSubinventarysComponent } from './inventarios/sub_inventarys/create-subinventarys/create-subinventarys.component';
+import { MasterinventarysListComponent } from './inventarios/master_inventarys/masterinventarys-list/masterinventarys-list.component';
+import { CreateMasterinventarysComponent } from './inventarios/master_inventarys/create-masterinventarys/create-masterinventarys.component';
+import { UnitOfMeasuresListComponent } from './inventarios/unit_of_measures/unit-of-measures-list/unit-of-measures-list.component';
+import { ArticlesListComponent } from './inventarios/articles/articles-list/articles-list.component';
 
 
 const routes: Routes = [
@@ -607,6 +611,16 @@ const routes: Routes = [
       },
       {
         path: '',
+        component: MasterinventarysListComponent,
+        children: [
+          {
+            path: 'master_inventarys-list',
+            loadChildren: () => import('./inventarios/master_inventarys/masterinventarys-list/masterinventarys-list.module').then(module => module.MasterinventarysListModule)
+          }
+        ]
+      },
+      {
+        path: '',
         component: CategoriesDetailsComponent,
         children: [
           {
@@ -1094,6 +1108,16 @@ component: CreateManageBanksComponent,
           loadChildren: () => import('./admin/user/create-user/create-user.module').then(module => module.CreateUserModule)
         }
       ]
+    },
+    {
+      path: '',
+      component: CreateMasterinventarysComponent,
+      children: [
+        {
+          path: 'create-masterinventarys',
+          loadChildren: () => import('./inventarios/master_inventarys/create-masterinventarys/create-masterinventarys.module').then(module => module.CreateMasterinventarysModule)
+        }
+      ]
     }
 
     ,
@@ -1168,13 +1192,49 @@ component: CreateManageBanksComponent,
           loadChildren: () => import('./admin/transaction/update-transaction/update-transaction.module').then(module => module.TransactionListModule)
         }
       ]
-    }
-
-
-
-
-
+    },
+    {
+      path: '',
+      component: UnitOfMeasuresListComponent,
+      children: [
+        {
+          path: 'unitof-measures-list',
+          loadChildren: () => import('./inventarios/unit_of_measures/unit-of-measures-list/unit-of-measures-list.module').then(module => module.UnitOfMeasuresListModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component: UnitOfMeasuresListComponent,
+      children: [  
+        {
+          path: 'unitofmeasures-list',
+          loadChildren: () => import('./inventarios/unit_of_measures/unit-of-measures-list/unit-of-measures-list.module').then(module => module.UnitOfMeasuresListModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component: CreateMasterinventarysComponent,
+      children: [
+        {
+          path: 'create-master',
+          loadChildren: () => import('./inventarios/master_inventarys/create-masterinventarys/create-masterinventarys.module').then(module => module.CreateMasterinventarysModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component: ArticlesListComponent,
+      children: [  
+        {
+          path: 'Articles-list',
+          loadChildren: () => import('./inventarios/articles/articles-list/articles-list.module').then(module => module.CreateArticlesListModule)
+        }
+      ]
+    },
     ]
+    
   },
 
 

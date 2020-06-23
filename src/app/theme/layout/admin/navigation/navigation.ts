@@ -548,7 +548,7 @@ const NavigationItems = [
             id: 'unit_of_measures',
             title: 'Unidad Medidas',
             type: 'item',            
-            url: '/unit_of_measures-list'
+            url: '/unitofmeasures-list'
             
           },
           {
@@ -577,7 +577,7 @@ const NavigationItems = [
             id: 'articles',
             title: 'Articulos',
             type: 'item',            
-            url: '/articles-list'
+            url: '/Articles-list'
             
           },
           {
