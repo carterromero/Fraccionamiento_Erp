@@ -50,7 +50,7 @@ export class UnitOfMeasuresListComponent implements OnInit {
           console.log(data);
           this.reloadData();
           this.alertDisables = false;
-          this.alertMessages ="La sub categoria se a eliminado correctamente";
+          this.alertMessages ="La Unidad de Medida se a eliminado correctamente";
         },
         error => {console.log(error);
           let coins = [];
@@ -64,7 +64,7 @@ export class UnitOfMeasuresListComponent implements OnInit {
 
   generalDetails(id: number){
 console.log(id);
-    this.router.navigate(['sub-details', id]);
+    this.router.navigate(['unit-details', id]);
   }
 
   updateGeneral(id: number){

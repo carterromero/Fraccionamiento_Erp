@@ -1,15 +1,16 @@
+<p>categories-details works!</p>
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <app-card cardTitle="Unidad de Medida Detalle" [options]="false">
         <div *ngIf="employee">
           <div>
-            <label><b>Maestro Inventarios : </b></label> {{employee.master_inventarys_name_inventary}}
+            <label><b>Descripción: </b></label> {{employee.of_measuares_description}}
           </div>
           <div>
             <label><b>Estatus:  </b></label>
             <div class="custom-control custom-switch">
-                <input type="checkbox" class="custom-control-input"  id="master_status"       name="master_status"   style="margin-left: 10px" [checked]="employee.master_status == 'true'">
-                <label class="custom-control-label" for="master_status">Active</label>
+                <input type="checkbox" class="custom-control-input"  id="of_measuares_status"       name="of_measuares_status"   style="margin-left: 10px" [checked]="employee.of_measuares_status == 'true'">
+                <label class="custom-control-label" for="of_measuares_status">Active</label>
              </div>
         </div>
         </div>

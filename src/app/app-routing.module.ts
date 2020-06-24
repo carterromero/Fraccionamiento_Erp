@@ -156,6 +156,7 @@ import { PurcharseDetailsComponent } from './purcharse/purcharse-details/purchar
 import { MasterinventarysDetailsComponent } from './inventarios/master_inventarys/masterinventarys-details/masterinventarys-details.component';
 
 import { RepoCredPayListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-list/repo-cred-pay-list.component';
+import { UnitOfMeasuresDetailsComponent } from './inventarios/unit_of_measures/unit-of-measures-details/unit-of-measures-details.component';
 
 
 
@@ -1657,6 +1658,16 @@ component: CreateTransfersComponent,
     },
     {
       path: '',
+      component: UnitOfMeasuresDetailsComponent,
+      children: [
+        {
+          path: 'unit-details/:id',
+          loadChildren: () => import('./inventarios/unit_of_measures/unit-of-measures-details/unit-of-measures-details.module').then(module => module.UnitOfMeasuaresDetailsModule)
+        }
+      ]
+    },
+    {
+      path: '',
       component: CreateSubcategoriesComponent,
       children: [
         {
@@ -1685,7 +1696,8 @@ component: CreateTransfersComponent,
         ]
       }
     ]
-  }
+  },
+  
 ];
 
 @NgModule({
