@@ -152,6 +152,7 @@ import { CreatePaymentRecordComponent } from './AP/ap_payment-record/create-paym
 import { PaymentRecordDetailsComponent } from './AP/ap_payment-record/payment-record-details/payment-record-details.component';
 import { UpdatePaymentRecordComponent } from './AP/ap_payment-record/update-payment-record/update-payment-record.component';
 import { PurcharseDetailsComponent } from './purcharse/purcharse-details/purcharse-details.component';
+import { MasterinventarysDetailsComponent } from './inventarios/master_inventarys/masterinventarys-details/masterinventarys-details.component';
 
 
 
@@ -1479,7 +1480,8 @@ component: CreateManageBanksComponent,
         }
       ]
     },
-
+    {
+    path: '',
       component: BankAccountsDetailsComponent,
       children: [
         {
@@ -1487,7 +1489,7 @@ component: CreateManageBanksComponent,
           loadChildren: () => import('./treasury/bankAccounts/bank-accounts-details/bank-accounts-details.module').then(module => module.BankAccountsDetailsModule)
         }
       ]
-    }  ,
+    },
     {
       path: '',
       component: UpdateBankAccountsComponent,
@@ -1514,13 +1516,8 @@ component: CreateManageBanksComponent,
         }
       ]
 
-
-
     }
     ,
-                ///
-
-
 {
   path: '',
 component: TransfersListComponent,
@@ -1631,14 +1628,31 @@ component: CreateTransfersComponent,
           loadChildren: () => import('./admin/userdashboard/userdashboard-list/userdashboard-list.module').then(module => module.UserdashboardListModule)
         }
       ]
+    },
+    {
+      path: '',
+      component: MasterinventarysDetailsComponent,
+      children: [
+        {
+          path: 'master-details/:id',
+          loadChildren: () => import('./inventarios/master_inventarys/masterinventarys-details/masterinventarys-details.module').then(module => module.MasterInventarysListModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component: CreateSubcategoriesComponent,
+      children: [
+        {
+          path: 'subcategori-create',
+          loadChildren: () => import('./inventarios/sub_categories/create-subcategories/create-subcategories.module').then(module => module.CreateSubcategoriesModule)
+        }
+      ]
     }
-
-
+    ,
     ]
 
   },
-
-
   {
     path: '',
     component: AuthComponent,
