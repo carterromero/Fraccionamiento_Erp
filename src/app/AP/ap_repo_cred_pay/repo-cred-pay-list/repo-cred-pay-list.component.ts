@@ -63,8 +63,8 @@ export class RepoCredPayListComponent implements OnInit {
       );
   }
 
-  generalDetails(id: number){
-    this.router.navigate(['payment-record-details', id]);
+  generalDetails(date: string){
+    this.router.navigate(['payment-record-details', date]);
   }
 
   updateGeneral(id: number){
