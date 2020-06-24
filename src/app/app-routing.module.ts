@@ -71,6 +71,12 @@ import { ManageBanksListComponent } from './treasury/manageBaks/manage-banks-lis
 import { CreateManageBanksComponent } from './treasury/manageBaks/create-manage-banks/create-manage-banks.component';
 import { ManageBanksDetailsComponent } from './treasury/manageBaks/manage-banks-details/manage-banks-details.component';
 import { UpdateManageBanksComponent} from './treasury/manageBaks/update-manage-banks/update-manage-banks.component';
+
+import { ConfigMainteListComponent } from './config-mainte/config-mainte-list/config-mainte-list.component';
+import { DetailsPayrollComponent } from './config-mainte/details-payroll/details-payroll.component';
+import { CreatePayrollComponent } from './config-mainte/create-payroll/create-payroll.component';
+import { UpdatePayrollComponent } from './config-mainte/update-payroll/update-payroll.component';
+
 import { SubcategoriesDetailsComponent } from './inventarios/sub_categories/subcategories-details/subcategories-details.component';
 import { UpdateSubcategoriesComponent } from './inventarios/sub_categories/update-subcategories/update-subcategories.component';
 
@@ -93,7 +99,6 @@ import { UpdateBankAccountsComponent } from './treasury/bankAccounts/update-bank
 import { BankAccountsListComponent } from './treasury/bankAccounts/bank-accounts-list/bank-accounts-list.component';
 
 
-//RH
 import { CreateDepartmentsComponent } from './RH/catalogs/departments/create-departments/create-departments.component';
 import { DepartmentsListComponent } from './RH/catalogs/departments/departments-list/departments-list.component';
 import { UpdateDepartmentsComponent } from './RH/catalogs/departments/update-departments/update-departments.component';
@@ -157,7 +162,6 @@ import { MasterinventarysDetailsComponent } from './inventarios/master_inventary
 
 import { RepoCredPayListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-list/repo-cred-pay-list.component';
 import { UnitOfMeasuresDetailsComponent } from './inventarios/unit_of_measures/unit-of-measures-details/unit-of-measures-details.component';
-
 
 
 
@@ -1014,7 +1018,6 @@ const routes: Routes = [
           }
         ]
       }
-      ///
 ,
 
   {
@@ -1210,8 +1213,52 @@ component: CreateManageBanksComponent,
           loadChildren: () => import('./admin/rol/update-rol/update-rol.module').then(module => module.UpdateRolModule)
         }
       ]
-    }
+    },
+    {
+      path: '',
 
+        component: ConfigMainteListComponent,
+        children: [
+          {
+            path: 'config-Maintenlist',
+            loadChildren: () => import('./config-mainte/config-mainte-list/config-mainte-list.module').then(module => module.ConfigmainteListModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+
+          component: DetailsPayrollComponent,
+          children: [
+            {
+              path: 'details-payroll/:id',
+              loadChildren: () => import('./config-mainte/details-payroll/details-payroll.module').then(module => module.DetailsPayrollModule)
+            }
+          ]
+        },
+        {
+          path: '',
+          component: CreatePayrollComponent,
+          children: [
+            {
+              path: 'create-payroll',
+              loadChildren: () => import('./config-mainte/create-payroll/create-payroll.module').then(module => module.CreatePayrollModule)
+
+            }
+          ]
+        },
+          {
+            path: '',
+
+              component: UpdatePayrollComponent,
+              children: [
+                {
+                  path: 'Update-payroll/:id',
+                  loadChildren: () => import('./config-mainte/update-payroll/update-payroll.module').then(module => module.UpdatePayrollModule)
+                }
+              ]
+            }
     ,
     {
       path: '',
@@ -1680,11 +1727,6 @@ component: CreateTransfersComponent,
     ]
 
   },
-  {
-    path: '',
-    component: AuthComponent,
-    children: [
-
       {
         path: '',
         component: AuthComponent,
@@ -1695,9 +1737,8 @@ component: CreateTransfersComponent,
           }
         ]
       }
-    ]
-  },
-  
+
+
 ];
 
 @NgModule({

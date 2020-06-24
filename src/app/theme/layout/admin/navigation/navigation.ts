@@ -705,25 +705,36 @@ const NavigationItems = [
             type: 'item',            
             url: '/report-list'
             
-          }
-
-                                
+          }                           
         ]
       },
     ]
-    
-
   }
-
-
-
-
- 
- 
   ,
-
-
-  
+  {    
+    id: 'Nomina_main',
+    title: 'Nómina',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'configmainte',
+        title: 'Catalogos',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'configmainte',
+            title: 'Configuración y Mantenimiento',
+            type: 'item',            
+            url: '/config-Maintenlist'
+            
+          }
+        ]
+      }
+    ]
+  }
+  ,  
   {
     id: 'ui-element',
     title: 'UI ELEMENT',

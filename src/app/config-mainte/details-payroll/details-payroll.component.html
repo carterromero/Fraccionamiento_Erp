@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Nómina" [options]="false">
+        <div *ngIf="employee">
+          <div>
+            <label><b>Id Nónima: </b></label> {{employee.id_receipt}}<br>
+            <label><b>Id Condominio: </b></label> {{employee.id_company}}<br>
+            <label><b>Id Empresa: </b></label> {{employee.id_employee}}<br>
+            <label><b>Salario Base: </b></label> {{employee.pr_receipt_base_salary}}<br>
+            <label><b>Salario Diario: </b></label> {{employee.pr_receipt_daily_salary}}<br>
+            <label><b>Antiguedad: </b></label> {{employee.pr_receipt_antiquity}}<br>
+            <label><b>Días Pagados: </b></label> {{employee.pr_receipt_number_of_days_paid}}<br>
+            <label><b>Fecha Inicial de Pago: </b></label> {{employee.pr_receipt_initial_payment_date}}<br>
+            <label><b>Fecha Final de Pago: </b></label> {{employee.pr_receipt_final_payment_date}}<br>
+            <label><b>Forma de Pago: </b></label> {{employee.pr_receipt_way_to_pay}}<br>
+            <label><b>Metodo de Pago: </b></label> {{employee.pr_receipt_payment_method}}<br>
+            <label><b>Clave de producto o servicio: </b></label> {{employee.pr_receipt_product_or_service_key}}<br>
+            <label><b>Cantidad: </b></label> {{employee.pr_receipt_quantity}}<br>
+            <label><b>Clave Unidad: </b></label> {{employee.pr_receipt_unit_key}}<br>
+            <label><b>Valor Unitario: </b></label> {{employee.pr_receipt_unit_value}}<br>
+            <label><b>Descripción: </b></label> {{employee.pr_receipt_description}}<br>
+            <label><b>Importe Concepto: </b></label> {{employee.pr_receipt_amount_concept}}<br>
+            <label><b>Tipo de Percepción: </b></label> {{employee.pr_receipt_type_of_perception}}<br>
+            <label><b>Concepto Percepción: </b></label> {{employee.pr_receipt_perception_concept}}<br>
+            <label><b>Importe Grabado: </b></label> {{employee.pr_receipt_amount_recorded}}<br>
+            <label><b>Importe Exento: </b></label> {{employee.pr_receipt_exempt_amount}}<br>
+            <label><b>Total percepciones o total de sueldo: </b></label> {{employee.pr_receipt_total_perceptions_or_total_salary}}<br>
+            <label><b>Tipo de deducion: </b></label> {{employee.pr_receipt_deduction_type}}<br>
+            <label><b>Importe de Deducción: </b></label> {{employee.pr_receipt_deduction_amount}}<br>
+            <label><b>Total de Deducciones: </b></label> {{employee.pr_receipt_total_deductions}}<br>
+            <label><b>Tipo de Otros Pago: </b></label> {{employee.pr_receipt_type_of_other_payment}}<br>
+            <label><b>Importe Otros Pagos: </b></label> {{employee.pr_receipt_amount_other_payments}}<br>
+            <label><b>Total Otros pagos: </b></label> {{employee.pr_receipt_total_other_payments}}<br>
+            <label><b>Subsidio_Causado: </b></label> {{employee.pr_receipt_subsidy_caused}}<br>
+            <label><b>Creado Por: </b></label> {{employee.created_by}}<br>
+            <label><b>Fecha de Creación: </b></label> {{employee.created_date}}<br>
+            <label><b>Última Actualización Por: </b></label> {{employee.last_updated_by}}<br>
+            <label><b>Última Fecha Actualizada: </b></label> {{employee.last_updated_date}}<br>
+          </div>
+          <div>
+            <label><b>Estatus:  </b></label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="status"       name="status"   style="margin-left: 10px" [checked]="employee.status == 'true'">
+                <label class="custom-control-label" for="status">Active</label>
+             </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/config-Maintenlist']" class="btn btn-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>
