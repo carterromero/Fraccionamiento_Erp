@@ -25,11 +25,6 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
 
 
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +43,18 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
     ToggleFullScreenDirective,
 
+  
+    
+
+
+
+    ToggleFullScreenDirective,
+
+
+
+
+
+
 
 
     ToggleFullScreenDirective,
@@ -59,7 +66,6 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
 
 
-    ToggleFullScreenDirective,
 
 
 

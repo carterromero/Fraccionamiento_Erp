@@ -4,7 +4,6 @@ import { PaymentRecord } from 'src/app/payment-record';
 import { PaymentRecordService } from 'src/app/payment-record.service';
 import { Router } from '@angular/router';
 import { STRING_TYPE } from '@angular/compiler';
-import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 @Component({
   selector: 'app-create-payment-record',
   templateUrl: './create-payment-record.component.html',
