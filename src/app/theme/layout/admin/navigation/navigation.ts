@@ -522,7 +522,7 @@ const NavigationItems = [
             children: [
               {
                  id: 'rh-tenant',
-                title: 'Inquilinos',
+                title: 'Crear Inquilinos',
                 type: 'item',            
                 url: '/tenants-list'
                 
