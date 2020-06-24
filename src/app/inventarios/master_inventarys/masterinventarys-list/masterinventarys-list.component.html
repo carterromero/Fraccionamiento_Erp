@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xl-12">
-      <app-card cardTitle="Fraccionamientos" blockClass="table-border-style">      
+      <app-card cardTitle="Inventario Maestros" blockClass="table-border-style">      
         <button [routerLink]="['/create-master']" class="btn btn-outline-info">Agregar Maestro Inventario</button><br>
         <br>
         <div class="table-responsive">
@@ -10,7 +10,7 @@
                     <th>Maestro Nombre Inventario</th>
                     <th>Identificador Maestro</th>
                     <th>Localizacion Maestro</th>
-                    <th>Empresa Asignada</th>
+                    <th>Descripción General</th>
                     <th>Estatus </th>
                     <th>Acciones</th>
                   </tr>
@@ -20,7 +20,7 @@
                     <td>{{general.master_inventarys_name_inventary}} </td>
                     <td>{{general.master_inventarys_identifier}}</td>
                     <td>{{general.master_inventarys_location}}</td>
-                    <td>{{general.master_inventarys_assigned_company}}</td>
+                    <td>{{general.condominums_description}}</td>
                     
                     <td>
                         <div class="custom-control custom-switch">
@@ -32,7 +32,7 @@
                     <td>
                         <button (click)="deleteGeneral(general.sub_categories_id)"  class="btn btn-outline-danger">Eliminar</button>
                         <button (click)="updateGeneral(general.sub_categories_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                        <button (click)="generalDetails(general.sub_categories_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                        <button (click)="generalDetails(general.master_inventarys_id  )" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
                         
                     </td>
                 </tr>

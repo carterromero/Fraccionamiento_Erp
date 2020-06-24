@@ -65,7 +65,7 @@ export class MasterinventarysListComponent implements OnInit {
 
   generalDetails(id: number){
 console.log(id);
-    this.router.navigate(['sub-details', id]);
+    this.router.navigate(['master-details', id]);
   }
 
   updateGeneral(id: number){
