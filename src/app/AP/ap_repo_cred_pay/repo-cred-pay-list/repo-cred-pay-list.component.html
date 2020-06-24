@@ -9,24 +9,25 @@
           <table class="table">
             <thead>
             <tr>              
-              <th>ID del acreedor</th>
+              <th>nombre acreedor</th>
               <th>Fecha de pago </th>
               <th>Monto</th>
               <th>Método de pago</th>
-              <th>Estatus </th>
-              <th>#</th>
+              
               
                
             </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                    <td>{{general.creditor_id}}</td>
-                    <td>{{general.payment_record_payment_date}}</td>
+                    <td>{{general.creditor_business_name}}</td>
                     <td>{{general.payment_record_amount}}</td>
                     <td>{{general.payment_method}}</td>
+                    <td>{{general.payment_record_payment_date}}</td>
                     
                     
+                    
+
                     <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="general.payment_status == 'true'">
