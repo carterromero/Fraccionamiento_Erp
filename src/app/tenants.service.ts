@@ -21,7 +21,7 @@ export class TenantsService {
 
   getTenant(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}/ic/api/integration/v1/flows/rest/ERP_RH_GET_ONE_TENANT/1.0/tenants/${id}`,{headers});
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ONE_TENANT/1.0/tenants/${id}`,{headers});
   }
 
   updateTenant(id: number, value: any): Observable<Object> {
@@ -36,6 +36,6 @@ export class TenantsService {
 
   getTenantList(): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/AC_GET_ALL_TENANTS/1.0/getall`,{headers});
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ALL_TENANT/1.0/tenants`,{headers});
   }
 }

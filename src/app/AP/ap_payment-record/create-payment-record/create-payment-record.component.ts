@@ -4,7 +4,7 @@ import { PaymentRecord } from 'src/app/payment-record';
 import { PaymentRecordService } from 'src/app/payment-record.service';
 import { Router } from '@angular/router';
 import { STRING_TYPE } from '@angular/compiler';
-
+import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 @Component({
   selector: 'app-create-payment-record',
   templateUrl: './create-payment-record.component.html',
@@ -18,7 +18,7 @@ export class CreatePaymentRecordComponent implements OnInit {
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
-  files: any;
+  
   constructor(private employeeService: PaymentRecordService,
     private router: Router) {
 
@@ -86,7 +86,16 @@ export class CreatePaymentRecordComponent implements OnInit {
     this.router.navigate(['payment-record-list']);
   }
 
-
+  handleUpload(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        console.log(reader.result);
+      event = this.employee.payment_record_amount;
+     
+    };
+}
 
 
   

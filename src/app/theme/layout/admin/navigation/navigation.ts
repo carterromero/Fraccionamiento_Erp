@@ -290,7 +290,7 @@ const NavigationItems = [
             id: 'crear_cuenta',
             title: 'Crear una factura ',
             type: 'item',            
-            url: '/billtopay-list'
+            url: '/billtopay-list' 
             
           }
                               
@@ -307,7 +307,7 @@ const NavigationItems = [
             id: 'cuenta_pagar',
             title: 'cuenta por pagar factura ',
             type: 'item',            
-            url: '/payment-record-list'
+            url: '/payment-record-list' 
             
           }
                               
@@ -322,10 +322,17 @@ const NavigationItems = [
   
 
           {
-            id: 'crear_cuenta',
-            title: 'Reporte de cuenta ',
+            id: 'repore_contable',
+            title: 'Reporte contable  ',
             type: 'item',            
-            url: '/cuenta-list'
+            url: '/repo-cred-pay-list'
+            
+          },
+          {
+            id: 'reporte:vencidos',
+            title: ' reporte pagos vencidos ',
+            type: 'item',            
+            url: '/repo-cred-pay-ven-list'
             
           }
                               
@@ -522,7 +529,7 @@ const NavigationItems = [
             children: [
               {
                  id: 'rh-tenant',
-                title: 'Inquilinos',
+                title: 'Crear Inquilinos',
                 type: 'item',            
                 url: '/tenants-list'
                 

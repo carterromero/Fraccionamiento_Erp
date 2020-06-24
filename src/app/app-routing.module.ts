@@ -152,7 +152,11 @@ import { CreatePaymentRecordComponent } from './AP/ap_payment-record/create-paym
 import { PaymentRecordDetailsComponent } from './AP/ap_payment-record/payment-record-details/payment-record-details.component';
 import { UpdatePaymentRecordComponent } from './AP/ap_payment-record/update-payment-record/update-payment-record.component';
 import { PurcharseDetailsComponent } from './purcharse/purcharse-details/purcharse-details.component';
+
 import { MasterinventarysDetailsComponent } from './inventarios/master_inventarys/masterinventarys-details/masterinventarys-details.component';
+
+import { RepoCredPayListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-list/repo-cred-pay-list.component';
+
 
 
 
@@ -644,6 +648,17 @@ const routes: Routes = [
           {
             path: 'update-payment-record/:id',
             loadChildren: () => import('./AP/ap_payment-record/update-payment-record/update-payment-record.module').then(module => module.UpdatePaymentRecordModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: RepoCredPayListComponent,
+        children: [
+          {
+            path: 'repo-cred-pay-list',
+            loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-list/repo-cred-pay-list.module').then(module => module.RepoCredPayListModule)
           }
         ]
       }
@@ -1481,7 +1496,8 @@ component: CreateManageBanksComponent,
       ]
     },
     {
-    path: '',
+
+      path: '',
       component: BankAccountsDetailsComponent,
       children: [
         {
