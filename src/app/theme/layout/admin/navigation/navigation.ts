@@ -512,15 +512,28 @@ const NavigationItems = [
             type: 'collapse',
             icon: 'feather icon-user',
             children: [
-      
-    
               {
                  id: 'rh-employee',
                 title: 'Empleados',
                 type: 'item',            
                 url: '/employee-list'
                 
-              }                    
+              }               
+            ]
+          },
+          {
+            id: 'rh-tenants',
+            title: 'Inquilinos',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-tenant',
+                title: 'Crear Inquilinos',
+                type: 'item',            
+                url: '/tenants-list'
+                
+              }               
             ]
           },
         ]
@@ -630,7 +643,7 @@ const NavigationItems = [
             id: 'unit_of_measures',
             title: 'Unidad Medidas',
             type: 'item',            
-            url: '/unit_of_measures-list'
+            url: '/unitofmeasures-list'
             
           },
           {
@@ -659,7 +672,7 @@ const NavigationItems = [
             id: 'articles',
             title: 'Articulos',
             type: 'item',            
-            url: '/articles-list'
+            url: '/Articles-list'
             
           },
           {
