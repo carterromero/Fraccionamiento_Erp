@@ -28,7 +28,7 @@ export interface Navigation extends NavigationItem {
 const NavigationItems = [
   {
     id: 'navigation',
-    title: 'Navigation',
+    title: 'Principal',
     type: 'group',
     icon: 'feather icon-monitor',
     children: [
@@ -194,7 +194,7 @@ const NavigationItems = [
             id: 'permisos',
             title: 'Permisos',
             type: 'item',            
-            url: '/permisos-list'
+            url: '/permissions-list'
             
           },
 
@@ -276,7 +276,7 @@ const NavigationItems = [
         id: 'ap-catalog',
         title: 'Catalogos',
         type: 'collapse',
-        icon: 'feather icon-monitor',
+        icon: 'feather icon-layout',
         children: [
           {
             id: 'creditor',
@@ -285,12 +285,54 @@ const NavigationItems = [
             url: '/creditor-list'
             
           },
-
+          
           {
             id: 'crear_cuenta',
-            title: 'Crear una cuenta ',
+            title: 'Crear una factura ',
             type: 'item',            
-            url: '/cuenta-list'
+            url: '/billtopay-list' 
+            
+          }
+                              
+        ]
+      }, {
+        id: 'ap-catalog',
+        title: 'Operacion',
+        type: 'collapse',
+        icon: 'feather icon-file-text',
+        children: [
+  
+
+          {
+            id: 'cuenta_pagar',
+            title: 'cuenta por pagar factura ',
+            type: 'item',            
+            url: '/payment-record-list' 
+            
+          }
+                              
+        ]
+      },
+      {
+        id: 'ap-catalog',
+        title: 'Reportes',
+        type: 'collapse',
+        icon: 'feather icon-server',
+        children: [
+  
+
+          {
+            id: 'repore_contable',
+            title: 'Reporte contable  ',
+            type: 'item',            
+            url: '/repo-cred-pay-list'
+            
+          },
+          {
+            id: 'reporte:vencidos',
+            title: ' reporte pagos vencidos ',
+            type: 'item',            
+            url: '/repo-cred-pay-ven-list'
             
           }
                               
@@ -309,7 +351,7 @@ const NavigationItems = [
     children: [
       {
         id: 'Treasury-catalog',
-        title: 'Catalogos',
+        title: 'Configuración y Mantenimiento',
         type: 'collapse',
         icon: 'feather icon-monitor',
         children: [
@@ -323,7 +365,7 @@ const NavigationItems = [
 
           {
             id: 'banks',
-            title: 'Bancos',
+            title: 'Gestionar Bancos',
             type: 'item',            
             url: '/manage-banks-list'
             
@@ -334,14 +376,168 @@ const NavigationItems = [
             type: 'item',            
             url: '/bank-accounts-list'
             
+          },
+          {
+            id: 'transfers',
+            title: 'Transferencias',
+            type: 'item',            
+            url: '/transfers-list'
+            
+          },
+          {
+            id: 'paymentDocuments',
+            title: 'Documentos de Pago',
+            type: 'item',            
+            url: '/payment-documents-list'
+            
           }
                                 
         ]
       },
+      {
+        id: 'Treasury-operation',
+        title: 'Conciliación y Estados de Cuenta',
+        type: 'collapse',
+        icon: 'feather icon-file-text',
+        children: [
+  
+
+          {
+            id: 'account_statements',
+            title: 'Estado de Cuenta',
+            type: 'item',            
+            url: '/account-statements-list'
+            
+          },
+          {
+            id: 'automaticConciliation',
+            title: 'Conciliación Automática',
+            type: 'item',            
+            url: '/automatic-conciliation-list'
+            
+          },
+          {
+            id: 'manualConciliation',
+            title: 'Conciliación Manual',
+            type: 'item',            
+            url: '/manual-conciliation-list'
+            
+          }
+                              
+        ]
+      },
     ]
   },
+  {
+    id: 'AR-main',
+      title: 'Cuentas por cobrar',
+      type: 'group',
+      icon: 'feather icon-monitor',
+      children: [
+        {
+          id: 'AR-catalog',
+          title: 'Catalogos',
+          type: 'collapse',
+          icon: 'feather icon-monitor',
+          children: [
+            {
+              id: 'collection',
+              title: 'Administrar Residentes / clientes',
+              type: 'item',            
+              url: '/collection-list'
+              
+            },
+    
+            {
+              id: 'Direction',
+              title: 'Direccion de remison',
+              type: 'item',            
+              url: '/'
+              
+            },
+            {
+              id: 'bankAccounts',
+              title: 'Terminos de pago',
+              type: 'item',            
+              url: '/'
+              
+            },
+           /*  {
+              id: 'collection',
+              title: 'Colección',
+              type: 'item',            
+              url: '/collection-list'
+              
+            }, */
+                                  
+          ]
+        },
+      ]
+        
+    
+      },
 
-
+      {    
+        id: 'RH-main',
+        title: 'Recursos Humanos ',
+        type: 'group',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'rh-catalog',
+            title: 'Catalogos',
+            type: 'collapse',
+            icon: 'feather icon-monitor',
+            children: [
+              {
+                id: 'departments',
+                title: 'Departamentos',
+                type: 'item',            
+                url: '/departments-list'
+                
+              },
+    
+              {
+                id: 'workplaces',
+                title: 'Puestos',
+                type: 'item',            
+                url: '/workplaces-list'
+                
+              }                      
+            ]
+          },
+          {
+            id: 'rh-employees',
+            title: 'Empleados',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-employee',
+                title: 'Empleados',
+                type: 'item',            
+                url: '/employee-list'
+                
+              }               
+            ]
+          },
+          {
+            id: 'rh-tenants',
+            title: 'Inquilinos',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-tenant',
+                title: 'Crear Inquilinos',
+                type: 'item',            
+                url: '/tenants-list'
+                
+              }               
+            ]
+          },
+        ]
+      },    
 {    
     id: 'po-main',
     title: 'Compras',
@@ -447,7 +643,7 @@ const NavigationItems = [
             id: 'unit_of_measures',
             title: 'Unidad Medidas',
             type: 'item',            
-            url: '/unit_of_measures-list'
+            url: '/unitofmeasures-list'
             
           },
           {
@@ -476,7 +672,7 @@ const NavigationItems = [
             id: 'articles',
             title: 'Articulos',
             type: 'item',            
-            url: '/articles-list'
+            url: '/Articles-list'
             
           },
           {

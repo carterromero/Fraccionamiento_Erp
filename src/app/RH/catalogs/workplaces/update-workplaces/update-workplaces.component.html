@@ -1,0 +1,21 @@
+<p>workplaces-update works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Puesto Detalle" [options]="false">
+        <div *ngIf="workplace">
+          <div>
+            <label><b>Nombre puesto: </b></label> {{workplace.workplaces_name}}
+          </div>
+          <div>
+            <label><b>Estatus:  </b></label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="workplaces_status"       name="workplaces_status"   style="margin-left: 10px" [checked]="workplace.workplaces_status == 'true'">
+                <label class="custom-control-label" for="workplaces_status">Active</label>
+             </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/departments-list']" class="btn btn-primary">Regresar a Puestos</button><br>
+      </app-card>
+      </div>
+  </div>

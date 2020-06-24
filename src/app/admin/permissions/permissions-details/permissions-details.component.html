@@ -1,0 +1,120 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Rol Detalle" [options]="false">
+        <div *ngIf="employee">
+
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+
+          <div>
+            <label><b>Descripción: </b></label> {{employee.permissions_description}}
+          </div>
+          
+
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Rol</label>
+            <select  class="custom-select"  id="rol_id"  name="rol_id" >
+            <option *ngFor="let address of addresses | async" value="{{address.rol_id}}">{{address.rol_description}}</option>
+            </select>
+        </div>
+                
+        <div class="form-group">
+            <label for="name">Compras</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="permissions_compras"  [checked]="employee.permissions_compras == 'true'"     name="permissions_compras"   style="margin-left: 10px">
+                <label class="custom-control-label" for="permissions_compras">Active</label>
+             </div>
+        </div>
+
+
+         
+        <div class="form-group">
+            <label for="name">Cuentas por Pagar</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="permissions_cxp"  [checked]="employee.permissions_cxp == 'true'"      name="permissions_cxp"   style="margin-left: 10px">
+                <label class="custom-control-label" for="permissions_cxp">Active</label>
+             </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="name">Nomina</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="permissions_nomina"   [checked]="employee.permissions_nomina == 'true'"    name="permissions_nomina"   style="margin-left: 10px">
+                <label class="custom-control-label" for="permissions_nomina">Active</label>
+             </div>
+        </div>
+
+        
+        <div class="form-group">
+            <label for="name">Tesoreria</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="permissions_tesoreria" [checked]="employee.permissions_tesoreria == 'true'"     name="permissions_tesoreria"   style="margin-left: 10px">
+                <label class="custom-control-label" for="permissions_tesoreria">Active</label>
+             </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="name">Contabilidad</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="permissions_contabilidad"  [checked]="employee.permissions_contabilidad == 'true'"       name="permissions_contabilidad"   style="margin-left: 10px">
+                <label class="custom-control-label" for="permissions_contabilidad">Active</label>
+             </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="name">Cuentas por Cobrar</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="permissions_cxc" [checked]="employee.permissions_cxc == 'true'"       name="permissions_cxc"   style="margin-left: 10px">
+                <label class="custom-control-label" for="permissions_cxc">Active</label>
+             </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="name">Inventarios</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="permissions_inventario"  [checked]="employee.permissions_inventario == 'true'"      name="permissions_inventario"   style="margin-left: 10px">
+                <label class="custom-control-label" for="permissions_inventario">Active</label>
+             </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="name">RH</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="permissions_rh" [checked]="employee.permissions_rh == 'true'"     name="permissions_rh"   style="margin-left: 10px">
+                <label class="custom-control-label" for="permissions_rh">Active</label>
+             </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Administración</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="permissions_admin"   [checked]="employee.permissions_admin == 'true'"    name="permissions_admin"   style="margin-left: 10px">
+                <label class="custom-control-label" for="permissions_admin">Active</label>
+             </div>
+        </div>
+
+
+        
+
+        <div class="form-group">
+            <label for="name">Estatus</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="permissions_status" [checked]="employee.permissions_status == 'true'"     name="permissions_status"   style="margin-left: 10px">
+                <label class="custom-control-label" for="permissions_status">Active</label>
+             </div>
+        </div>
+
+
+
+        </div>
+        <br>
+        <button [routerLink]="['/permissions-list']" class="btn btn-outline-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>

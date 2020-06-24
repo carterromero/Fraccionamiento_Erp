@@ -1,0 +1,20 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Sub Inventario Detalle" [options]="false">
+        <div *ngIf="employee">
+          <div>
+            <label><b>Descripción: </b></label> {{employee.sub_inventarys_description}}
+          </div>
+          <div>
+            <label><b>Estatus:  </b></label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="sub_inventarys_status"       name="sub_inventarys_status"   style="margin-left: 10px" [checked]="employee.sub_inventarys_status == 'true'">
+                <label class="custom-control-label" for="sub_inventarys_status">Active</label>
+             </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/sub_inventarys-list']" class="btn btn-outline-info">Regresar a Sub inventarios</button><br>
+      </app-card>
+      </div>
+  </div>

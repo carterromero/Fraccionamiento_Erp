@@ -1,0 +1,26 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Proveedor Detalles" [options]="false">
+        <div *ngIf="employee">
+          <div>
+            <label><b>Nombre: </b></label> {{employee.payment_description}}
+          </div>
+      
+
+
+        
+
+
+          <div>
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="payment_status"  name="payment_status"   style="margin-left: 10px" [checked]="employee.payment_status == 'true'">
+            <label class="custom-control-label" for="payment_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/payment_terms-list']" class="btn btn-primary">Regresar a Terminos </button><br>
+      </app-card>
+      </div>
+  </div>

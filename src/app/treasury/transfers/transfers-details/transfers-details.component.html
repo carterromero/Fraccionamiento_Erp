@@ -1,0 +1,30 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Detalles de Transferencia" [options]="false">
+        <div *ngIf="employee">
+          <div>
+            <label><b>Nombre de Documento de Pago: </b></label> {{employee.transfers_payment_document_name}}
+          </div>
+          <div>
+            <label><b>Formato de Pago: </b></label> {{employee.transfers_payment_format}}
+          </div>
+          <div>
+            <label><b>Estado de Transferencia:</b></label> {{employee.transfers_status_state}}
+          </div>
+          <div>
+            <label><b>Categoria del Documento: </b></label> {{employee.transfers_category_shit_document}}
+          </div>        
+          <div>
+            <label for="name">Estatus</label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="transfers_status"  name="transfers_status"   style="margin-left: 10px" [checked]="employee.transfers_status == 'true'">
+            <label class="custom-control-label" for="transfers_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/transfers-list']" class="btn btn-primary">Regresar a Lista de Transferencias</button><br>
+      </app-card>
+      </div>
+  </div>
+  

@@ -1,0 +1,21 @@
+<p>departments-details works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Departamentos Detalle" [options]="false">
+        <div *ngIf="department">
+          <div>
+            <label><b>Nombre departamentos: </b></label> {{department.departments_name}}
+          </div>
+          <div>
+            <label><b>Estatus:  </b></label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="departments_status"       name="departments_status"   style="margin-left: 10px" [checked]="department.departments_status == 'true'">
+                <label class="custom-control-label" for="departments_status">Active</label>
+             </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/departments-list']" class="btn btn-primary">Regresar a Departamentos</button><br>
+      </app-card>
+      </div>
+  </div>

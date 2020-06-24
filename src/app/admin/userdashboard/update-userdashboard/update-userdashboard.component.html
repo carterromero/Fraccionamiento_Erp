@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Actualizar Asignacion de Dashboard" [options]="false">
+          <form (ngSubmit)="onSubmit()">  
+           
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Tipo de Usuario</label>
+                <select  class="custom-select"  id="typeuser_id" required [(ngModel)]="employee.typeuser_id" name="typeuser_id" >
+                <option *ngFor="let address of typeuser | async" value="{{address.typeuser_id}}">{{address.typeuser_description}}</option>
+                </select>
+            </div>            
+            
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Residente</label>
+                <select  class="custom-select"  id="tenants_id" required [(ngModel)]="employee.tenants_id" name="tenants_id" >
+                <option *ngFor="let address of tenan | async" value="{{address.tenants_id}}">{{address.tenants_name}} {{address.tenants_father_surname}} {{address.tenants_mother_surname}}</option>
+                </select>
+            </div>  
+
+
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Crear Fraccionamiento</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de insertar la empresa</p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+            <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>        
+            <button (click)="gotoList()" class="btn btn-outline-info" style="margin-left: 10px">Regresar</button> 
+      <!--      <button (click)="generalDetails(employee.user_id)"  class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>-->
+          </form>
+        </app-card>
+      </div>
+    </div>

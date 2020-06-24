@@ -1,0 +1,33 @@
+<p>masterinventarys-details works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Sub Categoria Detalle" [options]="false">
+        <div *ngIf="employee">
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          
+
+          <div class="form-group">
+            <label for="name">Maestro Nombre:</label>
+            {{employee.master_inventarys_name_inventary}}
+          </div> 
+
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Nombre Condominio</label>
+            <select  disabled class="custom-select"  id="condominums_id" required [(ngModel)]="employee.condominums_id" name="condominums_id" >
+            <option *ngFor="let address of addresses | async" value="{{address.condominums_id}}">{{address.categories_name}}</option>
+            </select>
+        </div> 
+          <div class="form-group">
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="master_status"name="master_status"   style="margin-left: 10px" [checked]="employee.master_status == 'true'">
+            <label class="custom-control-label" for="master_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/categories-list']" class="btn btn-outline-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>

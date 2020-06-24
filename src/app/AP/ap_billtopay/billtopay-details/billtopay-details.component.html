@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="FACTURA Detalle" [options]="false">
+        <div *ngIf="employee">
+
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <div>
+            <label><b>Folio de Factura : </b></label> {{employee.billtopay_invoice_folio}}
+          </div>
+          <div>
+            <label><b>Fecha de Factura: </b></label> {{employee.billtopay_invoice_date}}
+          </div>
+          <div>
+            <label><b>Fecha de pago programada: </b></label> {{employee.billtopay_scheduled_payment_date}}
+          </div>
+          <div>
+            <label><b>Monto: </b></label> {{employee.billtopay_amount}}
+          </div>
+
+          <div>
+            <label><b>Descripción del bien o servicio adquirido: </b></label> {{employee.billtopay_service_description}}
+          </div>
+
+
+          <div>
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="billtopay_status"  name="billtopay_status"   style="margin-left: 10px" [checked]="employee.billtopay_status == 'true'">
+            <label class="custom-control-label" for="billtopay_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/billtopay-list']" class="btn btn-outline-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>

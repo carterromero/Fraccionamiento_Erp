@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Crear Usuario" [options]="false">
+          <form (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="employee.user_name"  [(ngModel)]="employee.user_name" name="employee.user_name" required> 
+              </div> 
+
+              <div class="form-group">
+                <label for="name">Contraseña</label>
+                <input type="text" class="form-control" id="user_password"  [(ngModel)]="employee.user_password" name="user_password" required> 
+              </div>
+
+              <div class="form-group">
+                <label for="name">Email</label>
+                <input type="text" class="form-control" id="user_email"  [(ngModel)]="employee.user_email" name="user_email" required> 
+              </div> 
+
+             
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Fraccionamiento</label>
+                <select  class="custom-select"  id="condominums_id" required [(ngModel)]="employee.condominums_id" name="condominums_id" >
+                <option *ngFor="let address of condominus | async" value="{{address.condominums_id}}">{{address.condominums_description}}</option>
+                </select>
+            </div>    
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Rol</label>
+                <select  class="custom-select"  id="rol_id" required [(ngModel)]="employee.rol_id" name="rol_id" >
+                <option *ngFor="let address of addresses | async" value="{{address.rol_id}}">{{address.rol_description}}</option>
+                </select>
+            </div>    
+
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="user_status"  [(ngModel)]="employee.user_status"     name="user_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="user_status">Active</label>
+                 </div>
+            </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Crear Usuario</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de insertar al usuario</p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+            <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>        
+            <button [routerLink]="['/usuarios-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

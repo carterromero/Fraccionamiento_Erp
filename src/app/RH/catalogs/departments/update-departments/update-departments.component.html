@@ -1,0 +1,25 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Actualizar Departamento" [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Nombre Departamento</label>
+              <input type="text" class="form-control" id="departments_name"  [(ngModel)]="department.departments_name" name="departments_name" required>
+            </div>      
+
+            <div class="form-group">
+                <label for="name">Estatus</label> 
+
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="departments_status"  [(ngModel)]="department.departments_status"     name="departments_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="departments_status">Active</label>
+                 </div>
+            </div>
+            
+            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button [routerLink]="['/departments-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

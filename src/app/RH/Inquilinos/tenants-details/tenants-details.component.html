@@ -1,0 +1,42 @@
+<p>tenants-details works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Detalles de inquilinos" [options]="false">
+        <div *ngIf="tenant">
+          <div>
+            <label><b>Nombre inquilino: </b></label> {{tenant.tenants_name}}
+          </div>
+          <div>
+            <label><b>Apellido paterno: </b></label> {{tenant.tenants_father_surname}}
+          </div>
+          <div>
+            <label><b>Apeliido materno: </b></label> {{tenant.tenants_mother_surname}}
+          </div>
+          <div>
+            <label><b>Marca de auto: </b></label> {{tenant.tenants_car_brand}}
+          </div>
+          <div>
+            <label><b>Placa de auto: </b></label> {{tenant.tenants_car_plate}}
+          </div>
+          <div>
+            <label><b>Ubicacion: </b></label> {{tenant.tenants_location}}
+          </div>
+          <div>
+            <label><b>Numero de residencia: </b></label> {{tenant.tenants_residential_number}}
+          </div>
+          <div>
+            <label><b>Tipo de inquilino: </b></label> {{tenant.tenants_type}}
+          </div>
+          <div>
+            <label><b>Estatus:  </b></label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="tenants_status"       name="tenants_status"   style="margin-left: 10px" [checked]="tenant.tenants_status == 'true'">
+                <label class="custom-control-label" for="tenants_status">Active</label>
+             </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/tenants-list']" class="btn btn-primary">Regresar a inquilinos</button><br>
+      </app-card>
+      </div>
+  </div>

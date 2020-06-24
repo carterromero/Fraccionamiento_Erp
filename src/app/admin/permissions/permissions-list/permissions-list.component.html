@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Permisos" blockClass="table-border-style">      
+        <button [routerLink]="['/create-permissions']"   class="btn btn-outline-primary" >Agregar Permisos</button>
+        <br><br>
+        <div class="table-responsive">
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Descripción</th>
+              <th>Rol</th>
+              <th>Compras</th>
+              <th>Cuentas por pagar</th>
+              <th>Nomina</th>
+              <th>Tesoreria</th>
+              <th>Contabilidad</th>
+              <th>Cuentas por Cobrar</th>
+              <th>Inventario</th>
+              <th>Recursos Humanos</th>
+              <th>Administración</th>
+              <th>Estatus</th>
+              <th>#</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                    <td>{{general.permissions_description}}</td>
+                    <td>{{general.rol_description}}</td>
+                    
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_compras == 'true'">
+                          <label class="custom-control-label" for="permissions_compras">Active</label>
+                       </div>
+                      </td>
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_cxp == 'true'">
+                          <label class="custom-control-label" for="permissions_cxp">Active</label>
+                       </div>
+                      </td>
+
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_nomina == 'true'">
+                          <label class="custom-control-label" for="permissions_nomina">Active</label>
+                       </div>
+                      </td>
+
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_tesoreria == 'true'">
+                          <label class="custom-control-label" for="permissions_tesoreria">Active</label>
+                       </div>
+                      </td>
+
+
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_contabilidad == 'true'">
+                          <label class="custom-control-label" for="permissions_contabilidad">Active</label>
+                       </div>
+                      </td>
+
+
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_cxc == 'true'">
+                          <label class="custom-control-label" for="permissions_cxc">Active</label>
+                       </div>
+                      </td>
+
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_inventario == 'true'">
+                          <label class="custom-control-label" for="permissions_inventario">Active</label>
+                       </div>
+                      </td>
+
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_rh == 'true'">
+                          <label class="custom-control-label" for="permissions_rh">Active</label>
+                       </div>
+                      </td>
+
+
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_admin == 'true'">
+                          <label class="custom-control-label" for="permissions_admin">Active</label>
+                       </div>
+                      </td>
+
+
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_status == 'true'">
+                          <label class="custom-control-label" for="permissions_status">Active</label>
+                       </div>
+                      </td>
+                    <td>
+                        <button (click)="transacciones(general.permissions_id)" class="btn btn-outline-info" style="margin-left: 10px">Transacciones</button>   
+                        <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()" style="margin-left: 10px">Eliminar</button>
+                        <button (click)="updateGeneral(general.permissions_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        <button (click)="generalDetails(general.permissions_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button> 
+                        <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+                          <div class="app-modal-header">
+                          <h5 class="modal-title">Eliminar Permisos</h5>
+                          <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+                          </div>
+                          <div class="app-modal-body">
+                          <p>Esta seguro de eliminar el permiso?</p>
+                          </div>
+                          <div class="app-modal-footer">
+                          <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+                          <button type="submit" class="btn btn-danger"  (click)="deleteGeneral(general.permissions_id)"   (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Eliminar</button>
+                          </div>
+                      </app-ui-modal>
+                    </td>          
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>
