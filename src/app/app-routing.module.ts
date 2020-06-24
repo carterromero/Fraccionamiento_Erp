@@ -57,6 +57,10 @@ import { ManageBanksListComponent } from './treasury/manageBaks/manage-banks-lis
 import { CreateManageBanksComponent } from './treasury/manageBaks/create-manage-banks/create-manage-banks.component';
 import { ManageBanksDetailsComponent } from './treasury/manageBaks/manage-banks-details/manage-banks-details.component';
 import { UpdateManageBanksComponent} from './treasury/manageBaks/update-manage-banks/update-manage-banks.component';
+import { ConfigMainteListComponent } from './config-mainte/config-mainte-list/config-mainte-list.component';
+import { DetailsPayrollComponent } from './config-mainte/details-payroll/details-payroll.component';
+import { CreatePayrollComponent } from './config-mainte/create-payroll/create-payroll.component';
+import { UpdatePayrollComponent } from './config-mainte/update-payroll/update-payroll.component';
 
 
 
@@ -660,7 +664,52 @@ component: CreateManageBanksComponent,
           loadChildren: () => import('./treasury/manageBaks/update-manage-banks/manage-banks-update.module').then(module => module.ManageBanksUpdateModule)
         }
       ]
-    }
+    },
+    {
+      path: '',
+
+        component: ConfigMainteListComponent,
+        children: [
+          {
+            path: 'config-Maintenlist',
+            loadChildren: () => import('./config-mainte/config-mainte-list/config-mainte-list.module').then(module => module.ConfigmainteListModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+  
+          component: DetailsPayrollComponent,
+          children: [
+            {
+              path: 'details-payroll/:id',
+              loadChildren: () => import('./config-mainte/details-payroll/details-payroll.module').then(module => module.DetailsPayrollModule)
+            }
+          ]
+        },
+        {
+          path: '',
+          component: CreatePayrollComponent,
+          children: [
+            {
+              path: 'create-payroll',
+              loadChildren: () => import('./config-mainte/create-payroll/create-payroll.module').then(module => module.CreatePayrollModule)
+  
+            }
+          ]
+        },
+          {
+            path: '',
+      
+              component: UpdatePayrollComponent,
+              children: [
+                {
+                  path: 'Update-payroll/:id',
+                  loadChildren: () => import('./config-mainte/update-payroll/update-payroll.module').then(module => module.UpdatePayrollModule)
+                }
+              ]
+            }
     ]
   },
 
