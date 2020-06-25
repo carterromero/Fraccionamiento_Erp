@@ -162,6 +162,9 @@ import { MasterinventarysDetailsComponent } from './inventarios/master_inventary
 
 import { RepoCredPayListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-list/repo-cred-pay-list.component';
 import { UnitOfMeasuresDetailsComponent } from './inventarios/unit_of_measures/unit-of-measures-details/unit-of-measures-details.component';
+import { RepoCredPayContListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-cont-list/repo-cred-pay-cont-list.component';
+import { RepoCredPayNocontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-nocont-list/repo-cred-pay-nocont-list.component';
+import { RepoCredPayVencontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-vencont-list/repo-cred-pay-vencont-list.component';
 
 
 
@@ -664,6 +667,39 @@ const routes: Routes = [
           {
             path: 'repo-cred-pay-list',
             loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-list/repo-cred-pay-list.module').then(module => module.RepoCredPayListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: RepoCredPayContListComponent,
+        children: [
+          {
+            path: 'repo-cred-pay-cont-list/:date',
+            loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-cont-list/repo-cred-pay-cont-list.module').then(module => module.RepoCredPayContListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: RepoCredPayNocontListComponent,
+        children: [
+          {
+            path: 'repo-cred-pay-nocont-list',
+            loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-nocont-list/repo-cred-pay-nocont-list.module').then(module => module.RepoCredPayNocontListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+ 
+        component: RepoCredPayVencontListComponent,
+        children: [
+          {
+            path: 'repo-cred-pay-vencont-list/:date',
+            loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-vencont-list/repo-cred-pay-vencont-list.module').then(module => module.RepoCredPayVencontListModule)
           }
         ]
       }

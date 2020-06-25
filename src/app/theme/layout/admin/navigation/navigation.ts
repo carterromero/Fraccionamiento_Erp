@@ -332,7 +332,7 @@ const NavigationItems = [
             id: 'reporte:vencidos',
             title: ' reporte pagos vencidos ',
             type: 'item',            
-            url: '/repo-cred-pay-ven-list'
+            url: '/repo-cred-pay-nocont-list'
             
           }
                               
