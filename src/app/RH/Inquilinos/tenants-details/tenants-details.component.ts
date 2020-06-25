@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Tenants } from 'src/app/tenants';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TenantsService } from 'src/app/tenants.service';
+import { Condominums } from 'src/app/services/admin/condominums';
+import { Observable } from "rxjs";
+import { CondominumsService } from 'src/app/services/admin/condominums.service';
+
 
 @Component({
   selector: 'app-tenants-details',
@@ -11,11 +15,12 @@ import { TenantsService } from 'src/app/tenants.service';
 export class TenantsDetailsComponent implements OnInit {
   id: number;
   tenant: Tenants;
+  condominum: Observable<Condominums[]>;
   alertDisable = true;
   alertMessage = "null";
   
   constructor(private route: ActivatedRoute,private router: Router,
-    private tenantService: TenantsService) { }
+    private tenantService: TenantsService, private condominumsService: CondominumsService) { }
 
  ngOnInit() {
     this.tenant = new Tenants();    
@@ -36,4 +41,34 @@ export class TenantsDetailsComponent implements OnInit {
         }
       });
   }
+
+  reloadData() {
+
+    this.condominumsService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.condominum = this.condominumsService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        //localStorage.setItem('token', "");
+        //this.router.navigate(['login']);     
+      });
+  
+  }
+/*  reloadDatas() 
+  {
+    this.addressService.getAddressList().subscribe(
+      data => {
+        console.log(data);
+        this.addresses = this.addressService.getAddressList();
+      },
+      error => {
+        console.log(error);
+        //localStorage.setItem('token', "");
+        //this.router.navigate(['login']);     
+      });  
+  }*/
+
+
 }

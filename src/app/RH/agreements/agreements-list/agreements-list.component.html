@@ -1,0 +1,48 @@
+<p>agreements-list works!</p>
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Agreements" blockClass="table-border-style">      
+        <button [routerLink]="['/create-agreements']" class="btn btn-outline-primary">Agregar registro</button><br>
+        <br>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>              
+              <th>Nombre</th>
+              <th>Apellido paterno</th>
+              <th>Apeliido materno</th>
+              <th>Numero de residencia</th>
+              <th>Deposito</th>
+              <th>Fecha de inicio</th>
+              <th>Fecha final</th>
+              <th>Estatus </th>
+              <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let agreement of agreements | async">
+                    <td>{{agreement.agreements_name}}</td>
+                    <td>{{agreement.agreements_father_surname}}</td>
+                    <td>{{agreement.agreements_mother_surname}}</td>
+                    <td>{{agreement.agreements_residential_number}}</td>
+                    <td>{{agreement.agreements_deposit}}</td>
+                    <td>{{agreement.agreements_start_date}}</td>
+                    <td>{{agreement.agreements_end_date}}</td>
+                    <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="agreement.agreements_status == 'true'">
+                          <label class="custom-control-label" for="agreements_status">Active</label>
+                       </div>
+                      </td>
+                      <td>                 
+                        <button (click)="deleteAgreement(agreement.agreements_id)" class="btn btn-outline-danger">Eliminar</button>
+                        <button (click)="updateAgreement(agreement.agreements_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        <button (click)="agreementDetails(agreement.agreements_id)" class="btn btn-outline-primary" style="margin-left: 10px">Detalles</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

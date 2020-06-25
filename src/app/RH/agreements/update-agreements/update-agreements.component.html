@@ -1,0 +1,47 @@
+<p>update-agreements works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Actualizar contrato" [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" class="form-control" id="agreements_name"  [(ngModel)]="agreement.agreements_name" name="agreements_name" required>
+            </div>      
+            <div class="form-group">
+                <label for="name">Apellido paterno</label>
+                <input type="text" class="form-control" id="agreements_father_surname"  [(ngModel)]="agreement.agreements_father_surname" name="agreements_father_surname" required>
+              </div> 
+              <div class="form-group">
+                <label for="name">Apellido materno</label>
+                <input type="text" class="form-control" id="agreements_mother_surname"  [(ngModel)]="agreement.agreements_mother_surname" name="agreements_mother_surname" required>
+              </div> 
+              <div class="form-group">
+                <label for="name">Numero de residencia</label>
+                <input type="text" class="form-control" id="agreements_residential_number"  [(ngModel)]="agreement.agreements_residential_number" name="agreements_residential_number" required>
+              </div> 
+              <div class="form-group">
+                <label for="name">Deposito</label>
+                <input type="text" class="form-control" id="agreements_deposit"  [(ngModel)]="agreement.agreements_deposit" name="agreements_deposit" required>
+              </div> 
+              <div class="form-group">
+                <label for="name">Fecha de inicio de contrato</label>
+                <input type="date" class="form-control" id="agreements_start_date"  [(ngModel)]="agreement.agreements_start_date" name="agreements_start_date" required>
+              </div> 
+              <div class="form-group">
+                <label for="name">Fecha de fin de contrato</label>
+                <input type="date" class="form-control" id="agreements_end_date"  [(ngModel)]="agreement.agreements_end_date" name="agreements_end_date" required>
+              </div> 
+            <div class="form-group">
+                <label for="name">Estatus</label> 
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="agreements_status"  [(ngModel)]="agreement.agreements_status"     name="agreements_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="agreements_status">Active</label>
+                 </div>
+            </div>
+            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button [routerLink]="['/departments-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

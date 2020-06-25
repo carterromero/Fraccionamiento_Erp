@@ -16,7 +16,7 @@ export class TenantsService {
 
   createTenant(tenant: Object): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_INSERT_TENANTS/1.0/tenants`, tenant,{headers});
+    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_INSERT_TENANTS/1.0/tenants`, tenant,{headers});
   }
 
   getTenant(id: number): Observable<any> {
@@ -26,7 +26,7 @@ export class TenantsService {
 
   updateTenant(id: number, value: any): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_UPDATE_TENANTS/1.0/tenants/${id}`, value,{headers});
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_UPDATE_TENANTS/1.0/tenants/${id}`, value,{headers});
   }
 
   deleteTenant(id: number): Observable<any> {

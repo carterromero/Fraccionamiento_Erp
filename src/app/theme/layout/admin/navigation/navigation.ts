@@ -522,6 +522,21 @@ const NavigationItems = [
             ]
           },
           {
+            id: 'rh-agreements',
+            title: 'Contrato',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-agreement',
+                title: 'Registrar contrato',
+                type: 'item',            
+                url: '/agreements-list'
+                
+              }               
+            ]
+          },
+          {
             id: 'rh-tenants',
             title: 'Inquilinos',
             type: 'collapse',
