@@ -115,6 +115,10 @@ import { CreateTenantsComponent } from './RH/Inquilinos/create-tenants/create-te
 import { TenantsListComponent } from './RH/Inquilinos/tenants-list/tenants-list.component';
 import { UpdateTenantsComponent } from './RH/Inquilinos/update-tenants/update-tenants.component';
 import { TenantsDetailsComponent } from './RH/Inquilinos/tenants-details/tenants-details.component';
+import { CreateAgreementsComponent } from './RH/agreements/create-agreements/create-agreements.component';
+import { AgreementsListComponent } from './RH/agreements/agreements-list/agreements-list.component';
+import { UpdateAgreementsComponent } from './RH/agreements/update-agreements/update-agreements.component';
+import { AgreementsDetailsComponent } from './RH/agreements/agreements-details/agreements-details.component';
 
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
@@ -265,10 +269,50 @@ const routes: Routes = [
       },
       {
         path: '',
+        component: AgreementsListComponent,
+        children: [
+          {
+            path: 'agreements-list',
+            loadChildren: () => import('./RH/agreements/agreements-list/agreements-list.module').then(module => module.AgreementsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateAgreementsComponent,
+        children: [
+          {
+            path: 'create-agreements',
+            loadChildren: () => import('./RH/agreements/create-agreements/create-agreements.module').then(module => module.CreateAgreementsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: AgreementsDetailsComponent,
+        children: [
+          {
+            path: 'agreements-details/:id',
+            loadChildren: () => import('./RH/agreements/agreements-details/agreements-details.module').then(module => module.AgreementsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateAgreementsComponent,
+        children: [
+          {
+            path: 'update-agreements/:id',
+            loadChildren: () => import('./RH/agreements/update-agreements/update-agreements.module').then(module => module.UpdateAgreementsModule)
+          }
+        ]
+      },
+      {
+        path: '',
         component: CreateDepartmentsComponent,
         children: [
           {
-            path: 'create-departments',
+            path: 'create-agreements',
             loadChildren: () => import('./RH/catalogs/departments/create-departments/create-departments.module').then(module => module.CreateDepartmentsModule)
 
           }
