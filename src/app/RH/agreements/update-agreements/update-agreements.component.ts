@@ -36,10 +36,8 @@ export class UpdateAgreementsComponent implements OnInit {
   }
 
   updateAgreement() {
-    this.agreement.last_update_by=3;
     console.log(this.agreement);
     console.log(this.id);
-    
     
     this.agreementService.updateAgreement(this.id, this.agreement)
       .subscribe(data => {console.log(data);
