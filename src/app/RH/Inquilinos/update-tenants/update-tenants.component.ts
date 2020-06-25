@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { TenantsService } from 'src/app/tenants.service';
 import { Tenants } from 'src/app/tenants';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Condominums } from 'src/app/services/admin/condominums';
+import { CondominumsService } from 'src/app/services/admin/condominums.service';
+import { Observable } from 'rxjs';
+import { Agreements } from 'src/app/agreements';
+import { AgreementService } from 'src/app/agreements.service';
 
 @Component({
   selector: 'app-update-tenants',
@@ -12,8 +17,13 @@ export class UpdateTenantsComponent implements OnInit {
 
   id: number;
   tenant: Tenants;
+  condominums: Observable<Condominums[]>;
+  agreements: Observable<Agreements[]>;
+  alertMessage = "null";
+  alertMessages = "null";
 
-  constructor(private route: ActivatedRoute,private router: Router,
+  constructor(private route: ActivatedRoute,  private condominumsService:CondominumsService,
+    private agreementService: AgreementService, private router: Router,
   private tenantService: TenantsService) { }
 
   ngOnInit() {
@@ -29,6 +39,40 @@ export class UpdateTenantsComponent implements OnInit {
         console.log(error);
       });
   }
+  reloadDatas() 
+  {
+
+    this.condominumsService.getEmployeeListcombo().subscribe(
+      data => {
+        console.log(data);
+        this.condominums = this.condominumsService.getEmployeeListcombo();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+  reloadDatas2() 
+  {
+
+    this.agreementService.getAgreementCombo().subscribe(
+      data => {
+        console.log(data);
+        this.agreements = this.agreementService.getAgreementCombo();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
 
   updateTenant() {
     this.tenant.last_update_by=3;
@@ -41,6 +85,8 @@ export class UpdateTenantsComponent implements OnInit {
         console.log(error);
       });
   }
+
+
 
   onSubmit() {
     this.updateTenant();    

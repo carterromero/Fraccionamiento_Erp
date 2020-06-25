@@ -38,4 +38,9 @@ export class AgreementService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ALL_AGREEM/1.0/agreements`,{headers});
   }
+
+  getAgreementCombo(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_AGREEMEN_COMBO/1.0/combo_agree`,{headers});
+  }
 }
