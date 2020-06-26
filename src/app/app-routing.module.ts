@@ -115,6 +115,10 @@ import { CreateTenantsComponent } from './RH/Inquilinos/create-tenants/create-te
 import { TenantsListComponent } from './RH/Inquilinos/tenants-list/tenants-list.component';
 import { UpdateTenantsComponent } from './RH/Inquilinos/update-tenants/update-tenants.component';
 import { TenantsDetailsComponent } from './RH/Inquilinos/tenants-details/tenants-details.component';
+import { CreateAgreementsComponent } from './RH/agreements/create-agreements/create-agreements.component';
+import { AgreementsListComponent } from './RH/agreements/agreements-list/agreements-list.component';
+import { UpdateAgreementsComponent } from './RH/agreements/update-agreements/update-agreements.component';
+import { AgreementsDetailsComponent } from './RH/agreements/agreements-details/agreements-details.component';
 
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
@@ -162,8 +166,14 @@ import { MasterinventarysDetailsComponent } from './inventarios/master_inventary
 
 import { RepoCredPayListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-list/repo-cred-pay-list.component';
 import { UnitOfMeasuresDetailsComponent } from './inventarios/unit_of_measures/unit-of-measures-details/unit-of-measures-details.component';
+
 import { UpdateMasterinventarysComponent } from './inventarios/master_inventarys/update-masterinventarys/update-masterinventarys.component';
 import { TransactionsentrysListComponent } from './inventarios/transactions_entrys/transactionsentrys-list/transactionsentrys-list.component';
+
+import { RepoCredPayContListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-cont-list/repo-cred-pay-cont-list.component';
+import { RepoCredPayNocontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-nocont-list/repo-cred-pay-nocont-list.component';
+import { RepoCredPayVencontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-vencont-list/repo-cred-pay-vencont-list.component';
+
 
 
 
@@ -264,10 +274,50 @@ const routes: Routes = [
       },
       {
         path: '',
+        component: AgreementsListComponent,
+        children: [
+          {
+            path: 'agreements-list',
+            loadChildren: () => import('./RH/agreements/agreements-list/agreements-list.module').then(module => module.AgreementsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateAgreementsComponent,
+        children: [
+          {
+            path: 'create-agreements',
+            loadChildren: () => import('./RH/agreements/create-agreements/create-agreements.module').then(module => module.CreateAgreementsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: AgreementsDetailsComponent,
+        children: [
+          {
+            path: 'agreements-details/:id',
+            loadChildren: () => import('./RH/agreements/agreements-details/agreements-details.module').then(module => module.AgreementsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateAgreementsComponent,
+        children: [
+          {
+            path: 'update-agreements/:id',
+            loadChildren: () => import('./RH/agreements/update-agreements/update-agreements.module').then(module => module.UpdateAgreementsModule)
+          }
+        ]
+      },
+      {
+        path: '',
         component: CreateDepartmentsComponent,
         children: [
           {
-            path: 'create-departments',
+            path: 'create-agreements',
             loadChildren: () => import('./RH/catalogs/departments/create-departments/create-departments.module').then(module => module.CreateDepartmentsModule)
 
           }
@@ -666,6 +716,39 @@ const routes: Routes = [
           {
             path: 'repo-cred-pay-list',
             loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-list/repo-cred-pay-list.module').then(module => module.RepoCredPayListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: RepoCredPayContListComponent,
+        children: [
+          {
+            path: 'repo-cred-pay-cont-list/:date',
+            loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-cont-list/repo-cred-pay-cont-list.module').then(module => module.RepoCredPayContListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: RepoCredPayNocontListComponent,
+        children: [
+          {
+            path: 'repo-cred-pay-nocont-list',
+            loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-nocont-list/repo-cred-pay-nocont-list.module').then(module => module.RepoCredPayNocontListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: RepoCredPayVencontListComponent,
+        children: [
+          {
+            path: 'repo-cred-pay-vencont-list/:date',
+            loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-vencont-list/repo-cred-pay-vencont-list.module').then(module => module.RepoCredPayVencontListModule)
           }
         ]
       }

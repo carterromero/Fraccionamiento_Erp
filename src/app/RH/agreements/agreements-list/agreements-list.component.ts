@@ -1,19 +1,19 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { TenantsService } from "src/app/tenants.service";
-import { Tenants } from "src/app/tenants";
+import { AgreementService } from "src/app/agreements.service";
+import { Agreements } from "src/app/agreements";
 import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-tenants-list",
-  templateUrl: "./tenants-list.component.html",
-  styleUrls: ["./tenants-list.component.scss"]
+  selector: "app-agreements-list",
+  templateUrl: "./agreements-list.component.html",
+  styleUrls: ["./agreements-list.component.scss"]
 })
-export class TenantsListComponent implements OnInit {
-  tenants: Observable<Tenants[]>;
+export class AgreementsListComponent implements OnInit {
+  agreements: Observable<Agreements[]>;
   elements: any = [];
 
-  constructor(private tenantService: TenantsService,
+  constructor(private agreementService: AgreementService,
     private router: Router) {}
 
   ngOnInit() {    
@@ -32,10 +32,10 @@ export class TenantsListComponent implements OnInit {
   reloadData() {
     /*localStorage.setItem('token', "");*/
     /*this.employees = this.employeeService.getEmployeeList();*/
-    this.tenantService.getTenantList().subscribe(
+    this.agreementService.getAgreementList().subscribe(
       data => {
         console.log(data);
-        this.tenants = this.tenantService.getTenantList();
+        this.agreements = this.agreementService.getAgreementList();
       },
       error => {
         console.log(error);
@@ -44,8 +44,8 @@ export class TenantsListComponent implements OnInit {
       });
   }
 
-  deleteTenant(id: number) {
-    this.tenantService.deleteTenant(id).subscribe(
+  deleteAgreement(id: number) {
+    this.agreementService.deleteAgreement(id).subscribe(
         data => {
           console.log(data);
           this.reloadData();
@@ -57,13 +57,13 @@ export class TenantsListComponent implements OnInit {
         });
   }
 
-  tenantDetails(id: number){
+  agreementDetails(id: number){
     console.log(id);
-    this.router.navigate(['tenants-details', id]);
+    this.router.navigate(['agreements-details', id]);
   }
 
-  updateTenant(id: number){
+  updateAgreement(id: number){
     console.log(id);
-    this.router.navigate(['update-tenants', id]);
+    this.router.navigate(['update-agreements', id]);
   }
 }

@@ -4,20 +4,17 @@ import { Router } from '@angular/router';
 import { RepoCredPay } from 'src/app/repo-cred-pay';
 import { RepoCredPayService } from 'src/app/repo-cred-pay.service';
 import { Observable } from 'rxjs';
-
 @Component({
-  selector: 'app-repo-cred-pay-list',
-  templateUrl: './repo-cred-pay-list.component.html',
-  styleUrls: ['./repo-cred-pay-list.component.scss']
+  selector: 'app-repo-cred-pay-nocont-list',
+  templateUrl: './repo-cred-pay-nocont-list.component.html',
+  styleUrls: ['./repo-cred-pay-nocont-list.component.scss']
 })
-export class RepoCredPayListComponent implements OnInit {
+export class RepoCredPayNocontListComponent implements OnInit {
   general: Observable<RepoCredPay[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
-  date: string;
-  employee: RepoCredPay;  
 
   constructor(private generalService: RepoCredPayService,
     private router: Router) { }
@@ -65,10 +62,9 @@ export class RepoCredPayListComponent implements OnInit {
       );
   }
 
-  getEmployee(date: string){
-    this.router.navigate(['repo-cred-pay-cont-list', date]);
+  generalDetails(date: string){
+    this.router.navigate(['payment-record-details', date]);
   }
-
 
   updateGeneral(id: number){
     this.router.navigate(['update-payment-record', id]);

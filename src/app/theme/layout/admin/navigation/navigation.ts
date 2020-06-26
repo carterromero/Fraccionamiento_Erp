@@ -332,7 +332,7 @@ const NavigationItems = [
             id: 'reporte:vencidos',
             title: ' reporte pagos vencidos ',
             type: 'item',            
-            url: '/repo-cred-pay-ven-list'
+            url: '/repo-cred-pay-nocont-list'
             
           }
                               
@@ -517,6 +517,21 @@ const NavigationItems = [
                 title: 'Empleados',
                 type: 'item',            
                 url: '/employee-list'
+                
+              }               
+            ]
+          },
+          {
+            id: 'rh-agreements',
+            title: 'Contrato',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-agreement',
+                title: 'Registrar contrato',
+                type: 'item',            
+                url: '/agreements-list'
                 
               }               
             ]
