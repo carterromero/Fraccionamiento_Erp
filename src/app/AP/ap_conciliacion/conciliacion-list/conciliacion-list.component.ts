@@ -1,27 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { RepoCredPay } from 'src/app/repo-cred-pay';
-import { RepoCredPayService } from 'src/app/repo-cred-pay.service';
+import { Conciliacion } from 'src/app/conciliacion';
+import { ConciliacionService } from 'src/app/conciliacion.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-repo-cred-pay-list',
-  templateUrl: './repo-cred-pay-list.component.html',
-  styleUrls: ['./repo-cred-pay-list.component.scss']
+  selector: 'app-conciliacion-list',
+  templateUrl: './conciliacion-list.component.html',
+  styleUrls: ['./conciliacion-list.component.scss']
 })
-export class RepoCredPayListComponent implements OnInit {
-  general: Observable<RepoCredPay[]>;
+export class ConciliacionListComponent implements OnInit {
+
+  general: Observable<Conciliacion[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
-  date: string;
-  employee: RepoCredPay;  
 
-  constructor(private generalService: RepoCredPayService,
+  constructor(private generalService: ConciliacionService,
     private router: Router) { }
-filterPost = '';
+
   ngOnInit(): void {
       
       this.reloadData();
@@ -31,7 +30,7 @@ filterPost = '';
     
     this.generalService.getEmployeeList().subscribe(
       data => {
-        console.log(this.date);
+        console.log(data);
         this.general = this.generalService.getEmployeeList();
       },
       error => {
@@ -63,18 +62,16 @@ filterPost = '';
           }
         }
       );
+    
   }
 
-  getEmployee(date: string){
-    this.router.navigate(['repo-cred-pay-cont-list', date]);
+  generalDetails(id: number){
+    this.router.navigate(['conciliacion-details', id]);
   }
-
 
   updateGeneral(id: number){
-    this.router.navigate(['update-payment-record', id]);
+    this.router.navigate(['update-conciliacion', id]);
   }
-
-  
 
 
 }

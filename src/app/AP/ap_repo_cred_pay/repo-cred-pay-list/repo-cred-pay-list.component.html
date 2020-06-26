@@ -6,12 +6,12 @@
       
           <label for="name"> REPORTE CONTABLE   </label>
           <br>
-          <input type="date" id="payment_record_payment_date"  name="trip-start"
+          <input type="text" placeholder="Search..." [(ngModel)]="filterPost" class="form-control" name="filterPost" 
           value="2020-01-01"
           min="2020-01-01" max="2030-12-31" >
-           <button [routerLink]="['/repo-cred-pay-cont-list/date']"  class="btn btn-outline-primary">Regresar</button><br>
+          
     <!--
-
+<button [routerLink]="['/repo-cred-pay-cont-list/date']"  class="btn btn-outline-primary">Regresar</button><br>
        <button [routerLink]="['/create-payment-record']"  (click)="generalDetails(general.payment_record_payment_date)" class="btn btn-outline-primary"style="margin-left: 10px">BUSCAR CORTE DE FECHA VENCIMIENTO </button>
     -->
           </div>
@@ -30,29 +30,12 @@
             </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let general of general | async">
+                <tr *ngFor="let general of general | async   " >
                     <td>{{general.creditor_business_name}}</td>
                     <td>{{general.payment_record_amount}}</td>
                     <td>{{general.payment_method}}</td>
                     <td>{{general.payment_record_payment_date}}</td>
-                    <td>
-                      <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
-                        <button (click)="getEmployee(general.payment_record_payment_date)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
-
-                        <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
-                          <div class="app-modal-header">
-                          <h5 class="modal-title">Eliminar cuenta factura</h5>
-                          <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
-                          </div>
-                          <div class="app-modal-body">
-                          <p>Esta seguro de eliminar cuenta factura?</p>
-                          </div>
-                          <div class="app-modal-footer">
-                          <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
-                          <button type="submit" class="btn btn-danger"  (click)="deleteGeneral(general.payment_id)"  (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Eliminar</button>
-                          </div>
-                      </app-ui-modal>
-                    </td>
+                   
                 </tr>
             </tbody>
           </table>

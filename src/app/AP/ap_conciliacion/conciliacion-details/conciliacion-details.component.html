@@ -1,6 +1,7 @@
+<p>conciliacion-details works!</p>
 <div class="row justify-content-center">
     <div class="col-sm-12">
-      <app-card cardTitle="FACTURA Detalle" [options]="false">
+      <app-card cardTitle="consolidar  Detalle" [options]="false">
         <div *ngIf="employee">
 
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
@@ -23,7 +24,7 @@
         </div>
         </div>
         <br>
-        <button [routerLink]="['/payment-record-list']" class="btn btn-outline-primary">Regresar</button><br>
+        <button [routerLink]="['/conciliacion-list']" class="btn btn-outline-primary">Regresar</button><br>
       </app-card>
       </div>
   </div>

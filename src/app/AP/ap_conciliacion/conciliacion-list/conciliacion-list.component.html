@@ -1,39 +1,44 @@
+<p>conciliacion-list works!</p>
 <div class="row">
     <div class="col-xl-12">
-      <app-card cardTitle=" REPORTE CONTABLE VENCIDOS" blockClass="table-border-style">  
-    
-   
-          <br>
-          <div>
-            <label for="name"> REPORTE VENCIMIENTO  </label>
-            <br>
-            <input type="date" id="start" name="trip-start"
-            value="2020-01-01"
-            min="2020-01-01" max="2030-12-31" >
-            <button [routerLink]="['/repo-cred-pay-vencont-list/date']"  class="btn btn-outline-primary">consultar</button><br>
-           </div>
-            <br>
+      <app-card cardTitle="conciliacion " blockClass="table-border-style">      
+        
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
           <table class="table">
             <thead>
             <tr>              
-              <th>nombre acreedor</th>
+              <th>ID del acreedor</th>
               <th>Fecha de pago </th>
               <th>Monto</th>
               <th>Método de pago</th>
+              <th>Estatus </th>
+              <th>#</th>
+              
+               
             </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                    <td>{{general.creditor_business_name}}</td>
+                    <td>{{general.creditor_id}}</td>
+                    <td>{{general.payment_record_payment_date}}</td>
                     <td>{{general.payment_record_amount}}</td>
                     <td>{{general.payment_method}}</td>
-                    <td>{{general.payment_record_payment_date}}</td>
+                    
+                    
+                    <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.payment_status == 'true'">
+                          <label class="custom-control-label" for="payment_status">Active</label>
+                       </div>
+                      </td>
+
                     <td>
                       <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
-                      
+                        <button (click)="updateGeneral(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar nueva fecha de pago</button>
+                        <button (click)="generalDetails(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">informe contable </button>    
+
                         <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                           <div class="app-modal-header">
                           <h5 class="modal-title">Eliminar cuenta factura</h5>

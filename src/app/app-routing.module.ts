@@ -169,8 +169,9 @@ import { UnitOfMeasuresDetailsComponent } from './inventarios/unit_of_measures/u
 import { RepoCredPayContListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-cont-list/repo-cred-pay-cont-list.component';
 import { RepoCredPayNocontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-nocont-list/repo-cred-pay-nocont-list.component';
 import { RepoCredPayVencontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-vencont-list/repo-cred-pay-vencont-list.component';
-
-
+import { ConciliacionListComponent } from './AP/ap_conciliacion/conciliacion-list/conciliacion-list.component';
+import { UpdateConciliacionComponent } from './AP/ap_conciliacion/update-conciliacion/update-conciliacion.component';
+import { ConciliacionDetailsComponent } from './AP/ap_conciliacion/conciliacion-details/conciliacion-details.component';
 
 
 const routes: Routes = [
@@ -748,6 +749,39 @@ const routes: Routes = [
         ]
       }
       ,
+
+      {
+        path: '',
+  
+        component: ConciliacionListComponent,
+        children: [
+          {
+            path: 'conciliacion-list',
+            loadChildren: () => import('./AP/ap_conciliacion/conciliacion-list/conciliacion-list.module').then(module => module.ConciliacionListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateConciliacionComponent,
+        children: [
+          {
+            path: 'update-conciliacion/:id',
+            loadChildren: () => import('./AP/ap_conciliacion/update-conciliacion/update-conciliacion.module').then(module => module.UpdateConciliacionModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ConciliacionDetailsComponent,
+        children: [
+          {
+            path: 'conciliacion-details/:id',
+            loadChildren: () => import('./AP/ap_conciliacion/conciliacion-details/conciliacion-details.module').then(module => module.ConciliacionDetailsModule)
+          }
+        ]
+      },
+
       {
       path: '',
 

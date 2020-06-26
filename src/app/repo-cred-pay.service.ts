@@ -17,7 +17,7 @@ export class RepoCredPayService {
 
   getEmployee(date: string): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_AP_GETONE_CREDIT_PAYMEN/1.0/creditorgetone/${date}`,{headers});
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_AP_GETON_CREDI_PAY_VEN/1.0/creditorspayme/${date}`,{headers});
   }
 
   updateEmployee(id: number, value: any): Observable<Object> {
@@ -41,4 +41,8 @@ export class RepoCredPayService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_AP_GET_CREDI_PAYMET/1.0/creditorspayme`,{headers});
   }
+
+
+
+  
 }

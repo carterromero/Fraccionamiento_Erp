@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PaymentRecordService } from './payment-record.service';
+import { ConciliacionService } from './conciliacion.service';
 
-describe('PaymentRecordService', () => {
-  let service: PaymentRecordService;
+describe('PConciliacionService', () => {
+  let service: ConciliacionService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PaymentRecordService);
+    service = TestBed.inject(ConciliacionService);
   });
 
   it('should be created', () => {

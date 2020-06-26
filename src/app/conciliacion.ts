@@ -1,4 +1,4 @@
-export class PaymentRecord 
+export class Conciliacion
 {
     
     payment_id :number;

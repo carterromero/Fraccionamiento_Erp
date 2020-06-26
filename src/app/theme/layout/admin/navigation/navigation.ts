@@ -309,6 +309,14 @@ const NavigationItems = [
             type: 'item',            
             url: '/payment-record-list' 
             
+          },
+          
+          {
+            id: 'conciliacion_id',
+            title: 'conciliacion',
+            type: 'item',            
+            url: '/conciliacion-list' 
+            
           }
                               
         ]
@@ -329,7 +337,7 @@ const NavigationItems = [
             
           },
           {
-            id: 'reporte:vencidos',
+            id: 'reporte_vencidos',
             title: ' reporte pagos vencidos ',
             type: 'item',            
             url: '/repo-cred-pay-nocont-list'
