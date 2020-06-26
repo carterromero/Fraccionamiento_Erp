@@ -13,10 +13,8 @@ import { CondominumsService } from 'src/app/services/admin/condominums.service';
 })
 export class CreateMasterinventarysComponent implements OnInit {
   employee: MasterInventarys = new MasterInventarys();
-  employee1: Condominums = new Condominums();
   submitted = false;
   addresses: Observable<MasterInventarys[]>;
-  addresses1: Observable<Condominums[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -24,38 +22,24 @@ export class CreateMasterinventarysComponent implements OnInit {
 
     constructor(private employeeService: MasterInventarysService,
     private addressService: MasterInventarysService,
-    private address1Service: CondominumsService,
     private router: Router) { }
 
 
   ngOnInit() {
     
   }
-  reloadDatas() 
-  {
-
-    this.address1Service.getEmployeeList().subscribe(
-      data => {
-        console.log(data);
-        this.addresses1 = this.address1Service.getEmployeeList();
-      },
-      error => {
-        console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']);     
-      }
-    );      
-  }
+ 
 
   save()
    {this.employee.last_update_by=3;
     this.employee.condominums_id="1";
+    console.log(this.employee);
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto la Sub Categoria correctamente";
+          this.alertMessages ="Se inserto Master Inventario correctamente";
           this.employee  = new MasterInventarys();
         }, 
       error => {
@@ -74,20 +58,17 @@ export class CreateMasterinventarysComponent implements OnInit {
   this.alertDisables = true;
   if(this.employee.master_inventarys_name_inventary =="" ||  this.employee.master_inventarys_name_inventary ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Descripción Incompleto";          
+    this.alertMessage = "Nombre Inventario Incompleto";          
   }
   else if(this.employee.master_inventarys_identifier =="" ||  this.employee.master_inventarys_identifier ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Sub Categoria Incompleta";          
+    this.alertMessage = "Identificador Incompleta";          
   }
   else if(this.employee.master_inventarys_location =="" ||  this.employee.master_inventarys_location ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Sub Categoria Incompleta";          
+    this.alertMessage = "Localización Incompleta";          
   }
-  else if(this.employee1.condominums_description =="" ||  this.employee1.condominums_description ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Sub Categoria Incompleta";          
-  }
+  
   
   else{
     this.save();    
@@ -96,7 +77,7 @@ export class CreateMasterinventarysComponent implements OnInit {
 
   gotoList() 
   {
-    this.router.navigate(['sub_categories-list']);
+    this.router.navigate(['master_inventarys-list']);
   }
 
 }

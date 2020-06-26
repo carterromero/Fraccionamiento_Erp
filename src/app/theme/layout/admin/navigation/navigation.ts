@@ -470,6 +470,13 @@ const NavigationItems = [
               url: '/'
               
             },
+            {
+              id: 'depositAccount',
+              title: 'Cuentas de Deposito',
+              type: 'item',            
+              url: '/deposit-account-list'
+              
+            },
            /*  {
               id: 'collection',
               title: 'Colección',
@@ -702,7 +709,7 @@ const NavigationItems = [
             id: 'transactions_entrys',
             title: 'Entradas Transacciones',
             type: 'item',            
-            url: '/transactions_entrys-list'
+            url: '/transactions-entrys-list'
             
           }
 

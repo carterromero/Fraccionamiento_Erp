@@ -10,7 +10,9 @@ export class Tenants {
     tenants_car_plate: string;
     tenants_status: string;
     agreement_id: number;
+    agreement_name: string;
     condominums_id: number;
+    condominums_description: string;
     tenants_type: string;
     create_by: number;
     last_update_by: number;

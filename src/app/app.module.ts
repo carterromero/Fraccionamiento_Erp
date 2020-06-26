@@ -25,6 +25,7 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
 
 
+
 @NgModule({
   declarations: [
     FilterPipe,
@@ -46,6 +47,23 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
 
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

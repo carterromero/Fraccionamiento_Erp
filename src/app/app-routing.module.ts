@@ -98,6 +98,11 @@ import { BankAccountsDetailsComponent } from './treasury/bankAccounts/bank-accou
 import { UpdateBankAccountsComponent } from './treasury/bankAccounts/update-bank-accounts/update-bank-accounts.component';
 import { BankAccountsListComponent } from './treasury/bankAccounts/bank-accounts-list/bank-accounts-list.component';
 
+import { CreateDepositAccountComponent } from './depositAccount/create-deposit-account/create-deposit-account.component';
+import { DepositAccountDetailsComponent } from './depositAccount/deposit-account-details/deposit-account-details.component';
+import { UpdateDepositAccountComponent } from './depositAccount//update-deposit-account/update-deposit-account.component';
+import { DepositAccountListComponent } from './depositAccount//deposit-account-list/deposit-account-list.component';
+
 
 import { CreateDepartmentsComponent } from './RH/catalogs/departments/create-departments/create-departments.component';
 import { DepartmentsListComponent } from './RH/catalogs/departments/departments-list/departments-list.component';
@@ -166,12 +171,17 @@ import { MasterinventarysDetailsComponent } from './inventarios/master_inventary
 
 import { RepoCredPayListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-list/repo-cred-pay-list.component';
 import { UnitOfMeasuresDetailsComponent } from './inventarios/unit_of_measures/unit-of-measures-details/unit-of-measures-details.component';
+
+import { UpdateMasterinventarysComponent } from './inventarios/master_inventarys/update-masterinventarys/update-masterinventarys.component';
+import { TransactionsentrysListComponent } from './inventarios/transactions_entrys/transactionsentrys-list/transactionsentrys-list.component';
+
 import { RepoCredPayContListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-cont-list/repo-cred-pay-cont-list.component';
 import { RepoCredPayNocontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-nocont-list/repo-cred-pay-nocont-list.component';
 import { RepoCredPayVencontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-vencont-list/repo-cred-pay-vencont-list.component';
 import { ConciliacionListComponent } from './AP/ap_conciliacion/conciliacion-list/conciliacion-list.component';
 import { UpdateConciliacionComponent } from './AP/ap_conciliacion/update-conciliacion/update-conciliacion.component';
 import { ConciliacionDetailsComponent } from './AP/ap_conciliacion/conciliacion-details/conciliacion-details.component';
+
 
 
 const routes: Routes = [
@@ -739,7 +749,7 @@ const routes: Routes = [
       },
       {
         path: '',
- 
+
         component: RepoCredPayVencontListComponent,
         children: [
           {
@@ -980,10 +990,7 @@ const routes: Routes = [
       loadChildren: () => import('./admin/condominus/update-condominums/update-condominums.module').then(module => module.UpdateCondominumsModule)
     }
   ]
-}
-
-
-      ,
+},
 
   {
     path: '',
@@ -1148,6 +1155,58 @@ const routes: Routes = [
 
   }
   ,
+///
+
+  {
+    path: '',
+  component: CreateDepositAccountComponent,
+   children: [
+     {
+        path: 'deposit-account-create',
+       loadChildren: () => import('./depositAccount/create-deposit-account/deposit-account-create.module').then(module => module.DepositAccountCreateModule)
+      }
+    ]
+
+
+
+  }
+  ,
+      {
+        path: '',
+        component: DepositAccountDetailsComponent,
+        children: [
+          {
+            path: 'deposit-account-details/:id',
+            loadChildren: () => import('./depositAccount/deposit-account-details/deposit-account-details.module').then(module => module.DepositAccountDetailsModule)
+          }
+        ]
+      }  ,
+      {
+        path: '',
+        component: UpdateDepositAccountComponent,
+        children: [
+          {
+            path: 'update-deposit-account/:id',
+            loadChildren: () => import('./depositAccount/update-deposit-account/deposit-account-update.module').then(module => module.DepositAccountUpdateModule)
+          }
+        ]
+      }
+,
+
+  {
+    path: '',
+  component: DepositAccountListComponent,
+   children: [
+     {
+        path: 'deposit-account-list',
+       loadChildren: () => import('./depositAccount/deposit-account-list/deposit-account-list.module').then(module => module.DepositAccountListModule)
+      }
+    ]
+
+
+
+  }
+  ,
 
   {
     path: '',
@@ -1258,6 +1317,16 @@ component: CreateManageBanksComponent,
         {
           path:'sub-details/:id',
           loadChildren: () => import('./inventarios/sub_categories/subcategories-details/subcategories-details.module').then(module => module.SubCategoriesDetailsModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component: UpdateMasterinventarysComponent,
+      children: [
+        {
+          path: 'update-masterinventarys/:id',
+          loadChildren: () => import('./inventarios/master_inventarys/update-masterinventarys/update-masterinventarys.module').then(module => module.UpdateMasterInventarysModule)
         }
       ]
     },
@@ -1812,7 +1881,7 @@ component: CreateTransfersComponent,
       component: MasterinventarysDetailsComponent,
       children: [
         {
-          path: 'master-details/:id',
+          path: 'master1-details/:id',
           loadChildren: () => import('./inventarios/master_inventarys/masterinventarys-details/masterinventarys-details.module').then(module => module.MasterInventarysListModule)
         }
       ]
@@ -1824,6 +1893,16 @@ component: CreateTransfersComponent,
         {
           path: 'unit-details/:id',
           loadChildren: () => import('./inventarios/unit_of_measures/unit-of-measures-details/unit-of-measures-details.module').then(module => module.UnitOfMeasuaresDetailsModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component: TransactionsentrysListComponent,
+      children: [
+        {
+          path: 'transactions-entrys-list',
+          loadChildren: () => import('./inventarios/transactions_entrys/transactionsentrys-list/transactionsentrys-list.module').then(module => module.TransactionsEntrysListModule)
         }
       ]
     },

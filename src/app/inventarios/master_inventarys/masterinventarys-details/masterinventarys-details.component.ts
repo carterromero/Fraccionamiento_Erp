@@ -32,7 +32,7 @@ export class MasterinventarysDetailsComponent implements OnInit {
     this.reloadDatas() ;
     
     
-    this.employeeService.getEmployee(this.id)
+    this.employeeService.getEmployee(this.id,1)
       .subscribe(data => {
         console.log(data);
         this.employee = data;

@@ -62,14 +62,13 @@ export class MasterinventarysListComponent implements OnInit {
         }
       );
   }
-
+  
   generalDetails(id: number){
-console.log(id);
-    this.router.navigate(['master-details', id]);
-  }
-
-  updateGeneral(id: number){
-    this.router.navigate(['update-subcategories', id]);
-  }
-
+    console.log(id);
+        this.router.navigate(['master1-details', id]);
+      }
+    
+      updateGeneral(id: number){
+        this.router.navigate(['update-masterinventarys', id]);
+      }
 }
