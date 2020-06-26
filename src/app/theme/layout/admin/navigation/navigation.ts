@@ -679,7 +679,7 @@ const NavigationItems = [
             id: 'transactions_entrys',
             title: 'Entradas Transacciones',
             type: 'item',            
-            url: '/transactions_entrys-list'
+            url: '/transactions-entrys-list'
             
           }
 

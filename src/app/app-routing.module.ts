@@ -162,6 +162,8 @@ import { MasterinventarysDetailsComponent } from './inventarios/master_inventary
 
 import { RepoCredPayListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-list/repo-cred-pay-list.component';
 import { UnitOfMeasuresDetailsComponent } from './inventarios/unit_of_measures/unit-of-measures-details/unit-of-measures-details.component';
+import { UpdateMasterinventarysComponent } from './inventarios/master_inventarys/update-masterinventarys/update-masterinventarys.component';
+import { TransactionsentrysListComponent } from './inventarios/transactions_entrys/transactionsentrys-list/transactionsentrys-list.component';
 
 
 
@@ -866,10 +868,7 @@ const routes: Routes = [
       loadChildren: () => import('./admin/condominus/update-condominums/update-condominums.module').then(module => module.UpdateCondominumsModule)
     }
   ]
-}
-
-
-      ,
+},
 
   {
     path: '',
@@ -1144,6 +1143,16 @@ component: CreateManageBanksComponent,
         {
           path:'sub-details/:id',
           loadChildren: () => import('./inventarios/sub_categories/subcategories-details/subcategories-details.module').then(module => module.SubCategoriesDetailsModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component: UpdateMasterinventarysComponent,
+      children: [
+        {
+          path: 'update-masterinventarys/:id',
+          loadChildren: () => import('./inventarios/master_inventarys/update-masterinventarys/update-masterinventarys.module').then(module => module.UpdateMasterInventarysModule)
         }
       ]
     },
@@ -1698,7 +1707,7 @@ component: CreateTransfersComponent,
       component: MasterinventarysDetailsComponent,
       children: [
         {
-          path: 'master-details/:id',
+          path: 'master1-details/:id',
           loadChildren: () => import('./inventarios/master_inventarys/masterinventarys-details/masterinventarys-details.module').then(module => module.MasterInventarysListModule)
         }
       ]
@@ -1710,6 +1719,16 @@ component: CreateTransfersComponent,
         {
           path: 'unit-details/:id',
           loadChildren: () => import('./inventarios/unit_of_measures/unit-of-measures-details/unit-of-measures-details.module').then(module => module.UnitOfMeasuaresDetailsModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component: TransactionsentrysListComponent,
+      children: [
+        {
+          path: 'transactions-entrys-list',
+          loadChildren: () => import('./inventarios/transactions_entrys/transactionsentrys-list/transactionsentrys-list.module').then(module => module.TransactionsEntrysListModule)
         }
       ]
     },

@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { SubCategoriesService } from 'src/app/subcategories.service';
-import { Router } from '@angular/router';
-import { SubCategories } from 'src/app/subcategories';
 import { Observable } from 'rxjs';
-import { Categories } from 'src/app/categories';
+import { TransactionsEntrys } from 'src/app/transactionsentrys';
+import { TransactionsEntrysService } from 'src/app/transactionsentrys.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-sub-categories-list',
-  templateUrl: './subcategories-list.component.html',
-  styleUrls: ['./subcategories-list.component.scss']
+  selector: 'app-transactionsentrys-list',
+  templateUrl: './transactionsentrys-list.component.html',
+  styleUrls: ['./transactionsentrys-list.component.scss']
 })
-export class SubCategoriesListComponent implements OnInit {
+export class TransactionsentrysListComponent implements OnInit {
 
-  general: Observable<SubCategories[]>;
+  general: Observable<TransactionsEntrys[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private generalService: SubCategoriesService,
+  constructor(private generalService: TransactionsEntrysService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -30,46 +29,45 @@ export class SubCategoriesListComponent implements OnInit {
     
     this.generalService.getEmployeeList().subscribe(
       data => {
-        console.log(data);
         this.general = this.generalService.getEmployeeList();
       },
       error => {
-        console.log(error);   
+        console.log(error);
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
           this.alertMessage = error['statusText'];          
         }
       });
-
-      
   }
 
   deleteGeneral(id: number) {
+    this.alertDisable = true;
+    this.alertDisables = true;
     this.generalService.deleteEmployee(id)
       .subscribe(
         data => {
           console.log(data);
           this.reloadData();
           this.alertDisables = false;
-          this.alertMessages ="La sub categoria se a eliminado correctamente";
+          this.alertMessages ="La Trnsacción se a eliminado correctamente";
         },
-        error => {console.log(error);
+        error => {
           let coins = [];
           for (let key in error) {
             this.alertDisable = false;
             this.alertMessage = error['statusText'];          
-          }
+          }  
         }
       );
   }
 
-generalDetails(id: number){
-console.log(id);
-    this.router.navigate(['sub-details', id]);
+  generalDetails(id: number){
+    this.router.navigate(['categories-details', id]);
   }
 
-  updateGeneral(id: number){
-    this.router.navigate(['update-subcategories', id]);
+  updateCategories(id: number){
+    this.router.navigate(['update-categories', id]);
   }
+
 }

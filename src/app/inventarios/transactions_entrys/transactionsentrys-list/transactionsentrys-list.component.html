@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Inventario Maestros" blockClass="table-border-style">      
+        <button [routerLink]="['/create-master']" class="btn btn-outline-info">Agregar Maestro Inventario</button><br>
+        <br>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+                <tr>              
+                    <th>Articulo Nombre de Transacción</th>
+                    <th>Fraccionamiento de Entrada</th>
+                    <th>Condominio de Entrada</th>
+                    <th>Estatus</th>
+                    <th>Acciones</th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                    <td>{{general.transactions_entrys_name_article}}</td>
+                    <td>{{general.transactions_entrys_fractionation}}</td>
+                    <td>{{general.transactions_entrys_condominium}}</td>
+
+                    
+                    <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.transactions_entrys_status == 'true'">
+                          <label class="custom-control-label" for="transactions_entrys_status">Active</label>
+                       </div>
+                      </td>
+
+                    <td>
+                        <button (click)="deleteGeneral(general.sub_categories_id)"  class="btn btn-outline-danger">Eliminar</button>
+                        <button (click)="updateGeneral(general.transactions_entrys_sku)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        <button (click)="generalDetails(general.transactions_entrys_sku  )" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                        
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>
