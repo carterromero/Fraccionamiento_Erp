@@ -1,7 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
-import { AuthComponent} from './theme/layout/auth/auth.component';
+import { AuthComponent } from './theme/layout/auth/auth.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { AddressListComponent } from './address/address-list/address-list.component';
 import { CreateAddressComponent } from './address/create-address/create-address.component';
@@ -66,11 +66,11 @@ import { UpdateTransfersComponent } from './treasury/transfers/update-transfers/
 import { BankCodesListComponent } from './treasury/bankCodes/bank-codes-list/bank-codes-list.component';
 import { CreateBankCodesComponent } from './treasury/bankCodes/create-bank-codes/create-bank-codes.component';
 import { BankCodesDetailsComponent } from './treasury/bankCodes/bank-codes-details/bank-codes-details.component';
-import { UpdateBankCodesComponent} from './treasury/bankCodes/update-bank-codes/update-bank-codes.component';
+import { UpdateBankCodesComponent } from './treasury/bankCodes/update-bank-codes/update-bank-codes.component';
 import { ManageBanksListComponent } from './treasury/manageBaks/manage-banks-list/manage-banks-list.component';
 import { CreateManageBanksComponent } from './treasury/manageBaks/create-manage-banks/create-manage-banks.component';
 import { ManageBanksDetailsComponent } from './treasury/manageBaks/manage-banks-details/manage-banks-details.component';
-import { UpdateManageBanksComponent} from './treasury/manageBaks/update-manage-banks/update-manage-banks.component';
+import { UpdateManageBanksComponent } from './treasury/manageBaks/update-manage-banks/update-manage-banks.component';
 
 import { ConfigMainteListComponent } from './config-mainte/config-mainte-list/config-mainte-list.component';
 import { DetailsPayrollComponent } from './config-mainte/details-payroll/details-payroll.component';
@@ -181,6 +181,14 @@ import { RepoCredPayVencontListComponent } from './AP/ap_repo_cred_pay/repo-cred
 import { ConciliacionListComponent } from './AP/ap_conciliacion/conciliacion-list/conciliacion-list.component';
 import { UpdateConciliacionComponent } from './AP/ap_conciliacion/update-conciliacion/update-conciliacion.component';
 import { ConciliacionDetailsComponent } from './AP/ap_conciliacion/conciliacion-details/conciliacion-details.component';
+import { UpdateCustomerComponent } from './customer/update-customer/update-customer.component';
+import { CreateReferralAddressComponent } from './AR/referralAddress/create-referral-address/create-referral-address.component';
+import { ReferralAddressDetailsComponent } from './AR/referralAddress/referral-address-details/referral-address-details.component';
+import { UpdateReferralAddressComponent } from './AR/referralAddress/update-referral-address/update-referral-address.component';
+import { ReferralAddressListComponent } from './AR/referralAddress/referral-address-list/referral-address-list.component';
+import { CustomerListComponent } from './customer/customer-list/customer-list.component';
+import { CustomerDetailsComponent } from './customer/customer-details/customer-details.component';
+import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
 
 
 
@@ -344,7 +352,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        component: DepartmentsListComponent ,
+        component: DepartmentsListComponent,
         children: [
           {
             path: 'departments-list',
@@ -388,7 +396,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        component: TenantsListComponent ,
+        component: TenantsListComponent,
         children: [
           {
             path: 'tenants-list',
@@ -430,7 +438,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        component: WorkplacesListComponent ,
+        component: WorkplacesListComponent,
         children: [
           {
             path: 'workplaces-list',
@@ -611,63 +619,63 @@ const routes: Routes = [
           }
         ]
       }
-     ,
-     {
-      path: '',
+      ,
+      {
+        path: '',
 
-      component: CreditorDetailsComponent,
-      children: [
-        {
-          path: 'creditor-details/:id',
-          loadChildren: () => import('./AP/ap_creditor/creditor-details/creditor-details.module').then(module => module.CreditorDetailsModule)
-        }
-      ]
-    },
-    {
-      path: '',
+        component: CreditorDetailsComponent,
+        children: [
+          {
+            path: 'creditor-details/:id',
+            loadChildren: () => import('./AP/ap_creditor/creditor-details/creditor-details.module').then(module => module.CreditorDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
 
-      component: BilltopayListComponent,
-      children: [
-        {
-          path: 'billtopay-list',
-          loadChildren: () => import('./AP/ap_billtopay/billtopay-list/billtopay-list.module').then(module => module.BilltopayListModule)
-        }
-      ]
-    },
+        component: BilltopayListComponent,
+        children: [
+          {
+            path: 'billtopay-list',
+            loadChildren: () => import('./AP/ap_billtopay/billtopay-list/billtopay-list.module').then(module => module.BilltopayListModule)
+          }
+        ]
+      },
 
-    {
-      path: '',
+      {
+        path: '',
 
-      component: CreateBilltopayComponent,
-      children: [
-        {
-          path: 'create-billtopay',
-          loadChildren: () => import('./AP/ap_billtopay/create-billtopay/create-billtopay.module').then(module => module.CreateBilltopayModule)
-        }
-      ]
-    },
-    {
-      path: '',
+        component: CreateBilltopayComponent,
+        children: [
+          {
+            path: 'create-billtopay',
+            loadChildren: () => import('./AP/ap_billtopay/create-billtopay/create-billtopay.module').then(module => module.CreateBilltopayModule)
+          }
+        ]
+      },
+      {
+        path: '',
 
-      component: BilltopayDetailsComponent,
-      children: [
-        {
-          path: 'billtopay-details/:id',
-          loadChildren: () => import('./AP/ap_billtopay/billtopay-details/billtopay-details.module').then(module => module.BilltopayDetailsModule)
-        }
-      ]
-    },
-    {
-      path: '',
+        component: BilltopayDetailsComponent,
+        children: [
+          {
+            path: 'billtopay-details/:id',
+            loadChildren: () => import('./AP/ap_billtopay/billtopay-details/billtopay-details.module').then(module => module.BilltopayDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
 
-      component: UpdateBilltopayComponent,
-      children: [
-        {
-          path: 'update-billtopay/:id',
-          loadChildren: () => import('./AP/ap_billtopay/update-billtopay/update-billtopay.module').then(module => module.UpdateBilltopayModule)
-        }
-      ]
-    }
+        component: UpdateBilltopayComponent,
+        children: [
+          {
+            path: 'update-billtopay/:id',
+            loadChildren: () => import('./AP/ap_billtopay/update-billtopay/update-billtopay.module').then(module => module.UpdateBilltopayModule)
+          }
+        ]
+      }
       ,
       {
         path: '',
@@ -762,7 +770,7 @@ const routes: Routes = [
 
       {
         path: '',
-  
+
         component: ConciliacionListComponent,
         children: [
           {
@@ -793,7 +801,7 @@ const routes: Routes = [
       },
 
       {
-      path: '',
+        path: '',
 
         component: CategoriesListComponent,
         children: [
@@ -806,14 +814,14 @@ const routes: Routes = [
       {
         path: '',
 
-          component: SubinventarysListComponent,
-          children: [
-            {
-              path: 'sub_inventarys-list',
-              loadChildren: () => import('./inventarios/sub_inventarys/subinventarys-list/subinventarys-list.module').then(module => module.SubinventarysListModule)
-            }
-          ]
-        },
+        component: SubinventarysListComponent,
+        children: [
+          {
+            path: 'sub_inventarys-list',
+            loadChildren: () => import('./inventarios/sub_inventarys/subinventarys-list/subinventarys-list.module').then(module => module.SubinventarysListModule)
+          }
+        ]
+      },
       {
         path: '',
         component: UpdateCategoriesComponent,
@@ -824,9 +832,9 @@ const routes: Routes = [
           }
         ]
       },
-        {
+      {
         path: '',
-        component: CreateLegalsComponent ,
+        component: CreateLegalsComponent,
         children: [
           {
             path: 'create-legals',
@@ -948,7 +956,82 @@ const routes: Routes = [
       },
       {
         path: '',
-        component: CondominumsListComponent ,
+        component: CustomerListComponent,
+        children: [
+          {
+            path: 'customer-list',
+            loadChildren: () => import('./customer/customer-list/customer-list.module').then(module => module.CustomerListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CustomerDetailsComponent,
+        children: [
+          {
+            path: 'customer-details/:id',
+            loadChildren: () => import('./customer/customer-details/customer-details.module').then(module => module.CustomerDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateCustomerComponent,
+        children: [
+          {
+            path: 'create-customer',
+            loadChildren: () => import('./customer/create-customer/create-customer.module').then(module => module.CreateCustomerModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateCustomerComponent,
+        children: [
+          {
+            path: 'update-customer/:id',
+            loadChildren: () => import('./customer/update-customer/update-customer.module').then(module => module.UpdateCustomerModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateReferralAddressComponent,
+        children: [
+          {
+            path: 'create-referral-address',
+            loadChildren: () => import('./AR/referralAddress/create-referral-address/create-referral-address.module').then(module => module.CreateReferralAddressModule)
+          }
+        ]
+
+
+
+      }
+      ,
+      {
+        path: '',
+        component: ReferralAddressDetailsComponent,
+        children: [
+          {
+            path: 'referral-address-details/:id',
+            loadChildren: () => import('./AR/referralAddress/referral-address-details/referral-address_details.module').then(module => module.ReferralAddressDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateReferralAddressComponent,
+        children: [
+          {
+            path: 'update-referral-address/:id',
+            loadChildren: () => import('./AR/referralAddress/update-referral-address/update-referral-address.module').then(module => module.UpdateReferralAddressModule)
+          }
+        ]
+      }
+      ,
+      {
+        path: '',
+        component: CondominumsListComponent,
         children: [
           {
             path: 'condominus-list',
@@ -956,66 +1039,81 @@ const routes: Routes = [
           }
         ]
       }
-,
+      ,
 
-{
-  path: '',
-  component: CreateCondominumsComponent ,
-  children: [
-    {
-      path: 'create-condominums',
-      loadChildren: () => import('./admin/condominus/create-condominums/create-condominums.module').then(module => module.CreateCondominumsModule)
-    }
-  ]
-},
-
-{
-  path: '',
-  component: CondominumsDetailsComponent,
-  children: [
-    {
-      path: 'condominums-details/:id',
-      loadChildren: () => import('./admin/condominus/condominums-details/condominums-details.module').then(module => module.CondominumsDetailsModule)
-    }
-  ]
-},
+      {
+        path: '',
+        component: ReferralAddressListComponent,
+        children: [
+          {
+            path: 'referral-address-list',
+            loadChildren: () => import('./AR/referralAddress/referral-address-list/referral-address-list.module').then(module => module.ReferralAddressListModule)
+          }
+        ]
 
 
-{
-  path: '',
-  component: UpdateCondominumsComponent,
-  children: [
-    {
-      path: 'update-condominums/:id',
-      loadChildren: () => import('./admin/condominus/update-condominums/update-condominums.module').then(module => module.UpdateCondominumsModule)
-    }
-  ]
-},
 
-  {
-    path: '',
-  component: SupplierListComponent,
-   children: [
-     {
-        path: 'supplier-list',
-       loadChildren: () => import('./po/supplier/supplier-list/supplier-list.module').then(module => module.SupplierListModule)
       }
-    ]
+      ,
+
+      {
+        path: '',
+        component: CreateCondominumsComponent,
+        children: [
+          {
+            path: 'create-condominums',
+            loadChildren: () => import('./admin/condominus/create-condominums/create-condominums.module').then(module => module.CreateCondominumsModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+        component: CondominumsDetailsComponent,
+        children: [
+          {
+            path: 'condominums-details/:id',
+            loadChildren: () => import('./admin/condominus/condominums-details/condominums-details.module').then(module => module.CondominumsDetailsModule)
+          }
+        ]
+      },
+
+
+      {
+        path: '',
+        component: UpdateCondominumsComponent,
+        children: [
+          {
+            path: 'update-condominums/:id',
+            loadChildren: () => import('./admin/condominus/update-condominums/update-condominums.module').then(module => module.UpdateCondominumsModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+        component: SupplierListComponent,
+        children: [
+          {
+            path: 'supplier-list',
+            loadChildren: () => import('./po/supplier/supplier-list/supplier-list.module').then(module => module.SupplierListModule)
+          }
+        ]
 
 
 
-  }
-  ,
-
-  {
-    path: '',
-  component: CreateSupplierComponent,
-   children: [
-     {
-        path: 'supplier-create',
-       loadChildren: () => import('./po/create-supplier/supplier-create.module').then(module => module.SupplierCreateModule)
       }
-    ]
+      ,
+
+      {
+        path: '',
+        component: CreateSupplierComponent,
+        children: [
+          {
+            path: 'supplier-create',
+            loadChildren: () => import('./po/create-supplier/supplier-create.module').then(module => module.SupplierCreateModule)
+          }
+        ]
 
 
 
@@ -1030,7 +1128,7 @@ const routes: Routes = [
             loadChildren: () => import('./po/supplier-details/supplier-details.module').then(module => module.SupplierDetailsModule)
           }
         ]
-      }  ,
+      },
       {
         path: '',
         component: UpdateSupplierComponent,
@@ -1042,83 +1140,83 @@ const routes: Routes = [
         ]
       }
 
-      ,{
+      , {
         path: '',
-      component: PaytmentListComponent,
-       children: [
-         {
+        component: PaytmentListComponent,
+        children: [
+          {
             path: 'payment_terms-list',
-           loadChildren: () => import('./po/payterms/paytment-list/paytment-list.module').then(module => module.PaymentListModule)
+            loadChildren: () => import('./po/payterms/paytment-list/paytment-list.module').then(module => module.PaymentListModule)
           }
         ]
 
       },
       {
         path: '',
-      component: CreatePaytmentComponent,
-       children: [
-         {
+        component: CreatePaytmentComponent,
+        children: [
+          {
             path: 'payment-create',
-           loadChildren: () => import('./po/payterms/create-paytment/paytment-create.module').then(module => module.PaytmentCreateModule)
+            loadChildren: () => import('./po/payterms/create-paytment/paytment-create.module').then(module => module.PaytmentCreateModule)
           }
         ]
 
-          },
+      },
+      {
+        path: '',
+        component: PaymentDetailsComponent,
+        children: [
           {
-            path: '',
-            component: PaymentDetailsComponent,
-            children: [
-              {
-                path: 'payment-details/:id',
-                loadChildren: () => import('./po/payterms/payment-details/payment-details.module').then(module => module.PaymentDetailsModule)
-              }
-            ]
+            path: 'payment-details/:id',
+            loadChildren: () => import('./po/payterms/payment-details/payment-details.module').then(module => module.PaymentDetailsModule)
           }
-          ,
+        ]
+      }
+      ,
+      {
+        path: '',
+        component: UpdatePaymentComponent,
+        children: [
           {
-            path: '',
-            component: UpdatePaymentComponent,
-            children: [
-              {
-                path: 'update-payment/:id',
-                loadChildren: () => import('./po/payterms/update-payment/payment-update.module').then(module => module.PaymentUpdateModule)
-              }
-            ]
+            path: 'update-payment/:id',
+            loadChildren: () => import('./po/payterms/update-payment/payment-update.module').then(module => module.PaymentUpdateModule)
           }
-
-
-///
-,
-
-  {
-    path: '',
-  component: BankCodesListComponent,
-   children: [
-     {
-        path: 'bank-codes-list',
-       loadChildren: () => import('./treasury/bankCodes/bank-codes-list/bank-codes-list.module').then(module => module.BankCodesListModule)
+        ]
       }
-    ]
+
+
+      ///
+      ,
+
+      {
+        path: '',
+        component: BankCodesListComponent,
+        children: [
+          {
+            path: 'bank-codes-list',
+            loadChildren: () => import('./treasury/bankCodes/bank-codes-list/bank-codes-list.module').then(module => module.BankCodesListModule)
+          }
+        ]
 
 
 
-  }
-  ,
-
-  {
-    path: '',
-  component: CreateBankCodesComponent,
-   children: [
-     {
-        path: 'bank-codes-create',
-       loadChildren: () => import('./treasury/bankCodes/create-bank-codes/bank-codes-create.module').then(module => module.BankCodesCreateModule)
       }
-    ]
+      ,
+
+      {
+        path: '',
+        component: CreateBankCodesComponent,
+        children: [
+          {
+            path: 'bank-codes-create',
+            loadChildren: () => import('./treasury/bankCodes/create-bank-codes/bank-codes-create.module').then(module => module.BankCodesCreateModule)
+          }
+        ]
 
 
 
-  }
-  ,
+      }
+      ,
       {
         path: '',
         component: BankCodesDetailsComponent,
@@ -1128,7 +1226,7 @@ const routes: Routes = [
             loadChildren: () => import('./treasury/bankCodes/bank-codes-details/bank-codes-details.module').then(module => module.BankCodesDetailsModule)
           }
         ]
-      }  ,
+      },
       {
         path: '',
         component: UpdateBankCodesComponent,
@@ -1139,38 +1237,38 @@ const routes: Routes = [
           }
         ]
       }
-,
+      ,
 
-  {
-    path: '',
-  component: BankCodesListComponent,
-   children: [
-     {
-        path: 'bank-codes-list',
-       loadChildren: () => import('./treasury/bankCodes/bank-codes-list/bank-codes-list.module').then(module => module.BankCodesListModule)
+      {
+        path: '',
+        component: BankCodesListComponent,
+        children: [
+          {
+            path: 'bank-codes-list',
+            loadChildren: () => import('./treasury/bankCodes/bank-codes-list/bank-codes-list.module').then(module => module.BankCodesListModule)
+          }
+        ]
+
+
+
       }
-    ]
+      ,
+      ///
+
+      {
+        path: '',
+        component: CreateDepositAccountComponent,
+        children: [
+          {
+            path: 'deposit-account-create',
+            loadChildren: () => import('./depositAccount/create-deposit-account/deposit-account-create.module').then(module => module.DepositAccountCreateModule)
+          }
+        ]
 
 
 
-  }
-  ,
-///
-
-  {
-    path: '',
-  component: CreateDepositAccountComponent,
-   children: [
-     {
-        path: 'deposit-account-create',
-       loadChildren: () => import('./depositAccount/create-deposit-account/deposit-account-create.module').then(module => module.DepositAccountCreateModule)
       }
-    ]
-
-
-
-  }
-  ,
+      ,
       {
         path: '',
         component: DepositAccountDetailsComponent,
@@ -1180,7 +1278,7 @@ const routes: Routes = [
             loadChildren: () => import('./depositAccount/deposit-account-details/deposit-account-details.module').then(module => module.DepositAccountDetailsModule)
           }
         ]
-      }  ,
+      },
       {
         path: '',
         component: UpdateDepositAccountComponent,
@@ -1191,33 +1289,33 @@ const routes: Routes = [
           }
         ]
       }
-,
+      ,
 
-  {
-    path: '',
-  component: DepositAccountListComponent,
-   children: [
-     {
-        path: 'deposit-account-list',
-       loadChildren: () => import('./depositAccount/deposit-account-list/deposit-account-list.module').then(module => module.DepositAccountListModule)
+      {
+        path: '',
+        component: DepositAccountListComponent,
+        children: [
+          {
+            path: 'deposit-account-list',
+            loadChildren: () => import('./depositAccount/deposit-account-list/deposit-account-list.module').then(module => module.DepositAccountListModule)
+          }
+        ]
+
+
+
       }
-    ]
+      ,
 
-
-
-  }
-  ,
-
-  {
-    path: '',
-  component: CreateBankCodesComponent,
-   children: [
-     {
-        path: 'bank-codes-create',
-       loadChildren: () => import('./treasury/bankCodes/create-bank-codes/bank-codes-create.module').then(module => module.BankCodesCreateModule)
-      }
-    ]
-  },
+      {
+        path: '',
+        component: CreateBankCodesComponent,
+        children: [
+          {
+            path: 'bank-codes-create',
+            loadChildren: () => import('./treasury/bankCodes/create-bank-codes/bank-codes-create.module').then(module => module.BankCodesCreateModule)
+          }
+        ]
+      },
 
       {
         path: '',
@@ -1228,7 +1326,7 @@ const routes: Routes = [
             loadChildren: () => import('./treasury/bankCodes/bank-codes-details/bank-codes-details.module').then(module => module.BankCodesDetailsModule)
           }
         ]
-      }  ,
+      },
       {
         path: '',
         component: UpdateSubcategoriesComponent,
@@ -1240,165 +1338,165 @@ const routes: Routes = [
         ]
       }
       ///
-,
+      ,
 
-{
-  path: '',
-component: ManageBanksListComponent,
- children: [
-   {
-      path: 'manage-banks-list',
-     loadChildren: () => import('./treasury/manageBaks/manage-banks-list/manage-banks-list.module').then(module => module.ManageBanksListModule)
-    }
-  ]
-
-
-
-}
-,
-
-{
-  path: '',
-component: CreateManageBanksComponent,
- children: [
-   {
-      path: 'manage-banks-create',
-     loadChildren: () => import('./treasury/manageBaks/create-manage-banks/manage-banks-create.module').then(module => module.ManageBanksCreateModule)
-    }
-  ]
-
-
-
-}
-,
-    {
-      path: '',
-      component: ManageBanksDetailsComponent,
-      children: [
-        {
-          path: 'manage-banks-details/:id',
-          loadChildren: () => import('./treasury/manageBaks/manage-banks-details/manage-banks-details.module').then(module => module.ManageBanksDetailsModule)
-        }
-      ]
-    }  ,
-    {
-      path: '',
-      component: UpdateManageBanksComponent,
-      children: [
-        {
-          path: 'update-manage-banks/:id',
-          loadChildren: () => import('./treasury/manageBaks/update-manage-banks/manage-banks-update.module').then(module => module.ManageBanksUpdateModule)
-        }
-
-
-
-      ]
-    }
-
-
-    ,
-    {
-      path: '',
-      component: CreateRolComponent,
-      children: [
-        {
-          path: 'create-rols',
-          loadChildren: () => import('./admin/rol/create-rol/create-rol.module').then(module => module.CreateRolModule)
-        }
-      ]
-    }
-
-    ,
-    {
-      path: '',
-
-      component: SubcategoriesDetailsComponent,
-      children: [
-        {
-          path:'sub-details/:id',
-          loadChildren: () => import('./inventarios/sub_categories/subcategories-details/subcategories-details.module').then(module => module.SubCategoriesDetailsModule)
-        }
-      ]
-    },
-    {
-      path: '',
-      component: UpdateMasterinventarysComponent,
-      children: [
-        {
-          path: 'update-masterinventarys/:id',
-          loadChildren: () => import('./inventarios/master_inventarys/update-masterinventarys/update-masterinventarys.module').then(module => module.UpdateMasterInventarysModule)
-        }
-      ]
-    },
-    {
-      path: '',
-
-      component: SubinventarysDetailsComponent,
-      children: [
-        {
-          path:'sub_inventarys-details/:id',
-          loadChildren: () => import('./inventarios/sub_inventarys/subinventarys-details/subinventarys-details.module').then(module => module.SubinventarysDetailsModule)
-        }
-      ]
-    },
-    {
-      path: '',
-      component:  UpdateSubinventarysComponent,
-      children: [
-        {
-          path: 'update-subinventarys/:id',
-          loadChildren: () => import('./inventarios/sub_inventarys/update-subinventarys/update-subinventarys.module').then(module => module.UpdateSubCategoriesModule)
-        }
-      ]
-    },
-    {
-      path: '',
-      component:  UpdateBankCodesComponent,
-      children: [
-        {
-          path: 'update-bank-codes/:id',
-          loadChildren: () => import('./treasury/bankCodes/update-bank-codes/bank-codes-update.module').then(module => module.BankCodesUpdateModule)
-        }
-      ]
-    },
-
+      {
+        path: '',
+        component: ManageBanksListComponent,
+        children: [
           {
-            path: '',
-      component: RolDetailsComponent,
-      children: [
-        {
-          path: 'rols-details/:id',
-          loadChildren: () => import('./admin/rol/rol-details/rol-details.module').then(module => module.RolDetailsModule)
-        }
-      ]
-    }
-
-    ,
-    {
-      path: '',
-      component: RolListComponent,
-      children: [
-        {
-          path: 'rols-list',
-          loadChildren: () => import('./admin/rol/rol-list/rol-list.module').then(module => module.RolListModule)
-        }
-      ]
-    }
+            path: 'manage-banks-list',
+            loadChildren: () => import('./treasury/manageBaks/manage-banks-list/manage-banks-list.module').then(module => module.ManageBanksListModule)
+          }
+        ]
 
 
-    ,
-    {
-      path: '',
-      component: UpdateRolComponent,
-      children: [
-        {
-          path: 'update-rols/:id',
-          loadChildren: () => import('./admin/rol/update-rol/update-rol.module').then(module => module.UpdateRolModule)
-        }
-      ]
-    },
-    {
-      path: '',
+
+      }
+      ,
+
+      {
+        path: '',
+        component: CreateManageBanksComponent,
+        children: [
+          {
+            path: 'manage-banks-create',
+            loadChildren: () => import('./treasury/manageBaks/create-manage-banks/manage-banks-create.module').then(module => module.ManageBanksCreateModule)
+          }
+        ]
+
+
+
+      }
+      ,
+      {
+        path: '',
+        component: ManageBanksDetailsComponent,
+        children: [
+          {
+            path: 'manage-banks-details/:id',
+            loadChildren: () => import('./treasury/manageBaks/manage-banks-details/manage-banks-details.module').then(module => module.ManageBanksDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateManageBanksComponent,
+        children: [
+          {
+            path: 'update-manage-banks/:id',
+            loadChildren: () => import('./treasury/manageBaks/update-manage-banks/manage-banks-update.module').then(module => module.ManageBanksUpdateModule)
+          }
+
+
+
+        ]
+      }
+
+
+      ,
+      {
+        path: '',
+        component: CreateRolComponent,
+        children: [
+          {
+            path: 'create-rols',
+            loadChildren: () => import('./admin/rol/create-rol/create-rol.module').then(module => module.CreateRolModule)
+          }
+        ]
+      }
+
+      ,
+      {
+        path: '',
+
+        component: SubcategoriesDetailsComponent,
+        children: [
+          {
+            path: 'sub-details/:id',
+            loadChildren: () => import('./inventarios/sub_categories/subcategories-details/subcategories-details.module').then(module => module.SubCategoriesDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateMasterinventarysComponent,
+        children: [
+          {
+            path: 'update-masterinventarys/:id',
+            loadChildren: () => import('./inventarios/master_inventarys/update-masterinventarys/update-masterinventarys.module').then(module => module.UpdateMasterInventarysModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: SubinventarysDetailsComponent,
+        children: [
+          {
+            path: 'sub_inventarys-details/:id',
+            loadChildren: () => import('./inventarios/sub_inventarys/subinventarys-details/subinventarys-details.module').then(module => module.SubinventarysDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateSubinventarysComponent,
+        children: [
+          {
+            path: 'update-subinventarys/:id',
+            loadChildren: () => import('./inventarios/sub_inventarys/update-subinventarys/update-subinventarys.module').then(module => module.UpdateSubCategoriesModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateBankCodesComponent,
+        children: [
+          {
+            path: 'update-bank-codes/:id',
+            loadChildren: () => import('./treasury/bankCodes/update-bank-codes/bank-codes-update.module').then(module => module.BankCodesUpdateModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+        component: RolDetailsComponent,
+        children: [
+          {
+            path: 'rols-details/:id',
+            loadChildren: () => import('./admin/rol/rol-details/rol-details.module').then(module => module.RolDetailsModule)
+          }
+        ]
+      }
+
+      ,
+      {
+        path: '',
+        component: RolListComponent,
+        children: [
+          {
+            path: 'rols-list',
+            loadChildren: () => import('./admin/rol/rol-list/rol-list.module').then(module => module.RolListModule)
+          }
+        ]
+      }
+
+
+      ,
+      {
+        path: '',
+        component: UpdateRolComponent,
+        children: [
+          {
+            path: 'update-rols/:id',
+            loadChildren: () => import('./admin/rol/update-rol/update-rol.module').then(module => module.UpdateRolModule)
+          }
+        ]
+      },
+      {
+        path: '',
 
         component: ConfigMainteListComponent,
         children: [
@@ -1412,182 +1510,182 @@ component: CreateManageBanksComponent,
       {
         path: '',
 
-          component: DetailsPayrollComponent,
-          children: [
-            {
-              path: 'details-payroll/:id',
-              loadChildren: () => import('./config-mainte/details-payroll/details-payroll.module').then(module => module.DetailsPayrollModule)
-            }
-          ]
-        },
-        {
-          path: '',
-          component: CreatePayrollComponent,
-          children: [
-            {
-              path: 'create-payroll',
-              loadChildren: () => import('./config-mainte/create-payroll/create-payroll.module').then(module => module.CreatePayrollModule)
-
-            }
-          ]
-        },
+        component: DetailsPayrollComponent,
+        children: [
           {
-            path: '',
+            path: 'details-payroll/:id',
+            loadChildren: () => import('./config-mainte/details-payroll/details-payroll.module').then(module => module.DetailsPayrollModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreatePayrollComponent,
+        children: [
+          {
+            path: 'create-payroll',
+            loadChildren: () => import('./config-mainte/create-payroll/create-payroll.module').then(module => module.CreatePayrollModule)
 
-              component: UpdatePayrollComponent,
-              children: [
-                {
-                  path: 'Update-payroll/:id',
-                  loadChildren: () => import('./config-mainte/update-payroll/update-payroll.module').then(module => module.UpdatePayrollModule)
-                }
-              ]
-            }
-    ,
-    {
-      path: '',
-      component: CreatePermissionsComponent,
-      children: [
-        {
-          path: 'create-permissions',
-          loadChildren: () => import('./admin/permissions/create-permissions/create-permissions.module').then(module => module.CreatePermissionsModule)
-        }
-      ]
-    }
+          }
+        ]
+      },
+      {
+        path: '',
 
-    ,
-    {
-      path: '',
-      component: PermissionsDetailsComponent,
-      children: [
-        {
-          path: 'permissions-details/:id',
-          loadChildren: () => import('./admin/permissions/permissions-details/permissions-details.module').then(module => module.PermissionsDetailsModule)
-        }
-      ]
-    }
+        component: UpdatePayrollComponent,
+        children: [
+          {
+            path: 'Update-payroll/:id',
+            loadChildren: () => import('./config-mainte/update-payroll/update-payroll.module').then(module => module.UpdatePayrollModule)
+          }
+        ]
+      }
+      ,
+      {
+        path: '',
+        component: CreatePermissionsComponent,
+        children: [
+          {
+            path: 'create-permissions',
+            loadChildren: () => import('./admin/permissions/create-permissions/create-permissions.module').then(module => module.CreatePermissionsModule)
+          }
+        ]
+      }
 
-    ,
-    {
-      path: '',
-      component: PermissionsListComponent,
-      children: [
-        {
-          path: 'permissions-list',
-          loadChildren: () => import('./admin/permissions/permissions-list/permissions-list.module').then(module => module.PermissionsListModule)
-        }
-      ]
-    }
+      ,
+      {
+        path: '',
+        component: PermissionsDetailsComponent,
+        children: [
+          {
+            path: 'permissions-details/:id',
+            loadChildren: () => import('./admin/permissions/permissions-details/permissions-details.module').then(module => module.PermissionsDetailsModule)
+          }
+        ]
+      }
 
-
-    ,
-    {
-      path: '',
-      component: UpdatePermissionsComponent,
-      children: [
-        {
-          path: 'update-permissions/:id',
-          loadChildren: () => import('./admin/permissions/update-permissions/update-permissions.module').then(module => module.UpdatePermissionsModule)
-        }
-      ]
-    }
-
-
-
-
-    ,
-    {
-      path: '',
-      component: CreateUserComponent,
-      children: [
-        {
-          path: 'create-usuarios',
-          loadChildren: () => import('./admin/user/create-user/create-user.module').then(module => module.CreateUserModule)
-        }
-      ]
-    },
-    {
-      path: '',
-      component: CreateMasterinventarysComponent,
-      children: [
-        {
-          path: 'create-masterinventarys',
-          loadChildren: () => import('./inventarios/master_inventarys/create-masterinventarys/create-masterinventarys.module').then(module => module.CreateMasterinventarysModule)
-        }
-      ]
-    }
-
-    ,
-    {
-      path: '',
-      component: UserDetailsComponent,
-      children: [
-        {
-          path: 'usuarios-details/:id',
-          loadChildren: () => import('./admin/user/user-details/user-details.module').then(module => module.UserDetailsModule)
-        }
-      ]
-    }
-
-    ,
-    {
-      path: '',
-      component: UserListComponent,
-      children: [
-        {
-          path: 'usuarios-list',
-          loadChildren: () => import('./admin/user/user-list/user-list.module').then(module => module.UserListModule)
-        }
-      ]
-    }
+      ,
+      {
+        path: '',
+        component: PermissionsListComponent,
+        children: [
+          {
+            path: 'permissions-list',
+            loadChildren: () => import('./admin/permissions/permissions-list/permissions-list.module').then(module => module.PermissionsListModule)
+          }
+        ]
+      }
 
 
-    ,
-    {
-      path: '',
-      component: UpdateUserComponent,
-      children: [
-        {
-          path: 'update-usuarios/:id',
-          loadChildren: () => import('./admin/user/update-user/update-user.module').then(module => module.UpdateUserModule)
-
-        }
-      ]
-    }
-    ,
-    {
-      path: '',
-      component: PurcharseListComponent,
-      children: [
-        {
-          path: 'purchase_orders-list',
-          loadChildren: () => import('./purcharse/purcharse-list/purcharse-list.module').then(module => module.PurcharseListModule)
-        }
-      ]
-    },{
-      path: '',
-      component: CreatePurcharseComponent,
-      children: [
-        {
-          path: 'create-purcharse',
-          loadChildren: () => import('./purcharse/create-purcharse/create-purcharse.module').then(module => module.PurcharseCreateModule)
-        }
-      ]
-    }
-
-    ,
-    {
-      path: '',
-      component: UpdatePurcharseComponent,
-      children: [
-        {
-          path: 'update-purcharse/:id',
-          loadChildren: () => import('./purcharse/update-purcharse/update-purcharse.module').then(module => module.UpdatePurcharseModule)
-        }
-      ]
-    }
+      ,
+      {
+        path: '',
+        component: UpdatePermissionsComponent,
+        children: [
+          {
+            path: 'update-permissions/:id',
+            loadChildren: () => import('./admin/permissions/update-permissions/update-permissions.module').then(module => module.UpdatePermissionsModule)
+          }
+        ]
+      }
 
 
-    ,
+
+
+      ,
+      {
+        path: '',
+        component: CreateUserComponent,
+        children: [
+          {
+            path: 'create-usuarios',
+            loadChildren: () => import('./admin/user/create-user/create-user.module').then(module => module.CreateUserModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateMasterinventarysComponent,
+        children: [
+          {
+            path: 'create-masterinventarys',
+            loadChildren: () => import('./inventarios/master_inventarys/create-masterinventarys/create-masterinventarys.module').then(module => module.CreateMasterinventarysModule)
+          }
+        ]
+      }
+
+      ,
+      {
+        path: '',
+        component: UserDetailsComponent,
+        children: [
+          {
+            path: 'usuarios-details/:id',
+            loadChildren: () => import('./admin/user/user-details/user-details.module').then(module => module.UserDetailsModule)
+          }
+        ]
+      }
+
+      ,
+      {
+        path: '',
+        component: UserListComponent,
+        children: [
+          {
+            path: 'usuarios-list',
+            loadChildren: () => import('./admin/user/user-list/user-list.module').then(module => module.UserListModule)
+          }
+        ]
+      }
+
+
+      ,
+      {
+        path: '',
+        component: UpdateUserComponent,
+        children: [
+          {
+            path: 'update-usuarios/:id',
+            loadChildren: () => import('./admin/user/update-user/update-user.module').then(module => module.UpdateUserModule)
+
+          }
+        ]
+      }
+      ,
+      {
+        path: '',
+        component: PurcharseListComponent,
+        children: [
+          {
+            path: 'purchase_orders-list',
+            loadChildren: () => import('./purcharse/purcharse-list/purcharse-list.module').then(module => module.PurcharseListModule)
+          }
+        ]
+      }, {
+        path: '',
+        component: CreatePurcharseComponent,
+        children: [
+          {
+            path: 'create-purcharse',
+            loadChildren: () => import('./purcharse/create-purcharse/create-purcharse.module').then(module => module.PurcharseCreateModule)
+          }
+        ]
+      }
+
+      ,
+      {
+        path: '',
+        component: UpdatePurcharseComponent,
+        children: [
+          {
+            path: 'update-purcharse/:id',
+            loadChildren: () => import('./purcharse/update-purcharse/update-purcharse.module').then(module => module.UpdatePurcharseModule)
+          }
+        ]
+      }
+
+
+      ,
 
 
       {
@@ -1602,57 +1700,57 @@ component: CreateManageBanksComponent,
       }
 
 
-    ,
-    {
-      path: '',
-      component: TransactionListComponent,
-      children: [
-        {
-          path: 'transaction-list/:id',
-          loadChildren: () => import('./admin/transaction/transaction-list/transaction-list.module').then(module => module.TransactionListModule)
-        }
-      ]
-    }
-
-    ,
-    {
-      path: '',
-      component: TransactionDetailsComponent,
-      children: [
-        {
-          path: 'transaction-details/:id',
-          loadChildren: () => import('./admin/transaction/transaction-details/transaction-details.module').then(module => module.TransactionDetailsModule)
-        }
-      ]
-    }
-///
-,
-
-  {
-    path: '',
-  component: PaymentDocumentsListComponent,
-   children: [
-     {
-        path: 'payment-documents-list',
-       loadChildren: () => import('./treasury/paymentDocuments/payment-documents-list/payment-documents-list.module').then(module => module.PaymentDocumentsListModule)
+      ,
+      {
+        path: '',
+        component: TransactionListComponent,
+        children: [
+          {
+            path: 'transaction-list/:id',
+            loadChildren: () => import('./admin/transaction/transaction-list/transaction-list.module').then(module => module.TransactionListModule)
+          }
+        ]
       }
-    ]
 
-
-
-  }
-  ,
-
-  {
-    path: '',
-  component: CreatePaymentDocumentsComponent,
-   children: [
-     {
-        path: 'payment-documents-create',
-       loadChildren: () => import('./treasury/paymentDocuments/create-payment-documents/payment-documents-create.module').then(module => module.PaymentDocumentsCreateModule)
+      ,
+      {
+        path: '',
+        component: TransactionDetailsComponent,
+        children: [
+          {
+            path: 'transaction-details/:id',
+            loadChildren: () => import('./admin/transaction/transaction-details/transaction-details.module').then(module => module.TransactionDetailsModule)
+          }
+        ]
       }
-    ]
-  },
+      ///
+      ,
+
+      {
+        path: '',
+        component: PaymentDocumentsListComponent,
+        children: [
+          {
+            path: 'payment-documents-list',
+            loadChildren: () => import('./treasury/paymentDocuments/payment-documents-list/payment-documents-list.module').then(module => module.PaymentDocumentsListModule)
+          }
+        ]
+
+
+
+      }
+      ,
+
+      {
+        path: '',
+        component: CreatePaymentDocumentsComponent,
+        children: [
+          {
+            path: 'payment-documents-create',
+            loadChildren: () => import('./treasury/paymentDocuments/create-payment-documents/payment-documents-create.module').then(module => module.PaymentDocumentsCreateModule)
+          }
+        ]
+      },
 
       {
         path: '',
@@ -1663,10 +1761,10 @@ component: CreateManageBanksComponent,
             loadChildren: () => import('./treasury/paymentDocuments/payment-documents-details/payment-documents-details.module').then(module => module.PaymentDocumentsDetailsModule)
           }
         ]
-      }  ,
+      },
       {
         path: '',
-        component:  UpdatePaymentDocumentsComponent,
+        component: UpdatePaymentDocumentsComponent,
         children: [
           {
             path: 'update-payment-documents/:id',
@@ -1674,262 +1772,262 @@ component: CreateManageBanksComponent,
           }
         ]
       }
-    ,
-    {
-      path: '',
-      component: UpdateTransactionComponent,
-      children: [
-        {
-          path: 'update-transaction/:id',
-          loadChildren: () => import('./admin/transaction/update-transaction/update-transaction.module').then(module => module.TransactionListModule)
-        }
-      ]
-    },
-    {
-      path: '',
-
-      component: UnitOfMeasuresListComponent,
-      children: [
-        {
-          path: 'unitof-measures-list',
-          loadChildren: () => import('./inventarios/unit_of_measures/unit-of-measures-list/unit-of-measures-list.module').then(module => module.UnitOfMeasuresListModule)
-        }
-      ]
-    },
-    {
-      path: '',
-      component: UnitOfMeasuresListComponent,
-      children: [
-        {
-          path: 'unitofmeasures-list',
-          loadChildren: () => import('./inventarios/unit_of_measures/unit-of-measures-list/unit-of-measures-list.module').then(module => module.UnitOfMeasuresListModule)
-        }
-      ]
-    },
-    {
-      path: '',
-      component: CreateMasterinventarysComponent,
-      children: [
-        {
-          path: 'create-master',
-          loadChildren: () => import('./inventarios/master_inventarys/create-masterinventarys/create-masterinventarys.module').then(module => module.CreateMasterinventarysModule)
-        }
-      ]
-    },
-    {
-      path: '',
-      component: ArticlesListComponent,
-      children: [
-        {
-          path: 'Articles-list',
-          loadChildren: () => import('./inventarios/articles/articles-list/articles-list.module').then(module => module.CreateArticlesListModule)
-        }
-      ]
-    },
-    {
-
-      path: '',
-      component: BankAccountsDetailsComponent,
-      children: [
-        {
-          path: 'bank-accounts-details/:id',
-          loadChildren: () => import('./treasury/bankAccounts/bank-accounts-details/bank-accounts-details.module').then(module => module.BankAccountsDetailsModule)
-        }
-      ]
-    },
-    {
-      path: '',
-      component: UpdateBankAccountsComponent,
-      children: [
-        {
-          path: 'update-bank-accounts/:id',
-          loadChildren: () => import('./treasury/bankAccounts/update-bank-accounts/bank-accounts-update.module').then(module => module.BankAccountsUpdateModule)
-        }
-
-
-
-      ]
-    }
-
-    ,
-
-    {
-      path: '',
-    component: BankAccountsListComponent,
-     children: [
-       {
-          path: 'bank-accounts-list',
-         loadChildren: () => import('./treasury/bankAccounts/bank-accounts-list/bank-accounts-list.module').then(module => module.BankAccountsListModule)
-        }
-      ]
-
-    }
-    ,
-{
-  path: '',
-component: TransfersListComponent,
- children: [
-   {
-      path: 'transfers-list',
-     loadChildren: () => import('./treasury/transfers/transfers-list/transfers-list.module').then(module => module.TransfersListModule)
-    }
-  ]
-
-
-
-}
-,
-
-{
-  path: '',
-component: CreateTransfersComponent,
- children: [
-   {
-      path: 'transfers-create',
-     loadChildren: () => import('./treasury/transfers/create-transfers/transfers-create.module').then(module => module.TransfersCreateModule)
-    }
-  ]
-},
-
-    {
-      path: '',
-      component: TransfersDetailsComponent,
-      children: [
-        {
-          path: 'transfers-details/:id',
-          loadChildren: () => import('./treasury/transfers/transfers-details/transfers-details.module').then(module => module.TransfersDetailsModule)
-        }
-      ]
-    }  ,
-    {
-      path: '',
-      component:  UpdateTransfersComponent,
-      children: [
-        {
-          path: 'update-transfers/:id',
-          loadChildren: () => import('./treasury/transfers/update-transfers/transfers-update.module').then(module => module.TransfersUpdateModule)
-        }
-      ]
-    },
-
-
-    {
-      path: '',
-    component: CreateBankAccountsComponent,
-     children: [
-       {
-          path: 'bank-accounts-create',
-         loadChildren: () => import('./treasury/bankAccounts/create-bank-accounts/bank-accounts-create.module').then(module => module.BankAccountsCreateModule)
-        }
-      ]
-
-
-
-    }
-
-
-    ,
-    {
-      path: '',
-      component: CreateUserdashboardComponent,
-      children: [
-        {
-          path: 'create-userd/:id',
-          loadChildren: () => import('./admin/userdashboard/create-userdashboard/create-userdashboard.module').then(module => module.CreateUserdashboardModule)
-        }
-      ]
-    }
-    ,
-    {
-      path: '',
-      component: UpdateUserdashboardComponent,
-      children: [
-        {
-          path: 'update-userd/:id',
-          loadChildren: () => import('./admin/userdashboard/update-userdashboard/update-userdashboard.module').then(module => module.UpdateUserdashboardModule)
-        }
-      ]
-    }
-
-
-    ,
-    {
-      path: '',
-      component: UserdashboardDetailsComponent,
-      children: [
-        {
-          path: 'details-userd/:id',
-          loadChildren: () => import('./admin/userdashboard/userdashboard-details/userdashboard-details.module').then(module => module.UserdashboardModule)
-        }
-      ]
-    }
-
-
-    ,
-    {
-      path: '',
-      component: UserdashboardListComponent,
-      children: [
-        {
-          path: 'userd-list/:id',
-          loadChildren: () => import('./admin/userdashboard/userdashboard-list/userdashboard-list.module').then(module => module.UserdashboardListModule)
-        }
-      ]
-    },
-    {
-      path: '',
-      component: MasterinventarysDetailsComponent,
-      children: [
-        {
-          path: 'master1-details/:id',
-          loadChildren: () => import('./inventarios/master_inventarys/masterinventarys-details/masterinventarys-details.module').then(module => module.MasterInventarysListModule)
-        }
-      ]
-    },
-    {
-      path: '',
-      component: UnitOfMeasuresDetailsComponent,
-      children: [
-        {
-          path: 'unit-details/:id',
-          loadChildren: () => import('./inventarios/unit_of_measures/unit-of-measures-details/unit-of-measures-details.module').then(module => module.UnitOfMeasuaresDetailsModule)
-        }
-      ]
-    },
-    {
-      path: '',
-      component: TransactionsentrysListComponent,
-      children: [
-        {
-          path: 'transactions-entrys-list',
-          loadChildren: () => import('./inventarios/transactions_entrys/transactionsentrys-list/transactionsentrys-list.module').then(module => module.TransactionsEntrysListModule)
-        }
-      ]
-    },
-    {
-      path: '',
-      component: CreateSubcategoriesComponent,
-      children: [
-        {
-          path: 'subcategori-create',
-          loadChildren: () => import('./inventarios/sub_categories/create-subcategories/create-subcategories.module').then(module => module.CreateSubcategoriesModule)
-        }
-      ]
-    }
-    ,
-    ]
-
-  },
+      ,
       {
         path: '',
-        component: AuthComponent,
+        component: UpdateTransactionComponent,
         children: [
           {
-            path: 'auth',
-            loadChildren: () => import('./authentication/authentication.module').then(module => module.AuthenticationModule)
+            path: 'update-transaction/:id',
+            loadChildren: () => import('./admin/transaction/update-transaction/update-transaction.module').then(module => module.TransactionListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: UnitOfMeasuresListComponent,
+        children: [
+          {
+            path: 'unitof-measures-list',
+            loadChildren: () => import('./inventarios/unit_of_measures/unit-of-measures-list/unit-of-measures-list.module').then(module => module.UnitOfMeasuresListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UnitOfMeasuresListComponent,
+        children: [
+          {
+            path: 'unitofmeasures-list',
+            loadChildren: () => import('./inventarios/unit_of_measures/unit-of-measures-list/unit-of-measures-list.module').then(module => module.UnitOfMeasuresListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateMasterinventarysComponent,
+        children: [
+          {
+            path: 'create-master',
+            loadChildren: () => import('./inventarios/master_inventarys/create-masterinventarys/create-masterinventarys.module').then(module => module.CreateMasterinventarysModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ArticlesListComponent,
+        children: [
+          {
+            path: 'Articles-list',
+            loadChildren: () => import('./inventarios/articles/articles-list/articles-list.module').then(module => module.CreateArticlesListModule)
+          }
+        ]
+      },
+      {
+
+        path: '',
+        component: BankAccountsDetailsComponent,
+        children: [
+          {
+            path: 'bank-accounts-details/:id',
+            loadChildren: () => import('./treasury/bankAccounts/bank-accounts-details/bank-accounts-details.module').then(module => module.BankAccountsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateBankAccountsComponent,
+        children: [
+          {
+            path: 'update-bank-accounts/:id',
+            loadChildren: () => import('./treasury/bankAccounts/update-bank-accounts/bank-accounts-update.module').then(module => module.BankAccountsUpdateModule)
+          }
+
+
+
+        ]
+      }
+
+      ,
+
+      {
+        path: '',
+        component: BankAccountsListComponent,
+        children: [
+          {
+            path: 'bank-accounts-list',
+            loadChildren: () => import('./treasury/bankAccounts/bank-accounts-list/bank-accounts-list.module').then(module => module.BankAccountsListModule)
+          }
+        ]
+
+      }
+      ,
+      {
+        path: '',
+        component: TransfersListComponent,
+        children: [
+          {
+            path: 'transfers-list',
+            loadChildren: () => import('./treasury/transfers/transfers-list/transfers-list.module').then(module => module.TransfersListModule)
+          }
+        ]
+
+
+
+      }
+      ,
+
+      {
+        path: '',
+        component: CreateTransfersComponent,
+        children: [
+          {
+            path: 'transfers-create',
+            loadChildren: () => import('./treasury/transfers/create-transfers/transfers-create.module').then(module => module.TransfersCreateModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+        component: TransfersDetailsComponent,
+        children: [
+          {
+            path: 'transfers-details/:id',
+            loadChildren: () => import('./treasury/transfers/transfers-details/transfers-details.module').then(module => module.TransfersDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateTransfersComponent,
+        children: [
+          {
+            path: 'update-transfers/:id',
+            loadChildren: () => import('./treasury/transfers/update-transfers/transfers-update.module').then(module => module.TransfersUpdateModule)
+          }
+        ]
+      },
+
+
+      {
+        path: '',
+        component: CreateBankAccountsComponent,
+        children: [
+          {
+            path: 'bank-accounts-create',
+            loadChildren: () => import('./treasury/bankAccounts/create-bank-accounts/bank-accounts-create.module').then(module => module.BankAccountsCreateModule)
+          }
+        ]
+
+
+
+      }
+
+
+      ,
+      {
+        path: '',
+        component: CreateUserdashboardComponent,
+        children: [
+          {
+            path: 'create-userd/:id',
+            loadChildren: () => import('./admin/userdashboard/create-userdashboard/create-userdashboard.module').then(module => module.CreateUserdashboardModule)
           }
         ]
       }
+      ,
+      {
+        path: '',
+        component: UpdateUserdashboardComponent,
+        children: [
+          {
+            path: 'update-userd/:id',
+            loadChildren: () => import('./admin/userdashboard/update-userdashboard/update-userdashboard.module').then(module => module.UpdateUserdashboardModule)
+          }
+        ]
+      }
+
+
+      ,
+      {
+        path: '',
+        component: UserdashboardDetailsComponent,
+        children: [
+          {
+            path: 'details-userd/:id',
+            loadChildren: () => import('./admin/userdashboard/userdashboard-details/userdashboard-details.module').then(module => module.UserdashboardModule)
+          }
+        ]
+      }
+
+
+      ,
+      {
+        path: '',
+        component: UserdashboardListComponent,
+        children: [
+          {
+            path: 'userd-list/:id',
+            loadChildren: () => import('./admin/userdashboard/userdashboard-list/userdashboard-list.module').then(module => module.UserdashboardListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: MasterinventarysDetailsComponent,
+        children: [
+          {
+            path: 'master1-details/:id',
+            loadChildren: () => import('./inventarios/master_inventarys/masterinventarys-details/masterinventarys-details.module').then(module => module.MasterInventarysListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UnitOfMeasuresDetailsComponent,
+        children: [
+          {
+            path: 'unit-details/:id',
+            loadChildren: () => import('./inventarios/unit_of_measures/unit-of-measures-details/unit-of-measures-details.module').then(module => module.UnitOfMeasuaresDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: TransactionsentrysListComponent,
+        children: [
+          {
+            path: 'transactions-entrys-list',
+            loadChildren: () => import('./inventarios/transactions_entrys/transactionsentrys-list/transactionsentrys-list.module').then(module => module.TransactionsEntrysListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateSubcategoriesComponent,
+        children: [
+          {
+            path: 'subcategori-create',
+            loadChildren: () => import('./inventarios/sub_categories/create-subcategories/create-subcategories.module').then(module => module.CreateSubcategoriesModule)
+          }
+        ]
+      }
+      ,
+    ]
+
+  },
+  {
+    path: '',
+    component: AuthComponent,
+    children: [
+      {
+        path: 'auth',
+        loadChildren: () => import('./authentication/authentication.module').then(module => module.AuthenticationModule)
+      }
+    ]
+  }
 
 
 ];

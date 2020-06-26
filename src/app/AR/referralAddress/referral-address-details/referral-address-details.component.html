@@ -1,0 +1,44 @@
+<p>referral-address-details works!</p>
+<div class="row justify-content-center">
+  <div class="col-sm-12">
+    <app-card cardTitle="Remision Detalle" [options]="false">
+      <div *ngIf="employee">
+
+        <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+        <div>
+          <label><b>Pais: </b></label> {{employee.referral_address_country}}
+        </div>
+        <div>
+          <label><b>Dirección Completa: </b></label> {{employee.referral_address_direction}}
+        </div>
+        <div>
+          <label><b>Codigo Postal: </b></label> {{employee.referral_address_postal_code}}
+        </div>
+        <div>
+          <label><b>Colonia/Municipio: </b></label> {{employee.referral_address_cologne}}
+        </div>
+
+        <div>
+          <label><b>Estado: </b></label> {{employee.referral_address_state}}
+        </div>
+
+        <div>
+          <label><b>condominios: </b></label> {{employee.condominums_id}}
+        </div>
+
+
+        <div>
+          <label><b>Estatus: </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="referral_address_status"
+              name="referral_address_status" style="margin-left: 10px"
+              [checked]="employee.referral_address_status == 'true'">
+            <label class="custom-control-label" for="referral_address_status">Active</label>
+          </div>
+        </div>
+      </div>
+      <br>
+      <button [routerLink]="['/referral-address-list']" class="btn btn-outline-primary">Regresar</button><br>
+    </app-card>
+  </div>
+</div>

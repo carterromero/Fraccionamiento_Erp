@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+        <div class="col-md-6">
+            <app-card cardTitle="Crear cliente" [options]="false">
+                <form (ngSubmit)="onSubmit()">
+
+                    <div class="form-group">
+                        <label for="name">Nombre Completo</label>
+                        <input type="text" class="form-control" id="customer_customer_name"
+                            [(ngModel)]="employee.customer_customer_name" name="customer_customer_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Dirección</label>
+                        <input type="text" class="form-control" id="customer_address"
+                            [(ngModel)]="employee.customer_address" name="customer_address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Tipo</label>
+                        <input type="text" class="form-control" id="customer_customer_type"
+                            [(ngModel)]="employee.customer_customer_type" name="customer_customer_type" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">RFC</label>
+                        <input type="text" class="form-control" id="customer_customer_rfc"
+                            [(ngModel)]="employee.customer_customer_rfc" name="customer_customer_rfc" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Telefono</label>
+                        <input type="text" class="form-control" id="customer_phone"
+                            [(ngModel)]="employee.customer_phone" name="customer_phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Email</label>
+                        <input type="text" class="form-control" id="customer_email"
+                            [(ngModel)]="employee.customer_email" name="customer_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">condominio</label>
+                        <input type="text" class="form-control" id="condominums_id"
+                            [(ngModel)]="employee.condominums_id" name="condominums_id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Estatus</label>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customer_status"
+                                [(ngModel)]="employee.customer_status" name="customer_status" style="margin-left: 10px">
+                            <label class="custom-control-label" for="customer_status">Active</label>
+                        </div>
+                    </div>
+                    
+                    
+                    <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+                    <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
+                    <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+                        <div class="app-modal-header">
+                            <h5 class="modal-title">Crear Empresa</h5>
+                            <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close"
+                                (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="app-modal-body">
+                            <p>Esta seguro de insertar la empresa</p>
+                        </div>
+                        <div class="app-modal-footer">
+                            <button type="button" class="btn btn-secondary" style="margin-left: 10px"
+                                data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+                            <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"
+                                style="margin-left: 10px">Guardar</button>
+                        </div>
+                    </app-ui-modal>
+                    <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                        (click)="createPeriodsDialog.show()">Guardar</button>
+                    <button [routerLink]="['/customer-list']" class="btn btn-outline-secondary"
+                        style="margin-left: 10px">Regresar</button>
+                </form>
+            </app-card>
+        </div>
+    </div>

@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Empresa Detalle" [options]="false">
+        <div *ngIf="employee">
+
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <div>
+            <label><b>Nombre Completo: </b></label> {{employee.customer_customer_name}}
+          </div>
+          <div>
+            <label><b>RFC: </b></label> {{employee.customer_customer_rfc}}
+          </div>
+          <div>
+            <label><b>Tipo: </b></label> {{employee.customer_customer_type}}
+          </div>
+          <div>
+            <label><b>Direccion: </b></label> {{employee.customer_address}}
+          </div>
+
+          <div>
+            <label><b>Telofono: </b></label> {{employee.customer_phone}}
+          </div>
+
+          <div>
+            <label><b>Email: </b></label> {{employee.customer_email}}
+          </div>
+
+
+          <div>
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="customer_status"  name="customer_status"   style="margin-left: 10px" [checked]="employee.customer_status == 'true'">
+            <label class="custom-control-label" for="customer_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/customer-list']" class="btn btn-outline-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>

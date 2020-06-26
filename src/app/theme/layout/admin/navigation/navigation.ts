@@ -449,10 +449,10 @@ const NavigationItems = [
           icon: 'feather icon-monitor',
           children: [
             {
-              id: 'collection',
+              id: 'customer',
               title: 'Administrar Residentes / clientes',
               type: 'item',            
-              url: '/collection-list'
+              url: '/customer-list'
               
             },
     
@@ -460,7 +460,7 @@ const NavigationItems = [
               id: 'Direction',
               title: 'Direccion de remison',
               type: 'item',            
-              url: '/'
+              url: '/referral-address-list'
               
             },
             {
@@ -477,13 +477,13 @@ const NavigationItems = [
               url: '/deposit-account-list'
               
             },
-           /*  {
+            {
               id: 'collection',
               title: 'Colección',
               type: 'item',            
               url: '/collection-list'
               
-            }, */
+            },
                                   
           ]
         },
