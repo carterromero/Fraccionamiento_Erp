@@ -98,6 +98,11 @@ import { BankAccountsDetailsComponent } from './treasury/bankAccounts/bank-accou
 import { UpdateBankAccountsComponent } from './treasury/bankAccounts/update-bank-accounts/update-bank-accounts.component';
 import { BankAccountsListComponent } from './treasury/bankAccounts/bank-accounts-list/bank-accounts-list.component';
 
+import { CreateDepositAccountComponent } from './depositAccount/create-deposit-account/create-deposit-account.component';
+import { DepositAccountDetailsComponent } from './depositAccount/deposit-account-details/deposit-account-details.component';
+import { UpdateDepositAccountComponent } from './depositAccount//update-deposit-account/update-deposit-account.component';
+import { DepositAccountListComponent } from './depositAccount//deposit-account-list/deposit-account-list.component';
+
 
 import { CreateDepartmentsComponent } from './RH/catalogs/departments/create-departments/create-departments.component';
 import { DepartmentsListComponent } from './RH/catalogs/departments/departments-list/departments-list.component';
@@ -1109,6 +1114,58 @@ const routes: Routes = [
      {
         path: 'bank-codes-list',
        loadChildren: () => import('./treasury/bankCodes/bank-codes-list/bank-codes-list.module').then(module => module.BankCodesListModule)
+      }
+    ]
+
+
+
+  }
+  ,
+///
+
+  {
+    path: '',
+  component: CreateDepositAccountComponent,
+   children: [
+     {
+        path: 'deposit-account-create',
+       loadChildren: () => import('./depositAccount/create-deposit-account/deposit-account-create.module').then(module => module.DepositAccountCreateModule)
+      }
+    ]
+
+
+
+  }
+  ,
+      {
+        path: '',
+        component: DepositAccountDetailsComponent,
+        children: [
+          {
+            path: 'deposit-account-details/:id',
+            loadChildren: () => import('./depositAccount/deposit-account-details/deposit-account-details.module').then(module => module.DepositAccountDetailsModule)
+          }
+        ]
+      }  ,
+      {
+        path: '',
+        component: UpdateDepositAccountComponent,
+        children: [
+          {
+            path: 'update-deposit-account/:id',
+            loadChildren: () => import('./depositAccount/update-deposit-account/deposit-account-update.module').then(module => module.DepositAccountUpdateModule)
+          }
+        ]
+      }
+,
+
+  {
+    path: '',
+  component: DepositAccountListComponent,
+   children: [
+     {
+        path: 'deposit-account-list',
+       loadChildren: () => import('./depositAccount/deposit-account-list/deposit-account-list.module').then(module => module.DepositAccountListModule)
       }
     ]
 
