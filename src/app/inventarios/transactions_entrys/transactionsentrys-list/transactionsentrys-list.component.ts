@@ -66,7 +66,7 @@ export class TransactionsentrysListComponent implements OnInit {
     this.router.navigate(['categories-details', id]);
   }
 
-  updateCategories(id: number){
+  updateTransac(id: number){
     this.router.navigate(['update-categories', id]);
   }
 
