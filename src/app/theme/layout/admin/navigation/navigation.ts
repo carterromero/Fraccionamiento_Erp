@@ -462,6 +462,13 @@ const NavigationItems = [
               url: '/'
               
             },
+            {
+              id: 'depositAccount',
+              title: 'Cuentas de Deposito',
+              type: 'item',            
+              url: '/deposit-account-list'
+              
+            },
            /*  {
               id: 'collection',
               title: 'Colección',
