@@ -30,7 +30,7 @@ export class PurcharseListComponent implements OnInit {
   
   reloadData() {
     
-    this.generalService.getEmployeeList(1).subscribe(
+    this.generalService.getEmployeeList(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);
         this.general = this.generalService.getEmployeeList(1);

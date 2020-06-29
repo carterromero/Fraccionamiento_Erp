@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { RepoCredPay } from 'src/app/repo-cred-pay';
 import { RepoCredPayService } from 'src/app/repo-cred-pay.service';
 import { Observable } from 'rxjs';
-import * as jsPDF from 'jspdf'
+import * as jsPDF from 'jspdf';
 import { query } from '@angular/animations';
 import { BusquedaQ } from 'src/app/busqueda';
 
