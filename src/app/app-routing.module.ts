@@ -178,6 +178,9 @@ import { TransactionsentrysListComponent } from './inventarios/transactions_entr
 import { RepoCredPayContListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-cont-list/repo-cred-pay-cont-list.component';
 import { RepoCredPayNocontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-nocont-list/repo-cred-pay-nocont-list.component';
 import { RepoCredPayVencontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-vencont-list/repo-cred-pay-vencont-list.component';
+import { CreateArticlesComponent } from './inventarios/articles/create-articles/create-articles.component';
+import { ArticlesDetailsComponent } from './inventarios/articles/articles-details/articles-details.component';
+import { UpdateArticlesComponent } from './inventarios/articles/update-articles/update-articles.component';
 
 
 
@@ -1684,14 +1687,46 @@ component: CreateManageBanksComponent,
     },
     {
       path: '',
+      component: CreateArticlesComponent,
+      children: [
+        {
+          path: 'create-articles',
+          loadChildren: () => import('./inventarios/articles/create-articles/create-articles.module').then(module => module.CreateArticlesModule)
+        }
+      ]
+    },
+    {
+      path: '',
       component: ArticlesListComponent,
       children: [
         {
           path: 'Articles-list',
-          loadChildren: () => import('./inventarios/articles/articles-list/articles-list.module').then(module => module.CreateArticlesListModule)
+          loadChildren: () => import('./inventarios/articles/articles-list/articles-list.module').then(module => module.ArticlesListModule)
         }
       ]
     },
+    {
+
+      path: '',
+      component: ArticlesDetailsComponent,
+      children: [
+        {
+          path: 'articles1-details/:id',
+          loadChildren: () => import('./inventarios/articles/articles-details/articles-details.module').then(module => module.ArticlesDetailsModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component:  UpdateArticlesComponent,
+      children: [
+        {
+          path: 'update-articles/:id',
+          loadChildren: () => import('./inventarios/articles/update-articles/update-articles.module').then(module => module.UpdateArticlesModule)
+        }
+      ]
+    }
+  ,
     {
 
       path: '',

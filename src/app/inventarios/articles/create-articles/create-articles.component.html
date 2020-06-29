@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Crear Sub Categoria" [options]="false">
+          <form (ngSubmit)="onSubmit()">  
+            <div class="form-group">
+                <label for="name">Nombre Articulos</label>
+                <input type="text" class="form-control" id="articles_name_article"  [(ngModel)]="employee.articles_name_article" name="articles_name_article" required> 
+              </div>  
+              <div class="form-group">
+                <label for="name">Articulos Descripción</label>
+                <input type="text" class="form-control" id="articles_description"  [(ngModel)]="employee.articles_description" name="articles_description" required> 
+              </div>  
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Unidad de Medida</label>
+                <select  class="custom-select" id="unit_of_measuares_id" required [(ngModel)]="employee.unit_of_measuares_id" name="of_measuares_id"  >
+                <option *ngFor="let address of addresses1 | async" value="{{address.unit_of_measuares_id}}">{{address.of_measuares_description}}</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Sub Categorias</label>
+                    <select  class="custom-select" id="sub_categories_id" required [(ngModel)]="employee.sub_categories_id" name="sub_categories_id"  >
+                    <option *ngFor="let address of addresses | async" value="{{address.sub_categories_id}}">{{address.sub_categories_name}}</option>
+                    </select>
+                    </div>
+                <div class="form-group">
+                    <label for="name">Articulos Dimension</label>
+                    <input type="text" class="form-control" id="articles_dimension"  [(ngModel)]="employee.articles_dimension" name="articles_dimension" required> 
+                  </div> 
+                  <div class="form-group">
+                    <label for="name">Precio de Artículos</label>
+                    <input type="text" class="form-control" id="articles_articles_price"  [(ngModel)]="employee.articles_articles_price" name="articles_articles_price" required> 
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Características Externas</label>
+                    <input type="text" class="form-control" id="articles_external_feactures"  [(ngModel)]="employee.articles_external_feactures" name="articles_external_feactures" required> 
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Características Internas</label>
+                    <input type="text" class="form-control" id="articles_internal_characteristics"  [(ngModel)]="employee.articles_internal_characteristics" name="articles_internal_characteristics" required> 
+                  </div> 
+                     
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="articles_status"  [(ngModel)]="employee.articles_status"     name="articles_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="articles_status">Active</label>
+                 </div>
+            </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Crear Articulos</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de insertar el articulo?</p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+            <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>        
+            <button [routerLink]="['/Articles-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

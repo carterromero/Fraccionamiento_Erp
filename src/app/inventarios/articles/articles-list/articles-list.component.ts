@@ -45,13 +45,13 @@ export class ArticlesListComponent implements OnInit {
   }
 
   deleteGeneral(id: number) {
-    this.generalService.deleteEmployee(id)
+    this.generalService.deleteEmployees(id)
       .subscribe(
         data => {
           console.log(data);
           this.reloadData();
           this.alertDisables = false;
-          this.alertMessages ="La sub categoria se a eliminado correctamente";
+          this.alertMessages ="El Articulo se a eliminado correctamente";
         },
         error => {console.log(error);
           let coins = [];
@@ -65,11 +65,11 @@ export class ArticlesListComponent implements OnInit {
 
   generalDetails(id: number){
 console.log(id);
-    this.router.navigate(['sub-details', id]);
+    this.router.navigate(['articles1-details', id]);
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-subcategories', id]);
+    this.router.navigate(['update-articles', id]);
   }
 
 
