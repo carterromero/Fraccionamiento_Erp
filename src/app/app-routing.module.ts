@@ -146,8 +146,8 @@ const routes: Routes = [
   /* Default page */
   {
     path: '',
-    //redirectTo: 'auth/signin',
-    redirectTo: 'dashboard/default',
+    redirectTo: 'auth/signin',
+   //redirectTo: 'dashboard/default',
     pathMatch: 'full'
   },
   {
