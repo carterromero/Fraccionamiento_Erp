@@ -1,0 +1,26 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Unidad de Medida Detalle" [options]="false">
+        <div *ngIf="employee">
+          <div>
+            <label><b>Maestro Inventarios : </b></label> {{employee.master_inventarys_name_inventary}}
+          </div>
+          <div>
+            <label><b>Maestro Identificador : </b></label> {{employee.master_inventarys_identifier}}
+          </div>
+          <div>
+            <label><b>Maestro Localización : </b></label> {{employee.master_inventarys_location}}
+          </div>
+          <div>
+            <label><b>Estatus:  </b></label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="master_status" ame="master_status"   style="margin-left: 10px" [checked]="employee.master_status == 'true'">
+                <label class="custom-control-label" for="master_status">Active</label>
+             </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/master_inventarys-list']" class="btn btn-primary">Regresar a Master Inventarios</button><br>
+      </app-card>
+      </div>
+  </div>

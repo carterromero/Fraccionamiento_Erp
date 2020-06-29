@@ -11,24 +11,23 @@
                   value="2020-01-01"
                min="2020-01-01" max="2030-12-31" 
                   class="form-control" id="payment_record_payment_date"  [(ngModel)]="employee.payment_record_payment_date" name="payment_record_payment_date" required>
-
-              
             </div>
-         
-            
             
             <div class="form-group">
                 <label for="name">monto</label>
-                <input type="date" id="start" name="trip-start"
-                value="2020-01-01"
-                min="2020-01-01" max="2030-12-31" 
-                 class="form-control" id="payment_record_amount"  [(ngModel)]="employee.payment_record_amount" name="payment_record_amount" required>
+                <input type="text" class="form-control" id="payment_record_amount"  [(ngModel)]="employee.payment_record_amount" name="payment_record_amount" required>
+               
               </div>  
 
-              <div class="form-group">
-                <label for="name">Método de pago: </label>
-                <input type="text" class="form-control" id="payment_method"  [(ngModel)]="employee.payment_method" name="payment_method" required>
-              </div>  
+             
+              <div class="input-group">
+                <select class="custom-select" id="payment_method"  [(ngModel)]="employee.payment_method" name="payment_method" required>
+                  <option value="efectivo">efectivo</option>
+                  <option value="targeta">targeta</option>
+                  <option class="custom-file-input" value="archivo" type="file"  for="validatedCustomFile"  > archivo pdf
+                  </option>   
+                </select>
+              </div>
 
          
             <div class="form-group">

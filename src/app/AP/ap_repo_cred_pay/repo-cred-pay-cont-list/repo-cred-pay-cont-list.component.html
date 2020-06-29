@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle=" REPORTE CONTABLE " blockClass="table-border-style">  
+        <div class="table-responsive">
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+          <table class="table">
+            <thead>
+            <tr>              
+              <th>nombre acreedor</th>
+              <th>Fecha de pago </th>
+              <th>Monto</th>
+              <th>Método de pago</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                    <td>{{general.creditor_business_name}}</td>
+                    <td>{{general.payment_record_amount}}</td>
+                    <td>{{general.payment_method}}</td>
+                    <td>{{general.payment_record_payment_date}}</td>
+                   
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

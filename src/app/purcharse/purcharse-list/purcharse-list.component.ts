@@ -25,6 +25,9 @@ export class PurcharseListComponent implements OnInit {
       this.reloadData();
   }
   
+
+
+  
   reloadData() {
     
     this.generalService.getEmployeeList(1).subscribe(
@@ -64,11 +67,11 @@ export class PurcharseListComponent implements OnInit {
   }
 
   generalDetails(id: number){
-    this.router.navigate(['condominums-details', id]);
+    this.router.navigate(['purcharse-details', id]);
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-condominums', id]);
+    this.router.navigate(['update-purcharse', id]);
   }
 
 

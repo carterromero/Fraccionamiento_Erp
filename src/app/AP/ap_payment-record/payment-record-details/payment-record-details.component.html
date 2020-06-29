@@ -4,14 +4,9 @@
         <div *ngIf="employee">
 
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          
           <div>
-            <label><b>ID del acreedor : </b></label> {{employee.creditor_id}}
-          </div>
-          <div>
-            <label><b>Fecha de pago: </b></label> {{employee.payment_record_payment_date}}
-          </div>
-          <div>
-            <label><b>Monto: </b></label> {{employee.payment_record_amount}}
+            <label><b>Total pagado: </b></label> {{employee.payment_record_amount}}
           </div>
           <div>
             <label><b>Método de pago: </b></label> {{employee.payment_method}}

@@ -14,27 +14,27 @@ export class DepartmentsService {
 
   constructor(private http: HttpClient) { }
 
-  createEmployee(employee: Object): Observable<Object> {
+  createDepartment(department: Object): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_INSERT_DEPARTME/1.0/insertdepartments`, employee,{headers});
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_INSERT_DEPARTME/1.0/insertdepartments`, department,{headers});
   }
 
-  getEmployee(id: number): Observable<any> {
+  getDepartment(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GETONE_DEPARTME/1.0/onedepartments/${id}`,{headers});
   }
 
-  updateEmployee(id: number, value: any): Observable<Object> {
+  updateDepartment(id: number, value: any): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_UPDATE_DEPARTME/1.0/departments/${id}`, value,{headers});
   }
 
-  deleteEmployee(id: number): Observable<any> {
+  deleteDepartment(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.delete(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_DELETE_DEPARTME/1.0/departments/${id}`, { responseType: 'text', headers});
   }
 
-  getEmployeeList(): Observable<any> {
+  getDepartmentList(): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_DEPARTME/1.0/departments`,{headers});
   }

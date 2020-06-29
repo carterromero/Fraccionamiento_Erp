@@ -4,13 +4,13 @@
     <app-card cardTitle="Employee Details" [options]="false">
       <div *ngIf="employee">
         <div>
-          <label><b>Nombre(s): </b></label> {{employee.nombre_principal}}
+          <label><b>Nombre(s): </b></label> {{employee.employees_name}}
         </div>
         <div>
-          <label><b>Apellido Paterno: </b></label> {{employee.apellido_paterno}}
+          <label><b>Apellido Paterno: </b></label> {{employee.employees_father_surname}}
         </div>
         <div>
-          <label><b>Apellido Materno: </b></label> {{employee.apellido_materno}}
+          <label><b>Apellido Materno: </b></label> {{employee.employees_mother_surname}}
         </div>
       </div>
       <br>

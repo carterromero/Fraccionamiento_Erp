@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WorkplacesService } from "src/app/workplaces.service";
-import { Workplaces } from "src/app/workplaces";
+import { WorkplacesService } from 'src/app/workplaces.service';
+import { Workplaces } from 'src/app/workplaces';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -11,27 +11,27 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class UpdateWorkplacesComponent implements OnInit {
 
   id: number;
-  employee: Workplaces;
+  workplace: Workplaces;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: WorkplacesService) { }
+    private workplaceService: WorkplacesService) { }
 
   ngOnInit() {
-    this.employee = new Workplaces();
+    this.workplace = new Workplaces();
 
 
     this.id = this.route.firstChild.snapshot.params['id']
-    console.log(this.employee.workplaces_status);
-    this.employeeService.getEmployee(this.id)
+    console.log(this.workplace.workplaces_status);
+    this.workplaceService.getWorkplace(this.id)
       .subscribe(data => {
         console.log(data);
-        this.employee = data;
-        this.employee.workplaces_status = (String(this.employee.workplaces_status) == "false") ? null:"false";
-        console.log(this.employee.workplaces_status);
+        this.workplace = data;
+        this.workplace.workplaces_status = (String(this.workplace.workplaces_status) == "false") ? null:"false";
+        console.log(this.workplace.workplaces_status);
       }, error => {
         console.log(error);let coins = [];
         for (let key in error) {
@@ -43,21 +43,16 @@ export class UpdateWorkplacesComponent implements OnInit {
   }
 
 
-  updateEmployee() {
-
-    
-    
-    this.employee.last_update_by=3;
-    console.log(this.employee);
-    
- console.log(this.id);
-    
-    
-    this.employeeService.updateEmployee(this.id, this.employee)
+  updateWorkplace() {    
+    this.workplace.last_update_by=3;
+    console.log(this.workplace);
+    console.log(this.id);
+       
+    this.workplaceService.updateWorkplace(this.id, this.workplace)
       .subscribe(data => {console.log(data);
         this.gotoList();  
         this.alertDisables = false;
-        this.alertMessages ="Se actualizo la empresa correctamente";
+        this.alertMessages ="Se actualizo el puesto correctamente";
       }, 
       error => {
         console.log(error);
@@ -73,7 +68,7 @@ export class UpdateWorkplacesComponent implements OnInit {
   }
 
   onSubmit() {
-    this.updateEmployee();    
+    this.updateWorkplace();    
   }
 
   gotoList() {

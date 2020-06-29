@@ -1,0 +1,62 @@
+<p>conciliacion-list works!</p>
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="conciliacion " blockClass="table-border-style">      
+        
+        <div class="table-responsive">
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+          <table class="table">
+            <thead>
+            <tr>              
+              <th>ID del acreedor</th>
+              <th>Fecha de pago </th>
+              <th>Monto</th>
+              <th>Método de pago</th>
+              <th>Estatus </th>
+              <th>#</th>
+              
+               
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                    <td>{{general.creditor_id}}</td>
+                    <td>{{general.payment_record_payment_date}}</td>
+                    <td>{{general.payment_record_amount}}</td>
+                    <td>{{general.payment_method}}</td>
+                    
+                    
+                    <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.payment_status == 'true'">
+                          <label class="custom-control-label" for="payment_status">Active</label>
+                       </div>
+                      </td>
+
+                    <td>
+                      <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
+                        <button (click)="updateGeneral(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar nueva fecha de pago</button>
+                        <button (click)="generalDetails(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">informe contable </button>    
+
+                        <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+                          <div class="app-modal-header">
+                          <h5 class="modal-title">Eliminar cuenta factura</h5>
+                          <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+                          </div>
+                          <div class="app-modal-body">
+                          <p>Esta seguro de eliminar cuenta factura?</p>
+                          </div>
+                          <div class="app-modal-footer">
+                          <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+                          <button type="submit" class="btn btn-danger"  (click)="deleteGeneral(general.payment_id)"  (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Eliminar</button>
+                          </div>
+                      </app-ui-modal>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

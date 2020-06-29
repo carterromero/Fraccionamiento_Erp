@@ -37,7 +37,7 @@ export class UpdatecollectionComponent implements OnInit {
 
   updatecollection() {
 
-    this.collection.collection_id = 3;
+    this.collection.collection_id = 4;
     console.log(this.collection.collection_status);
 
     this.collectionService.updateCollection(this.id, this.collection)

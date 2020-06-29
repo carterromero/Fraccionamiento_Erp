@@ -27,12 +27,6 @@ export interface Navigation extends NavigationItem {
 
 const NavigationItemss = [
   {
-  }
-];
-
-
-const NavigationItems = [
-  {
     id: 'navigation',
     title: 'Principal',
     type: 'group',
@@ -46,110 +40,13 @@ const NavigationItems = [
         classes: 'nav-item',
         icon: 'feather icon-home'
       }
-  /*    
-      ,
-      {
-        id: 'page-layouts',
-        title: 'Page Layouts',
-        type: 'collapse',
-        icon: 'feather icon-layout',
-        children: [
-          {
-            id: 'vertical',
-            title: 'Vertical',
-            type: 'item',
-            url: '/layout/static',
-            target: true
-          },
-          {
-            id: 'horizontal',
-            title: 'Horizontal',
-            type: 'item',
-            url: '/layout/horizontal',
-            target: true
-          }
-        ]
-      }
-
-*/
+  
     ]
     
   },
   
 
-/*
-  {
-    id: 'main',
-    title: 'Main',
-    type: 'group',
-    children: [
-      {
-        id: 'employee',
-        title: 'Employee',
-        type: 'collapse',
-        icon: 'feather icon-activity',
-        children: [
-          {
-            id: 'employee-list',
-            title: 'Employee List',
-            type: 'item',
-            url: '/employee-list'
-          }
-        ]
-      }
-    ]
-  },
-  {    
-    id: 'address_main',
-    title: 'Address',
-    type: 'group',
-    icon: 'feather icon-monitor',
-    children: [
-      {
-        id: 'address',
-        title: 'Address',
-        type: 'collapse',
-        icon: 'feather icon-monitor',
-        children: [
-          {
-            id: 'address-list',
-            title: 'Address List',
-            type: 'item',            
-            url: '/address-list'
-            
-          }                    
-        ]
-      }
-    ]
-  },
-  */
-  /*
 
-  {    
-    id: 'general_main',
-    title: 'General',
-    type: 'group',
-    icon: 'feather icon-monitor',
-    children: [
-      {
-        id: 'general',
-        title: 'General',
-        type: 'collapse',
-        icon: 'feather icon-monitor',
-        children: [
-          {
-            id: 'general-list',
-            title: 'General List',
-            type: 'item',            
-            url: '/general-list'
-            
-          }                    
-        ]
-      }
-    ]
-  },
-
-*/
   {    
     id: 'admin-main',
     title: 'Administración',
@@ -292,7 +189,7 @@ const NavigationItems = [
             id: 'crear_cuenta',
             title: 'Crear una factura ',
             type: 'item',            
-            url: '/billtopay-list'
+            url: '/billtopay-list' 
             
           }
                               
@@ -309,7 +206,15 @@ const NavigationItems = [
             id: 'cuenta_pagar',
             title: 'cuenta por pagar factura ',
             type: 'item',            
-            url: '/payment-record-list'
+            url: '/payment-record-list' 
+            
+          },
+          
+          {
+            id: 'conciliacion_id',
+            title: 'conciliacion',
+            type: 'item',            
+            url: '/conciliacion-list' 
             
           }
                               
@@ -324,10 +229,17 @@ const NavigationItems = [
   
 
           {
-            id: 'crear_cuenta',
-            title: 'Reporte de cuenta ',
+            id: 'repore_contable',
+            title: 'Reporte contable  ',
             type: 'item',            
-            url: '/cuenta-list'
+            url: '/repo-cred-pay-list'
+            
+          },
+          {
+            id: 'reporte_vencidos',
+            title: ' reporte pagos vencidos ',
+            type: 'item',            
+            url: '/repo-cred-pay-nocont-list'
             
           }
                               
@@ -436,10 +348,10 @@ const NavigationItems = [
           icon: 'feather icon-monitor',
           children: [
             {
-              id: 'collection',
+              id: 'customer',
               title: 'Administrar Residentes / clientes',
               type: 'item',            
-              url: '/collection-list'
+              url: '/customer-list'
               
             },
     
@@ -447,7 +359,7 @@ const NavigationItems = [
               id: 'Direction',
               title: 'Direccion de remison',
               type: 'item',            
-              url: '/'
+              url: '/referral-address-list'
               
             },
             {
@@ -457,51 +369,107 @@ const NavigationItems = [
               url: '/'
               
             },
-           /*  {
+            {
+              id: 'depositAccount',
+              title: 'Cuentas de Deposito',
+              type: 'item',            
+              url: '/deposit-account-list'
+              
+            },
+            {
               id: 'collection',
               title: 'Colección',
               type: 'item',            
               url: '/collection-list'
               
-            }, */
+            },
                                   
           ]
         },
       ]
         
     
+
       }
   ,
-  {    
-    id: 'RH-main',
-    title: 'Recursos Humanos ',
-    type: 'group',
-    icon: 'feather icon-monitor',
-    children: [
-      {
-        id: 'rh-catalog',
-        title: 'Catalogos',
-        type: 'collapse',
+  
+
+      {    
+        id: 'RH-main',
+        title: 'Recursos Humanos ',
+        type: 'group',
         icon: 'feather icon-monitor',
         children: [
           {
-            id: 'departments',
-            title: 'Departamentos',
-            type: 'item',            
-            url: '/departments-list'
-            
+            id: 'rh-catalog',
+            title: 'Catalogos',
+            type: 'collapse',
+            icon: 'feather icon-monitor',
+            children: [
+              {
+                id: 'departments',
+                title: 'Departamentos',
+                type: 'item',            
+                url: '/departments-list'
+                
+              },
+    
+              {
+                id: 'workplaces',
+                title: 'Puestos',
+                type: 'item',            
+                url: '/workplaces-list'
+                
+              }                      
+            ]
           },
           {
-            id: 'workplaces',
-            title: 'Puestos',
-            type: 'item',            
-            url: '/workplaces-list'
-            
-          }                              
+            id: 'rh-employees',
+            title: 'Empleados',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-employee',
+                title: 'Empleados',
+                type: 'item',            
+                url: '/employee-list'
+                
+              }               
+            ]
+          },
+          {
+            id: 'rh-agreements',
+            title: 'Contrato',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-agreement',
+                title: 'Registrar contrato',
+                type: 'item',            
+                url: '/agreements-list'
+                
+              }               
+            ]
+          },
+          {
+            id: 'rh-tenants',
+            title: 'Inquilinos',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-tenant',
+                title: 'Crear Inquilinos',
+                type: 'item',            
+                url: '/tenants-list'
+                
+              }               
+            ]
+          },
         ]
-      }
-    ]
-  },
+      },    
 {    
     id: 'po-main',
     title: 'Compras',
@@ -607,7 +575,7 @@ const NavigationItems = [
             id: 'unit_of_measures',
             title: 'Unidad Medidas',
             type: 'item',            
-            url: '/unit_of_measures-list'
+            url: '/unitofmeasures-list'
             
           },
           {
@@ -636,14 +604,14 @@ const NavigationItems = [
             id: 'articles',
             title: 'Articulos',
             type: 'item',            
-            url: '/articles-list'
+            url: '/Articles-list'
             
           },
           {
             id: 'transactions_entrys',
             title: 'Entradas Transacciones',
             type: 'item',            
-            url: '/transactions_entrys-list'
+            url: '/transactions-entrys-list'
             
           }
 
@@ -669,25 +637,45 @@ const NavigationItems = [
             type: 'item',            
             url: '/report-list'
             
-          }
-
-                                
+          }                           
         ]
       },
     ]
-    
-
   }
 
-
-
-
+  ,
+  {    
+    id: 'Nomina_main',
+    title: 'Nómina',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'configmainte',
+        title: 'Catalogos',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'configmainte',
+            title: 'Configuración y Mantenimiento',
+            type: 'item',            
+            url: '/config-Maintenlist'
+            
+          }
+        ]
+      }
+    ]
+  }
+  
 ];
+
+
 
 @Injectable()
 export class NavigationItem 
 {
   public get() {
-    return NavigationItems;
+    return NavigationItemss;
   }
 }

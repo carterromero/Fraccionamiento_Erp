@@ -15,14 +15,14 @@
           </thead>
           <tbody>
               <tr *ngFor="let employee of employees | async">
-                  <td>{{employee.id}}</td>
-                  <td>{{employee.nombre_principal}}</td>
-                  <td>{{employee.apellido_paterno}}</td>
-                  <td>{{employee.apellido_materno}}</td>
+                  <td>{{employee.employees_id}}</td>
+                  <td>{{employee.employees_name}}</td>
+                  <td>{{employee.employees_father_surname}}</td>
+                  <td>{{employee.employees_mother_surname}}</td>
                   <td>                 
-                      <button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
-                      <button (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-                      <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                      <button (click)="deleteEmployee(employee.employees_id)" class="btn btn-danger">Delete</button>
+                      <button (click)="updateEmployee(employee.employees_id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                      <button (click)="employeeDetails(employee.employees_id)" class="btn btn-info" style="margin-left: 10px">Details</button>
                   </td>
               </tr>
           </tbody>
