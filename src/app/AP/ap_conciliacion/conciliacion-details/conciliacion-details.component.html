@@ -1,0 +1,30 @@
+<p>conciliacion-details works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="consolidar  Detalle" [options]="false">
+        <div *ngIf="employee">
+
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          
+          <div>
+            <label><b>Total pagado: </b></label> {{employee.payment_record_amount}}
+          </div>
+          <div>
+            <label><b>Método de pago: </b></label> {{employee.payment_method}}
+          </div>
+
+   
+
+          <div>
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="payment_status"  name="payment_status"   style="margin-left: 10px" [checked]="employee.payment_status == 'true'">
+            <label class="custom-control-label" for="payment_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/conciliacion-list']" class="btn btn-outline-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>

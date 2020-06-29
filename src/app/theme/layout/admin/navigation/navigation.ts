@@ -25,7 +25,7 @@ export interface Navigation extends NavigationItem {
   children?: NavigationItem[];
 }
 
-const NavigationItems = [
+const NavigationItemss = [
   {
     id: 'navigation',
     title: 'Principal',
@@ -40,110 +40,13 @@ const NavigationItems = [
         classes: 'nav-item',
         icon: 'feather icon-home'
       }
-  /*    
-      ,
-      {
-        id: 'page-layouts',
-        title: 'Page Layouts',
-        type: 'collapse',
-        icon: 'feather icon-layout',
-        children: [
-          {
-            id: 'vertical',
-            title: 'Vertical',
-            type: 'item',
-            url: '/layout/static',
-            target: true
-          },
-          {
-            id: 'horizontal',
-            title: 'Horizontal',
-            type: 'item',
-            url: '/layout/horizontal',
-            target: true
-          }
-        ]
-      }
-
-*/
+  
     ]
     
   },
   
 
-/*
-  {
-    id: 'main',
-    title: 'Main',
-    type: 'group',
-    children: [
-      {
-        id: 'employee',
-        title: 'Employee',
-        type: 'collapse',
-        icon: 'feather icon-activity',
-        children: [
-          {
-            id: 'employee-list',
-            title: 'Employee List',
-            type: 'item',
-            url: '/employee-list'
-          }
-        ]
-      }
-    ]
-  },
-  {    
-    id: 'address_main',
-    title: 'Address',
-    type: 'group',
-    icon: 'feather icon-monitor',
-    children: [
-      {
-        id: 'address',
-        title: 'Address',
-        type: 'collapse',
-        icon: 'feather icon-monitor',
-        children: [
-          {
-            id: 'address-list',
-            title: 'Address List',
-            type: 'item',            
-            url: '/address-list'
-            
-          }                    
-        ]
-      }
-    ]
-  },
-  */
-  /*
 
-  {    
-    id: 'general_main',
-    title: 'General',
-    type: 'group',
-    icon: 'feather icon-monitor',
-    children: [
-      {
-        id: 'general',
-        title: 'General',
-        type: 'collapse',
-        icon: 'feather icon-monitor',
-        children: [
-          {
-            id: 'general-list',
-            title: 'General List',
-            type: 'item',            
-            url: '/general-list'
-            
-          }                    
-        ]
-      }
-    ]
-  },
-
-*/
   {    
     id: 'admin-main',
     title: 'Administración',
@@ -202,12 +105,8 @@ const NavigationItems = [
             id: 'usuarios',
             title: 'Usuarios',
             type: 'item',            
-            url: '/usuarios-list'
-            
+            url: '/usuarios-list' 
           }
-
-
-                              
         ]
       }
     ]
@@ -309,6 +208,14 @@ const NavigationItems = [
             type: 'item',            
             url: '/payment-record-list' 
             
+          },
+          
+          {
+            id: 'conciliacion_id',
+            title: 'conciliacion',
+            type: 'item',            
+            url: '/conciliacion-list' 
+            
           }
                               
         ]
@@ -329,7 +236,7 @@ const NavigationItems = [
             
           },
           {
-            id: 'reporte:vencidos',
+            id: 'reporte_vencidos',
             title: ' reporte pagos vencidos ',
             type: 'item',            
             url: '/repo-cred-pay-nocont-list'
@@ -441,10 +348,10 @@ const NavigationItems = [
           icon: 'feather icon-monitor',
           children: [
             {
-              id: 'collection',
+              id: 'customer',
               title: 'Administrar Residentes / clientes',
               type: 'item',            
-              url: '/collection-list'
+              url: '/customer-list'
               
             },
     
@@ -452,7 +359,7 @@ const NavigationItems = [
               id: 'Direction',
               title: 'Direccion de remison',
               type: 'item',            
-              url: '/'
+              url: '/referral-address-list'
               
             },
             {
@@ -469,20 +376,23 @@ const NavigationItems = [
               url: '/deposit-account-list'
               
             },
-           /*  {
+            {
               id: 'collection',
               title: 'Colección',
               type: 'item',            
               url: '/collection-list'
               
-            }, */
+            },
                                   
           ]
         },
       ]
         
     
-      },
+
+      }
+  ,
+  
 
       {    
         id: 'RH-main',
@@ -732,6 +642,7 @@ const NavigationItems = [
       },
     ]
   }
+
   ,
   {    
     id: 'Nomina_main',
@@ -756,220 +667,15 @@ const NavigationItems = [
       }
     ]
   }
-  ,  
-  {
-    id: 'ui-element',
-    title: 'UI ELEMENT',
-    type: 'group',
-    icon: 'feather icon-layers',
-    children: [
-      {
-        id: 'basic',
-        title: 'Basic',
-        type: 'collapse',
-        icon: 'feather icon-box',
-        children: [
-          {
-            id: 'alert',
-            title: 'Alert',
-            type: 'item',
-            url: '/basic/alert'
-          },
-          {
-            id: 'button',
-            title: 'Button',
-            type: 'item',
-            url: '/basic/button'
-          },
-          {
-            id: 'badges',
-            title: 'Badges',
-            type: 'item',
-            url: '/basic/badges'
-          },
-          {
-            id: 'breadcrumb-pagination',
-            title: 'Breadcrumbs & Pagination',
-            type: 'item',
-            url: '/basic/breadcrumb-paging'
-          },
-          {
-            id: 'cards',
-            title: 'Cards',
-            type: 'item',
-            url: '/basic/cards'
-          },
-          {
-            id: 'collapse',
-            title: 'Collapse',
-            type: 'item',
-            url: '/basic/collapse'
-          },
-          {
-            id: 'carousel',
-            title: 'Carousel',
-            type: 'item',
-            url: '/basic/carousel'
-          },
-          {
-            id: 'grid-system',
-            title: 'Grid System',
-            type: 'item',
-            url: '/basic/grid-system'
-          },
-          {
-            id: 'progress',
-            title: 'Progress',
-            type: 'item',
-            url: '/basic/progress'
-          },
-          {
-            id: 'modal',
-            title: 'Modal',
-            type: 'item',
-            url: '/basic/modal'
-          },
-          {
-            id: 'spinner',
-            title: 'Spinner',
-            type: 'item',
-            url: '/basic/spinner'
-          },
-          {
-            id: 'tabs-pills',
-            title: 'Tabs & Pills',
-            type: 'item',
-            url: '/basic/tabs-pills'
-          },
-          {
-            id: 'typography',
-            title: 'Typography',
-            type: 'item',
-            url: '/basic/typography'
-          },
-          {
-            id: 'tooltip-popovers',
-            title: 'Tooltip & Popovers',
-            type: 'item',
-            url: '/basic/tooltip-popovers'
-          },
-          {
-            id: 'toasts',
-            title: 'Toasts',
-            type: 'item',
-            url: '/basic/toasts'
-          },
-          {
-            id: 'other',
-            title: 'Other',
-            type: 'item',
-            url: '/basic/other'
-          }
-        ]
-      }
-    ]
-  },
-
-
-
-  {
-    id: 'forms',
-    title: 'Forms & Table',
-    type: 'group',
-    icon: 'feather icon-layout',
-    children: [
-      {
-        id: 'forms-element',
-        title: 'Forms',
-        type: 'item',
-        url: '/forms/basic',
-        classes: 'nav-item',
-        icon: 'feather icon-file-text'
-      },
-      {
-        id: 'bootstrap',
-        title: 'Bootstrap',
-        type: 'item',
-        url: '/tbl-bootstrap/bt-basic',
-        classes: 'nav-item',
-        icon: 'feather icon-server'
-      }
-    ]
-  },
-  {
-    id: 'chart-maps',
-    title: 'Chart & Maps',
-    type: 'group',
-    icon: 'feather icon-pie-chart',
-    children: [
-      {
-        id: 'charts',
-        title: 'Charts',
-        type: 'item',
-        url: '/charts/apex',
-        classes: 'nav-item',
-        icon: 'feather icon-pie-chart'
-      },
-      {
-        id: 'maps',
-        title: 'Maps',
-        type: 'item',
-        url: '/maps/google',
-        classes: 'nav-item',
-        icon: 'feather icon-map'
-      }
-    ]
-  },
-  {
-    id: 'pages',
-    title: 'Pages',
-    type: 'group',
-    icon: 'feather icon-file-text',
-    children: [
-      {
-        id: 'auth',
-        title: 'Authentication',
-        type: 'collapse',
-        icon: 'feather icon-lock',
-        children: [
-          {
-            id: 'signup',
-            title: 'Sign up',
-            type: 'item',
-            url: '/auth/signup',
-            target: true,
-            breadcrumbs: false
-          },
-          {
-            id: 'signin',
-            title: 'Sign in',
-            type: 'item',
-            url: '/auth/signin',
-            target: true,
-            breadcrumbs: false
-          }
-        ]
-      },
-      {
-        id: 'sample-page',
-        title: 'Sample Page',
-        type: 'item',
-        url: '/sample-page',
-        classes: 'nav-item',
-        icon: 'feather icon-sidebar'
-      }
-    ]
-  }
-
-
-
-
-
+  
 ];
 
+
+
 @Injectable()
-export class NavigationItem {
+export class NavigationItem 
+{
   public get() {
-    return NavigationItems;
+    return NavigationItemss;
   }
 }

@@ -98,11 +98,9 @@ export class CreatePurcharseComponent implements OnInit {
 
   save()
    {
-    //this.employee.user_id="3";
-
-    this.employee.admin_condominiuns_id="1";
+    //this.employee.userid = localStorage.getItem('id');
+    this.employee.admin_condominiuns_id=localStorage.getItem('condominums');
     
-
     console.log(this.employee);
     
     this.employeeService.createEmployee(this.employee)

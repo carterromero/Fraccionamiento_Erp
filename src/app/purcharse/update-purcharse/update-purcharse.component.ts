@@ -66,7 +66,7 @@ export class UpdatePurcharseComponent implements OnInit {
   updateEmployee() 
   {
 
-    this.employee.userid="2";
+    this.employee.userid=localStorage.getitem('id');;
     console.log(this.employee)
     
     this.employeeService.updateEmployee(this.id, this.employee)

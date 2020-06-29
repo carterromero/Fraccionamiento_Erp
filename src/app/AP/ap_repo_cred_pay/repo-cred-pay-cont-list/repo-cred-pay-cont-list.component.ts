@@ -9,32 +9,39 @@ import { Observable } from 'rxjs';
   styleUrls: ['./repo-cred-pay-cont-list.component.scss']
 })
 export class RepoCredPayContListComponent implements OnInit {
-
-  date: string;
-  employee: RepoCredPay;  
+  general: Observable<RepoCredPay[]>;
   alertDisable = true;
+  alertDisables = true;
   alertMessage = "null";
+  alertMessages = "null";
+  
+  employee: RepoCredPay;  
 
-  constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: RepoCredPayService) { }
+  constructor(private generalService: RepoCredPayService,
+    private router: Router) { }
 
-  ngOnInit() {
-    this.employee = new RepoCredPay();    
-    this.date = this.route.firstChild.snapshot.params['date']
-    console.log(this.date);
+  ngOnInit(): void {
+      
+      this.reloadData('date');
+  }
+  
+  reloadData(date) {
     
-    
-    this.employeeService.getEmployee(this.date)
-      .subscribe(data => {
-        console.log(data);
-        this.employee = data;
-      }, error => {
-        console.log(error);
+    this.generalService.getEmployee(date).subscribe(
+      data => {
+        console.log(date);
+        this.general = this.generalService.getEmployee(date);
+      },
+      error => {
+        console.log(error);   
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
           this.alertMessage = error['statusText'];          
         }
       });
+
+      
   }
+
 }

@@ -8,10 +8,10 @@
             <form (ngSubmit)="onSubmit()">
               <h4 class="mb-3 f-w-400">Signin</h4>
               <div class="input-group mb-3">
-                <input type="email" class="form-control" placeholder="Email address" id="email" name="email" required [(ngModel)]="authentication.email">
+                <input type="email" class="form-control" placeholder="Email address" id="email" name="email" required [(ngModel)]="authentication.user_email">
               </div>
               <div class="input-group mb-4">
-                <input type="password" class="form-control" placeholder="Password" id="password" name="password" required [(ngModel)]="authentication.password">
+                <input type="password" class="form-control" placeholder="Password" id="password" name="password" required [(ngModel)]="authentication.user_password">
               </div>
               <div class="form-group text-left mt-2">
                 <div class="checkbox checkbox-primary d-inline">
@@ -19,6 +19,7 @@
                   <label for="checkbox-fill-a1" class="cr"> Save credentials</label>
                 </div>
               </div>
+              <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
               <button class="btn btn-block btn-login mb-4" type="submit">Signin</button>
               <p class="mb-2 text-muted">Forgot password? <a [routerLink]="['/auth/reset-password']" class="f-w-400">Reset</a></p>
               <p class="mb-0 text-muted">Don’t have an account? <a [routerLink]="['/auth/signup']" class="f-w-400">Signup</a></p>
