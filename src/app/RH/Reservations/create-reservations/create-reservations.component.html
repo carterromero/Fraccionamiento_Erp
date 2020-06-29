@@ -1,0 +1,41 @@
+<p>create-reservations works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Crear reservacion" [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Ubicacion</label>
+              <input type="text" class="form-control" id="reservations_location" required [(ngModel)]="reservation.reservations_location" name="reservations_location">
+            </div>    
+            <div class="form-group">
+                <label for="name">Fecha de reservacion:</label>
+                <input type="date" class="form-control" id="reservations_date" required [(ngModel)]="reservation.reservations_date" name="reservations_date">
+              </div>    
+              <div class="form-group">
+                <label for="name">Hora de inicio</label>
+                <input type="time" class="form-control" id="reservations_start_time" required [(ngModel)]="reservation.reservations_start_time" name="reservations_start_time">
+              </div>    
+              <div class="form-group">
+                <label for="name">Hora de fin</label>
+                <input type="time" class="form-control" id="reservations_end_time" required [(ngModel)]="reservation.reservations_end_time" name="reservations_end_time">
+              </div>    
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Inquilino</label>
+                <select  class="custom-select"  id="tenants_id" required [(ngModel)]="reservation.tenants_id" name="tenants_id" >
+                <option *ngFor="let tenant of tenants | async" value="{{tenant.tenants_id}}">{{tenant.tenants_name}}</option>
+                </select>
+            </div>  
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="reservations_status"  [(ngModel)]="reservation.reservations_status"     name="reservations_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="reservations_status">Active</label>
+                 </div>
+            </div>
+            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button [routerLink]="['/reservations-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

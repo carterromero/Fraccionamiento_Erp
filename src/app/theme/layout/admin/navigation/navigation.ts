@@ -468,6 +468,21 @@ const NavigationItemss = [
               }               
             ]
           },
+          {
+            id: 'rh-reservations',
+            title: 'Reservaciones',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-reservation',
+                title: 'Reservaciones',
+                type: 'item',            
+                url: '/reservations-list'
+                
+              }               
+            ]
+          },
         ]
       },    
 {    

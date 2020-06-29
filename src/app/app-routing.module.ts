@@ -124,6 +124,10 @@ import { CreateAgreementsComponent } from './RH/agreements/create-agreements/cre
 import { AgreementsListComponent } from './RH/agreements/agreements-list/agreements-list.component';
 import { UpdateAgreementsComponent } from './RH/agreements/update-agreements/update-agreements.component';
 import { AgreementsDetailsComponent } from './RH/agreements/agreements-details/agreements-details.component';
+import { CreateReservationsComponent } from './RH/reservations/create-reservations/create-reservations.component';
+import { ReservationsListComponent } from './RH/reservations/reservations-list/reservations-list.component';
+import { UpdateReservationsComponent } from './RH/reservations/update-reservations/update-reservations.component';
+import { ReservationsDetailsComponent } from './RH/reservations/reservations-details/reservations-details.component';
 
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
@@ -336,10 +340,50 @@ const routes: Routes = [
       },
       {
         path: '',
+        component: ReservationsListComponent,
+        children: [
+          {
+            path: 'reservations-list',
+            loadChildren: () => import('./RH/reservations/reservations-list/reservations-list.module').then(module => module.ReservationsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateReservationsComponent,
+        children: [
+          {
+            path: 'create-reservations',
+            loadChildren: () => import('./RH/reservations/create-reservations/create-reservations.module').then(module => module.CreateReservationsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ReservationsDetailsComponent,
+        children: [
+          {
+            path: 'reservations-details/:id',
+            loadChildren: () => import('./RH/reservations/reservations-details/reservations-details.module').then(module => module.ReservationsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateReservationsComponent,
+        children: [
+          {
+            path: 'update-reservations/:id',
+            loadChildren: () => import('./RH/reservations/update-reservations/update-reservations.module').then(module => module.UpdateReservationsModule)
+          }
+        ]
+      },
+      {
+        path: '',
         component: CreateDepartmentsComponent,
         children: [
           {
-            path: 'create-agreements',
+            path: 'create-departments',
             loadChildren: () => import('./RH/catalogs/departments/create-departments/create-departments.module').then(module => module.CreateDepartmentsModule)
 
           }
@@ -1422,10 +1466,6 @@ component: CreateTransfersComponent,
         }
       ]
     }
-    ,
-    ]
-
-
       , {
         path: '',
         component: PaytmentListComponent,
@@ -2106,7 +2146,7 @@ component: CreateTransfersComponent,
         children: [
           {
             path: 'Articles-list',
-            loadChildren: () => import('./inventarios/articles/articles-list/articles-list.module').then(module => module.CreateArticlesListModule)
+            loadChildren: () => import('./inventarios/articles/articles-list/articles-list.module').then(module => module.ArticlesListModule)
           }
         ]
       },
