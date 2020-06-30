@@ -43,4 +43,10 @@ export class SupplierService {
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_GET_ALL_SUPPL_COMBO/1.0/supplier_combo
     `,{headers});
   }
+
+
+  getEmployeeListReport(id: number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_GET_REPORT_PROVEE/1.0/reporte_proveedores/${id}`,{headers});
+  }
 }

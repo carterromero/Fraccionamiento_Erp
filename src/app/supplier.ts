@@ -12,5 +12,6 @@ export class Supplier {
     last_update_by : string;
     last_update_date :string;
     userid : string;
+    id : number;
 
 }

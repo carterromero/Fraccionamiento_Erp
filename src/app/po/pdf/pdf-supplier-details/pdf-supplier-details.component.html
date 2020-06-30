@@ -1,0 +1,59 @@
+<div class="row">
+  
+  <div class="col-xl-12">
+        <div _ngcontent-kxf-c99="" class="card-header ng-tns-c99-71 ng-star-inserted" > 
+       
+        <br>
+        <div   class="table-responsive"   >
+
+
+
+
+          <table class="table" id="from-informacion"  >
+            <thead >
+             
+            <tr > 
+              <div >
+                <label><b >ID : </b></label> 
+                
+                <label>&nbsp; {{employees.supplier_id}}</label>
+              </div>
+              <div>
+                <label><b>Nombre: </b> </label>
+                <label> &nbsp; {{employees.supplier_name}}</label> 
+              </div>
+              <div>
+                <label><b>RFC:</b></label> 
+                <label> &nbsp;  {{employees.supplier_rfc}}</label>
+              </div>
+              <div>
+                <label><b>Direccion: </b></label> 
+               <label>&nbsp; {{employees.supplier_address}}</label> 
+              </div>
+
+              <div>
+                <label><b>Fecha de Creacion: </b></label> 
+                <label >&nbsp;{{employees.last_update_date}}</label>
+              </div>
+                      
+              <div>
+                <label><b>Giro: </b></label> 
+               <label>&nbsp;{{employees.supplier_turn}}</label>
+              </div>
+
+            </tr>
+            </thead>
+
+            
+            
+          </table>
+
+          
+          
+        
+        </div> 
+        </div>
+
+        <button type="button"  style="margin: 10 px;" class="btn btn-primary" (click)="imprimirLista(employees.supplier_id)">Imprimir</button>
+    </div>
+  </div>

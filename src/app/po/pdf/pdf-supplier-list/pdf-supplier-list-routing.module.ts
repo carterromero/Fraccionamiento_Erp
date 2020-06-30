@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SupplierListComponent } from './supplier-list.component';
 
-
+import { PdfSupplierListComponent } from './pdf-supplier-list.component';
 
 
 
@@ -10,8 +9,7 @@ const routes: Routes = [
   {
     path: '',
     component: 
-    SupplierListComponent
- 
+    PdfSupplierListComponent
     
   }
 ];
@@ -20,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule] 
 })
-export class SupplierListRoutingModule{ }
+export class SupplierPdfRoutingModule { }

@@ -468,6 +468,21 @@ const NavigationItemss = [
               }               
             ]
           },
+          {
+            id: 'rh-reservations',
+            title: 'Reservaciones',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-reservation',
+                title: 'Reservaciones',
+                type: 'item',            
+                url: '/reservations-list'
+                
+              }               
+            ]
+          },
         ]
       },    
 {    
@@ -527,14 +542,14 @@ const NavigationItemss = [
             id: 'Reports',
             title: 'Proveedores',
             type: 'item',            
-            url: '/purchase_orders-list'
+            url: '/supplier_repor-list'
             
           },
           {
-            id: 'Reports',
+            id: 'Reportss',
             title: 'Ordenes de Compra',
             type: 'item',            
-            url: '/purchase_orders-list'
+            url: '/pdf-purchase_orders-list'
             
           }
 
