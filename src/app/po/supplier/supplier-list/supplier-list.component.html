@@ -3,10 +3,11 @@
     <app-card cardTitle="Proveedores" blockClass="table-border-style">      
       <button [routerLink]="['/supplier-create']" class="btn btn-primary">Agregar Proveedores</button><br>
       <br>
-      <div class="table-responsive">
-        <table class="table">
-          <thead>
-          <tr>              
+      <div class="table-responsive"   >
+        <table class="table" >
+          <thead  >
+          <tr > 
+            <th>ID</th>             
             <th>Nombre </th>
             <th>Dirección Completa</th>
            
@@ -20,10 +21,10 @@
             <th>#</th>
           </tr>
           </thead>
-          <tbody>
-              <tr *ngFor="let general of general | async">
-                 
-                  <td>{{general.supplier_name}}</td>
+          <tbody >
+              <tr  *ngFor="let general of general | async">
+                <td >{{general.supplier_id}}</td>
+                  <td >{{general.supplier_name}}</td>
                   <td>{{general.supplier_address}}</td>
                   <td>{{general.supplier_rfc}}</td>
                   <td>{{general.supplier_email}}</td>
@@ -37,18 +38,20 @@
                      </div>
                     </td>
 
+                           
                   <td>
                       <button  (click)="createPeriodsDialog.show()"  class="btn btn-outline-danger">Eliminar</button>
                       <button (click)="updateGeneral(general.supplier_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                      <button (click)="generalDetails(general.supplier_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>  
                       
+                      <button    (click)="generalDetails(general.supplier_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>  
                       
-
+                    
                       <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                         <div class="app-modal-header">
                         <h5 class="modal-title">Eliminar Proveedores</h5>
                         <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
-                        </div>
+                          
+                      </div>
 
                         <div class="app-modal-body">
                         <p>Esta seguro de eliminar la empresa?</p>
@@ -56,8 +59,13 @@
                         <div class="app-modal-footer">
                         <button type="button" class="btn btn-secondary"  style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
                         <button type="submit" class="btn btn-danger"  (click)="deleteGeneral(general.supplier_id)"   (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Eliminar</button>
+                        
+                          
                         </div>
-                    </app-ui-modal>
+                    
+                        
+                   
+                      </app-ui-modal>
 
 
                   </td>

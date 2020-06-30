@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { UnitOfMeasures } from 'src/app/unit-of-measures';
-import { Observable } from 'rxjs';
-import { UnitOfMeasuresService } from 'src/app/unit-of-measures.service ';
+
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Purcharse } from 'src/app/purcharse';
+import { PurcharseService } from 'src/app/purcharse.service';
 
 @Component({
-  selector: 'app-unit-of-measures-list',
-  templateUrl: './unit-of-measures-list.component.html',
-  styleUrls: ['./unit-of-measures-list.component.scss']
+  selector: 'app-pdf-purcharse-list',
+  templateUrl:'./pdf-purcharse-list.component.html',
+  styleUrls: ['./pdf-purcharse-list.component.scss']
 })
-export class UnitOfMeasuresListComponent implements OnInit {
-  general: Observable<UnitOfMeasures[]>;
+export class PdfPurcharseListComponent implements OnInit {
+
+  general: Observable<Purcharse[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private generalService: UnitOfMeasuresService,
+  constructor(private generalService: PurcharseService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -24,12 +26,15 @@ export class UnitOfMeasuresListComponent implements OnInit {
       this.reloadData();
   }
   
+
+
+  
   reloadData() {
     
-    this.generalService.getEmployeeList().subscribe(
+    this.generalService.getEmployeeList(1).subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService.getEmployeeList();
+        this.general = this.generalService.getEmployeeList(1);
       },
       error => {
         console.log(error);   
@@ -50,7 +55,7 @@ export class UnitOfMeasuresListComponent implements OnInit {
           console.log(data);
           this.reloadData();
           this.alertDisables = false;
-          this.alertMessages ="La Unidad de Medida se a eliminado correctamente";
+          this.alertMessages ="El fraccionamiento se a eliminado correctamente";
         },
         error => {console.log(error);
           let coins = [];
@@ -63,12 +68,14 @@ export class UnitOfMeasuresListComponent implements OnInit {
   }
 
   generalDetails(id: number){
-console.log(id);
-    this.router.navigate(['unit-details', id]);
+    this.router.navigate(['purcharse-details', id]);
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-measures', id]);
+    this.router.navigate(['update-purcharse', id]);
   }
+
+
+
 
 }

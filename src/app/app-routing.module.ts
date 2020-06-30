@@ -170,6 +170,9 @@ import { CreatePaymentRecordComponent } from './AP/ap_payment-record/create-paym
 import { PaymentRecordDetailsComponent } from './AP/ap_payment-record/payment-record-details/payment-record-details.component';
 import { UpdatePaymentRecordComponent } from './AP/ap_payment-record/update-payment-record/update-payment-record.component';
 import { PurcharseDetailsComponent } from './purcharse/purcharse-details/purcharse-details.component';
+import { PdfSupplierListComponent } from './po/pdf/pdf-supplier-list/pdf-supplier-list.component';
+import { PdfSupplierDetailsComponent } from './po/pdf/pdf-supplier-details/pdf-supplier-details.component';
+import { PdfPurcharseListComponent } from './po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list.component';
 
 import { MasterinventarysDetailsComponent } from './inventarios/master_inventarys/masterinventarys-details/masterinventarys-details.component';
 
@@ -200,6 +203,8 @@ import { ReferralAddressListComponent } from './AR/referralAddress/referral-addr
 import { CustomerListComponent } from './customer/customer-list/customer-list.component';
 import { CustomerDetailsComponent } from './customer/customer-details/customer-details.component';
 import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
+import { UpdateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/update-unit-of-measures/update-unit-of-measures.component';
+import { CreateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/create-unit-of-measures/create-unit-of-measures.component';
 
 
 
@@ -1465,8 +1470,8 @@ component: CreateTransfersComponent,
           loadChildren: () => import('./inventarios/sub_categories/create-subcategories/create-subcategories.module').then(module => module.CreateSubcategoriesModule)
         }
       ]
-    }
-      , {
+    },
+{
         path: '',
         component: PaytmentListComponent,
         children: [
@@ -2111,6 +2116,26 @@ component: CreateTransfersComponent,
       },
       {
         path: '',
+        component: UpdateUnitOfMeasuresComponent,
+        children: [
+          {
+            path: 'update-measures/:id',
+            loadChildren: () => import('./inventarios/unit_of_measures/update-unit-of-measures/update-unit-of-measures.module').then(module => module.UpdateUnitOfMeasuresModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateUnitOfMeasuresComponent,
+        children: [
+          {
+            path: 'create-measures',
+            loadChildren: () => import('./inventarios/unit_of_measures/create-unit-of-measures/create-unit-of-measures.module').then(module => module.CreateUnitOfMeasuresModule)
+          }
+        ]
+      },
+      {
+        path: '',
 
         component: UnitOfMeasuresListComponent,
         children: [
@@ -2170,10 +2195,90 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./treasury/bankAccounts/update-bank-accounts/bank-accounts-update.module').then(module => module.BankAccountsUpdateModule)
           }
 
+,
+
+    {
+      path: '',
+    component: CreateBankAccountsComponent,
+     children: [
+       {
+          path: 'bank-accounts-create',
+         loadChildren: () => import('./treasury/bankAccounts/create-bank-accounts/bank-accounts-create.module').then(module => module.BankAccountsCreateModule)
+        }
+      ]
+
+    }
+
+
 
 
         ]
       }
+
+
+    ,
+    {
+      path: '',
+      component: UserdashboardDetailsComponent,
+      children: [
+        {
+          path: 'details-userd/:id',
+          loadChildren: () => import('./admin/userdashboard/userdashboard-details/userdashboard-details.module').then(module => module.UserdashboardModule)
+        }
+      ]
+    }
+    ,
+
+    {
+      path: '',
+      component: UserdashboardListComponent,
+      children: [
+        {
+          path: 'userd-list/:id',
+          loadChildren: () => import('./admin/userdashboard/userdashboard-list/userdashboard-list.module').then(module => module.UserdashboardListModule)
+        }
+      ]
+    },
+
+    {
+      path: '',
+    component:   PdfPurcharseListComponent,
+     children: [
+       {
+          path: 'pdf-purchase_orders-list',
+         loadChildren: () => import('./po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list-routing.module').then(module => module.PdfPurcharseListRoutingModule)
+        }
+      ]
+
+
+
+    },
+      {
+        path: '',
+        component: PdfSupplierListComponent,
+        children: [
+          {
+            path: 'supplier_repor-list',
+            loadChildren: () => import('./po/pdf/pdf-supplier-list/pdf-supplier-list.module').then(module => module.SupplierPdftModule)
+          }
+        ]
+      },
+
+    {
+      path: '',
+      component: PdfSupplierDetailsComponent,
+      children: [
+        {
+          path: 'pdf-supplier-repor-details/:id',
+          loadChildren: () => import('./po/pdf/pdf-supplier-details/pdf-supplier-details-routing.module').then(module => module.PdfSupplierDetailsRoutingModule)
+        }
+      ]
+    }
+
+
+
+
+
 
       ,
 
@@ -2198,6 +2303,7 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./treasury/transfers/transfers-list/transfers-list.module').then(module => module.TransfersListModule)
           }
         ]
+
 
 
 
@@ -2250,7 +2356,6 @@ component: CreateTransfersComponent,
 
 
       }
-
 
       ,
       {

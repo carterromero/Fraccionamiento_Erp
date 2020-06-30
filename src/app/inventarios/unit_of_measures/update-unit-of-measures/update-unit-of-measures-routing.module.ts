@@ -1,23 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SupplierListComponent } from './supplier-list.component';
-
-
-
-
+import { UpdateUnitOfMeasuresComponent } from './update-unit-of-measures.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: 
-    SupplierListComponent
- 
-    
+    component: UpdateUnitOfMeasuresComponent
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule] 
+  exports: [RouterModule]
 })
-export class SupplierListRoutingModule{ }
+export class UpdateUnitOfMeasuresRoutingModule { }
