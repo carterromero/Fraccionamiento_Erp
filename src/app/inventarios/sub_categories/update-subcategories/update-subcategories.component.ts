@@ -56,6 +56,7 @@ export class UpdateSubcategoriesComponent implements OnInit {
     this.employee.last_update_by=3;
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {
+        
         console.log(data);
         this.alertDisables = false;
         this.alertMessages ="Se actualizo la sub categoria correctamente";  

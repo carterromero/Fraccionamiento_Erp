@@ -49,17 +49,23 @@ export class AdminComponent implements OnInit {
 //#region 
     //validar token para restringir acceso a la master page
 
-    /*
-    if((localStorage.getItem('token')==""))
-    {
-      this.router.navigate(['auth/signin']); 
-    }
-    else
-    {
-      */
-      //this.router.navigate(['dashboard/default']);   
+    
+    
+    if(localStorage.getItem('id') == "" || localStorage.getItem('condominums')== "" || localStorage.getItem('rol')== "")
+      {       
+        this.router.navigate(['auth/signin']); 
+      
+      }
+      else if(localStorage.getItem('id')== "0" || localStorage.getItem('condominums')== "" || localStorage.getItem('rol')== "" )
+      {
+        this.router.navigate(['auth/signin']); 
+      }
+      else if(localStorage.getItem('id') == null || localStorage.getItem('condominums')== null || localStorage.getItem('rol')== null){
 
-//    }
+        this.router.navigate(['auth/signin']); 
+      }
+      
+    
 
 //#endregion
 

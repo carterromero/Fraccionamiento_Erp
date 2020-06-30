@@ -64,7 +64,7 @@ export class SubCategoriesListComponent implements OnInit {
       );
   }
 
-  generalDetails(id: number){
+generalDetails(id: number){
 console.log(id);
     this.router.navigate(['sub-details', id]);
   }

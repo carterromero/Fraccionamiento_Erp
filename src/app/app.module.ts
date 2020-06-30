@@ -19,8 +19,8 @@ import { NavSearchComponent } from './theme/layout/admin/nav-bar/nav-left/nav-se
 import { NavRightComponent } from './theme/layout/admin/nav-bar/nav-right/nav-right.component';
 import { ConfigurationComponent } from './theme/layout/admin/configuration/configuration.component';
 import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-full-screen';
+import { FilterPipe } from './filter.pipe';
 
-/ Menu Items /
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -37,8 +37,11 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
 
 
+
+
 @NgModule({
   declarations: [
+    FilterPipe,
     AppComponent,
     AdminComponent,
     AuthComponent,
@@ -53,26 +56,10 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
     NavRightComponent,
     ConfigurationComponent,
 
-    ToggleFullScreenDirective,   
-
-
-
     ToggleFullScreenDirective,
 
-
-   
     
-
-   
-
-
-    ToggleFullScreenDirective,
-
-
-   
     
-
-   
 
 
 
@@ -121,10 +108,6 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
 
 
-   
-    
-
-   
 
 
 
@@ -133,7 +116,6 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
 
 
-   
 
 
   ],
@@ -146,7 +128,6 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
     NgbTooltipModule,
     NgbButtonsModule,
     NgbTabsetModule,
-   
 
 
   ],

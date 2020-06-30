@@ -1,0 +1,140 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Crear Nómina" [options]="false" >
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Id Condominio</label>
+                <input type="text" class="form-control" id="id_company"  [(ngModel)]="employee.id_company" name="id_company" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Id Empleado</label>
+                <input type="text" class="form-control" id="id_employee"  [(ngModel)]="employee.id_employee" name="id_employee" required>
+              </div>
+            <div class="form-group">
+              <label for="name">Salario Base</label>
+              <input type="text" class="form-control" id="pr_receipt_base_salary"  [(ngModel)]="employee.pr_receipt_base_salary" name="pr_receipt_base_salary" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Salario diario</label>
+                <input type="text" class="form-control" id="pr_receipt_daily_salary"  [(ngModel)]="employee.pr_receipt_daily_salary" name="pr_receipt_daily_salary" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Antiguedad</label>
+                <input type="text" class="form-control" id="pr_receipt_antiquity"  [(ngModel)]="employee.pr_receipt_antiquity" name="pr_receipt_antiquity" required>
+              </div> 
+              
+              <div class="form-group">
+                <label for="name">Número De Dias Pagados</label>
+                <input type="text" class="form-control" id="pr_receipt_number_of_days_paid"  [(ngModel)]="employee.pr_receipt_number_of_days_paid" name="pr_receipt_number_of_days_paid" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Fecha Inicial de Pago</label>
+                <input type="text" class="form-control" id="pr_receipt_initial_payment_date"  [(ngModel)]="employee.pr_receipt_initial_payment_date" name="pr_receipt_initial_payment_date" required>
+              </div>
+            <div class="form-group">
+              <label for="name">Fecha Final de Pago</label>
+              <input type="text" class="form-control" id="pr_receipt_final_payment_date"  [(ngModel)]="employee.pr_receipt_final_payment_date" name="pr_receipt_final_payment_date" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Forma de Pago</label>
+                <input type="text" class="form-control" id="pr_receipt_way_to_pay"  [(ngModel)]="employee.pr_receipt_way_to_pay" name="pr_receipt_way_to_pay" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Metodo de Pago</label>
+                <input type="text" class="form-control" id="pr_receipt_payment_method"  [(ngModel)]="employee.pr_receipt_payment_method" name="pr_receipt_payment_method" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="name">Clave de Prodcuto o Servicio</label>
+                <input type="text" class="form-control" id="pr_receipt_product_or_service_key"  [(ngModel)]="employee.pr_receipt_product_or_service_key" name="pr_receipt_product_or_service_key" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Cantidad</label>
+                <input type="text" class="form-control" id="pr_receipt_quantity"  [(ngModel)]="employee.pr_receipt_quantity" name="pr_receipt_quantity" required>
+              </div>
+            <div class="form-group">
+              <label for="name">Clave Unidad</label>
+              <input type="text" class="form-control" id="pr_receipt_unit_key"  [(ngModel)]="employee.pr_receipt_unit_key" name="pr_receipt_unit_key" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Valor Unitario</label>
+                <input type="text" class="form-control" id="pr_receipt_unit_value"  [(ngModel)]="employee.pr_receipt_unit_value" name="pr_receipt_unit_value" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Descripción</label>
+                <input type="text" class="form-control" id="pr_receipt_description"  [(ngModel)]="employee.pr_receipt_description" name="pr_receipt_description" required>
+              </div>
+
+              <div class="form-group">
+                <label for="name">Importe Concepto</label>
+                <input type="text" class="form-control" id="pr_receipt_amount_concept"  [(ngModel)]="employee.pr_receipt_amount_concept" name="pr_receipt_amount_concept" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Tipo de Percepción</label>
+                <input type="text" class="form-control" id="pr_receipt_type_of_perception"  [(ngModel)]="employee.pr_receipt_type_of_perception" name="pr_receipt_type_of_perception" required>
+              </div>
+            <div class="form-group">
+              <label for="name">Concepto de Percepción</label>
+              <input type="text" class="form-control" id="pr_receipt_perception_concept"  [(ngModel)]="employee.pr_receipt_perception_concept" name="pr_receipt_perception_concept" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Importe Grabado</label>
+                <input type="text" class="form-control" id="pr_receipt_amount_recorded"  [(ngModel)]="employee.pr_receipt_amount_recorded" name="pr_receipt_amount_recorded" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Importe Exento</label>
+                <input type="text" class="form-control" id="pr_receipt_exempt_amount"  [(ngModel)]="employee.pr_receipt_exempt_amount" name="pr_receipt_exempt_amount" required>
+              </div>
+
+              <div class="form-group">
+                <label for="name">Total de Sueldo</label>
+                <input type="text" class="form-control" id="pr_receipt_total_perceptions_or_total_salary"  [(ngModel)]="employee.pr_receipt_total_perceptions_or_total_salary" name="pr_receipt_total_perceptions_or_total_salary" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Tipo de Deducción</label>
+                <input type="text" class="form-control" id="pr_receipt_deduction_type"  [(ngModel)]="employee.pr_receipt_deduction_type" name="pr_receipt_deduction_type" required>
+              </div>
+            <div class="form-group">
+              <label for="name">Importe de Deducción</label>
+              <input type="text" class="form-control" id="pr_receipt_deduction_amount"  [(ngModel)]="employee.pr_receipt_deduction_amount" name="pr_receipt_deduction_amount" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Total de Deducción</label>
+                <input type="text" class="form-control" id="pr_receipt_total_deductions"  [(ngModel)]="employee.pr_receipt_total_deductions" name="pr_receipt_total_deductions" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Tipo de Otros Pagos</label>
+                <input type="text" class="form-control" id="pr_receipt_type_of_other_payment"  [(ngModel)]="employee.pr_receipt_type_of_other_payment" name="pr_receipt_type_of_other_payment" required>
+              </div>
+
+              <div class="form-group">
+                <label for="name">Importe Otros Pagos</label>
+                <input type="text" class="form-control" id="pr_receipt_amount_other_payments"  [(ngModel)]="employee.pr_receipt_amount_other_payments" name="pr_receipt_amount_other_payments" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Total Otros Pagos</label>
+                <input type="text" class="form-control" id="pr_receipt_total_other_payments"  [(ngModel)]="employee.pr_receipt_total_other_payments" name="pr_receipt_total_other_payments" required>
+              </div>
+            <div class="form-group">
+              <label for="name">Subsidio Causado</label>
+              <input type="text" class="form-control" id="pr_receipt_subsidy_caused"  [(ngModel)]="employee.pr_receipt_subsidy_caused" name="pr_receipt_subsidy_caused" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Creado Por</label>
+                <input type="text" class="form-control" id="created_by"  [(ngModel)]="employee.created_by" name="created_by" required>
+              </div>
+
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="status"  [(ngModel)]="employee.status"     name="status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="status">Active</label>
+                 </div>
+            </div>
+            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button [routerLink]="['/config-Maintenlist']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

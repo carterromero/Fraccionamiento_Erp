@@ -18,11 +18,9 @@ export class NavRightComponent implements OnInit {
 
   logout() {
     
-    this.authenticationService.logout()
-      .subscribe(data => {
-        console.log(data);
-        localStorage.setItem('token', "");
-        this.router.navigate(['auth/signin']);
-      }, error => console.log(error));            
+    localStorage.setItem('id','0');
+    localStorage.setItem('rol', '0');
+    localStorage.setItem('condominums', '0');
+    this.router.navigate(['auth/signin']);
   }
 }

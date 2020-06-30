@@ -10,7 +10,7 @@ export class SubCategoriesService {
 
   private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/';
   private username='abdiel.romero@dti-consultores.com';
-  private password='Ingenieroars07';
+  private password='Ingenieroars7';
   
 
   constructor(private http: HttpClient) { }
@@ -43,6 +43,10 @@ export class SubCategoriesService {
   getEmployeeListcombo(): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_CATEG_COMBO/1.0/categories`,{headers});
+  }
+  getEmployeeListcombo_sub(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_SUB_CATE_COMB/1.0/sub_categories_combo`,{headers});
   }
   
 }
