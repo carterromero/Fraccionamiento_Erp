@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle="Fraccionamientos" blockClass="table-border-style">      
-        <button [routerLink]="['/subcategories-create ']" class="btn btn-outline-info">Agregar Unidad de Medida</button><br>
+        <button [routerLink]="['/create-measures']" class="btn btn-outline-info">Agregar Unidad de Medida</button><br>
         <br>
         <div class="table-responsive">
           <table class="table">
@@ -23,8 +23,8 @@
                       </td>
 
                     <td>
-                        <button (click)="deleteGeneral(general.sub_categories_id)"  class="btn btn-outline-danger">Eliminar</button>
-                        <button (click)="updateGeneral(general.sub_categories_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        <button (click)="deleteGeneral(general.of_measuares_id)"  class="btn btn-outline-danger">Eliminar</button>
+                        <button (click)="updateGeneral(general.of_measuares_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
                         <button (click)="generalDetails(general.of_measuares_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
                         
                     </td>

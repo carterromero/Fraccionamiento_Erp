@@ -196,6 +196,8 @@ import { ReferralAddressListComponent } from './AR/referralAddress/referral-addr
 import { CustomerListComponent } from './customer/customer-list/customer-list.component';
 import { CustomerDetailsComponent } from './customer/customer-details/customer-details.component';
 import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
+import { UpdateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/update-unit-of-measures/update-unit-of-measures.component';
+import { CreateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/create-unit-of-measures/create-unit-of-measures.component';
 
 
 
@@ -1423,10 +1425,7 @@ component: CreateTransfersComponent,
       ]
     }
     ,
-    ]
-
-
-      , {
+     {
         path: '',
         component: PaytmentListComponent,
         children: [
@@ -2071,6 +2070,26 @@ component: CreateTransfersComponent,
       },
       {
         path: '',
+        component: UpdateUnitOfMeasuresComponent,
+        children: [
+          {
+            path: 'update-measures/:id',
+            loadChildren: () => import('./inventarios/unit_of_measures/update-unit-of-measures/update-unit-of-measures.module').then(module => module.UpdateUnitOfMeasuresModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateUnitOfMeasuresComponent,
+        children: [
+          {
+            path: 'create-measures',
+            loadChildren: () => import('./inventarios/unit_of_measures/create-unit-of-measures/create-unit-of-measures.module').then(module => module.CreateUnitOfMeasuresModule)
+          }
+        ]
+      },
+      {
+        path: '',
 
         component: UnitOfMeasuresListComponent,
         children: [
@@ -2106,7 +2125,7 @@ component: CreateTransfersComponent,
         children: [
           {
             path: 'Articles-list',
-            loadChildren: () => import('./inventarios/articles/articles-list/articles-list.module').then(module => module.CreateArticlesListModule)
+            loadChildren: () => import('./inventarios/articles/articles-list/articles-list.module').then(module => module.ArticlesListModule)
           }
         ]
       },
@@ -2210,7 +2229,6 @@ component: CreateTransfersComponent,
 
 
       }
-
 
       ,
       {

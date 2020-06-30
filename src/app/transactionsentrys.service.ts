@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class TransactionsEntrysService {
   private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/';
   private username='abdiel.romero@dti-consultores.com';
-  private password='Ingenieroars07';
+  private password='Ingenieroars7';
 
   constructor(private http: HttpClient) { }
 

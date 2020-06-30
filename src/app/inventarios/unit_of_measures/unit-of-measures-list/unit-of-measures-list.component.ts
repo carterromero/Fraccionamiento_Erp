@@ -68,7 +68,7 @@ console.log(id);
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-subcategories', id]);
+    this.router.navigate(['update-measures', id]);
   }
 
 }
