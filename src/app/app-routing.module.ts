@@ -124,10 +124,10 @@ import { CreateAgreementsComponent } from './RH/agreements/create-agreements/cre
 import { AgreementsListComponent } from './RH/agreements/agreements-list/agreements-list.component';
 import { UpdateAgreementsComponent } from './RH/agreements/update-agreements/update-agreements.component';
 import { AgreementsDetailsComponent } from './RH/agreements/agreements-details/agreements-details.component';
-import { CreateReservationsComponent } from './RH/reservations/create-reservations/create-reservations.component';
-import { ReservationsListComponent } from './RH/reservations/reservations-list/reservations-list.component';
-import { UpdateReservationsComponent } from './RH/reservations/update-reservations/update-reservations.component';
-import { ReservationsDetailsComponent } from './RH/reservations/reservations-details/reservations-details.component';
+import { CreateReservationsComponent } from './RH/Reservations/create-reservations/create-reservations.component';
+import { ReservationsListComponent } from './RH/Reservations/reservations-list/reservations-list.component';
+import { UpdateReservationsComponent } from './RH/Reservations/update-reservations/update-reservations.component';
+import { ReservationsDetailsComponent } from './RH/Reservations/reservations-details/reservations-details.component';
 
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
@@ -344,7 +344,7 @@ const routes: Routes = [
         children: [
           {
             path: 'reservations-list',
-            loadChildren: () => import('./RH/reservations/reservations-list/reservations-list.module').then(module => module.ReservationsListModule)
+            loadChildren: () => import('./RH/Reservations/reservations-list/reservations-list.module').then(module => module.ReservationsListModule)
           }
         ]
       },
@@ -354,7 +354,7 @@ const routes: Routes = [
         children: [
           {
             path: 'create-reservations',
-            loadChildren: () => import('./RH/reservations/create-reservations/create-reservations.module').then(module => module.CreateReservationsModule)
+            loadChildren: () => import('./RH/Reservations/create-reservations/create-reservations.module').then(module => module.CreateReservationsModule)
           }
         ]
       },
@@ -364,7 +364,7 @@ const routes: Routes = [
         children: [
           {
             path: 'reservations-details/:id',
-            loadChildren: () => import('./RH/reservations/reservations-details/reservations-details.module').then(module => module.ReservationsDetailsModule)
+            loadChildren: () => import('./RH/Reservations/reservations-details/reservations-details.module').then(module => module.ReservationsDetailsModule)
           }
         ]
       },
@@ -374,7 +374,7 @@ const routes: Routes = [
         children: [
           {
             path: 'update-reservations/:id',
-            loadChildren: () => import('./RH/reservations/update-reservations/update-reservations.module').then(module => module.UpdateReservationsModule)
+            loadChildren: () => import('./RH/Reservations/update-reservations/update-reservations.module').then(module => module.UpdateReservationsModule)
           }
         ]
       },

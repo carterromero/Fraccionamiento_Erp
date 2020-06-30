@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { UpdateReservationsRoutingModule } from './update-reservations-routing.module';
 import { UpdateReservationsComponent } from './update-reservations.component';
-import {SharedModule} from '../../../theme/shared/shared.module';
+import {SharedModule} from 'src/app/theme/shared/shared.module';
 
 @NgModule({
   declarations: [UpdateReservationsComponent],
