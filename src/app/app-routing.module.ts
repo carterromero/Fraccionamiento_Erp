@@ -144,6 +144,9 @@ import { CreatePaymentRecordComponent } from './AP/ap_payment-record/create-paym
 import { PaymentRecordDetailsComponent } from './AP/ap_payment-record/payment-record-details/payment-record-details.component';
 import { UpdatePaymentRecordComponent } from './AP/ap_payment-record/update-payment-record/update-payment-record.component';
 import { PurcharseDetailsComponent } from './purcharse/purcharse-details/purcharse-details.component';
+import { PdfSupplierListComponent } from './po/pdf/pdf-supplier-list/pdf-supplier-list.component';
+import { PdfSupplierDetailsComponent } from './po/pdf/pdf-supplier-details/pdf-supplier-details.component';
+import { PdfPurcharseListComponent } from './po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list.component';
 
 
 
@@ -1467,8 +1470,6 @@ component: CreateTransfersComponent,
         }
       ]
     
-    
-    
     }
 
   
@@ -1507,9 +1508,8 @@ component: CreateTransfersComponent,
         }
       ]
     }
-
-
     ,
+
     {
       path: '',
       component: UserdashboardListComponent,
@@ -1519,7 +1519,47 @@ component: CreateTransfersComponent,
           loadChildren: () => import('./admin/userdashboard/userdashboard-list/userdashboard-list.module').then(module => module.UserdashboardListModule)
         }
       ]
+    },
+    
+    {
+      path: '',
+    component:   PdfPurcharseListComponent,
+     children: [
+       {
+          path: 'pdf-purchase_orders-list',
+         loadChildren: () => import('./po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list-routing.module').then(module => module.PdfPurcharseListRoutingModule)
+        }
+      ]
+    
+    
+    
+    },
+      {
+        path: '',
+        component: PdfSupplierListComponent,
+        children: [
+          {
+            path: 'supplier_repor-list',
+            loadChildren: () => import('./po/pdf/pdf-supplier-list/pdf-supplier-list.module').then(module => module.SupplierPdftModule)
+          }
+        ]
+      },
+      
+    {
+      path: '',
+      component: PdfSupplierDetailsComponent,
+      children: [  
+        {
+          path: 'pdf-supplier-repor-details/:id',
+          loadChildren: () => import('./po/pdf/pdf-supplier-details/pdf-supplier-details-routing.module').then(module => module.PdfSupplierDetailsRoutingModule)
+        }
+      ]
     }
+    
+
+
+
+    
 
     ]
   },
