@@ -23,6 +23,7 @@ export class UpdateReservationsComponent implements OnInit {
   private tenantService: TenantsService) { }
 
   ngOnInit() {
+    this.reloadDatas();
     this.reservation = new Reservations();
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.reservation.reservations_status);

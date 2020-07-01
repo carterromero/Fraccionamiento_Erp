@@ -28,6 +28,8 @@ export class TenantsDetailsComponent implements OnInit {
     private tenantService: TenantsService, private condominumsService: CondominumsService, private agreementService: AgreementService) { }
 
  ngOnInit() {
+   this.reloadDatas();
+   this. reloadDatas2();
     this.tenant = new Tenants();    
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);

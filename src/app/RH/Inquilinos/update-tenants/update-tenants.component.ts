@@ -23,10 +23,12 @@ export class UpdateTenantsComponent implements OnInit {
   alertMessages = "null";
 
   constructor(private route: ActivatedRoute,  private condominumsService:CondominumsService,
-    private agreementService: AgreementService, private router: Router,
+  private agreementService: AgreementService, private router: Router,
   private tenantService: TenantsService) { }
 
   ngOnInit() {
+    this.reloadDatas();
+    this.reloadDatas2();
     this.tenant = new Tenants();
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.tenant.tenants_status);

@@ -15,6 +15,103 @@
             <label for="name">Apellido Materno</label>
             <input type="text" class="form-control" id="employees_mother_surname" required [(ngModel)]="employee.employees_mother_surname" name="employees_mother_surname">
           </div>      
+          <div class="form-group">
+            <label for="name">Direccion</label>
+            <input type="text" class="form-control" id="employees_address" required [(ngModel)]="employee.employees_address" name="employees_address">
+          </div>    
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="employees_cv" required [(ngModel)]="employee.employees_cv" name="employees_cv" ng-model='yourModel' base-sixty-four-input>
+            <label class="custom-file-label" for="employees_cv">Elegir cv...</label>
+            <div class="invalid-feedback">Archivo invalido</div>
+          </div>  
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="employees_contract" required [(ngModel)]="employee.employees_contract" name="employees_contract" ng-model='yourModel' base-sixty-four-input>
+            <label class="custom-file-label" for="employees_contract">Elegir Contrato...</label>
+            <div class="invalid-feedback">Archivo invalido</div>
+          </div> 
+          <div class="form-group">
+            <label for="name">Estatus</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="employees_status"  [(ngModel)]="employee.employees_status"     name="employees_status"   style="margin-left: 10px">
+                <label class="custom-control-label" for="employees_status">Active</label>
+             </div>
+        </div>
+          <div class="form-group">
+            <label for="name">Numero de seguridad social</label>
+            <input type="text" class="form-control" id="employees_nss" required [(ngModel)]="employee.employees_nss" name="employees_nss">
+          </div> 
+           <div class="form-group">
+            <label for="name">RFC empleado</label>
+            <input type="text" class="form-control" id="employees_rfc" required [(ngModel)]="employee.employees_rfc" name="employees_rfc">
+          </div>     
+          <div class="form-group">
+            <label for="name">CURP empleado</label>
+            <input type="text" class="form-control" id="employees_curp" required [(ngModel)]="employee.employees_curp" name="employees_curp">
+          </div>       
+        <div class="form-group">
+          <label for="name">Sindicalizado</label>
+          <input type="text" class="form-control" id="employees_sindicalizado" required [(ngModel)]="employee.employees_sindicalizado" name="employees_sindicalizado">
+        </div>       
+        <div class="form-group">
+          <label for="name">Fraccionamiento</label>
+          <input type="text" class="form-control" id="employees_fractionation_unit" required [(ngModel)]="employee.employees_fractionation_unit" name="employees_fractionation_unit">
+        </div> 
+        <div class="form-group">
+                <label for="start">Fecha inicio laboral:</label>
+                    <input type="date" id="start" name="trip-start" value="<?php echo date('Y-n-j');?>"
+               min="2020-01-01" max="2030-12-31" 
+                  class="form-control" id="employees_work_start_date"  [(ngModel)]="employee.employees_work_start_date" name="employees_work_start_date" required>
+            </div>
+        <div class="form-group">
+          <label for="start">Fecha fin laboral:</label>
+              <input type="date" id="start" name="trip-start" value="<?php echo date('Y-n-j');?>"
+         min="2020-01-01" max="2030-12-31" 
+            class="form-control" id="employees_work_end_date"  [(ngModel)]="employee.employees_work_end_date" name="employees_work_end_date" required>
+      </div>
+        <div class="form-group">
+          <label for="name">Dias de trabajo</label>
+          <input type="text" class="form-control" id="employees_working_days" required [(ngModel)]="employee.employees_working_days" name="employees_working_days">
+        </div> 
+        <div class="form-group">
+          <label for="name">Hora de inicio laboral</label>
+          <input type=" datetime" class="form-control" id="employees_working_hours_start" required [(ngModel)]="employee.employees_working_hours_start" name="employees_working_hours_start">
+        </div> 
+        <div class="form-group">
+          <label for="name">Hora final laboral</label>
+          <input type=" datetime" class="form-control" id="employees_working_hours_end" required [(ngModel)]="employee.employees_working_hours_end" name="employees_working_hours_end">
+        </div> 
+        <div class="form-group">
+          <label for="name">Riesgo laboral</label>
+          <input type="text" class="form-control" id="employees_job_risk" required [(ngModel)]="employee.employees_job_risk" name="employees_job_risk">
+        </div> 
+        <div class="form-group">
+          <label for="name">Tipo de jornada</label>
+          <input type="text" class="form-control" id="employees_type_workday" required [(ngModel)]="employee.employees_type_workday" name="employees_type_workday">
+        </div> 
+        <div class="form-group">
+          <label for="name">Tipo de contrato</label>
+          <input type="text" class="form-control" id="employees_contract_type" required [(ngModel)]="employee.employees_contract_type" name="employees_contract_type">
+        </div> 
+        <div class="form-group">
+          <label for="name">Clave de identidad legal</label>
+          <input type="text" class="form-control" id="employees_federal_identity_key" required [(ngModel)]="employee.employees_federal_identity_key" name="employees_federal_identity_key">
+        </div> 
+        <div class="form-group">
+          <label for="name">Banco</label>
+          <input type="text" class="form-control" id="employees_bank" required [(ngModel)]="employee.employees_bank" name="employees_bank">
+        </div> 
+        <div class="form-group">
+          <label for="name">Cuenta de banco</label>
+          <input type="text" class="form-control" id="employees_bank_account" required [(ngModel)]="employee.employees_bank_account" name="employees_bank_account">
+        </div> 
+        <div class="form-group">
+          <label for="name">Periocidad de pago</label>
+          <input type="text" class="form-control" id="employees_frequency_payment" required [(ngModel)]="employee.employees_frequency_payment" name="employees_frequency_payment">
+        </div> 
+        <div class="form-group">
+          <label for="name">Uso CFDI</label>
+          <input type="text" class="form-control" id="employees_use_CFDI" required [(ngModel)]="employee.employees_use_CFDI" name="employees_use_CFDI">
+        </div> 
           <button type="submit" class="btn btn-success">Submit</button>          
           <button [routerLink]="['/employee-list']" class="btn btn-danger" style="margin-left: 10px">Cancel</button>
         </form>

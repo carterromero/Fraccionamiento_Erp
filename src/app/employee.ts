@@ -21,7 +21,7 @@ export class Employee {
     employees_working_hours_start: string;
     employees_working_hours_end: string;
     employees_job_risk: string;
-    employees_type_journey: string;
+    employees_type_workday: string;
     employees_contract_type: string;
     employees_federal_identity_key: string;
     employees_bank: string;
