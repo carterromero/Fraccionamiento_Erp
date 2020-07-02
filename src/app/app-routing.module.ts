@@ -182,9 +182,7 @@ import { UnitOfMeasuresDetailsComponent } from './inventarios/unit_of_measures/u
 import { UpdateMasterinventarysComponent } from './inventarios/master_inventarys/update-masterinventarys/update-masterinventarys.component';
 import { TransactionsentrysListComponent } from './inventarios/transactions_entrys/transactionsentrys-list/transactionsentrys-list.component';
 
-import { RepoCredPayContListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-cont-list/repo-cred-pay-cont-list.component';
 import { RepoCredPayNocontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-nocont-list/repo-cred-pay-nocont-list.component';
-import { RepoCredPayVencontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-vencont-list/repo-cred-pay-vencont-list.component';
 
 import { CreateArticlesComponent } from './inventarios/articles/create-articles/create-articles.component';
 import { ArticlesDetailsComponent } from './inventarios/articles/articles-details/articles-details.component';
@@ -793,17 +791,6 @@ const routes: Routes = [
       {
         path: '',
 
-        component: RepoCredPayContListComponent,
-        children: [
-          {
-            path: 'repo-cred-pay-cont-list/:date',
-            loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-cont-list/repo-cred-pay-cont-list.module').then(module => module.RepoCredPayContListModule)
-          }
-        ]
-      },
-      {
-        path: '',
-
         component: RepoCredPayNocontListComponent,
         children: [
           {
@@ -812,18 +799,7 @@ const routes: Routes = [
           }
         ]
       },
-      {
-        path: '',
-
-        component: RepoCredPayVencontListComponent,
-        children: [
-          {
-            path: 'repo-cred-pay-vencont-list/:date',
-            loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-vencont-list/repo-cred-pay-vencont-list.module').then(module => module.RepoCredPayVencontListModule)
-          }
-        ]
-      }
-      ,
+     
 
       {
         path: '',

@@ -9,7 +9,7 @@
           <table class="table">
             <thead>
             <tr>              
-              <th>ID del acreedor</th>
+             
               <th>Fecha de pago </th>
               <th>Monto</th>
               <th>Método de pago</th>
@@ -21,7 +21,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                    <td>{{general.creditor_id}}</td>
+                    
                     <td>{{general.payment_record_payment_date}}</td>
                     <td>{{general.payment_record_amount}}</td>
                     <td>{{general.payment_method}}</td>
