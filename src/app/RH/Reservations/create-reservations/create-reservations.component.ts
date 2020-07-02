@@ -27,6 +27,7 @@ export class CreateReservationsComponent implements OnInit {
 
   ngOnInit() {
     //code
+    this.reloadDatas();
   }
 
 

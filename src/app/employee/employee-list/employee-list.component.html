@@ -10,6 +10,31 @@
             <th>Nombre(s)</th>
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
+            <th>Direccion</th>
+            <th>CV</th>
+            <th>Contrato</th>
+            <th>Estatus</th>
+            <th>Numero de seguridad Social</th>
+            <th>RFC</th>
+            <th>CURP</th>
+            <th>Sindicalizado</th>
+            <th>Condominio</th>
+            <th>Puesto</th>
+            <th>Departamento</th>
+            <th>Unidad de fraccionamiento</th>
+            <th>Fecha inicio laboral</th>
+            <th>Fecha final laboral</th>
+            <th>Dias trabajados</th>
+            <th>Hora inicial de jornada</th>
+            <th>Hora final de jornada</th>
+            <th>Riesgo laboral</th>
+            <th>Dias laborales</th>
+            <th>Tipo contrato</th>
+            <th>Identidad legal</th>
+            <th>Banco</th>
+            <th>Cuenta de banco</th>
+            <th>Frecuencia pagos</th>
+            <th>Uso CFDI</th>
             <th>Acciones</th>
           </tr>
           </thead>
@@ -18,7 +43,31 @@
                   <td>{{employee.employees_id}}</td>
                   <td>{{employee.employees_name}}</td>
                   <td>{{employee.employees_father_surname}}</td>
-                  <td>{{employee.employees_mother_surname}}</td>
+                  <td>{{employee.employees_address}}</td>
+                  <td>{{employee.employees_cv}}</td>
+                  <td>{{employee.employees_contract}}</td>
+                  <td>{{employee.employees_status}}</td>
+                  <td>{{employee.employees_nss}}</td>
+                  <td>{{employee.employees_rfc}}</td>
+                  <td>{{employee.employees_curp}}</td>
+                  <td>{{employee.employees_sindicalizado}}</td>
+                  <td>{{employee.condominums_id}}</td>
+                  <td>{{employee.departments_id}}</td>
+                  <td>{{employee.workplaces_id}}</td>
+                  <td>{{employee.employees_fractionation_unit}}</td>
+                  <td>{{employee.employees_work_start_date}}</td>
+                  <td>{{employee.employees_work_end_date}}</td>
+                  <td>{{employee.employees_working_days}}</td>
+                  <td>{{employee.employees_working_hours_start}}</td>
+                  <td>{{employee.employees_working_hours_end}}</td>
+                  <td>{{employee.employees_job_risk}}</td>
+                  <td>{{employee.employees_type_workday}}</td>
+                  <td>{{employee.employees_contract_type}}</td>
+                  <td>{{employee.employees_federal_identity_key}}</td>
+                  <td>{{employee.employees_bank}}</td>
+                  <td>{{employee.employees_bank_account}}</td>
+                  <td>{{employee.employees_frequency_payment}}</td>
+                  <td>{{employee.employees_use_CFDI}}</td>
                   <td>                 
                       <button (click)="deleteEmployee(employee.employees_id)" class="btn btn-danger">Delete</button>
                       <button (click)="updateEmployee(employee.employees_id)" class="btn btn-info" style="margin-left: 10px">Update</button>

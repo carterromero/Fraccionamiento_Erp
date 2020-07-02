@@ -30,6 +30,8 @@ export class CreateTenantsComponent implements OnInit {
 
   ngOnInit() {
     //code
+    this.reloadDatas();
+    this.reloadDatas2();
   }
 
 

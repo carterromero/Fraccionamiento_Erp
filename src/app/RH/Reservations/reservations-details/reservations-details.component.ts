@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Tenants } from 'src/app/tenants';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TenantsService } from 'src/app/tenants.service';
 import { Reservations } from 'src/app/reservations';
 import { ReservationsService } from 'src/app/reservations.service';
 import { Observable } from 'rxjs';
+import { Tenants } from 'src/app/tenants';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TenantsService } from 'src/app/tenants.service';
+
 
 @Component({
   selector: 'app-reservations-details',
@@ -25,6 +26,7 @@ export class ReservationsDetailsComponent implements OnInit {
     private tenantService: TenantsService, private reservationsService: ReservationsService) { }
 
  ngOnInit() {
+   this.reloadDatas();
     this.reservation = new Reservations();    
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
@@ -61,20 +63,5 @@ export class ReservationsDetailsComponent implements OnInit {
       }
     );      
   }
-
-/*  reloadDatas() 
-  {
-    this.addressService.getAddressList().subscribe(
-      data => {
-        console.log(data);
-        this.addresses = this.addressService.getAddressList();
-      },
-      error => {
-        console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']);     
-      });  
-  }*/
-
 
 }
