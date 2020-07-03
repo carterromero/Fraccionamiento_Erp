@@ -496,13 +496,7 @@ const NavigationItemss = [
                title: 'Reporte empleados',
                type: 'item',            
                url: '/reportemployee-list'
-             },
-             {
-              id: 'rh-reports',
-             title: 'Reporte departamento',
-             type: 'item',            
-             url: '/departmentsr-list'
-           }                           
+             }           
             ]
           },
         ]
