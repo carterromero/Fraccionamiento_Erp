@@ -205,6 +205,14 @@ import { CustomerDetailsComponent } from './customer/customer-details/customer-d
 import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
 import { UpdateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/update-unit-of-measures/update-unit-of-measures.component';
 import { CreateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/create-unit-of-measures/create-unit-of-measures.component';
+import { CollectionConceptsListComponent } from './AR/collectionConcepts/collectionconcepts-list/collectionconcepts-list.component';
+import { CollectionConceptsDetailsComponent } from './AR/collectionConcepts/collectionconcepts-details/collectionconcepts-details.component';
+import { CollectionConceptsCreateComponent } from './AR/collectionConcepts/create-collectionconcepts/create-collectionconcepts.component';
+import { CollectionConceptsUpdateComponent } from './AR/collectionConcepts/update-collectionconcepts/update-collectionconcepts.component';
+import { PaymentTermsListComponent } from './AR/paymentTerms/payment-terms-list/payment-terms-list.component';
+import { UpdatePaymentTermsComponent } from './AR/paymentTerms/update-payment-terms/update-payment-terms.component';
+import { CreatePaymentTermsComponent } from './AR/paymentTerms/create-payment-terms/create-payment-terms.component';
+import { PaymentTermsDetailsComponent } from './AR/paymentTerms/payment-terms-details/payment-terms-details.component';
 
 
 
@@ -1056,6 +1064,87 @@ const routes: Routes = [
           {
             path: 'update-customer/:id',
             loadChildren: () => import('./customer/update-customer/update-customer.module').then(module => module.UpdateCustomerModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CollectionConceptsListComponent,
+        children: [
+          {
+            path: 'collectionconcepts-list',
+            loadChildren: () => import('./AR/collectionConcepts/collectionconcepts-list/collection-concepts-list.module').then(module => module.CollectionConceptsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CollectionConceptsDetailsComponent,
+        children: [
+          {
+            path: 'collectionconcepts-details/:id',
+            loadChildren: () => import('./AR/collectionConcepts/collectionconcepts-details/collection-conceptsdetails.module').then(module => module.CollectionConceptsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CollectionConceptsCreateComponent,
+        children: [
+          {
+            path: 'create-collection-concepts',
+            loadChildren: () => import('./AR/collectionConcepts/create-collectionconcepts/create-collection-concepts.module').then(module => module.CollectionConceptsCreateModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CollectionConceptsUpdateComponent,
+        children: [
+          {
+            path: 'update-collectionconcepts/:id',
+            loadChildren: () => import('./AR/collectionConcepts/update-collectionconcepts/update-collection-concepts.module').then(module => module.CollectionConceptsUpdateModule)
+          }
+        ]
+      },
+      //////////////////
+      {
+        path: '',
+        component: PaymentTermsListComponent,
+        children: [
+          {
+            path: 'payment-terms-list',
+            loadChildren: () => import('./AR/paymentTerms/payment-terms-list/payment-terms-list.module').then(module => module.PaymentTermsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: PaymentTermsDetailsComponent,
+        children: [
+          {
+            path: 'payment-terms-details/:id',
+            loadChildren: () => import('./AR/paymentTerms/payment-terms-details/payment-terms-details.module').then(module => module.PaymentTermsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreatePaymentTermsComponent,
+        children: [
+          {
+            path: 'create-payment-terms',
+            loadChildren: () => import('./AR/paymentTerms/create-payment-terms/create-payments-terms.module').then(module => module.CreatePaymentTermsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdatePaymentTermsComponent,
+        children: [
+          {
+            path: 'update-payment-terms/:id',
+            loadChildren: () => import('./AR/paymentTerms/update-payment-terms/update-payment-terms.module').then(module => module.UpdatePaymentTermsModule)
           }
         ]
       },

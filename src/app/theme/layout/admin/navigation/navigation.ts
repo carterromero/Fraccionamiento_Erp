@@ -363,10 +363,10 @@ const NavigationItemss = [
               
             },
             {
-              id: 'bankAccounts',
+              id: 'concepts',
               title: 'Terminos de pago',
               type: 'item',            
-              url: '/'
+              url: '/collectionconcepts-list'
               
             },
             {
@@ -374,6 +374,13 @@ const NavigationItemss = [
               title: 'Cuentas de Deposito',
               type: 'item',            
               url: '/deposit-account-list'
+              
+            },
+            {
+              id: 'payments',
+              title: 'condiciones de pago',
+              type: 'item',            
+              url: '/paymentterms-list'
               
             },
             {
