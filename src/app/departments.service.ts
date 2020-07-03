@@ -19,6 +19,11 @@ export class DepartmentsService {
     return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_INSERT_DEPARTME/1.0/insertdepartments`, department,{headers});
   }
 
+  getDepartmentR(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_REPORT_DEPARTME/1.0/reportDepa`,{headers});
+  }
+
   getDepartment(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GETONE_DEPARTME/1.0/onedepartments/${id}`,{headers});

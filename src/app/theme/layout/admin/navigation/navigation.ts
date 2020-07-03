@@ -481,16 +481,28 @@ const NavigationItemss = [
           },
           {
             id: 'rh-reports',
-            title: 'Reports',
+            title: 'Reportes',
             type: 'collapse',
             icon: 'feather icon-user',
             children: [
               {
                  id: 'rh-reports',
-                title: 'Reportes',
+                title: 'Reporte viviendas',
                 type: 'item',            
                 url: '/tagvivienda-list'
-              }               
+              },
+              {
+                id: 'rh-reports',
+               title: 'Reporte empleados',
+               type: 'item',            
+               url: '/reportemployee-list'
+             },
+             {
+              id: 'rh-reports',
+             title: 'Reporte departamento',
+             type: 'item',            
+             url: '/departmentsr-list'
+           }                           
             ]
           },
         ]

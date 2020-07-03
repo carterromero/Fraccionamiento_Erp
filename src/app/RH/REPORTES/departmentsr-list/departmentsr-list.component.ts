@@ -2,34 +2,34 @@ import { Component, OnInit, Query } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as jsPDF from 'jspdf';
-import { Employee } from 'src/app/employee';
-import { EmployeeService } from 'src/app/employee.service';
+import { Departments } from 'src/app/departments';
+import { DepartmentsService } from 'src/app/departments.service';
 
 @Component({
-  selector: 'app-repor-employee-list',
-  templateUrl: './repor-employee-list.component.html',
-  styleUrls: ['./repor-employee-list.component.scss']
+  selector: 'deparmentsr-list',
+  templateUrl: './deparmentsr-list.component.html',
+  styleUrls: ['./deparmentsr-list.component.scss']
 })
-export class ReporEmployeeListComponent implements OnInit {
-  employees: Observable<Employee[]>;
+export class DepartmentsRListComponent implements OnInit {
+  deparments: Observable<Departments[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private employeeService: EmployeeService,
+  constructor(private departmenService: DepartmentsService,
     private router: Router) { }
-filterPost = '';
-  ngOnInit(): void {
- //   this.reloadData();
+    filterPost = '';
+    ngOnInit(): void {
+    this.reloadData();
      // this.reloadData();
   }
   
-    /* reloadData() {
+  reloadData() {
     
- this.employeeService.getAgreementRep().subscribe(
+    this.departmenService.getDepartmentR().subscribe(
       data => {
-        this.employees = this.employeeService.getAgreementRep();
+        this.deparments = this.departmenService.getDepartmentR();
       },
       error => {
         console.log(error);   
@@ -45,18 +45,18 @@ filterPost = '';
 
 
   getAgreement(date: string){
-    this.router.navigate(['tagvivienda-list', date]);
+    this.router.navigate(['deparmentsr-list', date]);
   }
 
 
 
   imprimirLista(){
     const doc = new jsPDF
-    doc.text(10, 10, 'REPORTE VIVIENDAS INTERNAS ');
-    doc.fromHTML(document.getElementById('frmViviendas'),20,20);
+    doc.text(10, 10, 'REPORTE DEPARTAMENTOS');
+    doc.fromHTML(document.getElementById('frmDepartment'),20,20);
    //doc.addPage();
     //doc.text(20, 20, 'Hello world!');
-    doc.save('Lista de viviendas');
+    doc.save('Lista de departamentos');
   }
 
 
@@ -65,7 +65,7 @@ filterPost = '';
   return ref.where('status','=',1);
   else
   return ref.where('status','=',1);
-  }*/
+  }
 
 
 }

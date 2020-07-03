@@ -1,0 +1,55 @@
+<p>repor-employee-list works!</p>
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle=" REPORTE EMPLEADOS " blockClass="table-border-style">  
+        <button (click)="imprimirLista()"   class="btn btn-outline-primary" >Generar pdf</button>
+      <div>
+          <label for="name"> REPORTE EMPLEADOS</label>
+          </div>
+          <br>
+        <div id="frmEmployee"  class="table-responsive">
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Tipo</label>
+        <select  class="custom-select"  id="p_q" required [(ngModel)]="p_q" name="p_q" >
+        <option  value="quincenal">Quincenal</option>
+        <option  value="semanal">Semanal</option>
+        </select>
+    </div>  
+          <table class="table">
+            <thead>
+            <tr>              
+              <th>Id Empleado</th>
+              <th>Nombre </th>
+              <th>Apellido paterno </th>
+              <th>Apellido materno</th>
+              <th>Departamento</th>
+              <th>Puesto</th>
+              <th>Fecha Contratacion</th>
+              <th>Fecha Fin</th>
+              <th>Salario neto</th>
+              <th>Tipo nomina</th>
+              <th>Activo/Inactivo</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let employee of employees | async   " >
+                    <td>{{employee.employees_id}}</td>
+                    <td>{{employee.employees_name}}</td> 
+                    <td>{{employee.employees_father_surname}}</td>
+                    <td>{{employee.employees_mother_surname}}</td>
+                    <td>{{employee.departments_name}}</td>
+                    <td>{{employee.workplaces_name}}</td>
+                    <td>{{employee.employees_work_start_date}}</td>
+                    <td>{{employee.employees_work_end_date}}</td>
+                    <td>{{employee.pr_receipt_base_salary}}</td>
+                    <td>{{employee.pr_receipt_type_of_perception}}</td>
+                    <td>{{employee.employees_status}}</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

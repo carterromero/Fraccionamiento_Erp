@@ -129,6 +129,8 @@ import { ReservationsListComponent } from './RH/Reservations/reservations-list/r
 import { UpdateReservationsComponent } from './RH/Reservations/update-reservations/update-reservations.component';
 import { ReservationsDetailsComponent } from './RH/Reservations/reservations-details/reservations-details.component';
 import { TagviviendaListComponent } from './RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.component';
+import { ReportEmployeeListComponent } from './RH/REPORTES/reportemployee-list/reportemployee-list.component';
+import { DepartmentsRListComponent } from './RH/REPORTES/departmentsr-list/departmentsr-list.component';
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
 import { TransactionDetailsComponent } from './admin/transaction/transaction-details/transaction-details.component';
@@ -308,6 +310,26 @@ const routes: Routes = [
           {
             path: 'tagvivienda-list',
             loadChildren: () => import('./RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.module').then(module => module.TagviviendaListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ReportEmployeeListComponent,
+        children: [
+          {
+            path: 'reportemployee-list',
+            loadChildren: () => import('./RH/REPORTES/reportemployee-list/reportemployee-list.module').then(module => module.ReportEmployeeListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: DepartmentsRListComponent,
+        children: [
+          {
+            path: 'departmentsr-list',
+            loadChildren: () => import('./RH/REPORTES/departmentsr-list/departmentsr-list.module').then(module => module.DepartmentsrListModule)
           }
         ]
       },
