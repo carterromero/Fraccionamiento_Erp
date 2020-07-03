@@ -128,7 +128,7 @@ import { CreateReservationsComponent } from './RH/Reservations/create-reservatio
 import { ReservationsListComponent } from './RH/Reservations/reservations-list/reservations-list.component';
 import { UpdateReservationsComponent } from './RH/Reservations/update-reservations/update-reservations.component';
 import { ReservationsDetailsComponent } from './RH/Reservations/reservations-details/reservations-details.component';
-
+import { TagviviendaListComponent } from './RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.component';
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
 import { TransactionDetailsComponent } from './admin/transaction/transaction-details/transaction-details.component';
@@ -298,6 +298,16 @@ const routes: Routes = [
           {
             path: 'update-employee/:id',
             loadChildren: () => import('./employee/update-employee/update-employee.module').then(module => module.UpdateEmployeeModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: TagviviendaListComponent,
+        children: [
+          {
+            path: 'tagvivienda-list',
+            loadChildren: () => import('./RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.module').then(module => module.TagviviendaListModule)
           }
         ]
       },

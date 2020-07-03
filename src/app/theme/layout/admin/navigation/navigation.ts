@@ -434,7 +434,6 @@ const NavigationItemss = [
                 title: 'Empleados',
                 type: 'item',            
                 url: '/employee-list'
-                
               }               
             ]
           },
@@ -449,7 +448,6 @@ const NavigationItemss = [
                 title: 'Registrar contrato',
                 type: 'item',            
                 url: '/agreements-list'
-                
               }               
             ]
           },
@@ -464,7 +462,6 @@ const NavigationItemss = [
                 title: 'Crear Inquilinos',
                 type: 'item',            
                 url: '/tenants-list'
-                
               }               
             ]
           },
@@ -479,7 +476,20 @@ const NavigationItemss = [
                 title: 'Reservaciones',
                 type: 'item',            
                 url: '/reservations-list'
-                
+              }               
+            ]
+          },
+          {
+            id: 'rh-reports',
+            title: 'Reports',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-reports',
+                title: 'Reportes',
+                type: 'item',            
+                url: '/tagvivienda-list'
               }               
             ]
           },
