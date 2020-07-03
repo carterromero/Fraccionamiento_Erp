@@ -13,7 +13,6 @@ import { GeneralDetailsComponent } from './general/general-details/general-detai
 import { UpdateGeneralComponent } from './general/update-general/update-general.component';
 
 
-
 import { CreditorListComponent } from './AP/ap_creditor/creditor-list/creditor-list.component';
 import { CreateCreditorComponent } from './AP/ap_creditor/create-creditor/create-creditor.component';
 import { CategoriesListComponent } from './inventarios/categories/categories-list/categories-list.component';
@@ -130,6 +129,7 @@ import { UpdateReservationsComponent } from './RH/Reservations/update-reservatio
 import { ReservationsDetailsComponent } from './RH/Reservations/reservations-details/reservations-details.component';
 import { TagviviendaListComponent } from './RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.component';
 import { ReportEmployeeListComponent } from './RH/REPORTES/reportemployee-list/reportemployee-list.component';
+import { DepartmentsRListComponent }  from './RH/REPORTES/departmentsr-list/departmentsr-list.component';
 
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
@@ -320,6 +320,16 @@ const routes: Routes = [
           {
             path: 'reportemployee-list',
             loadChildren: () => import('./RH/REPORTES/reportemployee-list/reportemployee-list.module').then(module => module.ReportEmployeeListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: DepartmentsRListComponent,
+        children: [
+          {
+            path: 'departmentsr-list',
+            loadChildren: () => import('./RH/REPORTES/departmentsr-list/departmentsr-list.module').then(module => module.DepartmentsRListModule)
           }
         ]
       },

@@ -6,4 +6,5 @@ export class Departments {
     last_update: Date;
     create_by: number;
     last_update_by: number;
+    workplaces_name: string;
 }
