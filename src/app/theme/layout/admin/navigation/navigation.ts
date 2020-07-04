@@ -643,6 +643,20 @@ const NavigationItemss = [
             url: '/master_inventarys-list'
             
           }, 
+          {
+            id: 'status',
+            title: 'Estatus Articulos',
+            type: 'item',            
+            url: '/status-articles-list'
+            
+          },
+          {
+            id: 'precios',
+            title: 'Precios',
+            type: 'item',            
+            url: '/status-precios-list'
+            
+          }
         ]
       },
       {

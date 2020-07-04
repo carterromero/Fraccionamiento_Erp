@@ -215,6 +215,8 @@ import { CreatePaymentTermsComponent } from './AR/paymentTerms/create-payment-te
 import { PaymentTermsDetailsComponent } from './AR/paymentTerms/payment-terms-details/payment-terms-details.component';
 import { CollectionDetailsComponent } from './collection/collection-details/collection-details.component';
 import { UpdatecollectionComponent } from './collection/update-collection/update-collection.component';
+import { StatusListComponent } from './inventarios/status/status-list/status-list.component';
+import { CreateStatusComponent } from './inventarios/status/create-status/create-status.component';
 
 
 
@@ -2422,10 +2424,6 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./treasury/transfers/transfers-list/transfers-list.module').then(module => module.TransfersListModule)
           }
         ]
-
-
-
-
       }
       ,
 
@@ -2544,6 +2542,38 @@ component: CreateTransfersComponent,
           }
         ]
       },
+      {
+        path: '',
+        component: StatusListComponent,
+        children: [
+          {
+            path: 'status-articles-list',
+            loadChildren: () => import('./inventarios/status/status-list/status-list.module').then(module => module.StatusListModule)
+          }
+        ]
+      },
+
+     
+      {
+        path: '',
+        component: CreateStatusComponent,
+        children: [
+          {
+            path: 'status-create',
+            loadChildren: () => import('./inventarios/status/create-status/create-status.module').then(module => module.CreateStatusModule)
+          }
+        ]
+
+
+
+      }
+,
+
+
+
+
+
+      
       {
         path: '',
         component: TransactionsentrysListComponent,
