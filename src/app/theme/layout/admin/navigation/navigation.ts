@@ -370,22 +370,22 @@ const NavigationItemss = [
               
             },
             {
-              id: 'depositAccount',
-              title: 'Cuentas de Deposito',
+              id: 'collectionconcept',
+              title: 'conceptos de pago',
               type: 'item',            
               url: '/deposit-account-list'
               
             },
             {
               id: 'payments',
-              title: 'condiciones de pago',
+              title: 'Condiciones de pago',
               type: 'item',            
               url: '/paymentterms-list'
               
             },
             {
               id: 'collection',
-              title: 'Colección',
+              title: 'Cobro',
               type: 'item',            
               url: '/collection-list'
               

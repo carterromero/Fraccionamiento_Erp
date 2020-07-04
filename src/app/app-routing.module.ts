@@ -213,6 +213,8 @@ import { PaymentTermsListComponent } from './AR/paymentTerms/payment-terms-list/
 import { UpdatePaymentTermsComponent } from './AR/paymentTerms/update-payment-terms/update-payment-terms.component';
 import { CreatePaymentTermsComponent } from './AR/paymentTerms/create-payment-terms/create-payment-terms.component';
 import { PaymentTermsDetailsComponent } from './AR/paymentTerms/payment-terms-details/payment-terms-details.component';
+import { CollectionDetailsComponent } from './collection/collection-details/collection-details.component';
+import { UpdatecollectionComponent } from './collection/update-collection/update-collection.component';
 
 
 
@@ -1024,6 +1026,26 @@ const routes: Routes = [
           {
             path: 'create-collection',
             loadChildren: () => import('./collection/create-collection/create-collection.module').then(module => module.createcollectionModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CollectionDetailsComponent,
+        children: [
+          {
+            path: 'collection-details/:id',
+            loadChildren: () => import('./collection/collection-details/collection-details.module').then(module => module.CollectionDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdatecollectionComponent,
+        children: [
+          {
+            path: 'update-collection/:id',
+            loadChildren: () => import('./collection/update-collection/update-collection.module').then(module => module.UpdatecollectionModule)
           }
         ]
       },
