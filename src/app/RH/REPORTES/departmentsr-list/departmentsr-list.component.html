@@ -1,0 +1,34 @@
+<p>departmentsr-list works!</p>
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle=" REPORTE DEPARTAMENTOS " blockClass="table-border-style">  
+        <button (click)="imprimirLista()"   class="btn btn-outline-primary" >Generar pdf</button>
+      <div>
+          <label for="name"> REPORTE DEPARTAMENTOS</label>
+          </div>
+          <br>
+        <div id="frmDepartment"  class="table-responsive">
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+          <table class="table">
+            <thead>
+            <tr>              
+              <th>Id departamento</th>
+              <th>Nombre departamento </th>
+              <th>Nombre puesto </th>
+              <th>Activo/Inactivo</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let department of departments | async   " >
+                    <td>{{department.departments_id}}</td>
+                    <td>{{department.departments_name}}</td>
+                    <td>{{department.workplaces_name}}</td>
+                    <td>{{department.departments_status}}</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

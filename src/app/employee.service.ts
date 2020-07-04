@@ -16,17 +16,17 @@ export class EmployeeService {
 
   createEmployee(employee: Object): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_INSERT_EMPLOYEE/1.0/employees`, employee,{headers});
+    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_INSERT_EMPLOYEE/1.0/employees`, employee,{headers});
   }
 
   getEmployee(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ONE_EMPLOY/1.0/employees/${id}`,{headers});
   }
-
+  
   updateEmployee(id: number, value: any): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_UPDATE_EMPLOYEE/1.0/employees/${id}`, value,{headers});
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_UPDATE_EMPLOYEE/1.0/employees/${id}`, value,{headers});
   }
 
   deleteEmployee(id: number): Observable<any> {
@@ -38,4 +38,10 @@ export class EmployeeService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ALL_EMPLOY/1.0/employees`,{headers});
   }
+    
+  getReporEmployee(p_q: string): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_REPORT_EMPLOYEE/1.0/report_employee/${p_q}`,{headers});
+  }
+
 }

@@ -1,10 +1,9 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <app-card cardTitle="FACTURA Detalle" [options]="false">
-        <div *ngIf="employee">
+        <div  id="from-informacion" *ngIf="employee">
 
-          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
-          
+        
           <div>
             <label><b>Total pagado: </b></label> {{employee.payment_record_amount}}
           </div>
@@ -24,6 +23,10 @@
         </div>
         <br>
         <button [routerLink]="['/payment-record-list']" class="btn btn-outline-primary">Regresar</button><br>
+        <button type="button"   class="btn btn-outline-primary" (click)="imprimirLista()">Imprimir pdf reporte </button>
+     
       </app-card>
+
       </div>
   </div>
+    

@@ -1,64 +1,53 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
-        <app-card cardTitle="collection Detalle" [options]="false">
-            <div *ngIf="collection">
+        <app-card cardTitle="Cobro Detalle" [options]="false">
+            <div *ngIf="employee">
 
                 <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
                 <div>
-                    <label><b>collection_id: </b></label> {{collection.collection_id}}
+                    <label><b>collection_id: </b></label> {{employee.collection_id}}
                 </div>
                 <div>
-                    <label><b>collection_transaction_type: </b></label> {{collection.collection_transaction_type}}
+                    <label><b>collection_transaction_type: </b></label> {{employee.collection_transaction_type}}
                 </div>
                 <div>
-                    <label><b>collection_name_resident: </b></label> {{collection.collection_name_resident}}
+                    <label><b>collection_name_resident: </b></label> {{employee.collection_name_resident}}
                 </div>
                 <div>
-                    <label><b>collection_payment_term: </b></label> {{collection.collection_payment_term}}
-                </div>
-
-                <div>
-                    <label><b>collection_collection_concept: </b></label> {{collection.collection_collection_concept}}
+                    <label><b>collection_payment_term: </b></label> {{employee.collection_payment_term}}
                 </div>
 
                 <div>
-                    <label><b>collection_amount: </b></label> {{collection.collection_amount}}
+                    <label><b>collection_collection_concept: </b></label> {{employee.collection_collection_concept}}
+                </div>
+
+                <div>
+                    <label><b>collection_amount: </b></label> {{employee.collection_amount}}
                 </div>
                 <div>
-                    <label><b>collection_referral_address: </b></label> {{collection.collection_referral_address}}
+                    <label><b>collection_referral_address: </b></label> {{employee.collection_referral_address}}
                 </div>
                 <div>
-                    <label><b>condominums_id: </b></label> {{collection.condominums_id}}
+                    <label><b>condominums_id: </b></label> {{employee.condominums_id}}
+                </div>
+                
+                <div>
+                    <label><b>customer_customer_id: </b></label> {{employee.customer_customer_id}}
                 </div>
                 <div>
-                    <label><b>created_by: </b></label> {{collection.created_by}}
+                    <label><b>payment_terms_id: </b></label> {{employee.payment_terms_id}}
                 </div>
                 <div>
-                    <label><b>create_date: </b></label> {{collection.create_date}}
+                    <label><b>referral_address_id: </b></label> {{employee.referral_address_id}}
                 </div>
                 <div>
-                    <label><b>last_updated_by: </b></label> {{collection.last_updated_by}}
+                    <label><b>transaction_types_id: </b></label> {{employee.transaction_types_id}}
                 </div>
                 <div>
-                    <label><b>last_updated_date: </b></label> {{collection.last_updated_date}}
+                    <label><b>payments_id: </b></label> {{employee.payments_id}}
                 </div>
                 <div>
-                    <label><b>customer_customer_id: </b></label> {{collection.customer_customer_id}}
-                </div>
-                <div>
-                    <label><b>payment_terms_id: </b></label> {{collection.payment_terms_id}}
-                </div>
-                <div>
-                    <label><b>referral_address_id: </b></label> {{collection.referral_address_id}}
-                </div>
-                <div>
-                    <label><b>transaction_types_id: </b></label> {{collection.transaction_types_id}}
-                </div>
-                <div>
-                    <label><b>payments_id: </b></label> {{collection.payments_id}}
-                </div>
-                <div>
-                    <label><b>purcharse_id: </b></label> {{collection.purcharse_id}}
+                    <label><b>purcharse_id: </b></label> {{employee.purcharse_id}}
                 </div>
 
                 <div>
@@ -66,13 +55,13 @@
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="collection_status"
                             name="collection_status" style="margin-left: 10px"
-                            [checked]="collection.collection_status == 'true'">
+                            [checked]="employee.collection_status == 'true'">
                         <label class="custom-control-label" for="collection_status">Active</label>
                     </div>
                 </div>
             </div>
             <br>
-            <button [routerLink]="['/legals-list']" class="btn btn-primary">Regresar a Empresas</button><br>
+            <button [routerLink]="['/collection-list']" class="btn btn-primary">Regresar a Pagos</button><br>
         </app-card>
     </div>
 </div>

@@ -3,6 +3,8 @@ import { EmployeeService } from '../../employee.service';
 import { Employee } from '../../employee';
 import { Router } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-create-employee',
   templateUrl: './create-employee.component.html',
@@ -13,16 +15,19 @@ export class CreateEmployeeComponent implements OnInit {
   employee: Employee = new Employee();
   submitted = false;
 
+
   constructor(private employeeService: EmployeeService,
     private router: Router) { }
 
   ngOnInit() {
     //code
+   
   }
 
   newEmployee(): void {
     this.submitted = false;
     this.employee = new Employee();
+
   }
 
   save() {
