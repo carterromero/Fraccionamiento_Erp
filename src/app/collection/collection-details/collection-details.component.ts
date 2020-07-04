@@ -8,7 +8,7 @@ import { CollectionService } from 'src/app/collection.service';
   templateUrl: './collection-details.component.html',
   styleUrls: ['./collection-details.component.scss']
 })
-export class collectionDetailsComponent implements OnInit {
+export class CollectionDetailsComponent implements OnInit {
 
   id: number;
   collection: collection;

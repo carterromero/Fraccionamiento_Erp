@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
-        <app-card cardTitle="collection Detalle" [options]="false">
+        <app-card cardTitle="Cobro Detalle" [options]="false">
             <div *ngIf="collection">
 
                 <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
@@ -30,18 +30,7 @@
                 <div>
                     <label><b>condominums_id: </b></label> {{collection.condominums_id}}
                 </div>
-                <div>
-                    <label><b>created_by: </b></label> {{collection.created_by}}
-                </div>
-                <div>
-                    <label><b>create_date: </b></label> {{collection.create_date}}
-                </div>
-                <div>
-                    <label><b>last_updated_by: </b></label> {{collection.last_updated_by}}
-                </div>
-                <div>
-                    <label><b>last_updated_date: </b></label> {{collection.last_updated_date}}
-                </div>
+                
                 <div>
                     <label><b>customer_customer_id: </b></label> {{collection.customer_customer_id}}
                 </div>
@@ -72,7 +61,7 @@
                 </div>
             </div>
             <br>
-            <button [routerLink]="['/legals-list']" class="btn btn-primary">Regresar a Empresas</button><br>
+            <button [routerLink]="['/collection-list']" class="btn btn-primary">Regresar a Pagos</button><br>
         </app-card>
     </div>
 </div>

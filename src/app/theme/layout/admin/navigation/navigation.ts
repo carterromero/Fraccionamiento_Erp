@@ -363,22 +363,29 @@ const NavigationItemss = [
               
             },
             {
-              id: 'bankAccounts',
+              id: 'concepts',
               title: 'Terminos de pago',
               type: 'item',            
-              url: '/'
+              url: '/collectionconcepts-list'
               
             },
             {
-              id: 'depositAccount',
-              title: 'Cuentas de Deposito',
+              id: 'collectionconcept',
+              title: 'conceptos de pago',
               type: 'item',            
               url: '/deposit-account-list'
               
             },
             {
+              id: 'payments',
+              title: 'Condiciones de pago',
+              type: 'item',            
+              url: '/paymentterms-list'
+              
+            },
+            {
               id: 'collection',
-              title: 'Colección',
+              title: 'Cobro',
               type: 'item',            
               url: '/collection-list'
               
