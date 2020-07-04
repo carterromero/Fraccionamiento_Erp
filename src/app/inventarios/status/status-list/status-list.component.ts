@@ -52,11 +52,11 @@ export class StatusListComponent implements OnInit {
   }
 
   generalDetails(id: number){
-    this.router.navigate(['supplier-details', id]);
+    this.router.navigate(['status-details',id]);
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-supplier', id]);
+    this.router.navigate(['update-status', id]);
   }
 
 }

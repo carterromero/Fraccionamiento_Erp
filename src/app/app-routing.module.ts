@@ -217,6 +217,8 @@ import { CollectionDetailsComponent } from './collection/collection-details/coll
 import { UpdatecollectionComponent } from './collection/update-collection/update-collection.component';
 import { StatusListComponent } from './inventarios/status/status-list/status-list.component';
 import { CreateStatusComponent } from './inventarios/status/create-status/create-status.component';
+import { StatusDetailsComponent } from './inventarios/status/status-details/status-details.component';
+import { UpdateStatusComponent } from './inventarios/status/update-status/update-status.component';
 
 
 
@@ -2563,17 +2565,32 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./inventarios/status/create-status/create-status.module').then(module => module.CreateStatusModule)
           }
         ]
-
-
-
       }
 ,
+{
+  path: '',
+  component: StatusDetailsComponent,
+  children: [
+    {
+      path: 'status-details/:id',
+      loadChildren: () => import('./inventarios/status/status-details/status-details.module').then(module => module.StatusDetailsModule)
+    }
+  ]
+},
+{
+  path: '',
+  component: UpdateStatusComponent,
+  children: [
+    {
+      path: 'update-status/:id',
+      loadChildren: () => import('./inventarios/status/update-status/update-status.module').then(module => module.UpdateStatusModule)
+    }
+  ]
+},
 
 
 
 
-
-      
       {
         path: '',
         component: TransactionsentrysListComponent,
