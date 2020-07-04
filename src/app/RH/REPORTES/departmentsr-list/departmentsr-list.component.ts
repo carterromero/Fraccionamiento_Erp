@@ -1,4 +1,4 @@
-import { Component, OnInit, Query } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as jsPDF from 'jspdf';
@@ -19,14 +19,12 @@ export class DepartmentsRListComponent implements OnInit {
 
   constructor(private departmentService: DepartmentsService,
     private router: Router) { }
-filterPost = '';
-  ngOnInit(): void {
+    filterPost = '';
+    ngOnInit(): void {
     this.reloadData();
-     // this.reloadData();
   }
   
   reloadData() {
-    
     this.departmentService.getDepartmentR().subscribe(
       data => {
         this.departments = this.departmentService.getDepartmentR();
@@ -43,12 +41,9 @@ filterPost = '';
       
   }
 
-
-  getAgreement(){
-    this.router.navigate(['tagvivienda-list']);
+  getDepartmentR(){
+    this.router.navigate(['departmentsr-list']);
   }
-
-
 
   imprimirLista(){
     const doc = new jsPDF
@@ -58,15 +53,6 @@ filterPost = '';
     //doc.text(20, 20, 'Hello world!');
     doc.save('Lista de departamentos');
   }
-
-
-  query(ref,value:boolean){
-  if (value)
-  return ref.where('status','=',1);
-  else
-  return ref.where('status','=',1);
-  }
-
 
 }
 
