@@ -121,22 +121,36 @@ const NavigationItemss = [
         id: 'gl_catalogs',
         title: 'Catalogos',
         type: 'collapse',
-        icon: 'feather icon-monitor',
+        icon: 'feather icon-layout',
         children: [
           {
             id: 'periods-list',
-            title: 'Periods List',
+            title: 'Periodos',
             type: 'item',            
             url: '/periods-list'
             
-          }                    
+          }   , 
+          {
+            id: 'accounts-list',
+            title: 'Contablilidad Cuentas',
+            type: 'item',            
+            url: '/accounts-list'
+            
+          }   , 
+          {
+            id: 'accounts-list',
+            title: 'Contablilidad cuenta lineas',
+            type: 'item',            
+            url: '/lines-list'
+            
+          }                
         ]
       },
       {
         id: 'gl_operatios',
         title: 'Operación',
         type: 'collapse',
-        icon: 'feather icon-monitor',
+        icon: 'feather icon-file-text',
         children: [
           {
             id: 'periods-list',
@@ -151,7 +165,7 @@ const NavigationItemss = [
         id: 'gl_reports',
         title: 'Reportes',
         type: 'collapse',
-        icon: 'feather icon-monitor',
+        icon: 'feather icon-server',
         children: [
           {
             id: 'periods-list',
