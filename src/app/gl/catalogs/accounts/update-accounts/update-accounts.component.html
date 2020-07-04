@@ -1,0 +1,55 @@
+<p>update-accounts works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Actualizar " [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">condominio id</label>
+              <input type="text" class="form-control" id="accounting_accounts_condominums_id"  [(ngModel)]="employee.accounting_accounts_condominums_id" name="accounting_accounts_condominums_id" required>
+            </div>      
+            <div class="form-group">
+              <label for="name">codigo de moneda</label>
+              <input type="text" class="form-control" id="accounting_accounts_currency_code"  [(ngModel)]="employee.accounting_accounts_currency_code" name="accounting_accounts_currency_code" required>
+            </div>  
+            <div class="form-group">
+              <label for="name">periodo id</label>
+              <input type="text" class="form-control" id="accounting_accounts_period_id"  [(ngModel)]="employee.accounting_accounts_period_id" name="accounting_accounts_period_id" required>
+            </div>
+            <div class="form-group">
+                <label for="name">año fiscal</label>
+                <input type="text" class="form-control" id="accounting_accounts_fiscal_year"  [(ngModel)]="employee.accounting_accounts_fiscal_year" name="accounting_accounts_fiscal_year" required>
+            </div>
+            <div class="form-group">
+              <label for="name">ultima actualizacion por;</label>
+              <input type="text" class="form-control" id="last_updated_by"  [(ngModel)]="employee.last_updated_by" name="last_updated_by" required>
+          </div>
+            <div class="form-group">
+                <label for="name">Estatus</label> 
+
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="accounting_accounts_status"  [(ngModel)]="employee.accounting_accounts_status"     name="accounting_accounts_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="accounting_accounts_status">Active</label>
+                 </div>
+            </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Autualizar </h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de actualizar </p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+          <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>          
+          <button [routerLink]="['/accounts-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

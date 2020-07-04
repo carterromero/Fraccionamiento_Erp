@@ -1,0 +1,51 @@
+<p>lines-details works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle=" Cuenta Detalle" [options]="false">
+        <div *ngIf="employee">
+
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <div>
+            <label><b>id cuenta lineas</b></label> {{employee.accounting_accounts_lines_id}}
+          </div>
+          <div>
+            <label><b>id cuenta</b></label> {{employee.accounting_accounts_id}}
+          </div>
+          <div>
+            <label><b>lineas parent _1</b></label> {{employee.accounting_accounts_lines_parent_1}}
+          </div>
+          <div>
+            <label><b>lineas parent _2</b></label> {{employee.accounting_accounts_lines_parent_2}}
+          </div>
+
+          <div>
+            <label><b>lineas parent _3</b></label> {{employee.accounting_accounts_lines_parent_3}}
+          </div>
+
+          <div>
+            <label><b>lineas children </b></label> {{employee.accounting_accounts_lines_children}}
+          </div>
+          <div>
+            <label><b>lineas descripcion</b></label> {{employee.accounting_accounts_lines_description}}
+          </div>
+          <div>
+            <label><b>lineas tipos id </b></label> {{employee.accounting_accounts_types_id}}
+          </div>
+          <div>
+            <label><b>lineas name </b></label> {{employee.accounting_accounts_types_name}}
+          </div>
+
+
+          <div>
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="accounting_accounts_lines_status"  name="accounting_accounts_lines_status"   style="margin-left: 10px" [checked]="employee.accounting_accounts_lines_status == 'true'">
+            <label class="custom-control-label" for="accounting_accounts_lines_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/accounts-list']" class="btn btn-outline-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>

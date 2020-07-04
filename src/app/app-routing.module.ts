@@ -203,6 +203,14 @@ import { CustomerDetailsComponent } from './customer/customer-details/customer-d
 import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
 import { UpdateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/update-unit-of-measures/update-unit-of-measures.component';
 import { CreateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/create-unit-of-measures/create-unit-of-measures.component';
+import { AccountsListComponent } from './gl/catalogs/accounts/accounts-list/accounts-list.component';
+import { CreateAccountsComponent } from './gl/catalogs/accounts/create-accounts/create-accounts.component';
+import { AccountsDetailsComponent } from './gl/catalogs/accounts/accounts-details/accounts-details.component';
+import { UpdateAccountsComponent } from './gl/catalogs/accounts/update-accounts/update-accounts.component';
+import { LinesListComponent } from './gl/catalogs/lines/lines-list/lines-list.component';
+import { CreateLinesComponent } from './gl/catalogs/lines/create-lines/create-lines.component';
+import { LinesDetailsComponent } from './gl/catalogs/lines/lines-details/lines-details.component';
+import { UpdateLinesComponent } from './gl/catalogs/lines/update-lines/update-lines.component';
 
 
 
@@ -628,6 +636,86 @@ const routes: Routes = [
           {
             path: 'update-periods/:id',
             loadChildren: () => import('./gl/catalogs/periods/update-periods/update-periods.module').then(module => module.UpdatePeriodsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: AccountsListComponent,
+        children: [
+          {
+            path: 'accounts-list',
+            loadChildren: () => import('./gl/catalogs/accounts/accounts-list/accounts-list.module').then(module => module.AccountsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateAccountsComponent,
+        children: [
+          {
+            path: 'create-accounts',
+            loadChildren: () => import('./gl/catalogs/accounts/create-accounts/create-accounts.module').then(module => module.CreateAccountsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: AccountsDetailsComponent,
+        children: [
+          {
+            path: 'accounts-details/:p_id',
+            loadChildren: () => import('./gl/catalogs/accounts/accounts-details/accounts-details.module').then(module => module.AccountsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateAccountsComponent,
+        children: [
+          {
+            path: 'update-accounts/:p_id',
+            loadChildren: () => import('./gl/catalogs/accounts/update-accounts/update-accounts.module').then(module => module.UpdateAccountsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: LinesListComponent,
+        children: [
+          {
+            path: 'lines-list',
+            loadChildren: () => import('./gl/catalogs/lines/lines-list/lines-list.module').then(module => module.LinesListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateLinesComponent,
+        children: [
+          {
+            path: 'create-lines',
+            loadChildren: () => import('./gl/catalogs/lines/create-lines/create-lines.module').then(module => module.CreateLinesModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: LinesDetailsComponent,
+        children: [
+          {
+            path: 'lines-details/:p_id',
+            loadChildren: () => import('./gl/catalogs/lines/lines-details/lines-details.module').then(module => module.LinesDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateLinesComponent,
+        children: [
+          {
+            path: 'update-lines/:p_id',
+            loadChildren: () => import('./gl/catalogs/lines/update-lines/update-lines.module').then(module => module.UpdateLinesModule)
           }
         ]
       },
