@@ -666,16 +666,15 @@ const NavigationItemss = [
         ]
       }
     ]
-  }
-  
+  }  
 ];
-
 
 
 @Injectable()
 export class NavigationItem 
 {
-  public get() {
+  public get() 
+  {
     return NavigationItemss;
   }
 }
