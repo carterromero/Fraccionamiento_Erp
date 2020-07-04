@@ -354,7 +354,6 @@ const NavigationItemss = [
               url: '/customer-list'
               
             },
-    
             {
               id: 'Direction',
               title: 'Direccion de remison',
@@ -363,26 +362,34 @@ const NavigationItemss = [
               
             },
             {
-              id: 'concepts',
+              id: 'paymentsterms',
               title: 'Terminos de pago',
+              type: 'item',            
+              url: '/payment-terms-list'
+              
+            },
+            {
+              id: 'concepts',
+              title: 'Conceptos de colection',
               type: 'item',            
               url: '/collectionconcepts-list'
               
             },
             {
+              id: 'transactiontypes',
+              title: 'Tipo de transaccion',
+              type: 'item',            
+              url: '/'
+              
+            },
+            {
               id: 'collectionconcept',
-              title: 'conceptos de pago',
+              title: 'Conceptos de pago',
               type: 'item',            
               url: '/deposit-account-list'
               
             },
-            {
-              id: 'payments',
-              title: 'Condiciones de pago',
-              type: 'item',            
-              url: '/paymentterms-list'
-              
-            },
+            
             {
               id: 'collection',
               title: 'Cobro',
