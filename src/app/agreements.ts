@@ -1,5 +1,5 @@
 export class Agreements {
-    id: number;
+    agreements_id: number;
     agreements_name: string;
     agreements_father_surname: string;
     agreements_mother_surname: string;

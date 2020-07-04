@@ -121,22 +121,36 @@ const NavigationItemss = [
         id: 'gl_catalogs',
         title: 'Catalogos',
         type: 'collapse',
-        icon: 'feather icon-monitor',
+        icon: 'feather icon-layout',
         children: [
           {
             id: 'periods-list',
-            title: 'Periods List',
+            title: 'Periodos',
             type: 'item',            
             url: '/periods-list'
             
-          }                    
+          }   , 
+          {
+            id: 'accounts-list',
+            title: 'Contablilidad Cuentas',
+            type: 'item',            
+            url: '/accounts-list'
+            
+          }   , 
+          {
+            id: 'accounts-list',
+            title: 'Contablilidad cuenta lineas',
+            type: 'item',            
+            url: '/lines-list'
+            
+          }                
         ]
       },
       {
         id: 'gl_operatios',
         title: 'Operación',
         type: 'collapse',
-        icon: 'feather icon-monitor',
+        icon: 'feather icon-file-text',
         children: [
           {
             id: 'periods-list',
@@ -151,7 +165,7 @@ const NavigationItemss = [
         id: 'gl_reports',
         title: 'Reportes',
         type: 'collapse',
-        icon: 'feather icon-monitor',
+        icon: 'feather icon-server',
         children: [
           {
             id: 'periods-list',
@@ -354,7 +368,6 @@ const NavigationItemss = [
               url: '/customer-list'
               
             },
-    
             {
               id: 'Direction',
               title: 'Direccion de remison',
@@ -363,22 +376,37 @@ const NavigationItemss = [
               
             },
             {
-              id: 'bankAccounts',
+              id: 'paymentsterms',
               title: 'Terminos de pago',
+              type: 'item',            
+              url: '/payment-terms-list'
+              
+            },
+            {
+              id: 'concepts',
+              title: 'Conceptos de colection',
+              type: 'item',            
+              url: '/collectionconcepts-list'
+              
+            },
+            {
+              id: 'transactiontypes',
+              title: 'Tipo de transaccion',
               type: 'item',            
               url: '/'
               
             },
             {
-              id: 'depositAccount',
-              title: 'Cuentas de Deposito',
+              id: 'collectionconcept',
+              title: 'Conceptos de pago',
               type: 'item',            
               url: '/deposit-account-list'
               
             },
+            
             {
               id: 'collection',
-              title: 'Colección',
+              title: 'Cobro',
               type: 'item',            
               url: '/collection-list'
               
@@ -434,7 +462,6 @@ const NavigationItemss = [
                 title: 'Empleados',
                 type: 'item',            
                 url: '/employee-list'
-                
               }               
             ]
           },
@@ -449,7 +476,6 @@ const NavigationItemss = [
                 title: 'Registrar contrato',
                 type: 'item',            
                 url: '/agreements-list'
-                
               }               
             ]
           },
@@ -464,8 +490,47 @@ const NavigationItemss = [
                 title: 'Crear Inquilinos',
                 type: 'item',            
                 url: '/tenants-list'
-                
               }               
+            ]
+          },
+          {
+            id: 'rh-reservations',
+            title: 'Reservaciones',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-reservation',
+                title: 'Reservaciones',
+                type: 'item',            
+                url: '/reservations-list'
+              }               
+            ]
+          },
+          {
+            id: 'rh-reports',
+            title: 'Reportes',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                 id: 'rh-reports',
+                title: 'Reporte viviendas',
+                type: 'item',            
+                url: '/tagvivienda-list'
+              },
+              {
+                id: 'rh-reports',
+               title: 'Reporte empleados',
+               type: 'item',            
+               url: '/reportemployee-list'
+             },
+             {
+              id: 'rh-reports',
+             title: 'Reporte departamento',
+             type: 'item',            
+             url: '/departmentsr-list'
+           }                           
             ]
           },
         ]
@@ -527,14 +592,14 @@ const NavigationItemss = [
             id: 'Reports',
             title: 'Proveedores',
             type: 'item',            
-            url: '/purchase_orders-list'
+            url: '/supplier_repor-list'
             
           },
           {
-            id: 'Reports',
+            id: 'Reportss',
             title: 'Ordenes de Compra',
             type: 'item',            
-            url: '/purchase_orders-list'
+            url: '/pdf-purchase_orders-list'
             
           }
 
@@ -592,6 +657,20 @@ const NavigationItemss = [
             url: '/master_inventarys-list'
             
           }, 
+          {
+            id: 'status',
+            title: 'Estatus Articulos',
+            type: 'item',            
+            url: '/status-articles-list'
+            
+          },
+          {
+            id: 'precios',
+            title: 'Precios',
+            type: 'item',            
+            url: '/status-precios-list'
+            
+          }
         ]
       },
       {

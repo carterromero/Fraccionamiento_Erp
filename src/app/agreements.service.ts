@@ -23,7 +23,10 @@ export class AgreementService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ONE_AGREEM/1.0/agreements/${id}`,{headers});
   }
-
+    getAgreementRep(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_REPORT_AGREEM/1.0/agreementsRepor`,{headers});
+  }
   updateAgreement(id: number, value: any): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_UPDATE_AGREEMEN/1.0/agreements/${id}`, value,{headers});

@@ -17,5 +17,7 @@ export class Purcharse {
     last_update_date :string;
     admin_condominiuns_id : string;
     userid : string;
+    applicant_name: string ;
+    fractionation_address : string;
 
 }

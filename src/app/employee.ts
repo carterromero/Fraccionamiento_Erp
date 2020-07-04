@@ -21,11 +21,16 @@ export class Employee {
     employees_working_hours_start: string;
     employees_working_hours_end: string;
     employees_job_risk: string;
-    employees_type_journey: string;
+    employees_type_workday: string;
     employees_contract_type: string;
     employees_federal_identity_key: string;
     employees_bank: string;
     employees_bank_account: string;
     employees_frequency_payment: string;
     employees_use_CFDI: string;
+    workplaces_name: string;
+    departments_name: string;
+    pr_receipt_base_salary: number;
+    pr_receipt_type_of_perception: string;
+    
 }

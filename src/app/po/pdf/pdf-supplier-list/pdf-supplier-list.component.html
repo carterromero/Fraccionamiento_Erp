@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-xl-12">
+    <app-card cardTitle="Proveedores" blockClass="table-border-style">      
+     
+      <br>
+      <div class="table-responsive"   >
+        <table class="table" >
+          <thead  >
+          <tr >          
+            
+            <th>Id </th>   
+            <th>Nombre </th> 
+            <th>RFC</th> 
+            <th>Dirección Completa</th>
+            <th>Fecha de creacion </th>   
+            <th>Giro</th>
+            <th>Estatus </th>
+            
+          </tr>
+          </thead>
+          <tbody >
+              <tr    *ngFor="let general of general | async">
+                <td >{{general.supplier_id}}</td>
+                  <td >{{general.supplier_name}}</td>
+                  <td>{{general.supplier_rfc}}</td>
+                  <td>{{general.supplier_address}}</td>
+                  <td>{{general.create_date}}</td>
+                  <td>{{general.supplier_turn}}</td>
+                
+ 
+                  
+                  <td>
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" [checked]="general.supplier_status == 'true'">
+                        <label class="custom-control-label" for="supplier_status">Active</label>
+                     </div>
+                    </td>
+
+                           
+                  <td>
+                      
+                      
+                      
+                      <button    (click)="generalDetails(general.supplier_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>  
+                      
+                    
+
+                     
+
+                        
+
+
+                  </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+</div>

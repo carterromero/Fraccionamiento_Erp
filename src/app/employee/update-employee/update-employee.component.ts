@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from '../../employee.service';
-import { Employee } from '../../employee';
-import { ActivatedRoute, Router } from '@angular/router';
+import {EmployeeService } from "src/app/employee.service";
+import { Employee } from "src/app/employee";
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update-employee',
@@ -19,31 +19,39 @@ export class UpdateEmployeeComponent implements OnInit {
   ngOnInit() {
     this.employee = new Employee();
 
-    //this.id = this.route.snapshot.params['id'];
+
     this.id = this.route.firstChild.snapshot.params['id']
-    console.log(this.id);
-    
+    console.log(this.employee.employees_status);
     this.employeeService.getEmployee(this.id)
       .subscribe(data => {
-        console.log(data)
+        console.log(data);
         this.employee = data;
+        this.employee.employees_status = (String(this.employee.employees_status) == "false") ? null:"false";
+        console.log(this.employee.employees_status);
       }, error => {
         console.log(error);
-        localStorage.setItem('token', "");
-        this.router.navigate(['auth/signin']);
+        
       });
+      
   }
 
   updateEmployee() {
+    //this.employee.=3;
+    console.log(this.employee.employees_cv.toString());
+    console.log(this.employee);
+    console.log(this.id);
+    
+    
     this.employeeService.updateEmployee(this.id, this.employee)
-      .subscribe(data => console.log(data), 
+      .subscribe(data => {console.log(data);
+        this.gotoList();  
+      }, 
       error => {
         console.log(error);
-        localStorage.setItem('token', "");
-        this.router.navigate(['auth/signin']);
+        
       });
-    this.employee = new Employee();
-    this.gotoList();
+    
+  
   }
 
   onSubmit() {
@@ -53,4 +61,6 @@ export class UpdateEmployeeComponent implements OnInit {
   gotoList() {
     this.router.navigate(['employee-list']);
   }
+
+
 }

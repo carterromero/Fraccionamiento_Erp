@@ -1,0 +1,28 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Empresa Detalle" [options]="false">
+        <div *ngIf="employee">
+  
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <div>
+            <label><b>Nombre de pago Completo: </b></label> {{employee.payment_terms_name_payment_term}}
+          </div>
+          <div>
+            <label><b>Descripcion Completa: </b></label> {{employee.payment_terms_description}}
+          </div>
+          <div>
+            <label><b>Condiciones de pago : </b></label> {{employee.payment_terms_days_pay}}
+          </div>
+          <div>
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="payment_terms_status"  name="payment_terms_status"   style="margin-left: 10px" [checked]="employee.payment_terms_status == 'true'">
+            <label class="custom-control-label" for="payment_terms_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/payment-terms-list']" class="btn btn-outline-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>

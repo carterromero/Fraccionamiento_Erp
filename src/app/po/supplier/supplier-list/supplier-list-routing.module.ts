@@ -4,10 +4,15 @@ import { SupplierListComponent } from './supplier-list.component';
 
 
 
+
+
 const routes: Routes = [
   {
     path: '',
-    component: SupplierListComponent
+    component: 
+    SupplierListComponent
+ 
+    
   }
 ];
 
@@ -15,4 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule] 
 })
-export class SupplierListRoutingModule { }
+export class SupplierListRoutingModule{ }

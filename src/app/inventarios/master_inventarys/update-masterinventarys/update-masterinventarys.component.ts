@@ -56,7 +56,7 @@ export class UpdateMasterinventarysComponent implements OnInit {
     this.employeeService.updateEmployee(this.id,this.employee)
       .subscribe(data => {console.log(data);
         this.alertDisables = false;
-        this.alertMessages ="Se actualizo la categoria correctamente";
+        this.alertMessages ="Se actualizo Master correctamente";
       }, 
       error => {
         console.log(error);

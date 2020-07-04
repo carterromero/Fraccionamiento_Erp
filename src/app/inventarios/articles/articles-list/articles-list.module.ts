@@ -13,4 +13,4 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
     SharedModule
   ]
 })
-export class CreateArticlesListModule { }
+export class ArticlesListModule { }

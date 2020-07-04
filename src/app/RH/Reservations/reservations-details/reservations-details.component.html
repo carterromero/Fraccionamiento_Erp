@@ -1,0 +1,37 @@
+<p>reservations-details works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Detalles de reservaciones" [options]="false">
+        <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+        <div *ngIf="reservation">
+          <div>
+            <label><b>Ubicacion de reservacion: </b></label> {{reservation.reservations_location}}
+          </div>
+          <div>
+            <label><b>Fecha de reservacion: </b></label> {{reservation.reservations_date}}
+          </div>
+          <div>
+            <label><b>Hora inicial de reservacion: </b></label> {{reservation.reservations_start_time}}
+          </div>
+          <div>
+            <label><b>Hora final de reservacion: </b></label> {{reservation.reservations_end_time}}
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Nombre de inquilino</label>
+            <select disabled class="custom-select"  id="tenants_id" required [(ngModel)]="reservation.tenants_id"  name="tenants_id" >
+            <option *ngFor="let tenant of tenants | async" value="{{tenant.tenants_id}}">{{tenant.tenants_name}} {{tenant.tenants_father_surname}} {{tenant.tenants_mother_surname}}</option>
+            </select>
+        </div>  
+          <div>
+            <label><b>Estatus:  </b></label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="reservations_status"       name="reservations_status"   style="margin-left: 10px" [checked]="reservation.reservations_status == 'true'">
+                <label class="custom-control-label" for="reservations_status">Active</label>
+             </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/reservations-list']" class="btn btn-primary">Regresar a reservaciones</button><br>
+      </app-card>
+      </div>
+  </div>

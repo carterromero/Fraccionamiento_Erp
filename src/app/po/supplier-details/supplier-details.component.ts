@@ -15,6 +15,10 @@ export class SupplierDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: SupplierService) { }
 
+
+
+   
+
   ngOnInit() {
     this.employee = new Supplier();    
     this.id = this.route.firstChild.snapshot.params['id']
@@ -32,8 +36,15 @@ export class SupplierDetailsComponent implements OnInit {
       });
 
 
+     
+
   }
  
   
+
+
+
+
+
 
 }

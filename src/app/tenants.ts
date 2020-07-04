@@ -9,9 +9,9 @@ export class Tenants {
     tenants_fractionation_unit: string;
     tenants_car_plate: string;
     tenants_status: string;
-    agreement_id: number;
+    agreement_id: string;
     agreement_name: string;
-    condominums_id: number;
+    condominums_id: string;
     condominums_description: string;
     tenants_type: string;
     create_by: number;
