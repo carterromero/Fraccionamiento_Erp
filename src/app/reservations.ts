@@ -4,8 +4,8 @@ export class Reservations {
     reservations_id: number;
     reservations_location: string;
     reservations_date: Date;
-    reservations_start_time: Time;
-    reservations_end_time: Time;
+    reservations_start_time: string;
+    reservations_end_time: string;
     reservations_status: string;
     tenants_id: string;
     last_update: Date;
