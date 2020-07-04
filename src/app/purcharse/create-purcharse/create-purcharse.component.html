@@ -13,7 +13,11 @@
                 <input type="text" class="form-control" id="purcharse_name"  [(ngModel)]="employee.purcharse_name" name="purcharse_name" required> 
               </div> 
              
-             
+              
+              <div class="form-group">
+                <label for="name">Nombre del solicitante</label>
+                <input type="text" class="form-control" id="applicant_name"  [(ngModel)]="employee.purcharse_name" name="purcharse_name" required> 
+              </div>
 
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Proveedor</label>
@@ -36,7 +40,10 @@
                </div>    
                
              
-
+               <div class="form-group">
+                <label for="name">Direccion de Farccionamiento </label>
+                <input type="text" class="form-control" id="fractionation_address"  [(ngModel)]="employee.fractionation_address" name="fractionation_address" required> 
+              </div>
              
 
               <div class="form-group">
@@ -45,17 +52,21 @@
               </div> 
                    
 
-
+                    
+              <div class="form-group">
+                <label for="name">PRECIO ARTICULOS  </label>
+                <input type="text" class="form-control" id="articles_prices"  [(ngModel)]="employee.articles_prices" name="articles_prices" required> 
+              </div> 
 
 
               <div class="form-group">
                 <label for="name">TOTAL DE ORDEN </label>
-                <input type="text" class="form-control" id="purcharse_order_total"  [(ngModel)]="employee.purcharse_order_total" name="purcharse_order_total" required> 
+                <input type="text" class="form-control" id="purcharse_order_total"  [(ngModel)]="employee.purcharse_order_total" readonly="readonly" name="purcharse_order_total" required> 
               </div> 
               
               <div class="form-group">
                 <label for="name"> FECHA DE CREACION DE ORDEN </label>
-                <input type="date" class="form-control" id="purcharse_order_creation_date"  [(ngModel)]="employee.purcharse_order_creation_date" name="purcharse_order_creation_date" required> 
+                <input type="date"    readonly="readonly" value="2018-07-22" class="form-control" id="purcharse_order_creation_date"  [(ngModel)]="employee.purcharse_order_creation_date" name="purcharse_order_creation_date" required> 
               </div> 
 
             

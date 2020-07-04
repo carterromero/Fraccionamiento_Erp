@@ -8,32 +8,33 @@ import { CollectionService } from 'src/app/collection.service';
   templateUrl: './collection-details.component.html',
   styleUrls: ['./collection-details.component.scss']
 })
-export class collectionDetailsComponent implements OnInit {
+export class CollectionDetailsComponent implements OnInit {
 
   id: number;
-  collection: collection;
+  employee: collection;  
+  alertDisable = true;
+  alertMessage = "null";
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private collectionService: CollectionService) { }
+    private employeeService: CollectionService) { }
 
   ngOnInit() {
-    this.collection = new collection();    
+    this.employee = new collection();    
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
-    console.log("ngOninit");
     
     
-    this.collectionService.getCollection(this.id)
+    this.employeeService.getCollection(this.id)
       .subscribe(data => {
         console.log(data);
-        this.collection = data;
+        this.employee = data;
       }, error => {
         console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['auth/signin']);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
       });
-
-
   }
-
 }

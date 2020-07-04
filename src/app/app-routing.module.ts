@@ -13,7 +13,6 @@ import { GeneralDetailsComponent } from './general/general-details/general-detai
 import { UpdateGeneralComponent } from './general/update-general/update-general.component';
 
 
-
 import { CreditorListComponent } from './AP/ap_creditor/creditor-list/creditor-list.component';
 import { CreateCreditorComponent } from './AP/ap_creditor/create-creditor/create-creditor.component';
 import { CategoriesListComponent } from './inventarios/categories/categories-list/categories-list.component';
@@ -128,6 +127,9 @@ import { CreateReservationsComponent } from './RH/Reservations/create-reservatio
 import { ReservationsListComponent } from './RH/Reservations/reservations-list/reservations-list.component';
 import { UpdateReservationsComponent } from './RH/Reservations/update-reservations/update-reservations.component';
 import { ReservationsDetailsComponent } from './RH/Reservations/reservations-details/reservations-details.component';
+import { TagviviendaListComponent } from './RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.component';
+import { ReportEmployeeListComponent } from './RH/REPORTES/reportemployee-list/reportemployee-list.component';
+import { DepartmentsRListComponent }  from './RH/REPORTES/departmentsr-list/departmentsr-list.component';
 
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
@@ -203,6 +205,7 @@ import { CustomerDetailsComponent } from './customer/customer-details/customer-d
 import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
 import { UpdateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/update-unit-of-measures/update-unit-of-measures.component';
 import { CreateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/create-unit-of-measures/create-unit-of-measures.component';
+
 import { AccountsListComponent } from './gl/catalogs/accounts/accounts-list/accounts-list.component';
 import { CreateAccountsComponent } from './gl/catalogs/accounts/create-accounts/create-accounts.component';
 import { AccountsDetailsComponent } from './gl/catalogs/accounts/accounts-details/accounts-details.component';
@@ -211,6 +214,18 @@ import { LinesListComponent } from './gl/catalogs/lines/lines-list/lines-list.co
 import { CreateLinesComponent } from './gl/catalogs/lines/create-lines/create-lines.component';
 import { LinesDetailsComponent } from './gl/catalogs/lines/lines-details/lines-details.component';
 import { UpdateLinesComponent } from './gl/catalogs/lines/update-lines/update-lines.component';
+
+import { CollectionConceptsListComponent } from './AR/collectionConcepts/collectionconcepts-list/collectionconcepts-list.component';
+import { CollectionConceptsDetailsComponent } from './AR/collectionConcepts/collectionconcepts-details/collectionconcepts-details.component';
+import { CollectionConceptsCreateComponent } from './AR/collectionConcepts/create-collectionconcepts/create-collectionconcepts.component';
+import { CollectionConceptsUpdateComponent } from './AR/collectionConcepts/update-collectionconcepts/update-collectionconcepts.component';
+import { PaymentTermsListComponent } from './AR/paymentTerms/payment-terms-list/payment-terms-list.component';
+import { UpdatePaymentTermsComponent } from './AR/paymentTerms/update-payment-terms/update-payment-terms.component';
+import { CreatePaymentTermsComponent } from './AR/paymentTerms/create-payment-terms/create-payment-terms.component';
+import { PaymentTermsDetailsComponent } from './AR/paymentTerms/payment-terms-details/payment-terms-details.component';
+import { UpdatecollectionComponent } from './collection/update-collection/update-collection.component';
+import { StatusListComponent } from './inventarios/status/status-list/status-list.component';
+import { CreateStatusComponent } from './inventarios/status/create-status/create-status.component';
 
 
 
@@ -306,6 +321,36 @@ const routes: Routes = [
           {
             path: 'update-employee/:id',
             loadChildren: () => import('./employee/update-employee/update-employee.module').then(module => module.UpdateEmployeeModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: TagviviendaListComponent,
+        children: [
+          {
+            path: 'tagvivienda-list',
+            loadChildren: () => import('./RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.module').then(module => module.TagviviendaListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ReportEmployeeListComponent,
+        children: [
+          {
+            path: 'reportemployee-list',
+            loadChildren: () => import('./RH/REPORTES/reportemployee-list/reportemployee-list.module').then(module => module.ReportEmployeeListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: DepartmentsRListComponent,
+        children: [
+          {
+            path: 'departmentsr-list',
+            loadChildren: () => import('./RH/REPORTES/departmentsr-list/departmentsr-list.module').then(module => module.DepartmentsRListModule)
           }
         ]
       },
@@ -1077,6 +1122,26 @@ const routes: Routes = [
       },
       {
         path: '',
+        component: CollectionConceptsDetailsComponent,
+        children: [
+          {
+            path: 'collection-details/:id',
+            loadChildren: () => import('./collection/collection-details/collection-details.module').then(module => module.CollectionDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdatecollectionComponent,
+        children: [
+          {
+            path: 'update-collection/:id',
+            loadChildren: () => import('./collection/update-collection/update-collection.module').then(module => module.UpdatecollectionModule)
+          }
+        ]
+      },
+      {
+        path: '',
         component: CustomerListComponent,
         children: [
           {
@@ -1112,6 +1177,87 @@ const routes: Routes = [
           {
             path: 'update-customer/:id',
             loadChildren: () => import('./customer/update-customer/update-customer.module').then(module => module.UpdateCustomerModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CollectionConceptsListComponent,
+        children: [
+          {
+            path: 'collectionconcepts-list',
+            loadChildren: () => import('./AR/collectionConcepts/collectionconcepts-list/collection-concepts-list.module').then(module => module.CollectionConceptsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CollectionConceptsDetailsComponent,
+        children: [
+          {
+            path: 'collectionconcepts-details/:id',
+            loadChildren: () => import('./AR/collectionConcepts/collectionconcepts-details/collection-conceptsdetails.module').then(module => module.CollectionConceptsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CollectionConceptsCreateComponent,
+        children: [
+          {
+            path: 'create-collection-concepts',
+            loadChildren: () => import('./AR/collectionConcepts/create-collectionconcepts/create-collection-concepts.module').then(module => module.CollectionConceptsCreateModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CollectionConceptsUpdateComponent,
+        children: [
+          {
+            path: 'update-collectionconcepts/:id',
+            loadChildren: () => import('./AR/collectionConcepts/update-collectionconcepts/update-collection-concepts.module').then(module => module.CollectionConceptsUpdateModule)
+          }
+        ]
+      },
+      //////////////////
+      {
+        path: '',
+        component: PaymentTermsListComponent,
+        children: [
+          {
+            path: 'payment-terms-list',
+            loadChildren: () => import('./AR/paymentTerms/payment-terms-list/payment-terms-list.module').then(module => module.PaymentTermsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: PaymentTermsDetailsComponent,
+        children: [
+          {
+            path: 'payment-terms-details/:id',
+            loadChildren: () => import('./AR/paymentTerms/payment-terms-details/payment-terms-details.module').then(module => module.PaymentTermsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreatePaymentTermsComponent,
+        children: [
+          {
+            path: 'create-payment-terms',
+            loadChildren: () => import('./AR/paymentTerms/create-payment-terms/create-payments-terms.module').then(module => module.CreatePaymentTermsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdatePaymentTermsComponent,
+        children: [
+          {
+            path: 'update-payment-terms/:id',
+            loadChildren: () => import('./AR/paymentTerms/update-payment-terms/update-payment-terms.module').then(module => module.UpdatePaymentTermsModule)
           }
         ]
       },
@@ -2367,10 +2513,6 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./treasury/transfers/transfers-list/transfers-list.module').then(module => module.TransfersListModule)
           }
         ]
-
-
-
-
       }
       ,
 
@@ -2489,6 +2631,38 @@ component: CreateTransfersComponent,
           }
         ]
       },
+      {
+        path: '',
+        component: StatusListComponent,
+        children: [
+          {
+            path: 'status-articles-list',
+            loadChildren: () => import('./inventarios/status/status-list/status-list.module').then(module => module.StatusListModule)
+          }
+        ]
+      },
+
+     
+      {
+        path: '',
+        component: CreateStatusComponent,
+        children: [
+          {
+            path: 'status-create',
+            loadChildren: () => import('./inventarios/status/create-status/create-status.module').then(module => module.CreateStatusModule)
+          }
+        ]
+
+
+
+      }
+,
+
+
+
+
+
+      
       {
         path: '',
         component: TransactionsentrysListComponent,

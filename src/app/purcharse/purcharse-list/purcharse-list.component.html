@@ -12,12 +12,16 @@
             
             <th>Id de la Orden  </th>
             <th>NOMBRE de Orden </th>
+            
+            <th>ADDRESS</th>
+            <th>ARTICULO </th>
             <th>Proveedor</th>
             <th>Termino de pago</th>
-            <th>ARTICULO </th>
+            
             <th> Cantidad de articulos </th>
             <th> Precio Articulos </th>
             <th>Total de orden</th>
+            <th>FECHA DE CREACION</th>
             <th>Estatus</th>
             <th>#</th>
           </tr>
@@ -26,13 +30,19 @@
               <tr *ngFor="let general of general | async">
                   <td>{{general.purcharse_id}}</td>
                   <td>{{general.purcharse_name}}</td>
+                   
+                  <td>{{general.applicant_name}}</td>
+                  <td>{{general.purcharse_request_address}}</td>
+                  <td>{{general.articles_name_article}}</td>
                   <td>{{general.supplier_name}}</td>
                   <td>{{general.payment_description}}</td>
-                  <td>{{general.articles_name_article}}</td>
+                 
                   <td>{{general.purcharse_quantity_items}}</td>
+                  
                   
                   <td>{{general.articles_prices}}</td>
                   <td>{{general.purcharse_order_total}}</td>
+                  <td>{{general. purcharse_order_creation_date}}</td>
 
                   
                   

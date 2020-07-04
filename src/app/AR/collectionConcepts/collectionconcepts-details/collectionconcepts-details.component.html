@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="conceptos pago Detalle" [options]="false">
+        <div *ngIf="employee">
+  
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <div>
+            <label><b>Nombre de concepto: </b></label> {{employee.collection_concepts_concept_name}}
+          </div>
+          <div>
+            <label><b>Descripción Completa: </b></label> {{employee.collection_concepts_description}}
+          </div>
+          <div>
+            <label><b>Unidad de medida: </b></label> {{employee.collection_concepts_unit_measurement}}
+          </div>
+          <div>
+            <label><b>Precio: </b></label> {{employee.collection_concepts_price}}
+          </div>
+  
+          <div>
+            <label><b>Cuenta contable: </b></label> {{employee.collection_concepts_accounting_income_account}}
+          </div>
+          
+  
+          <div>
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="collection_concepts_status"  name="collection_concepts_status"   style="margin-left: 10px" [checked]="employee.collection_concepts_status == 'true'">
+            <label class="custom-control-label" for="collection_concepts_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/collectionconcepts-list']" class="btn btn-outline-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>
