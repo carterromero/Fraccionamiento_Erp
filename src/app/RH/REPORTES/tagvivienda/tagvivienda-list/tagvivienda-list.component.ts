@@ -51,9 +51,13 @@ filterPost = '';
 
 
   imprimirLista(){
-    const doc = new jsPDF
-    doc.text(10, 10, 'REPORTE VIVIENDAS INTERNAS ');
-    doc.fromHTML(document.getElementById('frmViviendas'),20,20);
+    const doc = new jsPDF('p','mm','letter');
+    doc.setFontSize(12);
+    doc.setTextColor(0,85,136);
+    doc.setFont("helvetica");
+    doc.setFontType("bold");
+    doc.text(15, 15, 'REPORTE VIVIENDAS INTERNAS ');
+    doc.fromHTML(document.getElementById('frmViviendas'),15,15);
    //doc.addPage();
     //doc.text(20, 20, 'Hello world!');
     doc.save('Lista de viviendas');
