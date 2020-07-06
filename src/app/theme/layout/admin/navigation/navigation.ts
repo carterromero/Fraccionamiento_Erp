@@ -534,7 +534,13 @@ const NavigationItemss = [
              title: 'Reporte departamento',
              type: 'item',            
              url: '/departmentsr-list'
-           }                           
+           },
+           {
+            id: 'rh-reports',
+           title: 'Reporte reservaciones',
+           type: 'item',            
+           url: '/reservationsreport-list'
+         }                                      
             ]
           },
         ]
@@ -1285,7 +1291,13 @@ export class NavigationItem
              title: 'Reporte departamento',
              type: 'item',            
              url: '/departmentsr-list'
-           }                           
+           },
+           {
+            id: 'rh-reports',
+           title: 'Reporte reservaciones',
+           type: 'item',            
+           url: '/reservationsreport-list'
+         }                                      
             ]
           },
         ]

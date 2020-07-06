@@ -1,0 +1,45 @@
+<p>reservationsreport-list works!</p>
+<div class="row">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.0.0-alpha.1/jspdf.plugin.autotable.min.js"></script>;
+    <div class="col-xl-12">
+      <app-card cardTitle=" REPORTE RESERVACIONES " blockClass="table-border-style">  
+        <button (click)="generate()"   class="btn btn-outline-primary" >Generar pdf</button>
+      <div>
+          <label for="name" > REPORTE RESERVACIONES</label>
+          </div>
+          <br>
+        <div id="frmReservations"  class="table-responsive" >
+          <table class="table" text-align="center">
+            <thead>
+            <tr>              
+              <th>Numero de reservacion</th>
+              <th>Ubicacion </th>
+              <th>Nombre </th>
+              <th>Apellido paterno </th>
+              <th>Apellido materno </th>
+              <th>Numero Vivienda </th>
+              <th>Fecha </th>
+              <th>Hora de inicio</th>
+              <th>Hora de fin</th>
+              <th>Numero Residencial </th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reservation of reservations | async   " >
+                    <td>{{reservation.reservations_id}}</td>
+                    <td>{{reservation.reservations_location}}</td>
+                    <td>{{reservation.tenants_name}}</td>
+                    <td>{{reservation.tenants_father_surname}}</td>
+                    <td>{{reservation.tenants_mother_surname}}</td>
+                    <td>{{reservation.tenants_residential_number}}</td>
+                    <td>{{reservation.reservations_date}}</td>
+                    <td>{{reservation.reservations_start_time}}</td>
+                    <td>{{reservation.reservations_end_time}}</td>
+                    <td>{{reservation.tenants_fractionation_unit}}</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>
