@@ -30,7 +30,7 @@ export class Employee {
     employees_use_CFDI: string;
     workplaces_name: string;
     departments_name: string;
+    condominums_descrption: string;
     pr_receipt_base_salary: number;
     pr_receipt_type_of_perception: string;
-    
 }

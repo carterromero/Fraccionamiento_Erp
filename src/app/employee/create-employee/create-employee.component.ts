@@ -2,7 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../employee.service';
 import { Employee } from '../../employee';
 import { Router } from '@angular/router';
+import { Condominums } from 'src/app/services/admin/condominums';
+import { CondominumsService } from 'src/app/services/admin/condominums.service';
+import { Departments } from 'src/app/departments';
+import { DepartmentsService } from 'src/app/departments.service';
+import { Workplaces } from 'src/app/workplaces';
+import { WorkplacesService } from 'src/app/workplaces.service';
 import { Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 
 
@@ -14,17 +21,27 @@ import { Validators } from '@angular/forms';
 export class CreateEmployeeComponent implements OnInit {
   
   employee: Employee = new Employee();
+  condominums: Observable<Condominums[]>;
+  departments: Observable<Departments[]>;
+  workplaces: Observable<Workplaces[]>;
   submitted = false;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
+  datos:String;
+  dato:String;
 
-
-  constructor(private employeeService: EmployeeService,
-    private router: Router) { 
+  constructor(private employeeService: EmployeeService, private departmentsService: DepartmentsService, private workplacesService: WorkplacesService,
+    private condominumsService: CondominumsService, private router: Router) { 
     
     }
 
   ngOnInit() {
     //code
-   
+    this.reloadDatas();
+    this.reloadDatas2();
+    this.reloadDatas3();
   }
 
   newEmployee(): void {
@@ -32,8 +49,89 @@ export class CreateEmployeeComponent implements OnInit {
     this.employee = new Employee();
 
   }
+  reloadDatas() 
+  {
 
-  save() {
+    this.condominumsService.getEmployeeListcombo().subscribe(
+      data => {
+        console.log(data);
+        this.condominums = this.condominumsService.getEmployeeListcombo();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+  reloadDatas2() 
+  {
+
+    this.departmentsService.getDepartmentList().subscribe(
+      data => {
+        console.log(data);
+        this.departments = this.departmentsService.getDepartmentList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+  reloadDatas3() 
+  {
+
+    this.workplacesService.getWorkplaceList().subscribe(
+      data => {
+        console.log(data);
+        this.workplaces = this.workplacesService.getWorkplaceList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
+  handleUpload(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        this.datos = reader.result.toString();
+        this.employee.employees_cv = this.datos.replace("data:application/pdf;base64,","")
+      /*  this.employee.employees_contract = this.datos.replace("data:application/pdf;base64,","")*/
+        event = this.employee.employees_cv;
+      /*  event = this.employee.employees_contract*/
+     
+    };
+}
+handleUpload2(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  
+  reader.readAsDataURL(file);
+  reader.onload = () => {
+      this.dato = reader.result.toString();
+      this.employee.employees_contract = this.dato.replace("data:application/pdf;base64,","")
+    /*  this.employee.employees_contract = this.datos.replace("data:application/pdf;base64,","")*/
+      event = this.employee.employees_contract;
+    /*  event = this.employee.employees_contract*/
+   
+  };
+}
+  save(){
+    console.log(this.employee.employees_cv);
+    console.log(this.employee.employees_contract);
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => console.log(data), 
       error => {

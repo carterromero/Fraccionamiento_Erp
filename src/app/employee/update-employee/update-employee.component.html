@@ -20,15 +20,15 @@
             <input type="text" class="form-control" id="employees_address" required [(ngModel)]="employee.employees_address" name="employees_address">
           </div>    
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="employees_cv" required [(ngModel)]="employee.employees_cv" name="employees_cv" ng-model='yourModel' base-sixty-four-input>
-            <label class="custom-file-label" for="employees_cv">Elegir cv...</label>
-            <div class="invalid-feedback">Archivo invalido</div>
+            <input type="file" alife-file-to-base  (change)="handleUpload($event)" class="custom-file-input"  id="employee.employees_cv"   name="employees_cv" required>
+            <label class="custom-file-label" for="validatedCustomFile">Elegir CV ...</label>
+            <div class="invalid-feedback">invalid custom file </div>
           </div>  
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="employees_contract" required [(ngModel)]="employee.employees_contract" name="employees_contract" ng-model='yourModel' base-sixty-four-input>
-            <label class="custom-file-label" for="employees_contract">Elegir Contrato...</label>
-            <div class="invalid-feedback">Archivo invalido</div>
-          </div> 
+            <input type="file" alife-file-to-base (change)="handleUpload($event)" class="custom-file-input" id="employee.employees_contract"   name="employees_contract">
+            <label class="custom-file-label" for="validatedCustomFile">Elegir contrato ...</label>
+            <div class="invalid-feedback">invalid custom file </div>
+          </div>  
           <div class="form-group">
             <label for="name">Estatus</label>
             <div class="custom-control custom-switch">
@@ -53,18 +53,36 @@
           <input type="text" class="form-control" id="employees_sindicalizado" required [(ngModel)]="employee.employees_sindicalizado" name="employees_sindicalizado">
         </div>       
         <div class="form-group">
+          <label for="exampleFormControlSelect1">Condominio</label>
+          <select  class="custom-select"  id="condominums_id" required [(ngModel)]="employee.condominums_id" name="condominums_id" >
+          <option *ngFor="let condominum of condominums | async" value="{{condominum.condominums_id}}">{{condominum.condominums_description}}</option>
+          </select>
+      </div>  
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Departamento</label>
+        <select  class="custom-select"  id="departments_id" required [(ngModel)]="employee.departments_id" name="departments_id" >
+        <option *ngFor="let department of departments | async" value="{{department.departments_id}}">{{department.departments_name}}</option>
+        </select>
+    </div>  
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Puesto</label>
+      <select  class="custom-select"  id="workplaces_id" required [(ngModel)]="employee.workplaces_id" name="workplaces_id" >
+      <option *ngFor="let workplace of workplaces | async" value="{{workplace.workplaces_id}}">{{workplace.workplaces_name}}</option>
+      </select>
+  </div>  
+        <div class="form-group">
           <label for="name">Fraccionamiento</label>
           <input type="text" class="form-control" id="employees_fractionation_unit" required [(ngModel)]="employee.employees_fractionation_unit" name="employees_fractionation_unit">
         </div> 
         <div class="form-group">
                 <label for="start">Fecha inicio laboral:</label>
-                    <input type="date" id="start" name="trip-start" value="<?php echo date('Y-n-j');?>"
+                    <input type="date" id="start" name="trip-start" 
                min="2020-01-01" max="2030-12-31" 
                   class="form-control" id="employees_work_start_date"  [(ngModel)]="employee.employees_work_start_date" name="employees_work_start_date" required>
             </div>
         <div class="form-group">
           <label for="start">Fecha fin laboral:</label>
-              <input type="date" id="start" name="trip-start" value="<?php echo date('Y-n-j');?>"
+              <input type="date" id="start" name="trip-start" 
          min="2020-01-01" max="2030-12-31" 
             class="form-control" id="employees_work_end_date"  [(ngModel)]="employee.employees_work_end_date" name="employees_work_end_date" required>
       </div>
@@ -74,11 +92,11 @@
         </div> 
         <div class="form-group">
           <label for="name">Hora de inicio laboral</label>
-          <input type=" datetime" class="form-control" id="employees_working_hours_start" required [(ngModel)]="employee.employees_working_hours_start" name="employees_working_hours_start">
+          <input type=" time" class="form-control" id="employees_working_hours_start" required [(ngModel)]="employee.employees_working_hours_start" name="employees_working_hours_start">
         </div> 
         <div class="form-group">
           <label for="name">Hora final laboral</label>
-          <input type=" datetime" class="form-control" id="employees_working_hours_end" required [(ngModel)]="employee.employees_working_hours_end" name="employees_working_hours_end">
+          <input type=" time" class="form-control" id="employees_working_hours_end" required [(ngModel)]="employee.employees_working_hours_end" name="employees_working_hours_end">
         </div> 
         <div class="form-group">
           <label for="name">Riesgo laboral</label>
