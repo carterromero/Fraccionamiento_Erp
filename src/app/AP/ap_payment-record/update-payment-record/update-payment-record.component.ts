@@ -18,6 +18,7 @@ export class UpdatePaymentRecordComponent implements OnInit {
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
+  datos:String;
   
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: PaymentRecordService) { }
@@ -47,7 +48,7 @@ export class UpdatePaymentRecordComponent implements OnInit {
 
   updateEmployee() {
 
-    this.employee.user_id="3";
+    
     console.log(this.employee.payment_status);
     
     this.employeeService.updateEmployee(this.id, this.employee)
@@ -102,6 +103,18 @@ export class UpdatePaymentRecordComponent implements OnInit {
     this.router.navigate(['payment-record-list']);
   }
 
+  handleUpload(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        this.datos = reader.result.toString();
+        this.employee.payment_method = this.datos.replace("data:application/pdf;base64,","")
+      event = this.employee.payment_record_amount;
+     
+    };
+}
   
 
   

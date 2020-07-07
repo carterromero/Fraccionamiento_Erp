@@ -20,14 +20,12 @@
               </div>  
 
              
-              <div class="input-group">
-                <select class="custom-select" id="payment_method"  [(ngModel)]="employee.payment_method" name="payment_method" required>
-                  <option value="efectivo">efectivo</option>
-                  <option value="targeta">targeta</option>
-                  <option class="custom-file-input" value="archivo" type="file"  for="validatedCustomFile"  > archivo pdf
-                  </option>   
-                </select>
-              </div>
+              <div class="custom-file">
+              
+                <input type="file" alife-file-to-base (change)="handleUpload($event)" class="custom-file-input" id="payment_method"   name="payment_method" required>
+                <label class="custom-file-label" for="validatedCustomFile">anexar archivo</label>
+                <div class="invalid-feedback">invalid custom file </div>
+              </div>  
 
          
             <div class="form-group">
