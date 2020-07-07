@@ -143,7 +143,7 @@ const NavigationItemss = [
           }   , 
           {
             id: 'accounts-list',
-            title: 'Contablilidad cuenta lineas',
+            title: 'Contablilidad L.Cuentas Contables',
             type: 'item',            
             url: '/lines-list'
             
