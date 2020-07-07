@@ -23,13 +23,12 @@ export class ReportEmployeeListComponent implements OnInit {
     private router: Router, private route: ActivatedRoute) { }
     filterPost = '';
     ngOnInit(): void {
-      this.p_q = this.route.firstChild.snapshot.params['p_q']
     this.reloadData();
      // this.reloadData();
   }
   
      reloadData() {
-    
+      this.p_q = this.route.firstChild.snapshot.params['p_q']
       this.employeeService.getReporEmployee(this.p_q).subscribe(
       data => {
         this.employees = this.employeeService.getReporEmployee(this.p_q);
@@ -54,7 +53,11 @@ export class ReportEmployeeListComponent implements OnInit {
 
 
   imprimirLista(){
-    const doc = new jsPDF
+    const doc = new jsPDF('p','mm','letter');
+    doc.setFontSize(12);
+    doc.setTextColor(0,85,136);
+    doc.setFont("helvetica");
+    doc.setFontType("bold");
     doc.text(10, 10, 'REPORTE EMPLEADOS ');
     doc.fromHTML(document.getElementById('frmEmployee'),20,20);
    //doc.addPage();

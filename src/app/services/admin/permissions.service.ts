@@ -24,6 +24,13 @@ export class PermissionsService {
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_ADMIN_GET_ONE_PERMIS/1.0/permissions/${id}`,{headers});
   }
 
+  getEmployeeP(employee: Object): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_ADMIN_PERMISSION/1.0/permissions`, employee,{headers});
+  }
+
+
+
   updateEmployee(id: number, value: any): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_ADMIN_UPDATE_PERMISSI/1.0/permissions/${id}`, value,{headers});

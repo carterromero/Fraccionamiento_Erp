@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Status } from 'src/app/status';
-import { StatusService } from 'src/app/status.service';
+import { Pricearticulo } from 'src/app/pricearticles';
 import { Router } from '@angular/router';
+import { PrecioarticuloService } from 'src/app/precioarticulo.service';
 
 @Component({
-  selector: 'app-status-list',
-  templateUrl: './status-list.component.html',
-  styleUrls: ['./status-list.component.scss']
+  selector: 'app-status-precioarticulo-list',
+  templateUrl: './status-precioarticulo-list.component.html',
+  styleUrls: ['./status-precioarticulo-list.component.scss']
 })
-export class StatusListComponent implements OnInit {
+export class StatusPrecioarticuloListComponent implements OnInit {
 
-  general: Observable<Status[]>;
+  general: Observable<  Pricearticulo[]>;
 
-  constructor(private generalService: StatusService,
+  constructor(private generalService: PrecioarticuloService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -58,5 +58,6 @@ export class StatusListComponent implements OnInit {
   updateGeneral(id: number){
     this.router.navigate(['update-status', id]);
   }
+
 
 }

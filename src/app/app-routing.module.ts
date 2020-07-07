@@ -130,6 +130,7 @@ import { ReservationsDetailsComponent } from './RH/Reservations/reservations-det
 import { TagviviendaListComponent } from './RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.component';
 import { ReportEmployeeListComponent } from './RH/REPORTES/reportemployee-list/reportemployee-list.component';
 import { DepartmentsRListComponent }  from './RH/REPORTES/departmentsr-list/departmentsr-list.component';
+import { ReservationsreportListComponent }  from './RH/REPORTES/reservationsreport-list/reservationsreport-list.component';
 
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
@@ -226,6 +227,14 @@ import { PaymentTermsDetailsComponent } from './AR/paymentTerms/payment-terms-de
 import { UpdatecollectionComponent } from './collection/update-collection/update-collection.component';
 import { StatusListComponent } from './inventarios/status/status-list/status-list.component';
 import { CreateStatusComponent } from './inventarios/status/create-status/create-status.component';
+import { StatusDetailsComponent } from './inventarios/status/status-details/status-details.component';
+import { UpdateStatusComponent } from './inventarios/status/update-status/update-status.component';
+
+import { StatusPrecioarticuloListComponent } from './inventarios/status-precio/status-precioarticulo-list/status-precioarticulo-list.component';
+import { CreateStatusPrecioartComponent } from './inventarios/status-precio/create-status-precioart/create-status-precioart.component';
+
+import { ReservationsReportListModule } from './RH/REPORTES/reservationsreport-list/reservationsreport-list.module';
+
 
 
 
@@ -331,6 +340,16 @@ const routes: Routes = [
           {
             path: 'tagvivienda-list',
             loadChildren: () => import('./RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.module').then(module => module.TagviviendaListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ReservationsreportListComponent,
+        children: [
+          {
+            path: 'reservationsreport-list',
+            loadChildren: () => import('./RH/REPORTES/reservationsreport-list/reservationsreport-list.module').then(module => module.ReservationsReportListModule)
           }
         ]
       },
@@ -2483,7 +2502,34 @@ component: CreateTransfersComponent,
           loadChildren: () => import('./po/pdf/pdf-supplier-details/pdf-supplier-details-routing.module').then(module => module.PdfSupplierDetailsRoutingModule)
         }
       ]
+    },
+
+
+    {
+      path: '',
+      component: StatusPrecioarticuloListComponent,
+      children: [
+        {
+          path: 'status-precios-list',
+          loadChildren: () => import('./inventarios/status-precio/status-precioarticulo-list/status-precioarticulo-list.module').then(module => module.StatusPrecioarticuloListModule)
+        }
+      ]
+    },
+      
+    //
+    {
+      path: '',
+    component: CreateStatusPrecioartComponent,
+     children: [
+       {
+          path: 'status-price-create',
+         loadChildren: () => import('./inventarios/status-precio/status-precioarticulo-list/status-precioarticulo-list.module').then(module => module.StatusPrecioarticuloListModule)
+        }
+      ]
+
     }
+
+
 
 
 
@@ -2652,17 +2698,28 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./inventarios/status/create-status/create-status.module').then(module => module.CreateStatusModule)
           }
         ]
-
-
-
       }
 ,
-
-
-
-
-
-      
+{
+  path: '',
+  component: StatusDetailsComponent,
+  children: [
+    {
+      path: 'status-details/:id',
+      loadChildren: () => import('./inventarios/status/status-details/status-details.module').then(module => module.StatusDetailsModule)
+    }
+  ]
+},
+{
+  path: '',
+  component: UpdateStatusComponent,
+  children: [
+    {
+      path: 'update-status/:id',
+      loadChildren: () => import('./inventarios/status/update-status/update-status.module').then(module => module.UpdateStatusModule)
+    }
+  ]
+},
       {
         path: '',
         component: TransactionsentrysListComponent,
@@ -2682,8 +2739,10 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./inventarios/sub_categories/create-subcategories/create-subcategories.module').then(module => module.CreateSubcategoriesModule)
           }
         ]
-      }
-      ,
+      },
+      
+      
+      
     ]
 
   },

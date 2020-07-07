@@ -35,6 +35,7 @@ export class CreatePurcharseComponent implements OnInit {
 
 
   ngOnInit() {
+    
     this.reloadDatas();
     this.reloadDatass();
     this.reloadDatasss();

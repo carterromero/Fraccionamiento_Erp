@@ -2,14 +2,9 @@
     <div class="col-sm-12">
       <div class="col-md-6">
         <app-card cardTitle="Actualizar Fraccionamiento" [options]="false">
-         
-            
-
+          
                <form (ngSubmit)="onSubmit()">  
             
-            
-           
-
             <div class="form-group">
                 <label for="name">Nombre de Orden</label>
                 <input type="text" class="form-control" id="purcharse_name"  [(ngModel)]="employee.purcharse_name" name="purcharse_name" required> 
@@ -37,19 +32,11 @@
                  </select>
                </div>    
                
-             
-
-             
-
               <div class="form-group">
                 <label for="name">Cantidad de Articulos </label>
                 <input type="text" class="form-control" id="purcharse_quantity_items"  [(ngModel)]="employee.purcharse_quantity_items" name="purcharse_quantity_items" required> 
               </div> 
-                   
-
-
-
-
+                  
               <div class="form-group">
                 <label for="name">TOTAL DE ORDEN </label>
                 <input type="text" class="form-control" id="purcharse_order_total"  [(ngModel)]="employee.purcharse_order_total" name="purcharse_order_total" required> 
@@ -66,10 +53,6 @@
                     <input type="checkbox" class="custom-control-input"  id="purcharse_status"  [(ngModel)]="employee.purcharse_status"     name="purcharse_status"   style="margin-left: 10px">
                     <label class="custom-control-label" for="purcharse_status">Active</label>
                  </div>
- 
-
-
-                
 
               </div>
               <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
@@ -91,8 +74,6 @@
                <button [routerLink]="['/purchase_orders-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
                </form>
 
-
-               
         </app-card>
       </div>
     </div>
