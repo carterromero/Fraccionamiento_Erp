@@ -662,11 +662,11 @@ const NavigationItemss = [
             title: 'Estatus Articulos',
             type: 'item',            
             url: '/status-articles-list'
-            
+ 
           },
           {
             id: 'precios',
-            title: 'Precios',
+            title: 'Precios Articulos',
             type: 'item',            
             url: '/status-precios-list'
             

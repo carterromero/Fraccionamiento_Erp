@@ -228,7 +228,8 @@ import { StatusListComponent } from './inventarios/status/status-list/status-lis
 import { CreateStatusComponent } from './inventarios/status/create-status/create-status.component';
 import { StatusDetailsComponent } from './inventarios/status/status-details/status-details.component';
 import { UpdateStatusComponent } from './inventarios/status/update-status/update-status.component';
-
+import { StatusPrecioarticuloListComponent } from './inventarios/status-precio/status-precioarticulo-list/status-precioarticulo-list.component';
+import { CreateStatusPrecioartComponent } from './inventarios/status-precio/create-status-precioart/create-status-precioart.component';
 
 
 
@@ -2485,7 +2486,34 @@ component: CreateTransfersComponent,
           loadChildren: () => import('./po/pdf/pdf-supplier-details/pdf-supplier-details-routing.module').then(module => module.PdfSupplierDetailsRoutingModule)
         }
       ]
+    },
+
+
+    {
+      path: '',
+      component: StatusPrecioarticuloListComponent,
+      children: [
+        {
+          path: 'status-precios-list',
+          loadChildren: () => import('./inventarios/status-precio/status-precioarticulo-list/status-precioarticulo-list.module').then(module => module.StatusPrecioarticuloListModule)
+        }
+      ]
+    },
+      
+    //
+    {
+      path: '',
+    component: CreateStatusPrecioartComponent,
+     children: [
+       {
+          path: 'status-price-create',
+         loadChildren: () => import('./inventarios/status-precio/status-precioarticulo-list/status-precioarticulo-list.module').then(module => module.StatusPrecioarticuloListModule)
+        }
+      ]
+
     }
+
+
 
 
 
@@ -2676,10 +2704,6 @@ component: CreateTransfersComponent,
     }
   ]
 },
-
-
-
-
       {
         path: '',
         component: TransactionsentrysListComponent,
@@ -2699,8 +2723,10 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./inventarios/sub_categories/create-subcategories/create-subcategories.module').then(module => module.CreateSubcategoriesModule)
           }
         ]
-      }
-      ,
+      },
+      
+      
+      
     ]
 
   },
