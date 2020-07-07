@@ -238,6 +238,7 @@ import { StatusPrecioarticuloListComponent } from './inventarios/status-precio/s
 import { ReservationsReportListModule } from './RH/REPORTES/reservationsreport-list/reservationsreport-list.module';
 import { CreatePreciosComponent } from './inventarios/status-precio/create-precio/create-precios.component';
 import { PrecioDetailsComponent } from './inventarios/status-precio/precio-details/precio-details.component';
+import { UpdatePrecioComponent } from './inventarios/status-precio/update-precio/update-precio.component';
 
 
 
@@ -2538,10 +2539,20 @@ component: CreateTransfersComponent,
           loadChildren: () => import('./inventarios/status-precio/precio-details/precio-details.module').then(module => module.PrecioDetailsModule)
         }
       ]
-    }
+    },
+    {
+      path: '',
+      component:  UpdatePrecioComponent,
+      children: [
+        {
+          path: 'update-precio/:id',
+          loadChildren: () => import('./inventarios/status-precio/update-precio/update-precio.module').then(module => module.UpdatePrecioModule)
+        }
+      ]
+    },
   
 
-      ,
+      
 
       {
         path: '',

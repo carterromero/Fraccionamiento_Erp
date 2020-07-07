@@ -56,7 +56,7 @@ export class StatusPrecioarticuloListComponent implements OnInit {
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-status', id]);
+    this.router.navigate(['update-precio', id]);
   }
 
 
