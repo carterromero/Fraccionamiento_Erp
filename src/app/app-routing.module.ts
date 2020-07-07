@@ -1,4 +1,7 @@
 import { NgModule, Component } from '@angular/core';
+ 
+
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { AuthComponent } from './theme/layout/auth/auth.component';
@@ -231,9 +234,9 @@ import { StatusDetailsComponent } from './inventarios/status/status-details/stat
 import { UpdateStatusComponent } from './inventarios/status/update-status/update-status.component';
 
 import { StatusPrecioarticuloListComponent } from './inventarios/status-precio/status-precioarticulo-list/status-precioarticulo-list.component';
-import { CreateStatusPrecioartComponent } from './inventarios/status-precio/create-status-precioart/create-status-precioart.component';
 
 import { ReservationsReportListModule } from './RH/REPORTES/reservationsreport-list/reservationsreport-list.module';
+import { CreatePreciosComponent } from './inventarios/status-precio/create-precio/create-precios.component';
 
 
 
@@ -2504,7 +2507,7 @@ component: CreateTransfersComponent,
       ]
     },
 
-
+//////////////
     {
       path: '',
       component: StatusPrecioarticuloListComponent,
@@ -2515,26 +2518,17 @@ component: CreateTransfersComponent,
         }
       ]
     },
-      
-    //
     {
       path: '',
-    component: CreateStatusPrecioartComponent,
-     children: [
-       {
-          path: 'status-price-create',
-         loadChildren: () => import('./inventarios/status-precio/status-precioarticulo-list/status-precioarticulo-list.module').then(module => module.StatusPrecioarticuloListModule)
+      component: CreatePreciosComponent,
+      children: [
+        {
+          path: 'create-precios',
+          loadChildren: () => import('./inventarios/status-precio/create-precio/create-precios.module').then(module => module.CreatePreciosModule)
         }
       ]
-
     }
-
-
-
-
-
-
-
+  
 
       ,
 
@@ -2687,6 +2681,7 @@ component: CreateTransfersComponent,
           }
         ]
       },
+      ////
 
      
       {

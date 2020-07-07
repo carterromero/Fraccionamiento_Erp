@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateStatusPrecioartComponent } from './create-status-precioart.component';
-
+import { CreatePreciosComponent } from './create-precios.component';
 
 
 
@@ -11,11 +10,9 @@ import { CreateStatusPrecioartComponent } from './create-status-precioart.compon
 const routes: Routes = [
   {
     path: '',
-    component: 
-    CreateStatusPrecioartComponent
-  
- 
-    
+    component:
+    CreatePreciosComponent
+   
   }
 ];
 
@@ -23,4 +20,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule] 
 })
-export class CreateStatusPrecioartRoutingModule{ }
+export class CreatePreciostRoutingModule { }
