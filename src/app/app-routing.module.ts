@@ -130,6 +130,7 @@ import { ReservationsDetailsComponent } from './RH/Reservations/reservations-det
 import { TagviviendaListComponent } from './RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.component';
 import { ReportEmployeeListComponent } from './RH/REPORTES/reportemployee-list/reportemployee-list.component';
 import { DepartmentsRListComponent }  from './RH/REPORTES/departmentsr-list/departmentsr-list.component';
+import { ReservationsreportListComponent }  from './RH/REPORTES/reservationsreport-list/reservationsreport-list.component';
 
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
@@ -228,8 +229,13 @@ import { StatusListComponent } from './inventarios/status/status-list/status-lis
 import { CreateStatusComponent } from './inventarios/status/create-status/create-status.component';
 import { StatusDetailsComponent } from './inventarios/status/status-details/status-details.component';
 import { UpdateStatusComponent } from './inventarios/status/update-status/update-status.component';
+
 import { StatusPrecioarticuloListComponent } from './inventarios/status-precio/status-precioarticulo-list/status-precioarticulo-list.component';
 import { CreateStatusPrecioartComponent } from './inventarios/status-precio/create-status-precioart/create-status-precioart.component';
+
+import { ReservationsReportListModule } from './RH/REPORTES/reservationsreport-list/reservationsreport-list.module';
+
+
 
 
 
@@ -334,6 +340,16 @@ const routes: Routes = [
           {
             path: 'tagvivienda-list',
             loadChildren: () => import('./RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.module').then(module => module.TagviviendaListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ReservationsreportListComponent,
+        children: [
+          {
+            path: 'reservationsreport-list',
+            loadChildren: () => import('./RH/REPORTES/reservationsreport-list/reservationsreport-list.module').then(module => module.ReservationsReportListModule)
           }
         ]
       },

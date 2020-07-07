@@ -20,6 +20,7 @@ export class DepartmentsRListComponent implements OnInit {
   constructor(private departmentService: DepartmentsService,
     private router: Router) { }
     filterPost = '';
+    
     ngOnInit(): void {
     this.reloadData();
   }
@@ -46,7 +47,11 @@ export class DepartmentsRListComponent implements OnInit {
   }
 
   imprimirLista(){
-    const doc = new jsPDF
+    const doc = new jsPDF('p','mm','letter');
+    doc.setFontSize(12);
+    doc.setTextColor(0,85,136);
+    doc.setFont("helvetica");
+    doc.setFontType("bold");
     doc.text(10, 10, 'REPORTE DEPARTAMENTO');
     doc.fromHTML(document.getElementById('frmDepartment'),20,20);
    //doc.addPage();

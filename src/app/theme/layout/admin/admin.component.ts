@@ -3,6 +3,7 @@ import { NextConfig } from '../../../app-config';
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute, RouterStateSnapshot } from '@angular/router';
 
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -13,9 +14,14 @@ export class AdminComponent implements OnInit {
   public navCollapsed: boolean;
   public navCollapsedMob: boolean;
   public windowWidth: number;
+ 
 
 
   constructor(private zone: NgZone, private location: Location, private route: ActivatedRoute, private router: Router) {
+
+
+  
+
     this.flatConfig = NextConfig.config;
     let currentURL = this.location.path();
     const baseHerf = this.location['_baseHref'];
@@ -64,6 +70,8 @@ export class AdminComponent implements OnInit {
 
         this.router.navigate(['auth/signin']); 
       }
+     
+      
       
     
 

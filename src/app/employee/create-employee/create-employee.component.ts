@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../employee.service';
 import { Employee } from '../../employee';
 import { Router } from '@angular/router';
+import { Validators } from '@angular/forms';
 
 
 
@@ -17,7 +18,9 @@ export class CreateEmployeeComponent implements OnInit {
 
 
   constructor(private employeeService: EmployeeService,
-    private router: Router) { }
+    private router: Router) { 
+    
+    }
 
   ngOnInit() {
     //code

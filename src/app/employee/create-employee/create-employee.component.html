@@ -5,15 +5,15 @@
         <form (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="name">Nombre(s)</label>
-            <input type="text" class="form-control" id="employees_name" required [(ngModel)]="employee.employees_name" name="employees_name">
+            <input type="text" ng-pattern="employee.employees_name" class="form-control" id="employees_name" required [(ngModel)]="employee.employees_name" name="employees_name">
           </div>      
           <div class="form-group">
             <label for="name">Apellido Paterno</label>
-            <input type="text" class="form-control" id="employees_father_surname" required [(ngModel)]="employee.employees_father_surname" name="employees_father_surname">
+            <input type="text" ng-pattern="employee.employees_father_surname" class="form-control" id="employees_father_surname" required [(ngModel)]="employee.employees_father_surname" name="employees_father_surname">
           </div>  
           <div class="form-group">
             <label for="name">Apellido Materno</label>
-            <input type="text" class="form-control" id="employees_mother_surname" required [(ngModel)]="employee.employees_mother_surname" name="employees_mother_surname">
+            <input type="text" ng-pattern="employee.employees_mother_surname" class="form-control" id="employees_mother_surname" required [(ngModel)]="employee.employees_mother_surname" name="employees_mother_surname">
           </div>      
           <div class="form-group">
             <label for="name">Direccion</label>
@@ -102,7 +102,7 @@
         </div> 
         <div class="form-group">
           <label for="name">Cuenta de banco</label>
-          <input type="text" class="form-control" id="employees_bank_account" required [(ngModel)]="employee.employees_bank_account" name="employees_bank_account">
+          <input type="number" class="form-control" id="employees_bank_account" required [(ngModel)]="employee.employees_bank_account" name="employees_bank_account">
         </div> 
         <div class="form-group">
           <label for="name">Periocidad de pago</label>

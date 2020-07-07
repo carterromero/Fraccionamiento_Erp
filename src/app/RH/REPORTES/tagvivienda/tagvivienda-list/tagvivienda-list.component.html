@@ -4,13 +4,11 @@
       <app-card cardTitle=" REPORTE VIVIENDAS " blockClass="table-border-style">  
         <button (click)="imprimirLista()"   class="btn btn-outline-primary" >Generar pdf</button>
       <div>
-          <label for="name"> REPORTE VIVIENDAS</label>
+          <label for="name" > REPORTE VIVIENDAS</label>
           </div>
           <br>
-        <div id="frmViviendas"  class="table-responsive">
-          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
-          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
-          <table class="table">
+        <div id="frmViviendas"  class="table-responsive" >
+          <table class="table" text-align="center">
             <thead>
             <tr>              
               <th>Id Tag</th>
