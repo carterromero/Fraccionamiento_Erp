@@ -17,6 +17,7 @@ export class CreatePaymentRecordComponent implements OnInit {
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
+  datos:String;
   
   constructor(private employeeService: PaymentRecordService,
     private router: Router) {
@@ -30,10 +31,13 @@ export class CreatePaymentRecordComponent implements OnInit {
     newEmployee(): void {
       this.employee = new PaymentRecord();
     }
+    
 
     save() {
-
-      this.employee.user_id="3";
+console.log(this.employee.payment_method);
+      
+      console.log(this.employee);
+      
       this.employeeService.createEmployee(this.employee)
         .subscribe(data => 
           {
@@ -50,6 +54,7 @@ export class CreatePaymentRecordComponent implements OnInit {
             this.alertMessage = error['statusText'];          
           }      
         });
+        
     }
 
  onSubmit() 
@@ -57,6 +62,10 @@ export class CreatePaymentRecordComponent implements OnInit {
 
   this.alertDisable = true;
   this.alertDisables = true;
+
+
+ 
+  
 
   if(this.employee.payment_record_payment_date =="" ||  this.employee.payment_record_payment_date ==null ){
     this.alertDisable = false;
@@ -88,9 +97,11 @@ export class CreatePaymentRecordComponent implements OnInit {
   handleUpload(event) {
     const file = event.target.files[0];
     const reader = new FileReader();
+    
     reader.readAsDataURL(file);
     reader.onload = () => {
-        console.log(reader.result);
+        this.datos = reader.result.toString();
+        this.employee.payment_method = this.datos.replace("data:application/pdf;base64,","")
       event = this.employee.payment_record_amount;
      
     };

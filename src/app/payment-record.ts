@@ -11,7 +11,8 @@ export class PaymentRecord
     created_date : string;
     last_updated_by : number;
     last_updated_date : string;
-    user_id:string;
+    p_userid :number;
+    condominums_id :number;
     
    
 }
