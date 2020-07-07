@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pricearticulo } from 'src/app/pricearticles';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StatusService } from 'src/app/status.service';
+import { PrecioarticuloService } from 'src/app/precioarticulo.service';
 
 @Component({
   selector: 'app-update-precio',
@@ -15,7 +16,7 @@ export class UpdatePrecioComponent implements OnInit {
   employee: Pricearticulo;
   
   constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: StatusService) { }
+    private employeeService: PrecioarticuloService) { }
 
   ngOnInit() {
 
