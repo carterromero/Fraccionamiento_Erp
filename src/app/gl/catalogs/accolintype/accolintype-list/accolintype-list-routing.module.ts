@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AccountsListComponent} from './accounts-list.component';
+import {AccolintypeListComponent} from './accolintype-list.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AccountsListComponent
+    component: AccolintypeListComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AccountsListRoutingModule { }
+export class AccolintypeListRoutingModule { }

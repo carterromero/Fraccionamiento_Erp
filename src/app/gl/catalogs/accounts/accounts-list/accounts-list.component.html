@@ -1,8 +1,11 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle="contabilidad cuentas" blockClass="table-border-style">      
-        <button [routerLink]="['/create-accounts']"   class="btn btn-outline-primary" >Agregar Cuentas</button>
-        <br><br>
+        <div class="app-modal-footer">
+        <button [routerLink]="['/create-accounts']"   class="btn btn-outline-primary" >Agregar Cuentas</button> 
+        <button style="margin: 10px" [routerLink]="['/accolintype-list']"   class="btn btn-outline-primary" >Agregar tipo cuenta </button>
+        <button style="margin: 10px" [routerLink]="['/lines-list']"   class="btn btn-outline-primary" >Agregar cuenta contable </button>
+      </div>
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 

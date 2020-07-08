@@ -1,0 +1,49 @@
+<p>create-accolintype works!</p>
+<p>create-accounts works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Crear tipo" [options]="false">
+          <form (ngSubmit)="onSubmit()" >
+            <div class="form-group">
+              <label for="name">nombre</label>
+              <input type="text" class="form-control" id="accounting_accounts_types_name"  [(ngModel)]="employee.accounting_accounts_types_name" name="accounting_accounts_types_name" required> 
+            </div>      
+            <div class="form-group">
+              <label for="name">descripcion</label>
+              <input type="text" class="form-control" id="accounting_accounts_types_description"  [(ngModel)]="employee.accounting_accounts_types_description" name="accounting_accounts_types_description" required>
+            </div>  
+            <div class="form-group">
+              <label for="name">creado por </label>
+              <input type="text" class="form-control" id="created_by"  [(ngModel)]="employee.created_by" name="created_by" required>
+            </div>
+            
+         
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="accounting_accounts_types_status"  [(ngModel)]="employee.accounting_accounts_types_status"     name="accounting_accounts_types_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="accounting_accounts_types_status">Active</label>
+                 </div>
+            </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Crear tipo</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de insertar tipo</p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+            <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>          
+            <button [routerLink]="['/accolintype-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

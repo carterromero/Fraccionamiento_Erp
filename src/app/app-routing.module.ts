@@ -237,6 +237,14 @@ import { StatusPrecioarticuloListComponent } from './inventarios/status-precio/s
 
 import { ReservationsReportListModule } from './RH/REPORTES/reservationsreport-list/reservationsreport-list.module';
 import { CreatePreciosComponent } from './inventarios/status-precio/create-precio/create-precios.component';
+import { AccolintypeListComponent } from './gl/catalogs/accolintype/accolintype-list/accolintype-list.component';
+import { CreateAccolintypeComponent } from './gl/catalogs/accolintype/create-accolintype/create-accolintype.component';
+import { AccolintypeDetailsComponent } from './gl/catalogs/accolintype/accolintype-details/accolintype-details.component';
+import { UpdateAccolintypeComponent } from './gl/catalogs/accolintype/update-accolintype/update-accolintype.component';
+import { JournalsListComponent } from './gl/catalogs/journals/journals-list/journals-list.component';
+import { CreateJournalsComponent } from './gl/catalogs/journals/create-journals/create-journals.component';
+import { JournalsDetailsComponent } from './gl/catalogs/journals/journals-details/journals-details.component';
+import { UpdateJournalsComponent } from './gl/catalogs/journals/update-journals/update-journals.component';
 
 
 
@@ -785,7 +793,90 @@ const routes: Routes = [
             loadChildren: () => import('./gl/catalogs/lines/update-lines/update-lines.module').then(module => module.UpdateLinesModule)
           }
         ]
+      }
+      ,
+      {
+        path: '',
+        component: AccolintypeListComponent,
+        children: [
+          {
+            path: 'accolintype-list',
+            loadChildren: () => import('./gl/catalogs/accolintype/accolintype-list/accolintype-list.module').then(module => module.AccolintypeListModule)
+          }
+        ]
       },
+      {
+        path: '',
+        component: CreateAccolintypeComponent,
+        children: [
+          {
+            path: 'create-accolintype',
+            loadChildren: () => import('./gl/catalogs/accolintype/create-accolintype/create-accolintype.module').then(module => module.CreateAccolintypeModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: AccolintypeDetailsComponent,
+        children: [
+          {
+            path: 'accolintype-details/:p_id',
+            loadChildren: () => import('./gl/catalogs/accolintype/accolintype-details/accolintype-details.module').then(module => module.AccolintypeDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateAccolintypeComponent,
+        children: [
+          {
+            path: 'update-accolintype/:p_id',
+            loadChildren: () => import('./gl/catalogs/accolintype/update-accolintype/update-accolintype.module').then(module => module.UpdateAccolintypeModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: JournalsListComponent,
+        children: [
+          {
+            path: 'journals-list',
+            loadChildren: () => import('./gl/catalogs/journals/journals-list/journals-list.module').then(module => module.JournalsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateJournalsComponent,
+        children: [
+          {
+            path: 'create-journals',
+            loadChildren: () => import('./gl/catalogs/journals/create-journals/create-journals.module').then(module => module.CreateJournalsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: JournalsDetailsComponent,
+        children: [
+          {
+            path: 'journals-details/:p_id',
+            loadChildren: () => import('./gl/catalogs/journals/journals-details/journals-details.module').then(module => module.JournalsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateJournalsComponent,
+        children: [
+          {
+            path: 'update-journals/:p_id',
+            loadChildren: () => import('./gl/catalogs/journals/update-journals/update-journals.module').then(module => module.UpdateJournalsModule)
+          }
+        ]
+      }
+      ,
+
       {
         path: '',
         component: LegalsListComponent,
