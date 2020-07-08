@@ -394,11 +394,22 @@ const NavigationItemss = [
         
     
 
-      }
-  ,
-  
-
-      {    
+      },
+  {
+    id: 'Rese-main',
+    title: 'Reservaciones',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+         id: 'rh-reservation',
+        title: 'Reservaciones',
+        type: 'collapse',            
+        url: '/reservations-list'
+      }               
+    ]
+  },
+  {    
         id: 'RH-main',
         title: 'Recursos Humanos ',
         type: 'group',
@@ -417,7 +428,6 @@ const NavigationItemss = [
                 url: '/departments-list'
                 
               },
-    
               {
                 id: 'workplaces',
                 title: 'Puestos',
@@ -456,7 +466,7 @@ const NavigationItemss = [
             ]
           },
           {
-            id: 'rh-tenants',
+            id: 'Tenants-main',
             title: 'Inquilinos',
             type: 'collapse',
             icon: 'feather icon-user',
@@ -468,21 +478,7 @@ const NavigationItemss = [
                 url: '/tenants-list'
               }               
             ]
-          },
-          {
-            id: 'rh-reservations',
-            title: 'Reservaciones',
-            type: 'collapse',
-            icon: 'feather icon-user',
-            children: [
-              {
-                 id: 'rh-reservation',
-                title: 'Reservaciones',
-                type: 'item',            
-                url: '/reservations-list'
-              }               
-            ]
-          },
+        },
           {
             id: 'rh-reports',
             title: 'Reportes',
@@ -750,6 +746,7 @@ export class NavigationItem
     var compras= {};
     var inventarios= {};
     var nomina= {};
+    var inquilino ={};
 
 
     dashboard= {
@@ -994,7 +991,7 @@ export class NavigationItem
     ]
   };
   };
-   if (localStorage.getItem("tesoeria") == 'true'){
+   if (localStorage.getItem("tesoreria") == 'true'){
   
   tesoreria =  {    
     id: 'Treasury-main',
@@ -1213,33 +1210,19 @@ export class NavigationItem
             ]
           },
           {
-            id: 'rh-tenants',
-            title: 'Inquilinos',
-            type: 'collapse',
-            icon: 'feather icon-user',
-            children: [
-              {
-                 id: 'rh-tenant',
-                title: 'Crear Inquilinos',
-                type: 'item',            
-                url: '/tenants-list'
-              }               
-            ]
-          },
+        id: 'rh-tenants',
+        title: 'Inquilinos',
+        type: 'collapse',
+        icon: 'feather icon-user',
+        children: [
           {
-            id: 'rh-reservations',
-            title: 'Reservaciones',
-            type: 'collapse',
-            icon: 'feather icon-user',
-            children: [
-              {
-                 id: 'rh-reservation',
-                title: 'Reservaciones',
-                type: 'item',            
-                url: '/reservations-list'
-              }               
-            ]
-          },
+            id: 'rh-tenant',
+            title: 'Crear Inquilinos',
+            type: 'item',            
+            url: '/tenants-list'
+          }
+        ]
+      },
           {
             id: 'rh-reports',
             title: 'Reportes',
@@ -1489,9 +1472,26 @@ export class NavigationItem
         ]
       };
     };
+    if(localStorage.getItem("inquilino") == 'true'){
+      inquilino ={    
+          id: 'Rese-main',
+          title: 'Reservaciones',
+          type: 'group',
+          icon: 'feather icon-monitor',
+          children: [
+            {
+               id: 'rh-reservation',
+              title: 'Reservaciones',
+              type: 'item',            
+              url: '/reservations-list'
+            }               
+          ]
+      };
+    };
+      
+     
 
-
-    const permisoss=[dashboard,admin,contabilidad,cuentasporpagar,tesoreria,cuentasporcobrar,recursoshumanos,compras,inventarios,nomina];       
+    const permisoss=[dashboard,admin,contabilidad,cuentasporpagar,tesoreria,cuentasporcobrar,recursoshumanos,compras,inventarios,nomina,inquilino];       
     return permisoss;
       
       

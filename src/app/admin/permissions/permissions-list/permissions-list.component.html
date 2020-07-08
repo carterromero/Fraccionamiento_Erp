@@ -19,6 +19,7 @@
               <th>Cuentas por Cobrar</th>
               <th>Inventario</th>
               <th>Recursos Humanos</th>
+              <th>Residente</th>
               <th>Administración</th>
               <th>Estatus</th>
               <th>#</th>
@@ -86,6 +87,12 @@
                        </div>
                       </td>
 
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_inquilino == 'true'">
+                          <label class="custom-control-label" for="permissions_inquilino">Active</label>
+                       </div>
+                      </td>
 
                       <td>
                         <div class="custom-control custom-switch">
@@ -94,7 +101,7 @@
                        </div>
                       </td>
 
-
+                    
                       <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="general.permissions_status == 'true'">
