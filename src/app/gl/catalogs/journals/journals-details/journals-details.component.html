@@ -1,1 +1,42 @@
 <p>journals-details works!</p>
+
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle=" poliza  Detalle" [options]="false">
+        <div *ngIf="employee">
+
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <div>
+            <label><b>poliza periodos id</b></label> {{employee.journals_periods_id}}
+          </div>
+          <div>
+            <label><b>fecha</b></label> {{employee.journals_date}}
+          </div>
+          <div>
+            <label><b>descripcion</b></label> {{employee.journals_description}}
+          </div>
+          <div>
+            <label><b>numero</b></label> {{employee.journals_number}}
+          </div>
+
+          <div>
+            <label><b>codigo de moneda</b></label> {{employee.journals_currency_code}}
+          </div>
+
+          <div>
+            <label><b>condominio id</b></label> {{employee.journals_condominiums_id}}
+          </div>
+        
+          <div>
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="journals_status"  name="journals_status"   style="margin-left: 10px" [checked]="employee.journals_status == 'true'">
+            <label class="custom-control-label" for="journals_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/journals-list']" class="btn btn-outline-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>

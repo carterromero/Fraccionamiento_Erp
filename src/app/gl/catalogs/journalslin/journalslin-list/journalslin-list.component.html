@@ -1,11 +1,11 @@
-<p>journals-list works!</p>
+<p>journalslin-list works!</p>
+
 <div class="row">
     <div class="col-xl-12">
-      <app-card cardTitle="contabilidad cuentas contables" blockClass="table-border-style">      
+      <app-card cardTitle="contabilidad cuentas polizas" blockClass="table-border-style">      
         <div class="app-modal-footer">
-        <button style="margin: 10px" [routerLink]="['/create-journals']"   class="btn btn-outline-primary" >Agregar poliza</button>
-        <button [routerLink]="['/journalslin-list']"   class="btn btn-outline-primary" >poliza lineas debe y haber
-       </button>
+        <button style="margin: 10px" [routerLink]="['/create-journalslin']"   class="btn btn-outline-primary" >Agregar poliza</button>
+        <button [routerLink]="['/journals-list']"   class="btn btn-outline-primary" >regresar </button>
       </div>
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
@@ -13,12 +13,10 @@
           <table class="table">
             <thead>
             <tr>     
-              <th> id poliza periodo</th>         
-              <th>fecha </th>
-              <th>descripcion </th>
-              <th>numero</th>
-              <th>código de moneda</th>
-              <th>condominio </th>
+              <th> id cabecero</th>         
+              <th>cuentas_línea_id </th>
+              <th>debe</th>
+              <th>haber</th>
               <th>Estatus </th>
               <th>#</th>
             </tr>
@@ -26,26 +24,25 @@
             <tbody>
                 <tr *ngFor="let general of general | async">
                     
-                    <td>{{general.journals_periods_id}}</td>
-                    <td>{{general.journals_date}}</td>
-                    <td>{{general.journals_description}}</td>
-                    <td>{{general.journals_number}}</td>
-                    <td>{{general.journals_currency_code}}</td>
-                    <td>{{general.journals_condominiums_id}}</td>
+                    <td>{{general.journals_header_id}}</td>
+                    <td>{{general.journals_accounts_line_id}}</td>
+                    <td>{{general.journals_lines_debe}}</td>
+                    <td>{{general.journals_lines_haber}}</td>
+    
                    
 
                     
                     <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.journals_status == 'true'">
-                          <label class="custom-control-label" for="journals_status">Active</label>
+                          <input type="checkbox" class="custom-control-input" [checked]="general.journals_lines_status == 'true'">
+                          <label class="custom-control-label" for="periodsStatus">Active</label>
                        </div>
                       </td>
 
                     <td>
                         <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
-                        <button (click)="updateGeneral(general.journals_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                        <button (click)="generalDetails(general.journals_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                        <button (click)="updateGeneral(general.journals_lines_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        <button (click)="generalDetails(general.journals_lines_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
                         
                         
                         
@@ -60,7 +57,7 @@
                           </div>
                           <div class="app-modal-footer">
                           <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
-                          <button type="submit" class="btn btn-danger"  (click)="deleteGeneral(general.journals_id)"   (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Eliminar</button>
+                          <button type="submit" class="btn btn-danger"  (click)="deleteGeneral(general.journals_lines_id)"   (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Eliminar</button>
                           </div>
                       </app-ui-modal>
                     </td>          

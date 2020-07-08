@@ -249,14 +249,20 @@ import { UpdateJournalsComponent } from './gl/catalogs/journals/update-journals/
 
 import { PrecioDetailsComponent } from './inventarios/status-precio/precio-details/precio-details.component';
 import { UpdatePrecioComponent } from './inventarios/status-precio/update-precio/update-precio.component';
-import { CreateTransactionTypesComponent } from './AR/TransactionTypes/create-transactiontypes/create-transactiontypes.component';
-import { TransactionTypesDetailsComponent } from './AR/TransactionTypes/transactiontypes-details/transactiontypes-details.component';
+import { JournalslinListComponent } from './gl/catalogs/journalslin/journalslin-list/journalslin-list.component';
+import { CreateJournalslinComponent } from './gl/catalogs/journalslin/create-journalslin/create-journalslin.component';
+import { JournalslinDetailsComponent } from './gl/catalogs/journalslin/journalslin-details/journalslin-details.component';
+import { UpdateJournalslinComponent } from './gl/catalogs/journalslin/update-journalslin/update-journalslin.component';
 import { TransactionTypesListComponent } from './AR/TransactionTypes/transactiontypes-list/transactiontypes-list.component';
-import { UpdateTransactionTypesComponent } from './AR//TransactionTypes/update-transactiontypes/update-transactiontypes.component';
-import { CreatePaymentsARComponent } from './AR/payments/create-payments-ar/create-payments-ar.component';
-import { PaymentsARDetailsComponent } from './AR/payments/payments-ar-details/payments-ar-details.component';
+import { TransactionTypesDetailsComponent } from './AR/TransactionTypes/transactiontypes-details/transactiontypes-details.component';
+import { CreateTransactionTypesComponent } from './AR/TransactionTypes/create-transactiontypes/create-transactiontypes.component';
+import { UpdateTransactionTypesComponent } from './AR/TransactionTypes/update-transactiontypes/update-transactiontypes.component';
 import { PaymentsARListComponent } from './AR/payments/payments-ar-list/payments-ar-list.component';
+import { PaymentsARDetailsComponent } from './AR/payments/payments-ar-details/payments-ar-details.component';
+import { CreatePaymentsARComponent } from './AR/payments/create-payments-ar/create-payments-ar.component';
 import { UpdatePaymentsARComponent } from './AR/payments/update-payments-ar/update-payments-ar.component';
+
+
 
 
 
@@ -884,6 +890,47 @@ const routes: Routes = [
           {
             path: 'update-journals/:p_id',
             loadChildren: () => import('./gl/catalogs/journals/update-journals/update-journals.module').then(module => module.UpdateJournalsModule)
+          }
+        ]
+      }
+      ,
+      {
+        path: '',
+        component: JournalslinListComponent,
+        children: [
+          {
+            path: 'journalslin-list',
+            loadChildren: () => import('./gl/catalogs/journalslin/journalslin-list/journalslin-list.module').then(module => module.JournalslinListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateJournalslinComponent,
+        children: [
+          {
+            path: 'create-journalslin',
+            loadChildren: () => import('./gl/catalogs/journalslin/create-journalslin/create-journalslin.module').then(module => module.CreateJournalslinModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: JournalslinDetailsComponent,
+        children: [
+          {
+            path: 'journalslin-details/:p_id',
+            loadChildren: () => import('./gl/catalogs/journalslin/journalslin-details/journalslin-details.module').then(module => module.JournalslinDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateJournalslinComponent,
+        children: [
+          {
+            path: 'update-journalslin/:p_id',
+            loadChildren: () => import('./gl/catalogs/journalslin/update-journalslin/update-journalslin.module').then(module => module.UpdateJournalslinModule)
           }
         ]
       }

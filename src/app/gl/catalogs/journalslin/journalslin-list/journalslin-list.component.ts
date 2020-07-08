@@ -1,23 +1,24 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { JournalsService } from "../../../../services/gl/journals.service";
-import { Journals } from "../../../../services/gl/journals";
+import { JournalslinService } from "../../../../services/gl/journalslin.service";
+import { Journalslin } from "../../../../services/gl/journalslin";
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-journals-list',
-  templateUrl: './journals-list.component.html',
-  styleUrls: ['./journals-list.component.scss']
+  selector: 'app-journalslin-list',
+  templateUrl: './journalslin-list.component.html',
+  styleUrls: ['./journalslin-list.component.scss']
 })
-export class JournalsListComponent implements OnInit {
+export class JournalslinListComponent implements OnInit {
 
-  general: Observable<Journals[]>;
+ 
+  general: Observable<Journalslin[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private generalService: JournalsService,
+  constructor(private generalService: JournalslinService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -63,11 +64,11 @@ export class JournalsListComponent implements OnInit {
   }
 
   generalDetails(p_id: number){
-    this.router.navigate(['journals-details', p_id]);
+    this.router.navigate(['journalslin-details', p_id]);
   }
 
   updateGeneral(p_id: number){
-    this.router.navigate(['update-journals', p_id]);
+    this.router.navigate(['update-journalslin', p_id]);
   }
 
 }

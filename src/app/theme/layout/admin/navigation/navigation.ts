@@ -193,6 +193,21 @@ const NavigationItemss = [
             
           }                    
         ]
+      },
+      {
+        id: 'gl_reports',
+        title: 'Reportes',
+        type: 'collapse',
+        icon: 'feather icon-server',
+        children: [
+          {
+            id: 'periods-list',
+            title: 'Periods List',
+            type: 'item',            
+            url: '/periods-list'
+            
+          }                    
+        ]
       }
     ] 
   }
@@ -236,7 +251,7 @@ const NavigationItemss = [
 
           {
             id: 'cuenta_pagar',
-            title: 'cuenta por pagar factura ',
+            title: 'Registro de pago ',
             type: 'item',            
             url: '/payment-record-list' 
             
@@ -891,31 +906,17 @@ export class NavigationItem
             type: 'item',            
             url: '/accounts-list'
             
-          }   , 
+          }, 
           {
-            id: 'accounts-list',
-            title: 'Contablilidad cuenta lineas',
+            id: 'journals-list',
+            title: 'polizas',
             type: 'item',            
-            url: '/lines-list'
+            url: '/journals-list'
             
-          }                
+          }              
         ]
       },
-      {
-        id: 'gl_operatios',
-        title: 'Operación',
-        type: 'collapse',
-        icon: 'feather icon-file-text',
-        children: [
-          {
-            id: 'periods-list',
-            title: 'Periods List',
-            type: 'item',            
-            url: '/periods-list'
-            
-          }                    
-        ]
-      },
+     
       {
         id: 'gl_reports',
         title: 'Reportes',
@@ -975,7 +976,7 @@ export class NavigationItem
   
           {
             id: 'cuenta_pagar',
-            title: 'cuenta por pagar factura ',
+            title: 'Registro de pago ',
             type: 'item',            
             url: '/payment-record-list' 
             
