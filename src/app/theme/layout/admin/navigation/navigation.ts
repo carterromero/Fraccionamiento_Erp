@@ -48,7 +48,21 @@ const NavigationItemss = [
   
     
   },
-  
+  {
+    id: 'reservations-main',
+    title: 'Reservaciones',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'Reservations',
+        title: 'Manejo Reservaciones',
+        type: 'collapse',
+        url: '/reservations-list',
+        icon: 'feather icon-user'
+      }
+    ]
+  },
 
 
   {    
@@ -430,20 +444,6 @@ const NavigationItemss = [
     
 
       },
-  {
-    id: 'Rese-main',
-    title: 'Reservaciones',
-    type: 'group',
-    icon: 'feather icon-monitor',
-    children: [
-      {
-         id: 'rh-reservation',
-        title: 'Reservaciones',
-        type: 'collapse',            
-        url: '/reservations-list'
-      }               
-    ]
-  },
   {    
         id: 'RH-main',
         title: 'Recursos Humanos ',
@@ -752,7 +752,7 @@ const NavigationItemss = [
         ]
       }
     ]
-  }  
+  } 
 ];
 
 
@@ -1504,14 +1504,15 @@ export class NavigationItem
       };
     };
     if(localStorage.getItem("inquilino") == 'true'){
-      inquilino ={    
-          id: 'Rese-main',
+      inquilino =
+      {    
+          id: 'r-main',
           title: 'Reservaciones',
           type: 'group',
           icon: 'feather icon-monitor',
           children: [
             {
-               id: 'rh-reservation',
+              id: 'rh-reservation',
               title: 'Reservaciones',
               type: 'item',            
               url: '/reservations-list'
