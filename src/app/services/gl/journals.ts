@@ -1,5 +1,5 @@
 
-export class journals
+export class Journals
 {
     journals_id :number;
     journals_periods_id :number;

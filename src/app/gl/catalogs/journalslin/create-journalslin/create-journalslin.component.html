@@ -1,4 +1,4 @@
-<p>create-journals works!</p>
+<p>create-journalslin works!</p>
 
 <div class="row justify-content-center">
     <div class="col-sm-12">
@@ -6,29 +6,22 @@
         <app-card cardTitle="Crear cuenta Contables" [options]="false">
           <form (ngSubmit)="onSubmit()" >
             <div class="form-group">
-              <label for="name">polizas periodos id</label>
-              <input type="text" class="form-control" id="journals_periods_id"  [(ngModel)]="employee.journals_periods_id" name="journals_periods_id" required> 
+              <label for="name">polizas cabecero id</label>
+              <input type="text" class="form-control" id="journals_header_id"  [(ngModel)]="employee.journals_header_id" name="journals_header_id" required> 
             </div>      
             <div class="form-group">
-              <label for="name">fecha</label>
-              <input type="text" class="form-control" id="journals_date"  [(ngModel)]="employee.journals_date" name="journals_date" required>
+              <label for="name">linea id</label>
+              <input type="text" class="form-control" id="journals_accounts_line_id"  [(ngModel)]="employee.journals_accounts_line_id" name="journals_accounts_line_id" required>
             </div>  
             <div class="form-group">
-              <label for="name">descripcion</label>
-              <input type="text" class="form-control" id="journals_description"  [(ngModel)]="employee.journals_description" name="journals_description" required>
+              <label for="name">debe</label>
+              <input type="text" class="form-control" id="journals_lines_debe"  [(ngModel)]="employee.journals_lines_debe" name="journals_lines_debe" required>
             </div>
             <div class="form-group">
-                <label for="name">numero</label>
-                <input type="text" class="form-control" id="journals_number"  [(ngModel)]="employee.journals_number" name="journals_number" required>
+                <label for="name">haber</label>
+                <input type="text" class="form-control" id="journals_lines_haber"  [(ngModel)]="employee.journals_lines_haber" name="journals_lines_haber" required>
             </div>
-            <div class="form-group">
-                <label for="name">codigo de moneda</label>
-                <input type="text" class="form-control" id="journals_currency_code"  [(ngModel)]="employee.journals_currency_code" name="journals_currency_code" required>
-            </div>
-            <div class="form-group">
-              <label for="name">condominio_id</label>
-              <input type="text" class="form-control" id="journals_condominiums_id"  [(ngModel)]="employee.journals_condominiums_id" name="journals_condominiums_id" required>
-          </div>
+          
          
         <div class="form-group">
           <label for="name">creado por</label>
@@ -39,8 +32,8 @@
             <div class="form-group">
                 <label for="name">Estatus</label>
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input"  id="journals_status"  [(ngModel)]="employee.journals_status"     name="journals_status"   style="margin-left: 10px">
-                    <label class="custom-control-label" for="journals_status">Active</label>
+                    <input type="checkbox" class="custom-control-input"  id="journals_lines_status"  [(ngModel)]="employee.journals_lines_status"     name="journals_lines_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="journals_lines_status">Active</label>
                  </div>
             </div>
             <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
@@ -59,7 +52,7 @@
               </div>
           </app-ui-modal>
             <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>          
-            <button [routerLink]="['/journals-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+            <button [routerLink]="['/journalslin-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
           </form>
         </app-card>
       </div>

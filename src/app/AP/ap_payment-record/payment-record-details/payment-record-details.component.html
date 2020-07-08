@@ -1,11 +1,14 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
-      <app-card cardTitle="FACTURA Detalle" [options]="false">
+      <app-card cardTitle="Registro de pago Detalle" [options]="false">
         <div  id="from-informacion" *ngIf="employee">
 
         
           <div>
             <label><b>Total pagado: </b></label> {{employee.payment_record_amount}}
+          </div>
+          <div>
+            <label><b>tipo de pago: </b></label> {{employee.metodo_tipo}}
           </div>
           <div>
             <label><b>Método de pago: </b></label> {{employee.payment_method}}

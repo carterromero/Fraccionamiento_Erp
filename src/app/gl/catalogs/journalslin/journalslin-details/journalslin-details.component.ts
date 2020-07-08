@@ -1,28 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { JournalsService } from "../../../../services/gl/journals.service";
-import { Journals } from "../../../../services/gl/journals";
-
+import { JournalslinService } from "../../../../services/gl/journalslin.service";
+import { Journalslin } from "../../../../services/gl/journalslin";
 
 @Component({
-  selector: 'app-journals-details',
-  templateUrl: './journals-details.component.html',
-  styleUrls: ['./journals-details.component.scss']
+  selector: 'app-journalslin-details',
+  templateUrl: './journalslin-details.component.html',
+  styleUrls: ['./journalslin-details.component.scss']
 })
-export class JournalsDetailsComponent implements OnInit {
+export class JournalslinDetailsComponent implements OnInit {
 
 
   p_id: number;
-  employee: Journals;  
+  employee: Journalslin;  
   alertDisable = true;
   alertMessage = "null";
 
   constructor(private route: ActivatedRoute ,private router: Router,
-    private employeeService: JournalsService) { }
+    private employeeService: JournalslinService) { }
 
   ngOnInit() {
-    this.employee = new Journals();    
+    this.employee = new Journalslin();    
     this.p_id = this.route.firstChild.snapshot.params['p_id']
     console.log(this.p_id);
     
@@ -41,3 +40,4 @@ export class JournalsDetailsComponent implements OnInit {
       });
   }
 }
+

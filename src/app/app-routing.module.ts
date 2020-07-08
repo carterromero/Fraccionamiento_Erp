@@ -249,6 +249,10 @@ import { UpdateJournalsComponent } from './gl/catalogs/journals/update-journals/
 
 import { PrecioDetailsComponent } from './inventarios/status-precio/precio-details/precio-details.component';
 import { UpdatePrecioComponent } from './inventarios/status-precio/update-precio/update-precio.component';
+import { JournalslinListComponent } from './gl/catalogs/journalslin/journalslin-list/journalslin-list.component';
+import { CreateJournalslinComponent } from './gl/catalogs/journalslin/create-journalslin/create-journalslin.component';
+import { JournalslinDetailsComponent } from './gl/catalogs/journalslin/journalslin-details/journalslin-details.component';
+import { UpdateJournalslinComponent } from './gl/catalogs/journalslin/update-journalslin/update-journalslin.component';
 
 
 
@@ -877,6 +881,47 @@ const routes: Routes = [
           {
             path: 'update-journals/:p_id',
             loadChildren: () => import('./gl/catalogs/journals/update-journals/update-journals.module').then(module => module.UpdateJournalsModule)
+          }
+        ]
+      }
+      ,
+      {
+        path: '',
+        component: JournalslinListComponent,
+        children: [
+          {
+            path: 'journalslin-list',
+            loadChildren: () => import('./gl/catalogs/journalslin/journalslin-list/journalslin-list.module').then(module => module.JournalslinListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateJournalslinComponent,
+        children: [
+          {
+            path: 'create-journalslin',
+            loadChildren: () => import('./gl/catalogs/journalslin/create-journalslin/create-journalslin.module').then(module => module.CreateJournalslinModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: JournalslinDetailsComponent,
+        children: [
+          {
+            path: 'journalslin-details/:p_id',
+            loadChildren: () => import('./gl/catalogs/journalslin/journalslin-details/journalslin-details.module').then(module => module.JournalslinDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateJournalslinComponent,
+        children: [
+          {
+            path: 'update-journalslin/:p_id',
+            loadChildren: () => import('./gl/catalogs/journalslin/update-journalslin/update-journalslin.module').then(module => module.UpdateJournalslinModule)
           }
         ]
       }
