@@ -133,25 +133,53 @@ const NavigationItemss = [
             type: 'item',            
             url: '/periods-list'
             
-          }, 
+          }   , 
           {
             id: 'accounts-list',
             title: 'Contablilidad Cuentas',
             type: 'item',            
             url: '/accounts-list'
             
-          }, 
+          }   , 
           {
-            id: 'journals-list',
-            title: 'polizas',
+            id: 'accounts-list',
+            title: 'Contablilidad cuenta lineas',
             type: 'item',            
-            url: '/journals-list'
+            url: '/lines-list'
             
-          }    
-                     
+          }                
+        ]
+      },
+      {
+        id: 'gl_operatios',
+        title: 'Operación',
+        type: 'collapse',
+        icon: 'feather icon-file-text',
+        children: [
+          {
+            id: 'periods-list',
+            title: 'Periods List',
+            type: 'item',            
+            url: '/periods-list'
+            
+          }                    
+        ]
+      },
+      {
+        id: 'gl_reports',
+        title: 'Reportes',
+        type: 'collapse',
+        icon: 'feather icon-server',
+        children: [
+          {
+            id: 'periods-list',
+            title: 'Periods List',
+            type: 'item',            
+            url: '/periods-list'
+            
+          }                    
         ]
       }
-      
     ] 
   }
   ,
@@ -369,7 +397,7 @@ const NavigationItemss = [
               id: 'transactiontypes',
               title: 'Tipo de transaccion',
               type: 'item',            
-              url: '/'
+              url: '/transactiontypes-list'
               
             },
             {
@@ -385,6 +413,13 @@ const NavigationItemss = [
               title: 'Cobro',
               type: 'item',            
               url: '/collection-list'
+              
+            },
+            {
+              id: 'paymentsar',
+              title: 'Pago',
+              type: 'item',            
+              url: '/payments-ar-list'
               
             },
                                   
@@ -506,13 +541,7 @@ const NavigationItemss = [
              title: 'Reporte departamento',
              type: 'item',            
              url: '/departmentsr-list'
-           },
-           {
-            id: 'rh-reports',
-           title: 'Reporte reservaciones',
-           type: 'item',            
-           url: '/reservationsreport-list'
-         }                                      
+           }                           
             ]
           },
         ]
@@ -644,11 +673,11 @@ const NavigationItemss = [
             title: 'Estatus Articulos',
             type: 'item',            
             url: '/status-articles-list'
- 
+            
           },
           {
             id: 'precios',
-            title: 'Precios Articulos',
+            title: 'Precios',
             type: 'item',            
             url: '/status-precios-list'
             
@@ -1128,7 +1157,7 @@ export class NavigationItem
               id: 'transactiontypes',
               title: 'Tipo de transaccion',
               type: 'item',            
-              url: '/'
+              url: '/transactiontypes-list'
               
             },
             {
@@ -1146,6 +1175,14 @@ export class NavigationItem
               url: '/collection-list'
               
             },
+            {
+              id: 'paymentsar',
+              title: 'Pago',
+              type: 'item',            
+              url: '/payments-ar-list'
+              
+            },
+            
                                   
           ]
         },
@@ -1263,13 +1300,7 @@ export class NavigationItem
              title: 'Reporte departamento',
              type: 'item',            
              url: '/departmentsr-list'
-           },
-           {
-            id: 'rh-reports',
-           title: 'Reporte reservaciones',
-           type: 'item',            
-           url: '/reservationsreport-list'
-         }                                      
+           }                           
             ]
           },
         ]
