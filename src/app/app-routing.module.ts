@@ -253,6 +253,15 @@ import { JournalslinListComponent } from './gl/catalogs/journalslin/journalslin-
 import { CreateJournalslinComponent } from './gl/catalogs/journalslin/create-journalslin/create-journalslin.component';
 import { JournalslinDetailsComponent } from './gl/catalogs/journalslin/journalslin-details/journalslin-details.component';
 import { UpdateJournalslinComponent } from './gl/catalogs/journalslin/update-journalslin/update-journalslin.component';
+import { TransactionTypesListComponent } from './AR/TransactionTypes/transactiontypes-list/transactiontypes-list.component';
+import { TransactionTypesDetailsComponent } from './AR/TransactionTypes/transactiontypes-details/transactiontypes-details.component';
+import { CreateTransactionTypesComponent } from './AR/TransactionTypes/create-transactiontypes/create-transactiontypes.component';
+import { UpdateTransactionTypesComponent } from './AR/TransactionTypes/update-transactiontypes/update-transactiontypes.component';
+import { PaymentsARListComponent } from './AR/payments/payments-ar-list/payments-ar-list.component';
+import { PaymentsARDetailsComponent } from './AR/payments/payments-ar-details/payments-ar-details.component';
+import { CreatePaymentsARComponent } from './AR/payments/create-payments-ar/create-payments-ar.component';
+import { UpdatePaymentsARComponent } from './AR/payments/update-payments-ar/update-payments-ar.component';
+
 
 
 
@@ -1424,6 +1433,90 @@ const routes: Routes = [
           }
         ]
       },
+      /////
+      {
+        path: '',
+        component: TransactionTypesListComponent,
+        children: [
+          {
+            path: 'transactiontypes-list',
+            loadChildren: () => import('./AR/TransactionTypes/transactiontypes-list/transactiontypes-list.module').then(module => module.TransactionTypesListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: TransactionTypesDetailsComponent,
+        children: [
+          {
+            path: 'transactiontypes-details/:id',
+            loadChildren: () => import('./AR/TransactionTypes/transactiontypes-details/transactiontypes-details.module').then(module => module.TransactionTypesDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateTransactionTypesComponent,
+        children: [
+          {
+            path: 'create-transactiontypes',
+            loadChildren: () => import('./AR/TransactionTypes/create-transactiontypes/create-transactiontypes.module').then(module => module.CreateTransactionTypesModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateTransactionTypesComponent,
+        children: [
+          {
+            path: 'update-transactiontypes/:id',
+            loadChildren: () => import('./AR/TransactionTypes/update-transactiontypes/update-transactiontypes.module').then(module => module.UpdateTransactionTypesModule)
+          }
+        ]
+      },
+       /////
+       {
+        path: '',
+        component: PaymentsARListComponent,
+        children: [
+          {
+            path: 'payments-ar-list',
+            loadChildren: () => import('./AR/payments/payments-ar-list/payments-ar-list.module').then(module => module.PaymentsARListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: PaymentsARDetailsComponent,
+        children: [
+          {
+            path: 'payments-ar-details/:id',
+            loadChildren: () => import('./AR/payments/payments-ar-details/payments-ar-details.module').then(module => module.PaymentsARDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreatePaymentsARComponent,
+        children: [
+          {
+            path: 'create-payments-ar',
+            loadChildren: () => import('./AR/payments/create-payments-ar/create-payments-ar.module').then(module => module.createPaymentsARModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdatePaymentsARComponent,
+        children: [
+          {
+            path: 'update-payments-ar/:id',
+            loadChildren: () => import('./AR/payments/update-payments-ar/update-payments-ar.module').then(module => module.UpdatePaymentsARModule)
+          }
+        ]
+      },
+      //
+  
       {
         path: '',
         component: CreateReferralAddressComponent,
