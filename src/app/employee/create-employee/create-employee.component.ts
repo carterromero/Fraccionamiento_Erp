@@ -115,6 +115,7 @@ export class CreateEmployeeComponent implements OnInit {
      
     };
 }
+
 handleUpload2(event) {
   const file = event.target.files[0];
   const reader = new FileReader();
