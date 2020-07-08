@@ -52,11 +52,11 @@ export class StatusPrecioarticuloListComponent implements OnInit {
   }
 
   generalDetails(id: number){
-    this.router.navigate(['status-details',id]);
+    this.router.navigate(['precio-details',id]);
   }
 
   updateGeneral(id: number){
-    this.router.navigate(['update-status', id]);
+    this.router.navigate(['update-precio', id]);
   }
 
 
