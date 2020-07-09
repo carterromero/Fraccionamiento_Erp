@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xl-12">
-      <app-card cardTitle="cuenta por pagar FACTURAS" blockClass="table-border-style">      
-        <button [routerLink]="['/create-payment-record']" class="btn btn-outline-primary">Agregar  cuenta por pagar Factura</button><br>
+      <app-card cardTitle="Registro de pago" blockClass="table-border-style">      
+        <button [routerLink]="['/create-payment-record']" class="btn btn-outline-primary">Agregar  Registro de pago</button><br>
         <br>
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
@@ -9,9 +9,10 @@
           <table class="table">
             <thead>
             <tr>              
-             
+              <th>nombre creditor </th>
               <th>Fecha de pago </th>
               <th>Monto</th>
+              <th>Método tipo</th>
               <th>Método de pago</th>
               <th>Estatus </th>
               <th>#</th>
@@ -21,11 +22,13 @@
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                    
+                  <td>{{general.name_creditor}}</td>
                     <td>{{general.payment_record_payment_date}}</td>
                     <td>{{general.payment_record_amount}}</td>
+                    <td>{{general.metodo_tipo}}</td>
                     <td>{{general.payment_method}}</td>
-                    
+                   
+                 
                     
                     <td>
                         <div class="custom-control custom-switch">

@@ -76,21 +76,12 @@ export class UpdatePaymentRecordComponent implements OnInit {
     this.alertDisable = true;
     this.alertDisables = true;
   
-    if(this.employee.payment_record_payment_date =="" ||  this.employee.payment_record_payment_date ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Fecha de pago:  ";          
-    }
-  
-    else if(this.employee.payment_record_amount =="" ||  this.employee.payment_record_amount ==null ){
+    if(this.employee.payment_record_amount =="" ||  this.employee.payment_record_amount ==null ){
       this.alertDisable = false;
       this.alertMessage = "monto";          
     }
   
-    else if(this.employee.payment_method =="" ||  this.employee.payment_method ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Método de pago:";    
-            
-    }
+   
     
     else{
       this.updateEmployee();    
@@ -115,7 +106,6 @@ export class UpdatePaymentRecordComponent implements OnInit {
      
     };
 }
-  
 
   
 

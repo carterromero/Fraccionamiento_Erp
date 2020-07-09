@@ -48,7 +48,21 @@ const NavigationItemss = [
   
     
   },
-  
+  {
+    id: 'reservations-main',
+    title: 'Reservaciones',
+    type: 'group',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'Reservations',
+        title: 'Manejo Reservaciones',
+        type: 'collapse',
+        url: '/reservations-list',
+        icon: 'feather icon-user'
+      }
+    ]
+  },
 
 
   {    
@@ -143,7 +157,7 @@ const NavigationItemss = [
           }   , 
           {
             id: 'accounts-list',
-            title: 'Contablilidad L.Cuentas Contables',
+            title: 'Contablilidad cuenta lineas',
             type: 'item',            
             url: '/lines-list'
             
@@ -155,6 +169,21 @@ const NavigationItemss = [
         title: 'Operación',
         type: 'collapse',
         icon: 'feather icon-file-text',
+        children: [
+          {
+            id: 'periods-list',
+            title: 'Periods List',
+            type: 'item',            
+            url: '/periods-list'
+            
+          }                    
+        ]
+      },
+      {
+        id: 'gl_reports',
+        title: 'Reportes',
+        type: 'collapse',
+        icon: 'feather icon-server',
         children: [
           {
             id: 'periods-list',
@@ -222,7 +251,7 @@ const NavigationItemss = [
 
           {
             id: 'cuenta_pagar',
-            title: 'cuenta por pagar factura ',
+            title: 'Registro de pago ',
             type: 'item',            
             url: '/payment-record-list' 
             
@@ -397,7 +426,7 @@ const NavigationItemss = [
               id: 'transactiontypes',
               title: 'Tipo de transaccion',
               type: 'item',            
-              url: '/'
+              url: '/transactiontypes-list'
               
             },
             {
@@ -415,6 +444,13 @@ const NavigationItemss = [
               url: '/collection-list'
               
             },
+            {
+              id: 'paymentsar',
+              title: 'Pago',
+              type: 'item',            
+              url: '/payments-ar-list'
+              
+            },
                                   
           ]
         },
@@ -422,11 +458,8 @@ const NavigationItemss = [
         
     
 
-      }
-  ,
-  
-
-      {    
+      },
+  {    
         id: 'RH-main',
         title: 'Recursos Humanos ',
         type: 'group',
@@ -445,7 +478,6 @@ const NavigationItemss = [
                 url: '/departments-list'
                 
               },
-    
               {
                 id: 'workplaces',
                 title: 'Puestos',
@@ -484,7 +516,7 @@ const NavigationItemss = [
             ]
           },
           {
-            id: 'rh-tenants',
+            id: 'Tenants-main',
             title: 'Inquilinos',
             type: 'collapse',
             icon: 'feather icon-user',
@@ -496,21 +528,7 @@ const NavigationItemss = [
                 url: '/tenants-list'
               }               
             ]
-          },
-          {
-            id: 'rh-reservations',
-            title: 'Reservaciones',
-            type: 'collapse',
-            icon: 'feather icon-user',
-            children: [
-              {
-                 id: 'rh-reservation',
-                title: 'Reservaciones',
-                type: 'item',            
-                url: '/reservations-list'
-              }               
-            ]
-          },
+        },
           {
             id: 'rh-reports',
             title: 'Reportes',
@@ -534,13 +552,7 @@ const NavigationItemss = [
              title: 'Reporte departamento',
              type: 'item',            
              url: '/departmentsr-list'
-           },
-           {
-            id: 'rh-reports',
-           title: 'Reporte reservaciones',
-           type: 'item',            
-           url: '/reservationsreport-list'
-         }                                      
+           }                           
             ]
           },
         ]
@@ -672,11 +684,11 @@ const NavigationItemss = [
             title: 'Estatus Articulos',
             type: 'item',            
             url: '/status-articles-list'
- 
+            
           },
           {
             id: 'precios',
-            title: 'Precios Articulos',
+            title: 'Precios',
             type: 'item',            
             url: '/status-precios-list'
             
@@ -755,7 +767,7 @@ const NavigationItemss = [
         ]
       }
     ]
-  }  
+  } 
 ];
 
 
@@ -778,6 +790,7 @@ export class NavigationItem
     var compras= {};
     var inventarios= {};
     var nomina= {};
+    var inquilino ={};
 
 
     dashboard= {
@@ -893,31 +906,17 @@ export class NavigationItem
             type: 'item',            
             url: '/accounts-list'
             
-          }   , 
+          }, 
           {
-            id: 'accounts-list',
-            title: 'Contablilidad cuenta lineas',
+            id: 'journals-list',
+            title: 'polizas',
             type: 'item',            
-            url: '/lines-list'
+            url: '/journals-list'
             
-          }                
+          }              
         ]
       },
-      {
-        id: 'gl_operatios',
-        title: 'Operación',
-        type: 'collapse',
-        icon: 'feather icon-file-text',
-        children: [
-          {
-            id: 'periods-list',
-            title: 'Periods List',
-            type: 'item',            
-            url: '/periods-list'
-            
-          }                    
-        ]
-      },
+     
       {
         id: 'gl_reports',
         title: 'Reportes',
@@ -977,7 +976,7 @@ export class NavigationItem
   
           {
             id: 'cuenta_pagar',
-            title: 'cuenta por pagar factura ',
+            title: 'Registro de pago ',
             type: 'item',            
             url: '/payment-record-list' 
             
@@ -1022,7 +1021,7 @@ export class NavigationItem
     ]
   };
   };
-   if (localStorage.getItem("tesoeria") == 'true'){
+   if (localStorage.getItem("tesoreria") == 'true'){
   
   tesoreria =  {    
     id: 'Treasury-main',
@@ -1156,7 +1155,7 @@ export class NavigationItem
               id: 'transactiontypes',
               title: 'Tipo de transaccion',
               type: 'item',            
-              url: '/'
+              url: '/transactiontypes-list'
               
             },
             {
@@ -1174,6 +1173,14 @@ export class NavigationItem
               url: '/collection-list'
               
             },
+            {
+              id: 'paymentsar',
+              title: 'Pago',
+              type: 'item',            
+              url: '/payments-ar-list'
+              
+            },
+            
                                   
           ]
         },
@@ -1241,33 +1248,19 @@ export class NavigationItem
             ]
           },
           {
-            id: 'rh-tenants',
-            title: 'Inquilinos',
-            type: 'collapse',
-            icon: 'feather icon-user',
-            children: [
-              {
-                 id: 'rh-tenant',
-                title: 'Crear Inquilinos',
-                type: 'item',            
-                url: '/tenants-list'
-              }               
-            ]
-          },
+        id: 'rh-tenants',
+        title: 'Inquilinos',
+        type: 'collapse',
+        icon: 'feather icon-user',
+        children: [
           {
-            id: 'rh-reservations',
-            title: 'Reservaciones',
-            type: 'collapse',
-            icon: 'feather icon-user',
-            children: [
-              {
-                 id: 'rh-reservation',
-                title: 'Reservaciones',
-                type: 'item',            
-                url: '/reservations-list'
-              }               
-            ]
-          },
+            id: 'rh-tenant',
+            title: 'Crear Inquilinos',
+            type: 'item',            
+            url: '/tenants-list'
+          }
+        ]
+      },
           {
             id: 'rh-reports',
             title: 'Reportes',
@@ -1291,13 +1284,7 @@ export class NavigationItem
              title: 'Reporte departamento',
              type: 'item',            
              url: '/departmentsr-list'
-           },
-           {
-            id: 'rh-reports',
-           title: 'Reporte reservaciones',
-           type: 'item',            
-           url: '/reservationsreport-list'
-         }                                      
+           }                           
             ]
           },
         ]
@@ -1517,9 +1504,27 @@ export class NavigationItem
         ]
       };
     };
+    if(localStorage.getItem("inquilino") == 'true'){
+      inquilino =
+      {    
+          id: 'r-main',
+          title: 'Reservaciones',
+          type: 'group',
+          icon: 'feather icon-monitor',
+          children: [
+            {
+              id: 'rh-reservation',
+              title: 'Reservaciones',
+              type: 'item',            
+              url: '/reservations-list'
+            }               
+          ]
+      };
+    };
+      
+     
 
-
-    const permisoss=[dashboard,admin,contabilidad,cuentasporpagar,tesoreria,cuentasporcobrar,recursoshumanos,compras,inventarios,nomina];       
+    const permisoss=[dashboard,admin,contabilidad,cuentasporpagar,tesoreria,cuentasporcobrar,recursoshumanos,compras,inventarios,nomina,inquilino];       
     return permisoss;
       
       

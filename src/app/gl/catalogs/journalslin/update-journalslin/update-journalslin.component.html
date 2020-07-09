@@ -1,0 +1,56 @@
+<p>update-journalslin works!</p>
+
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Actualizar " [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">poliza cabecero id</label>
+                <input type="text" class="form-control" id="journals_header_id"  [(ngModel)]="employee.journals_header_id" name="journals_header_id" required> 
+              </div>      
+              <div class="form-group">
+                <label for="name">cuentas line id</label>
+                <input type="text" class="form-control" id="journals_accounts_line_id"  [(ngModel)]="employee.journals_accounts_line_id" name="journals_accounts_line_id" required>
+              </div>  
+              <div class="form-group">
+                <label for="name">debe</label>
+                <input type="text" class="form-control" id="journals_lines_debe"  [(ngModel)]="employee.journals_lines_debe" name="journals_lines_debe" required>
+              </div>
+              <div class="form-group">
+                  <label for="name">haber</label>
+                  <input type="text" class="form-control" id="journals_lines_haber"  [(ngModel)]="employee.journals_lines_haber" name="journals_lines_haber" required>
+              </div>
+   
+          <div class="form-group">
+            <label for="name">ultimo actualizado por:</label>
+            <input type="text" class="form-control" id="last_updated_by"  [(ngModel)]="employee.last_updated_by" name="last_updated_by" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Estatus</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="journals_lines_status"  [(ngModel)]="employee.journals_lines_status"     name="journals_lines_status"   style="margin-left: 10px">
+                <label class="custom-control-label" for="journals_lines_status">Active</label>
+             </div>
+        </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Autualizar </h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de actualizar </p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+          <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>          
+          <button [routerLink]="['/journalslin-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

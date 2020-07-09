@@ -43,5 +43,5 @@ export class EmployeeService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_REPORT_EMPLOYEE/1.0/report_employee/${p_q}`,{headers});
   }
-
+  
 }

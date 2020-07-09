@@ -45,12 +45,12 @@ filterPost = '';
   }
 
 
-  getAgreement(date: string){
-    this.router.navigate(['reservationsreport-list', date]);
+  getReservationReport(){
+    this.router.navigate(['reservationsreport-list']);
   }
 
 
-   generate() {
+   /*generate() {
     const doc = new jsPDF('p', 'pt');
     const res = doc.autoTableHtmlToJson(document.getElementById("frmReservations"));
     doc.autoTable(res.columns, res.data, {margin: {top: 80}});
@@ -74,7 +74,7 @@ filterPost = '';
     doc.autoTable(res.columns, res.data, options);
   
     doc.save("table.pdf");
-  }
+  }*/
 
   imprimirLista(){
     const doc = new jsPDF('p','mm','letter');
