@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { collectionListRoutingModule } from './collection-list-routing.module';
-import { collectionListComponent } from './collection-list.component';
-import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { CollectionListRoutingModule } from './collection-list-routing.module';
+import { CollectionListComponent } from './collection-list.component';
+import {SharedModule} from '../../theme/shared/shared.module';
 
 @NgModule({
-  declarations: [collectionListComponent],
+  declarations: [CollectionListComponent],
   imports: [
     CommonModule,
-    collectionListRoutingModule,
+    CollectionListRoutingModule,
     SharedModule
   ]
 })
-export class collectionListModule { }
+export class CollectionListModule { }

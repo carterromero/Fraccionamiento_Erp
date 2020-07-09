@@ -386,8 +386,8 @@ const NavigationItemss = [
               
             },
             {
-              id: 'concepts',
-              title: 'Conceptos de colection',
+              id: 'colllectionconcepts',
+              title: 'Conceptos de Cobro',
               type: 'item',            
               url: '/collectionconcepts-list'
               
@@ -400,13 +400,12 @@ const NavigationItemss = [
               
             },
             {
-              id: 'collectionconcept',
-              title: 'Conceptos de pago',
+              id: 'deposittaccountt',
+              title: 'Cuenta de deposito',
               type: 'item',            
               url: '/deposit-account-list'
               
             },
-            
             {
               id: 'collection',
               title: 'Cobro',
@@ -1102,35 +1101,35 @@ export class NavigationItem
             },
             {
               id: 'Direction',
-              title: 'Direccion de remison',
+              title: 'Direccion de Remison',
               type: 'item',            
               url: '/referral-address-list'
               
             },
             {
               id: 'paymentsterms',
-              title: 'Terminos de pago',
+              title: 'Terminos de Pago',
               type: 'item',            
               url: '/payment-terms-list'
               
             },
             {
               id: 'concepts',
-              title: 'Conceptos de colection',
+              title: 'Conceptos de Cobro',
               type: 'item',            
               url: '/collectionconcepts-list'
               
             },
             {
               id: 'transactiontypes',
-              title: 'Tipo de transaccion',
+              title: 'Tipo de Transaccion',
               type: 'item',            
               url: '/transactiontypes-list'
               
             },
             {
-              id: 'collectionconcept',
-              title: 'Conceptos de pago',
+              id: 'depositaccount',
+              title: 'Cuenta de Deposito ',
               type: 'item',            
               url: '/deposit-account-list'
               

@@ -11,20 +11,19 @@
               </div> 
              
              
+              <div class="form-group">
+                <label for="name">Direccion</label>
+                <input type="text" class="form-control" id="fractionation_address"  [(ngModel)]="employee.fractionation_address" name="fractionation_address" required> 
+              </div>
+
 
               <div class="form-group">
-                <label for="exampleFormControlSelect1">Proveedor</label>
-                <select  class="custom-select"  id="supplier_id" required [(ngModel)]="employee.supplier_id" name="supplier_id" >
-                <option *ngFor="let address of suppliers | async" value="{{address.supplier_id}}">{{address.supplier_name}}</option>
-                 </select>
-               </div>    
+                <label for="name">Nombre del solicitante</label>
+                <input type="text" class="form-control" id="applicant_name"  [(ngModel)]="employee.applicant_name" name="applicant_name" required> 
+              </div>
             
-               <div class="form-group">
-                <label for="exampleFormControlSelect1">Terminos de pago</label>
-                <select  class="custom-select"  id="payment_term_id" required [(ngModel)]="employee.payment_term_id" name="payment_term_id" >
-                <option *ngFor="let address of payments | async" value="{{address.payment_termns_id}}">{{address.payment_description}}</option>
-                 </select>
-               </div>    
+              
+                
                <div class="form-group">
                 <label for="exampleFormControlSelect1">Articulos</label>
                 <select  class="custom-select"  id="sku" required [(ngModel)]="employee.sku" name="sku" >
@@ -32,14 +31,34 @@
                  </select>
                </div>    
                
+
+               <div class="form-group">
+                <label for="exampleFormControlSelect1">Proveedor</label>
+                <select  class="custom-select"  id="supplier_id" required [(ngModel)]="employee.supplier_id" name="supplier_id" >
+                <option *ngFor="let address of suppliers | async" value="{{address.supplier_id}}">{{address.supplier_name}}</option>
+                 </select>
+               </div> 
+
+               <div class="form-group">
+                <label for="exampleFormControlSelect1">Terminos de pago</label>
+                <select  class="custom-select"  id="payment_term_id" required [(ngModel)]="employee.payment_term_id" name="payment_term_id" >
+                <option *ngFor="let address of payments | async" value="{{address.payment_termns_id}}">{{address.payment_description}}</option>
+                 </select>
+               </div>
+
               <div class="form-group">
                 <label for="name">Cantidad de Articulos </label>
                 <input type="text" class="form-control" id="purcharse_quantity_items"  [(ngModel)]="employee.purcharse_quantity_items" name="purcharse_quantity_items" required> 
               </div> 
+
+              <div class="form-group">
+                <label for="name">Precio Articulos </label>
+                <input type="text" class="form-control" id="articles_prices"  [(ngModel)]="employee.articles_prices" name=" articles_prices" required> 
+              </div> 
                   
               <div class="form-group">
                 <label for="name">TOTAL DE ORDEN </label>
-                <input type="text" class="form-control" id="purcharse_order_total"  [(ngModel)]="employee.purcharse_order_total" name="purcharse_order_total" required> 
+                <input type="text" class="form-control" id="purcharse_order_total"  readonly="readonly"   [(ngModel)]="employee.purcharse_order_total" name="purcharse_order_total" required> 
               </div> 
               
               <div class="form-group">

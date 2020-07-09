@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { collection } from 'src/app/collection';
+import { Collection } from 'src/app/collection';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CollectionService } from 'src/app/collection.service';
 
@@ -11,7 +11,7 @@ import { CollectionService } from 'src/app/collection.service';
 export class CollectionDetailsComponent implements OnInit {
 
   id: number;
-  employee: collection;  
+  employee: Collection;  
   alertDisable = true;
   alertMessage = "null";
 
@@ -19,12 +19,12 @@ export class CollectionDetailsComponent implements OnInit {
     private employeeService: CollectionService) { }
 
   ngOnInit() {
-    this.employee = new collection();    
+    this.employee = new Collection();    
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
     
     
-    this.employeeService.getCollection(this.id)
+    this.employeeService.getEmployee(this.id)
       .subscribe(data => {
         console.log(data);
         this.employee = data;

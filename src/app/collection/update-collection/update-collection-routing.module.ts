@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UpdatecollectionComponent } from './update-collection.component';
+import { UpdateCollectionComponent } from './update-collection.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: UpdatecollectionComponent
+    component: UpdateCollectionComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class UpdatecollectionRoutingModule { }
+export class UpdateCollectionRoutingModule { }

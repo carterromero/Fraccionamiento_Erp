@@ -1,4 +1,4 @@
-export class collection{
+export class Collection{
     collection_id: number;
     collection_transaction_type: string;
     collection_name_resident: string;

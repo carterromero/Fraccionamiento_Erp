@@ -12,7 +12,7 @@
             
             <th>Id de la Orden  </th>
             <th>NOMBRE de Orden </th>
-            
+            <th>NOMBRE del Solicitante </th>
             <th>ADDRESS</th>
             <th>ARTICULO </th>
             <th>Proveedor</th>
@@ -28,24 +28,21 @@
           </thead>
           <tbody>
               <tr *ngFor="let general of general | async">
-                  <td>{{general.purcharse_id}}</td>
-                  <td>{{general.purcharse_name}}</td>
-                   
-                  <td>{{general.applicant_name}}</td>
-                  <td>{{general.purcharse_request_address}}</td>
-                  <td>{{general.articles_name_article}}</td>
-                  <td>{{general.supplier_name}}</td>
-                  <td>{{general.payment_description}}</td>
                  
-                  <td>{{general.purcharse_quantity_items}}</td>
-                  
-                  
-                  <td>{{general.articles_prices}}</td>
-                  <td>{{general.purcharse_order_total}}</td>
-                  <td>{{general. purcharse_order_creation_date}}</td>
-
-                  
-                  
+                <td>{{general.purcharse_id}}</td>
+                <td>{{general.purcharse_name}}</td>
+                <td>{{general.applicant_name}}</td>
+                <td>{{general.fractionation_address}}</td>
+                <td>{{general.articles_name_article}}</td> 
+                <td>{{general.supplier_name}}</td>
+                <td>{{general.payment_description}}</td>
+                <td>{{general.purcharse_quantity_items}}</td>
+                <td>{{general.articles_prices}}</td>
+                <td>{{general.purcharse_order_total}}</td>
+                <td>{{general. purcharse_order_creation_date}}</td>
+                
+                
+               
                   
                   <td>
                       <div class="custom-control custom-switch">
