@@ -1,0 +1,51 @@
+<p>transl-list works!</p>
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle=" REPORTE transaccion " blockClass="table-border-style">  
+        <button (click)="imprimirLista()"   class="btn btn-outline-primary" > generar pdf reporte contable</button>
+      
+      <div>
+      
+          <label for="name"> REPORTE TRANSACCION </label>
+          <br>
+          <label for="name">condominio:</label>
+          <input type="text" class="form-control"  [(ngModel)]="busqueda.p_condominio_id" name="p_condominio_id" >
+          <label for="name">periodo:</label>
+          <input type="text" class="form-control"  [(ngModel)]="busqueda.p_periodo_id" name="p_periodo_id" >
+          <button (click)="getsbusqueda()"   class="btn btn-outline-primary"style="margin-left: 10px">BUSCAR  </button>   
+    <!--
+<button [routerLink]="['/repo-cred-pay-cont-list/date']"  class="btn btn-outline-primary">Regresar</button><br>
+       <button [routerLink]="['/create-payment-record']"  (click)="generalDetails(general.payment_record_payment_date)" class="btn btn-outline-primary"style="margin-left: 10px">BUSCAR CORTE DE FECHA VENCIMIENTO </button>
+    -->
+          </div>
+          <br>
+        
+        <div id="frmEquipos" class="table-responsive">
+          
+          <table id="frmEquipos"  class="table">
+            <thead>
+            <tr>              
+              <th>fecha</th>
+              <th>cuenta </th>
+              <th>descripcion </th>
+              <th>debe</th>
+              <th>haber</th>
+              <th>importe</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async   " >
+                    <td>{{general.fecha}}</td>
+                    <td>{{general.cuenta}}</td>
+                    <td>{{general.descripcion}}</td>
+                    <td>{{general.debe}}</td>
+                    <td>{{general.haber}}</td>
+                    <td>{{general.importe}}</td>
+                   
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

@@ -261,6 +261,7 @@ import { PaymentsARListComponent } from './AR/payments/payments-ar-list/payments
 import { PaymentsARDetailsComponent } from './AR/payments/payments-ar-details/payments-ar-details.component';
 import { CreatePaymentsARComponent } from './AR/payments/create-payments-ar/create-payments-ar.component';
 import { UpdatePaymentsARComponent } from './AR/payments/update-payments-ar/update-payments-ar.component';
+import { TranslListComponent } from './gl/report/transl/transl-list/transl-list.component';
 
 
 
@@ -921,6 +922,16 @@ const routes: Routes = [
           {
             path: 'journalslin-details/:p_id',
             loadChildren: () => import('./gl/catalogs/journalslin/journalslin-details/journalslin-details.module').then(module => module.JournalslinDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: TranslListComponent,
+        children: [
+          {
+            path: 'transl-list',
+            loadChildren: () => import('./gl/report/transl/transl-list/transl-list.module').then(module => module.TranslListModule)
           }
         ]
       },
