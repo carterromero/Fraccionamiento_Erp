@@ -38,7 +38,11 @@ export class EmployeeService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ALL_EMPLOY/1.0/employees`,{headers});
   }
-    
+  getReporParametro(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_MPAYMENT/1.0/Payments`,{headers});
+  }
+
   getReporEmployee(p_q: string): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_REPORT_EMPLOYEE/1.0/report_employee/${p_q}`,{headers});

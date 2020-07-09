@@ -7,14 +7,13 @@
           <label for="name"> REPORTE EMPLEADOS</label>
           </div>
           <br>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Tipo</label>
+            <select  class="custom-select"  id="employees_frequency_payment" required [(ngModel)]='employees_frequency_payment' name="employees_frequency_payment" >
+            <option *ngFor="let emplo of employees | async" value="{{emplo.employees_frequency_payment}}">{{emplo.employees_frequency_payment}}</option>
+            </select>
+        </div>  
         <div id="frmEmployee"  class="table-responsive">
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Tipo</label>
-        <select  class="custom-select"  id="p_q" required [(ngModel)]="p_q" name="p_q" >
-        <option  value="quincenal">quincenal</option>
-        <option  value="semanal">semanal</option>
-        </select>
-    </div>  
           <table class="table">
             <thead>
             <tr>              

@@ -2,13 +2,13 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle=" REPORTE DEPARTAMENTOS " blockClass="table-border-style">  
-        <button (click)="imprimirLista()"   class="btn btn-outline-primary" >Generar pdf</button>
-      <div>
-          <label for="name"> REPORTE DEPARTAMENTOS</label>
-          </div>
-          <br>
+        <button (click)="convetToPDF()"   class="btn btn-outline-primary" >Generar pdf</button>
         <div id="frmDepartment"  class="table-responsive">
-          <table class="table">
+          <div>
+            <label for="name"> REPORTE DEPARTAMENTOS</label>
+            </div>
+            <br>
+          <table class="tableR">
             <thead>
             <tr>              
               <th>Id departamento</th>

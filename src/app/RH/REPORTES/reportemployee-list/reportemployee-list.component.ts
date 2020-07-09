@@ -1,4 +1,4 @@
-import { Component, OnInit, Query } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as jsPDF from 'jspdf';
@@ -13,25 +13,49 @@ import { EmployeeService } from 'src/app/employee.service';
 })
 export class ReportEmployeeListComponent implements OnInit {
   employees: Observable<Employee[]>;
+  employe: Employee = new Employee();
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
-  p_q: string;
-
+  employees_frequency_payment : string;
+  verSeleccion: string        = '';
+  
   constructor(private employeeService: EmployeeService,
     private router: Router, private route: ActivatedRoute) { }
     filterPost = '';
     ngOnInit(): void {
-    this.reloadData();
+      this.reloadData1();
      // this.reloadData();
+     // this.reloadData();
+      
   }
-  
-     reloadData() {
-      this.p_q = this.route.firstChild.snapshot.params['p_q']
-      this.employeeService.getReporEmployee(this.p_q).subscribe(
+
+  reloadData1() { 
+
+    this.employeeService.getReporParametro().subscribe(
       data => {
-        this.employees = this.employeeService.getReporEmployee(this.p_q);
+        console.log(data);
+        this.employees = this.employeeService.getReporParametro();
+        this.reloadData();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );    
+
+  
+  
+  }
+     reloadData() {
+     this.verSeleccion=this.employees_frequency_payment;
+      this.employeeService.getReporEmployee(this.verSeleccion).subscribe(
+      data => {
+        this.employees = this.employeeService.getReporEmployee(this.verSeleccion);
       },
       error => {
         console.log(error);   
