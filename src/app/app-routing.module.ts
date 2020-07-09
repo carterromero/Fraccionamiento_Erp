@@ -2509,7 +2509,7 @@ component: CreateTransfersComponent,
       ]
     },
 
-//////////////
+
     {
       path: '',
       component: StatusPrecioarticuloListComponent,

@@ -1,52 +1,74 @@
 <div class="row">
-    <div class="col-xl-12">
-      <app-card cardTitle="Articulos" blockClass="table-border-style">      
-        <button [routerLink]="['/create-articles']" class="btn btn-outline-info">Agregar Articulos</button><br>
-        <br>
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-                <tr>              
-                    <th>Articulo Nombre</th>
-                    <th>Articulo Descripción</th>
-                    <th>Unidad de Medida</th>
-                    <th>Dimension</th>
-                    <th>Articulo Precio</th>
-                    <th>Articulos Externos</th>
-                    <th>Caracteristicas Internas</th>
-                    <th>Sub Categoria Nombre</th>
-                    <th>Articulos Skus</th>
-                    <th>Estatus </th>
-                    <th>Acciones</th>
-                  </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let general of general | async">
-                    <td>{{general.articles_name_article}} </td>
-                    <td>{{general.articles_description}}</td>
-                    <td>{{general.of_measuares_description}}</td>
-                    <td>{{general.articles_dimension}}</td>
-                    <td>{{general.articles_articles_price}}</td>
-                    <td>{{general.articles_external_feactures}}</td>
-                    <td>{{general.articles_internal_characteristics}}</td>
-                    <td>{{general.sub_categories_name}}</td>
-                    <td>{{general.articles_skus}}</td> 
-                    <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.articles_status == 'true'">
-                          <label class="custom-control-label" for="articles_status">Active</label>
-                       </div>
-                      </td>
-                    <td>
-                        <button (click)="deleteGeneral(general.articles_sku)"  class="btn btn-outline-danger">Eliminar</button>
-                        <button (click)="updateGeneral(general.articles_sku)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                        <button (click)="generalDetails(general.articles_sku)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
-                        
-                    </td>
+  <div class="col-xl-12">
+    <app-card cardTitle="Articulos" blockClass="table-border-style">      
+      <button [routerLink]="['/create-articles']" class="btn btn-outline-info">Agregar Articulos</button><br>
+      <br>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+              <tr>      
+
+                  <th>Articulo Nombre</th>
+                  <th>Numero de articulo</th>
+                  <th>Articulo Descripción</th>
+                  <th>Unidad de Medida</th>
+                  <th>Dimension</th>
+
+                  <th>Ancho</th>
+                  <th>Alto</th>
+                  <th>largo</th>
+                  <th>Longitud</th>
+                  <th>Latitud</th>
+                  <th>Precio</th>
+                 
+
+                  <th>Articulo Precio</th>
+                  <th>Articulos Externos</th>
+                  <th>Caracteristicas Internas</th>
+                  <th>Caracteristicas Externas</th>
+                  <th>Sub Categoria Nombre</th>
+                  <th>Articulos Skus</th>
+                  <th>Estatus </th>
+                  <th>Acciones</th>
                 </tr>
-            </tbody>
-          </table>
-        </div>
-      </app-card>
-    </div>
+          </thead>
+          <tbody>
+              <tr *ngFor="let general of general | async">
+                  <td>{{general.articles_name_article}} </td>
+                  <td>{{general.articles_sku}} </td>
+                  <td>{{general.articles_description}}</td>
+                  <td>{{general.of_measuares_description}}</td>
+                  <td>{{general.articles_dimension}}</td>
+
+                  <td>{{general.articles_width}}</td>
+                  <td>{{general.articles_tall}}</td>
+                  <td>{{general.articles_long}}</td>
+                  <td>{{general.lote_longitud}}</td>
+                  <td>{{general.lote_latitud}}</td>
+                  
+                  
+
+                  <td>{{general.articles_articles_price}}</td>
+                  <td>{{general.articles_external_feactures}}</td>
+                  <td>{{general.articles_internal_characteristics}}</td>
+                  <td>{{general.sub_categories_name}}</td>
+                  <td>{{general.articles_skus}}</td> 
+                  <td>
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" [checked]="general.articles_status == 'true'">
+                        <label class="custom-control-label" for="articles_status">Active</label>
+                     </div>
+                    </td>
+                  <td>
+                      <button (click)="deleteGeneral(general.articles_sku)"  class="btn btn-outline-danger">Eliminar</button>
+                      <button (click)="updateGeneral(general.articles_sku)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                      <button (click)="generalDetails(general.articles_sku)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                      
+                  </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
   </div>
+</div>

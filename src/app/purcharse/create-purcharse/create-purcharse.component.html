@@ -12,11 +12,20 @@
                 <label for="name">Nombre de Orden</label>
                 <input type="text" class="form-control" id="purcharse_name"  [(ngModel)]="employee.purcharse_name" name="purcharse_name" required> 
               </div> 
+              
+
+
+
+              <div class="form-group">
+                <label for="name">Direccion</label>
+                <input type="text" class="form-control" id="fractionation_address"  [(ngModel)]="employee.fractionation_address" name="fractionation_address" required> 
+              </div>
+
              
               
               <div class="form-group">
                 <label for="name">Nombre del solicitante</label>
-                <input type="text" class="form-control" id="applicant_name"  [(ngModel)]="employee.purcharse_name" name="purcharse_name" required> 
+                <input type="text" class="form-control" id="applicant_name"  [(ngModel)]="employee.applicant_name" name="applicant_name" required> 
               </div>
 
               <div class="form-group">
@@ -31,7 +40,8 @@
                 <select  class="custom-select"  id="payment_term_id" required [(ngModel)]="employee.payment_term_id" name="payment_term_id" >
                 <option *ngFor="let address of payments | async" value="{{address.payment_termns_id}}">{{address.payment_description}}</option>
                  </select>
-               </div>    
+               </div>
+                   
                <div class="form-group">
                 <label for="exampleFormControlSelect1">Articulos</label>
                 <select  class="custom-select"  id="sku" required [(ngModel)]="employee.sku" name="sku" >
@@ -66,7 +76,7 @@
               
               <div class="form-group">
                 <label for="name"> FECHA DE CREACION DE ORDEN </label>
-                <input type="date"    readonly="readonly" value="2018-07-22" class="form-control" id="purcharse_order_creation_date"  [(ngModel)]="employee.purcharse_order_creation_date" name="purcharse_order_creation_date" required> 
+                <input type="datetime"     value="08-07-2020" class="form-control" id="purcharse_order_creation_date"  [(ngModel)]="employee.purcharse_order_creation_date" name="purcharse_order_creation_date" required> 
               </div> 
 
             
@@ -91,7 +101,8 @@
               </div>
               <div class="app-modal-body">
               <p>Esta seguro de insertar Orden</p>
-              </div>
+             
+            </div>
                <div class="app-modal-footer">
               <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
               <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
