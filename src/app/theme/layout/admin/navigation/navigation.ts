@@ -417,7 +417,7 @@ const NavigationItemss = [
             },
             {
               id: 'concepts',
-              title: 'Conceptos de colection',
+              title: 'Conceptos de Pago',
               type: 'item',            
               url: '/collectionconcepts-list'
               
@@ -1146,7 +1146,7 @@ export class NavigationItem
             },
             {
               id: 'concepts',
-              title: 'Conceptos de colection',
+              title: 'Conceptos de Pago',
               type: 'item',            
               url: '/collectionconcepts-list'
               

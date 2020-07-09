@@ -15,32 +15,32 @@ export class CollectionService {
 
   constructor(private http: HttpClient) { }
 
-  createCollection(Collection: Object): Observable<Object> {
+  createEmployee(Employee: Object): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/POST_INSERT/1.0/post_collection`, Collection,{headers});
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/POST_INSERT/1.0/post_collection`, Employee,{headers});
   }
 
-  getCollection(id: number): Observable<any> {
+  getEmployee(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/GET_ONE_AR_COLLECTI/1.0/get_one_ar_collection/${id}`,{headers});
   }
 
-  updateCollection(id: number, value: any): Observable<Object> {
+  updateEmployee(id: number, value: any): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/UPDATE_AR_COLLECTION/1.0/update/${id}`, value,{headers});
   }
 
-  deleteCollection(id: number): Observable<any> {
+  deleteEmployee(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.delete(`${this.baseUrl}ic/api/integration/v1/flows/rest/DELETE_AR_COLLECTION/1.0/delete/${id}`, { responseType: 'text', headers});
   }
 
-  getCollectionList(): Observable<any> {
+  getEmployeeList(): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/GET_AR_COLLETION/1.0/customer`,{headers});
   }
 
-  getCollectionListcombo(): Observable<any> {
+  getEmployeeListcombo(): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/GET_AR_COLLETION/1.0/customer`,{headers});
   }

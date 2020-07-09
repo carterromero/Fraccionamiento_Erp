@@ -168,8 +168,8 @@ import { UpdatePurcharseComponent } from './purcharse/update-purcharse/update-pu
 
 
 
-import { collectionListComponent } from './collection/collection-list/collection-list.component';
-import { CreatecollectionComponent } from './collection/create-collection/create-collection.component';
+import { CollectionListComponent } from './collection/collection-list/collection-list.component';
+import { CreateCollectionComponent } from './collection/create-collection/create-collection.component';
 import { BilltopayListComponent } from './AP/ap_billtopay/billtopay-list/billtopay-list.component';
 import { PaymentRecordListComponent } from './AP/ap_payment-record/payment-record-list/payment-record-list.component';
 import { CreatePaymentRecordComponent } from './AP/ap_payment-record/create-payment-record/create-payment-record.component';
@@ -227,7 +227,7 @@ import { PaymentTermsListComponent } from './AR/paymentTerms/payment-terms-list/
 import { UpdatePaymentTermsComponent } from './AR/paymentTerms/update-payment-terms/update-payment-terms.component';
 import { CreatePaymentTermsComponent } from './AR/paymentTerms/create-payment-terms/create-payment-terms.component';
 import { PaymentTermsDetailsComponent } from './AR/paymentTerms/payment-terms-details/payment-terms-details.component';
-import { UpdatecollectionComponent } from './collection/update-collection/update-collection.component';
+import { UpdateCollectionComponent } from './collection/update-collection/update-collection.component';
 import { StatusListComponent } from './inventarios/status/status-list/status-list.component';
 import { CreateStatusComponent } from './inventarios/status/create-status/create-status.component';
 import { StatusDetailsComponent } from './inventarios/status/status-details/status-details.component';
@@ -1274,21 +1274,21 @@ const routes: Routes = [
 
       {
         path: '',
-        component: collectionListComponent,
+        component: CollectionListComponent,
         children: [
           {
             path: 'collection-list',
-            loadChildren: () => import('./collection/collection-list/collection-list.module').then(module => module.collectionListModule)
+            loadChildren: () => import('./collection/collection-list/collection-list.module').then(module => module.CollectionListModule)
           }
         ]
       },
       {
         path: '',
-        component: CreatecollectionComponent,
+        component: CreateCollectionComponent,
         children: [
           {
             path: 'create-collection',
-            loadChildren: () => import('./collection/create-collection/create-collection.module').then(module => module.createcollectionModule)
+            loadChildren: () => import('./collection/create-collection/create-collection.module').then(module => module.CreateCollectionModule)
           }
         ]
       },
@@ -1304,11 +1304,11 @@ const routes: Routes = [
       },
       {
         path: '',
-        component: UpdatecollectionComponent,
+        component: UpdateCollectionComponent,
         children: [
           {
             path: 'update-collection/:id',
-            loadChildren: () => import('./collection/update-collection/update-collection.module').then(module => module.UpdatecollectionModule)
+            loadChildren: () => import('./collection/update-collection/update-collection.module').then(module => module.UpdateCollectionModule)
           }
         ]
       },

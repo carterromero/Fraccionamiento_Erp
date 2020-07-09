@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { createcollectionRoutingModule } from './create-collection-routing.modules';
-import { CreatecollectionComponent } from './create-collection.component';
-import { SharedModule } from 'src/app/theme/shared/shared.module';
+import { CreateCollectionRoutingModule } from './create-collection-routing.modules';
+import { CreateCollectionComponent } from './create-collection.component';
+import {SharedModule} from '../../theme/shared/shared.module';
 
 @NgModule({
-  declarations: [CreatecollectionComponent],
+  declarations: [CreateCollectionComponent],
   imports: [
     CommonModule,
-    createcollectionRoutingModule,
+    CreateCollectionRoutingModule,
     SharedModule
   ]
 })
-export class createcollectionModule { }
+export class CreateCollectionModule { }
