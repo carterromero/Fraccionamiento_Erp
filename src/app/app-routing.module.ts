@@ -268,6 +268,7 @@ import { PdfPurcharseListComponent } from './po/pdf/pdf-purcharse/pdf-purcharse-
 
 import { TranslListComponent } from './gl/report/transl/transl-list/transl-list.component';
 import { PdfPurcharseDetailsComponent } from './po/pdf/pdf-purcharse/pdfs-purcharse-details/pdf-purcharse-details.component';
+import { CollectionDetailsComponent } from './collection/collection-details/collection-details.component';
 
 
 
@@ -1312,11 +1313,21 @@ const routes: Routes = [
       },
       {
         path: '',
-        component: CollectionConceptsDetailsComponent,
+        component: CollectionDetailsComponent,
         children: [
           {
             path: 'collection-details/:id',
             loadChildren: () => import('./collection/collection-details/collection-details.module').then(module => module.CollectionDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateCollectionComponent,
+        children: [
+          {
+            path: 'update-collection/:id',
+            loadChildren: () => import('./collection/update-collection/update-collection.module').then(module => module.UpdateCollectionModule)
           }
         ]
       },
