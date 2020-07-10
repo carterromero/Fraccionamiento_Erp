@@ -26,4 +26,5 @@ export class Articles
     articles_until :string;
     articles_status_id: number;
     articles_price_id: number;
+    categories_name : number;
 }

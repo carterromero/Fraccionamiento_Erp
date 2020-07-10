@@ -1326,7 +1326,7 @@ export class NavigationItem
                 title: 'Ordenes de Compra',
                 type: 'item',            
                 url: '/pdf-purchase_orders-list'
-                            }
+              }
                            
             ]
           }
@@ -1429,17 +1429,17 @@ export class NavigationItem
             icon: 'feather icon-monitor',
             children: [
               {
-                id: 'report',
+                id: 'reports',
                 title: 'Reporte Articulo General',
                 type: 'item',            
-                url: '/report-list'
+                url: '/report-articulog-list'
                 
               },
               {
-                id: 'report',
+                id: 'reportss',
                 title: 'Reporte Historial Articulo',
                 type: 'item',            
-                url: '/report-list'
+                url: '/report-historial-list'
                 
               }                           
             ]

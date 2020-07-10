@@ -23,10 +23,7 @@
                     <option *ngFor="let address of addresses | async" value="{{address.sub_categories_id}}">{{address.sub_categories_name}}</option>
                     </select>
                     </div>
-                <div class="form-group">
-                    <label for="name">Articulos Dimension</label>
-                    <input type="text" class="form-control" id="articles_dimension"  [(ngModel)]="employee.articles_dimension" name="articles_dimension" required> 
-                  </div> 
+                
                   <div class="form-group">
                     <label for="name">Precio de Artículos</label>
                     <input type="text" class="form-control" id="articles_articles_price"  [(ngModel)]="employee.articles_articles_price" name="articles_articles_price" required> 

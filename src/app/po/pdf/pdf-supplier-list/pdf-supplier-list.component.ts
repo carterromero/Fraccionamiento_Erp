@@ -21,7 +21,10 @@ export class PdfSupplierListComponent implements OnInit {
 
   general: Observable<Supplier[]>;
 
-  constructor(  private route: ActivatedRoute,private generalService: SupplierService, private router: Router) { }
+  constructor(  private route: ActivatedRoute,
+    private generalService: 
+    SupplierService, private router: Router) { }
+   
     imprimirLista(id:number){
       
       

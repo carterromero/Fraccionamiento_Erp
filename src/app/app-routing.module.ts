@@ -269,6 +269,7 @@ import { PdfPurcharseListComponent } from './po/pdf/pdf-purcharse/pdf-purcharse-
 import { TranslListComponent } from './gl/report/transl/transl-list/transl-list.component';
 import { PdfPurcharseDetailsComponent } from './po/pdf/pdf-purcharse/pdfs-purcharse-details/pdf-purcharse-details.component';
 import { CollectionDetailsComponent } from './collection/collection-details/collection-details.component';
+import { PdfArticulogListComponent } from './inventarios/Pdf-articulo-g/pdf-articulog-list/pdf-articulog-list.component';
 
 
 
@@ -2391,8 +2392,21 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./admin/permissions/permissions-list/permissions-list.module').then(module => module.PermissionsListModule)
           }
         ]
-      }
+      },
+////////,
+{
+  path: '',
+  component:PdfArticulogListComponent,
+  children: [
+    {
+      path: 'report-articulog-list',
+      loadChildren: () => import('./inventarios/Pdf-articulo-g/pdf-articulog-list/pdf-articulog-list.module').then(module => module.PdfArticulogListModule)
+    }
+  ]
 
+
+
+}
 
       ,
       {
@@ -2999,6 +3013,8 @@ component: CreateTransfersComponent,
     }
   ]
 },
+
+
       {
         path: '',
         component: TransactionsentrysListComponent,
@@ -3035,6 +3051,7 @@ component: CreateTransfersComponent,
       }
     ]
   }
+ 
 
 
 ];

@@ -36,6 +36,11 @@ export class ArticlesService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_ARTICL/1.0/articles`,{headers});
   }
+
+  getEmployeeReport(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_REPORTE_ARTICLES/1.0/reporte_articles`,{headers});
+  }
   
 
 }
