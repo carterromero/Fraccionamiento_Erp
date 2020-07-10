@@ -9,6 +9,7 @@ import {SharedModule} from '../../theme/shared/shared.module';
   declarations: [CollectionListComponent],
   imports: [
     CommonModule,
+    
     CollectionListRoutingModule,
     SharedModule
   ]
