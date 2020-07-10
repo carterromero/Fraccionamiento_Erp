@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { collection } from 'src/app/collection';
+import { Collection } from 'src/app/collection';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CollectionService } from 'src/app/collection.service';
 
@@ -9,52 +9,112 @@ import { CollectionService } from 'src/app/collection.service';
   templateUrl: './update-collection.component.html',
   styleUrls: ['./update-collection.component.scss']
 })
-export class UpdatecollectionComponent implements OnInit {
+export class UpdateCollectionComponent implements OnInit {
 
   id: number;
-  collection: collection;
-
-  constructor(private route: ActivatedRoute, private router: Router,
-    private collectionService: CollectionService) { }
+  employee: Collection;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
+  
+  constructor(private route: ActivatedRoute,private router: Router,
+    private employeeService: CollectionService) { }
 
   ngOnInit() {
 
-    this.collection = new collection();
+    this.employee = new Collection();
     this.id = this.route.firstChild.snapshot.params['id']
-    console.log(this.collection.collection_status);
-    this.collectionService.getCollection(this.id)
+    console.log(this.employee.collection_status);
+    this.employeeService.getEmployee(this.id)
       .subscribe(data => {
         console.log(data);
-        this.collection = data;
-        this.collection.collection_status = (String(this.collection.collection_status) == "false") ? null : "false";
-        console.log(this.collection.collection_status);
+        this.employee = data;
+        this.employee.collection_status = (String(this.employee.collection_status) == "false") ? null:"false";
+        console.log(this.employee.collection_status);
       }, error => {
-        console.log(error);
+        console.log(error);let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+        
       });
   }
 
+   
 
+  updateEmployee() {
 
-  updatecollection() {
-
-    this.collection.collection_id = 4;
-    console.log(this.collection.collection_status);
-
-    this.collectionService.updateCollection(this.id, this.collection)
+    //this.employee.userid="3";
+    console.log(this.employee.collection_status);
+    
+    this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {
         console.log(data);
-        this.gotoList();
-      },
-        error => {
-          console.log(error);
-
-        });
-
-
+        this.alertDisables = false;
+        this.alertMessages ="Se actualizo la empresa correctamente";
+      }, 
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+        
+      });
+    
+  
   }
 
   onSubmit() {
-    this.updatecollection();
+    
+
+    this.alertDisable = true;
+    this.alertDisables = true;
+  
+    if(this.employee.collection_transaction_type =="" ||  this.employee.collection_transaction_type ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "•	Tipo de transacción Incompleto";          
+    }
+  
+    else if(this.employee.collection_name_resident =="" ||  this.employee.collection_name_resident ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "•	Nombre del Residente Incompleta";          
+    }
+  
+    else if(this.employee.collection_payment_term =="" ||  this.employee.collection_payment_term ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "•	Termino de pago  Incompleta";          
+    }
+  
+  
+    else if(this.employee.collection_collection_concept =="" ||  this.employee.collection_collection_concept ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "•	Concepto de cobro  Incompleta";          
+    }
+  
+    else if(this.employee.collection_amount ==null ||  this.employee.collection_amount ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "•	Importe Incompleta";          
+    }
+    
+    else if(this.employee.collection_referral_address =="" ||  this.employee.collection_referral_address ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "•	Dirección de remisión Incompleta";          
+    }
+    else if(this.employee.condominums_id ==null ||  this.employee.condominums_id ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "condominums_id Incompleta";          
+    }
+  
+  
+    else{
+      this.updateEmployee();    
+    }
+
+
   }
 
   gotoList() {

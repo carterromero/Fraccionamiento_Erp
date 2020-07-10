@@ -4,50 +4,26 @@
             <div *ngIf="employee">
 
                 <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+
                 <div>
-                    <label><b>collection_id: </b></label> {{employee.collection_id}}
+                    <label><b>• Tipo de transacción: </b></label> {{employee.collection_transaction_type}}
                 </div>
                 <div>
-                    <label><b>collection_transaction_type: </b></label> {{employee.collection_transaction_type}}
+                    <label><b>• Nombre del Residente: </b></label> {{employee.collection_name_resident}}
                 </div>
                 <div>
-                    <label><b>collection_name_resident: </b></label> {{employee.collection_name_resident}}
-                </div>
-                <div>
-                    <label><b>collection_payment_term: </b></label> {{employee.collection_payment_term}}
+                    <label><b>• Termino de pago : </b></label> {{employee.collection_payment_term}}
                 </div>
 
                 <div>
-                    <label><b>collection_collection_concept: </b></label> {{employee.collection_collection_concept}}
+                    <label><b>• Concepto de cobro : </b></label> {{employee.collection_collection_concept}}
                 </div>
 
                 <div>
-                    <label><b>collection_amount: </b></label> {{employee.collection_amount}}
+                    <label><b>• Importe : </b></label> {{employee.collection_amount}}
                 </div>
                 <div>
-                    <label><b>collection_referral_address: </b></label> {{employee.collection_referral_address}}
-                </div>
-                <div>
-                    <label><b>condominums_id: </b></label> {{employee.condominums_id}}
-                </div>
-                
-                <div>
-                    <label><b>customer_customer_id: </b></label> {{employee.customer_customer_id}}
-                </div>
-                <div>
-                    <label><b>payment_terms_id: </b></label> {{employee.payment_terms_id}}
-                </div>
-                <div>
-                    <label><b>referral_address_id: </b></label> {{employee.referral_address_id}}
-                </div>
-                <div>
-                    <label><b>transaction_types_id: </b></label> {{employee.transaction_types_id}}
-                </div>
-                <div>
-                    <label><b>payments_id: </b></label> {{employee.payments_id}}
-                </div>
-                <div>
-                    <label><b>purcharse_id: </b></label> {{employee.purcharse_id}}
+                    <label><b>• Dirección de remisión: </b></label> {{employee.collection_referral_address}}
                 </div>
 
                 <div>
@@ -61,7 +37,7 @@
                 </div>
             </div>
             <br>
-            <button [routerLink]="['/collection-list']" class="btn btn-primary">Regresar a Pagos</button><br>
+            <button [routerLink]="['/collection-list']" class="btn btn-outline-primary">Regresar</button><br>
         </app-card>
     </div>
 </div>

@@ -1,50 +1,31 @@
 <div class="row">
     <div class="col-xl-12">
-        <app-card cardTitle="Cobro" blockClass="table-border-style">
-            <button [routerLink]="['/create-collection']" class="btn btn-primary">Agregar Cobro</button><br>
-            <br>
+        <app-card cardTitle="Empresas" blockClass="table-border-style">
+            <button [routerLink]="['/create-collection']" class="btn btn-outline-primary">Agregar Cobro</button>
+            
             <div class="table-responsive">
-
+                <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+                <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>collection_id</th>
-                            <th>collection_transaction_type</th>
-                            <th>collection_name_resident</th>
-                            <th>collection_payment_term</th>
-                            <th>collection_collection_concept</th>
-                            <th>collection_amount</th>
-                            <th>collection_referral_address</th>
-                            <th>collection_status</th>
-                            <th>condominums_id</th>
-                            
-                            
-                            <th>customer_customer_id</th>
-                            <th>payment_terms_id</th>
-                            <th>referral_address_id</th>
-                            <th>transaction_types_id</th>
-                            <th>payments_id</th>
-                            <th>purcharse_id</th>
+                            <th>• Tipo de transacción</th>
+                            <th>• Nombre del Residente</th>
+                            <th>• Termino de pago </th>
+                            <th>• Concepto de cobro </th>
+                            <th>• Importe </th>
+                            <th>• Dirección de remisión</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let general of general | async">
-                            <td>{{general.collection_id}}</td>
                             <td>{{general.collection_transaction_type}}</td>
                             <td>{{general.collection_name_resident}}</td>
                             <td>{{general.collection_payment_term}}</td>
                             <td>{{general.collection_collection_concept}}</td>
                             <td>{{general.collection_amount}}</td>
                             <td>{{general.collection_referral_address}}</td>
-                            <td>{{general.collection_status}}</td>
-                            <td>{{general.condominums_id}}</td>
-                            
-                            <td>{{general.customer_customer_id}}</td>
-                            <td>{{general.payment_terms_id}}</td>
-                            <td>{{general.referral_address_id}}</td>
-                            <td>{{general.transaction_types_id}}</td>
-                            <td>{{general.payments_id}}</td>
-                            <td>{{general.purcharse_id}}</td>
+
                             <td>
                                 <div class="custom-control custom-switch">
                                     <input type="checkbox" class="custom-control-input"
