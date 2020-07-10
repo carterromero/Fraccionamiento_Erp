@@ -1,12 +1,13 @@
 <p>departmentsr-list works!</p>
 <div class="row">
     <div class="col-xl-12">
-      <app-card cardTitle=" REPORTE DEPARTAMENTOS " blockClass="table-border-style">  
-        <button (click)="convetToPDF()"   class="btn btn-outline-primary" >Generar pdf</button>
-        <div id="frmDepartment"  class="table-responsive">
-          <div>
-            <label for="name"> REPORTE DEPARTAMENTOS</label>
-            </div>
+      <app-card cardTitle=" REPORTE DEPARTAMENTOS " class="tableR">  
+        <button (click)="generatePdf()"   class="btn btn-outline-primary" >Generar pdf</button>
+        <button (click)="exportTableToExcel()"   class="btn btn-outline-primary" >Generar excel</button>
+        <div>
+          <label for="name"> REPORTE DEPARTAMENTOS</label>
+          </div>
+        <div id="frmDepartment"  class="tableR"  style="width: 100%; margin-top: 20px" >
             <br>
           <table class="tableR">
             <thead>
