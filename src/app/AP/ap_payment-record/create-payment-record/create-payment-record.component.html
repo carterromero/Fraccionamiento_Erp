@@ -28,16 +28,18 @@
             </div>
 
             <div class="form-group">
-              <label for="name">id condominio</label>
-              <input type="text" class="form-control" id="condominums_id"  [(ngModel)]="employee.condominums_id" name="condominums_id" required>
-            </div>
+              <label for="exampleFormControlSelect1">Condominio</label>
+              <select  class="custom-select"  id="condominums_id" required [(ngModel)]="employee.condominums_id" name="condominums_id" >
+              <option *ngFor="let condominum of condominums | async" value="{{condominum.condominums_id}}">{{condominum.condominums_id}}</option>
+              </select>
+          </div>  
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <label class="input-group-text"  for="inputGroupSelect01">Options</label>
+                <label class="input-group-text"  for="inputGroupSelect01">metodo_tipo</label>
               </div>
               <select class="custom-select" id="inputGroupSelect01" class="form-control" id="metodo_tipo"  [(ngModel)]="employee.metodo_tipo" name="metodo_tipo" required>
-                <option selected>Choose...</option>
+                <option selected></option>
                 <option value="una sola exhibición">una sola exhibición</option>
                 <option value="parcialidades">parcialidades</option>
               </select>
