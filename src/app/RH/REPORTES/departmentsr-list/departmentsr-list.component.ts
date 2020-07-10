@@ -6,7 +6,11 @@ import * as XLSX from 'xlsx';
 import html2canvas from 'html2canvas';
 import { Departments } from 'src/app/departments';
 import { DepartmentsService } from 'src/app/departments.service';
-import pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfMake from 'pdfmake/build/pdfmake.js';
+import 'pdfmake/build/vfs_fonts.js';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+
+
 
 
 @Component({
@@ -21,11 +25,13 @@ export class DepartmentsRListComponent implements OnInit {
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
+ 
+
 
 
 
   constructor(private departmentService: DepartmentsService,
-    private router: Router) { }
+    private router: Router) {  pdfMake.vfs = pdfFonts.pdfMake.vfs; }
     filterPost = '';
     
     ngOnInit(): void {
