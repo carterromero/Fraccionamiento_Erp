@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-xl-12">
-    <app-card cardTitle="ORDEN DE VENTA" blockClass="table-border-style">      
-      <button [routerLink]="['/create-purcharse']" class="btn btn-outline-primary">Agregar Orden de venta</button><br>
+    <app-card cardTitle="Ordenes de Compra" blockClass="table-border-style">      
+      <button [routerLink]="['/create-purcharse']" class="btn btn-outline-primary">Crear Orden de Compra</button><br>
       <br>
       <div class="table-responsive">
         <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
@@ -11,7 +11,7 @@
           <tr>         
             
             <th>Id de la Orden  </th>
-            <th>NOMBRE de Orden </th>
+            <th>Descripción </th>
             <th>NOMBRE del Solicitante </th>
             <th>ADDRESS</th>
             <th>ARTICULO </th>
@@ -39,7 +39,7 @@
                 <td>{{general.purcharse_quantity_items}}</td>
                 <td>{{general.articles_prices}}</td>
                 <td>{{general.purcharse_order_total}}</td>
-                <td>{{general. purcharse_order_creation_date}}</td>
+                <td>{{general. purcharse_address}}</td>
                 
                 
                

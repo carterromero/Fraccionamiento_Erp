@@ -8,26 +8,31 @@
           <thead  >
           <tr >          
             
-            <th>Id </th>   
-            <th>Nombre </th> 
-            <th>RFC</th> 
+
+            <th>ID</th>             
+            <th>Nombre </th>
             <th>Dirección Completa</th>
-            <th>Fecha de creacion </th>   
+           
+            <th>RFC</th>
+            <th>Email</th>
+
+            <th>Telefono</th>
             <th>Giro</th>
+           
             <th>Estatus </th>
-            
+            <th>#</th>
           </tr>
           </thead>
           <tbody >
-              <tr    *ngFor="let general of general | async">
+              <tr  *ngFor="let general of general | async">
                 <td >{{general.supplier_id}}</td>
-                  <td >{{general.supplier_name}}</td>
-                  <td>{{general.supplier_rfc}}</td>
-                  <td>{{general.supplier_address}}</td>
-                  <td>{{general.create_date}}</td>
+                  <td >{{general.p_supplier_name}}</td>
+                  <td>{{general.p_supplier_address}}</td>
+                  <td>{{general.p_supplier_rfc}}</td>
+                  <td>{{general.p_supplier_email}}</td>
+                  <td>{{general.p_supplier_phone}}</td>
                   <td>{{general.supplier_turn}}</td>
-                
- 
+           
                   
                   <td>
                       <div class="custom-control custom-switch">

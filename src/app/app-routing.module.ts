@@ -177,8 +177,8 @@ import { PaymentRecordDetailsComponent } from './AP/ap_payment-record/payment-re
 import { UpdatePaymentRecordComponent } from './AP/ap_payment-record/update-payment-record/update-payment-record.component';
 import { PurcharseDetailsComponent } from './purcharse/purcharse-details/purcharse-details.component';
 import { PdfSupplierListComponent } from './po/pdf/pdf-supplier-list/pdf-supplier-list.component';
-import { PdfSupplierDetailsComponent } from './po/pdf/pdf-supplier-details/pdf-supplier-details.component';
-import { PdfPurcharseListComponent } from './po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list.component';
+
+
 
 import { MasterinventarysDetailsComponent } from './inventarios/master_inventarys/masterinventarys-details/masterinventarys-details.component';
 
@@ -261,6 +261,10 @@ import { PaymentsARListComponent } from './AR/payments/payments-ar-list/payments
 import { PaymentsARDetailsComponent } from './AR/payments/payments-ar-details/payments-ar-details.component';
 import { CreatePaymentsARComponent } from './AR/payments/create-payments-ar/create-payments-ar.component';
 import { UpdatePaymentsARComponent } from './AR/payments/update-payments-ar/update-payments-ar.component';
+import { PdfSupplierDetailsComponent } from './po/pdf/pdf-purcharse-details/pdf-supplier-details.component';
+
+import { PdfPurcharseListComponent } from './po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list.component';
+import { PdfPurcharseDetailsComponent } from './po/pdf/pdf-purcharse/pdfs-purcharse-details/pdf-purcharse-details.component';
 
 
 
@@ -2705,20 +2709,30 @@ component: CreateTransfersComponent,
         }
       ]
     },
-
+/// 
+{
+  path: '',
+  component: PdfPurcharseListComponent,
+  children: [
     {
-      path: '',
-    component:   PdfPurcharseListComponent,
-     children: [
-       {
-          path: 'pdf-purchase_orders-list',
-         loadChildren: () => import('./po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list-routing.module').then(module => module.PdfPurcharseListRoutingModule)
-        }
-      ]
+      path: 'pdf-purchase_orders-list',
+      loadChildren: () => import('./po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list.module').then(module => module.PdfPurcharseListModule)
+    }
+  ]
+},{
+  path: '',
+  component: PdfPurcharseDetailsComponent,
+  children: [
+    {
+      path: 'pdf-purcharse-repor-details/:id',
+      loadChildren: () => import('./po/pdf/pdf-purcharse/pdfs-purcharse-details/pdf-purcharse-details.module').then(module => module.PdfPurcharseDetailsModule)
+    }
+  ]
+},
+  
 
 
 
-    },
       {
         path: '',
         component: PdfSupplierListComponent,
@@ -2736,7 +2750,7 @@ component: CreateTransfersComponent,
       children: [
         {
           path: 'pdf-supplier-repor-details/:id',
-          loadChildren: () => import('./po/pdf/pdf-supplier-details/pdf-supplier-details-routing.module').then(module => module.PdfSupplierDetailsRoutingModule)
+          loadChildren: () => import('./po/pdf/pdf-purcharse-details/pdf-supplier-details.module').then(module => module.PdfSupplierDetailsModule)
         }
       ]
     },

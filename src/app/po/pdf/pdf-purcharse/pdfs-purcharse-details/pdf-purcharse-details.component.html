@@ -3,6 +3,7 @@
      <app-card cardTitle="ORDEN DE COMPRA DETALLES " [options]="false">
         <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
 
+<table class="table" id="from-informacion"  >
          <div class="form-group">
             <label for="name">Nombre:</label>
             {{employee.purcharse_name}}
@@ -43,7 +44,7 @@
 
            <div class="form-group">
             <label for="name">Fecha de Creacion:</label>
-            {{employee.purcharse_address}}
+            {{employee.purcharse_order_creation_date}}
            </div>
            
               
@@ -79,7 +80,7 @@
                 <label for="name">Total de Orden :</label>
                 {{employee.purcharse_order_total}}
                      </div> 
-             
+             </table>
 
 <div class="form-group">
         <label><b>Estatus:  </b></label>
@@ -89,8 +90,8 @@
      </div>
  </div>
       
-
- <button [routerLink]="['/purchase_orders-list']" class="btn btn-outline-primary">Regresar</button><br>
+ <button type="button"  style="margin: 10 px;" class="btn btn-primary" (click)="imprimirLista(employee.purcharse_id)">Imprimir</button>
+ <button [routerLink]="['/pdf-purchase_orders-list']" class="btn btn-outline-primary">Regresar</button><br>
        
         </app-card>
     

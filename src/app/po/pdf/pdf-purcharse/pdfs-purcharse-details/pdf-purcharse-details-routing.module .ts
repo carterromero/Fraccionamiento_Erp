@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PdfPurcharseListComponent } from './pdf-purcharse-list.component';
 
+import { PdfPurcharseDetailsComponent } from './pdf-purcharse-details.component';
 
 
 
 const routes: Routes = [
   {
     path: '',
-    component: 
-    PdfPurcharseListComponent
+    component: PdfPurcharseDetailsComponent
+    
     
   }
 ];
@@ -18,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule] 
 })
-export class PdfPurcharseListRoutingModule { }
+export class PdfPurcharseDetailsRoutingModule { }

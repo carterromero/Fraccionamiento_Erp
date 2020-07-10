@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import * as jsPDF from 'jspdf'
 import { Purcharse } from 'src/app/purcharse';
 import { PurcharseService } from 'src/app/purcharse.service';
 
 @Component({
   selector: 'app-pdf-purcharse-list',
-  templateUrl:'./pdf-purcharse-list.component.html',
+  templateUrl: './pdf-purcharse-list.component.html',
   styleUrls: ['./pdf-purcharse-list.component.scss']
 })
 export class PdfPurcharseListComponent implements OnInit {
-
   general: Observable<Purcharse[]>;
   alertDisable = true;
   alertDisables = true;
@@ -68,15 +68,9 @@ export class PdfPurcharseListComponent implements OnInit {
   }
 
   generalDetails(id: number){
-    this.router.navigate(['purcharse-details', id]);
+    this.router.navigate(['pdf-purcharse-repor-details', id]);
   }
 
-  updateGeneral(id: number){
-    this.router.navigate(['update-purcharse', id]);
-  }
-
-
-
-
+ 
 
 }
