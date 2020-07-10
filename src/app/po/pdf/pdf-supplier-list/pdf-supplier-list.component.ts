@@ -34,6 +34,7 @@ export class PdfSupplierListComponent implements OnInit {
   
       }
 
+      
 
 
       ngOnInit() :void{

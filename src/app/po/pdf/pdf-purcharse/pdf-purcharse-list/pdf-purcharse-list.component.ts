@@ -12,19 +12,54 @@ import { PurcharseService } from 'src/app/purcharse.service';
   styleUrls: ['./pdf-purcharse-list.component.scss']
 })
 export class PdfPurcharseListComponent implements OnInit {
+
+  id: number;
+  generals: Purcharse;
+
   general: Observable<Purcharse[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private generalService: PurcharseService,
+  constructor(private route: ActivatedRoute,private generalService: PurcharseService,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.generals = new Purcharse();    
+        this.id = this.route.firstChild.snapshot.params['id']
+        console.log(this.id);
+        this.reloadData();
+        this.generalService. getEmployeeList(this.id)
+          .subscribe(data => {
+            console.log(data);
+            this.generals = data;
+          }, error => {
+            console.log(error);
+            //localStorage.setItem('token', "");
+            //this.router.navigate(['auth/signin']);
+          });
       
+
+
+
+
+
       this.reloadData();
   }
+
+
+  imprimirLista(){
+      
+      
+    const doc = new jsPDF();
+    
+    doc.fromHTML(document.getElementById('from-informacion'), 10,10);;
+    doc.save(['lista']);
+    
+    console.log();
+
+    }
   
 
 

@@ -1,10 +1,14 @@
 <div class="row">
   <div class="col-xl-12">
-    <app-card cardTitle="Proveedores" blockClass="table-border-style">      
+    <div>
+          
+      <button type="button"  style="margin: 10 px;" class="btn btn-primary" (click)="imprimirLista(employee.supplier_id)">Imprimir Lista General</button>
+    </div>
+    <app-card cardTitle="Proveedores" blockClass="table-border-style"  >      
      
       <br>
-      <div class="table-responsive"   >
-        <table class="table" >
+      <div class="table-responsive"  id="from-informacion" >
+        <table class="table"    >
           <thead  >
           <tr >          
             
@@ -43,23 +47,25 @@
 
                            
                   <td>
-                      
-                      
-                      
-                      <button    (click)="generalDetails(general.supplier_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>  
+                  
+                    <button    (click)="generalDetails(general.supplier_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>  
+                     
                       
                     
 
                      
-
-                        
 
 
                   </td>
               </tr>
           </tbody>
         </table>
+        
+        
       </div>
     </app-card>
+
+
+   
   </div>
 </div>

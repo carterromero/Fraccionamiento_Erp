@@ -1,12 +1,18 @@
 <div class="row">
   <div class="col-xl-12">
+
+    <div>
+          
+      <button type="button"  style="margin: 10 px;" class="btn btn-primary" (click)="imprimirLista()">Imprimir Lista General Ordenes de Venta</button>
+    </div>
+
     <app-card cardTitle="ORDEN DE VENTA" blockClass="table-border-style">      
       
       <br>
-      <div class="table-responsive">
+      <div class="table-responsive"  id="from-informacion" >
         <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
         <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
-        <table class="table">
+        <table class="table" >
           <thead>
           <tr>         
             
