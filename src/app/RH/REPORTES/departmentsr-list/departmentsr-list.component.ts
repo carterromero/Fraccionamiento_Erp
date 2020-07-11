@@ -2,9 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as jsPDF from 'jspdf';
+import * as XLSX from 'xlsx';
 import html2canvas from 'html2canvas';
 import { Departments } from 'src/app/departments';
 import { DepartmentsService } from 'src/app/departments.service';
+import * as pdfMake from 'pdfmake/build/pdfmake.js';
+import 'pdfmake/build/vfs_fonts.js';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+
+
+
 
 @Component({
   selector: 'app-departmentsr-list',
@@ -13,13 +20,18 @@ import { DepartmentsService } from 'src/app/departments.service';
 })
 export class DepartmentsRListComponent implements OnInit {
   departments: Observable<Departments[]>;
+  department : Departments = new Departments();
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
+ 
+
+
+
 
   constructor(private departmentService: DepartmentsService,
-    private router: Router) { }
+    private router: Router) {  pdfMake.vfs = pdfFonts.pdfMake.vfs; }
     filterPost = '';
     
     ngOnInit(): void {
@@ -49,24 +61,26 @@ export class DepartmentsRListComponent implements OnInit {
 
   imprimirLista(){
     const doc = new jsPDF('p', 'mm', 'a4');
-    doc.fromHTML(document.getElementById('frmDepartment'),20,20);
-    html2canvas(doc).then(canvas => {
-      // Few necessary setting options
-      var imgWidth = 208;
-      var pageHeight = 295;
-      var imgHeight = canvas.height * imgWidth / canvas.width;
-      var heightLeft = imgHeight;
-  
-    doc.setFontSize(12);
-    doc.setTextColor(0,85,136);
-    doc.setFont("helvetica");
-    doc.setFontType("bold");
+    doc.fromHTML(document.getElementById('frmDepartment'),15,15);
     doc.text(10, 10, 'REPORTE DEPARTAMENTO');
    //doc.addPage();
     //doc.text(20, 20, 'Hello world!');
     doc.save('Lista de departamentos');
-  });
+
   }
+  generatePdf(){
+    var docDefinition = {
+        content: [document.getElementById('frmDepartment').innerText]
+    }
+    pdfMake.createPdf(docDefinition).download('Departamentos');
+  }
+
+  exportTableToExcel() {
+    var type = "xlsx"
+    var elt = document.getElementById('frmDepartment');
+    var wb = XLSX.utils.table_to_book(elt);
+    return XLSX.writeFile(wb, undefined || ('Departamentos.' + (type || 'xlsx')));
+ }
   ////////////////////////////////////
 
 
