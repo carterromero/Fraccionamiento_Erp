@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-xl-12">
+        <div>
+          
+            <button type="button"  style="margin: 10 px;" class="btn btn-primary" >Imprimir Lista General</button>
+          </div>
+      <app-card cardTitle="Articulos" blockClass="table-border-style">      
+        
+        <br>
+        <div class="table-responsive"   id="from-informacion">
+          <table class="table"   >
+            <thead>
+                <tr>      
+  
+                    <th>Articulo </th>
+                    <th>Descripcion</th>
+                    <th>Subinventario</th>
+                    <th>Caracteristicas Internas</th>
+                    <th>Caracteristicas Externas</th>
+                   
+                    <th>Estatus Articulo</th>
+                    
+                    <th>FECHA Desde </th>
+                    <th>Fecha Hasta</th>
+                    <th>Inquilino </th>
+ 
+                  </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                    <td>{{general.articulo}} </td>
+                    <td>{{general.descripcion}} </td>
+                    <td>{{general.sub_inventario}}</td>
+
+                    <td>{{general.caract_extern}}</td>
+                    <td>{{general.caract_int}}</td>
+                    <td>{{general.estatus}}</td>
+
+                    <td>{{general.desde}}</td>
+                    <td>{{general.hasta}}</td>
+                    <td>{{general.inquilino_nombre}}</td>
+                    <td>{{general.inquilino_apellido_1}}</td>
+                    <td>{{general.inquilino_apellido_2}}</td>
+
+  
+                    
+                  
+                    
+                    <td>
+                        
+                        <button (click)="generalDetails(general.articles_sku)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                        
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

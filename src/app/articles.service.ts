@@ -43,4 +43,9 @@ export class ArticlesService {
   }
   
 
+  getEmployeeHistori(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_REPORT_ARTICL_HIST/1.0/reporte_articles_hist`,{headers});
+  }
+
 }
