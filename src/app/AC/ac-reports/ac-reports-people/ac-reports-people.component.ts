@@ -1,0 +1,71 @@
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Reports } from '../../models/reports';
+import { ReportsService } from '../../service/reports.service';
+//import * as XLSX from 'xlsx';
+
+@Component({
+  selector: 'app-ac-reports-people',
+  templateUrl: './ac-reports-people.component.html',
+  styleUrls: ['./ac-reports-people.component.scss']
+})
+export class AcReportsPeopleComponent implements OnInit {
+
+  report: Observable<Reports[]>;
+  dateend1: Date;
+  datestart1: Date;
+  submitted = false;
+  tabPeople: number = 1;
+  constructor(private ReportsService: ReportsService) { }
+
+  ngOnInit(): void {
+  }
+
+  onSubmit1() {
+    this.submitted = true;
+    this.getReportsPeople();
+  }
+  getReportsPeople() {
+    this.ReportsService.getReportsPeople(this.datestart1, this.dateend1).subscribe(
+      response => {
+        this.report = this.ReportsService.getReportsPeople(this.datestart1, this.dateend1);
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  // exportExcelPeople(): void 
+  //   {   
+  //     if(this.report){ 
+  //     let element = document.getElementById('people'); 
+  //      //console.log(element); 
+
+  //      const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element,{raw:true});
+
+  //      ws['!cols'] = [
+  //       {wpx: 150}, // "characters"
+  //       {wpx: 100}, // "pixels"
+  //       {wpx: 175},
+  //       {wpx: 150},
+  //       {wpx: 150},
+  //       {wpx: 90}
+  //       //{hidden: true} // hide column
+  //     ];
+
+  //      /* generate workbook and add the worksheet */
+  //      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+  //      //console.log(wb);
+  //      //const wb: XLSX.WorkBook = { Sheets: {'data': ws}, SheetNames:['data']};
+  //      XLSX.utils.book_append_sheet(wb, ws, 'Personas Ingresadas');
+
+  //      /* save to file */
+  //      XLSX.writeFile(wb, 'Ingreso_personas.xlsx',{type: "base64"});
+  //     }else{
+  //       console.log('Realice busqueda');
+  //     }
+			
+  //   }
+}

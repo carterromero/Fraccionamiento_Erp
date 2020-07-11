@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Reporte Tags de viviendas" blockClass="table-border-style">      
+      <!-- <button [routerLink]="['/ac-create-visitors']" class="btn btn-primary">Tags registrados</button><br> -->
+      <div class="form-group ">
+        <form (ngSubmit)="onSubmit()">
+            <label class="col-form-label" for="timedate"><strong>fecha
+                    desde</strong></label>
+            <input type="date" placeholder="YYYY-MM-DD"  [(ngModel)]="datestart"
+                name="hora_entrada">
+            <label class="col-form-label" for="timedate"><strong>a</strong></label>
+            <input type="date" placeholder="YYYY-MM-DD"  [(ngModel)]="dateend"
+                name="hora_salida">
+            <button type="submit" class="btn btn-sm btn-primary">Buscar</button>
+        </form>
+
+      </div>
+      <div class="text-right">
+        <button class="btn btn-outline-primary"  style="cursor: pointer" >
+            <i class="fa fa-file-excel-o">Excel</i>
+        </button>
+      </div>  
+      <div class="table-responsive">
+        <table id="tenants" class="table">
+            <thead>
+            <tr>
+                <th>Tag Codigo</th>
+                <th>Nombre Completo</th>
+                <th>Numero de vivienda</th>
+                <th>Activo/Inactivo</th>
+                <th>Fecha inicio</th>
+                <th>Fecha Fin</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let report of reports | async ">
+                    <td>{{report.tag_code}}</td>
+                    <td>{{report.tenants_name}}</td>
+                    <td>{{report.tenants_residential_number}}</td>
+                    <td *ngIf="report.tag_status == 'true'">Active</td>
+                    <td *ngIf="report.tag_status == 'false'">Inactivo</td>
+                    <td>{{report.tag_start_date | date:"medium" }}</td>
+                    <td>{{report.tag_end_date | date:"medium" }}</td>
+
+                </tr>
+            </tbody>
+            </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

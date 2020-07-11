@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Detalles de Tag" [options]="false">
+        <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+        <div *ngIf="tag">
+          <div>
+            <label><b>Tag: </b></label> {{code}}
+          </div>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Tipo de persona</th>
+              <th>Nombre Completo </th>
+              <th>Fecha de Entrada</th>
+              <th>Fecha de Salida</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let View of tag | async" >
+                <td>{{View.tipo}} </td>
+                <td>{{View.tenants_name}} {{View.tenants_father_surname}} {{View.tenants_mother_surname}}</td>
+                <td>{{View.access_entry_date | date:"medium" }}</td>
+                <td>{{View.access_departure_date | date:"medium" }} </td>
+              </tr>
+            </tbody>
+            </table>
+         
+          <!-- <div>
+            <label><b>Estatus:  </b></label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="tenants_status"       name="tenants_status"   style="margin-left: 10px" [checked]="tenant.tenants_status == 'true'">
+                <label class="custom-control-label" for="tenants_status">Active</label>
+             </div>
+        </div> -->
+        
+        </div>
+        <br>
+        <button (click)="returnTags()" class="btn btn-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>
