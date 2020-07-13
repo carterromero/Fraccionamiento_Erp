@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Acceso Residentes" blockClass="table-border-style">      
+      <!-- <button [routerLink]="['/create-employee']" class="btn btn-primary">Add Employee</button><br> -->
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+                <th>Codigo de Tag</th>
+                <th>Nombre</th>
+                <th>Ubicación</th>
+                <th>Numero de vivienda</th>
+                <th>Placas de auto</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let View of tenants | async">
+                    <td>{{View.tag_code}}</td>
+                    <td>{{View.tenants_name}} {{View.tenants_father_surname}} {{View.tenants_mother_surname}}</td>
+                    <td>{{View.tenants_location}}</td>
+                    <td>{{View.tenants_residential_number }}</td>
+                    <td>{{View.tenants_car_plate}}</td>
+                    <!--<td><span class="badge badge-success">Active</span></td>-->
+                    <td>
+                        <button (click)="updateTenants(View.ta_id)" class="btn btn-outline-info">Actualizar</button>
+
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

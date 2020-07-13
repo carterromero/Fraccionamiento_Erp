@@ -16,4 +16,5 @@ export class Tenants {
     tenants_type: string;
     create_by: number;
     last_update_by: number;
+    tenants_telephone : number;
 }

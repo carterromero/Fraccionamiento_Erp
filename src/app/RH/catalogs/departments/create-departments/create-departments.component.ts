@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DepartmentsService } from 'src/app/departments.service';
 import { Departments } from 'src/app/departments';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-create-departments',
@@ -12,9 +13,19 @@ export class CreateDepartmentsComponent implements OnInit {
   
   department: Departments = new Departments();
   submitted = false;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
+  myForm: FormGroup;
+
 
   constructor(private departmentService: DepartmentsService,
-    private router: Router) { }
+    private router: Router, public fb: FormBuilder) {
+      this.myForm = this.fb.group({
+        departments_name: ['', [Validators.required]]
+      });
+     }
 
   ngOnInit() {
     //code
@@ -38,8 +49,18 @@ export class CreateDepartmentsComponent implements OnInit {
   }
 
   onSubmit() {
+   this.submitted = true;
+    this.alertDisable = true;
+    this.alertDisables = true;
     this.submitted = true;
-    this.save();    
+  
+    if (this.myForm.valid) {
+      console.log(this.myForm.value)
+      this.save();    
+    }
+    else{
+      alert("Faltan datos")
+    }   
   }
 
   gotoList() {

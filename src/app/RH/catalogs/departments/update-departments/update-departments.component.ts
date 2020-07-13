@@ -3,6 +3,7 @@ import { DepartmentsService } from "src/app/departments.service";
 import { Departments } from "src/app/departments";
 import { Router, ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-update-departments',
   templateUrl: './update-departments.component.html',
@@ -12,9 +13,17 @@ export class UpdateDepartmentsComponent implements OnInit {
 
   id: number;
   department: Departments;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
+
+
+
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private departmentService: DepartmentsService) { }
+    private departmentService: DepartmentsService) {
+     }
 
   ngOnInit() {
     this.department = new Departments();
@@ -53,8 +62,15 @@ export class UpdateDepartmentsComponent implements OnInit {
   
   }
 
-  onSubmit() {
-    this.updateDepartment();    
+  onSubmit() { 
+
+    this.alertDisable = true;
+    this.alertDisables = true;
+    
+
+      this.updateDepartment();    
+   
+  
   }
 
   gotoList() {

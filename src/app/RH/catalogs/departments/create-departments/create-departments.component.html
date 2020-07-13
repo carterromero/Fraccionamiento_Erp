@@ -2,7 +2,7 @@
     <div class="col-sm-12">
       <div class="col-md-6">
         <app-card cardTitle="Crear departamento" [options]="false">
-          <form (ngSubmit)="onSubmit()">
+          <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="name">Nombre</label>
               <input type="text" class="form-control" id="departments_name" required [(ngModel)]="department.departments_name" name="departments_name">

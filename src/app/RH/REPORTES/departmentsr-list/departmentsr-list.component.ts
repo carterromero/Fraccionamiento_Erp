@@ -6,9 +6,8 @@ import * as XLSX from 'xlsx';
 import html2canvas from 'html2canvas';
 import { Departments } from 'src/app/departments';
 import { DepartmentsService } from 'src/app/departments.service';
-import * as pdfMake from 'pdfmake/build/pdfmake.js';
-import 'pdfmake/build/vfs_fonts.js';
-import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import 'jspdf-autotable';
+
 
 
 
@@ -31,7 +30,7 @@ export class DepartmentsRListComponent implements OnInit {
 
 
   constructor(private departmentService: DepartmentsService,
-    private router: Router) {  pdfMake.vfs = pdfFonts.pdfMake.vfs; }
+    private router: Router) { }
     filterPost = '';
     
     ngOnInit(): void {
@@ -68,12 +67,49 @@ export class DepartmentsRListComponent implements OnInit {
     doc.save('Lista de departamentos');
 
   }
+
   generatePdf(){
+
+    /*const doc = new jsPDF()
+    doc.autoTable({
+      body: [
+        [{ content: document.getElementById('frmDepartment').innerText, colSpan: 5, rowSpan: 5}],
+      ],
+    })
+    doc.save('table.pdf')
+    
+*/  
+          var pdf = new jsPDF('p', 'mm', 'a4');
+          var res = pdf.fromHTML(document.getElementById('frmDepartment'),15,15);
+          pdf.autoTable(res.columns, res.data, {
+            startY: 60,
+            tableWidth: 'auto',
+            columnWidth: 'auto',
+            styles: {
+              overflow: 'linebreak',
+              theme : 'Gridth'
+            }
+          });
+          pdf.save("Departamentos")
+          }
+
+ /* generatePdf(){
+    let chartHeder = document.getElementById('frmDepartment').innerText;
     var docDefinition = {
-        content: [document.getElementById('frmDepartment').innerText]
+        content:  {
+          table: {
+           headerRows: 'auto',
+           margin: [ 5, 2, 10, 20 ],
+            widths: ["50%", "40%", "40%"],
+            body: [
+              [ { canvas: chartHeder, bold: true }]
+            ]
+          }
+        }
+        //[document.getElementById('frmDepartment').innerText]
     }
     pdfMake.createPdf(docDefinition).download('Departamentos');
-  }
+  }*/
 
   exportTableToExcel() {
     var type = "xlsx"

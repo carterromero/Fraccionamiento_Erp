@@ -209,6 +209,18 @@ import { CustomerDetailsComponent } from './customer/customer-details/customer-d
 import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
 import { UpdateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/update-unit-of-measures/update-unit-of-measures.component';
 import { CreateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/create-unit-of-measures/create-unit-of-measures.component';
+import { AcTenantsListComponent } from './AC/ac-tenants/ac-tenants-list/ac-tenants-list.component';
+import { AcVisitorsListComponent } from './AC/ac-visitors/ac-visitors-list/ac-visitors-list.component';
+import { AcVisitorsDetailsComponent } from './AC/ac-visitors/ac-visitors-details/ac-visitors-details.component';
+import { AcUpdateVisitorsComponent } from './AC/ac-visitors/ac-update-visitors/ac-update-visitors.component';
+import { AcUpdateTenantsComponent } from './AC/ac-tenants/ac-update-tenants/ac-update-tenants.component';
+import { AcCreateVisitorsComponent } from './AC/ac-visitors/ac-create-visitors/ac-create-visitors.component';
+import { AcTagsListComponent } from './AC/ac-tags/ac-tags-list/ac-tags-list.component';
+import { AcTagsDetailsComponent } from './AC/ac-tags/ac-tags-details/ac-tags-details.component';
+import { AcInactiveTagsListComponent } from './AC/ac-tags/ac-inactive-tags-list/ac-inactive-tags-list.component';
+import { AcReportsInternalComponent } from './AC/ac-reports/ac-reports-internal/ac-reports-internal.component';
+import { AcReportsPeopleComponent } from './AC/ac-reports/ac-reports-people/ac-reports-people.component';
+import { AcReportsVisitorComponent } from './AC/ac-reports/ac-reports-visitor/ac-reports-visitor.component';
 
 import { AccountsListComponent } from './gl/catalogs/accounts/accounts-list/accounts-list.component';
 import { CreateAccountsComponent } from './gl/catalogs/accounts/create-accounts/create-accounts.component';
@@ -3048,10 +3060,158 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./inventarios/sub_categories/create-subcategories/create-subcategories.module').then(module => module.CreateSubcategoriesModule)
           }
         ]
+
+      }
+      ,
+      
+      {
+        path: '',
+        component: AcTenantsListComponent,
+        children: [
+          {
+            path: 'ac-tenants-list',
+            loadChildren: () => import('./AC/ac-tenants/ac-tenants-list/ac-tenants-list.module').then(module => module.AcTenantsListModule)
+    
+          }
+        ]
+    
       },
+      {
+        path: '',
+        component: AcUpdateTenantsComponent,
+        children: [
+          {
+            path: 'ac-update-tenants/:id',
+            loadChildren: () => import('./AC/ac-tenants/ac-update-tenants/ac-update-tenants.module').then(module => module.AcUpdateTenantsModule)
+    
+          }
+        ]
+    
+      },
+      {
+        path: '',
+        component: AcVisitorsListComponent,
+        children: [
+          {
+            path: 'ac-visitors-list',
+            loadChildren: () => import('./AC/ac-visitors/ac-visitors-list/ac-visitors-list.module').then(module => module.AcVisitorsListModule)
+    
+          }
+        ]
+    
+      },
+      {
+        path: '',
+        component: AcVisitorsDetailsComponent,
+        children: [
+          {
+            path: 'ac-visitors-details/:id',
+            loadChildren: () => import('./AC/ac-visitors/ac-visitors-details/ac-visitors-details.module').then(module => module.AcVisitorsDetailsModule)
+    
+          }
+        ]
+    
+      },
+      {
+        path: '',
+        component: AcUpdateVisitorsComponent,
+        children: [
+          {
+            path: 'ac-update-visitors/:id',
+            loadChildren: () => import('./AC/ac-visitors/ac-update-visitors/ac-update-visitors.module').then(module => module.AcUpdateVisitorsModule)
+    
+          }
+        ]
+    
+      },
+      {
+        path: '',
+        component: AcCreateVisitorsComponent,
+        children: [
+          {
+            path: 'ac-create-visitors',
+            loadChildren: () => import('./AC/ac-visitors/ac-create-visitors/ac-create-visitors.module').then(module => module.AcCreateVisitorsModule)
+    
+          }
+        ]
+    
+      },
+      {
+        path: '',
+        component: AcTagsListComponent,
+        children: [
+          {
+            path: 'ac-tags-list',
+            loadChildren: () => import('./AC/ac-tags/ac-tags-list/ac-tags-list.module').then(module => module.AcTagsListModule)
+    
+          }
+        ]
+    
+      },
+      {
+        path: '',
+        component: AcTagsDetailsComponent,
+        children: [
+          {
+            path: 'ac-tags-details/:id',
+            loadChildren: () => import('./AC/ac-tags/ac-tags-details/ac-tags-details.module').then(module => module.AcTagsDetailsModule)
+    
+          }
+        ]
+    
+      },
+      {
+        path: '',
+        component: AcInactiveTagsListComponent,
+        children: [
+          {
+            path: 'ac-inactive-tags-list',
+            loadChildren: () => import('./AC/ac-tags/ac-inactive-tags-list/ac-inactive-tags-list.module').then(module => module.AcInactiveTagsListModule)
+    
+          }
+        ]
+    
+      },
+      {
+        path: '',
+        component: AcReportsInternalComponent,
+        children: [
+          {
+            path: 'ac-reports-internal',
+            loadChildren: () => import('./AC/ac-reports/ac-reports-internal/ac-reports-internal.module').then(module => module.AcReportsInternalModule)
+    
+          }
+        ]
+    
+      },
+      {
+        path: '',
+        component: AcReportsPeopleComponent,
+        children: [
+          {
+            path: 'ac-reports-people',
+            loadChildren: () => import('./AC/ac-reports/ac-reports-people/ac-reports-people.module').then(module => module.AcReportsPeopleModule)
+    
+          }
+        ]
+    
+      },
+      {
+        path: '',
+        component: AcReportsVisitorComponent,
+        children: [
+          {
+            path: 'ac-reports-visitor',
+            loadChildren: () => import('./AC/ac-reports/ac-reports-visitor/ac-reports-visitor.module').then(module => module.AcReportsVisitorModule)
+    
+          }
+        ]
+    
+      },
+  
       
       
-      
+
     ]
 
   },
