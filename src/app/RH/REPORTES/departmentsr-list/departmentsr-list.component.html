@@ -7,7 +7,7 @@
         <div>
           <label for="name"> REPORTE DEPARTAMENTOS</label>
           </div>
-        <div id="frmDepartment"  class="tableR"  style="width: 100%; margin-top: 20px" >
+        <div id="frmDepartment" class="tableR" >
             <br>
           <table class="tableR">
             <thead>
@@ -18,8 +18,8 @@
               <th>Activo/Inactivo</th>
             </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let department of departments | async   " >
+            <tbody >
+                <tr *ngFor="let department of departments | async   ">
                     <td>{{department.departments_id}}</td>
                     <td>{{department.departments_name}}</td>
                     <td>{{department.workplaces_name}}</td>

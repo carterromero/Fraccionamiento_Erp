@@ -78,7 +78,7 @@ export class AuthSigninComponent implements OnInit {
             localStorage.setItem("cxc",this.permisions.permissions_cxc);
             localStorage.setItem("contabilidad",this.permisions.permissions_contabilidad);
             localStorage.setItem("admin",this.permisions.permissions_admin);
-            localStorage.setItem("tesoeria",this.permisions.permissions_tesoreria);
+            localStorage.setItem("tesoreria",this.permisions.permissions_tesoreria);
             localStorage.setItem("rh",this.permisions.permissions_rh);
             localStorage.setItem("inquilino",this.permisions.permissions_inquilino);
             localStorage.setItem("inventario",this.permisions.permissions_inventario);

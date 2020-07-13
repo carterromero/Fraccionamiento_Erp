@@ -7,6 +7,7 @@ import { CondominumsService } from 'src/app/services/admin/condominums.service';
 import { Observable } from 'rxjs';
 import { Agreements } from 'src/app/agreements';
 import { AgreementService } from 'src/app/agreements.service';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -24,9 +25,25 @@ export class CreateTenantsComponent implements OnInit {
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
+  myForm: FormGroup;
 
   constructor(private tenantsService:TenantsService, private condominumsService:CondominumsService,
-  private agreementService: AgreementService,  private router: Router) { }
+  private agreementService: AgreementService,  private router: Router, public fb: FormBuilder) {
+
+      this.myForm = this.fb.group({
+      tenants_name: ['', [Validators.required]],
+      tenants_father_surname: ['', [Validators.required]],
+      tenants_mother_surname: ['', [Validators.required]],
+      tenants_car_brand: ['', [Validators.required]],
+      tenants_car_plate: ['', [Validators.required]],
+      tenants_location: ['', [Validators.required]],
+      tenants_residential_number: ['', [Validators.required]],
+      tenants_type: ['', [Validators.required]],
+      condominums_id: ['', [Validators.required]],
+      agreement_id: ['', [Validators.required]],
+      tenants_status: ['', [Validators.required]]
+    });
+   }
 
   ngOnInit() {
     //code
@@ -84,7 +101,16 @@ export class CreateTenantsComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.save();    
+  
+    if (this.myForm.valid) {
+      console.log(this.myForm.value)
+      this.save();    
+    }
+    else{
+      alert("Faltan datos")
+    }
+     
+    
   }
 
   gotoList() {

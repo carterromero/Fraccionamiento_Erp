@@ -12,6 +12,10 @@ export class CreateDepartmentsComponent implements OnInit {
   
   department: Departments = new Departments();
   submitted = false;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private departmentService: DepartmentsService,
     private router: Router) { }
@@ -39,7 +43,20 @@ export class CreateDepartmentsComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.save();    
+    this.alertDisable = true;
+    this.alertDisables = true;
+    
+    if(this.department.departments_name =="" ||  this.department.departments_name ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "Agregar nombre de departamento";          
+    }
+    else if(this.department.departments_status =='' ||  this.department.departments_status ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "Agregar estatus";          
+    }
+    else{
+      this.save();    
+    }
   }
 
   gotoList() {
