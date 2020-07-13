@@ -10,51 +10,82 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UpdatePeriodsComponent implements OnInit {
 
-  id: number;
-  periods: Periods;
+id: number;
+periods: Periods;
+alertDisable = true;
+alertDisables = true;
+alertMessage = "null";
+alertMessages = "null";
+
 
   constructor(private route: ActivatedRoute,private router: Router,
     private periodsService: PeriodsService) { }
 
-  ngOnInit() {
-    this.periods = new Periods();
+ngOnInit() {
 
-    //this.id = this.route.snapshot.params['id'];
-    this.id = this.route.firstChild.snapshot.params['id']
-    console.log(this.id);
-    
-    this.periodsService.getPeriods(this.id)
-      .subscribe(data => {     
-        console.log(data);
-        this.periods = data;  
-        this.periods.periodsStatus = (String(this.periods.periodsStatus) == "false") ? null:1;    
-      }, error => {
-        console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['auth/signin']);
-      });
+  this.periods = new Periods();
+  this.id = this.route.firstChild.snapshot.params['id']
+  console.log(this.periods.periodsStatus);
+  this.periodsService.getPeriods(this.id)
+    .subscribe(data => {
+      console.log(data);
+      this.periods = data;
+      this.periods.periodsStatus = (String(this.periods.periodsStatus) == "false") ? null:1;  
+     console.log(this.periods.periodsStatus);
+    }, error => {
+      console.log(error);let coins = [];
+      for (let key in error) {
+        this.alertDisable = false;
+        this.alertMessage = error['statusText'];          
+      }
+      
+    });
+}
+
+
+updatePeriods() {
+
+  console.log(this.periods.periodsStatus);
+  
+  this.periodsService.updatePeriods(this.id, this.periods)
+    .subscribe(data => {
+      console.log(data);
+      this.alertDisables = false;
+      this.alertMessages ="Se actualizo  correctamente";
+    }, 
+    error => {
+      console.log(error);
+      let coins = [];
+      for (let key in error) {
+        this.alertDisable = false;
+        this.alertMessage = error['statusText'];          
+      }
+      
+    });
+  
+
+}
+
+onSubmit() {
+  
+
+  this.alertDisable = true;
+  this.alertDisables = true;
+
+  if(this.periods.periodsName =="" ||  this.periods.periodsName ==null ){
+    this.alertDisable = false;
+    this.alertMessage = "parent_1 Incompleta ";          
   }
 
-  updatePeriods() {    
-    this.periods.periodsStatus = (String(this.periods.periodsStatus) == "false") ? 0:1;
-    this.periodsService.updatePeriods(this.id, this.periods)
-      .subscribe(data => {
-        console.log(data);        
-      }, 
-      error => {
-        console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['auth/signin']);
-      });
-    this.periods = new Periods();
-    //this.gotoList();
-  }
-
-  onSubmit() {
+  else{
     this.updatePeriods();    
   }
 
-  gotoList() {
-    this.router.navigate(['periods-list']);
-  }
+
+}
+
+gotoList() {
+  this.router.navigate(['periods-list']);
+}
+
 }

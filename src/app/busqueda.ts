@@ -1,7 +1,7 @@
 export class BusquedaQ
 {
     
-    filters :string;
+    date :string;
     
 
 }
