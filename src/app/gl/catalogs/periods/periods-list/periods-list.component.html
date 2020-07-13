@@ -1,39 +1,28 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-12">
-      <app-card cardTitle="Periods List" blockClass="table-border-style">      
-        <button [routerLink]="['/create-periods']" class="btn btn-primary">Add Periods</button><br>
+      <app-card cardTitle="Lista general " blockClass="table-border-style">      
+        <button [routerLink]="['/create-periods']" class="btn btn-primary">Agregar periodo</button><br>
         <div class="table-responsive">
           <table class="table">
             <thead>
             <tr>
-              <th>#</th>
-              <th>Periods Number</th>
-              <th>Periods Name</th>
-              <th>Periods Year</th>
-              <th>Periods Start Date</th>
-              <th>Periods End Date</th>
-              <th>Periods Current Status</th>
-              <th>Created By</th>
-              <th>Created Date</th>
-              <th>Last Updated By</th>
-              <th>Last Updated Date</th>
+              <th>numero de periodo</th>
+              <th>Nombre</th>
+              <th>Año</th>
+              <th>Fecha de inicio del periodo</th>
+              <th>fecha de fin de periodo</th>
               <th>Periods Status</th>
-              <th>Actions</th>
             </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let periods of periods | async">                  
-                    <td>{{periods.periodId}}</td>
+                    
                     <td>{{periods.periodsNumber}}</td>
                     <td>{{periods.periodsName}}</td>
                     <td>{{periods.periodsYear}}</td>
                     <td>{{periods.periodsStartDate}}</td>
                     <td>{{periods.periodsEndDate}}</td>
-                    <td>{{periods.periodsCurrentStatus}}</td>
-                    <td>{{periods.createdBy}}</td>
-                    <td>{{periods.createdDate}}</td>
-                    <td>{{periods.lastUpdatedBy}}</td>
                     <td>
                       <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" [checked]="periods.periodsStatus == 'true'">

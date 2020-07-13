@@ -4,69 +4,60 @@
         <app-card cardTitle="Create Periods" [options]="false">      
             <app-alert type="success" [hidden]="alertDisable">{{alertMessage}}</app-alert>  
           <form (ngSubmit)="onSubmit()">
+
+            
             <div class="form-group">
-                <label for="name">Periods Number</label>
-                <input type="number" class="form-control" id="periodsNumber" required [(ngModel)]="periods.periodsNumber" name="periodsNumber">
-            </div>    
+                <label for="name">numero de periodo</label>
+                <input type="text" class="form-control" id="periodsNumber" required [(ngModel)]="periods.periodsNumber" name="periodsNumber">
+            </div>  
                 
             <div class="form-group">
-                <label for="name">Periods Name</label>
+                <label for="name">nombre </label>
                 <input type="text" class="form-control" id="periodsName" required [(ngModel)]="periods.periodsName" name="periodsName">
             </div>    
                 
             <div class="form-group">
-                <label for="name">Periods Year</label>
+                <label for="name">Año</label>
                 <input type="number" class="form-control" id="periodsYear" required [(ngModel)]="periods.periodsYear" name="periodsYear">
             </div>    
                 
             <div class="form-group">
-                <label for="name">Periods Start Date</label>
+                <label for="name">Fecha de inicio del periodo</label>
                 <input type="date" class="form-control" id="periodsStartDate" required [(ngModel)]="periods.periodsStartDate" name="periodsStartDate">
             </div>    
                 
             <div class="form-group">
-                <label for="name">Periods End Date</label>
+                <label for="name">fecha de fin de periodo</label>
                 <input type="date" class="form-control" id="periodsEndDate" required [(ngModel)]="periods.periodsEndDate" name="periodsEndDate">
             </div>    
                 
             <div class="form-group">
-                <label for="name">Periods Current Status</label>
-                <input type="text" class="form-control" id="periodsCurrentStatus" required [(ngModel)]="periods.periodsCurrentStatus" name="periodsCurrentStatus">
-            </div>    
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="periodsStatus"  [(ngModel)]="periods.periodsStatus"     name="periodsStatus"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="periodsStatus">Active</label>
+                 </div>
+            </div>
+  
                 
             <div class="form-group">
-                <label for="name">Created By</label>
-                <input type="number" class="form-control" id="createdBy" required [(ngModel)]="periods.createdBy" name="createdBy">
+                <label for="name">creado por:</label>
+                <input type="text" class="form-control" id="createdBy" required [(ngModel)]="periods.createdBy" name="createdBy">
             </div>    
-                
-            <div class="form-group">
-                <label for="name">Created Date</label>
-                <input type="date" class="form-control" id="createdDate" required [(ngModel)]="periods.createdDate" name="createdDate">
-            </div>    
-                
-            <div class="form-group">
-                <label for="name">Last Updated By</label>
-                <input type="number" class="form-control" id="lastUpdatedBy" required [(ngModel)]="periods.lastUpdatedBy" name="lastUpdatedBy">
-            </div>    
-                
-            <div class="form-group">
-                <label for="name">Last Updated Date</label>
-                <input type="date" class="form-control" id="lastUpdatedDate" required [(ngModel)]="periods.lastUpdatedDate" name="lastUpdatedDate">
-            </div>                    
-            
-            <button [routerLink]="['/periods-list']" class="btn btn-secondary app-modal-footer" style="margin-left: 10px">Cancel</button>
-            <button type="button" class="btn btn-primary " data-toggle="modal" (click)="createPeriodsDialog.show()">Submit</button>
+          
+            <button [routerLink]="['/periods-list']" class="btn btn-secondary app-modal-footer" style="margin-left: 10px">Cancelar</button>
+            <button type="button" class="btn btn-primary " data-toggle="modal" (click)="createPeriodsDialog.show()">Aceptar</button>
             <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                 <div class="app-modal-header">
                 <h5 class="modal-title">Create Period: {{periods.periodsName}}</h5>
                 <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="app-modal-body">
-                <p>you want to save your changes?</p>
+                <p>desea guardar los cambios?</p>
                 </div>
                 <div class="app-modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="createPeriodsDialog.hide()">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+                <button type="submit" class="btn btn-primary">cambios guardados</button>
                 </div>
             </app-ui-modal>
           </form>
