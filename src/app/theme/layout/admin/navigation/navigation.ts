@@ -736,9 +736,7 @@ const NavigationItemss = [
         ]
       }
     ]
-  }
-  ,
-  
+  },
   {    
     id: 'AC_main',
     title: 'Control de Accesos',
@@ -853,6 +851,7 @@ export class NavigationItem
     var inventarios= {};
     var nomina= {};
     var inquilino ={};
+    var control ={};
 
 
     dashboard= {
@@ -1583,10 +1582,102 @@ export class NavigationItem
           ]
       };
     };
+    if(localStorage.getItem("control") == 'true'){
+      inquilino =
+      {    
+        id: 'AC_main',
+        title: 'Control de Accesos',
+        type: 'group',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'ac-tenants',
+            title: 'Residentes',
+            type: 'collapse',
+            icon: 'feather icon-user',
+            children: [
+              {
+                id: 'ac-tenant',
+                title: 'Acceso Residentes',
+                type: 'item',            
+                url: '/ac-tenants-list'
+                
+              }
+            ]
+          },
+          {
+            id: 'ac-visitor',
+            title: 'Visitantes',
+            type: 'collapse',
+            icon: 'feather icon-users',
+            children: [
+              {
+                id: 'ac-tenant',
+                title: 'Acceso Visitantes',
+                type: 'item',            
+                url: '/ac-visitors-list'
+                
+              }
+            ]
+          },
+          {
+            id: 'ac-tags',
+            title: 'Tags',
+            type: 'collapse',
+            icon: 'feather icon-tag',
+            children: [
+              {
+                id: 'ac-tags',
+                title: 'Tags activos registrados',
+                type: 'item',            
+                url: '/ac-tags-list'
+                
+              },
+              {
+                id: 'ac-tags',
+                title: 'Tags Inactivos registrados',
+                type: 'item',            
+                url: '/ac-inactive-tags-list'
+                
+              }
+            ]
+          },
+          {
+            id: 'ac-reports',
+            title: 'Reportes',
+            type: 'collapse',
+            icon: 'feather icon-file-text',
+            children: [
+              {
+                id: 'ac-internal',
+                title: 'Tags viviendas',
+                type: 'item',            
+                url: '/ac-reports-internal'
+                
+              },
+              {
+                id: 'ac-people',
+                title: 'Ingreso de Personas',
+                type: 'item',            
+                url: '/ac-reports-people'
+                
+              },
+              {
+                id: 'ac-visitor',
+                title: 'Visitantes',
+                type: 'item',            
+                url: '/ac-reports-visitor'
+                
+              }
+            ]
+          }
+        ]
+      };
+    };
       
      
 
-    const permisoss=[dashboard,admin,contabilidad,cuentasporpagar,tesoreria,cuentasporcobrar,recursoshumanos,compras,inventarios,nomina,inquilino];       
+    const permisoss=[dashboard,admin,contabilidad,cuentasporpagar,tesoreria,cuentasporcobrar,recursoshumanos,compras,inventarios,nomina,inquilino,control];       
     return permisoss;
       
       

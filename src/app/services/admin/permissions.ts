@@ -12,6 +12,7 @@ export class Permissions
     permissions_rh : string;
     permissions_admin : string;
     permissions_inquilino : string;
+    permissions_control : string;
     permissions_status : string;
     created_by : string;
     created_date : string;

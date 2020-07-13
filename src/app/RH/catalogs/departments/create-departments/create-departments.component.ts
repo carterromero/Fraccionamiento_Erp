@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DepartmentsService } from 'src/app/departments.service';
 import { Departments } from 'src/app/departments';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-create-departments',
@@ -16,9 +17,15 @@ export class CreateDepartmentsComponent implements OnInit {
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
+  myForm: FormGroup;
+
 
   constructor(private departmentService: DepartmentsService,
-    private router: Router) { }
+    private router: Router, public fb: FormBuilder) {
+      this.myForm = this.fb.group({
+        departments_name: ['', [Validators.required]]
+      });
+     }
 
   ngOnInit() {
     //code
@@ -42,21 +49,18 @@ export class CreateDepartmentsComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
+   this.submitted = true;
     this.alertDisable = true;
     this.alertDisables = true;
-    
-    if(this.department.departments_name =="" ||  this.department.departments_name ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Agregar nombre de departamento";          
-    }
-    else if(this.department.departments_status =='' ||  this.department.departments_status ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Agregar estatus";          
-    }
-    else{
+    this.submitted = true;
+  
+    if (this.myForm.valid) {
+      console.log(this.myForm.value)
       this.save();    
     }
+    else{
+      alert("Faltan datos")
+    }   
   }
 
   gotoList() {

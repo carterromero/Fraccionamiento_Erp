@@ -3,6 +3,7 @@ import { DepartmentsService } from "src/app/departments.service";
 import { Departments } from "src/app/departments";
 import { Router, ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-update-departments',
   templateUrl: './update-departments.component.html',
@@ -17,8 +18,12 @@ export class UpdateDepartmentsComponent implements OnInit {
   alertMessage = "null";
   alertMessages = "null";
 
+
+
+
   constructor(private route: ActivatedRoute,private router: Router,
-    private departmentService: DepartmentsService) { }
+    private departmentService: DepartmentsService) {
+     }
 
   ngOnInit() {
     this.department = new Departments();
@@ -62,17 +67,9 @@ export class UpdateDepartmentsComponent implements OnInit {
     this.alertDisable = true;
     this.alertDisables = true;
     
-    if(this.department.departments_name =="" ||  this.department.departments_name ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Agregar nombre de departamento";          
-    }
-    else if(this.department.departments_status =='' ||  this.department.departments_status ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Agregar estatus";          
-    }
-    else{
+
       this.updateDepartment();    
-    }
+   
   
   }
 
