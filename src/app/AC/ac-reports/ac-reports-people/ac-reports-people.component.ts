@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Reports } from '../../models/reports';
 import { ReportsService } from '../../service/reports.service';
-//import * as XLSX from 'xlsx';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-ac-reports-people',
@@ -37,35 +37,35 @@ export class AcReportsPeopleComponent implements OnInit {
     );
   }
 
-  // exportExcelPeople(): void 
-  //   {   
-  //     if(this.report){ 
-  //     let element = document.getElementById('people'); 
-  //      //console.log(element); 
+  exportExcelPeople(): void 
+    {   
+      if(this.report){ 
+      let element = document.getElementById('people'); 
+       //console.log(element); 
 
-  //      const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element,{raw:true});
+       const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element,{raw:true});
 
-  //      ws['!cols'] = [
-  //       {wpx: 150}, // "characters"
-  //       {wpx: 100}, // "pixels"
-  //       {wpx: 175},
-  //       {wpx: 150},
-  //       {wpx: 150},
-  //       {wpx: 90}
-  //       //{hidden: true} // hide column
-  //     ];
+       ws['!cols'] = [
+        {wpx: 150}, // "characters"
+        {wpx: 100}, // "pixels"
+        {wpx: 175},
+        {wpx: 150},
+        {wpx: 150},
+        {wpx: 90}
+        //{hidden: true} // hide column
+      ];
 
-  //      /* generate workbook and add the worksheet */
-  //      const wb: XLSX.WorkBook = XLSX.utils.book_new();
-  //      //console.log(wb);
-  //      //const wb: XLSX.WorkBook = { Sheets: {'data': ws}, SheetNames:['data']};
-  //      XLSX.utils.book_append_sheet(wb, ws, 'Personas Ingresadas');
+       /* generate workbook and add the worksheet */
+       const wb: XLSX.WorkBook = XLSX.utils.book_new();
+       //console.log(wb);
+       //const wb: XLSX.WorkBook = { Sheets: {'data': ws}, SheetNames:['data']};
+       XLSX.utils.book_append_sheet(wb, ws, 'Personas Ingresadas');
 
-  //      /* save to file */
-  //      XLSX.writeFile(wb, 'Ingreso_personas.xlsx',{type: "base64"});
-  //     }else{
-  //       console.log('Realice busqueda');
-  //     }
+       /* save to file */
+       XLSX.writeFile(wb, 'Ingreso_personas.xlsx',{type: "base64"});
+      }else{
+        console.log('Realice busqueda');
+      }
 			
-  //   }
+    }
 }

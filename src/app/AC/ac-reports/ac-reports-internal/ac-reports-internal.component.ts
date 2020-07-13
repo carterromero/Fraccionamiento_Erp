@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Reports } from '../../models/reports';
 import { Router } from '@angular/router';
 import { ReportsService } from '../../service/reports.service';
-// import * as XLSX from 'xlsx';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-ac-reports-internal',
@@ -128,38 +128,38 @@ export class AcReportsInternalComponent implements OnInit {
   //   }
 
   
-    // exportExcelTenants(): void 
-    // {   
-    //   if(this.reports){ 
-    //   let element = document.getElementById('tenants'); 
-    //    console.log(element); 
+    exportExcelTenants(): void 
+    {   
+      if(this.reports){ 
+      let element = document.getElementById('tenants'); 
+       console.log(element); 
 
-    //    //let options:JSON2SheetOpts  = {header: ['Tag Codigo', 'Nombre Completo', 'Número de vivienda','Activo / Inactivo','Entrada','Salida']};
-    //    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element,{raw:true});
+       //let options:JSON2SheetOpts  = {header: ['Tag Codigo', 'Nombre Completo', 'Número de vivienda','Activo / Inactivo','Entrada','Salida']};
+       const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element,{raw:true});
 
-    //    ws['!cols'] = [
-    //     {wpx: 150}, // "characters"
-    //     {wpx: 150}, // "pixels"
-    //     {wpx: 150},
-    //     {wpx: 80},
-    //     {wpx: 175},
-    //     {wpx: 175}
-    //     //{hidden: true} // hide column
-    //   ];
+       ws['!cols'] = [
+        {wpx: 150}, // "characters"
+        {wpx: 150}, // "pixels"
+        {wpx: 150},
+        {wpx: 80},
+        {wpx: 175},
+        {wpx: 175}
+        //{hidden: true} // hide column
+      ];
 
-    //    /* generate workbook and add the worksheet */
-    //    const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    //    //console.log(wb);
-    //    //const wb: XLSX.WorkBook = { Sheets: {'data': ws}, SheetNames:['data']};
-    //    XLSX.utils.book_append_sheet(wb, ws, 'Tags de Viviendas');
+       /* generate workbook and add the worksheet */
+       const wb: XLSX.WorkBook = XLSX.utils.book_new();
+       //console.log(wb);
+       //const wb: XLSX.WorkBook = { Sheets: {'data': ws}, SheetNames:['data']};
+       XLSX.utils.book_append_sheet(wb, ws, 'Tags de Viviendas');
 
-    //    /* save to file */
-    //    XLSX.writeFile(wb, 'Tags_viviendas.xlsx',{type: "base64"});
-    //   }else{
-    //     console.log('Realice busqueda');
-    //   }
+       /* save to file */
+       XLSX.writeFile(wb, 'Tags_viviendas.xlsx',{type: "base64"});
+      }else{
+        console.log('Realice busqueda');
+      }
 			
-    // }
+    }
 
     // exportExcelPeople(): void 
     // {   

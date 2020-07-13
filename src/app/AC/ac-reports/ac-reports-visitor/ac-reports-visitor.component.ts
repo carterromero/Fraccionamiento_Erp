@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { VisitReports } from '../../models/visit-reports';
 import { ReportsService } from '../../service/reports.service';
-//import * as XLSX from 'xlsx';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-ac-reports-visitor',
@@ -39,34 +39,34 @@ export class AcReportsVisitorComponent implements OnInit {
     this.getReportsVisit();
   }
 
-  // exportExcelVisitors(): void 
-  //   {   
-  //     if(this.vReport){ 
-  //     let element = document.getElementById('visitors'); 
-  //      //console.log(element); 
+  exportExcelVisitors(): void 
+    {   
+      if(this.vReport){ 
+      let element = document.getElementById('visitors'); 
+       //console.log(element); 
 
-  //      const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element,{raw:true});
+       const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element,{raw:true});
 
-  //      ws['!cols'] = [
-  //       {wpx: 180}, // "characters"
-  //       {wpx: 150}, // "pixels"
-  //       {wpx: 150},
-  //       {wpx: 150},
-  //       {wpx: 80}
-  //       //{hidden: true} // hide column
-  //     ];
+       ws['!cols'] = [
+        {wpx: 180}, // "characters"
+        {wpx: 150}, // "pixels"
+        {wpx: 150},
+        {wpx: 150},
+        {wpx: 80}
+        //{hidden: true} // hide column
+      ];
 
-  //      /* generate workbook and add the worksheet */
-  //      const wb: XLSX.WorkBook = XLSX.utils.book_new();
-  //      //console.log(wb);
-  //      //const wb: XLSX.WorkBook = { Sheets: {'data': ws}, SheetNames:['data']};
-  //      XLSX.utils.book_append_sheet(wb, ws, 'Visitantes');
+       /* generate workbook and add the worksheet */
+       const wb: XLSX.WorkBook = XLSX.utils.book_new();
+       //console.log(wb);
+       //const wb: XLSX.WorkBook = { Sheets: {'data': ws}, SheetNames:['data']};
+       XLSX.utils.book_append_sheet(wb, ws, 'Visitantes');
 
-  //      /* save to file */
-  //      XLSX.writeFile(wb, 'Visitantes.xlsx',{type: "base64"});
-  //     }else{
-  //       console.log('Realice busqueda');
-  //     }
+       /* save to file */
+       XLSX.writeFile(wb, 'Visitantes.xlsx',{type: "base64"});
+      }else{
+        console.log('Realice busqueda');
+      }
 			
-  //   }
+    }
 }
