@@ -10,6 +10,8 @@
                     <th>Articulo Nombre de Transacción</th>
                     <th>Fraccionamiento de Entrada</th>
                     <th>Condominio de Entrada</th>
+                    <th>Costo</th>
+                    <th></th>
                     <th>Estatus</th>
                     <th>Acciones</th>
                   </tr>
@@ -19,6 +21,8 @@
                     <td>{{general.transactions_entrys_name_article}}</td>
                     <td>{{general.transactions_entrys_fractionation}}</td>
                     <td>{{general.transactions_entrys_condominium}}</td>
+                    <td>{{general.transactions_entrys_cost}}</td>
+
 
                     
                     <td>
@@ -34,8 +38,7 @@
                         <button (click)="updateTransac(general.transactions_entrys_sku)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
                         <button (click)="generalDetails(general.transactions_entrys_sku)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
 
-                         
-                        
+  
                     </td>
                 </tr>
             </tbody>

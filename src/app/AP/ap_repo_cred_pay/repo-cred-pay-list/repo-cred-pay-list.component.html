@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle=" REPORTE CONTABLE " blockClass="table-border-style">  
-        <button (click)="imprimirLista()"   class="btn btn-outline-primary" > generar pdf</button>
+        <button (click)="imprimirLista()"   class="btn btn-outline-primary" > generar pdf reporte contable</button>
       
       <div>
       
@@ -10,7 +10,7 @@
           <input type="date" placeholder="Search..." [(ngModel)]="busqueda.filters" class="form-control" name="filterPost" 
           value="2020-01-01"
           min="2020-01-01" max="2030-12-31" >
-          <button (click)="getsbusqueda()"   class="btn btn-outline-primary"style="margin-left: 10px">BUSCAR CORTE DE FECHA VENCIMIENTO </button>   
+          <button (click)="getsbusqueda()"   class="btn btn-outline-primary"style="margin-left: 10px">BUSCAR CORTE DE FECHA  </button>   
     <!--
 <button [routerLink]="['/repo-cred-pay-cont-list/date']"  class="btn btn-outline-primary">Regresar</button><br>
        <button [routerLink]="['/create-payment-record']"  (click)="generalDetails(general.payment_record_payment_date)" class="btn btn-outline-primary"style="margin-left: 10px">BUSCAR CORTE DE FECHA VENCIMIENTO </button>
@@ -18,10 +18,9 @@
           </div>
           <br>
         
-        <div id="frmEquipos"  class="table-responsive">
-          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
-          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
-          <table class="table">
+        <div id="frmEquipos" class="table-responsive">
+          
+          <table id="frmEquipos"  class="table">
             <thead>
             <tr>              
               <th>nombre acreedor</th>

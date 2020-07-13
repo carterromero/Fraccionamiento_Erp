@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Actualizar Precio Articulos" [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" class="form-control" id="price_nombre"  [(ngModel)]="employee.price_nombre" name="price_nombre" required>
+            </div>      
+            <div class="form-group">
+              <label for="name">Descripcion</label>
+              <input type="text" class="form-control" id="price_description"  [(ngModel)]="employee.price_description" name="price_description" required>
+            </div>  
+          
+
+            <div class="form-group">
+                <label for="name">Estatus</label> 
+
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="price_status"  [(ngModel)]="employee.price_status" name="price_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="price_status">Active</label>
+                 </div>
+            </div>
+            
+            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button [routerLink]="['/status-precios-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>
+

@@ -10,7 +10,7 @@ export class DepositAccountService {
 
   private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/';
   private username='ivan.dominguez@dti-consultores.com';
-  private password='Jikantiempo24';
+  private password='Jikantiempo23';
   
 
   constructor(private http: HttpClient) { }

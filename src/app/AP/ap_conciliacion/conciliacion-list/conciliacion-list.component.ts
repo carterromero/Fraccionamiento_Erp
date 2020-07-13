@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { Conciliacion } from 'src/app/conciliacion';
 import { ConciliacionService } from 'src/app/conciliacion.service';
 import { Observable } from 'rxjs';
-
+import { Creditor } from 'src/app/creditor';
+import { CreditorService } from 'src/app/creditor.service';
 @Component({
   selector: 'app-conciliacion-list',
   templateUrl: './conciliacion-list.component.html',
@@ -17,8 +18,9 @@ export class ConciliacionListComponent implements OnInit {
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
-
+  employee: Creditor = new Creditor();
   constructor(private generalService: ConciliacionService,
+    private employeeService: CreditorService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -26,8 +28,20 @@ export class ConciliacionListComponent implements OnInit {
       this.reloadData();
   }
   
+ 
+
+  onSubmit() 
+  {
+     this.employeeService.getEmployeeList();
+    this.employee.creditor_id = 1;
+    console.log(this.employee);
+  
+ 
+  }
+  
+
   reloadData() {
-    
+   
     this.generalService.getEmployeeList().subscribe(
       data => {
         console.log(data);

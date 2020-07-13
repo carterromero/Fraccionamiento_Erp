@@ -30,6 +30,7 @@
     "html2canvas": "^1.0.0-rc.5",
     "jquery": "^3.4.1",
     "jspdf": "^1.5.3",
+    "jspdf-autotable": "^3.5.6",
     "moment": "^2.24.0",
     "ng-click-outside": "^4.0.0",
     "ng-number-formatter": "^1.5.0",
@@ -38,11 +39,13 @@
     "ngx-perfect-scrollbar": "^8.0.0",
     "nouislider": "^14.0.1",
     "pdf-to-base64": "^1.0.2",
+    "pdfmake": "^0.1.66",
     "rxjs": "^6.5.3",
     "rxjs-compat": "^6.5.2",
     "screenfull": "^4.2.0",
     "sweetalert2": "^8.13.0",
     "tslib": "^1.10.0",
+    "xlsx": "^0.16.3",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

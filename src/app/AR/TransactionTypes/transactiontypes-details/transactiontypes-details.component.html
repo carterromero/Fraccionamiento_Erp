@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+  <div class="col-sm-12">
+    <app-card cardTitle="Transicion Detalle" [options]="false">
+      <div *ngIf="employee">
+
+        <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+        <div>
+          <label><b>	Nombre del tipo de transacción Completo: </b></label> {{employee.transaction_types_name_type_transaction}}
+        </div>
+        <div>
+          <label><b>Descripción  Completa: </b></label> {{employee.transaction_types_description}}
+        </div>
+        <div>
+          <label><b>Clase de transacción: </b></label> {{employee.transaction_types_class_transaction}}
+        </div>
+        <div>
+          <label><b>	Distribución contable : </b></label> {{employee.transaction_types_accounting_distribution}}
+        </div>
+
+        <div>
+          <label><b>condominums Patronal: </b></label> {{employee.condominums_id}}
+        </div>
+
+        <div>
+          <label><b>created Fiscal: </b></label> {{employee.created_by}}
+        </div>
+
+
+        <div>
+          <label><b>Estatus:  </b></label>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input"  id="transaction_types_status"  name="transaction_types_status"   style="margin-left: 10px" [checked]="employee.transaction_types_status == 'true'">
+          <label class="custom-control-label" for="transaction_types_status">Active</label>
+       </div>
+      </div>
+      </div>
+      <br>
+      <button [routerLink]="['/transactiontypes-list']" class="btn btn-outline-primary">Regresar</button><br>
+    </app-card>
+    </div>
+</div>

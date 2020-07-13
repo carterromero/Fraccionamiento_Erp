@@ -12,6 +12,10 @@ export class CreateWorkplacesComponent implements OnInit {
   
   workplace: Workplaces = new Workplaces();
   submitted = false;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private workplaceService: WorkplacesService,
     private router: Router) { }
@@ -43,7 +47,21 @@ export class CreateWorkplacesComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.save();    
+    this.submitted = true;
+    this.alertDisable = true;
+    this.alertDisables = true;
+    
+    if(this.workplace.workplaces_name =="" ||  this.workplace.workplaces_name ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "Agregar nombre de puesto";          
+    }
+    else if(this.workplace.workplaces_status =='' ||  this.workplace.workplaces_status ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "Agregar estatus";          
+    }
+    else{
+      this.save();    
+    }
   }
 
   gotoList() {

@@ -12,6 +12,10 @@ export class UpdateDepartmentsComponent implements OnInit {
 
   id: number;
   department: Departments;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private route: ActivatedRoute,private router: Router,
     private departmentService: DepartmentsService) { }
@@ -53,8 +57,23 @@ export class UpdateDepartmentsComponent implements OnInit {
   
   }
 
-  onSubmit() {
-    this.updateDepartment();    
+  onSubmit() { 
+
+    this.alertDisable = true;
+    this.alertDisables = true;
+    
+    if(this.department.departments_name =="" ||  this.department.departments_name ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "Agregar nombre de departamento";          
+    }
+    else if(this.department.departments_status =='' ||  this.department.departments_status ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "Agregar estatus";          
+    }
+    else{
+      this.updateDepartment();    
+    }
+  
   }
 
   gotoList() {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CollectionService } from 'src/app/collection.service';
 import { Router } from '@angular/router';
-import { collection } from 'src/app/collection';
+import { Collection } from 'src/app/collection';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -9,11 +9,15 @@ import { Observable } from 'rxjs';
   templateUrl: './collection-list.component.html',
   styleUrls: ['./collection-list.component.scss']
 })
-export class collectionListComponent implements OnInit {
+export class CollectionListComponent implements OnInit {
 
-  general: Observable<collection[]>;
+  general: Observable<Collection[]>;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
-  constructor(private CollectionService: CollectionService,
+  constructor(private generalService: CollectionService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -23,31 +27,37 @@ export class collectionListComponent implements OnInit {
   
   reloadData() {
     
-    this.CollectionService.getCollectionList().subscribe(
+    this.generalService.getEmployeeList().subscribe(
       data => {
-        console.log("getcollection");
-        console.log(data);
-        this.general = this.CollectionService.getCollectionList();
+        this.general = this.generalService.getEmployeeList();
       },
       error => {
         console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']);     
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
       });
-
-      
   }
 
   deleteGeneral(id: number) {
-    this.CollectionService.deleteCollection(id)
+    this.alertDisable = true;
+    this.alertDisables = true;
+    this.generalService.deleteEmployee(id)
       .subscribe(
         data => {
           console.log(data);
           this.reloadData();
+          this.alertDisables = false;
+          this.alertMessages ="La Cobro se a eliminado correctamente";
         },
-        error => {console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']); 
+        error => {
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = error['statusText'];          
+          }  
         }
       );
   }

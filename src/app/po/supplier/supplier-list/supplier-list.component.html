@@ -24,12 +24,15 @@
           <tbody >
               <tr  *ngFor="let general of general | async">
                 <td >{{general.supplier_id}}</td>
-                  <td >{{general.supplier_name}}</td>
-                  <td>{{general.supplier_address}}</td>
-                  <td>{{general.supplier_rfc}}</td>
-                  <td>{{general.supplier_email}}</td>
-                  <td>{{general.supplier_phone}}</td>
+                  <td >{{general.p_supplier_name}}</td>
+                  <td>{{general.p_supplier_address}}</td>
+                  <td>{{general.p_supplier_rfc}}</td>
+                  <td>{{general.p_supplier_email}}</td>
+                  <td>{{general.p_supplier_phone}}</td>
                   <td>{{general.supplier_turn}}</td>
+
+
+
                   
                   <td>
                       <div class="custom-control custom-switch">
@@ -54,7 +57,7 @@
                       </div>
 
                         <div class="app-modal-body">
-                        <p>Esta seguro de eliminar la empresa?</p>
+                        <p>Esta seguro de eliminar la Proveedores?</p>
                         </div>
                         <div class="app-modal-footer">
                         <button type="button" class="btn btn-secondary"  style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>

@@ -1,0 +1,33 @@
+
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle=" poliza  Detalle" [options]="false">
+        <div *ngIf="employee">
+
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <div>
+            <label><b>polizas cabecero id</b></label> {{employee.journals_header_id}}
+          </div>
+          <div>
+            <label><b>linea id</b></label> {{employee.journals_accounts_line_id}}
+          </div>
+          <div>
+            <label><b>debe</b></label> {{employee.journals_lines_debe}}
+          </div>
+          <div>
+            <label><b>haber</b></label> {{employee.journals_lines_haber}}
+          </div>
+
+          <div>
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="journals_lines_status"  name="journals_lines_status"   style="margin-left: 10px" [checked]="employee.journals_lines_status == 'true'">
+            <label class="custom-control-label" for="journals_lines_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/journalslin-list']" class="btn btn-outline-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>

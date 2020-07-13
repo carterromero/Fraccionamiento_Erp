@@ -14,17 +14,48 @@
             <option *ngFor="let address of addresses1 | async" value="{{address.of_measuares_id}}">{{address.of_measuares_description}}</option>
             </select>
             </div>
-          <div>
-            <label><b>Dimensión: </b></label> {{employee.articles_dimension}}
-          </div>
+          
           <div>
             <label><b>Articulo Precio: </b></label> {{employee.articles_articles_price}}
           </div>
+
           <div>
             <label><b>Articulo Externo: </b></label> {{employee.articles_external_feactures}}
           </div>
           <div>
-            <label><b>Caractertisticas Internas: </b></label> {{employee.articles_internal_characteristics}}
+
+
+
+
+            <div>
+              <label><b>Ancho: </b></label> {{employee.articles_width}}
+            </div>
+            
+            
+              
+              <div>
+                <label><b>Alto: </b></label> {{employee.articles_tall}}
+              </div>
+              
+              
+              
+                <div>
+                  <label><b>Largo: </b></label> {{employee.articles_long}}
+                </div>
+                
+                <div>
+                 <label><b>Longitud: </b></label> {{employee.lote_longitud}}
+                  </div>
+                  
+                    <div>
+                      <label><b>Latitud: </b></label> {{employee.lote_latitud}}
+                    </div>
+                    
+                     
+
+
+            <label><b>Caractertisticas Internas: </b>
+            </label> {{employee.articles_internal_characteristics}}
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Sub Categorias</label>

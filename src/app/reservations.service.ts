@@ -38,4 +38,10 @@ export class ReservationsService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ALL_RESERV/1.0/reservations`,{headers});
   }
+  
+  getReservationReport(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_REPORT_RESERVAT/1.0/reservationsRe`,{headers});
+  }
+  
 }

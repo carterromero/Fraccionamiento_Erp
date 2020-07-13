@@ -1,62 +1,95 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
         <div class="col-md-6">
-            <app-card cardTitle="Update Colletion" [options]="false">
+            <app-card cardTitle="Actualizar Cobro" [options]="false">
                 <form (ngSubmit)="onSubmit()">
 
                     <div class="form-group">
-                        <label for="name">collection_transaction_type</label>
+                        <label for="name">• Tipo de transacción</label>
                         <input type="text" class="form-control" id="collection_transaction_type"
-                            [(ngModel)]="collection.collection_transaction_type" name="collection_transaction_type"
+                            [(ngModel)]="employee.collection_transaction_type" name="collection_transaction_type"
                             required>
                     </div>
                     <div class="form-group">
-                        <label for="name">collection_name_resident</label>
+                        <label for="name">• Nombre del Residente</label>
                         <input type="text" class="form-control" id="collection_name_resident"
-                            [(ngModel)]="collection.collection_name_resident" name="collection_name_resident" required>
+                            [(ngModel)]="employee.collection_name_resident" name="collection_name_resident" required>
                     </div>
-                    
-
                     <div class="form-group">
-                        <label for="name">collection_referral_address</label>
+                        <label for="name">• Termino de pago </label>
+                        <input type="text" class="form-control" id="collection_payment_term"
+                            [(ngModel)]="employee.collection_payment_term" name="collection_payment_term" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">• Concepto de cobro </label>
+                        <input type="text" class="form-control" id="collection_collection_concept"
+                            [(ngModel)]="employee.collection_collection_concept" name="collection_collection_concept"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">• Importe </label>
+                        <input type="text" class="form-control" id="collection_amount"
+                            [(ngModel)]="employee.collection_amount" name="collection_amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">• Dirección de remisión</label>
                         <input type="text" class="form-control" id="collection_referral_address"
-                            [(ngModel)]="collection.collection_referral_address" name="collection_referral_address"
+                            [(ngModel)]="employee.collection_referral_address" name="collection_referral_address"
                             required>
                     </div>
 
                     <div class="form-group">
                         <label for="name">condominums_id</label>
                         <input type="text" class="form-control" id="condominums_id"
-                            [(ngModel)]="collection.condominums_id" name="condominums_id" required>
+                            [(ngModel)]="employee.condominums_id" name="condominums_id" required>
                     </div>
                     <div class="form-group">
                         <label for="name">created_by</label>
-                        <input type="text" class="form-control" id="created_by" [(ngModel)]="collection.created_by"
+                        <input type="text" class="form-control" id="created_by" [(ngModel)]="employee.created_by"
                             name="created_by" required>
                     </div>
                     <div class="form-group">
                         <label for="name">last_updated_by</label>
                         <input type="text" class="form-control" id="last_updated_by"
-                            [(ngModel)]="collection.last_updated_by" name="last_updated_by" required>
+                            [(ngModel)]="employee.last_updated_by" name="last_updated_by" required>
                     </div>
                     <div class="form-group">
                         <label for="name">last_updated_date</label>
                         <input type="text" class="form-control" id="last_updated_date"
-                            [(ngModel)]="collection.last_updated_date" name="last_updated_date" required>
+                            [(ngModel)]="employee.last_updated_date" name="last_updated_date" required>
                     </div>
-                    
                     <div class="form-group">
-                        <label for="name">collection_status</label>
+                        <label for="name">Estatus</label>
+
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="collection_status"
-                                [(ngModel)]="collection.collection_status" name="collection_status"
+                            <input type="checkbox" class="custom-control-input" id="legals_status"
+                                [(ngModel)]="employee.collection_status" name="collection_status"
                                 style="margin-left: 10px">
                             <label class="custom-control-label" for="collection_status">Active</label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success">Guardar</button>
-                    <button [routerLink]="['/update-collection']" class="btn btn-danger"
-                        style="margin-left: 10px">Cancelar</button>
+                    <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+                    <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
+                    <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+                        <div class="app-modal-header">
+                            <h5 class="modal-title">Autualizar Cobro</h5>
+                            <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close"
+                                (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="app-modal-body">
+                            <p>Esta seguro de actualizar la Cobro</p>
+                        </div>
+                        <div class="app-modal-footer">
+                            <button type="button" class="btn btn-secondary" style="margin-left: 10px"
+                                data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+                            <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"
+                                style="margin-left: 10px">Guardar</button>
+                        </div>
+                    </app-ui-modal>
+                    <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                        (click)="createPeriodsDialog.show()">Guardar</button>
+                    <button [routerLink]="['/collection-list']" class="btn btn-outline-secondary"
+                        style="margin-left: 10px">Regresar</button>
                 </form>
             </app-card>
         </div>

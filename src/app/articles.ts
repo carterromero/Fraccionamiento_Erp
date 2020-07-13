@@ -15,6 +15,16 @@ export class Articles
     create_date : string;
     last_update_by : number;
     last_update_date :string;
+    lote_latitud :string;
+    lote_longitud :string;
     sub_categories_id :string;
     unit_of_measuares_id :string;
+    articles_tall:string;
+    articles_long : string;
+    articles_width :string;
+    articles_since :string;
+    articles_until :string;
+    articles_status_id: number;
+    articles_price_id: number;
+    categories_name : number;
 }

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SupplierService } from 'src/app/supplier.service';
-import * as jsPDF from 'jspdf'
 import { Supplier } from 'src/app/supplier';
+import * as jsPDF from 'jspdf'
 
 @Component({
   selector: 'app-pdf-supplier-list',
@@ -21,7 +21,10 @@ export class PdfSupplierListComponent implements OnInit {
 
   general: Observable<Supplier[]>;
 
-  constructor(  private route: ActivatedRoute,private generalService: SupplierService, private router: Router) { }
+  constructor(  private route: ActivatedRoute,
+    private generalService: 
+    SupplierService, private router: Router) { }
+   
     imprimirLista(id:number){
       
       
@@ -34,6 +37,7 @@ export class PdfSupplierListComponent implements OnInit {
   
       }
 
+      
 
 
       ngOnInit() :void{

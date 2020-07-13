@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="col-sm-12">
+    <app-card cardTitle="Pago Detalle" [options]="false">
+      <div *ngIf="employee">
+
+        <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+        <div>
+          <label><b>•	Tipo de Transacción Completo: </b></label> {{employee.payments_transaction_type}}
+        </div>
+        <div>
+          <label><b>•	Nombre del Residente Completa: </b></label> {{employee.payments_name_resident}}
+        </div>
+        <div>
+          <label><b>•	Cuenta de Deposito: </b></label> {{employee.payments_deposit_account}}
+        </div>
+        <div>
+          <label><b>•	Monto a Pagar: </b></label> {{employee.payments_amount_payable}}
+        </div>
+
+        <div>
+          <label><b>condominums_id: </b></label> {{employee.condominums_id}}
+        </div>
+
+        <div>
+          <label><b>created_by: </b></label> {{employee.created_by}}
+        </div>
+        <div>
+          <label><b>transaction_types_id: </b></label> {{employee.transaction_types_id}}
+        </div>
+        <div>
+          <label><b>customer_customer_id: </b></label> {{employee.customer_customer_id}}
+        </div>
+
+
+        <div>
+          <label><b>Estatus: </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="payments_status" name="payments_status"
+              style="margin-left: 10px" [checked]="employee.payments_status == 'true'">
+            <label class="custom-control-label" for="payments_status">Active</label>
+          </div>
+        </div>
+      </div>
+      <br>
+      <button [routerLink]="['/payments-ar-list']" class="btn btn-outline-primary">Regresar</button><br>
+    </app-card>
+  </div>
+</div>

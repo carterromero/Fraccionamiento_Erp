@@ -1,3 +1,5 @@
+import { Time } from '@angular/common';
+
 export class Reservations {
     reservations_id: number;
     reservations_location: string;

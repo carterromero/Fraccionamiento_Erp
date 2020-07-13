@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import * as jsPDF from 'jspdf'
 import { Purcharse } from 'src/app/purcharse';
 import { PurcharseService } from 'src/app/purcharse.service';
 
 @Component({
   selector: 'app-pdf-purcharse-list',
-  templateUrl:'./pdf-purcharse-list.component.html',
+  templateUrl: './pdf-purcharse-list.component.html',
   styleUrls: ['./pdf-purcharse-list.component.scss']
 })
 export class PdfPurcharseListComponent implements OnInit {
+
+  id: number;
+  generals: Purcharse;
 
   general: Observable<Purcharse[]>;
   alertDisable = true;
@@ -18,20 +22,51 @@ export class PdfPurcharseListComponent implements OnInit {
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private generalService: PurcharseService,
+  constructor(private route: ActivatedRoute,private generalService: PurcharseService,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.generals = new Purcharse();    
+        this.id = this.route.firstChild.snapshot.params['id']
+        console.log(this.id);
+        this.reloadData();
+        this.generalService. getEmployeeList(this.id)
+          .subscribe(data => {
+            console.log(data);
+            this.generals = data;
+          }, error => {
+            console.log(error);
+            //localStorage.setItem('token', "");
+            //this.router.navigate(['auth/signin']);
+          });
       
+
+
+
+
+
       this.reloadData();
   }
+
+
+  imprimirLista(){
+      
+      
+    const doc = new jsPDF();
+    
+    doc.fromHTML(document.getElementById('from-informacion'), 10,10);;
+    doc.save(['lista']);
+    
+    console.log();
+
+    }
   
 
 
   
   reloadData() {
     
-    this.generalService.getEmployeeList(1).subscribe(
+    this.generalService.getEmployeeList(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);
         this.general = this.generalService.getEmployeeList(1);
@@ -68,14 +103,9 @@ export class PdfPurcharseListComponent implements OnInit {
   }
 
   generalDetails(id: number){
-    this.router.navigate(['purcharse-details', id]);
+    this.router.navigate(['pdf-purcharse-repor-details', id]);
   }
 
-  updateGeneral(id: number){
-    this.router.navigate(['update-purcharse', id]);
-  }
-
-
-
+ 
 
 }

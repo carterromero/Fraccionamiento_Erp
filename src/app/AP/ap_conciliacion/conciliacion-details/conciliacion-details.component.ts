@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Conciliacion } from 'src/app/conciliacion';
 import { ConciliacionService } from 'src/app/conciliacion.service';
-
+import * as jsPDF from 'jspdf'
 @Component({
   selector: 'app-conciliacion-details',
   templateUrl: './conciliacion-details.component.html',
@@ -17,6 +17,22 @@ export class ConciliacionDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: ConciliacionService) { }
+
+
+   
+
+
+      imprimirLista(){
+        const doc = new jsPDF
+        doc.text(20, 20, 'REPORTE CONTABLE ');
+       doc.fromHTML(document.getElementById('from-informacion'),20,30);
+       //doc.addPage();
+        //doc.text(20, 20, 'Hello world!');
+        doc.save('Reporte contable');
+    
+    
+      }
+
 
   ngOnInit() {
     this.employee = new Conciliacion();    
@@ -37,4 +53,4 @@ export class ConciliacionDetailsComponent implements OnInit {
         }
       });
   }
-}
+} 

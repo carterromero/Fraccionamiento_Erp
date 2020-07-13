@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-xl-12">
+        <div>
+          
+            <button type="button"  style="margin: 10 px;" class="btn btn-primary" >Imprimir Lista General</button>
+          </div>
+      <app-card cardTitle="Articulos" blockClass="table-border-style">      
+        
+        <br>
+        <div class="table-responsive"   id="from-informacion">
+          <table class="table"   >
+            <thead>
+                <tr>      
+  
+                    <th>Articulo </th>
+                    <th>Descipcion</th>
+                    <th>Subinventario</th>
+                    <th>Caracteristicas Externas</th>
+                    <th>Caracteristicas Internas</th>
+                    <th>Alto</th>
+                    <th>Largo</th>
+                    <th>Ancho </th>
+                    <th> Categoria</th>
+                    <th>Subcategorias</th>
+                    <th>Precio Estatus </th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                    <td>{{general.articles_name_article}} </td>
+                    <td>{{general.articles_description}} </td>
+                    <td>{{general.sub_inventarys_id}}</td>
+                    <td>{{general.articles_external_feactures}}</td>
+                    <td>{{general.articles_internal_characteristics}}</td>
+  
+                    <td>{{general.articles_width}}</td>
+                    <td>{{general.articles_tall}}</td>
+                    <td>{{general.articles_long}}</td>
+                    <td>{{general.lote_longitud}}</td>
+                    <td>{{general.lote_latitud}}</td>
+                    
+                    
+  
+                    <td>{{general.sub_categories_name}}</td>
+                    <td>{{general.price_nombre}}</td> 
+                    
+                    <td>
+                        
+                        <button (click)="generalDetails(general.articles_sku)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                        
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

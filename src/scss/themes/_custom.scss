@@ -1,6 +1,6 @@
 .ng-trigger-collapsedCard {
   .card-body {
-    /*padding-top: 0;*/
+    padding-top: 0;
   }
 }
 
@@ -203,8 +203,26 @@ select-dropdown .selected.highlighted {
   }
 }
 
-.search-bar {
-  display: block;
+.tableR{
+  border-collapse:collapse;
+  font-family: $theme-font-family;
+  font-size: 15px;
+th,tr,td{
+	border:2px solid #BBB7B6;
+	width:150px;
+	height:45px;
+	vertical-align:middle;
+	text-align:center;
+}
+th{
+	color:#fff;
+	background-color: #2A2738;
+}
+
+tr:nth-child(odd) td{
+	background-color:#eee;
+}
+
 }
 
 /*multi-select*/

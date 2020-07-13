@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PdfPurcharseListComponent } from './pdf-purcharse-list.component';
+
 
 describe('PdfPurcharseListComponent', () => {
   let component: PdfPurcharseListComponent;

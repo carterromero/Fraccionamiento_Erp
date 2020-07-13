@@ -1,4 +1,7 @@
 import { NgModule, Component } from '@angular/core';
+ 
+
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './theme/layout/admin/admin.component';
 import { AuthComponent } from './theme/layout/auth/auth.component';
@@ -11,7 +14,6 @@ import { GeneralListComponent } from './general/general-list/general-list.compon
 import { CreateGeneralComponent } from './general/create-general/create-general.component';
 import { GeneralDetailsComponent } from './general/general-details/general-details.component';
 import { UpdateGeneralComponent } from './general/update-general/update-general.component';
-
 
 
 import { CreditorListComponent } from './AP/ap_creditor/creditor-list/creditor-list.component';
@@ -128,6 +130,10 @@ import { CreateReservationsComponent } from './RH/Reservations/create-reservatio
 import { ReservationsListComponent } from './RH/Reservations/reservations-list/reservations-list.component';
 import { UpdateReservationsComponent } from './RH/Reservations/update-reservations/update-reservations.component';
 import { ReservationsDetailsComponent } from './RH/Reservations/reservations-details/reservations-details.component';
+import { TagviviendaListComponent } from './RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.component';
+import { ReportEmployeeListComponent } from './RH/REPORTES/reportemployee-list/reportemployee-list.component';
+import { DepartmentsRListComponent }  from './RH/REPORTES/departmentsr-list/departmentsr-list.component';
+import { ReservationsreportListComponent }  from './RH/REPORTES/reservationsreport-list/reservationsreport-list.component';
 
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
@@ -162,8 +168,8 @@ import { UpdatePurcharseComponent } from './purcharse/update-purcharse/update-pu
 
 
 
-import { collectionListComponent } from './collection/collection-list/collection-list.component';
-import { CreatecollectionComponent } from './collection/create-collection/create-collection.component';
+import { CollectionListComponent } from './collection/collection-list/collection-list.component';
+import { CreateCollectionComponent } from './collection/create-collection/create-collection.component';
 import { BilltopayListComponent } from './AP/ap_billtopay/billtopay-list/billtopay-list.component';
 import { PaymentRecordListComponent } from './AP/ap_payment-record/payment-record-list/payment-record-list.component';
 import { CreatePaymentRecordComponent } from './AP/ap_payment-record/create-payment-record/create-payment-record.component';
@@ -171,8 +177,8 @@ import { PaymentRecordDetailsComponent } from './AP/ap_payment-record/payment-re
 import { UpdatePaymentRecordComponent } from './AP/ap_payment-record/update-payment-record/update-payment-record.component';
 import { PurcharseDetailsComponent } from './purcharse/purcharse-details/purcharse-details.component';
 import { PdfSupplierListComponent } from './po/pdf/pdf-supplier-list/pdf-supplier-list.component';
-import { PdfSupplierDetailsComponent } from './po/pdf/pdf-supplier-details/pdf-supplier-details.component';
-import { PdfPurcharseListComponent } from './po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list.component';
+
+
 
 import { MasterinventarysDetailsComponent } from './inventarios/master_inventarys/masterinventarys-details/masterinventarys-details.component';
 
@@ -182,9 +188,7 @@ import { UnitOfMeasuresDetailsComponent } from './inventarios/unit_of_measures/u
 import { UpdateMasterinventarysComponent } from './inventarios/master_inventarys/update-masterinventarys/update-masterinventarys.component';
 import { TransactionsentrysListComponent } from './inventarios/transactions_entrys/transactionsentrys-list/transactionsentrys-list.component';
 
-import { RepoCredPayContListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-cont-list/repo-cred-pay-cont-list.component';
 import { RepoCredPayNocontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-nocont-list/repo-cred-pay-nocont-list.component';
-import { RepoCredPayVencontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-vencont-list/repo-cred-pay-vencont-list.component';
 
 import { CreateArticlesComponent } from './inventarios/articles/create-articles/create-articles.component';
 import { ArticlesDetailsComponent } from './inventarios/articles/articles-details/articles-details.component';
@@ -217,6 +221,72 @@ import { AcInactiveTagsListComponent } from './AC/ac-tags/ac-inactive-tags-list/
 import { AcReportsInternalComponent } from './AC/ac-reports/ac-reports-internal/ac-reports-internal.component';
 import { AcReportsPeopleComponent } from './AC/ac-reports/ac-reports-people/ac-reports-people.component';
 import { AcReportsVisitorComponent } from './AC/ac-reports/ac-reports-visitor/ac-reports-visitor.component';
+
+import { AccountsListComponent } from './gl/catalogs/accounts/accounts-list/accounts-list.component';
+import { CreateAccountsComponent } from './gl/catalogs/accounts/create-accounts/create-accounts.component';
+import { AccountsDetailsComponent } from './gl/catalogs/accounts/accounts-details/accounts-details.component';
+import { UpdateAccountsComponent } from './gl/catalogs/accounts/update-accounts/update-accounts.component';
+import { LinesListComponent } from './gl/catalogs/lines/lines-list/lines-list.component';
+import { CreateLinesComponent } from './gl/catalogs/lines/create-lines/create-lines.component';
+import { LinesDetailsComponent } from './gl/catalogs/lines/lines-details/lines-details.component';
+import { UpdateLinesComponent } from './gl/catalogs/lines/update-lines/update-lines.component';
+
+import { CollectionConceptsListComponent } from './AR/collectionConcepts/collectionconcepts-list/collectionconcepts-list.component';
+import { CollectionConceptsDetailsComponent } from './AR/collectionConcepts/collectionconcepts-details/collectionconcepts-details.component';
+import { CollectionConceptsCreateComponent } from './AR/collectionConcepts/create-collectionconcepts/create-collectionconcepts.component';
+import { CollectionConceptsUpdateComponent } from './AR/collectionConcepts/update-collectionconcepts/update-collectionconcepts.component';
+import { PaymentTermsListComponent } from './AR/paymentTerms/payment-terms-list/payment-terms-list.component';
+import { UpdatePaymentTermsComponent } from './AR/paymentTerms/update-payment-terms/update-payment-terms.component';
+import { CreatePaymentTermsComponent } from './AR/paymentTerms/create-payment-terms/create-payment-terms.component';
+import { PaymentTermsDetailsComponent } from './AR/paymentTerms/payment-terms-details/payment-terms-details.component';
+import { UpdateCollectionComponent } from './collection/update-collection/update-collection.component';
+import { StatusListComponent } from './inventarios/status/status-list/status-list.component';
+import { CreateStatusComponent } from './inventarios/status/create-status/create-status.component';
+import { StatusDetailsComponent } from './inventarios/status/status-details/status-details.component';
+import { UpdateStatusComponent } from './inventarios/status/update-status/update-status.component';
+
+import { StatusPrecioarticuloListComponent } from './inventarios/status-precio/status-precioarticulo-list/status-precioarticulo-list.component';
+
+import { ReservationsReportListModule } from './RH/REPORTES/reservationsreport-list/reservationsreport-list.module';
+import { CreatePreciosComponent } from './inventarios/status-precio/create-precio/create-precios.component';
+
+import { AccolintypeListComponent } from './gl/catalogs/accolintype/accolintype-list/accolintype-list.component';
+import { CreateAccolintypeComponent } from './gl/catalogs/accolintype/create-accolintype/create-accolintype.component';
+import { AccolintypeDetailsComponent } from './gl/catalogs/accolintype/accolintype-details/accolintype-details.component';
+import { UpdateAccolintypeComponent } from './gl/catalogs/accolintype/update-accolintype/update-accolintype.component';
+import { JournalsListComponent } from './gl/catalogs/journals/journals-list/journals-list.component';
+import { CreateJournalsComponent } from './gl/catalogs/journals/create-journals/create-journals.component';
+import { JournalsDetailsComponent } from './gl/catalogs/journals/journals-details/journals-details.component';
+import { UpdateJournalsComponent } from './gl/catalogs/journals/update-journals/update-journals.component';
+
+import { PrecioDetailsComponent } from './inventarios/status-precio/precio-details/precio-details.component';
+import { UpdatePrecioComponent } from './inventarios/status-precio/update-precio/update-precio.component';
+import { JournalslinListComponent } from './gl/catalogs/journalslin/journalslin-list/journalslin-list.component';
+import { CreateJournalslinComponent } from './gl/catalogs/journalslin/create-journalslin/create-journalslin.component';
+import { JournalslinDetailsComponent } from './gl/catalogs/journalslin/journalslin-details/journalslin-details.component';
+import { UpdateJournalslinComponent } from './gl/catalogs/journalslin/update-journalslin/update-journalslin.component';
+import { TransactionTypesListComponent } from './AR/TransactionTypes/transactiontypes-list/transactiontypes-list.component';
+import { TransactionTypesDetailsComponent } from './AR/TransactionTypes/transactiontypes-details/transactiontypes-details.component';
+import { CreateTransactionTypesComponent } from './AR/TransactionTypes/create-transactiontypes/create-transactiontypes.component';
+import { UpdateTransactionTypesComponent } from './AR/TransactionTypes/update-transactiontypes/update-transactiontypes.component';
+import { PaymentsARListComponent } from './AR/payments/payments-ar-list/payments-ar-list.component';
+import { PaymentsARDetailsComponent } from './AR/payments/payments-ar-details/payments-ar-details.component';
+import { CreatePaymentsARComponent } from './AR/payments/create-payments-ar/create-payments-ar.component';
+import { UpdatePaymentsARComponent } from './AR/payments/update-payments-ar/update-payments-ar.component';
+
+import { PdfSupplierDetailsComponent } from './po/pdf/pdf-purcharse-details/pdf-supplier-details.component';
+
+import { PdfPurcharseListComponent } from './po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list.component';
+
+import { TranslListComponent } from './gl/report/transl/transl-list/transl-list.component';
+import { PdfPurcharseDetailsComponent } from './po/pdf/pdf-purcharse/pdfs-purcharse-details/pdf-purcharse-details.component';
+import { CollectionDetailsComponent } from './collection/collection-details/collection-details.component';
+import { PdfArticulogListComponent } from './inventarios/Pdf-articulo-g/pdf-articulog-list/pdf-articulog-list.component';
+import { PdfHistoriaListComponent } from './inventarios/pdf-historiarti/pdf-historia-list/pdf-historia-list.component';
+
+
+
+
 
 
 
@@ -312,6 +382,46 @@ const routes: Routes = [
           {
             path: 'update-employee/:id',
             loadChildren: () => import('./employee/update-employee/update-employee.module').then(module => module.UpdateEmployeeModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: TagviviendaListComponent,
+        children: [
+          {
+            path: 'tagvivienda-list',
+            loadChildren: () => import('./RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.module').then(module => module.TagviviendaListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ReservationsreportListComponent,
+        children: [
+          {
+            path: 'reservationsreport-list',
+            loadChildren: () => import('./RH/REPORTES/reservationsreport-list/reservationsreport-list.module').then(module => module.ReservationsReportListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ReportEmployeeListComponent,
+        children: [
+          {
+            path: 'reportemployee-list',
+            loadChildren: () => import('./RH/REPORTES/reportemployee-list/reportemployee-list.module').then(module => module.ReportEmployeeListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: DepartmentsRListComponent,
+        children: [
+          {
+            path: 'departmentsr-list',
+            loadChildren: () => import('./RH/REPORTES/departmentsr-list/departmentsr-list.module').then(module => module.DepartmentsRListModule)
           }
         ]
       },
@@ -647,6 +757,220 @@ const routes: Routes = [
       },
       {
         path: '',
+        component: AccountsListComponent,
+        children: [
+          {
+            path: 'accounts-list',
+            loadChildren: () => import('./gl/catalogs/accounts/accounts-list/accounts-list.module').then(module => module.AccountsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateAccountsComponent,
+        children: [
+          {
+            path: 'create-accounts',
+            loadChildren: () => import('./gl/catalogs/accounts/create-accounts/create-accounts.module').then(module => module.CreateAccountsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: AccountsDetailsComponent,
+        children: [
+          {
+            path: 'accounts-details/:p_id',
+            loadChildren: () => import('./gl/catalogs/accounts/accounts-details/accounts-details.module').then(module => module.AccountsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateAccountsComponent,
+        children: [
+          {
+            path: 'update-accounts/:p_id',
+            loadChildren: () => import('./gl/catalogs/accounts/update-accounts/update-accounts.module').then(module => module.UpdateAccountsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: LinesListComponent,
+        children: [
+          {
+            path: 'lines-list',
+            loadChildren: () => import('./gl/catalogs/lines/lines-list/lines-list.module').then(module => module.LinesListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateLinesComponent,
+        children: [
+          {
+            path: 'create-lines',
+            loadChildren: () => import('./gl/catalogs/lines/create-lines/create-lines.module').then(module => module.CreateLinesModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: LinesDetailsComponent,
+        children: [
+          {
+            path: 'lines-details/:p_id',
+            loadChildren: () => import('./gl/catalogs/lines/lines-details/lines-details.module').then(module => module.LinesDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateLinesComponent,
+        children: [
+          {
+            path: 'update-lines/:p_id',
+            loadChildren: () => import('./gl/catalogs/lines/update-lines/update-lines.module').then(module => module.UpdateLinesModule)
+          }
+        ]
+      }
+      ,
+      {
+        path: '',
+        component: AccolintypeListComponent,
+        children: [
+          {
+            path: 'accolintype-list',
+            loadChildren: () => import('./gl/catalogs/accolintype/accolintype-list/accolintype-list.module').then(module => module.AccolintypeListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateAccolintypeComponent,
+        children: [
+          {
+            path: 'create-accolintype',
+            loadChildren: () => import('./gl/catalogs/accolintype/create-accolintype/create-accolintype.module').then(module => module.CreateAccolintypeModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: AccolintypeDetailsComponent,
+        children: [
+          {
+            path: 'accolintype-details/:p_id',
+            loadChildren: () => import('./gl/catalogs/accolintype/accolintype-details/accolintype-details.module').then(module => module.AccolintypeDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateAccolintypeComponent,
+        children: [
+          {
+            path: 'update-accolintype/:p_id',
+            loadChildren: () => import('./gl/catalogs/accolintype/update-accolintype/update-accolintype.module').then(module => module.UpdateAccolintypeModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: JournalsListComponent,
+        children: [
+          {
+            path: 'journals-list',
+            loadChildren: () => import('./gl/catalogs/journals/journals-list/journals-list.module').then(module => module.JournalsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateJournalsComponent,
+        children: [
+          {
+            path: 'create-journals',
+            loadChildren: () => import('./gl/catalogs/journals/create-journals/create-journals.module').then(module => module.CreateJournalsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: JournalsDetailsComponent,
+        children: [
+          {
+            path: 'journals-details/:p_id',
+            loadChildren: () => import('./gl/catalogs/journals/journals-details/journals-details.module').then(module => module.JournalsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateJournalsComponent,
+        children: [
+          {
+            path: 'update-journals/:p_id',
+            loadChildren: () => import('./gl/catalogs/journals/update-journals/update-journals.module').then(module => module.UpdateJournalsModule)
+          }
+        ]
+      }
+      ,
+      {
+        path: '',
+        component: JournalslinListComponent,
+        children: [
+          {
+            path: 'journalslin-list',
+            loadChildren: () => import('./gl/catalogs/journalslin/journalslin-list/journalslin-list.module').then(module => module.JournalslinListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateJournalslinComponent,
+        children: [
+          {
+            path: 'create-journalslin',
+            loadChildren: () => import('./gl/catalogs/journalslin/create-journalslin/create-journalslin.module').then(module => module.CreateJournalslinModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: JournalslinDetailsComponent,
+        children: [
+          {
+            path: 'journalslin-details/:p_id',
+            loadChildren: () => import('./gl/catalogs/journalslin/journalslin-details/journalslin-details.module').then(module => module.JournalslinDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: TranslListComponent,
+        children: [
+          {
+            path: 'transl-list',
+            loadChildren: () => import('./gl/report/transl/transl-list/transl-list.module').then(module => module.TranslListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateJournalslinComponent,
+        children: [
+          {
+            path: 'update-journalslin/:p_id',
+            loadChildren: () => import('./gl/catalogs/journalslin/update-journalslin/update-journalslin.module').then(module => module.UpdateJournalslinModule)
+          }
+        ]
+      }
+      ,
+
+      {
+        path: '',
         component: LegalsListComponent,
         children: [
           {
@@ -805,17 +1129,6 @@ const routes: Routes = [
       {
         path: '',
 
-        component: RepoCredPayContListComponent,
-        children: [
-          {
-            path: 'repo-cred-pay-cont-list/:date',
-            loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-cont-list/repo-cred-pay-cont-list.module').then(module => module.RepoCredPayContListModule)
-          }
-        ]
-      },
-      {
-        path: '',
-
         component: RepoCredPayNocontListComponent,
         children: [
           {
@@ -824,18 +1137,7 @@ const routes: Routes = [
           }
         ]
       },
-      {
-        path: '',
-
-        component: RepoCredPayVencontListComponent,
-        children: [
-          {
-            path: 'repo-cred-pay-vencont-list/:date',
-            loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-vencont-list/repo-cred-pay-vencont-list.module').then(module => module.RepoCredPayVencontListModule)
-          }
-        ]
-      }
-      ,
+     
 
       {
         path: '',
@@ -1005,24 +1307,45 @@ const routes: Routes = [
 
       {
         path: '',
-        component: collectionListComponent,
+        component: CollectionListComponent,
         children: [
           {
             path: 'collection-list',
-            loadChildren: () => import('./collection/collection-list/collection-list.module').then(module => module.collectionListModule)
+            loadChildren: () => import('./collection/collection-list/collection-list.module').then(module => module.CollectionListModule)
           }
         ]
       },
       {
         path: '',
-        component: CreatecollectionComponent,
+        component: CreateCollectionComponent,
         children: [
           {
             path: 'create-collection',
-            loadChildren: () => import('./collection/create-collection/create-collection.module').then(module => module.createcollectionModule)
+            loadChildren: () => import('./collection/create-collection/create-collection.module').then(module => module.CreateCollectionModule)
           }
         ]
       },
+      {
+        path: '',
+        component: CollectionDetailsComponent,
+        children: [
+          {
+            path: 'collection-details/:id',
+            loadChildren: () => import('./collection/collection-details/collection-details.module').then(module => module.CollectionDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateCollectionComponent,
+        children: [
+          {
+            path: 'update-collection/:id',
+            loadChildren: () => import('./collection/update-collection/update-collection.module').then(module => module.UpdateCollectionModule)
+          }
+        ]
+      },
+     
       {
         path: '',
         component: CustomerListComponent,
@@ -1063,6 +1386,171 @@ const routes: Routes = [
           }
         ]
       },
+      {
+        path: '',
+        component: CollectionConceptsListComponent,
+        children: [
+          {
+            path: 'collectionconcepts-list',
+            loadChildren: () => import('./AR/collectionConcepts/collectionconcepts-list/collection-concepts-list.module').then(module => module.CollectionConceptsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CollectionConceptsDetailsComponent,
+        children: [
+          {
+            path: 'collectionconcepts-details/:id',
+            loadChildren: () => import('./AR/collectionConcepts/collectionconcepts-details/collection-conceptsdetails.module').then(module => module.CollectionConceptsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CollectionConceptsCreateComponent,
+        children: [
+          {
+            path: 'create-collection-concepts',
+            loadChildren: () => import('./AR/collectionConcepts/create-collectionconcepts/create-collection-concepts.module').then(module => module.CollectionConceptsCreateModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CollectionConceptsUpdateComponent,
+        children: [
+          {
+            path: 'update-collectionconcepts/:id',
+            loadChildren: () => import('./AR/collectionConcepts/update-collectionconcepts/update-collection-concepts.module').then(module => module.CollectionConceptsUpdateModule)
+          }
+        ]
+      },
+      //////////////////
+      {
+        path: '',
+        component: PaymentTermsListComponent,
+        children: [
+          {
+            path: 'payment-terms-list',
+            loadChildren: () => import('./AR/paymentTerms/payment-terms-list/payment-terms-list.module').then(module => module.PaymentTermsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: PaymentTermsDetailsComponent,
+        children: [
+          {
+            path: 'payment-terms-details/:id',
+            loadChildren: () => import('./AR/paymentTerms/payment-terms-details/payment-terms-details.module').then(module => module.PaymentTermsDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreatePaymentTermsComponent,
+        children: [
+          {
+            path: 'create-payment-terms',
+            loadChildren: () => import('./AR/paymentTerms/create-payment-terms/create-payments-terms.module').then(module => module.CreatePaymentTermsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdatePaymentTermsComponent,
+        children: [
+          {
+            path: 'update-payment-terms/:id',
+            loadChildren: () => import('./AR/paymentTerms/update-payment-terms/update-payment-terms.module').then(module => module.UpdatePaymentTermsModule)
+          }
+        ]
+      },
+      /////
+      {
+        path: '',
+        component: TransactionTypesListComponent,
+        children: [
+          {
+            path: 'transactiontypes-list',
+            loadChildren: () => import('./AR/TransactionTypes/transactiontypes-list/transactiontypes-list.module').then(module => module.TransactionTypesListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: TransactionTypesDetailsComponent,
+        children: [
+          {
+            path: 'transactiontypes-details/:id',
+            loadChildren: () => import('./AR/TransactionTypes/transactiontypes-details/transactiontypes-details.module').then(module => module.TransactionTypesDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateTransactionTypesComponent,
+        children: [
+          {
+            path: 'create-transactiontypes',
+            loadChildren: () => import('./AR/TransactionTypes/create-transactiontypes/create-transactiontypes.module').then(module => module.CreateTransactionTypesModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateTransactionTypesComponent,
+        children: [
+          {
+            path: 'update-transactiontypes/:id',
+            loadChildren: () => import('./AR/TransactionTypes/update-transactiontypes/update-transactiontypes.module').then(module => module.UpdateTransactionTypesModule)
+          }
+        ]
+      },
+       /////
+       {
+        path: '',
+        component: PaymentsARListComponent,
+        children: [
+          {
+            path: 'payments-ar-list',
+            loadChildren: () => import('./AR/payments/payments-ar-list/payments-ar-list.module').then(module => module.PaymentsARListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: PaymentsARDetailsComponent,
+        children: [
+          {
+            path: 'payments-ar-details/:id',
+            loadChildren: () => import('./AR/payments/payments-ar-details/payments-ar-details.module').then(module => module.PaymentsARDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreatePaymentsARComponent,
+        children: [
+          {
+            path: 'create-payments-ar',
+            loadChildren: () => import('./AR/payments/create-payments-ar/create-payments-ar.module').then(module => module.createPaymentsARModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdatePaymentsARComponent,
+        children: [
+          {
+            path: 'update-payments-ar/:id',
+            loadChildren: () => import('./AR/payments/update-payments-ar/update-payments-ar.module').then(module => module.UpdatePaymentsARModule)
+          }
+        ]
+      },
+      //
+  
       {
         path: '',
         component: CreateReferralAddressComponent,
@@ -1917,8 +2405,34 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./admin/permissions/permissions-list/permissions-list.module').then(module => module.PermissionsListModule)
           }
         ]
-      }
+      },
+////////,
+{
+  path: '',
+  component:PdfArticulogListComponent,
+  children: [
+    {
+      path: 'report-articulog-list',
+      loadChildren: () => import('./inventarios/Pdf-articulo-g/pdf-articulog-list/pdf-articulog-list.module').then(module => module.PdfArticulogListModule)
+    }
+  ]
 
+
+
+},
+{
+  path: '',
+  component:PdfHistoriaListComponent,
+  children: [
+    {
+      path: 'report-historial-list',
+      loadChildren: () => import('./inventarios/pdf-historiarti/pdf-historia-list/pdf-historia-list.module').then(module => module.PdfHistoriaListModule)
+    }
+  ]
+
+
+
+}
 
       ,
       {
@@ -2251,20 +2765,30 @@ component: CreateTransfersComponent,
         }
       ]
     },
-
+/// 
+{
+  path: '',
+  component: PdfPurcharseListComponent,
+  children: [
     {
-      path: '',
-    component:   PdfPurcharseListComponent,
-     children: [
-       {
-          path: 'pdf-purchase_orders-list',
-         loadChildren: () => import('./po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list-routing.module').then(module => module.PdfPurcharseListRoutingModule)
-        }
-      ]
+      path: 'pdf-purchase_orders-list',
+      loadChildren: () => import('./po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list.module').then(module => module.PdfPurcharseListModule)
+    }
+  ]
+},{
+  path: '',
+  component: PdfPurcharseDetailsComponent,
+  children: [
+    {
+      path: 'pdf-purcharse-repor-details/:id',
+      loadChildren: () => import('./po/pdf/pdf-purcharse/pdfs-purcharse-details/pdf-purcharse-details.module').then(module => module.PdfPurcharseDetailsModule)
+    }
+  ]
+},
+  
 
 
 
-    },
       {
         path: '',
         component: PdfSupplierListComponent,
@@ -2282,17 +2806,55 @@ component: CreateTransfersComponent,
       children: [
         {
           path: 'pdf-supplier-repor-details/:id',
-          loadChildren: () => import('./po/pdf/pdf-supplier-details/pdf-supplier-details-routing.module').then(module => module.PdfSupplierDetailsRoutingModule)
+          loadChildren: () => import('./po/pdf/pdf-purcharse-details/pdf-supplier-details.module').then(module => module.PdfSupplierDetailsModule)
         }
       ]
-    }
+    },
 
 
+    {
+      path: '',
+      component: StatusPrecioarticuloListComponent,
+      children: [
+        {
+          path: 'status-precios-list',
+          loadChildren: () => import('./inventarios/status-precio/status-precioarticulo-list/status-precioarticulo-list.module').then(module => module.StatusPrecioarticuloListModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component: CreatePreciosComponent,
+      children: [
+        {
+          path: 'create-precios',
+          loadChildren: () => import('./inventarios/status-precio/create-precio/create-precios.module').then(module => module.CreatePreciosModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component: PrecioDetailsComponent,
+      children: [
+        {
+          path: 'precio-details/:id',
+          loadChildren: () => import('./inventarios/status-precio/precio-details/precio-details.module').then(module => module.PrecioDetailsModule)
+        }
+      ]
+    },
+    {
+      path: '',
+      component:  UpdatePrecioComponent,
+      children: [
+        {
+          path: 'update-precio/:id',
+          loadChildren: () => import('./inventarios/status-precio/update-precio/update-precio.module').then(module => module.UpdatePrecioModule)
+        }
+      ]
+    },
+  
 
-
-
-
-      ,
+      
 
       {
         path: '',
@@ -2315,10 +2877,6 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./treasury/transfers/transfers-list/transfers-list.module').then(module => module.TransfersListModule)
           }
         ]
-
-
-
-
       }
       ,
 
@@ -2439,6 +2997,52 @@ component: CreateTransfersComponent,
       },
       {
         path: '',
+        component: StatusListComponent,
+        children: [
+          {
+            path: 'status-articles-list',
+            loadChildren: () => import('./inventarios/status/status-list/status-list.module').then(module => module.StatusListModule)
+          }
+        ]
+      },
+      ////
+
+     
+      {
+        path: '',
+        component: CreateStatusComponent,
+        children: [
+          {
+            path: 'status-create',
+            loadChildren: () => import('./inventarios/status/create-status/create-status.module').then(module => module.CreateStatusModule)
+          }
+        ]
+      }
+,
+{
+  path: '',
+  component: StatusDetailsComponent,
+  children: [
+    {
+      path: 'status-details/:id',
+      loadChildren: () => import('./inventarios/status/status-details/status-details.module').then(module => module.StatusDetailsModule)
+    }
+  ]
+},
+{
+  path: '',
+  component: UpdateStatusComponent,
+  children: [
+    {
+      path: 'update-status/:id',
+      loadChildren: () => import('./inventarios/status/update-status/update-status.module').then(module => module.UpdateStatusModule)
+    }
+  ]
+},
+
+
+      {
+        path: '',
         component: TransactionsentrysListComponent,
         children: [
           {
@@ -2456,8 +3060,10 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./inventarios/sub_categories/create-subcategories/create-subcategories.module').then(module => module.CreateSubcategoriesModule)
           }
         ]
+
       }
       ,
+      
       {
         path: '',
         component: AcTenantsListComponent,
@@ -2602,6 +3208,10 @@ component: CreateTransfersComponent,
         ]
     
       },
+  
+      
+      
+
     ]
 
   },
@@ -2615,6 +3225,7 @@ component: CreateTransfersComponent,
       }
     ]
   }
+ 
 
 
 ];

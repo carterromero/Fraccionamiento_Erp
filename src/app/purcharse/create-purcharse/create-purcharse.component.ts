@@ -35,6 +35,7 @@ export class CreatePurcharseComponent implements OnInit {
 
 
   ngOnInit() {
+    
     this.reloadDatas();
     this.reloadDatass();
     this.reloadDatasss();
@@ -76,6 +77,7 @@ export class CreatePurcharseComponent implements OnInit {
       }
     );      
   }
+  
   reloadDatasss() 
   {
 

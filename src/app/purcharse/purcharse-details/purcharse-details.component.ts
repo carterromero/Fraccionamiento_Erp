@@ -46,6 +46,8 @@ article:ArticlesC = new ArticlesC();
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
     this.reloadDatas() ;
+    this.reloadDatass() ;
+    this.reloadDatasss() ;
     
     
     this.employeeService.getEmployee(this.id)
@@ -83,14 +85,13 @@ article:ArticlesC = new ArticlesC();
     );      
   }
   
-
   reloadDatass() 
   {
 
     this.paymentService.getEmployeeListcombo().subscribe(
       data => {
         console.log(data);
-        this.payments= this.paymentService.getEmployeeListcombo();
+        this.payments = this.paymentService.getEmployeeListcombo();
       },
       error => {
         console.log(error);
@@ -103,6 +104,28 @@ article:ArticlesC = new ArticlesC();
     );      
   }
 
+
+
+
+
+  reloadDatasss() 
+  {
+
+    this.employeeService.getEmployeeListcombo().subscribe(
+      data => {
+        console.log(data);
+        this.articlesc = this.employeeService.getEmployeeListcombo();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
 
   
 

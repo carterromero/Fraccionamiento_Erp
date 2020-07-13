@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-xl-12">
+
+    <div>
+          
+      <button type="button"  style="margin: 10 px;" class="btn btn-primary" (click)="imprimirLista()">Imprimir Lista General Ordenes de Venta</button>
+    </div>
+
+    <app-card cardTitle="ORDEN DE VENTA" blockClass="table-border-style">      
+      
+      <br>
+      <div class="table-responsive"  id="from-informacion" >
+        <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+        <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+        <table class="table" >
+          <thead>
+          <tr>         
+            
+            <th>Id de la Orden  </th>
+            <th>NOMBRE de Orden </th>
+            <th>NOMBRE del Solicitante </th>
+            <th>ADDRESS</th>
+            <th>ARTICULO </th>
+            <th>Proveedor</th>
+            <th>Termino de pago</th>
+            
+            <th> Cantidad de articulos </th>
+            <th> Precio Articulos </th>
+            <th>Total de orden</th>
+            <th>FECHA DE CREACION</th>
+            <th>Estatus</th>
+            <th>#</th>
+          </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let general of general | async">
+                 
+                <td>{{general.purcharse_id}}</td>
+                <td>{{general.purcharse_name}}</td>
+                <td>{{general.applicant_name}}</td>
+                <td>{{general.fractionation_address}}</td>
+                <td>{{general.articles_name_article}}</td> 
+                <td>{{general.supplier_name}}</td>
+                <td>{{general.payment_description}}</td>
+                <td>{{general.purcharse_quantity_items}}</td>
+                <td>{{general.articles_prices}}</td>
+                <td>{{general.purcharse_order_total}}</td>
+                <td>{{general. purcharse_address}}</td>
+    
+                  <td>
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" [checked]="general.purcharse_status == 'true'">
+                        <label class="custom-control-label" for="purcharse_status">Active</label>
+                     </div>
+                    </td>
+
+                  <td>
+                    
+                     
+                      <button (click)="generalDetails(general.purcharse_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+
+                      <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+                        
+                        
+                        <div class="app-modal-footer">
+                        <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+                        
+                        </div>
+                    </app-ui-modal>
+                  </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+</div>
