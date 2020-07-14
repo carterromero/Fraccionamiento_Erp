@@ -1041,14 +1041,6 @@ export class NavigationItem
             type: 'item',            
             url: '/payment-record-list' 
             
-          },
-          
-          {
-            id: 'conciliacion_id',
-            title: 'conciliacion',
-            type: 'item',            
-            url: '/conciliacion-list' 
-            
           }
                               
         ]
