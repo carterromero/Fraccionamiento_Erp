@@ -33,8 +33,13 @@ export class TagServiceService {
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/AC_GET_ONE_TAGS/1.0/getone/${code}`, this.httpOptions);
   }
 
-  activar(id:number, value: any):Observable<object>{
-    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/AC_UPDATE_ACTIVE_TAG/1.0/update/${id}`, value , this.httpOptions);
+  activar(code:string):Observable<any>{
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/AC_UPDATE_STATUS_TAG/1.0/updateStatusTag?tag_code=${code}`, this.httpOptions);
+
+  }
+
+  inactivar(code:string):Observable<any>{
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/AC_UPDAT_STATU_TO_INACT_TAG/1.0/updateStatusTag?tag_code=${code}`, this.httpOptions);
 
   }
 }

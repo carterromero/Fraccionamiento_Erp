@@ -3,6 +3,8 @@
       <app-card cardTitle="Departamentos" blockClass="table-border-style">      
         <button [routerLink]="['/create-departments']" class="btn btn-outline-primary">Agregar Departamento</button><br>
         <br>
+        <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+        <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>   
         <div class="table-responsive">
           <table class="table">
             <thead>

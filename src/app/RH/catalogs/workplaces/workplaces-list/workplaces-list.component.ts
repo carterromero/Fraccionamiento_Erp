@@ -12,21 +12,16 @@ import { Router } from '@angular/router';
 export class WorkplacesListComponent implements OnInit {
   workplaces: Observable<Workplaces[]>;
   elements: any = [];
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private workplaceService: WorkplacesService,
     private router: Router) {}
 
   ngOnInit() {    
     this.reloadData();
-
-    for (let i = 1; i <= 11; i++) {
-      this.elements.push({
-        id: i,
-        first: {nick: 'Nick ' + i, name: 'Name ' + i},
-        last: 'Name ' + i,
-        handle: 'Handle ' + i
-      });
-    }
   }
 
   reloadData() {
@@ -49,12 +44,13 @@ export class WorkplacesListComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          this.reloadData();
+          this.alertDisables = false;
+          this.alertMessage ="Se elimino correctamente";
         },
         error => {
           console.log(error);
-       //   localStorage.setItem('token', "");
-      //    this.router.navigate(['auth/signin']);
+          this.alertDisable = false;
+          this.alertMessages = "El registro no se puede eliminar, tiene una dependencia";
         });
   }
   workplaceDetails(id: number){
