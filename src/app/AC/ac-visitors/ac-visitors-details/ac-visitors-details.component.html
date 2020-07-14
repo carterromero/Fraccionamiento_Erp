@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Detalles de Visitante" [options]="false">
+        <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+        <div *ngIf="visitor">
+          <div>
+            <label><b>Nombre: </b></label> {{visitor.ac_name}}
+          </div>
+          <div>
+            <label><b>Apellido paterno: </b></label> {{visitor.ac_father_surname}}
+          </div>
+          <div>
+            <label><b>Apellido materno: </b></label> {{visitor.ac_mother_surname}}
+          </div>
+          <div>
+            <label><b>Identificación: </b></label> {{visitor.identification_id}}
+          </div>
+          <div>
+            <label><b>Placa de auto: </b></label> {{visitor.ac_self_plate}}
+          </div>
+          <div>
+            <label><b>Residente Visitado: </b></label> {{visitor.tenant}}
+          </div>
+          <div>
+            <label><b>Tipo visita: </b></label> {{visitor.type_visit}}
+          </div>
+          <div>
+            <label><b>Fecha de registro: </b></label> {{visitor.creation_date | date: "medium"}}
+          </div>
+          <div>
+            <label><b>Tag: </b></label> {{visitor.tag_code}}
+          </div>
+         
+          <!-- <div>
+            <label><b>Estatus:  </b></label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="tenants_status"       name="tenants_status"   style="margin-left: 10px" [checked]="tenant.tenants_status == 'true'">
+                <label class="custom-control-label" for="tenants_status">Active</label>
+             </div>
+        </div> -->
+        
+        </div>
+        <br>
+        <button [routerLink]="['/ac-visitors-list']" class="btn btn-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>

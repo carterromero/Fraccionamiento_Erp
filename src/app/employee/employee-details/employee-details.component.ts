@@ -12,9 +12,21 @@ export class EmployeeDetailsComponent implements OnInit {
 
   id: number;
   employee: Employee;
-
+  datos:String;
+  dato:String;
+ 
+  
   constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: EmployeeService) { }
+    private employeeService: EmployeeService) {
+     }
+
+    base64EncodeUnicode() {
+      var base64EncodedPDF = this.employee.employees_cv;
+        // base64EncodedPDF -  variable from global-vars.js
+  //                     but would normally be passed in dynamically  
+     var dataURI = "data:application/pdf;base64," +base64EncodedPDF;
+     window.open(dataURI);
+  }
 
   ngOnInit() {
     this.employee = new Employee();    

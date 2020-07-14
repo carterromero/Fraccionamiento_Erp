@@ -5,7 +5,7 @@
           <form (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="name">Nombre</label>
-              <input type="text" class="form-control" id="departments_name" required [(ngModel)]="department.departments_name" name="departments_name">
+              <input  type="text" class="form-control" id="departments_name" required [(ngModel)]="department.departments_name" name="departments_name">
             </div>      
             <div class="form-group">
                 <label for="name">Estatus</label>
@@ -14,6 +14,8 @@
                     <label class="custom-control-label" for="departments_status">Active</label>
                  </div>
             </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
             <button type="submit" class="btn btn-success">Guardar</button>          
             <button [routerLink]="['/departments-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
           </form>

@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Tags activos" blockClass="table-border-style">      
+      <!-- <button [routerLink]="['/ac-create-visitors']" class="btn btn-primary">Tags registrados</button><br> -->
+        <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Tag</th>
+                <th>Estatus Asignado</th>
+                <th>Estatus </th>
+                <th>Asignado a</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tag of tags | async">
+                    <!-- <td *ngIf="tag.tag_status_a == 'true'">{{tag.tag_id}}</td>-->
+                     <td>{{tag.tag_code}}</td>
+                     <td *ngIf="tag.tag_status == 'true'; then thenBlock else elseBlock" class="text-center"></td>
+                     <td *ngIf="tag.tag_status_a == 'true'">
+                         <h6><span class="badge badge-success">Activo</span></h6>
+                     </td>
+                     <td>{{tag.nombre}}</td>
+                     <td>
+                         <button (click)="tagsDetails(tag.tag_code)"
+                             class="btn btn-outline-primary"
+                             aria-pressed="true">Detalles</button>
+                     </td>
+                 </tr>
+            </tbody>
+            </table>
+            <ng-template #thenBlock><td><h6 #thenBlock><span class="badge badge-info">Asignado</span></h6></td></ng-template>
+            <ng-template #elseBlock><td><h6 #elseBlock><span class="badge badge-warning">Disponible</span></h6></td></ng-template>
+        </div>
+      </app-card>
+    </div>
+  </div>

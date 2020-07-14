@@ -7,6 +7,9 @@ import { STRING_TYPE } from '@angular/compiler';
 import { Observable } from 'rxjs';
 import { Condominums } from 'src/app/services/admin/condominums';
 import { CondominumsService } from 'src/app/services/admin/condominums.service';
+import { Creditor } from 'src/app/creditor';
+import { CreditorService } from 'src/app/creditor.service';
+
 @Component({
   selector: 'app-create-payment-record',
   templateUrl: './create-payment-record.component.html',
@@ -17,17 +20,22 @@ export class CreatePaymentRecordComponent implements OnInit {
 
   employee: PaymentRecord = new PaymentRecord();
   condominums: Observable<Condominums[]>;
+  creditor: Observable<Creditor[]>;
+  
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
   datos:String;
+  submitted = false;
   
 
 
 
   constructor(private employeeService: PaymentRecordService,
     private condominumsService: CondominumsService,
+    private creditorService: CreditorService,
+   
     private router: Router) {
 
       
@@ -35,10 +43,12 @@ export class CreatePaymentRecordComponent implements OnInit {
 
     ngOnInit() {
       this.reloadDatas();
+      this.reloadDatas1() ;
     }
 
     newEmployee(): void {
       this.employee = new PaymentRecord();
+      this.submitted = false;
     }
     
 
@@ -59,7 +69,25 @@ export class CreatePaymentRecordComponent implements OnInit {
       }
     );      
   }
+  reloadDatas1() 
+  {
 
+    this.creditorService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.creditor= this.creditorService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
+ 
     save() {
 console.log(this.employee.payment_method);
       
@@ -90,19 +118,13 @@ console.log(this.employee.payment_method);
   this.alertDisable = true;
   this.alertDisables = true;
 
-
- 
-  
-
   if(this.employee.payment_record_amount =="" ||  this.employee.payment_record_amount ==null ){
     this.alertDisable = false;
     this.alertMessage = "Monto";          
   }
-
  
-
-
   else{
+    this.submitted = true;
     this.save();    
   }
  }

@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-8">
+        <app-card cardTitle="Actualizar Visitante" [options]="false">
+          <form #formV="ngForm" (ngSubmit)="onSubmit(formV)">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" class="form-control" id="ac_name"  [(ngModel)]="visitor.ac_name" name="ac_name" required>
+            </div>      
+            <div class="form-group">
+                <label for="name">Apellido Paterno</label>
+                <input type="text" class="form-control" id="ac_father_surname"  [(ngModel)]="visitor.ac_father_surname" name="ac_father_surname" required>
+              </div>   
+              <div class="form-group">
+                <label for="name">Apellido Materno</label>
+                <input type="text" class="form-control" id="ac_mother_surname"  [(ngModel)]="visitor.ac_mother_surname" name="ac_mother_surname" required>
+              </div>   
+              <div class="form-group">
+                <label for="name">Identificación</label>
+                <input type="text" class="form-control" id="identification_id"  [(ngModel)]="visitor.identification_id" name="identification_id" >
+              </div>   
+              <div class="form-group">
+                <label for="name">Residente visitado</label>
+                <select id="tenantsid" name="tenantsid" class="form-control" required [(ngModel)]="visitor.tenantsid">
+                    <!--<option value="">Seleccione a un residente</option>-->
+                    <option *ngFor="let tenant of tenants | async" value="{{tenant.tenants_id}}">{{tenant.tenants_name}} {{tenant.tenants_father_surname}} {{tenant.tenants_mother_surname}}, {{tenant.tenants_location}} No.{{tenant.tenants_residential_number}}</option>
+                  </select>
+              </div>   
+              <div class="form-group">
+                <label for="name">Placas</label>
+                <input type="text" id="ac_self_plate" name="ac_self_plate" class="form-control" placeholder="Placas del Auto" [(ngModel)]="visitor.ac_self_plate">
+                <span class="help-block">Ingrese Placas de auto (si es peaton dejar vacío)</span>
+              </div>   
+              <div class="form-group">
+                <label for="name">Tipo visita</label>
+                <select id="typevisits_id" name="typevisits_id" class="form-control" required [(ngModel)]="visitor.typevisits_id">
+                    <option *ngFor="let vt of visitorType | async" value="{{vt.tv_id}}">{{vt.tv_type}}</option>
+                    </select>
+              </div>   
+              <div class="form-group">
+                <label for="name">Tag</label>
+                <select id="tag_id" name="tag_id" class="form-control" [(ngModel)]="visitor.tag_id">
+                    <option value="">Sin Tag asignado</option>
+                    <option *ngFor="let t of tags | async" value="{{t.tag_id}}">{{t.tag_code}}</option>
+                  </select>
+              </div>  
+              
+            <!-- <div class="form-group">
+                <label for="name">Estatus</label> 
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="tenants_status"  [(ngModel)]="tenant.tenants_status"     name="tenants_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="tenants_status">Active</label>
+                 </div>
+            </div> -->
+            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button [routerLink]="['/ac-visitors-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

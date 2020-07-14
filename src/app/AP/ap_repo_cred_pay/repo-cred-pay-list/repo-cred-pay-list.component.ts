@@ -32,10 +32,10 @@ filterPost = '';
   
   reloadData() {
     
-    this.generalService.getEmployeeco(this.busqueda.filters).subscribe(
+    this.generalService.getEmployeeco(this.busqueda.date).subscribe(
       data => {
         console.log(this.date);
-        this.general = this.generalService.getEmployeecontaList();
+        this.general = this.generalService.getEmployeeco(this.busqueda.date);
       },
       error => {
         console.log(error);   
@@ -74,7 +74,7 @@ filterPost = '';
 
   getsbusqueda()
   {
-    if(this.busqueda.filters !=null){
+    if(this.busqueda.date !=null){
     this.reloadData();
   }
   else{

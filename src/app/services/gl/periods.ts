@@ -5,7 +5,7 @@ export class Periods {
     periodsYear: number;
     periodsStartDate: string;
     periodsEndDate: string;
-    periodsCurrentStatus: string;
+    periodsCurrentStatus: number;
     createdBy: number;
     createdDate: Date;
     lastUpdatedBy: number;
