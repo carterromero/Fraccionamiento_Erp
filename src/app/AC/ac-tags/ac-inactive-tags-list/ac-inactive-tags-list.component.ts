@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TagClass } from '../../models/tag-class';
 import { TagServiceService } from '../../service/tag-service.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ac-inactive-tags-list',
@@ -13,12 +13,14 @@ export class AcInactiveTagsListComponent implements OnInit {
 
   tags: Observable<TagClass[]>;
   InactTags: Observable<TagClass[]>;
+  id: number;
+  tag: TagClass;
     
   tabTActive:number = 1;
   tabTInactive:number = 1;
 
   constructor(private TagServiceService: TagServiceService ,
-    private router: Router
+    private router: Router, private route: ActivatedRoute
     ) { }
     
 
@@ -61,6 +63,16 @@ export class AcInactiveTagsListComponent implements OnInit {
          console.log(error);
       }
   );  
+  }
+
+  activeTag(code: string){
+
+    this.TagServiceService.activar(code).subscribe(
+      data => console.log(data), 
+      error => console.log(error)
+    );
+    this.tag = new TagClass();
+    this.ngOnInit();
   }
 
   tagsDetails( code:string){
