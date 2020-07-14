@@ -20,10 +20,10 @@
                       </td>
                       <td>
                           <button (click)="tagsDetails(iTag.tag_code)"
-                              class="btn btn-outline-primary"
+                              class="btn btn-outline-info"
                               aria-pressed="true">Detalles</button>
-                          <!--<button class="btn btn-outline-primary mb-2 mr-2" (click)="openDialog(View.tag_id)">Activar</button> 
-                          -->
+                          <button class="btn btn-outline-primary" (click)="activeTag(iTag.tag_code)" style="margin-left: 10px">Activar</button> 
+                          
                       </td>
                 </tr>
             </tbody>

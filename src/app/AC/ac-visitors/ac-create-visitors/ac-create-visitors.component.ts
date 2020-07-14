@@ -41,6 +41,7 @@ export class AcCreateVisitorsComponent implements OnInit {
     if(form.valid){
       this.submitted = true;
       this.save();
+      this.backToVisitors();
     }else{
       console.log('Form no valid')
     }

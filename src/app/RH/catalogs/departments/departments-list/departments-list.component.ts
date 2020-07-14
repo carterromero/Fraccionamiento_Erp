@@ -12,6 +12,10 @@ import { Router } from '@angular/router';
 export class DepartmentsListComponent implements OnInit {
   departments: Observable<Departments[]>;
   elements: any = [];
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private departmentService: DepartmentsService,
     private router: Router) {}
@@ -21,8 +25,6 @@ export class DepartmentsListComponent implements OnInit {
   }
 
   reloadData() {
-    /*localStorage.setItem('token', "");*/
-    /*this.employees = this.employeeService.getEmployeeList();*/
     this.departmentService.getDepartmentList().subscribe(
       data => {
         console.log(data);
@@ -40,12 +42,14 @@ export class DepartmentsListComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
+          this.alertDisables = false;
+          this.alertMessages ="Se elimino correctamente";
           this.reloadData();
         },
         error => {
           console.log(error);
-         // localStorage.setItem('token', "");
-         // this.router.navigate(['auth/signin']);
+          this.alertDisable = false;
+          this.alertMessage = "El registro no se puede eliminar, tiene una dependencia";
         });
   }
 
