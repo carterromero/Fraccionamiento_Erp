@@ -52,11 +52,11 @@ export class CreateCustomerComponent implements OnInit {
     this.alertDisable = true;
     this.alertDisables = true;
 
-    if (this.employee.customer_customer_name == "" || this.employee.customer_customer_name == null) {
+    if (this.employee.customer_customer_name == "" || this.employee.customer_customer_name == null || this.employee.customer_customer_name==this.employee.customer_customer_name) {
       this.alertDisable = false;
       this.alertMessage = "Nombre Incompleto";
     }
-    else if (this.employee.customer_customer_rfc == "" || this.employee.customer_customer_rfc == null) {
+    else if (this.employee.customer_customer_rfc == "" || this.employee.customer_customer_rfc == null || this.employee.customer_customer_rfc==this.employee.customer_customer_rfc ) {
       this.alertDisable = false;
       this.alertMessage = "RFC Incompleta";
     }

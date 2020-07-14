@@ -54,17 +54,17 @@ export class CreatePaymentTermsComponent implements OnInit {
 
     if (this.employee.payment_terms_name_payment_term == "" || this.employee.payment_terms_name_payment_term == null) {
       this.alertDisable = false;
-      this.alertMessage = "Nombre Incompleto";
+      this.alertMessage = "Nombre del Termino de pago Incompleto";
     }
 
     else if (this.employee.payment_terms_description == "" || this.employee.payment_terms_description == null) {
       this.alertDisable = false;
-      this.alertMessage = "discripcion Incompleta";
+      this.alertMessage = "Descripcion Incompleta";
     }
 
     else if (this.employee.payment_terms_days_pay == null || this.employee.payment_terms_days_pay == null) {
       this.alertDisable = false;
-      this.alertMessage = "Descripción Incompleta";
+      this.alertMessage = "Dias para pago Incompleta";
     }
 
     else {

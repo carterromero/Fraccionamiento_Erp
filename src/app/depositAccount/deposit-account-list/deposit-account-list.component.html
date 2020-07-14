@@ -14,8 +14,8 @@
             <th>Cuenta</th>
             <th>Tarjeta</th>             
             <th>Clave</th>
-            <th>Condominio</th>  
-          </tr>
+<!--             <th>Condominio</th>  
+ -->          </tr>
           </thead>
           <tbody>
               <tr *ngFor="let general of general | async">
@@ -27,8 +27,8 @@
                   <td>{{general.deposit_account_bill}}</td>
                   <td>{{general.deposit_account_card}}</td>
                   <td>{{general.deposit_account_key}}</td>
-                  <td>{{general.condominums_id}}</td>
-                  <td>
+<!--                   <td>{{general.condominums_id}}</td>
+ -->                  <td>
                       <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" [checked]="general.deposit_account_status == 'true'">
                         <label class="custom-control-label" for="deposit_account_status">Active</label>
