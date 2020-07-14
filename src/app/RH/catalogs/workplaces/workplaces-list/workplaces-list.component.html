@@ -4,6 +4,8 @@
       <app-card cardTitle="Puestos" blockClass="table-border-style">      
         <button [routerLink]="['/create-workplaces']" class="btn btn-outline-primary">Agregar puesto</button><br>
         <br>
+        <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+        <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>   
         <div class="table-responsive">
           <table class="table">
             <thead>
@@ -22,7 +24,7 @@
                           <label class="custom-control-label" for="workplaces_status">Active</label>
                        </div>
                       </td>
-                      <td>                 
+                      <td>               
                         <button (click)="deleteWorkplace(workplace.workplaces_id)" class="btn btn-outline-danger">Eliminar</button>
                         <button (click)="updateWorkplace(workplace.workplaces_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
                         <button (click)="workplaceDetails(workplace.workplaces_id)" class="btn btn-outline-primary" style="margin-left: 10px">Detalles</button>
