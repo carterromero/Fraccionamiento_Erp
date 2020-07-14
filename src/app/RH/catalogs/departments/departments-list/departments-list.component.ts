@@ -18,15 +18,6 @@ export class DepartmentsListComponent implements OnInit {
 
   ngOnInit() {    
     this.reloadData();
-
-    for (let i = 1; i <= 11; i++) {
-      this.elements.push({
-        id: i,
-        first: {nick: 'Nick ' + i, name: 'Name ' + i},
-        last: 'Name ' + i,
-        handle: 'Handle ' + i
-      });
-    }
   }
 
   reloadData() {

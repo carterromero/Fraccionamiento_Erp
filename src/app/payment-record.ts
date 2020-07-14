@@ -2,7 +2,7 @@ export class PaymentRecord
 {
     
     payment_id :number;
-    
+    creditor_id :number;
     payment_record_payment_date : string;
     payment_record_amount : string;
     payment_method : string;

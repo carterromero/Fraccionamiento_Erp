@@ -19,6 +19,8 @@ export class Articles
     lote_longitud :string;
     sub_categories_id :string;
     unit_of_measuares_id :string;
+    
+    unit_of_measures_nombre:string;
     articles_tall:string;
     articles_long : string;
     articles_width :string;

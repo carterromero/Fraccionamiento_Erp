@@ -32,8 +32,11 @@ export class CreateEmployeeComponent implements OnInit {
   datos:String;
   dato:String;
 
-  constructor(private employeeService: EmployeeService, private departmentsService: DepartmentsService, private workplacesService: WorkplacesService,
-    private condominumsService: CondominumsService, private router: Router) { 
+  constructor(private employeeService: EmployeeService, 
+    private departmentsService: DepartmentsService, 
+    private workplacesService: WorkplacesService,
+    private condominumsService: CondominumsService,
+     private router: Router) { 
     
     }
 

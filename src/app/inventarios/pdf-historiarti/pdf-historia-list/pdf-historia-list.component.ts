@@ -13,7 +13,7 @@ import { SubInventarysService } from 'src/app/subinventarys.service';
 import { SubCategoriesService } from 'src/app/subcategories.service';
 import { CategoriesService } from 'src/app/categories.service';
 import { PrecioarticuloService } from 'src/app/precioarticulo.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as jsPDF from 'jspdf'
 
 @Component({
@@ -27,6 +27,7 @@ export class PdfHistoriaListComponent implements OnInit {
 
 
   id: number;
+  generall: Historiaa;
  
   general: Observable<Historiaa[]>;
    Transaction : Observable<TransactionsEntrys[]>;
@@ -40,7 +41,7 @@ export class PdfHistoriaListComponent implements OnInit {
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private generalService: ArticlesService,
+  constructor(private route: ActivatedRoute,private generalService: ArticlesService,
     private TransactionService: TransactionsEntrysService,
     private SubinventariosService :SubInventarysService,
    private  SubcategoriasService:  SubCategoriesService,
@@ -68,6 +69,9 @@ export class PdfHistoriaListComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+
+
       
       this.reloadData();
       this.reloadDatas();

@@ -5,9 +5,12 @@
           <form (ngSubmit)="onSubmit()" >
 
             <div class="form-group">
-              <label for="name">nombre creditor</label>
-              <input type="text" class="form-control" id="name_creditor"  [(ngModel)]="employee.name_creditor" name="name_creditor" required>
-            </div>
+              <label for="exampleFormControlSelect1">creditor</label>
+              <select  class="custom-select"  id="creditor_id" required [(ngModel)]="employee.creditor_id" name="creditor_id" >
+              <option *ngFor="let creditors of creditor | async" value="{{creditors.creditor_id}}">{{creditors.creditor_business_name}}</option>
+              </select>
+          </div>  
+        
 
             <div class="form-group">
                 <label for="name">Fecha de pago</label>
@@ -32,13 +35,11 @@
               <select  class="custom-select"  id="condominums_id" required [(ngModel)]="employee.condominums_id" name="condominums_id" >
               <option *ngFor="let condominum of condominums | async" value="{{condominum.condominums_id}}">{{condominum.condominums_id}}</option>
               </select>
-          </div>  
+            </div>  
 
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text"  for="inputGroupSelect01">metodo_tipo</label>
-              </div>
-              <select class="custom-select" id="inputGroupSelect01" class="form-control" id="metodo_tipo"  [(ngModel)]="employee.metodo_tipo" name="metodo_tipo" required>
+            <div class="form-group">
+             <label  for="inputGroupSelect01">metodo_tipo</label>
+             <select class="custom-select" id="inputGroupSelect01" class="form-control" id="metodo_tipo"  [(ngModel)]="employee.metodo_tipo" name="metodo_tipo" required>
                 <option selected></option>
                 <option value="una sola exhibición">una sola exhibición</option>
                 <option value="parcialidades">parcialidades</option>

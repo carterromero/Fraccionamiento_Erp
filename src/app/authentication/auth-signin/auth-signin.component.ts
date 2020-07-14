@@ -83,7 +83,7 @@ export class AuthSigninComponent implements OnInit {
             localStorage.setItem("inquilino",this.permisions.permissions_inquilino);
             localStorage.setItem("inventario",this.permisions.permissions_inventario);
             localStorage.setItem("nomina",this.permisions.permissions_nomina);
-            localStorage.setItem("control",this.permisions.permissions_nomina);
+            localStorage.setItem("control",this.permisions.permissions_control);
             this.goToHome();   
             }, error => {
               console.log(error);

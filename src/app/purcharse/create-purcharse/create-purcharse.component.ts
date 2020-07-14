@@ -132,7 +132,7 @@ export class CreatePurcharseComponent implements OnInit {
   this.alertDisables = true;
   if(this.employee.purcharse_name =="" ||  this.employee.purcharse_name ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Descripción Incompleto";          
+    this.alertMessage = "Nombre incompleto ";          
   }
   else if(this.employee.supplier_id =="" ||  this.employee.supplier_id ==null ){
     this.alertDisable = false;

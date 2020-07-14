@@ -22,8 +22,7 @@ export class UpdateDepartmentsComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private departmentService: DepartmentsService) {
-     }
+    private departmentService: DepartmentsService) {}
 
   ngOnInit() {
     this.department = new Departments();
@@ -45,20 +44,26 @@ export class UpdateDepartmentsComponent implements OnInit {
   }
 
   updateDepartment() {
-    this.department.last_update_by=3;
     console.log(this.department);
     console.log(this.id);
     
-    
-    this.departmentService.updateDepartment(this.id, this.department)
+
+      this.department.last_update_by= 17;
+      this.departmentService.updateDepartment(this.id, this.department)
       .subscribe(data => {console.log(data);
         this.gotoList();  
-      }, 
-      error => {
-        console.log(error);
-        
-      });
-    
+            this.alertDisables = false;
+            this.alertMessages ="Se actualizo el departamento";
+            this.gotoList();
+          }, 
+        error => {
+          console.log(error);    
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = "No se puede agregar el nombre esta duplicado";
+          }      
+        });
   
   }
 
@@ -66,11 +71,15 @@ export class UpdateDepartmentsComponent implements OnInit {
 
     this.alertDisable = true;
     this.alertDisables = true;
-    
-
-      this.updateDepartment();    
-   
   
+    if(this.department.departments_name == "" ||  this.department.departments_name == null){
+      this.alertDisable = false;
+      this.alertMessage = "Departamento incompleto o repetido";          
+    }
+
+    else{
+      this.updateDepartment();    
+    }
   }
 
   gotoList() {

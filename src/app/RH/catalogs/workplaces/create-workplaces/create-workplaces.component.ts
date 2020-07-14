@@ -30,19 +30,25 @@ export class CreateWorkplacesComponent implements OnInit {
   }
 
   save() {
-    this.workplace.last_update_by=3;
+    this.workplace.last_update_by=17;
     console.log(this.workplace);
-    this.workplace.create_by=1;
-    console.log(this.workplace);
+    this.workplace.create_by=17;
     this.workplaceService.createWorkplace(this.workplace)
-      .subscribe(data => console.log(data), 
-      error => {
-        console.log(error);
-       // localStorage.setItem('token', "");
-        //this.router.navigate(['auth/signin']);
-      });
-    this.workplace = new Workplaces();
-    this.gotoList();
+    .subscribe(data => 
+      {
+        console.log(data);
+        this.alertDisables = false;
+        this.alertMessages ="Se inserto el puesto";
+        this.gotoList();
+      }, 
+    error => {
+      console.log(error);    
+      let coins = [];
+      for (let key in error) {
+        this.alertDisable = false;
+        this.alertMessage = "No se puede agregar el nombre esta duplicado";
+      }      
+    });
   }
 
   onSubmit() {
@@ -54,10 +60,6 @@ export class CreateWorkplacesComponent implements OnInit {
     if(this.workplace.workplaces_name =="" ||  this.workplace.workplaces_name ==null ){
       this.alertDisable = false;
       this.alertMessage = "Agregar nombre de puesto";          
-    }
-    else if(this.workplace.workplaces_status =='' ||  this.workplace.workplaces_status ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Agregar estatus";          
     }
     else{
       this.save();    
