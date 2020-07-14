@@ -22,8 +22,7 @@ export class UpdateDepartmentsComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private departmentService: DepartmentsService) {
-     }
+    private departmentService: DepartmentsService) {}
 
   ngOnInit() {
     this.department = new Departments();
