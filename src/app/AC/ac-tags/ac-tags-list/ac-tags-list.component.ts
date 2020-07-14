@@ -16,6 +16,7 @@ export class AcTagsListComponent implements OnInit {
     
   tabTActive:number = 1;
   tabTInactive:number = 1;
+  tag: TagClass;
 
   constructor(private TagServiceService: TagServiceService ,
     private router: Router
@@ -61,6 +62,16 @@ export class AcTagsListComponent implements OnInit {
          console.log(error);
       }
   );  
+  }
+
+  inactiveTag(code: string){
+
+    this.TagServiceService.inactivar(code).subscribe(
+      data => console.log(data), 
+      error => console.log(error)
+    );
+    this.tag = new TagClass();
+    this.ngOnInit();
   }
 
   tagsDetails( code:string){
