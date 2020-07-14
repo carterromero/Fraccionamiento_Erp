@@ -90,11 +90,9 @@ filterPost = '';
 
   imprimirLista(){
     const doc = new jsPDF
-    doc.text(20, 20, 'REPORTE CONTABLE VENCIDO ');
-
-    doc.text(20, 40, '------------------------------------------------------------------------------------ ');
-   
-    doc.fromHTML(document.getElementById('frmEquipos'),20,50);
+    doc.text(10, 20, 'REPORTE CONTABLE ');
+    doc.fromHTML(document.getElementById('frmEquipos'),20,10);
+  
    //doc.addPage();
     //doc.text(20, 20, 'Hello world!');
     doc.save('Reporte contable vencimiento');

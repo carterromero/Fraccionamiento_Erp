@@ -55,12 +55,12 @@ export class CreateBilltopayComponent implements OnInit {
   this.alertDisable = true;
   this.alertDisables = true;
 
-  if(this.employee.billtopay_invoice_folio == "" ||  this.employee.billtopay_invoice_folio ==null ){
+  if(this.employee.billtopay_invoice_folio == "" ||  this.employee.billtopay_invoice_folio ==null || this.employee.billtopay_invoice_folio == this.employee.billtopay_invoice_folio ){
     this.alertDisable = false;
-    this.alertMessage = "Nombre Incompleto";          
+    this.alertMessage = "campo Incompleto o repetido";          
   }
 
-   if(this.employee.billtopay_invoice_date =="" ||  this.employee.billtopay_invoice_date ==null ){
+   else if(this.employee.billtopay_invoice_date =="" ||  this.employee.billtopay_invoice_date ==null ){
     this.alertDisable = false;
     this.alertMessage = "Dirección Incompleta";          
   }

@@ -14,8 +14,8 @@
               <th>Monto</th>
               <th>Método tipo</th>
               <th>Método de pago</th>
-              <th>Estatus </th>
-              <th>#</th>
+              
+              
               
                
             </tr>
@@ -28,15 +28,7 @@
                     <td>{{general.metodo_tipo}}</td>
                     <td>{{general.payment_method}}</td>
                    
-                 
-                    
-                    <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.payment_status == 'true'">
-                          <label class="custom-control-label" for="payment_status">Active</label>
-                       </div>
-                      </td>
-
+      
                     <td>
                       <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
                         <button (click)="updateGeneral(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
