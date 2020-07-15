@@ -6,25 +6,41 @@
 
                     <div class="form-group">
                         <label for="name">• Tipo de transacción</label>
-                        <input type="text" class="form-control" id="collection_transaction_type"
-                            [(ngModel)]="employee.collection_transaction_type" name="collection_transaction_type"
-                            required>
+                        <select class="custom-select" id="collection_transaction_type" required
+                            [(ngModel)]="employee.collection_transaction_type" name="collection_transaction_type">
+                            <option *ngFor="let transactionTypes of transactionTypes | async"
+                                value="{{transactionTypes.transaction_types_name_type_transaction}}">
+                                {{transactionTypes.transaction_types_name_type_transaction}}</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="name">• Nombre del Residente</label>
-                        <input type="text" class="form-control" id="collection_name_resident"
-                            [(ngModel)]="employee.collection_name_resident" name="collection_name_resident" required>
+                        <select class="custom-select" id="customer_customer_name" required
+                            [(ngModel)]="employee.collection_name_resident" name="collection_name_resident">
+                            <option *ngFor="let customer of customer | async"
+                                value="{{customer.customer_customer_name}}">
+                                {{customer.customer_customer_name}}</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="name">• Termino de pago </label>
-                        <input type="text" class="form-control" id="collection_payment_term"
-                            [(ngModel)]="employee.collection_payment_term" name="collection_payment_term" required>
+                        <select class="custom-select" id="collection_payment_term" required
+                            [(ngModel)]="employee.collection_payment_term" name="collection_payment_term">
+                            <option *ngFor="let paymentsterms of paymentsterms | async"
+                                value="{{paymentsterms.payment_terms_name_payment_term}}">
+                                {{paymentsterms.payment_terms_name_payment_term}}</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="name">• Concepto de cobro </label>
-                        <input type="text" class="form-control" id="collection_collection_concept"
-                            [(ngModel)]="employee.collection_collection_concept" name="collection_collection_concept"
-                            required>
+                        <select class="custom-select" id="collection_collection_concept" required
+                            [(ngModel)]="employee.collection_collection_concept" name="collection_collection_concept">
+
+                            <option *ngFor="let collectionconcepts of collectionconcepts | async"
+                                value="{{collectionconcepts.collection_concepts_concept_name}}">
+                                {{collectionconcepts.collection_concepts_concept_name}}</option>
+                        </select>
+
                     </div>
                     <div class="form-group">
                         <label for="name">• Importe </label>
@@ -33,9 +49,12 @@
                     </div>
                     <div class="form-group">
                         <label for="name">• Dirección de remisión</label>
-                        <input type="text" class="form-control" id="collection_referral_address"
-                            [(ngModel)]="employee.collection_referral_address" name="collection_referral_address"
-                            required>
+                        <select class="custom-select" id="collection_referral_address" required
+                            [(ngModel)]="employee.collection_referral_address" name="collection_referral_address">
+                            <option *ngFor="let referraladdress of referraladdress | async"
+                                value="{{referraladdress.referral_address_direction}}">
+                                {{referraladdress.referral_address_direction}}</option>
+                        </select>
                     </div>
 
                     <div class="form-group">

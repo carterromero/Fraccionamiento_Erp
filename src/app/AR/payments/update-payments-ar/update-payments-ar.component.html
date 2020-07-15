@@ -4,76 +4,93 @@
       <app-card cardTitle="Actualizar Pago" [options]="false">
         <form (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="name">Nombre Completo</label>
-            <input type="text" class="form-control" id="payments_transaction_type"
-              [(ngModel)]="employee.payments_transaction_type" name="payments_transaction_type" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Dirección</label>
-            <input type="text" class="form-control" id="payments_name_resident"
-              [(ngModel)]="employee.payments_name_resident" name="payments_name_resident" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Descripción</label>
-            <input type="text" class="form-control" id="payments_deposit_account"
-              [(ngModel)]="employee.payments_deposit_account" name="payments_deposit_account" required>
-          </div>
-          <div class="form-group">
-            <label for="name">RFC</label>
-            <input type="text" class="form-control" id="payments_amount_payable"
-              [(ngModel)]="employee.payments_amount_payable" name="payments_amount_payable" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Registro Patronal</label>
-            <input type="text" class="form-control" id="condominums_id" [(ngModel)]="employee.condominums_id"
-              name="condominums_id" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Regimen Fiscal</label>
-            <input type="text" class="form-control" id="created_by" [(ngModel)]="employee.created_by" name="created_by"
-              required>
-          </div>
-          <div class="form-group">
-            <label for="name">Regimen Fiscal</label>
-            <input type="text" class="form-control" id="transaction_types_id" [(ngModel)]="employee.transaction_types_id" name="transaction_types_id"
-              required>
-          </div>
-          <div class="form-group">
-            <label for="name">Regimen Fiscal</label>
-            <input type="text" class="form-control" id="customer_customer_id" [(ngModel)]="employee.customer_customer_id" name="customer_customer_id"
-              required>
-          </div>
-          <div class="form-group">
-            <label for="name">Estatus</label>
+            <label for="name"> Tipo de Transacción </label>
 
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="payments_status"
-                [(ngModel)]="employee.payments_status" name="payments_status" style="margin-left: 10px">
-              <label class="custom-control-label" for="payments_status">Active</label>
-            </div>
+            <select class="custom-select" id="payments_transaction_type" required
+              [(ngModel)]="employee.payments_transaction_type" name="payments_transaction_type">
+              <option *ngFor="let transactionTypes of transactionTypes | async"
+                value="{{transactionTypes.transaction_types_name_type_transaction}}">
+                {{transactionTypes.transaction_types_name_type_transaction}}</option>
+            </select>
+
           </div>
-          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
-          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
-          <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
-            <div class="app-modal-header">
-              <h5 class="modal-title">Autualizar Pago</h5>
-              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close"
-                (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+          <div class="form-group">
+            <label for="name"> Nombre del Residente</label>
+            <select class="custom-select" id="payments_name_resident" required
+              [(ngModel)]="employee.payments_name_resident" name="payments_name_resident">
+              <option *ngFor="let customer of customer | async" value="{{customer.customer_customer_name}}">
+                {{customer.customer_customer_name}}</option>
+            </select>
+          </div>
+            <div class="form-group">
+              <label for="name"> Cuenta de Deposito</label>
+              <select class="custom-select" id="payments_deposit_account" required
+                [(ngModel)]="employee.payments_deposit_account" name="payments_deposit_account">
+                <option *ngFor="let depositaccount of depositaccount | async"
+                  value="{{depositaccount.deposit_account_name_deposit_account}}">
+                  {{depositaccount.deposit_account_name_deposit_account}}</option>
+              </select>
             </div>
-            <div class="app-modal-body">
-              <p>Esta seguro de actualizar la Pago</p>
+            <div class="form-group">
+              <label for="name"> Monto a Pagar</label>
+              <select class="custom-select" id="payments_amount_payable" required
+                [(ngModel)]="employee.payments_amount_payable" name="payments_amount_payable">
+
+                <option *ngFor="let collection of collection | async" value="{{collection.collection_amount}}">
+                  {{collection.collection_amount}}</option>
+              </select>
             </div>
-            <div class="app-modal-footer">
-              <button type="button" class="btn btn-secondary" style="margin-left: 10px" data-dismiss="modal"
-                (click)="createPeriodsDialog.hide()">Cerrar</button>
-              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"
-                style="margin-left: 10px">Guardar</button>
+            <div class="form-group">
+              <label for="name">condominums_id</label>
+              <input type="text" class="form-control" id="condominums_id" [(ngModel)]="employee.condominums_id"
+                name="condominums_id" required>
             </div>
-          </app-ui-modal>
-          <button type="button" class="btn btn-outline-primary" data-toggle="modal"
-            (click)="createPeriodsDialog.show()">Guardar</button>
-          <button [routerLink]="['/payments-ar-list']" class="btn btn-outline-secondary"
-            style="margin-left: 10px">Regresar</button>
+            <div class="form-group">
+              <label for="name">created_by</label>
+              <input type="text" class="form-control" id="created_by" [(ngModel)]="employee.created_by"
+                name="created_by" required>
+            </div>
+            <div class="form-group">
+              <label for="name">transaction_types_id</label>
+              <input type="text" class="form-control" id="transaction_types_id"
+                [(ngModel)]="employee.transaction_types_id" name="transaction_types_id" required>
+            </div>
+            <div class="form-group">
+              <label for="name">customer_customer_id</label>
+              <input type="text" class="form-control" id="customer_customer_id"
+                [(ngModel)]="employee.customer_customer_id" name="customer_customer_id" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Estatus</label>
+
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="payments_status"
+                  [(ngModel)]="employee.payments_status" name="payments_status" style="margin-left: 10px">
+                <label class="custom-control-label" for="payments_status">Active</label>
+              </div>
+            </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+                <h5 class="modal-title">Autualizar Pago</h5>
+                <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close"
+                  (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+                <p>Esta seguro de actualizar la Pago</p>
+              </div>
+              <div class="app-modal-footer">
+                <button type="button" class="btn btn-secondary" style="margin-left: 10px" data-dismiss="modal"
+                  (click)="createPeriodsDialog.hide()">Cerrar</button>
+                <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"
+                  style="margin-left: 10px">Guardar</button>
+              </div>
+            </app-ui-modal>
+            <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+              (click)="createPeriodsDialog.show()">Guardar</button>
+            <button [routerLink]="['/payments-ar-list']" class="btn btn-outline-secondary"
+              style="margin-left: 10px">Regresar</button>
         </form>
       </app-card>
     </div>
