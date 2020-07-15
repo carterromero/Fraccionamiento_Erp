@@ -2,6 +2,7 @@
     <div class="col-xl-12">
         <app-card cardTitle="Cobro" blockClass="table-border-style">
             <button [routerLink]="['/create-collection']" class="btn btn-outline-primary">Agregar Cobro</button>
+            <button [routerLink]="['/']" class="btn btn-outline-primary">Crear Contabilidad</button>
             
             <div class="table-responsive">
                 <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
