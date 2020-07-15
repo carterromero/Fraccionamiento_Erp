@@ -158,9 +158,9 @@ export class CreatePurcharseComponent implements OnInit {
   {
   this.alertDisable = true;
   this.alertDisables = true;
-  if(this.employee.purcharse_name =="" ||  this.employee.purcharse_name ==null ){
+  if(this.employee.purcharse_order_categories_id =="" ||  this.employee.purcharse_order_categories_id ==null ){
     this.alertDisable = false;
-    this.alertMessage = "-- ";          
+            
   }
   
   else{
