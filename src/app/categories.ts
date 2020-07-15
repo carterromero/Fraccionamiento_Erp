@@ -8,6 +8,7 @@ export class Categories
     create_date : string;
     last_update_by : number;
     last_update_date :string;
+    purcharse_order_categories_id
 
 }
     

@@ -48,7 +48,16 @@ export class PurcharseService {
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_ARTIC_COMBO/1.0/articles_combo`,{headers});
   }
 
+
+  getCatList(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_CATEGO/1.0/categories`,{headers});
+  }
   
+  getEmployeeListcomboC(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_CATEG_COMBO/1.0/categories`,{headers});
+  }
 
 
 
