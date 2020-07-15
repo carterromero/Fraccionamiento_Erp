@@ -1,8 +1,11 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle="FACTURAS" blockClass="table-border-style">      
-        <button [routerLink]="['/create-billtopay']" class="btn btn-outline-primary">Agregar Factura</button><br>
-        <br>
+        
+        <div class="app-modal-footer">
+          <button style="margin: 10px" [routerLink]="['/create-billtopay']"   class="btn btn-outline-primary" >Agregar Factura</button>
+          <button [routerLink]="['/conciliacion-list']"   class="btn btn-outline-primary" >poliza contable </button>
+        </div>
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 

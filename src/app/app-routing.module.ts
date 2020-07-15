@@ -1155,7 +1155,7 @@ const routes: Routes = [
         component: UpdateConciliacionComponent,
         children: [
           {
-            path: 'update-conciliacion/:id',
+            path: 'update-conciliacion',
             loadChildren: () => import('./AP/ap_conciliacion/update-conciliacion/update-conciliacion.module').then(module => module.UpdateConciliacionModule)
           }
         ]
