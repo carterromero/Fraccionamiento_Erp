@@ -6,9 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SupplierService {
+
   private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/';
-  private username='evelin.picazo@dti-consultores.com';
-  private password='ASDFGHJ1234+*n';
+  private username='abdiel.romero@dti-consultores.com';
+  private password='Ingenieroars7';
   
 
   constructor(private http: HttpClient) { }

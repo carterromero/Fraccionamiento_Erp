@@ -52,7 +52,7 @@ export class CreateSupplierComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = "No se puede agregar el nombre del proveedor ya existe";  
+          this.alertMessage = "Este proveedor ya existe";  
         
         }
         error => {
@@ -60,7 +60,7 @@ export class CreateSupplierComponent implements OnInit {
           let coins = [];
           for (let key in error) {
             this.alertDisable = false;
-            this.alertMessage = "No se puede agregar RFC existente";
+            this.alertMessage = "Este proveedor ya existe";
           } 
         }
       });
@@ -82,10 +82,11 @@ export class CreateSupplierComponent implements OnInit {
     this.alertMessage = "Nombre Incompleto";          
   
   } 
-   else if  (this.employee.supplier_rfc =="" ||  this.employee.supplier_rfc ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "RFC INCOMPLETO";          
-  }
+  else if  (this.employee.supplier_rfc =="" ||  this.employee.supplier_rfc ==null ){
+   this.alertDisable = false;
+   this.alertMessage = "RFC INCOMPLETO";          
+ }
+  
  
   else{
     this.save();
@@ -96,6 +97,34 @@ export class CreateSupplierComponent implements OnInit {
       
        
   }
+
+
+  onSubmits() 
+  {
+
+
+      
+    this.alertDisable = true;
+  this.alertDisables = true;
+
+
+   
+  if(this.employee.supplier_phone <=9999999999 ||  this.employee.supplier_phone ==null ){
+    this.alertDisable = false;
+    this.alertMessage = "numero mayor a 10";          
+ 
+  }else{
+    this.save();
+       
+  }
+  this.submitted = true; 
+    
+      
+       
+  }
+
+
+
 
   gotoList() 
   {

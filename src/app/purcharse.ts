@@ -19,5 +19,10 @@ export class Purcharse {
     userid : string;
     applicant_name: string ;
     fractionation_address : string;
+    inv_categories_id : string;
+    categories_name: string
+    purcharse_order_categories_id : string;
 
+
+   
 }
