@@ -283,6 +283,7 @@ import { PdfPurcharseDetailsComponent } from './po/pdf/pdf-purcharse/pdfs-purcha
 import { CollectionDetailsComponent } from './collection/collection-details/collection-details.component';
 import { PdfArticulogListComponent } from './inventarios/Pdf-articulo-g/pdf-articulog-list/pdf-articulog-list.component';
 import { PdfHistoriaListComponent } from './inventarios/pdf-historiarti/pdf-historia-list/pdf-historia-list.component';
+import { AcCreateTagsComponent } from './AC/ac-tags/ac-create-tags/ac-create-tags.component';
 
 
 
@@ -3208,7 +3209,17 @@ component: CreateTransfersComponent,
         ]
     
       },
-  
+      {
+        path: '',
+        component: AcCreateTagsComponent,
+        children: [
+          {
+            path: 'ac-create-tags',
+            loadChildren: () => import('./AC/ac-tags/ac-create-tags/ac-create-tags.module').then(module => module.AcCreateTagsModule)
+    
+          }
+        ]
+      },
       
       
 
