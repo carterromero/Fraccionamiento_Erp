@@ -15,6 +15,9 @@ export class Conciliacion
     last_updated_by : number;
     last_updated_date : string;
     user_id:string;
+    billtopay_id : number;
+    payment_id : number;
+    accounting_accounts_id :number;
     
    
 }

@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Conciliacion } from 'src/app/conciliacion';
+import { Observable } from 'rxjs';
 import { ConciliacionService } from 'src/app/conciliacion.service';
-
+import { Billtopay } from 'src/app/billtopay';
+import { Billtopayservice } from 'src/app/billtopay.service';
+import { PaymentRecord } from 'src/app/payment-record';
+import { PaymentRecordService } from 'src/app/payment-record.service';
+import { AccountsService } from "src/app/services/gl/accounts.service";
+import { Accounts } from "src/app/services/gl/accounts";
 @Component({
   selector: 'app-conciliacion-details',
   templateUrl: './conciliacion-details.component.html',
@@ -11,15 +17,76 @@ import { ConciliacionService } from 'src/app/conciliacion.service';
 export class ConciliacionDetailsComponent implements OnInit {
 
   employee: Conciliacion = new Conciliacion();
+  purcharse: Observable<Billtopay[]>;
+  purcharses: Observable<PaymentRecord[]>;
+  purcharsess: Observable<Accounts[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
   constructor(private employeeService: ConciliacionService,
+    private billtopayservice: Billtopayservice,
+    private paymentRecordService: PaymentRecordService,
+    private accountsService: AccountsService,
     private router: Router) { }
 
     ngOnInit() {
+      this.reloadDatas();
+      this.reloadDatass();
+      this.reloadDatasss();
+    }
+
+    reloadDatas() 
+    {
+  
+      this.billtopayservice.getEmployeeList().subscribe(
+        data => {
+          console.log(data);
+          this.purcharse = this.billtopayservice.getEmployeeList();
+        },
+        error => {
+          console.log(error);
+          let coins = [];
+          for (let key in error) {
+            this.alertMessage = error['statusText'];          
+          }
+        }
+      );      
+    }
+    reloadDatass() 
+    {
+  
+      this.paymentRecordService.getEmployeeList().subscribe(
+        data => {
+          console.log(data);
+          this.purcharses = this.paymentRecordService.getEmployeeList();
+        },
+        error => {
+          console.log(error);
+          let coins = [];
+          for (let key in error) {
+            this.alertMessage = error['statusText'];          
+          }
+        }
+      );      
+    }
+    reloadDatasss() 
+    {
+  
+      this.accountsService.getEmployeeList().subscribe(
+        data => {
+          console.log(data);
+          this.purcharsess = this.accountsService.getEmployeeList();
+        },
+        error => {
+          console.log(error);
+          let coins = [];
+          for (let key in error) {
+            this.alertMessage = error['statusText'];          
+          }
+        }
+      );      
     }
 
     newEmployee(): void {
