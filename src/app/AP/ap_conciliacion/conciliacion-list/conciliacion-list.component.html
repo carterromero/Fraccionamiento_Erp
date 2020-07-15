@@ -2,7 +2,10 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle="conciliacion " blockClass="table-border-style">      
-        
+        <div class="app-modal-footer">
+          <button [routerLink]="['/update-conciliacion']" class="btn btn-outline-primary" >crear</button>
+         <button [routerLink]="['/billtopay-list']"   class="btn btn-outline-primary" >regresar </button>
+        </div>
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
@@ -10,11 +13,15 @@
             <thead>
             <tr>              
               
-              <th>Fecha de pago </th>
-              <th>Monto</th>
-              <th>Método de pago</th>
-              <th>Estatus </th>
-              <th>#</th>
+              <th>id conciliacion</th>
+              <th>id cabecero</th>
+              <th>id linea </th>
+              <th>id cuenta</th>
+              <th>origen</th>
+              <th>documento tipo</th>
+              <th>debe</th>
+              <th>haber</th>
+              <th>status</th>
               
                
             </tr>
@@ -22,10 +29,15 @@
             <tbody>
                 <tr *ngFor="let general of general | async">
                     
-                    <td>{{general.payment_record_payment_date}}</td>
-                    <td>{{general.payment_record_amount}}</td>
-                    <td>{{general.payment_method}}</td>
-                    
+                  <td>{{general.concilitiation_id}}</td>
+                  <td>{{general.concilitiation_document_header_id}}</td>
+                  <td>{{general.concilitiation_document_line_id}}</td>
+                  <td>{{general.concilitiation_account_id}}</td>
+                  <td>{{general.concilitiation_origin}}</td>
+                  <td>{{general.concilitiation_document_type}}</td>
+                  <td>{{general.concilitiation_debe}}</td>
+                  <td>{{general.concilitiation_debe}}</td>
+
                     
                     <td>
                         <div class="custom-control custom-switch">
@@ -35,10 +47,7 @@
                       </td>
 
                     <td>
-                      <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
-                        <button (click)="updateGeneral(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar nueva fecha de pago</button>
-                        <button (click)="generalDetails(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">informe contable </button>    
-
+                   
                         <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                           <div class="app-modal-header">
                           <h5 class="modal-title">Eliminar cuenta factura</h5>
