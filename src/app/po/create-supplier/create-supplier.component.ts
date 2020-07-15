@@ -12,6 +12,11 @@ export class CreateSupplierComponent implements OnInit {
 
   employee: Supplier = new Supplier();
   submitted = false;
+  
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private employeeService: SupplierService,
     private router: Router) { }
@@ -33,11 +38,31 @@ export class CreateSupplierComponent implements OnInit {
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
         {
+
+
           console.log(data);
-          this.gotoList();    
+          this.alertDisables = false;
+          this.alertMessages ="Se inserto la Proveedor  correctamente";
+          this.employee= new Supplier();
+          console.log(data);
+          this.gotoList();   
         }, 
       error => {
-        console.log(error);    
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = "No se puede agregar el nombre del proveedor ya existe";  
+        
+        }
+        error => {
+          console.log(error);
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = "No se puede agregar RFC existente";
+          } 
+        }
       });
 
   }
@@ -46,9 +71,30 @@ export class CreateSupplierComponent implements OnInit {
   {
 
 
+      
+    this.alertDisable = true;
+  this.alertDisables = true;
+
+
+   
+  if(this.employee.supplier_name =="" ||  this.employee.supplier_name ==null ){
+    this.alertDisable = false;
+    this.alertMessage = "Nombre Incompleto";          
+  
+  } 
+   else if  (this.employee.supplier_rfc =="" ||  this.employee.supplier_rfc ==null ){
+    this.alertDisable = false;
+    this.alertMessage = "RFC INCOMPLETO";          
+  }
+ 
+  else{
+    this.save();
+       
+  }
+  this.submitted = true; 
     
-    this.submitted = true;
-    this.save();    
+      
+       
   }
 
   gotoList() 

@@ -52,8 +52,10 @@ employee: Payment = new Payment();
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = "No se puede agregar el nombre esta duplicado";
-        }      
+          this.alertMessage = "Este pago ya Existe";
+        }  
+        
+
          
       });
 
