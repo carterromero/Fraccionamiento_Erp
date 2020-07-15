@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Conciliacion } from 'src/app/conciliacion';
 import { ConciliacionService } from 'src/app/conciliacion.service';
-import * as jsPDF from 'jspdf'
+
 @Component({
   selector: 'app-conciliacion-details',
   templateUrl: './conciliacion-details.component.html',
@@ -10,47 +10,64 @@ import * as jsPDF from 'jspdf'
 })
 export class ConciliacionDetailsComponent implements OnInit {
 
-  id: number;
-  employee: Conciliacion;  
+  employee: Conciliacion = new Conciliacion();
   alertDisable = true;
+  alertDisables = true;
   alertMessage = "null";
+  alertMessages = "null";
 
-  constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: ConciliacionService) { }
+  constructor(private employeeService: ConciliacionService,
+    private router: Router) { }
 
+    ngOnInit() {
+    }
 
-   
+    newEmployee(): void {
+      this.employee = new Conciliacion();
+    }
 
+    save() {
 
-      imprimirLista(){
-        const doc = new jsPDF
-        doc.text(20, 20, 'REPORTE CONTABLE ');
-       doc.fromHTML(document.getElementById('from-informacion'),20,30);
-       //doc.addPage();
-        //doc.text(20, 20, 'Hello world!');
-        doc.save('Reporte contable');
-    
-    
-      }
+      this.employee.user_id="3";
+      this.employeeService.createEmployee(this.employee)
+        .subscribe(data => 
+          {
+            console.log(data);
+            this.alertDisables = false;
+            this.alertMessages ="Se inserto la acredor correctamente";
+            this.employee= new Conciliacion();
+          }, 
+        error => {
+          console.log(error);    
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = error['statusText'];          
+          }      
+        });
+    }
 
+ onSubmit() 
+  {
 
-  ngOnInit() {
-    this.employee = new Conciliacion();    
-    this.id = this.route.firstChild.snapshot.params['id']
-    console.log(this.id);
-    
-    
-    this.employeeService.getEmployee(this.id)
-      .subscribe(data => {
-        console.log(data);
-        this.employee = data;
-      }, error => {
-        console.log(error);
-        let coins = [];
-        for (let key in error) {
-          this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
-        }
-      });
+  this.alertDisable = true;
+  this.alertDisables = true;
+
+  if(this.employee.concilitiation_origin =="" ||  this.employee.concilitiation_origin ==null ){
+    this.alertDisable = false;
+    this.alertMessage = "Nombre Incompleto";          
   }
-} 
+
+
+
+  else{
+    this.save();    
+  }
+ }
+
+  gotoList() 
+  {
+    this.router.navigate(['creditor-list']);
+  }
+
+}

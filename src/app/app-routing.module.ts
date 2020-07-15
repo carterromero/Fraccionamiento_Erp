@@ -283,6 +283,8 @@ import { PdfPurcharseDetailsComponent } from './po/pdf/pdf-purcharse/pdfs-purcha
 import { CollectionDetailsComponent } from './collection/collection-details/collection-details.component';
 import { PdfArticulogListComponent } from './inventarios/Pdf-articulo-g/pdf-articulog-list/pdf-articulog-list.component';
 import { PdfHistoriaListComponent } from './inventarios/pdf-historiarti/pdf-historia-list/pdf-historia-list.component';
+import { AcCreateTagsComponent } from './AC/ac-tags/ac-create-tags/ac-create-tags.component';
+import { ConciliacionpListComponent } from './AP/ap_conciliacion/conciliacionp-list/conciliacionp-list.component';
 
 
 
@@ -1138,7 +1140,17 @@ const routes: Routes = [
         ]
       },
      
+      {
+        path: '',
 
+        component: ConciliacionpListComponent,
+        children: [
+          {
+            path: 'conciliacionp-list',
+            loadChildren: () => import('./AP/ap_conciliacion/conciliacionp-list/conciliacionp-list.module').then(module => module.ConciliacionpListModule)
+          }
+        ]
+      },
       {
         path: '',
 
@@ -1155,7 +1167,7 @@ const routes: Routes = [
         component: UpdateConciliacionComponent,
         children: [
           {
-            path: 'update-conciliacion/:id',
+            path: 'update-conciliacion',
             loadChildren: () => import('./AP/ap_conciliacion/update-conciliacion/update-conciliacion.module').then(module => module.UpdateConciliacionModule)
           }
         ]
@@ -1165,7 +1177,7 @@ const routes: Routes = [
         component: ConciliacionDetailsComponent,
         children: [
           {
-            path: 'conciliacion-details/:id',
+            path: 'conciliacion-details',
             loadChildren: () => import('./AP/ap_conciliacion/conciliacion-details/conciliacion-details.module').then(module => module.ConciliacionDetailsModule)
           }
         ]
@@ -3208,7 +3220,17 @@ component: CreateTransfersComponent,
         ]
     
       },
-  
+      {
+        path: '',
+        component: AcCreateTagsComponent,
+        children: [
+          {
+            path: 'ac-create-tags',
+            loadChildren: () => import('./AC/ac-tags/ac-create-tags/ac-create-tags.module').then(module => module.AcCreateTagsModule)
+    
+          }
+        ]
+      },
       
       
 

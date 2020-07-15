@@ -33,12 +33,12 @@ export class ConciliacionService {
 
   createEmployee(employee: Object): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_AP_PAYMEN_RECORD_INSERT/1.0/payment_record`, employee,{headers});
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_GL_INSERT_CONCILIT/1.0/insert_concilitiation `, employee,{headers});
   }
 
 
   getEmployeeList(): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_AP_GET_PAYMEN_RECORD/1.0/payment_record`,{headers});
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_AP_CONC_CU/1.0/conget`,{headers});
   }
 }
