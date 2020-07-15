@@ -5,13 +5,7 @@
         <div id="from-informacion" *ngIf="employee">
 
           
-          <div>
-            <label><b>Total pagado: </b></label> {{employee.payment_record_amount}}
-          </div>
-          <div>
-            <label><b>Método de pago: </b></label> {{employee.payment_method}}
-          </div>
- 
+         
         </div>
         <br>
         <button [routerLink]="['/conciliacion-list']" class="btn btn-outline-primary">Regresar</button><br>

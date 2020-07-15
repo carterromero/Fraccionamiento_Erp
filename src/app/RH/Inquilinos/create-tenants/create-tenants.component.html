@@ -1,61 +1,74 @@
-<p>create-tenants works!</p>
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <div class="col-md-6">
-        <app-card cardTitle="Registrar inquilino" [options]="false">
-          <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <app-card cardTitle="Registrar Residente" [options]="false">
+          <form (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="name">Nombre</label>
-              <input type="text" class="form-control" id="tenants_name" required [(ngModel)]="tenant.tenants_name"  formControlName="tenants_name" name="tenants_name">
+              <input type="text" class="form-control" id="tenants_name" required [(ngModel)]="tenant.tenants_name"  name="tenants_name">
             </div>      
             <div class="form-group">
                 <label for="name">Apellido paterno</label>
-                <input type="text" class="form-control" id="tenants_father_surname" required [(ngModel)]="tenant.tenants_father_surname" formControlName="tenants_father_surname" name="tenants_father_surname">
+                <input type="text" class="form-control" id="tenants_father_surname" required [(ngModel)]="tenant.tenants_father_surname"  name="tenants_father_surname">
               </div>      
               <div class="form-group">
                 <label for="name">Apellido materno</label>
-                <input type="text" class="form-control" id="tenants_mother_surname" required [(ngModel)]="tenant.tenants_mother_surname" formControlName="tenants_mother_surname" name="tenants_mother_surname">
+                <input type="text" class="form-control" id="tenants_mother_surname" required [(ngModel)]="tenant.tenants_mother_surname"  name="tenants_mother_surname">
               </div>      
               <div class="form-group">
                 <label for="name">Marca de auto</label>
-                <input type="text" class="form-control" id="tenants_car_brand" required [(ngModel)]="tenant.tenants_car_brand" formControlName="tenants_car_brand" name="tenants_car_brand" required>
+                <input type="text" class="form-control" id="tenants_car_brand" required [(ngModel)]="tenant.tenants_car_brand"  name="tenants_car_brand" required>
               </div> 
               <div class="form-group">
                 <label for="name">Placa de auto</label>
-                <input type="text" class="form-control" id="tenants_car_plate" required [(ngModel)]="tenant.tenants_car_plate" formControlName="tenants_car_plate" name="tenants_car_plate" required>
+                <input type="text" class="form-control" id="tenants_car_plate" required [(ngModel)]="tenant.tenants_car_plate"  name="tenants_car_plate" required>
               </div> 
               <div class="form-group">
                 <label for="name">Ubicacion</label>
-                <input type="text" class="form-control" id="tenants_location" required [(ngModel)]="tenant.tenants_location" formControlName="tenants_location" name="tenants_location" required>
+                <input type="text" class="form-control" id="tenants_location" required [(ngModel)]="tenant.tenants_location"  name="tenants_location" required>
               </div>
               <div class="form-group">
                 <label for="name">Numero de residencia</label>
-                <input type="number" class="form-control" id="tenants_residential_number" required [(ngModel)]="tenant.tenants_residential_number" formControlName="tenants_residential_number" name="tenants_residential_number">
+                <input type="number" class="form-control" id="tenants_residential_number" required [(ngModel)]="tenant.tenants_residential_number"  name="tenants_residential_number">
               </div>
               <div class="form-group">
                 <label for="name">Tipo de inquilino</label>
-                <input type="text" class="form-control" id="tenants_type" required [(ngModel)]="tenant.tenants_type" formControlName="tenants_type" name="tenants_type">
+                <input type="text" class="form-control" id="tenants_type" required [(ngModel)]="tenant.tenants_type"  name="tenants_type">
+              </div>
+              <div class="form-group">
+                <label for="name">Telefono</label>
+                <input type="number" class="form-control" id="tenants_telephone" required [(ngModel)]="tenant.tenants_telephone"  name="tenants_telephone" maxlength="10">
+              </div>
+              <div class="form-group">
+                <label for="name">Deposito de la residencia</label>
+                <input type="number" class="form-control" id="tenants_deposit" required [(ngModel)]="tenant.tenants_deposit"  name="tenants_deposit">
+              </div>
+              <div class="form-group">
+                <label for="name">Fecha inicio de contrato</label>
+                <input type="date" class="form-control" id="tenants_start_date" required [(ngModel)]="tenant.tenants_start_date" name="tenants_start_date">
+              </div>
+              <div class="form-group">
+                <label for="name">Fecha final de contrato</label>
+                <input type="date" class="form-control" id="tenants_end_date" required [(ngModel)]="tenant.tenants_end_date" name="tenants_end_date">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Condominio</label>
-                <select  class="custom-select"  id="condominums_id" required [(ngModel)]="tenant.condominums_id"  formControlName="condominums_id" name="condominums_id" >
+                <select  class="custom-select"  id="condominums_id" required [(ngModel)]="tenant.condominums_id" name="condominums_id" >
                 <option *ngFor="let condominum of condominums | async" value="{{condominum.condominums_id}}">{{condominum.condominums_description}}</option>
                 </select>
             </div>  
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Contrato</label>
-              <select  class="custom-select"  id="agreement_id" required [(ngModel)]="tenant.agreement_id" formControlName="agreement_id" name="agreement_id" >
-              <option *ngFor="let agreement of agreements | async" value="{{agreement.agreement_id}}">{{agreement.agreements_name}}</option>
-              </select>
-          </div>  
+            <div class="custom-file">
+              <input type="file" alife-file-to-base  (change)="handleUpload($event)" class="custom-file-input"  id="tenant.tenants_agreement"   name="tenants_agreement" required>
+              <label class="custom-file-label" for="validatedCustomFile">Elegir contrato ...</label>
+              <div class="invalid-feedback">invalid custom file </div>
+            </div>  
             <div class="form-group">
                 <label for="name">Estatus</label>
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input"  id="tenants_status"  [(ngModel)]="tenant.tenants_status"  formControlName="tenants_status" name="tenants_status" style="margin-left: 10px">
+                    <input type="checkbox" class="custom-control-input"  id="tenants_status"  [(ngModel)]="tenant.tenants_status" name="tenants_status" style="margin-left: 10px">
                     <label class="custom-control-label" for="tenants_status">Active</label>
                  </div>
-            </div>
-                    
+            </div> 
             <button type="submit" class="btn btn-success">Guardar</button>          
             <button [routerLink]="['/tenants-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
           </form>

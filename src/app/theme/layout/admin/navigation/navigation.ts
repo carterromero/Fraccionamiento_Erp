@@ -421,6 +421,15 @@ const NavigationItemss = [
                                   
           ]
         },
+
+
+
+
+
+
+
+
+
       ]
         
     
@@ -484,13 +493,13 @@ const NavigationItemss = [
           },
           {
             id: 'Tenants-main',
-            title: 'Inquilinos',
+            title: 'Residentes',
             type: 'collapse',
             icon: 'feather icon-user',
             children: [
               {
                  id: 'rh-tenant',
-                title: 'Crear Inquilinos',
+                title: 'Registro residentes',
                 type: 'item',            
                 url: '/tenants-list'
               }               
@@ -1039,14 +1048,6 @@ export class NavigationItem
             type: 'item',            
             url: '/payment-record-list' 
             
-          },
-          
-          {
-            id: 'conciliacion_id',
-            title: 'conciliacion',
-            type: 'item',            
-            url: '/conciliacion-list' 
-            
           }
                               
         ]
@@ -1170,12 +1171,13 @@ export class NavigationItem
   };
   if (localStorage.getItem("cxc") == 'true'){
   
-  cuentasporcobrar ={
+   cuentasporcobrar ={
     id: 'AR-main',
       title: 'Cuentas por cobrar',
       type: 'group',
       icon: 'feather icon-monitor',
       children: [
+      
         {
           id: 'AR-catalog',
           title: 'Catalogos',
@@ -1191,7 +1193,7 @@ export class NavigationItem
             },
             {
               id: 'Direction',
-              title: 'Direccion de Remison',
+              title: 'Direccion de Facturacion',
               type: 'item',            
               url: '/referral-address-list'
               
@@ -1225,24 +1227,37 @@ export class NavigationItem
               
             },
             
-            {
-              id: 'collection',
-              title: 'Cobro',
-              type: 'item',            
-              url: '/collection-list'
-              
-            },
-            {
-              id: 'paymentsar',
-              title: 'Pago',
-              type: 'item',            
-              url: '/payments-ar-list'
-              
-            },
+            
             
                                   
           ]
+          
+          
+          
         },
+        {      id: 'AR-operation',
+          title: 'Operación',
+          type: 'collapse',
+          icon: 'feather icon-monitor',
+          children: [
+          {
+            id: 'collection',
+            title: 'Cobro',
+            type: 'item',            
+            url: '/collection-list'
+            
+          },
+          {
+            id: 'paymentsar',
+            title: 'Pago',
+            type: 'item',            
+            url: '/payments-ar-list'
+            
+          },
+  
+        ]
+      },
+        
       ]
       };
     };
@@ -1308,13 +1323,13 @@ export class NavigationItem
           },
           {
         id: 'rh-tenants',
-        title: 'Inquilinos',
+        title: 'Residentes',
         type: 'collapse',
         icon: 'feather icon-user',
         children: [
           {
             id: 'rh-tenant',
-            title: 'Crear Inquilinos',
+            title: 'Registro de residentes',
             type: 'item',            
             url: '/tenants-list'
           }

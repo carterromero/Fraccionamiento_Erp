@@ -13,7 +13,7 @@
             </div>  
             <div class="form-group">
               <label for="name">RFC</label>
-              <input font style="text-transform: uppercase;"  value="https://www.sat.gob.mx/sitio_internet/21_12672.html" type="text" class="form-control"   placeholder="RFC" [(ngModel)]="employee.supplier_rfc" name="supplier_rfc" required="required">
+              <input font style="text-transform: uppercase;"  pattern="[A-Za-z0-9]{8,12}" type="text" class="form-control"   placeholder="RFC" [(ngModel)]="employee.supplier_rfc" name="supplier_rfc" required="required">
             </div>
             
 
@@ -28,15 +28,19 @@
             </div>
 
             <div class="form-group">
-              <label for="name">TELEFONO</label>
-              <input type="number" placeholder="Teléfono" max="999999999" class="form-control" id="supplier_phone"  [(ngModel)]="employee.supplier_phone" name="supplier_phone" required="required">
+              <label  for="phone">TELEFONO</label>
+              <input type="number" id="phone"  placeholder="123-45-678" pattern="[0-9][0-9]-[0-9][0-9]-[0-9][0-9]-[0-9][0-9]"  max="999999999" class="form-control" id="supplier_phone"  [(ngModel)]="employee.supplier_phone" name="supplier_phone" required="required">
           </div>
+
+          
+
+
           <div class="form-group">
             <label for="name">Giro </label>
             <input type="text" class="form-control" id="supplier_turn" placeholder="Giro"  [(ngModel)]="employee.supplier_turn" name="supplier_turn" required="required">
         </div>
         
-
+   
          
 
             <div class="form-group">
@@ -46,10 +50,14 @@
                     <label class="custom-control-label" for="supplier_status">Active</label>
                  </div>
             </div>
+            
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
             <button type="submit" class="btn btn-success">Guardar</button>          
             <button [routerLink]="['/supplier-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
           </form>
-        </app-card>}
+        </app-card>
 
 
   

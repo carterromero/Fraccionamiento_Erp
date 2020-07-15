@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs/internal/Subscription';
 export class PaymentRecord 
 {
     
@@ -17,5 +18,13 @@ export class PaymentRecord
     name_creditor : string;
     metodo_tipo :  string;
     
+
+    data: File;
+    state: string;
+    inProgress: boolean;
+    progress: number;
+    canRetry: boolean;
+    canCancel: boolean;
+    sub?: Subscription;
    
 }

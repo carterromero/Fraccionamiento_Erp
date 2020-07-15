@@ -1,8 +1,11 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle="FACTURAS" blockClass="table-border-style">      
-        <button [routerLink]="['/create-billtopay']" class="btn btn-outline-primary">Agregar Factura</button><br>
-        <br>
+        
+        <div class="app-modal-footer">
+          <button style="margin: 10px" [routerLink]="['/create-billtopay']"   class="btn btn-outline-primary" >Agregar Factura</button>
+          <button [routerLink]="['/conciliacion-list']"   class="btn btn-outline-primary" >poliza contable </button>
+        </div>
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
@@ -10,6 +13,7 @@
             <thead>
             <tr>              
               <th>Folio de Factura</th>
+              <th>id orden de compra</th>
               <th>Fecha de Factura </th>
               <th>Fecha de pago programada</th>
               <th>Monto</th>
@@ -23,6 +27,7 @@
             <tbody>
                 <tr *ngFor="let general of general | async">
                     <td>{{general.billtopay_invoice_folio}}</td>
+                    <td>{{general.creditor_id}}</td>
                     <td>{{general.billtopay_invoice_date}}</td>
                     <td>{{general.billtopay_scheduled_payment_date}}</td>
                     <td>{{general.billtopay_amount}}</td>
