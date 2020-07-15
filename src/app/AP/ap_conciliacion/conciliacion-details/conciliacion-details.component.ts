@@ -5,10 +5,9 @@ import { Observable } from 'rxjs';
 import { ConciliacionService } from 'src/app/conciliacion.service';
 import { Billtopay } from 'src/app/billtopay';
 import { Billtopayservice } from 'src/app/billtopay.service';
-import { PaymentRecord } from 'src/app/payment-record';
-import { PaymentRecordService } from 'src/app/payment-record.service';
-import { AccountsService } from "src/app/services/gl/accounts.service";
-import { Accounts } from "src/app/services/gl/accounts";
+import { LinesService } from "src/app/services/gl/lines.service";
+import { Lines } from "src/app/services/gl/lines";
+
 @Component({
   selector: 'app-conciliacion-details',
   templateUrl: './conciliacion-details.component.html',
@@ -18,8 +17,8 @@ export class ConciliacionDetailsComponent implements OnInit {
 
   employee: Conciliacion = new Conciliacion();
   purcharse: Observable<Billtopay[]>;
-  purcharses: Observable<PaymentRecord[]>;
-  purcharsess: Observable<Accounts[]>;
+  
+  purcharsess: Observable<Lines[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -27,13 +26,13 @@ export class ConciliacionDetailsComponent implements OnInit {
 
   constructor(private employeeService: ConciliacionService,
     private billtopayservice: Billtopayservice,
-    private paymentRecordService: PaymentRecordService,
-    private accountsService: AccountsService,
+   
+    private accountsService: LinesService,
     private router: Router) { }
 
     ngOnInit() {
       this.reloadDatas();
-      this.reloadDatass();
+      
       this.reloadDatasss();
     }
 
@@ -54,23 +53,7 @@ export class ConciliacionDetailsComponent implements OnInit {
         }
       );      
     }
-    reloadDatass() 
-    {
-  
-      this.paymentRecordService.getEmployeeList().subscribe(
-        data => {
-          console.log(data);
-          this.purcharses = this.paymentRecordService.getEmployeeList();
-        },
-        error => {
-          console.log(error);
-          let coins = [];
-          for (let key in error) {
-            this.alertMessage = error['statusText'];          
-          }
-        }
-      );      
-    }
+ 
     reloadDatasss() 
     {
   
@@ -101,7 +84,7 @@ export class ConciliacionDetailsComponent implements OnInit {
           {
             console.log(data);
             this.alertDisables = false;
-            this.alertMessages ="Se inserto la acredor correctamente";
+            this.alertMessages ="Se inserto  correctamente";
             this.employee= new Conciliacion();
           }, 
         error => {
@@ -134,7 +117,7 @@ export class ConciliacionDetailsComponent implements OnInit {
 
   gotoList() 
   {
-    this.router.navigate(['creditor-list']);
+    this.router.navigate(['conciliacion-list']);
   }
 
 }
