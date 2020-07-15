@@ -284,6 +284,7 @@ import { CollectionDetailsComponent } from './collection/collection-details/coll
 import { PdfArticulogListComponent } from './inventarios/Pdf-articulo-g/pdf-articulog-list/pdf-articulog-list.component';
 import { PdfHistoriaListComponent } from './inventarios/pdf-historiarti/pdf-historia-list/pdf-historia-list.component';
 import { AcCreateTagsComponent } from './AC/ac-tags/ac-create-tags/ac-create-tags.component';
+import { ConciliacionpListComponent } from './AP/ap_conciliacion/conciliacionp-list/conciliacionp-list.component';
 
 
 
@@ -1139,7 +1140,17 @@ const routes: Routes = [
         ]
       },
      
+      {
+        path: '',
 
+        component: ConciliacionpListComponent,
+        children: [
+          {
+            path: 'conciliacionp-list',
+            loadChildren: () => import('./AP/ap_conciliacion/conciliacionp-list/conciliacionp-list.module').then(module => module.ConciliacionpListModule)
+          }
+        ]
+      },
       {
         path: '',
 
@@ -1166,7 +1177,7 @@ const routes: Routes = [
         component: ConciliacionDetailsComponent,
         children: [
           {
-            path: 'conciliacion-details/:id',
+            path: 'conciliacion-details',
             loadChildren: () => import('./AP/ap_conciliacion/conciliacion-details/conciliacion-details.module').then(module => module.ConciliacionDetailsModule)
           }
         ]

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xl-12">
-    <app-card cardTitle="Ordenes de Venta" blockClass="table-border-style">      
+    <app-card cardTitle="Ordenes de Compra" blockClass="table-border-style">      
       <button [routerLink]="['/create-purcharse']" class="btn btn-outline-primary">Crear Orden de Compra</button><br>
       <br>
       <div class="table-responsive">
@@ -11,7 +11,7 @@
           <tr>         
             
             <th>Id de la Orden  </th>
-            <th>Descripción </th>
+            
             <th>NOMBRE del Solicitante </th>
             <th>ADDRESS</th>
             <th>ARTICULO </th>
@@ -22,6 +22,8 @@
             <th> Precio Articulos </th>
             <th>Total de orden</th>
             <th>FECHA DE CREACION</th>
+            <th>CATEGORIA</th>
+            
             <th>Estatus</th>
             <th>#</th>
           </tr>
@@ -30,7 +32,7 @@
               <tr *ngFor="let general of general | async">
                  
                 <td>{{general.purcharse_id}}</td>
-                <td>{{general.purcharse_name}}</td>
+                
                 <td>{{general.applicant_name}}</td>
                 <td>{{general.fractionation_address}}</td>
                 <td>{{general.articles_name_article}}</td> 
@@ -40,7 +42,8 @@
                 <td>{{general.articles_prices}}</td>
                 <td>{{general.purcharse_order_total}}</td>
                 <td>{{general. purcharse_address}}</td>
-                
+                <td>{{general. categories_name}}</td>
+               
                 
                
                   

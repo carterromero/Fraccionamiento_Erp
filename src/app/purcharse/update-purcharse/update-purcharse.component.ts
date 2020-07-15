@@ -10,6 +10,8 @@ import { LegalsService } from 'src/app/services/admin/legals.service';
 import { PurcharseService } from 'src/app/purcharse.service';
 import { SupplierService } from 'src/app/supplier.service';
 import { PaytmentService } from 'src/app/paytment.service';
+import { Categories } from 'src/app/categories';
+import { CategoriesService } from 'src/app/categories.service';
 
 @Component({
   selector: 'app-update-purcharse',
@@ -24,6 +26,7 @@ export class UpdatePurcharseComponent implements OnInit {
   suppliers: Observable<Supplier[]>;
   payments: Observable<Payment[]>;
   articlesc : Observable<ArticlesC[]>;
+  caregotias :Observable<Categories[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -35,6 +38,7 @@ export class UpdatePurcharseComponent implements OnInit {
     private employeeService: PurcharseService,
     private supplierService: SupplierService,
     private paymentService: PaytmentService,
+    private caregotiass :CategoriesService,
     
     ) { }
 
@@ -64,6 +68,7 @@ export class UpdatePurcharseComponent implements OnInit {
       this.reloadDatas() ;
      this.reloadDatasss();
      this.reloadDatass();
+     this.reloadDatassss();
   }
 
    
@@ -152,6 +157,24 @@ export class UpdatePurcharseComponent implements OnInit {
     );      
   }
 
+  reloadDatassss() 
+  {
+
+    this.employeeService.getCatList().subscribe(
+      data => {
+        console.log(data);
+        this.articlesc = this.employeeService.getCatList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
 
 
 

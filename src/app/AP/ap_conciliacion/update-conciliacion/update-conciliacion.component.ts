@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Conciliacion } from 'src/app/conciliacion';
+import { Observable } from 'rxjs';
 import { ConciliacionService } from 'src/app/conciliacion.service';
+import { PaymentRecord } from 'src/app/payment-record';
+import { PaymentRecordService } from 'src/app/payment-record.service';
+
+import { LinesService } from "src/app/services/gl/lines.service";
+import { Lines } from "src/app/services/gl/lines";
 
 @Component({
   selector: 'app-update-conciliacion',
@@ -12,15 +18,60 @@ export class UpdateConciliacionComponent implements OnInit {
 
  
   employee: Conciliacion = new Conciliacion();
+  
+  purcharses: Observable<PaymentRecord[]>;
+  purcharsess: Observable<Lines[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
   constructor(private employeeService: ConciliacionService,
+    
+    private paymentRecordService: PaymentRecordService,
+    private accountsService: LinesService,
     private router: Router) { }
 
     ngOnInit() {
+      
+      this.reloadDatass();
+      this.reloadDatasss();
+    }
+
+   
+    reloadDatass() 
+    {
+  
+      this.paymentRecordService.getEmployeeList().subscribe(
+        data => {
+          console.log(data);
+          this.purcharses = this.paymentRecordService.getEmployeeList();
+        },
+        error => {
+          console.log(error);
+          let coins = [];
+          for (let key in error) {
+            this.alertMessage = error['statusText'];          
+          }
+        }
+      );      
+    }
+    reloadDatasss() 
+    {
+  
+      this.accountsService.getEmployeeList().subscribe(
+        data => {
+          console.log(data);
+          this.purcharsess = this.accountsService.getEmployeeList();
+        },
+        error => {
+          console.log(error);
+          let coins = [];
+          for (let key in error) {
+            this.alertMessage = error['statusText'];          
+          }
+        }
+      );      
     }
 
     newEmployee(): void {
@@ -35,7 +86,7 @@ export class UpdateConciliacionComponent implements OnInit {
           {
             console.log(data);
             this.alertDisables = false;
-            this.alertMessages ="Se inserto la acredor correctamente";
+            this.alertMessages ="Se inserto  correctamente";
             this.employee= new Conciliacion();
           }, 
         error => {
@@ -68,7 +119,7 @@ export class UpdateConciliacionComponent implements OnInit {
 
   gotoList() 
   {
-    this.router.navigate(['creditor-list']);
+    this.router.navigate(['conciliacionp-list']);
   }
 
 }

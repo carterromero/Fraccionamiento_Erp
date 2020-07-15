@@ -9,9 +9,10 @@ export class PurcharseService {
 
 
 
+ 
   private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/';
-  private username='evelin.picazo@dti-consultores.com';
-  private password='ASDFGHJ1234+*n';
+  private username='abdiel.romero@dti-consultores.com';
+  private password='Ingenieroars7';
   
 
   constructor(private http: HttpClient) { }
@@ -48,7 +49,16 @@ export class PurcharseService {
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_ARTIC_COMBO/1.0/articles_combo`,{headers});
   }
 
+
+  getCatList(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_CATEGO/1.0/categories`,{headers});
+  }
   
+  getEmployeeListcomboC(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_CATEG_COMBO/1.0/categories`,{headers});
+  }
 
 
 

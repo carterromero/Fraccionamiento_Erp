@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Billtopay } from 'src/app/billtopay';
+
 import { Observable } from 'rxjs';
+import { Billtopay } from 'src/app/billtopay';
 import { Billtopayservice } from 'src/app/billtopay.service';
 import { Router } from '@angular/router';
 

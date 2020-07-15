@@ -8,9 +8,10 @@ import { Observable } from 'rxjs';
 export class PaymentsARService {
 
 
+ 
   private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/';
-  private username = 'ivan.dominguez@dti-consultores.com';
-  private password = 'Jikantiempo23';
+  private username='abdiel.romero@dti-consultores.com';
+  private password='Ingenieroars7';
 
 
   constructor(private http: HttpClient) { }

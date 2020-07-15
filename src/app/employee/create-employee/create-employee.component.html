@@ -19,15 +19,17 @@
             <label for="name">Direccion</label>
             <input type="text" class="form-control" id="employees_address" required [(ngModel)]="employee.employees_address" name="employees_address">
           </div>   
-
+          <div class="form-group">
+            <label for="name">Teléfono</label>
+            <input type="number" class="form-control" id="employees_telephone" required [(ngModel)]="employee.employees_telephone" name="employees_telephone" oninput="if(value.length>10)value=value.slice(0,10)">
+          </div> 
           <div class="custom-file">
-            <input type="file" alife-file-to-base  (change)="handleUpload($event)" class="custom-file-input"  id="employee.employees_cv"   name="employees_cv" required>
+            <input type="file" alife-file-to-base  (change)="handleUpload($event)" class="custom-file-input"  id="employee.employees_cv"   name="employees_cv">
             <label class="custom-file-label" for="validatedCustomFile">Elegir CV ...</label>
             <div class="invalid-feedback">invalid custom file </div>
           </div>  
-
           <div class="custom-file">
-            <input type="file" alife-file-to-base (change)="handleUpload2($event)" class="custom-file-input" id="employee.employees_contract"   name="employees_contract" required>
+            <input type="file" alife-file-to-base (change)="handleUpload2($event)" class="custom-file-input" id="employee.employees_contract"   name="employees_contract">
             <label class="custom-file-label" for="validatedCustomFile">Elegir contrato ...</label>
             <div class="invalid-feedback">invalid custom file </div>
           </div>
@@ -40,15 +42,15 @@
         </div>
           <div class="form-group">
             <label for="name">Numero de seguridad social</label>
-            <input type="text" class="form-control" id="employees_nss" required [(ngModel)]="employee.employees_nss" name="employees_nss">
+            <input type="number" class="form-control" id="employees_nss" required [(ngModel)]="employee.employees_nss" name="employees_nss" oninput="if(value.length>11)value=value.slice(0,11)">
           </div> 
            <div class="form-group">
             <label for="name">RFC empleado</label>
-            <input type="text" class="form-control" id="employees_rfc" required [(ngModel)]="employee.employees_rfc" name="employees_rfc">
+            <input type="text" class="form-control" id="employees_rfc" required [(ngModel)]="employee.employees_rfc" name="employees_rfc" oninput="if(value.length>13)value=value.slice(0,13)">
           </div>     
           <div class="form-group">
             <label for="name">CURP empleado</label>
-            <input type="text" class="form-control" id="employees_curp" required [(ngModel)]="employee.employees_curp" name="employees_curp">
+            <input type="text" class="form-control" id="employees_curp" required [(ngModel)]="employee.employees_curp" name="employees_curp" oninput="if(value.length>18)value=value.slice(0,18)">
           </div>       
         <div class="form-group">
           <label for="name">Sindicalizado</label>
@@ -121,7 +123,7 @@
         </div> 
         <div class="form-group">
           <label for="name">Cuenta de banco</label>
-          <input type="number" class="form-control" id="employees_bank_account" required [(ngModel)]="employee.employees_bank_account" name="employees_bank_account">
+          <input type="number" class="form-control" id="employees_bank_account" required [(ngModel)]="employee.employees_bank_account" name="employees_bank_account" oninput="if(value.length>18)value=value.slice(0,18)">
         </div> 
         <div class="form-group">
           <label for="name">Periocidad de pago</label>

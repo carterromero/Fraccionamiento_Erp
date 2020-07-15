@@ -1,8 +1,10 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle="Registro de pago" blockClass="table-border-style">      
-        <button [routerLink]="['/create-payment-record']" class="btn btn-outline-primary">Agregar  Registro de pago</button><br>
-        <br>
+        <div class="app-modal-footer">
+        <button style="margin: 10px" [routerLink]="['/create-payment-record']" class="btn btn-outline-primary">Agregar  Registro de pago</button>
+       <button [routerLink]="['/conciliacionp-list']"   class="btn btn-outline-primary" >poliza pago contable </button>
+        </div>
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 

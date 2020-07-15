@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 import { PaytmentService } from 'src/app/paytment.service';
 import { Condominums } from 'src/app/services/admin/condominums';
 import { ArticlesC } from 'src/app/articlesc';
+import { Categories } from 'src/app/categories';
+import { CategoriesService } from 'src/app/categories.service';
+import { CategoriasC } from 'src/app/categoriasc';
 
 @Component({
   selector: 'app-create-purcharse',
@@ -22,6 +25,7 @@ export class CreatePurcharseComponent implements OnInit {
   suppliers: Observable<Supplier[]>;
   payments: Observable<Payment[]>;
   articlesc : Observable<ArticlesC[]>;
+  categorias :Observable<CategoriasC[]>;
 
   alertDisable = true;
   alertDisables = true;
@@ -31,6 +35,8 @@ export class CreatePurcharseComponent implements OnInit {
   constructor(private employeeService: PurcharseService,
     private suppliersService: SupplierService,
     private paymentService: PaytmentService,
+    private categoriesService : CategoriesService,
+    
     private router: Router) { }
 
 
@@ -39,6 +45,7 @@ export class CreatePurcharseComponent implements OnInit {
     this.reloadDatas();
     this.reloadDatass();
     this.reloadDatasss();
+    this.reloadDatassss();
   }
 
   reloadDatas() 
@@ -98,6 +105,27 @@ export class CreatePurcharseComponent implements OnInit {
   }
 
 
+
+  reloadDatassss() 
+  {
+
+    this.employeeService.getEmployeeListcomboC().subscribe(
+      data => {
+        console.log(data);
+        this.categorias = this.employeeService.getEmployeeListcomboC();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
+
   save()
    {
     //this.employee.userid = localStorage.getItem('id');
@@ -130,14 +158,11 @@ export class CreatePurcharseComponent implements OnInit {
   {
   this.alertDisable = true;
   this.alertDisables = true;
-  if(this.employee.purcharse_name =="" ||  this.employee.purcharse_name ==null ){
+  if(this.employee.purcharse_order_categories_id =="" ||  this.employee.purcharse_order_categories_id ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Nombre incompleto ";          
+            
   }
-  else if(this.employee.supplier_id =="" ||  this.employee.supplier_id ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Empresa Incompleta";          
-  }
+  
   else{
     this.save();    
   } 

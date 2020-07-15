@@ -35,7 +35,7 @@ export class CollectionConceptsCreateComponent implements OnInit {
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto la empresa correctamente";
+          this.alertMessages ="Se inserto el cobro correctamente";
           this.employee= new CollectionConcepts();
         }, 
       error => {

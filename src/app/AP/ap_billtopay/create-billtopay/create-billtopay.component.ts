@@ -50,6 +50,8 @@ export class CreateBilltopayComponent implements OnInit {
     this.employee = new Billtopay();
   }
 
+
+
   save() {
 
     this.employee.p_userid="3";
@@ -66,7 +68,7 @@ export class CreateBilltopayComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = "No se puede agregar el nombre esta duplicado";      
         }      
       });
   }
@@ -80,27 +82,6 @@ export class CreateBilltopayComponent implements OnInit {
   if(this.employee.billtopay_invoice_folio == "" ||  this.employee.billtopay_invoice_folio ==null ){
     this.alertDisable = false;
     this.alertMessage = "campo Incompleto o repetido";          
-  }
-
-   else if(this.employee.billtopay_invoice_date =="" ||  this.employee.billtopay_invoice_date ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Dirección Incompleta";          
-  }
-
-  else if(this.employee.billtopay_scheduled_payment_date =="" ||  this.employee.billtopay_scheduled_payment_date ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Descripción Incompleta";          
-  }
-
-
-  else if(this.employee.billtopay_amount == "" ||  this.employee.billtopay_amount ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "RFC Incompleta";          
-  }
-
-  else if(this.employee.billtopay_service_description =="" ||  this.employee.billtopay_service_description ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Registro Patronal Incompleta";          
   }
 
 

@@ -17,7 +17,8 @@ export class CreateCustomerComponent implements OnInit {
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private employeeService: CustomerService,
+  constructor(
+    private employeeService: CustomerService,
     private router: Router) { }
 
   ngOnInit() {
@@ -29,7 +30,7 @@ export class CreateCustomerComponent implements OnInit {
 
   save() {
 
-    this.employee.cutomer_customer_id = 3;
+   // this.employee.cutomer_customer_id = 3;
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => {
         console.log(data);
@@ -47,18 +48,20 @@ export class CreateCustomerComponent implements OnInit {
         });
   }
 
+
+
   onSubmit() {
 
     this.alertDisable = true;
     this.alertDisables = true;
 
-    if (this.employee.customer_customer_name == "" || this.employee.customer_customer_name == null || this.employee.customer_customer_name==this.employee.customer_customer_name) {
+    if (this.employee.customer_customer_name == "" || this.employee.customer_customer_name == null ) {
       this.alertDisable = false;
-      this.alertMessage = "Nombre Incompleto";
+      this.alertMessage = "Nombre Incompleto o Repetido";
     }
-    else if (this.employee.customer_customer_rfc == "" || this.employee.customer_customer_rfc == null || this.employee.customer_customer_rfc==this.employee.customer_customer_rfc ) {
+    else if (this.employee.customer_customer_rfc == "" || this.employee.customer_customer_rfc == null ) {
       this.alertDisable = false;
-      this.alertMessage = "RFC Incompleta";
+      this.alertMessage = "RFC Incompleto o Repetido";
     }
 
     else if (this.employee.customer_customer_type == "" || this.employee.customer_customer_type == null) {

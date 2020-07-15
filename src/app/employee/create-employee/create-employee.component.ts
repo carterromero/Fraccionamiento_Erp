@@ -52,6 +52,7 @@ export class CreateEmployeeComponent implements OnInit {
     this.employee = new Employee();
 
   }
+
   reloadDatas() 
   {
 
@@ -134,16 +135,12 @@ handleUpload2(event) {
   };
 }
   save(){
-    console.log(this.employee.employees_cv);
-    console.log(this.employee.employees_contract);
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => console.log(data), 
       error => {
         console.log(error);
-       // localStorage.setItem('token', "");
-       // this.router.navigate(['auth/signin']);
       });
-    this.employee = new Employee();
+      this.employee = new Employee();
     this.gotoList();
   }
 

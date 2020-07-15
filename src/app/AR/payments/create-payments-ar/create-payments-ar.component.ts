@@ -2,34 +2,64 @@ import { Component, OnInit } from '@angular/core';
 import { PaymentsAR } from 'src/app/payments-ar';
 import { PaymentsARService } from 'src/app/payments-ar.service';
 
-/* 
-import {  } from 'src/app/';
-import {  } from 'src/app/'; */
+import { TransactionTypes } from 'src/app/transaction-types';
+import { TransactionTypesService } from 'src/app/transaction-types.service';
+import { Customer } from 'src/app/customer';
+import { CustomerService } from 'src/app/customer.service';
+import { DepositAccount } from 'src/app/depositAccount';
+import { DepositAccountService } from 'src/app/deposit-account.service';
+import { Collection } from 'src/app/collection';
+import { CollectionService } from 'src/app/collection.service';
+
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-payments-ar',
   templateUrl: './create-payments-ar.component.html',
   styleUrls: ['./create-payments-ar.component.scss']
 })
-
+/* agregar metodo de transaction_types_id
+customer_custopmer_id obligatorios */
 export class CreatePaymentsARComponent implements OnInit {
 
   employee: PaymentsAR = new PaymentsAR();
+  transactionTypes:Observable<TransactionTypes[]>
+  customer: Observable<Customer[]>
+  depositaccount: Observable<DepositAccount[]>
+  collection:Observable<Collection[]>
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private employeeService: PaymentsARService,
+  constructor(
+    private employeeService: PaymentsARService,
+    private TransactionTypesService:TransactionTypesService,
+    private CustomerService:CustomerService,
+    private DepositAccountService:DepositAccountService,
+    private CollectionService:CollectionService,
     private router: Router) { }
 
   ngOnInit() {
-
+    this.reloadDatas();
   }
 
-  /* reloadDatas() 
+  reloadDatas() 
   {
+    this.TransactionTypesService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.transactionTypes = this.TransactionTypesService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
     this.CustomerService.getEmployeeList().subscribe(
       data => {
         console.log(data);
@@ -43,7 +73,33 @@ export class CreatePaymentsARComponent implements OnInit {
         }
       }
     );
-  } */
+    this.DepositAccountService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.depositaccount = this.DepositAccountService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
+    this.CollectionService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.collection = this.CollectionService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
+  }
 
   newEmployee(): void {
     this.employee = new PaymentsAR();
@@ -56,7 +112,7 @@ export class CreatePaymentsARComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.alertDisables = false;
-        this.alertMessages = "Se inserto la Pago correctamente";
+        this.alertMessages = "Se inserto el Pago correctamente";
         this.employee = new PaymentsAR();
       },
         error => {
@@ -94,7 +150,7 @@ export class CreatePaymentsARComponent implements OnInit {
       this.alertDisable = false;
       this.alertMessage = "•	Monto a Pagar Incompleta";
     }
-
+/* 
     else if (this.employee.condominums_id == null || this.employee.condominums_id == null) {
       this.alertDisable = false;
       this.alertMessage = "condominums_id Incompleta";
@@ -108,7 +164,7 @@ export class CreatePaymentsARComponent implements OnInit {
       this.alertDisable = false;
       this.alertMessage = "customer_customer_id Incompleta";
     }
-
+ */
 
     else {
       this.save();
