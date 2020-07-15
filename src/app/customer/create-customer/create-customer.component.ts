@@ -57,11 +57,11 @@ export class CreateCustomerComponent implements OnInit {
 
     if (this.employee.customer_customer_name == "" || this.employee.customer_customer_name == null ) {
       this.alertDisable = false;
-      this.alertMessage = "Nombre Incompleto";
+      this.alertMessage = "Nombre Incompleto o Repetido";
     }
-    else if (this.employee.customer_customer_rfc == "" || this.employee.customer_customer_rfc == null || this.employee.customer_customer_rfc == this.employee.customer_customer_name) {
+    else if (this.employee.customer_customer_rfc == "" || this.employee.customer_customer_rfc == null ) {
       this.alertDisable = false;
-      this.alertMessage = "RFC Incompleta";
+      this.alertMessage = "RFC Incompleto o Repetido";
     }
 
     else if (this.employee.customer_customer_type == "" || this.employee.customer_customer_type == null) {
