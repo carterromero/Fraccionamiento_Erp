@@ -484,13 +484,13 @@ const NavigationItemss = [
           },
           {
             id: 'Tenants-main',
-            title: 'Inquilinos',
+            title: 'Residentes',
             type: 'collapse',
             icon: 'feather icon-user',
             children: [
               {
                  id: 'rh-tenant',
-                title: 'Crear Inquilinos',
+                title: 'Registro residentes',
                 type: 'item',            
                 url: '/tenants-list'
               }               
@@ -1308,13 +1308,13 @@ export class NavigationItem
           },
           {
         id: 'rh-tenants',
-        title: 'Inquilinos',
+        title: 'Residentes',
         type: 'collapse',
         icon: 'feather icon-user',
         children: [
           {
             id: 'rh-tenant',
-            title: 'Crear Inquilinos',
+            title: 'Registro de residentes',
             type: 'item',            
             url: '/tenants-list'
           }

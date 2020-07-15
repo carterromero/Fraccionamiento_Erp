@@ -17,4 +17,8 @@ export class Tenants {
     create_by: number;
     last_update_by: number;
     tenants_telephone : number;
+    tenants_deposit: number;
+    tenants_start_date: Date;
+    tenants_end_date: Date;
+    tenants_agreement: string;
 }
