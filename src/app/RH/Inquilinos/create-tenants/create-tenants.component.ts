@@ -88,7 +88,7 @@ export class CreateTenantsComponent implements OnInit {
   onSubmit() {
    
     
-    save();
+    this.save();
 
      
     
