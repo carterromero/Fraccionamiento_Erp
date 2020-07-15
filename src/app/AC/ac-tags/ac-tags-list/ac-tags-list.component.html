@@ -23,9 +23,13 @@
                      </td>
                      <td>{{tag.nombre}}</td>
                      <td>
-                         <button (click)="tagsDetails(tag.tag_code)"
+                        <button (click)="tagsDetails(tag.tag_code)"
                              class="btn btn-outline-primary"
                              aria-pressed="true">Detalles</button>
+                        <button class="btn btn-outline-danger" 
+                            (click)="inactiveTag(tag.tag_code)" 
+                            style="margin-left: 10px">Desactivar
+                        </button>
                      </td>
                  </tr>
             </tbody>

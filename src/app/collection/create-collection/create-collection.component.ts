@@ -1,7 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Collection } from 'src/app/collection';
 import { CollectionService } from 'src/app/collection.service';
+import { Customer } from 'src/app/customer';
+import { CustomerService } from 'src/app/customer.service';
+import { TransactionTypes } from 'src/app/transaction-types';
+import { TransactionTypesService } from 'src/app/transaction-types.service';
+import { PaymentTerms } from 'src/app/payment-terms';
+import { PaymentTermsService } from 'src/app/payment-terms.service';
+import { CollectionConcepts } from 'src/app/collection-concepts';
+import { CollectionConceptsService } from 'src/app/collection-concepts.service';
+import { ReferralAddress } from 'src/app/referral-address';
+import { ReferralAddressService } from 'src/app/referral-address.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-collection',
@@ -12,19 +23,103 @@ import { Router } from '@angular/router';
 export class CreateCollectionComponent implements OnInit {
 
   employee: Collection = new Collection();
+  customer: Observable<Customer[]>
+  transactionTypes:Observable<TransactionTypes[]>
+  paymentsterms:Observable<PaymentTerms[]>
+  collectionconcepts:Observable<CollectionConcepts[]>
+  referraladdress:Observable<ReferralAddress[]>
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private employeeService: CollectionService,
+  constructor(
+    private employeeService: CollectionService,
+    private CustomerService:CustomerService,
+    private TransactionTypesService:TransactionTypesService,
+    private PaymentTermsService:PaymentTermsService,
+    private CollectionConceptsService:CollectionConceptsService,
+    private ReferralAddressService:ReferralAddressService,
     private router: Router) { }
 
   ngOnInit() {
+    this.reloadDatas();
   }
 
   newEmployee(): void {
     this.employee = new Collection();
+  }
+
+  reloadDatas() 
+  {
+    this.CustomerService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.customer = this.CustomerService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
+    this.TransactionTypesService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.transactionTypes = this.TransactionTypesService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
+    this.PaymentTermsService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.paymentsterms = this.PaymentTermsService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
+    
+    this.CollectionConceptsService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.collectionconcepts = this.CollectionConceptsService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
+    
+    
+    this.ReferralAddressService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.referraladdress = this.ReferralAddressService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
   }
 
   save() {

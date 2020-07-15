@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentsAR } from 'src/app/payments-ar';
 import { PaymentsARService } from 'src/app/payments-ar.service';
+
+/* 
+import {  } from 'src/app/';
+import {  } from 'src/app/'; */
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,7 +25,25 @@ export class CreatePaymentsARComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+
   }
+
+  /* reloadDatas() 
+  {
+    this.CustomerService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.customer = this.CustomerService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
+  } */
 
   newEmployee(): void {
     this.employee = new PaymentsAR();
@@ -34,7 +56,7 @@ export class CreatePaymentsARComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.alertDisables = false;
-        this.alertMessages = "Se inserto la empresa correctamente";
+        this.alertMessages = "Se inserto la Pago correctamente";
         this.employee = new PaymentsAR();
       },
         error => {

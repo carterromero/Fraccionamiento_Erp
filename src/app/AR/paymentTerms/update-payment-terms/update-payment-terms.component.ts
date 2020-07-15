@@ -89,17 +89,6 @@ export class UpdatePaymentTermsComponent implements OnInit {
       this.alertMessage = "Descripción Incompleta";          
     }
   
-  
-    else if(this.employee.condominums_id ==null ||  this.employee.condominums_id ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "condominio Incompleta";          
-    }
-    else if(this.employee.created_by ==null ||  this.employee.created_by ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "created_by Incompleta";          
-    }
-  
-  
     else{
       this.updateEmployee();    
     }
