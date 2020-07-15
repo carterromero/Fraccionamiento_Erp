@@ -1,9 +1,10 @@
+
 <div class="row">
     <div class="col-xl-12">
-      <app-card cardTitle="Registro de pago" blockClass="table-border-style">      
+      <app-card cardTitle="conciliacion " blockClass="table-border-style">      
         <div class="app-modal-footer">
-        <button style="margin: 10px" [routerLink]="['/create-payment-record']" class="btn btn-outline-primary">Agregar  Registro de pago</button>
-       <button [routerLink]="['/conciliacionp-list']"   class="btn btn-outline-primary" >poliza pago contable </button>
+          <button style="margin: 10px" [routerLink]="['/conciliacion-details']" class="btn btn-outline-primary" >crear</button>
+         <button [routerLink]="['/payment-record-list']"   class="btn btn-outline-primary" >regresar </button>
         </div>
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
@@ -11,31 +12,42 @@
           <table class="table">
             <thead>
             <tr>              
-              <th>nombre creditor </th>
-              <th>Fecha de pago </th>
-              <th>Monto</th>
-              <th>Método de pago</th>
-              <th>Comprovante</th>
               
-              
+              <th>id conciliacion</th>
+              <th>id cabecero</th>
+              <th>id linea </th>
+              <th>id cuenta</th>
+              <th>origen</th>
+              <th>documento tipo</th>
+              <th>debe</th>
+              <th>haber</th>
+              <th>status</th>
               
                
             </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                  <td>{{general.name_creditor}}</td>
-                    <td>{{general.payment_record_payment_date}}</td>
-                    <td>{{general.payment_record_amount}}</td>
-                    <td>{{general.metodo_tipo}}</td>
-                    <td>{{general.payment_method}}</td>
-                   
-      
-                    <td>
-                      <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
-                        <button (click)="updateGeneral(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                        <button (click)="generalDetails(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px"> informe contable </button>    
+                    
+                  <td>{{general.concilitiation_id}}</td>
+                  <td>{{general.concilitiation_document_header_id}}</td>
+                  <td>{{general.concilitiation_document_line_id}}</td>
+                  <td>{{general.concilitiation_account_id}}</td>
+                  <td>{{general.concilitiation_origin}}</td>
+                  <td>{{general.concilitiation_document_type}}</td>
+                  <td>{{general.concilitiation_debe}}</td>
+                  <td>{{general.concilitiation_debe}}</td>
 
+                    
+                    <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.payment_status == 'true'">
+                          <label class="custom-control-label" for="payment_status">Active</label>
+                       </div>
+                      </td>
+
+                    <td>
+                   
                         <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                           <div class="app-modal-header">
                           <h5 class="modal-title">Eliminar cuenta factura</h5>
