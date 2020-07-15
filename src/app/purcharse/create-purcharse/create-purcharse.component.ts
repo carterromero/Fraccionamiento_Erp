@@ -112,7 +112,7 @@ export class CreatePurcharseComponent implements OnInit {
     this.employeeService.getEmployeeListcomboC().subscribe(
       data => {
         console.log(data);
-        this.articlesc = this.employeeService.getEmployeeListcomboC();
+        this.categorias = this.employeeService.getEmployeeListcomboC();
       },
       error => {
         console.log(error);
