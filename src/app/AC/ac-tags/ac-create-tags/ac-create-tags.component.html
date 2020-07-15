@@ -7,7 +7,8 @@
               <label for="name">Codigo Tag</label>
               <input type="text" [(ngModel)]="tags.tag_code" id="tag_code" name="tag_code" class="form-control"
                   placeholder="" required>
-            </div>      
+            </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>    
             <div class="form-group">
                 <label for="name">Estatus</label>
                 <select [(ngModel)]="tags.tag_status_a" id="select1" name="tag_status" class="form-control"
@@ -16,8 +17,8 @@
                   <option value="true">Activo</option>
                   <option value="false">Inactivo</option>
                 </select>
-              </div>      
-                    
+            </div>       
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>       
             <button type="submit" class="btn btn-success">Guardar</button>          
             <button (click)="gotoList()" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
           </form>

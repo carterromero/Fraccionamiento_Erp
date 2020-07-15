@@ -14,6 +14,11 @@ export class AcCreateTagsComponent implements OnInit {
 
   tags: TagClass = new TagClass();
   submitted = false;
+  result: any;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private TagServiceService: TagServiceService ,
     private router: Router,private location: Location) { }
@@ -28,9 +33,27 @@ export class AcCreateTagsComponent implements OnInit {
 
   save() {
     this.TagServiceService.createtags(this.tags)
-      .subscribe(data => console.log(data), error => console.log(error));
-    this.tags = new TagClass();
-    this.gotoList();
+      .subscribe(data =>{ 
+                  console.log(data);
+                  this.alertDisables = false;
+                  this.alertMessages ="¡Tag registrado exitosamente!";
+                  this.tags = new TagClass();
+                  setTimeout(() => {
+                    this.gotoList();
+                  },3000);
+                }, 
+                error => {
+                  console.log(error);
+                  let coins = [];
+                  for (let key in error) {
+                    this.alertDisable = false;
+                    this.alertMessage = "¡El código de Tag ya existe!";
+                    setTimeout(() => {
+                      this.alertDisable = true;
+                    },4000);
+                  }
+                });
+    
   }
 
   onSubmit(form: NgForm) {  
