@@ -10,6 +10,8 @@ import { CondominumsService } from 'src/app/services/admin/condominums.service';
 import { Creditor } from 'src/app/creditor';
 import { CreditorService } from 'src/app/creditor.service';
 
+
+
 @Component({
   selector: 'app-create-payment-record',
   templateUrl: './create-payment-record.component.html',
@@ -30,12 +32,12 @@ export class CreatePaymentRecordComponent implements OnInit {
   submitted = false;
   
 
-
-
+  
   constructor(private employeeService: PaymentRecordService,
     private condominumsService: CondominumsService,
     private creditorService: CreditorService,
-   
+
+    
     private router: Router) {
 
       
@@ -44,6 +46,9 @@ export class CreatePaymentRecordComponent implements OnInit {
     ngOnInit() {
       this.reloadDatas();
       this.reloadDatas1() ;
+
+
+      
     }
 
     newEmployee(): void {

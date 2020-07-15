@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Billtopay } from 'src/app/billtopay';
 import { Billtopayservice } from 'src/app/billtopay.service';
-
+import { PurcharseService } from 'src/app/purcharse.service';
+import { Purcharse } from 'src/app/purcharse';
 
 @Component({
   selector: 'app-create-billtopay',
@@ -13,15 +14,36 @@ import { Billtopayservice } from 'src/app/billtopay.service';
 export class CreateBilltopayComponent implements OnInit {
 
   employee: Billtopay = new Billtopay();
+  purcharse: Observable<Purcharse[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
   constructor(private employeeService: Billtopayservice,
+    private purcharseService: PurcharseService,
     private router: Router) { }
 
   ngOnInit() {
+    this.reloadDatas();
+  }
+
+  reloadDatas() 
+  {
+
+    this.purcharseService.getEmployeeList(1).subscribe(
+      data => {
+        console.log(data);
+        this.purcharse = this.purcharseService.getEmployeeList(1);
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
   }
 
   newEmployee(): void {
@@ -55,7 +77,7 @@ export class CreateBilltopayComponent implements OnInit {
   this.alertDisable = true;
   this.alertDisables = true;
 
-  if(this.employee.billtopay_invoice_folio == "" ||  this.employee.billtopay_invoice_folio ==null || this.employee.billtopay_invoice_folio == this.employee.billtopay_invoice_folio ){
+  if(this.employee.billtopay_invoice_folio == "" ||  this.employee.billtopay_invoice_folio ==null ){
     this.alertDisable = false;
     this.alertMessage = "campo Incompleto o repetido";          
   }

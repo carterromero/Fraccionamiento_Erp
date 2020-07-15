@@ -76,28 +76,28 @@ export class UpdateTransactionTypesComponent implements OnInit {
   
     if(this.employee.transaction_types_name_type_transaction =="" ||  this.employee.transaction_types_name_type_transaction ==null ){
       this.alertDisable = false;
-      this.alertMessage = "•	Nombre del tipo de transacción Incompleto";          
+      this.alertMessage = "Nombre del tipo de transacción Incompleto";          
     }
   
     else if(this.employee.transaction_types_description =="" ||  this.employee.transaction_types_description ==null ){
       this.alertDisable = false;
-      this.alertMessage = "•	Descripción  Incompleta";          
+      this.alertMessage = "Descripción  Incompleta";          
     }
   
     else if(this.employee.transaction_types_class_transaction =="" ||  this.employee.transaction_types_class_transaction ==null ){
       this.alertDisable = false;
-      this.alertMessage = "•	Clase de transacción Incompleta";          
+      this.alertMessage = "Clase de transacción Incompleta";          
     }
   
   
     else if(this.employee.transaction_types_accounting_distribution =="" ||  this.employee.transaction_types_accounting_distribution ==null ){
       this.alertDisable = false;
-      this.alertMessage = "•	Distribución contable Incompleta";          
+      this.alertMessage = "Distribución contable Incompleta";          
     }
   
     else if(this.employee.condominums_id ==null ||  this.employee.condominums_id ==null ){
       this.alertDisable = false;
-      this.alertMessage = "condominus Incompleta";          
+      this.alertMessage = "Condominus Incompleta";          
     }
   
     else if(this.employee.created_by ==null ||  this.employee.created_by ==null ){

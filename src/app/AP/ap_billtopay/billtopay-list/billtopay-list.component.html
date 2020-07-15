@@ -10,6 +10,7 @@
             <thead>
             <tr>              
               <th>Folio de Factura</th>
+              <th>id orden de compra</th>
               <th>Fecha de Factura </th>
               <th>Fecha de pago programada</th>
               <th>Monto</th>
@@ -23,6 +24,7 @@
             <tbody>
                 <tr *ngFor="let general of general | async">
                     <td>{{general.billtopay_invoice_folio}}</td>
+                    <td>{{general.creditor_id}}</td>
                     <td>{{general.billtopay_invoice_date}}</td>
                     <td>{{general.billtopay_scheduled_payment_date}}</td>
                     <td>{{general.billtopay_amount}}</td>

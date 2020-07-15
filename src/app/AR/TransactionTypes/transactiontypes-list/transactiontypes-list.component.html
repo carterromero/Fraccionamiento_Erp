@@ -9,13 +9,13 @@
           <table class="table">
             <thead>
             <tr>              
-              <th>	Nombre del tipo de transacción Completo</th>
-              <th>	Descripción  Completa</th>
-              <th>	Clase de transacción General</th>
+              <th>	Nombre del tipo de transacción </th>
+              <th>	Descripción  </th>
               <th>	Clase de transacción</th>
-              <th>	Distribución contable Patronal</th>
-              <th>condominio Fiscal</th>
-              <th>Estatus </th>
+              <th>	Distribución contable </th>
+              <!-- 
+              <th>condominio</th>
+              <th>Estatus </th> -->
             </tr>
             </thead>
             <tbody>
@@ -24,8 +24,9 @@
                     <td>{{general.transaction_types_description}}</td>
                     <td>{{general.transaction_types_class_transaction}}</td>
                     <td>{{general.transaction_types_accounting_distribution}}</td>
+                    <!-- 
                     <td>{{general.condominums_id}}</td>
-                    <td>{{general.created_by}}</td>
+                    <td>{{general.created_by}}</td> -->
                     <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="general.transaction_types_status == 'true'">
