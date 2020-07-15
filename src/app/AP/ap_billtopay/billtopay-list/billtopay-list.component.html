@@ -11,7 +11,8 @@
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
           <table class="table">
             <thead>
-            <tr>              
+            <tr>            
+              <th>id  Factura</th>  
               <th>Folio de Factura</th>
               <th>id orden de compra</th>
               <th>Fecha de Factura </th>
@@ -26,6 +27,8 @@
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
+                  
+                  <td>{{general.billtopay_id}}</td>
                     <td>{{general.billtopay_invoice_folio}}</td>
                     <td>{{general.creditor_id}}</td>
                     <td>{{general.billtopay_invoice_date}}</td>
