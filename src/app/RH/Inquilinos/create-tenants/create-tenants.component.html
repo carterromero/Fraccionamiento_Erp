@@ -37,7 +37,7 @@
               </div>
               <div class="form-group">
                 <label for="name">Telefono</label>
-                <input type="number" class="form-control" id="tenants_telephone" required [(ngModel)]="tenant.tenants_telephone"  name="tenants_telephone">
+                <input type="number" class="form-control" id="tenants_telephone" required [(ngModel)]="tenant.tenants_telephone"  name="tenants_telephone" maxlength="10">
               </div>
               <div class="form-group">
                 <label for="name">Deposito de la residencia</label>
@@ -53,7 +53,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Condominio</label>
-                <select  class="custom-select"  id="condominums_id" required [(ngModel)]="tenant.condominums_id"  formControlName="condominums_id" name="condominums_id" >
+                <select  class="custom-select"  id="condominums_id" required [(ngModel)]="tenant.condominums_id" name="condominums_id" >
                 <option *ngFor="let condominum of condominums | async" value="{{condominum.condominums_id}}">{{condominum.condominums_description}}</option>
                 </select>
             </div>  
