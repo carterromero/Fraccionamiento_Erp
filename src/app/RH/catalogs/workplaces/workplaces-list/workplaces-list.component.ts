@@ -45,12 +45,12 @@ export class WorkplacesListComponent implements OnInit {
         data => {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessage ="Se elimino correctamente";
+          this.alertMessages ="Se elimino correctamente";
         },
         error => {
           console.log(error);
           this.alertDisable = false;
-          this.alertMessages = "El registro no se puede eliminar, tiene una dependencia";
+          this.alertMessage = "El registro no se puede eliminar, tiene una dependencia";
         });
   }
   workplaceDetails(id: number){
