@@ -39,17 +39,15 @@ export class CreateContactsComponent implements OnInit {
   reloadDatas() 
   {
 
-    this.employeeService.getNames().subscribe(
+    this.employeeService.getEmployeeList().subscribe(
       data => {
         console.log(data);
-        this.employees = this.employeeService.getNames();
+        this.employees = this.employeeService.getEmployeeList();
       },
       error => {
         console.log(error);
-        let coins = [];
-        for (let key in error) {
+
           this.alertMessage = error['statusText'];          
-        }
       }
     );      
   }
@@ -63,7 +61,6 @@ export class CreateContactsComponent implements OnInit {
        // localStorage.setItem('token', "");
        // this.router.navigate(['auth/signin']);
       });
-    this.contact = new Contacts();
     this.gotoList();
   }
 

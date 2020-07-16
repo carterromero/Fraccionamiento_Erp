@@ -8,9 +8,9 @@ import { Departments } from 'src/app/departments';
 import { DepartmentsService } from 'src/app/departments.service';
 import { Workplaces } from 'src/app/workplaces';
 import { WorkplacesService } from 'src/app/workplaces.service';
-import { Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-
+import { UserService } from 'src/app/services/admin/user.service';
+import { User } from 'src/app/services/admin/user';
 
 
 @Component({
@@ -19,7 +19,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./create-employee.component.scss']
 })
 export class CreateEmployeeComponent implements OnInit {
-  
+  authentication: User = new User();  
   employee: Employee = new Employee();
   condominums: Observable<Condominums[]>;
   departments: Observable<Departments[]>;
@@ -135,6 +135,7 @@ handleUpload2(event) {
   };
 }
   save(){
+    this.employee.create_by = Number(localStorage.getItem('id'));
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => console.log(data), 
       error => {

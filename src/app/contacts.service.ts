@@ -14,9 +14,9 @@ export class ContactsService {
 
   constructor(private http: HttpClient) { }
 
-  createContact(employee: Object): Observable<Object> {
+  createContact(contact: Object): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_INSERT_CONTACTS/1.0/contacts`, employee,{headers});
+    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_INSERT_CONTACTS/1.0/contacts`, contact,{headers});
   }
 
   getContactO(id: number): Observable<any> {
