@@ -1303,13 +1303,7 @@ export class NavigationItem
                 title: 'Empleados',
                 type: 'item',            
                 url: '/employee-list'
-              }   ,
-              {
-                id: 'rh-contacts',
-               title: 'Contacto',
-               type: 'item',            
-               url: '/contacts-list'
-             }                
+              } 
             ]
           },
           {
