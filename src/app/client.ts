@@ -13,6 +13,7 @@ cliente_status  : string;
     last_updated_by : number;
     last_updated_date : string;
     user_id:string;
+   
     
 }
     
