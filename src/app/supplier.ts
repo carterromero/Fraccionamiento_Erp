@@ -14,10 +14,6 @@ export class Supplier {
     userid : string;
     id : number;
 
-    p_supplier_name : string;
-    p_supplier_address : string;
-    p_supplier_rfc : string;
-    p_supplier_email : string;
-    p_supplier_phone : number;
+
 
 }

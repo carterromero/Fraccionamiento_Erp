@@ -1,9 +1,13 @@
 <div class="row">
   <div class="col-xl-12">
+
+
     <app-card cardTitle="Proveedores" blockClass="table-border-style">      
       <button [routerLink]="['/supplier-create']" class="btn btn-primary">Agregar Proveedores</button><br>
       <br>
       <div class="table-responsive"   >
+        
+        
         <table class="table" >
           <thead  >
           <tr > 
@@ -16,21 +20,23 @@
 
             <th>Telefono</th>
             <th>Giro</th>
+            <th>Fecha</th>
            
             <th>Estatus </th>
+           
             <th>#</th>
           </tr>
           </thead>
           <tbody >
               <tr  *ngFor="let general of general | async">
                 <td >{{general.supplier_id}}</td>
-                  <td >{{general.p_supplier_name}}</td>
-                  <td>{{general.p_supplier_address}}</td>
-                  <td>{{general.p_supplier_rfc}}</td>
-                  <td>{{general.p_supplier_email}}</td>
-                  <td>{{general.p_supplier_phone}}</td>
+                  <td >{{general.supplier_name}}</td>
+                  <td>{{general.supplier_address}}</td>
+                  <td>{{general.supplier_rfc}}</td>
+                  <td>{{general.supplier_email}}</td>
+                  <td>{{general.supplier_phone}}</td>
                   <td>{{general.supplier_turn}}</td>
-
+                 
 
 
                   
