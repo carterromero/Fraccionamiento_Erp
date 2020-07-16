@@ -69,4 +69,9 @@ export class ContactsListComponent implements OnInit {
     console.log(id);
     this.router.navigate(['update-contacts', id]);
   }
+
+  goEmployee(){
+
+    this.router.navigate(['employees-list']);
+  }
 }

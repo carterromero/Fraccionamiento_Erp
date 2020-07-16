@@ -122,10 +122,7 @@ import { CreateTenantsComponent } from './RH/Inquilinos/create-tenants/create-te
 import { TenantsListComponent } from './RH/Inquilinos/tenants-list/tenants-list.component';
 import { UpdateTenantsComponent } from './RH/Inquilinos/update-tenants/update-tenants.component';
 import { TenantsDetailsComponent } from './RH/Inquilinos/tenants-details/tenants-details.component';
-import { CreateAgreementsComponent } from './RH/agreements/create-agreements/create-agreements.component';
-import { AgreementsListComponent } from './RH/agreements/agreements-list/agreements-list.component';
-import { UpdateAgreementsComponent } from './RH/agreements/update-agreements/update-agreements.component';
-import { AgreementsDetailsComponent } from './RH/agreements/agreements-details/agreements-details.component';
+
 import { CreateReservationsComponent } from './RH/Reservations/create-reservations/create-reservations.component';
 import { ReservationsListComponent } from './RH/Reservations/reservations-list/reservations-list.component';
 import { UpdateReservationsComponent } from './RH/Reservations/update-reservations/update-reservations.component';
@@ -377,7 +374,7 @@ const routes: Routes = [
         children: [
           {
             path: 'contacts-details/:id',
-            loadChildren: () => import('src/app/RH/contact/contacts-details/contacts-details.component').then(module => module.ContactsDetailsComponent)
+            loadChildren: () => import('src/app/RH/contact/contacts-details/contacts-details.module').then(module => module.ContactsDetailModule)
           }
         ]
       },
@@ -468,46 +465,6 @@ const routes: Routes = [
           {
             path: 'departmentsr-list',
             loadChildren: () => import('./RH/REPORTES/departmentsr-list/departmentsr-list.module').then(module => module.DepartmentsRListModule)
-          }
-        ]
-      },
-      {
-        path: '',
-        component: AgreementsListComponent,
-        children: [
-          {
-            path: 'agreements-list',
-            loadChildren: () => import('./RH/agreements/agreements-list/agreements-list.module').then(module => module.AgreementsListModule)
-          }
-        ]
-      },
-      {
-        path: '',
-        component: CreateAgreementsComponent,
-        children: [
-          {
-            path: 'create-agreements',
-            loadChildren: () => import('./RH/agreements/create-agreements/create-agreements.module').then(module => module.CreateAgreementsModule)
-          }
-        ]
-      },
-      {
-        path: '',
-        component: AgreementsDetailsComponent,
-        children: [
-          {
-            path: 'agreements-details/:id',
-            loadChildren: () => import('./RH/agreements/agreements-details/agreements-details.module').then(module => module.AgreementsDetailsModule)
-          }
-        ]
-      },
-      {
-        path: '',
-        component: UpdateAgreementsComponent,
-        children: [
-          {
-            path: 'update-agreements/:id',
-            loadChildren: () => import('./RH/agreements/update-agreements/update-agreements.module').then(module => module.UpdateAgreementsModule)
           }
         ]
       },

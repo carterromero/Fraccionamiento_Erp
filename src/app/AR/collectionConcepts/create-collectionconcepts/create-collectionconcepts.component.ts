@@ -1,30 +1,60 @@
 import { Component, OnInit } from '@angular/core';
 import { CollectionConcepts } from 'src/app/collection-concepts';
 import { CollectionConceptsService } from 'src/app/collection-concepts.service';
+
+import { Articles } from 'src/app/articles';
+import { ArticlesService } from 'src/app/articles.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-collection-concepts',
   templateUrl: './create-collectionconcepts.component.html',
   styleUrls: ['./create-collectionconcepts.component.scss']
 })
-
+/* 
+collection_id
+codigoarticulo=sku
+accounting_accounts_id
+pucharse_id
+*/
 export class CollectionConceptsCreateComponent implements OnInit {
 
   employee: CollectionConcepts = new CollectionConcepts();
+  Articles:Observable<Articles[]>
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private employeeService: CollectionConceptsService,
+  constructor(
+    private employeeService: CollectionConceptsService,
+    private ArticlesService:ArticlesService,
     private router: Router) { }
 
   ngOnInit() {
+    this.reloadDatas();
   }
 
   newEmployee(): void {
     this.employee = new CollectionConcepts();
+  }
+
+  reloadDatas() 
+  {
+    this.ArticlesService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.Articles = this.ArticlesService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
   }
 
   save() {

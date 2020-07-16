@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './create-payment-terms.component.html',
   styleUrls: ['./create-payment-terms.component.scss']
 })
-
+//crear metodo condominio_id
 export class CreatePaymentTermsComponent implements OnInit {
 
   employee: PaymentTerms = new PaymentTerms();
