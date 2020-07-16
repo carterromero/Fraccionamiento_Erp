@@ -67,7 +67,6 @@ export class CustomerListComponent implements OnInit {
   }
 
   updateGeneral(id: number) {
-    console.log("update")
     this.router.navigate(['update-customer', id]);
   }
 
