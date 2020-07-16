@@ -18,7 +18,7 @@ export class CreateCustomerComponent implements OnInit {
   alertMessages = "null";
 
   constructor(
-    private employeeService: CustomerService,
+    private CustomerService: CustomerService,
     private router: Router) { }
 
   ngOnInit() {
@@ -31,10 +31,11 @@ export class CreateCustomerComponent implements OnInit {
   save() {
 
    // this.employee.cutomer_customer_id = 3;
-    this.employeeService.createEmployee(this.employee)
+    this.CustomerService.createEmployee(this.employee)
       .subscribe(data => {
         console.log(data);
         this.alertDisables = false;
+        
         this.alertMessages = "Se inserto el cliente correctamente";
         this.employee = new Customer();
       },
@@ -82,10 +83,6 @@ export class CreateCustomerComponent implements OnInit {
     else if (this.employee.customer_email == "" || this.employee.customer_email == null) {
       this.alertDisable = false;
       this.alertMessage = "Email Incompleta";
-    }
-    else if (this.employee.condominums_id == null || this.employee.condominums_id == null) {
-      this.alertDisable = false;
-      this.alertMessage = "condomi Incompleta";
     }
 
     else {

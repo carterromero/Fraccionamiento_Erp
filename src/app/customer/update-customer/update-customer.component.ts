@@ -104,10 +104,6 @@ export class UpdateCustomerComponent implements OnInit {
       this.alertDisable = false;
       this.alertMessage = "Email Incompleta";
     }
-    else if (this.employee.condominums_id == null || this.employee.condominums_id == null) {
-      this.alertDisable = false;
-      this.alertMessage = "Condominios Incompleta";
-    }
 
 
     else {

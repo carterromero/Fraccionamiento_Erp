@@ -10,20 +10,21 @@
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
           <table class="table">
             <thead>
-            <tr>              
+            <tr>      
+              <th>id_pago</th>     
               <th>nombre creditor </th>
               <th>Fecha de pago </th>
               <th>Monto</th>
               <th>Método de pago</th>
-              <th>Comprovante</th>
+              <th>Comprobante</th>
               
               
-              
-               
             </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
+                  
+                  <td>{{general.payment_id}}</td>
                   <td>{{general.name_creditor}}</td>
                     <td>{{general.payment_record_payment_date}}</td>
                     <td>{{general.payment_record_amount}}</td>

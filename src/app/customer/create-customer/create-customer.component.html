@@ -35,11 +35,6 @@
                             [(ngModel)]="employee.customer_email" name="customer_email" required>
                     </div>
                     <div class="form-group">
-                        <label for="name">condominio</label>
-                        <input type="text" class="form-control" id="condominums_id"
-                            [(ngModel)]="employee.condominums_id" name="condominums_id" required>
-                    </div>
-                    <div class="form-group">
                         <label for="name">Estatus</label>
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="customer_status"
@@ -50,6 +45,7 @@
                     
                     
                     <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+                    <app-alert type="danger" [hidden]="alertDisable">Error valores repetidos</app-alert>
                     <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
                     <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                         <div class="app-modal-header">
