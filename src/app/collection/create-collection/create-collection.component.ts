@@ -151,37 +151,33 @@ export class CreateCollectionComponent implements OnInit {
 
   if(this.employee.collection_transaction_type =="" ||  this.employee.collection_transaction_type ==null ){
     this.alertDisable = false;
-    this.alertMessage = "•	Tipo de transacción Incompleto";          
+    this.alertMessage = "	Tipo de transacción Incompleto";          
   }
 
   else if(this.employee.collection_name_resident =="" ||  this.employee.collection_name_resident ==null ){
     this.alertDisable = false;
-    this.alertMessage = "•	Nombre del Residente Incompleta";          
+    this.alertMessage = "	Nombre del Residente Incompleta";          
   }
 
   else if(this.employee.collection_payment_term =="" ||  this.employee.collection_payment_term ==null ){
     this.alertDisable = false;
-    this.alertMessage = "•	Termino de pago  Incompleta";          
+    this.alertMessage = "	Termino de pago  Incompleta";          
   }
 
 
   else if(this.employee.collection_collection_concept =="" ||  this.employee.collection_collection_concept ==null ){
     this.alertDisable = false;
-    this.alertMessage = "•	Concepto de cobro  Incompleta";          
+    this.alertMessage = "	Concepto de cobro  Incompleta";          
   }
 
   else if(this.employee.collection_amount ==null ||  this.employee.collection_amount ==null ){
     this.alertDisable = false;
-    this.alertMessage = "•	Importe Incompleta";          
+    this.alertMessage = "	Importe Incompleta";          
   }
   
   else if(this.employee.collection_referral_address =="" ||  this.employee.collection_referral_address ==null ){
     this.alertDisable = false;
-    this.alertMessage = "•	Dirección de remisión Incompleta";          
-  }
-  else if(this.employee.condominums_id ==null ||  this.employee.condominums_id ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "condominums_id Incompleta";          
+    this.alertMessage = "Dirección de remisión Incompleta";          
   }
 
   else{

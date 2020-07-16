@@ -75,15 +75,6 @@ export class CreateTransactionTypesComponent implements OnInit {
     this.alertMessage = "	Distribución contable Incompleta";          
   }
 
-  else if(this.employee.condominums_id ==null ||  this.employee.condominums_id ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Registro  Incompleta";          
-  }
-
-  else if(this.employee.created_by ==null ||  this.employee.created_by ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Fecha de creacion Incompleta";          
-  }
 
 
   else{
