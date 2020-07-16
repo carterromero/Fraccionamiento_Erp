@@ -4,14 +4,21 @@
       <!-- <button [routerLink]="['/ac-create-visitors']" class="btn btn-primary">Tags registrados</button><br> -->
         <div class="form-group ">
             <form (ngSubmit)="onSubmit1()">
-                <label class="col-form-label" for="timedate"><strong>fecha
+                <label class="col-form-label" for="timedate" style="margin-right: 10px;"><strong>fecha
                         desde</strong></label>
                 <input type="date" placeholder="YYYY-MM-DD" [(ngModel)]="datestart1"
                     name="hora_entrada">
-                <label class="col-form-label" for="timedate"><strong>a</strong></label>
+                <label class="col-form-label" for="timedate" style="margin-left: 10px; margin-right: 10px;"><strong> a </strong></label>
                 <input type="date" placeholder="YYYY-MM-DD" [(ngModel)]="dateend1"
                     name="hora_salida">
-                <button type="submit" class="btn btn-sm btn-primary">Buscar</button>
+                <label class="col-form-label" for="tipo_persona" style="margin-left: 10px; margin-right: 10px;"><strong> Tipo Persona</strong></label>
+                <select id="tipo_persona" name="tipo_persona" [(ngModel)]="tipo">
+                    <!-- <option value="">Elegir tipo</option> -->
+                    <option value="Residentes">Residentes</option>
+                    <option value="Visitantes">Visitantes</option>
+                    <option value="All">Todo</option>
+                </select>
+                <button type="submit" class="btn btn-sm btn-primary" style="margin-left: 10px; margin-bottom: 5px;">Buscar</button>
             </form>
 
         </div>

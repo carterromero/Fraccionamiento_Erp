@@ -827,13 +827,6 @@ const NavigationItemss = [
             type: 'item',            
             url: '/ac-reports-people'
             
-          },
-          {
-            id: 'ac-visitor',
-            title: 'Visitantes',
-            type: 'item',            
-            url: '/ac-reports-visitor'
-            
           }
         ]
       }
@@ -1685,13 +1678,6 @@ export class NavigationItem
                 title: 'Ingreso de Personas',
                 type: 'item',            
                 url: '/ac-reports-people'
-                
-              },
-              {
-                id: 'ac-visitor',
-                title: 'Visitantes',
-                type: 'item',            
-                url: '/ac-reports-visitor'
                 
               }
             ]

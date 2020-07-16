@@ -14,6 +14,7 @@ export class AcReportsPeopleComponent implements OnInit {
   report: Observable<Reports[]>;
   dateend1: Date;
   datestart1: Date;
+  tipo: string;
   submitted = false;
   tabPeople: number = 1;
   constructor(private ReportsService: ReportsService) { }
@@ -26,15 +27,28 @@ export class AcReportsPeopleComponent implements OnInit {
     this.getReportsPeople();
   }
   getReportsPeople() {
-    this.ReportsService.getReportsPeople(this.datestart1, this.dateend1).subscribe(
-      response => {
-        this.report = this.ReportsService.getReportsPeople(this.datestart1, this.dateend1);
-        console.log(response);
-      },
-      error => {
-        console.log(error);
-      }
-    );
+    if(this.tipo == 'Residentes' || this.tipo == 'All'){
+      this.ReportsService.getReportsPeople(this.datestart1, this.dateend1,this.tipo).subscribe(
+        response => {
+          this.report = this.ReportsService.getReportsPeople(this.datestart1, this.dateend1,this.tipo);
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        }
+      );  
+    }
+    else if(this.tipo == 'Visitantes'){
+      this.ReportsService.getReportsPeopleV(this.datestart1, this.dateend1,this.tipo).subscribe(
+        response => {
+          this.report = this.ReportsService.getReportsPeopleV(this.datestart1, this.dateend1,this.tipo);
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   exportExcelPeople(): void 
