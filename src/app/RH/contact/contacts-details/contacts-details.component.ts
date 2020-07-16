@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Employee } from 'src/app/employee';
+import { EmployeeService } from 'src/app/employee.service';
+import { ContactsService } from 'src/app/contacts.service'
+import { Contacts } from 'src/app/contacts';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-contacts-details',
@@ -7,9 +13,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactsDetailsComponent implements OnInit {
 
-  constructor() { }
+  id: number;
+  employee: Employee;
+  employees: Observable<Employee[]>;
+  contact: Contacts = new Contacts();
+  contacts: Observable<Contacts[]>;
+ 
+  
+  constructor(private route: ActivatedRoute,private router: Router,
+    private employeeService: EmployeeService, private contactsService :ContactsService) {
+     }
 
-  ngOnInit(): void {
+
+  ngOnInit() {
+    this.contact = new Contacts();    
+    //this.id = this.route.snapshot.params['id'];
+    this.id = this.route.firstChild.snapshot.params['id']
+    console.log(this.id);
+    
+    this.contactsService.getContactO(this.id).subscribe(data => {
+        console.log(data);
+        this.contact = data;
+      }, error => {
+        console.log(error);
+        //localStorage.setItem('token', "");
+        //this.router.navigate(['auth/signin']);
+      });
   }
-
 }

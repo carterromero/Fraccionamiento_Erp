@@ -134,6 +134,10 @@ import { TagviviendaListComponent } from './RH/REPORTES/tagvivienda/tagvivienda-
 import { ReportEmployeeListComponent } from './RH/REPORTES/reportemployee-list/reportemployee-list.component';
 import { DepartmentsRListComponent }  from './RH/REPORTES/departmentsr-list/departmentsr-list.component';
 import { ReservationsreportListComponent }  from './RH/REPORTES/reservationsreport-list/reservationsreport-list.component';
+import { CreateContactsComponent } from './RH/contact/create-contacts/create-contacts.component';
+import { ContactsListComponent } from './RH/contact/contacts-list/contacts-list.component';
+import { UpdateContactsComponent } from './RH/contact/update-contacts/update-contacts.component';
+import { ContactsDetailsComponent } from './RH/contact/contacts-details/contacts-details.component';
 
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
@@ -344,6 +348,46 @@ const routes: Routes = [
           {
             path: 'profile',
             loadChildren: () => import('./user/profile/profile.module').then(module => module.ProfileModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ContactsListComponent,
+        children: [
+          {
+            path: 'contacts-list',
+            loadChildren: () => import('src/app/RH/contact/contacts-list/contacts-list.module').then(module => module.ContactsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateContactsComponent,
+        children: [
+          {
+            path: 'create-contacts',
+            loadChildren: () => import('src/app/RH/contact/create-contacts/create-contacts.module').then(module => module.CreateContactsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ContactsDetailsComponent,
+        children: [
+          {
+            path: 'contacts-details/:id',
+            loadChildren: () => import('src/app/RH/contact/contacts-details/contacts-details.component').then(module => module.ContactsDetailsComponent)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateContactsComponent,
+        children: [
+          {
+            path: 'update-contacts/:id',
+            loadChildren: () => import('src/app/RH/contact/update-contacts/update-contacts.module').then(module => module.UpdateContactsModule)
           }
         ]
       },

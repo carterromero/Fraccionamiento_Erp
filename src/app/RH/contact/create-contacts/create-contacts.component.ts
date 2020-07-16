@@ -9,14 +9,14 @@ import { Observable } from 'rxjs';
 
 
 @Component({
-  selector: 'app-create-employee',
-  templateUrl: './create-employee.component.html',
-  styleUrls: ['./create-employee.component.scss']
+  selector: 'app-create-contacts',
+  templateUrl: './create-contacts.component.html',
+  styleUrls: ['./create-contacts.component.scss']
 })
 export class CreateContactsComponent implements OnInit {
   
   contact: Contacts = new Contacts();
-  employee :  Observable<Employee[]>;
+  employees :  Observable<Employee[]>;
   submitted = false;
   alertDisable = true;
   alertDisables = true;
@@ -39,10 +39,10 @@ export class CreateContactsComponent implements OnInit {
   reloadDatas() 
   {
 
-    this.employeeService.getEmployeeList().subscribe(
+    this.employeeService.getNames().subscribe(
       data => {
         console.log(data);
-        this.employee = this.employeeService.getEmployeeList();
+        this.employees = this.employeeService.getNames();
       },
       error => {
         console.log(error);

@@ -39,6 +39,5 @@ export class ContactsService {
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ALL_CONTAC/1.0/contacts`,{headers});
   }
   
- 
   
 }

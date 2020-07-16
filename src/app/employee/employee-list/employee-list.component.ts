@@ -29,12 +29,6 @@ export class EmployeeListComponent implements OnInit {
         console.log(data);      
         console.log(this.employee.employees_status);
         this.employees = this.employeeService.getEmployeeList();
-        if(this.employee.employees_status = (String(this.employee.employees_status) == "false") ? null:"false"){
-          this.employee.employees_status = "inactivo";
-        }
-        else{
-          this.employee.employees_status = "activo";
-        }
       },
       error => {
         console.log(error);
