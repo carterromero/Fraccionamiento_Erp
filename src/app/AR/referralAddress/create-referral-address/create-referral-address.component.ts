@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 
 export class CreateReferralAddressComponent implements OnInit {
-
+///agregar codominio y custyoimner_id
   employee: ReferralAddress = new ReferralAddress();
   alertDisable = true;
   alertDisables = true;
