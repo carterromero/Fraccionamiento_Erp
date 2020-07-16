@@ -286,6 +286,10 @@ import { PdfArticulogListComponent } from './inventarios/Pdf-articulo-g/pdf-arti
 import { PdfHistoriaListComponent } from './inventarios/pdf-historiarti/pdf-historia-list/pdf-historia-list.component';
 import { AcCreateTagsComponent } from './AC/ac-tags/ac-create-tags/ac-create-tags.component';
 import { ConciliacionpListComponent } from './AP/ap_conciliacion/conciliacionp-list/conciliacionp-list.component';
+import { ClientListComponent } from './AP/ap_client/client-list/client-list.component';
+import { CreateClientComponent } from './AP/ap_client/create-client/create-client.component';
+import { UpdateClientComponent } from './AP/ap_client/update-client/update-client.component';
+import { ClientDetailsComponent } from './AP/ap_client/client-details/client-details.component';
 
 
 
@@ -1024,6 +1028,51 @@ const routes: Routes = [
           {
             path: 'creditor-details/:id',
             loadChildren: () => import('./AP/ap_creditor/creditor-details/creditor-details.module').then(module => module.CreditorDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: ClientListComponent,
+        children: [
+          {
+            path: 'client-list',
+            loadChildren: () => import('./AP/ap_client/client-list/client-list.module').then(module => module.ClientListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: CreateClientComponent,
+        children: [
+          {
+            path: 'create-client',
+            loadChildren: () => import('./AP/ap_client/create-client/create-client.module').then(module => module.CreateClientModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: UpdateClientComponent,
+        children: [
+          {
+            path: 'update-client/:id',
+            loadChildren: () => import('./AP/ap_client/update-client/update-client.module').then(module => module.UpdateClientModule)
+          }
+        ]
+      }
+      ,
+      {
+        path: '',
+
+        component: ClientDetailsComponent,
+        children: [
+          {
+            path: 'client-details/:id',
+            loadChildren: () => import('./AP/ap_client/client-details/client-details.module').then(module => module.ClientDetailsModule)
           }
         ]
       },
