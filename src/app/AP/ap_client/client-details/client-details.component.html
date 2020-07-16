@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle=" Detalle" [options]="false">
+        <div *ngIf="employee">
+          <div>
+            <label><b>Nombre Completo: </b></label> {{employee.cliente_name_cliente}}
+          </div>
+          <div>
+            <label><b>cuenta: </b></label> {{employee.cliente_cuenta}}
+          </div>
+          <div>
+            <label><b>Direccion: </b></label> {{employee.cliente_direccion}}
+          </div>
+         
+          <div>
+            <label><b>RFC: </b></label> {{employee.cliente_rfc}}
+          </div>
+          <div>
+            <label><b>telefono: </b></label> {{employee.cliente_tel}}
+          </div>
+         
+          <div>
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="cliente_status"       name="cliente_status"   style="margin-left: 10px" [checked]="employee.cliente_status == 'true'">
+            <label class="custom-control-label" for="cliente_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/client-list']" class="btn btn-primary">Regresar </button><br>
+      </app-card>
+      </div>
+  </div>
+

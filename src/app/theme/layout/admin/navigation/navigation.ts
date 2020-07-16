@@ -1009,6 +1009,13 @@ export class NavigationItem
             url: '/creditor-list'
             
           },
+          {
+            id: 'cliente',
+            title: 'Cliente',
+            type: 'item',            
+            url: '/client-list'
+            
+          },
           
           {
             id: 'crear_cuenta',
