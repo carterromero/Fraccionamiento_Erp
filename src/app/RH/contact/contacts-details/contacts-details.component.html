@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Detalle Contacto" [options]="false">
+        <div *ngIf="contact">
+          <div>
+            <label><b>Nombre: </b></label> {{contact.contacts_name}} {{contact.contacts_father_surname}} {{contact.contacts_mother_surname}}
+          </div>
+          <div>
+            <label><b>NSS: </b></label> {{contact.contacts_nss}}
+          </div>
+          <div>
+            <label><b>Parentesco: </b></label> {{contact.contacts_relationship}}
+          </div>
+          <div>
+            <label><b>Telefono: </b></label> {{contact.contacts_cellphone}}
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Empleado</label>
+            <select disabled class="custom-select"  id="employees_id" required [(ngModel)]="contact.employees_id"  name="employees_id" >
+            <option *ngFor="let employee of employees | async" value="{{employee.employees_id}}">{{employee.employees_name}} {{employee.employees_father_surname}} {{employee.employees_mother_surname}}</option>
+            </select>
+        </div>  
+          <div>
+            <label><b>Estatus:  </b></label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="contacts_status"       name="contacts_status"   style="margin-left: 10px" [checked]="contact.contacts_status == 'true'">
+                <label class="custom-control-label" for="contacts_status">Active</label>
+             </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/contacts-list']" class="btn btn-primary">Regresar a contactos</button><br>
+      </app-card>
+      </div>
+  </div>

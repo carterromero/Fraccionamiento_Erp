@@ -484,20 +484,6 @@ const NavigationItemss = [
             ]
           },
           {
-            id: 'rh-agreements',
-            title: 'Contrato',
-            type: 'collapse',
-            icon: 'feather icon-user',
-            children: [
-              {
-                 id: 'rh-agreement',
-                title: 'Registrar contrato',
-                type: 'item',            
-                url: '/agreements-list'
-              }               
-            ]
-          },
-          {
             id: 'Tenants-main',
             title: 'Residentes',
             type: 'collapse',
@@ -1304,20 +1290,6 @@ export class NavigationItem
                 type: 'item',            
                 url: '/employee-list'
               } 
-            ]
-          },
-          {
-            id: 'rh-agreements',
-            title: 'Contrato',
-            type: 'collapse',
-            icon: 'feather icon-user',
-            children: [
-              {
-                 id: 'rh-agreement',
-                title: 'Registrar contrato',
-                type: 'item',            
-                url: '/agreements-list'
-              }               
             ]
           },
           {
