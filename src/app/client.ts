@@ -1,6 +1,6 @@
 export class Client 
 {
-    
+     
 id_client :number;
 cliente_name_cliente : string;
 cliente_cuenta : string;
