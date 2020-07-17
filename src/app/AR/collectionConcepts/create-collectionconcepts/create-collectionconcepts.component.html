@@ -26,17 +26,22 @@
           </div>
           <div class="form-group">
             <label for="name">Cuenta contable de ingreso</label>
-            <input type="text" class="form-control" id="collection_concepts_accounting_income_account"
+            <select class="form-control" id="collection_concepts_accounting_income_account" required
               [(ngModel)]="employee.collection_concepts_accounting_income_account"
-              name="collection_concepts_accounting_income_account" required>
+              name="collection_concepts_accounting_income_account">
+              <option *ngFor="let Lines of Lines | async" value="{{Lines.accounting_accounts_id}}">
+                {{Lines.accounting_accounts_id}}</option>
+            </select>
+
           </div>
           <div class="form-group">
             <label for="name">Codigo de Articulo</label>
-            <input type="text" class="form-control" list="name" name="sku" id="sku">
-            <datalist id="name">
+          
+            <select class="form-control" id="articles_sku" required
+            [(ngModel)]="employee.sku" name="sku">
               <option *ngFor="let Articles of Articles | async" value="{{Articles.articles_sku}}">
                 {{Articles.articles_sku}}</option>
-            </datalist>
+            </select>
           </div>
           <div class="form-group">
             <label for="name">Estatus</label>
