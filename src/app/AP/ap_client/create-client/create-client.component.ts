@@ -28,14 +28,14 @@ export class CreateClientComponent implements OnInit {
     }
 
     save() {
-     // this.employee.created_by = Number(localStorage.getItem('id'));
+
       this.employee.user_id="3";
       this.employeeService.createEmployee(this.employee)
         .subscribe(data => 
           {
             console.log(data);
             this.alertDisables = false;
-            this.alertMessages ="Se inserto  correctamente";
+            this.alertMessages ="Se inserto correctamente";
             this.employee= new Client();
           }, 
         error => {
@@ -51,20 +51,8 @@ export class CreateClientComponent implements OnInit {
  onSubmit() 
   {
 
-  this.alertDisable = true;
-  this.alertDisables = true;
-
-  if(this.employee.cliente_name_cliente =="" ||  this.employee.cliente_name_cliente ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Nombre Incompleto";          
-  }
-
-
-
-
-  else{
     this.save();    
-  }
+  
  }
 
   gotoList() 
