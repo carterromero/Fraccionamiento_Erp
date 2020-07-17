@@ -37,10 +37,17 @@
           <label><b>Condominio: </b></label> {{employee.condominums_id}}
         </div>
         <div>
-          <label><b>Departamento: </b></label> {{employee.departments_id}}
+          <button (click)="gocv()" class="btn btn-info">Descargar CV</button>
+        </div>
+        <br> <br>
+        <div>
+          <button (click)="gocontract()" class="btn btn-info">Descargar Contrato</button>
         </div>
         <div>
-          <label><b>Puesto: </b></label> {{employee.workplaces_id}}
+          <label><b>Departamento: </b></label> {{employee.departments_name}}
+        </div>
+        <div>
+          <label><b>Puesto: </b></label> {{employee.workplaces_name}}
         </div>
         <div>
           <label><b>Unidad de fraccionamiento: </b></label> {{employee.employees_fractionation_unit}}
