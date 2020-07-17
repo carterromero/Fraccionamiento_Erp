@@ -31,6 +31,7 @@ export class UpdateTenantsComponent implements OnInit {
     this.reloadDatas();
     this.tenant = new Tenants();
     this.id = this.route.firstChild.snapshot.params['id']
+
     console.log(this.tenant.tenants_status);
     this.tenantService.getTenant(this.id).subscribe(data => {
         console.log(data);
@@ -75,7 +76,8 @@ export class UpdateTenantsComponent implements OnInit {
 }
 
   updateTenant() {
-    this.tenant.last_update_by=3;
+
+    this.tenant.last_update_by = Number(localStorage.getItem('id'));
     console.log(this.tenant);
     console.log(this.id);
     this.tenantService.updateTenant(this.id, this.tenant).subscribe(data => {console.log(data);

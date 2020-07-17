@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionTypes } from 'src/app/transaction-types';
 import { TransactionTypesService } from 'src/app/transaction-types.service';
-import { Router } from '@angular/router';
 
+import { LinesService } from "src/app/services/gl/lines.service";
+import { Lines } from "src/app/services/gl/lines";
+
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-create-transactiontypes',
   templateUrl: './create-transactiontypes.component.html',
@@ -12,19 +16,40 @@ import { Router } from '@angular/router';
 export class CreateTransactionTypesComponent implements OnInit {
 
   employee: TransactionTypes = new TransactionTypes();
+  Lines:Observable<Lines[]>
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private employeeService: TransactionTypesService,
+  constructor(
+    private employeeService: TransactionTypesService,
+    private LinesService:LinesService,
     private router: Router) { }
 
   ngOnInit() {
+    this.reloadDatas();
   }
 
   newEmployee(): void {
     this.employee = new TransactionTypes();
+  }
+  reloadDatas() 
+  {
+    
+    this.LinesService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.Lines = this.LinesService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
   }
 
   save() {

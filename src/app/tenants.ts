@@ -11,7 +11,7 @@ export class Tenants {
     tenants_status: string;
     agreement_id: string;
     agreement_name: string;
-    condominums_id: string;
+    condominums_id: number;
     condominums_description: string;
     tenants_type: string;
     create_by: number;

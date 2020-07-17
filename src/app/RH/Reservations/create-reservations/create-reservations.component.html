@@ -5,9 +5,11 @@
         <app-card cardTitle="Crear reservacion" [options]="false">
           <form (ngSubmit)="onSubmit()">
             <div class="form-group">
-              <label for="name">Ubicacion</label>
-              <input type="text" class="form-control" id="reservations_location" required [(ngModel)]="reservation.reservations_location" name="reservations_location">
-            </div>    
+              <label for="exampleFormControlSelect1">Lugar</label>
+              <select  class="custom-select"  id="articles_sku" required [(ngModel)]="reservation.articles_sku" name="articles_sku" >
+              <option *ngFor="let article of articles | async" value="{{article.articles_sku}}">{{article.articles_name_article}}</option>
+              </select>
+          </div>  
             <div class="form-group">
                 <label for="name">Fecha de reservacion:</label>
                 <input type="date" class="form-control" id="reservations_date" required [(ngModel)]="reservation.reservations_date" name="reservations_date">
@@ -21,7 +23,7 @@
                 <input type="time" class="form-control" id="reservations_end_time" required [(ngModel)]="reservation.reservations_end_time" name="reservations_end_time">
               </div>    
               <div class="form-group">
-                <label for="exampleFormControlSelect1">Inquilino</label>
+                <label for="exampleFormControlSelect1">Residente</label>
                 <select  class="custom-select"  id="tenants_id" required [(ngModel)]="reservation.tenants_id" name="tenants_id" >
                 <option *ngFor="let tenant of tenants | async" value="{{tenant.tenants_id}}">{{tenant.tenants_name}}</option>
                 </select>

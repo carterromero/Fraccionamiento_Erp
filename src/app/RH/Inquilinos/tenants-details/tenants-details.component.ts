@@ -25,9 +25,21 @@ export class TenantsDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute,private router: Router,
     private tenantService: TenantsService, private condominumsService: CondominumsService) { }
 
+   
+  goagreements(){
+    var windo = window.open("", "");  
+    var objbuilder = '';
+    objbuilder += ('<embed width=\'100%\' height=\'100%\'  src="data:application/pdf;base64,');
+    objbuilder += (this.tenant.tenants_agreement);
+    objbuilder += ('" type="application/pdf" />');
+    windo.document.write(objbuilder); 
+  }
+
+
  ngOnInit() {
    this.reloadDatas();
-    this.tenant = new Tenants();    
+    this.tenant = new Tenants();  
+    console.log(this.tenant.tenants_agreement);  
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
     
