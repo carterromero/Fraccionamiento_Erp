@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BankCodes } from '../../../bankCodes';
 import { Router } from '@angular/router';
+import { BankCodes } from '../../../bankCodes';
 import { BankCodesService } from '../../../bank-codes.service';
 
 @Component({
