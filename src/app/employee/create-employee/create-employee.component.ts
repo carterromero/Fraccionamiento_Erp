@@ -3,14 +3,12 @@ import { EmployeeService } from '../../employee.service';
 import { Employee } from '../../employee';
 import { Router } from '@angular/router';
 import { Condominums } from 'src/app/services/admin/condominums';
-import { CondominumsService } from 'src/app/services/admin/condominums.service';
 import { Departments } from 'src/app/departments';
 import { DepartmentsService } from 'src/app/departments.service';
 import { Workplaces } from 'src/app/workplaces';
 import { WorkplacesService } from 'src/app/workplaces.service';
-import { Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-
+import { User } from 'src/app/services/admin/user';
 
 
 @Component({
@@ -19,7 +17,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./create-employee.component.scss']
 })
 export class CreateEmployeeComponent implements OnInit {
-  
+  authentication: User = new User();  
   employee: Employee = new Employee();
   condominums: Observable<Condominums[]>;
   departments: Observable<Departments[]>;
@@ -35,14 +33,13 @@ export class CreateEmployeeComponent implements OnInit {
   constructor(private employeeService: EmployeeService, 
     private departmentsService: DepartmentsService, 
     private workplacesService: WorkplacesService,
-    private condominumsService: CondominumsService,
      private router: Router) { 
     
     }
 
   ngOnInit() {
     //code
-    this.reloadDatas();
+    //this.reloadDatas();
     this.reloadDatas2();
     this.reloadDatas3();
   }
@@ -53,7 +50,7 @@ export class CreateEmployeeComponent implements OnInit {
 
   }
 
-  reloadDatas() 
+ /* reloadDatas() 
   {
 
     this.condominumsService.getEmployeeListcombo().subscribe(
@@ -69,7 +66,7 @@ export class CreateEmployeeComponent implements OnInit {
         }
       }
     );      
-  }
+  }*/
   reloadDatas2() 
   {
 
@@ -135,6 +132,8 @@ handleUpload2(event) {
   };
 }
   save(){
+    this.employee.create_by = Number(localStorage.getItem('id'));
+    this.employee.condominums_id = Number(localStorage.getItem('condominums'));
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => console.log(data), 
       error => {

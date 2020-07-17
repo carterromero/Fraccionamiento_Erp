@@ -33,5 +33,7 @@ export class Employee {
     condominums_descrption: string;
     pr_receipt_base_salary: number;
     pr_receipt_type_of_perception: string;
-    employees_telephone: number;
+    employees_telephone: string;
+    create_by: number;
+    last_update_by : number;
 }

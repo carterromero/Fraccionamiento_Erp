@@ -3,17 +3,23 @@
       <app-card cardTitle="Registro de pago Detalle" [options]="false">
         <div  id="from-informacion" *ngIf="employee">
 
-        
-          <div>
+         
+            <div>
+              <label><b>Total pagado: </b></label> {{employee.name_creditor}}
+            </div>
+            <div>
+              <label><b>FECHA DE PAGO: </b></label> {{employee.payment_record_payment_date}}
+            </div>
+            <div>
             <label><b>Total pagado: </b></label> {{employee.payment_record_amount}}
           </div>
           <div>
             <label><b>tipo de pago: </b></label> {{employee.metodo_tipo}}
           </div>
+         
           <div>
-            <label><b>Método de pago: </b></label> {{employee.payment_method}}
+            <button (click)="gocv()" class="btn btn-info">Descargar COMPROBANTE</button>
           </div>
-
    
 
           <div>

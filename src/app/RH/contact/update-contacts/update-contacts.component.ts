@@ -73,17 +73,10 @@ export class UpdateContactsComponent implements OnInit {
       this.contactsService.updateContact(this.id, this.contact)
       .subscribe(data => {console.log(data);
         this.gotoList();  
-            this.alertDisables = false;
-            this.alertMessages ="Se actualizo el departamento";
             this.gotoList();
           }, 
         error => {
-          console.log(error);    
-          let coins = [];
-          for (let key in error) {
-            this.alertDisable = false;
-            this.alertMessage = "No se puede agregar el nombre esta duplicado";
-          }      
+          console.log(error);       
         });
   
   }

@@ -28,6 +28,14 @@ export class PaymentRecordDetailsComponent implements OnInit {
   
   
     }
+    gocv(){
+      var windo = window.open("", "");  
+      var objbuilder = '';
+      objbuilder += ('<embed width=\'100%\' height=\'100%\'  src="data:application/pdf;base64,');
+      objbuilder += (this.employee.payment_method);
+      objbuilder += ('" type="application/pdf" />');
+      windo.document.write(objbuilder); 
+    }
 
   ngOnInit() {
     this.employee = new PaymentRecord();    
