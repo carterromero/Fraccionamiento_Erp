@@ -9,7 +9,6 @@ import { DepartmentsService } from 'src/app/departments.service';
 import { Workplaces } from 'src/app/workplaces';
 import { WorkplacesService } from 'src/app/workplaces.service';
 import { Observable } from 'rxjs';
-import { UserService } from 'src/app/services/admin/user.service';
 import { User } from 'src/app/services/admin/user';
 
 
@@ -42,7 +41,7 @@ export class CreateEmployeeComponent implements OnInit {
 
   ngOnInit() {
     //code
-    this.reloadDatas();
+    //this.reloadDatas();
     this.reloadDatas2();
     this.reloadDatas3();
   }
@@ -53,7 +52,7 @@ export class CreateEmployeeComponent implements OnInit {
 
   }
 
-  reloadDatas() 
+ /* reloadDatas() 
   {
 
     this.condominumsService.getEmployeeListcombo().subscribe(
@@ -69,7 +68,7 @@ export class CreateEmployeeComponent implements OnInit {
         }
       }
     );      
-  }
+  }*/
   reloadDatas2() 
   {
 
@@ -136,6 +135,7 @@ handleUpload2(event) {
 }
   save(){
     this.employee.create_by = Number(localStorage.getItem('id'));
+    this.employee.condominums_id = Number(localStorage.getItem('condonminums'));
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => console.log(data), 
       error => {
