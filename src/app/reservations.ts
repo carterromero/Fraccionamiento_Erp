@@ -2,7 +2,8 @@ import { Time } from '@angular/common';
 
 export class Reservations {
     reservations_id: number;
-    reservations_location: string;
+    articles_sku: number;
+    articles_name_article: string;
     reservations_date: Date;
     reservations_start_time: string;
     reservations_end_time: string;

@@ -43,10 +43,7 @@ const NavigationItemss = [
         classes: 'nav-item',
         icon: 'feather icon-home'
       }
-  
     ]
-  
-    
   },
   {
     id: 'reservations-main',
@@ -59,7 +56,7 @@ const NavigationItemss = [
         title: 'Manejo Reservaciones',
         type: 'collapse',
         url: '/reservations-list',
-        icon: 'feather icon-user'
+        icon: 'feather icon-book',
       }
     ]
   },
@@ -421,21 +418,8 @@ const NavigationItemss = [
                                   
           ]
         },
-
-
-
-
-
-
-
-
-
       ]
-        
-    
-
-      },
-  {    
+      },{    
         id: 'RH-main',
         title: 'Recursos Humanos ',
         type: 'group',

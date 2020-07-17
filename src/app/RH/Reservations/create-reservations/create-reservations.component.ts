@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Reservations } from 'src/app/reservations';
 import { ReservationsService } from 'src/app/reservations.service';
+import { ArticlesService } from "src/app/articles.service";
+import { Articles } from "src/app/articles";
 
 
 @Component({
@@ -16,6 +18,7 @@ export class CreateReservationsComponent implements OnInit {
   
   reservation: Reservations = new Reservations();
   tenants: Observable<Tenants[]>;
+  articles: Observable<Articles[]>;
   submitted = false;
   alertDisable = true;
   alertDisables = true;
@@ -23,16 +26,35 @@ export class CreateReservationsComponent implements OnInit {
   alertMessages = "null";
 
   constructor(private tenantsService:TenantsService,
-  private reservationsService: ReservationsService,  private router: Router) { }
+  private reservationsService: ReservationsService,  private articlesService : ArticlesService, private router: Router) { }
 
   ngOnInit() {
     //code
     this.reloadDatas();
+    this.reloadData();
   }
 
 
 
   reloadDatas() 
+  {
+
+    this.articlesService.getListCommons().subscribe(
+      data => {
+        console.log(data);
+        this.articles = this.articlesService.getListCommons();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
+  reloadData() 
   {
 
     this.tenantsService.getTenantList().subscribe(
@@ -51,6 +73,8 @@ export class CreateReservationsComponent implements OnInit {
   }
  
   save() {
+    this.reservation.create_by=Number(localStorage.getItem('id'));
+    this.reservation.last_update_by=Number(localStorage.getItem('id'));
     this.reservationsService.createReservation(this.reservation)
       .subscribe(data => console.log(data), 
       error => {

@@ -12,16 +12,19 @@
               <th>Fecha de reservacion</th>
               <th>Hora inicial</th>
               <th>Hora final</th>
+              <th>Residente</th>
               <th>Estatus </th>
               <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let reservation of reservations | async">
-                    <td>{{reservation.reservations_location}}</td>
+                    <td>{{reservation.articles_name_article}}</td>
                     <td>{{reservation.reservations_date}}</td>
                     <td>{{reservation.reservations_start_time}}</td>
                     <td>{{reservation.reservations_end_time}}</td>
+                    <td>{{reservation.tenants_name}} {{reservation.tenants_father_surname}} {{reservation.tenants_mother_surname}}</td>
+
                     <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="reservation.reservations_status == 'true'">

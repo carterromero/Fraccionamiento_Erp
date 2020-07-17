@@ -5,6 +5,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Reservations } from 'src/app/reservations';
 import { ReservationsService } from 'src/app/reservations.service';
+import { ArticlesService } from "src/app/articles.service";
+import { Articles } from "src/app/articles";
+
 
 @Component({
   selector: 'app-update-reservations',
@@ -16,14 +19,16 @@ export class UpdateReservationsComponent implements OnInit {
   id: number;
   reservation: Reservations;
   tenants: Observable<Tenants[]>;
+  articles: Observable<Articles[]>;
   alertMessage = "null";
   alertMessages = "null";
 
   constructor(private route: ActivatedRoute,  private reservationsService:ReservationsService, private router: Router,
-  private tenantService: TenantsService) { }
+  private tenantService: TenantsService, private articlesService : ArticlesService) { }
 
   ngOnInit() {
     this.reloadDatas();
+    this.reloadData();
     this.reservation = new Reservations();
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.reservation.reservations_status);
@@ -36,7 +41,26 @@ export class UpdateReservationsComponent implements OnInit {
         console.log(error);
       });
   }
+
   reloadDatas() 
+  {
+
+    this.articlesService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.tenants = this.articlesService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
+  reloadData() 
   {
 
     this.tenantService.getTenantList().subscribe(
@@ -54,8 +78,9 @@ export class UpdateReservationsComponent implements OnInit {
     );      
   }
  
+ 
   updateReservation() {
-    this.reservation.last_update_by=3;
+    this.reservation.last_update_by=Number(localStorage.getItem('id'));
     console.log(this.reservation);
     console.log(this.id);
     this.reservationsService.updateReservation(this.id, this.reservation).subscribe(data => {console.log(data);
