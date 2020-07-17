@@ -108,6 +108,10 @@ export class CreatePaymentsARComponent implements OnInit {
   save() {
 
     //this.employee.userid="3";
+    this.employee.created_by = Number(localStorage.getItem('id'));
+
+ 
+
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => {
         console.log(data);
@@ -150,11 +154,7 @@ export class CreatePaymentsARComponent implements OnInit {
       this.alertDisable = false;
       this.alertMessage = "•	Monto a Pagar Incompleta";
     }
-/* 
-    else if (this.employee.condominums_id == null || this.employee.condominums_id == null) {
-      this.alertDisable = false;
-      this.alertMessage = "condominums_id Incompleta";
-    }
+
 
     else if (this.employee.transaction_types_id == null || this.employee.transaction_types_id == null) {
       this.alertDisable = false;
@@ -164,7 +164,7 @@ export class CreatePaymentsARComponent implements OnInit {
       this.alertDisable = false;
       this.alertMessage = "customer_customer_id Incompleta";
     }
- */
+
 
     else {
       this.save();
