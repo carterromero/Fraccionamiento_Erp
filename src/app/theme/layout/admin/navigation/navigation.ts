@@ -995,7 +995,7 @@ export class NavigationItem
           },
           {
             id: 'cliente',
-            title: 'Cliente',
+            title: 'Unidad Operativa',
             type: 'item',            
             url: '/client-list'
             
