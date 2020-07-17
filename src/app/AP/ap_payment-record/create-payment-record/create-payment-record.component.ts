@@ -98,7 +98,7 @@ console.log(this.employee.payment_method);
       
       console.log(this.employee);
       this.employee.p_user_id = Number(localStorage.getItem('id'));
-     // this.employee.condominums_id = Number(localStorage.getItem('id'));
+    this.employee.condominums_id = Number(localStorage.getItem('condonminums'));
       this.employeeService.createEmployee(this.employee)
         .subscribe(data => 
           {

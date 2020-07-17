@@ -50,7 +50,8 @@ export class UpdatePaymentRecordComponent implements OnInit {
 
     
     console.log(this.employee.payment_status);
-    
+    this.employee.p_user_id = Number(localStorage.getItem('id'));
+    this.employee.condominums_id = Number(localStorage.getItem('condonminums'));
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {
         console.log(data);

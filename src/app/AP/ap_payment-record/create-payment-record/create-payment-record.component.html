@@ -27,12 +27,7 @@
 
             
 
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Condominio</label>
-              <select  class="custom-select"  id="condominums_id" required [(ngModel)]="employee.condominums_id" name="condominums_id" >
-              <option *ngFor="let condominum of condominums | async" value="{{condominum.condominums_id}}">{{condominum.condominums_id}}</option>
-              </select>
-            </div>  
+          
 
             <div class="form-group">
              <label  for="inputGroupSelect01">metodo de pago </label>
