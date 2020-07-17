@@ -11,7 +11,12 @@ import { BankAccountsService } from '../../../bank-accounts.service';
 })
 export class BankAccountsListComponent implements OnInit {
 
+
   general: Observable<BankAccounts[]>;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
 
   constructor(private generalService: BankAccountsService,
     private router: Router) { }
@@ -30,8 +35,11 @@ export class BankAccountsListComponent implements OnInit {
       },
       error => {
         console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']);     
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }    
       });
 
       
@@ -44,12 +52,16 @@ export class BankAccountsListComponent implements OnInit {
           console.log(data);
           this.reloadData();
         },
-        error => {console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']); 
+        error => {
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = error['statusText'];          
+          }  
         }
       );
   }
+
 
   generalDetails(id: number){
     this.router.navigate(['bank-accounts-details', id]);
@@ -58,5 +70,8 @@ export class BankAccountsListComponent implements OnInit {
   updateGeneral(id: number){
     this.router.navigate(['update-bank-accounts', id]);
   }
-
 }
+
+
+
+
