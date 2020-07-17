@@ -4,10 +4,13 @@ import { PaymentsARService } from 'src/app/payments-ar.service';
 
 import { TransactionTypes } from 'src/app/transaction-types';
 import { TransactionTypesService } from 'src/app/transaction-types.service';
+
 import { Customer } from 'src/app/customer';
 import { CustomerService } from 'src/app/customer.service';
+
 import { DepositAccount } from 'src/app/depositAccount';
 import { DepositAccountService } from 'src/app/deposit-account.service';
+
 import { Collection } from 'src/app/collection';
 import { CollectionService } from 'src/app/collection.service';
 
@@ -19,15 +22,17 @@ import { Observable } from 'rxjs';
   templateUrl: './create-payments-ar.component.html',
   styleUrls: ['./create-payments-ar.component.scss']
 })
-/* agregar metodo de transaction_types_id
+/* agregar metodo de
+ transaction_types_id
 customer_custopmer_id obligatorios */
 export class CreatePaymentsARComponent implements OnInit {
 
   employee: PaymentsAR = new PaymentsAR();
-  transactionTypes:Observable<TransactionTypes[]>
+  transactionTypes: Observable<TransactionTypes[]>
   customer: Observable<Customer[]>
+  customerr: Customer = new Customer();
   depositaccount: Observable<DepositAccount[]>
-  collection:Observable<Collection[]>
+  collection: Observable<Collection[]>
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -35,18 +40,17 @@ export class CreatePaymentsARComponent implements OnInit {
 
   constructor(
     private employeeService: PaymentsARService,
-    private TransactionTypesService:TransactionTypesService,
-    private CustomerService:CustomerService,
-    private DepositAccountService:DepositAccountService,
-    private CollectionService:CollectionService,
+    private TransactionTypesService: TransactionTypesService,
+    private CustomerService: CustomerService,
+    private DepositAccountService: DepositAccountService,
+    private CollectionService: CollectionService,
     private router: Router) { }
 
   ngOnInit() {
     this.reloadDatas();
   }
 
-  reloadDatas() 
-  {
+  reloadDatas() {
     this.TransactionTypesService.getEmployeeList().subscribe(
       data => {
         console.log(data);
@@ -56,7 +60,7 @@ export class CreatePaymentsARComponent implements OnInit {
         console.log(error);
         let coins = [];
         for (let key in error) {
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = error['statusText'];
         }
       }
     );
@@ -69,7 +73,7 @@ export class CreatePaymentsARComponent implements OnInit {
         console.log(error);
         let coins = [];
         for (let key in error) {
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = error['statusText'];
         }
       }
     );
@@ -82,7 +86,7 @@ export class CreatePaymentsARComponent implements OnInit {
         console.log(error);
         let coins = [];
         for (let key in error) {
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = error['statusText'];
         }
       }
     );
@@ -95,7 +99,7 @@ export class CreatePaymentsARComponent implements OnInit {
         console.log(error);
         let coins = [];
         for (let key in error) {
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = error['statusText'];
         }
       }
     );
@@ -108,10 +112,8 @@ export class CreatePaymentsARComponent implements OnInit {
   save() {
 
     //this.employee.userid="3";
+    this.employee.condominums_id = Number(localStorage.getItem('condonminums'));
     this.employee.created_by = Number(localStorage.getItem('id'));
-
- 
-
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => {
         console.log(data);
@@ -141,7 +143,7 @@ export class CreatePaymentsARComponent implements OnInit {
 
     else if (this.employee.payments_name_resident == "" || this.employee.payments_name_resident == null) {
       this.alertDisable = false;
-      this.alertMessage = "•	Nombre del Residente Incompleta";
+      this.alertMessage = "•	Nombre del Residente Incompleto";
     }
 
     else if (this.employee.payments_deposit_account == null || this.employee.payments_deposit_account == null) {
@@ -155,15 +157,6 @@ export class CreatePaymentsARComponent implements OnInit {
       this.alertMessage = "•	Monto a Pagar Incompleta";
     }
 
-
-    else if (this.employee.transaction_types_id == null || this.employee.transaction_types_id == null) {
-      this.alertDisable = false;
-      this.alertMessage = "transaction_types_id Incompleta";
-    }
-    else if (this.employee.customer_customer_id == null || this.employee.customer_customer_id == null) {
-      this.alertDisable = false;
-      this.alertMessage = "customer_customer_id Incompleta";
-    }
 
 
     else {
