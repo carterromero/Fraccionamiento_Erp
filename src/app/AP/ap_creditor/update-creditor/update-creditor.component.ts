@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CreditorService } from 'src/app/creditor.service';
 import { Creditor } from 'src/app/creditor';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { BankAccounts } from '../../../bankAccounts';
+import { BankAccountsService } from '../../../bank-accounts.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-update-creditor',
   templateUrl: './update-creditor.component.html',
@@ -10,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpdateCreditorComponent implements OnInit {
 
-  
+  creditor: Observable<BankAccounts[]>;
   id: number;
   employee: Creditor;
   alertDisable = true;
@@ -19,10 +21,12 @@ export class UpdateCreditorComponent implements OnInit {
   alertMessages = "null";
   
   constructor(private route: ActivatedRoute,private router: Router,
+    private bankAccountsService: BankAccountsService,
     private employeeService: CreditorService) { }
 
   ngOnInit() {
 
+    this.reloadDatas1() ;
     this.employee = new Creditor();
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.employee.creditor_status);
@@ -42,7 +46,23 @@ export class UpdateCreditorComponent implements OnInit {
       });
   }
 
-   
+  reloadDatas1() 
+  {
+
+    this.bankAccountsService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.creditor= this.bankAccountsService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
 
   updateEmployee() {
 

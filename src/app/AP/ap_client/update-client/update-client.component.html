@@ -9,9 +9,11 @@
                 <input type="text" class="form-control" id="cliente_name_cliente"  [(ngModel)]="employee.cliente_name_cliente" name="cliente_name_cliente" required> 
               </div>      
               <div class="form-group">
-                <label for="name">cuenta</label>
-                <input type="text" class="form-control" id="cliente_cuenta"  [(ngModel)]="employee.cliente_cuenta" name="cliente_cuenta" required>
-              </div>  
+                <label for="exampleFormControlSelect1">cuenta</label>
+                <select type="text" class="form-control"  id="cliente_cuenta" required [(ngModel)]="employee.cliente_cuenta" name="cliente_cuenta" >
+                <option *ngFor="let creditors of creditor | async" value="{{creditors.bank_accounts_bank_account_number}}">{{creditors.bank_accounts_bank_account_number}}</option>
+                </select>
+            </div>   
               <div class="form-group">
                 <label for="name">direccion</label>
                 <input type="text" class="form-control" id="cliente_direccion"  [(ngModel)]="employee.cliente_direccion" name="cliente_direccion" required>

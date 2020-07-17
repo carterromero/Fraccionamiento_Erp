@@ -17,7 +17,7 @@ export class PaymentRecord
     condominums_id :number;
     name_creditor : string;
     metodo_tipo :  string;
-    
+    factura : number;
 
     data: File;
     state: string;

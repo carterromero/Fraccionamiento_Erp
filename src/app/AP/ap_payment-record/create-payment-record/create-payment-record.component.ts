@@ -9,6 +9,8 @@ import { Condominums } from 'src/app/services/admin/condominums';
 import { CondominumsService } from 'src/app/services/admin/condominums.service';
 import { Creditor } from 'src/app/creditor';
 import { CreditorService } from 'src/app/creditor.service';
+import { Billtopay } from 'src/app/billtopay';
+import { Billtopayservice } from 'src/app/billtopay.service';
 
 
 
@@ -22,6 +24,7 @@ export class CreatePaymentRecordComponent implements OnInit {
 
   employee: PaymentRecord = new PaymentRecord();
   condominums: Observable<Condominums[]>;
+  factura: Observable<Billtopay[]>;
   creditor: Observable<Creditor[]>;
   
   alertDisable = true;
@@ -36,7 +39,7 @@ export class CreatePaymentRecordComponent implements OnInit {
   constructor(private employeeService: PaymentRecordService,
     private condominumsService: CondominumsService,
     private creditorService: CreditorService,
-
+    private billtopayservice: Billtopayservice,
     
     private router: Router) {
 
@@ -46,6 +49,7 @@ export class CreatePaymentRecordComponent implements OnInit {
     ngOnInit() {
       this.reloadDatas();
       this.reloadDatas1() ;
+      this.reloadDatas2() ;
 
 
       
@@ -81,6 +85,23 @@ export class CreatePaymentRecordComponent implements OnInit {
       data => {
         console.log(data);
         this.creditor= this.creditorService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+  reloadDatas2() 
+  {
+
+    this.billtopayservice.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.factura= this.billtopayservice.getEmployeeList();
       },
       error => {
         console.log(error);

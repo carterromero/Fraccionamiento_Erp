@@ -5,10 +5,17 @@
           <form (ngSubmit)="onSubmit()">
 
             <div class="form-group">
-              <label for="name">nombre creditor</label>
-              <input type="text" class="form-control" id="name_creditor"  [(ngModel)]="employee.name_creditor" name="name_creditor" required>
-             
-            </div>  
+              <label for="exampleFormControlSelect1">creditor</label>
+              <select  type="text" class="form-control"  id="name_creditor" required [(ngModel)]="employee.name_creditor" name="name_creditor" >
+              <option *ngFor="let creditors of creditor | async" value="{{creditors.creditor_business_name}}">{{creditors.creditor_business_name}}</option>
+              </select>
+          </div>  
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">factura</label>
+              <select  type="text" class="form-control" id="factura" required [(ngModel)]="employee.factura" name="factura" >
+              <option *ngFor="let creditors of factura | async" value="{{creditors.billtopay_invoice_folio}}">{{creditors.billtopay_invoice_folio}}</option>
+              </select>
+          </div>  
 
             <div class="form-group">
                 <label for="start">Fecha de pago: </label>
