@@ -3,7 +3,6 @@ import { EmployeeService } from '../../employee.service';
 import { Employee } from '../../employee';
 import { Router } from '@angular/router';
 import { Condominums } from 'src/app/services/admin/condominums';
-import { CondominumsService } from 'src/app/services/admin/condominums.service';
 import { Departments } from 'src/app/departments';
 import { DepartmentsService } from 'src/app/departments.service';
 import { Workplaces } from 'src/app/workplaces';
@@ -34,7 +33,6 @@ export class CreateEmployeeComponent implements OnInit {
   constructor(private employeeService: EmployeeService, 
     private departmentsService: DepartmentsService, 
     private workplacesService: WorkplacesService,
-    private condominumsService: CondominumsService,
      private router: Router) { 
     
     }
@@ -135,7 +133,7 @@ handleUpload2(event) {
 }
   save(){
     this.employee.create_by = Number(localStorage.getItem('id'));
-    this.employee.condominums_id = Number(localStorage.getItem('condonminums'));
+    this.employee.condominums_id = Number(localStorage.getItem('condominums'));
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => console.log(data), 
       error => {

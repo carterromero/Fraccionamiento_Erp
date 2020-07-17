@@ -146,7 +146,7 @@ export class UpdateEmployeeComponent implements OnInit {
     console.log(this.id);
     
     this.employee.last_update_by = Number(localStorage.getItem('id'));
-    this.employee.condominums_id = Number(localStorage.getItem('condonminums'));
+
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {console.log(data);
         this.gotoList();  

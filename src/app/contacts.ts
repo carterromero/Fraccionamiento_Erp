@@ -10,7 +10,7 @@ export class Contacts
     contacts_mother_surname : string;
     contacts_nss : number;
     contacts_relationship : string;
-    contacts_cellphone: number;
+    contacts_cellphone: string;
     contacts_status: string;
     last_updated_by : number;
     creation_by : number;
