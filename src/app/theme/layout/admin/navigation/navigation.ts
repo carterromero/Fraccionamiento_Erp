@@ -552,7 +552,22 @@ const NavigationItemss = [
             url: '/purchase_orders-list'
             
           }
-
+                                
+        ]
+      },
+      {
+        id: 'portal',
+        title: 'portals',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'por',
+            title: 'Portal Proveedor',
+            type: 'item',            
+            url: '/Portal_list'
+            
+          }
                                 
         ]
       },
@@ -1372,6 +1387,23 @@ export class NavigationItem
                 
               }
     
+                                    
+            ]
+          },
+
+          {
+            id: 'portal',
+            title: 'Portal Proveedor',
+            type: 'collapse',
+            icon: 'feather icon-monitor',
+            children: [
+              {
+                id: 'por',
+                title: 'Portal Proveedor',
+                type: 'item',            
+                url: '/Portal_list'
+                
+              }
                                     
             ]
           },

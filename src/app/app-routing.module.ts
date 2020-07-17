@@ -3258,6 +3258,18 @@ component: CreateTransfersComponent,
         ]
     
       },
+
+      {
+        path: '',
+
+        component: BilltopayListComponent,
+        children: [
+          {
+            path: 'Portal_list',
+            loadChildren: () => import('./AP/ap_billtopay/billtopay-list/billtopay-list.module').then(module => module.BilltopayListModule)
+          }
+        ]
+      },
       {
         path: '',
         component: AcReportsVisitorComponent,
@@ -3281,6 +3293,7 @@ component: CreateTransfersComponent,
           }
         ]
       },
+
       
       
 
