@@ -61,7 +61,12 @@ export class PurcharseService {
   }
 
 
+ 
 
 
+  createFilters(employee: Object): Observable <any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_PURCHA_ORDER_FILTER/1.0/purcharse_order_filters`, employee,{headers});
+  }
 
 }

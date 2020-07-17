@@ -17,10 +17,6 @@ export class PdfSupplierListComponent implements OnInit {
   employee: Supplier;
   filter :FilterS= new FilterS();
   
-
-  
-
-
   general: Observable<Supplier[]>;
   filterss: Observable<FilterS[]>;
 

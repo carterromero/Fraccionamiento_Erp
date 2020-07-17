@@ -6,6 +6,8 @@ import * as jsPDF from 'jspdf'
 import { Purcharse } from 'src/app/purcharse';
 import { PurcharseService } from 'src/app/purcharse.service';
 
+import { FilterP } from 'src/app/filterp';
+
 @Component({
   selector: 'app-pdf-purcharse-list',
   templateUrl: './pdf-purcharse-list.component.html',
@@ -15,8 +17,14 @@ export class PdfPurcharseListComponent implements OnInit {
 
   id: number;
   generals: Purcharse;
-
+  filter: FilterP= new FilterP();
+  
+ 
   general: Observable<Purcharse[]>;
+  //filterss: Observable<FilterP[]>;
+
+  
+  
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -26,6 +34,7 @@ export class PdfPurcharseListComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    /*
     this.generals = new Purcharse();    
         this.id = this.route.firstChild.snapshot.params['id']
         console.log(this.id);
@@ -46,7 +55,50 @@ export class PdfPurcharseListComponent implements OnInit {
 
 
       this.reloadData();
-  }
+  
+  */
+  
+    }
+
+
+    reloadDatas() {
+    
+      this.filter.p_condom_id = localStorage.getItem('condominums');
+      console.log(this.filter);
+      this.generalService.createFilters(this.filter).subscribe(
+        data => {
+          console.log(data);
+          console.log('kaled');
+          this.general =this.generalService.createFilters(this.filter);
+        },
+        error => {
+          console.log(error);
+          //localStorage.setItem('token', "");
+          //this.router.navigate(['login']);     
+        });
+  
+        
+    }
+
+
+    onSubmit() 
+    {
+      
+      this.getsbusqueda();
+    }
+
+
+    getsbusqueda()
+    {
+      if(this.filter.created_date !=null || this.filter.purcharse_status !=null){
+      this.reloadDatas();
+      
+    }
+    else{
+      alert("Ingrese Fecha para buscar y el estatus");
+    }
+     
+    }
 
 
   imprimirLista(){
@@ -82,6 +134,11 @@ export class PdfPurcharseListComponent implements OnInit {
 
       
   }
+
+
+
+
+ 
 
   deleteGeneral(id: number) {
     this.generalService.deleteEmployee(id)
