@@ -56,12 +56,6 @@
           <label for="name">Sindicalizado</label>
           <input type="text" class="form-control" id="employees_sindicalizado" required [(ngModel)]="employee.employees_sindicalizado" name="employees_sindicalizado">
         </div>     
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Condominio</label>
-          <select  class="custom-select"  id="condominums_id" required [(ngModel)]="employee.condominums_id" name="condominums_id" >
-          <option *ngFor="let condominum of condominums | async" value="{{condominum.condominums_id}}">{{condominum.condominums_description}}</option>
-          </select>
-      </div>  
       <div class="form-group">
         <label for="exampleFormControlSelect1">Departamento</label>
         <select  class="custom-select"  id="departments_id" required [(ngModel)]="employee.departments_id" name="departments_id" >

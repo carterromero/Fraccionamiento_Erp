@@ -29,7 +29,7 @@
             <div class="invalid-feedback">invalid custom file </div>
           </div>  
           <div class="custom-file">
-            <input type="file" alife-file-to-base (change)="handleUpload($event)" class="custom-file-input" id="employee.employees_contract"   name="employees_contract">
+            <input type="file" alife-file-to-base (change)="handleUpload2($event)" class="custom-file-input" id="employee.employees_contract"   name="employees_contract">
             <label class="custom-file-label" for="validatedCustomFile">Elegir contrato ...</label>
             <div class="invalid-feedback">invalid custom file </div>
           </div>  
@@ -56,12 +56,6 @@
           <label for="name">Sindicalizado</label>
           <input type="text" class="form-control" id="employees_sindicalizado" required [(ngModel)]="employee.employees_sindicalizado" name="employees_sindicalizado">
         </div>       
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Condominio</label>
-          <select  class="custom-select"  id="condominums_id" required [(ngModel)]="employee.condominums_id" name="condominums_id" >
-          <option *ngFor="let condominum of condominums | async" value="{{condominum.condominums_id}}">{{condominum.condominums_description}}</option>
-          </select>
-      </div>  
       <div class="form-group">
         <label for="exampleFormControlSelect1">Departamento</label>
         <select  class="custom-select"  id="departments_id" required [(ngModel)]="employee.departments_id" name="departments_id" >

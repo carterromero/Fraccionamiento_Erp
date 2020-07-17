@@ -24,7 +24,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
 
   gocv(){
-    var windo = window.open("", "");  
+    var windo = window.open("", "CV_Empleado");  
     var objbuilder = '';
     objbuilder += ('<embed width=\'100%\' height=\'100%\'  src="data:application/pdf;base64,');
     objbuilder += (this.employee.employees_cv);
@@ -33,7 +33,7 @@ export class EmployeeDetailsComponent implements OnInit {
   }
 
   gocontract(){
-    var windo = window.open("", "");  
+    var windo = window.open("", "Contrato");  
     var objbuilder = '';
     objbuilder += ('<embed width=\'100%\' height=\'100%\'  src="data:application/pdf;base64,');
     objbuilder += (this.employee.employees_contract);
