@@ -5,25 +5,31 @@
         <form (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="name">Nombre del Banco</label>
-            <input type="text" class="form-control" id="mab_bank_name"  [(ngModel)]="employee.mab_bank_name" name="mab_bank_name" required> 
+            <input type="text" class="form-control" id="manage_banks_bank_name"  [(ngModel)]="employee.manage_banks_bank_name" name="manage_banks_bank_name" required> 
           </div>      
           <div class="form-group">
             <label for="name">Codigo del Banco</label>
-            <input type="text" class="form-control" id="mab_bank_code"  [(ngModel)]="employee.mab_bank_code" name="mab_bank_code" required>
+            <input type="number" class="form-control" id="manage_banks_bank_code"  [(ngModel)]="employee.manage_banks_bank_code" name="manage_banks_bank_code" required>
           </div>  
           <div class="form-group">
             <label for="name">Pais</label>
-            <input type="text" class="form-control" id="mab_country"  [(ngModel)]="employee.mab_country" name="mab_country" required>
+            <input type="text" class="form-control" id="manage_banks_country"  [(ngModel)]="employee.manage_banks_country" name="manage_banks_country" required>
           </div>
           <div class="form-group">
             <label for="name">Nombre Alternativo del Banco</label>
-            <input type="text" class="form-control" id="mab_alternative_bank_name"  [(ngModel)]="employee.mab_alternative_bank_name" name="mab_alternative_bank_name" required>
+            <input type="text" class="form-control" id="manage_banks_alternative_bank_name"  [(ngModel)]="employee.manage_banks_alternative_bank_name" name="manage_banks_alternative_bank_name" required>
           </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Codigo</label>
+            <select  class="custom-select"  id="bank_codes_id" required [(ngModel)]="employee.bank_codes_id" name="bank_codes_id" >
+            <option *ngFor="let code of codes | async" value="{{code.bank_codes_id}}">{{code.bank_code}}</option>
+            </select>
+        </div>  
           <div class="form-group">
               <label for="name">Estatus</label>
               <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input"  id="mab_status"  [(ngModel)]="employee.mab_status"     name="mab_status"   style="margin-left: 10px">
-                  <label class="custom-control-label" for="mab_status">Active</label>
+                  <input type="checkbox" class="custom-control-input"  id="manage_banks_status"  [(ngModel)]="employee.manage_banks_status"     name="manage_banks_status"   style="margin-left: 10px">
+                  <label class="custom-control-label" for="manage_banks_status">Active</label>
                </div>
           </div>
           <button type="submit" class="btn btn-success">Guardar</button>          
