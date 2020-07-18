@@ -7,6 +7,8 @@ export class PaymentDocuments {
     payment_documents_checkbook_data: string;
     payment_documents_status: string;
     bank_accounts_id: number;
+    manage_banks_bank_name : string;
+    manage_banks_id: number;
     created_by: number;
     create_date: Date;
     last_updated_by: number;
