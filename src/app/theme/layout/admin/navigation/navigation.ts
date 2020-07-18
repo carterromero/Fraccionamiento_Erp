@@ -843,6 +843,7 @@ export class NavigationItem
     var nomina= {};
     var inquilino ={};
     var control ={};
+    var proveedor ={};
 
 
     dashboard= {
@@ -1572,6 +1573,22 @@ export class NavigationItem
         ]
       };
     };
+    if(localStorage.getItem("proveedor")== 'true'){
+      proveedor = {
+          id: 'portal',
+          title: 'portals',
+          type: 'collapse',
+          icon: 'feather icon-monitor',
+          children: [
+            {
+              id: 'por',
+              title: 'Portal Proveedor',
+              type: 'item',            
+              url: '/Portal_list'
+            }                     
+          ]
+      };
+    };
     if(localStorage.getItem("inquilino") == 'true'){
       inquilino =
       {    
@@ -1677,7 +1694,7 @@ export class NavigationItem
       
      
 
-    const permisoss=[dashboard,admin,contabilidad,cuentasporpagar,tesoreria,cuentasporcobrar,recursoshumanos,compras,inventarios,nomina,inquilino,control];       
+    const permisoss=[dashboard,admin,contabilidad,cuentasporpagar,tesoreria,cuentasporcobrar,recursoshumanos,compras,inventarios,nomina,inquilino,control,proveedor];       
     return permisoss;
       
       
