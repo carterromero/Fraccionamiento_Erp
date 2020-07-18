@@ -30,6 +30,7 @@ export class LegalsListComponent implements OnInit {
     
     this.generalService.getEmployeeList().subscribe(
       data => {
+        console.log(data);
         this.general = this.generalService.getEmployeeList();
       },
       error => {
@@ -40,6 +41,7 @@ export class LegalsListComponent implements OnInit {
           this.alertMessage = error['statusText'];          
         }
       });
+      this 
   }
 
   deleteGeneral(id: number) {
