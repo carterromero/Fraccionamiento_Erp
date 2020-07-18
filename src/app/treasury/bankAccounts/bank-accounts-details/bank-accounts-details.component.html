@@ -3,28 +3,22 @@
     <app-card cardTitle="Detalles de Cuentas Bancarias" [options]="false">
       <div *ngIf="employee">
         <div>
-          <label><b>Nombre de Cuenta Bancaria: </b></label> {{employee.bank_accounts_bank_account_name}}
+          <label><b>Banco: </b></label> {{employee.manage_banks_bank_name}}
         </div>
         <div>
-          <label><b>Numero de Cuenta Bancaria: </b></label> {{employee.bank_accounts_bank_account_number}}
+          <label><b>Número de Cuenta Bancaria: </b></label> {{employee.bank_accounts_bank_account_number}}
         </div>
         <div>
           <label><b>Moneda:</b></label> {{employee.bank_accounts_currency}}
         </div>
         <div>
-          <label><b>Cuenta Bancaria: </b></label> {{employee.bank_accounts_bank}}
-        </div>
-        <div>
           <label><b>Uso:</b></label> {{employee.bank_accounts_use_account}}
         </div>
         <div>
-          <label><b>Combinacion de Cuenta Contable: </b></label> {{employee.bank_accounts_accounting_combination_cash}}
+          <label><b>Combinación de Cuenta Contable: </b></label> {{employee.accounting_accounts_id}}
         </div>
         <div>
-          <label><b>Compensacion:</b></label> {{employee.bank_accounts_compensation_combination}}
-        </div>
-        <div>
-          <label><b>Documento de Pago: </b></label> {{employee.bank_accounts_payment_documents}}
+          <label><b>Documento de Pago: </b></label> {{employee.payment_documents_name_payment_document}}
         </div>
         <div>
           <label for="name">Estatus</label>
