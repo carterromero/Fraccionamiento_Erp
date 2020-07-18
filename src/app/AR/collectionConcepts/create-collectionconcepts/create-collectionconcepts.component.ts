@@ -47,10 +47,11 @@ export class CollectionConceptsCreateComponent implements OnInit {
 
   reloadDatas() 
   {
-    this.ArticlesService.getEmployeeList().subscribe(
+
+    this.ArticlesService.getEmployeeList(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);
-        this.Articles = this.ArticlesService.getEmployeeList();
+        this.Articles = this.ArticlesService.getEmployeeList(1);
       },
       error => {
         console.log(error);

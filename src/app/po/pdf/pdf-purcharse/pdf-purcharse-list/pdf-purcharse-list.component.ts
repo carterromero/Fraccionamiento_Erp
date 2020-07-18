@@ -54,10 +54,10 @@ export class PdfPurcharseListComponent implements OnInit {
 
 
 
-      this.reloadData();
+     
   
   */
-  
+ this.reloadData();
     }
 
 

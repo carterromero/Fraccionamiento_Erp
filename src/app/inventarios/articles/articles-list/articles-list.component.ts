@@ -25,12 +25,11 @@ export class ArticlesListComponent implements OnInit {
       this.reloadData();
   }
   
-  reloadData() {
-    
-    this.generalService.getEmployeeList().subscribe(
+  reloadData() { 
+    this.generalService.getEmployeeList(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService.getEmployeeList();
+        this.general = this.generalService.getEmployeeList(parseInt(localStorage.getItem('condominums')));
       },
       error => {
         console.log(error);   

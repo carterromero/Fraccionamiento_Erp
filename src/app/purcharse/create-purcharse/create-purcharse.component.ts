@@ -25,7 +25,7 @@ import { PermissionsService } from 'src/app/services/admin/permissions.service';
 })
 export class CreatePurcharseComponent implements OnInit {
   authentication: User = new User(); 
-  permisions:Permissions =  new Permissions();
+  
   employee: Purcharse = new Purcharse();
   submitted = false;
   suppliers: Observable<Supplier[]>;
@@ -116,51 +116,7 @@ export class CreatePurcharseComponent implements OnInit {
 
 
 
-  authenticate() 
-  {    
-    this.authenticationService.login(this.authentication)
-      .subscribe(data => 
-        {
-        this.authentication = data;
-        console.log(this.authentication);
-        if(this.authentication.user_id != 0)
-        {
-          localStorage.setItem('id', this.authentication.user_id.toString());
-          localStorage.setItem('rol', this.authentication.rol_id.toString());
-          localStorage.setItem('condominums', this.authentication.condominums_id.toString());
-          
-          
-          this.generalService.getEmployeeP(this.permisions)
-            .subscribe(data => {
-              console.log("aqui es navigator");
-              this.permisions = new Permissions();
-              this.permisions = data;
-              console.log(this.permisions);
-           ;   
-            }, error => {
-              console.log(error);
-             
-            });
-
-
-        
-            
-        }
-        else
-        {
-          this.alertDisable = false;
-          this.alertMessage = 'Usuario y Contraseña Incorrecta';               
-        }
-      },
-      error => {console.log(error);
-        let coins = [];
-        for (let key in error) {
-          this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
-        }    
-      });            
-  }
-
+ 
 
   reloadDatassss() 
   {
@@ -194,7 +150,7 @@ export class CreatePurcharseComponent implements OnInit {
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto Ordenn de pago";
+          this.alertMessages ="Se inserto Orden de Compra";
           this.employee = new Purcharse();
         }, 
       error => {

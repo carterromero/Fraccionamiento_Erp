@@ -14,7 +14,7 @@ import { UnitOfMeasuresService } from 'src/app/unit-of-measures.service ';
   styleUrls: ['./articles-details.component.scss']
 })
 export class ArticlesDetailsComponent implements OnInit {
-  
+  condimiun_id: number;
   id: number;
   employee: Articles = new Articles();
   submitted = false;
