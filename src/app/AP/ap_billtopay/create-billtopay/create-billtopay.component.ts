@@ -53,7 +53,8 @@ export class CreateBilltopayComponent implements OnInit {
 
 
   save() {
-
+    
+    this.employee.condominums_id = Number(localStorage.getItem('condonminums'));
     this.employee.p_userid="3";
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 

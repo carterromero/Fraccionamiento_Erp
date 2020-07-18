@@ -8,16 +8,16 @@
         
          
         <div class="form-group">
-          <label for="exampleFormControlSelect1">id orden pago</label>
+          <label for="exampleFormControlSelect1">num orden de compra</label>
           <select  class="custom-select"  id="concilitiation_document_line_id" required [(ngModel)]="employee.concilitiation_document_line_id" name="concilitiation_document_line_id" >
-          <option *ngFor="let creditors of purcharses | async" value="{{creditors.payment_id}}">{{creditors.payment_id}}</option>
+          <option *ngFor="let creditors of purcharses | async" value="{{creditors.payment_id}}">{{creditors.payment_id }}</option>
           </select>
       </div> 
          
       <div class="form-group">
-        <label for="exampleFormControlSelect1">id cuenta linea</label>
+        <label for="exampleFormControlSelect1">CUENTA CONTABLE</label>
         <select  class="custom-select"  id="concilitiation_account_id" required [(ngModel)]="employee.concilitiation_account_id" name="concilitiation_account_id" >
-        <option *ngFor="let creditors of purcharsess | async" value="{{creditors.accounting_accounts_lines_id}}">{{creditors.accounting_accounts_lines_id}}</option>
+        <option *ngFor="let creditors of purcharsess | async" value="{{creditors.accounting_accounts_lines_id}}">{{creditors.accounting_accounts_lines_parent_1}}{{creditors.accounting_accounts_lines_parent_2}}{{creditors.accounting_accounts_lines_parent_3}}{{creditors.accounting_accounts_lines_children}}</option>
         </select>
     </div> 
          
@@ -34,7 +34,7 @@
               <label  for="inputGroupSelect01">documento tipo </label>
               <select class="custom-select" id="inputGroupSelect01" class="form-control" id="concilitiation_document_type"  [(ngModel)]="employee.concilitiation_document_type" name="concilitiation_document_type" required>
                  <option selected></option>
-               
+                 <option value="pago">FACTURA</option>
                  <option value="pago">PAGO</option>
                </select>
              </div>

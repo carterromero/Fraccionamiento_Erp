@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentRecord } from 'src/app/payment-record';
 import { PaymentRecordService } from 'src/app/payment-record.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { STRING_TYPE } from '@angular/compiler';
 import { Observable } from 'rxjs';
 import { Condominums } from 'src/app/services/admin/condominums';
@@ -25,8 +25,9 @@ export class CreatePaymentRecordComponent implements OnInit {
   employee: PaymentRecord = new PaymentRecord();
   condominums: Observable<Condominums[]>;
   factura: Observable<Billtopay[]>;
+  fac: Billtopay= new Billtopay();
   creditor: Observable<Creditor[]>;
-  
+  id: number;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -40,7 +41,7 @@ export class CreatePaymentRecordComponent implements OnInit {
     private condominumsService: CondominumsService,
     private creditorService: CreditorService,
     private billtopayservice: Billtopayservice,
-    
+    private route: ActivatedRoute,
     private router: Router) {
 
       
@@ -50,8 +51,9 @@ export class CreatePaymentRecordComponent implements OnInit {
       this.reloadDatas();
       this.reloadDatas1() ;
       this.reloadDatas2() ;
-
-
+      this.employee = new PaymentRecord();
+     
+      console.log(this.employee.payment_status = 'true');
       
     }
 
@@ -97,11 +99,15 @@ export class CreatePaymentRecordComponent implements OnInit {
   }
   reloadDatas2() 
   {
-
+    
+ 
     this.billtopayservice.getEmployeeList().subscribe(
       data => {
         console.log(data);
-        this.factura= this.billtopayservice.getEmployeeList();
+        this.fac.billtopay_status = "true";
+        console.log(this.fac.billtopay_status);
+        this.fac.billtopay_status = (String(this.fac.billtopay_status) == "false") ? null:"false";
+          this.factura= this.billtopayservice.getEmployeeList(); 
       },
       error => {
         console.log(error);
@@ -174,7 +180,11 @@ console.log(this.employee.payment_method);
     };
 }
 
-
+factu(){
+  
+    this.id = this.route.firstChild.snapshot.params['id']
+    
+}
   
 
 }
