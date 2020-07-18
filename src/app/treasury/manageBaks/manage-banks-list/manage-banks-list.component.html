@@ -6,33 +6,33 @@
       <div class="table-responsive">
         <table class="table">
           <thead>
-          <tr>              
+          <tr>  
+            <th>#</th>       
             <th>Nombre del Banco</th>
-            <th>Codigo del Banco</th>             
-            <th>Pais</th>
+            <th>Código del Banco</th>             
+            <th>País</th>
             <th>Nombre Alternativo del Banco</th>
             <th>Estatus</th>  
+            <th>Acciones</th>  
           </tr>
           </thead>
           <tbody>
               <tr *ngFor="let general of general | async">
-                 
-                  <td>{{general.mab_bank_name}}</td>
-                  <td>{{general.mab_bank_code}}</td>
-                  <td>{{general.mab_country}}</td>
-                  <td>{{general.mab_alternative_bank_name}}</td>
-                  <td>{{general.mab_status}}</td>
+                  <td>{{general.manage_banks_id}}</td>
+                  <td>{{general.manage_banks_bank_name}}</td>
+                  <td>{{general.manage_banks_bank_code}}</td>
+                  <td>{{general.manage_banks_country}}</td>
+                  <td>{{general.manage_banks_alternative_bank_name}}</td>
                   <td>
                       <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" [checked]="general.mab_status == 'true'">
-                        <label class="custom-control-label" for="mab_status">Active</label>
+                        <input type="checkbox" class="custom-control-input" [checked]="general.manage_banks_status == 'true'">
+                        <label class="custom-control-label" for="manage_banks_status">Active</label>
                      </div>
                     </td>
-
                   <td>
-                      <button (click)="deleteGeneral(general.mab_id)"  class="btn btn-outline-danger">Eliminar</button>
-                      <button (click)="updateGeneral(general.mab_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                      <button (click)="generalDetails(general.mab_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                      <button (click)="deleteGeneral(general.manage_banks_id)"  class="btn btn-outline-danger">Eliminar</button>
+                      <button (click)="updateGeneral(general.manage_banks_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                      <button (click)="generalDetails(general.manage_banks_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
                   </td>
               </tr>
           </tbody>

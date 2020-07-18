@@ -19,7 +19,7 @@ import { Observable } from 'rxjs';
   templateUrl: './create-collection.component.html',
   styleUrls: ['./create-collection.component.scss']
 })
-
+///condomin///
 export class CreateCollectionComponent implements OnInit {
 
   employee: Collection = new Collection();
@@ -125,6 +125,8 @@ export class CreateCollectionComponent implements OnInit {
   save() {
 
     //this.employee.userid="3";
+    this.employee.condominums_id = Number(localStorage.getItem('id'));
+    this.employee.created_by = Number(localStorage.getItem('id'));
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
         {
