@@ -45,10 +45,10 @@ export class UpdateReservationsComponent implements OnInit {
   reloadDatas() 
   {
 
-    this.articlesService.getEmployeeList().subscribe(
+    this.articlesService.getEmployeeList(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);
-        this.tenants = this.articlesService.getEmployeeList();
+        this.tenants = this.articlesService.getEmployeeList(parseInt(localStorage.getItem('condominums')));
       },
       error => {
         console.log(error);

@@ -99,7 +99,7 @@ export class PdfArticulogListComponent implements OnInit {
     this.SubinventariosService.getEmployeeList().subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService.getEmployeeList();
+        this.general = this.generalService.getEmployeeList(this.id);
       },
       error => {
         console.log(error);   
@@ -120,7 +120,7 @@ reloadDatass() {
   this.TransactionService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList();
+      this.general = this.generalService.getEmployeeList(this.id);
     },
     error => {
       console.log(error);   
@@ -140,7 +140,7 @@ reloadDatasss() {
   this.SubcategoriasService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList();
+      this.general = this.generalService.getEmployeeList(this.id);
     },
     error => {
       console.log(error);   
@@ -158,7 +158,7 @@ reloadDatassss() {
   this.CategoriasService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList();
+      this.general = this.generalService.getEmployeeList(this.id);
     },
     error => {
       console.log(error);   
@@ -178,7 +178,7 @@ reloadDatasssss() {
   this.PreciosService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList();
+      this.general = this.generalService.getEmployeeList(this.id);
     },
     error => {
       console.log(error);   

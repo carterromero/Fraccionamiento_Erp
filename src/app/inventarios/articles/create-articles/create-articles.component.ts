@@ -70,7 +70,12 @@ export class CreateArticlesComponent implements OnInit {
   }
 
   save()
+
+  
    {this.employee.last_update_by=3;
+
+
+    this.employee.admin_condominiuns_id=localStorage.getItem('condominums');
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
         {
@@ -105,10 +110,7 @@ export class CreateArticlesComponent implements OnInit {
     this.alertDisable = false;
     this.alertMessage = "Unidad de Medida Incompleta";          
   }
-  else if(this.employee.articles_dimension =="" ||  this.employee.articles_dimension ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Articulos Dimension Incompleta";          
-  }
+  
   else if(this.employee.articles_articles_price ==null ||  this.employee.articles_articles_price ==null ){
     this.alertDisable = false;
     this.alertMessage = "Precio de Artículos Incompleta";          

@@ -1,6 +1,7 @@
+import { NumberValueToken } from 'html2canvas/dist/types/css/syntax/tokenizer';
+
 export class Articles
 {
-    
     articles_sku :number;
     articles_name_article : string;
     articles_description : string;
@@ -19,7 +20,6 @@ export class Articles
     lote_longitud :string;
     sub_categories_id :string;
     unit_of_measuares_id :string;
-    
     unit_of_measures_nombre:string;
     articles_tall:string;
     articles_long : string;
@@ -29,4 +29,9 @@ export class Articles
     articles_status_id: number;
     articles_price_id: number;
     categories_name : number;
+
+    articles_common_spaces :string;
+    admin_condominiuns_id:string;
+    articles_lot_place:string;
+  
 }
