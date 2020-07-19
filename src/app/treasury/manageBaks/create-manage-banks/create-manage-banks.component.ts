@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ManageBanks } from '../../../manageBank';
 import { Router } from '@angular/router';
+import { ManageBanks } from '../../../manageBank';
 import { ManageBanksService } from '../../../manage-banks.service';
 
 

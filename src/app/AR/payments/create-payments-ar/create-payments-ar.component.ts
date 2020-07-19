@@ -112,7 +112,8 @@ export class CreatePaymentsARComponent implements OnInit {
   save() {
 
     //this.employee.userid="3";
-    this.employee.condominums_id = Number(localStorage.getItem('condonminums'));
+    this.employee.condominums_id = Number(localStorage.getItem('condominums'));
+    
     this.employee.created_by = Number(localStorage.getItem('id'));
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => {

@@ -25,9 +25,11 @@
               <input type="text" class="form-control" id="payment_documents_checkbook_data"  [(ngModel)]="employee.payment_documents_checkbook_data" name="payment_documents_checkbook_data" required>
             </div>  
             <div class="form-group">
-              <label for="name">Banco</label>
-              <input type="text" class="form-control" id="bank_accounts_id"  [(ngModel)]="employee.bank_accounts_id" name="bank_accounts_id" required>
-            </div>          
+              <label for="exampleFormControlSelect1">Banco</label>
+              <select  class="custom-select"  id="manage_banks_id" required [(ngModel)]="employee.manage_banks_id" name="manage_banks_id" >
+              <option *ngFor="let manage of manages | async" value="{{manage.manage_banks_id}}">{{manage.manage_banks_bank_name}}</option>
+              </select>
+          </div>      
             <div class="form-group">
                 <label for="name">Estatus</label>
                 <div class="custom-control custom-switch">
