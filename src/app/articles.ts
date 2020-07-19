@@ -34,4 +34,11 @@ export class Articles
     admin_condominiuns_id:string;
     articles_lot_place:string;
   
-}
+
+
+
+
+
+
+    
+    }

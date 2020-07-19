@@ -15,9 +15,12 @@ import { UnitOfMeasuresService } from 'src/app/unit-of-measures.service ';
 })
 export class ArticlesDetailsComponent implements OnInit {
   condimiun_id: number;
+  p_condominiuns_id:number;
+
   id: number;
   employee: Articles = new Articles();
   submitted = false;
+  employeee: Observable<[Articles]>;
   addresses: Observable<[SubCategories]>;
   addresses1: Observable<[UnitOfMeasures]>;
   alertDisable = true;
@@ -33,9 +36,12 @@ export class ArticlesDetailsComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+      this.employee.admin_condominiuns_id=localStorage.getItem('condominums');
       this.reloadDatas();
       this.id = this.route.firstChild.snapshot.params['id']
-      this.employeeService.getEmployee(this.id)
+      this.p_condominiuns_id=parseInt(localStorage.getItem('condominums'));
+      this.employeeService.getEmployee(this.id,this.p_condominiuns_id)
+      
       .subscribe(data => {
         console.log(data);
         this.employee = data;
@@ -50,9 +56,29 @@ export class ArticlesDetailsComponent implements OnInit {
       });
     }
   
+
+    reloadData() { 
+      this.employeeService.getEmployeeList(parseInt(localStorage.getItem('condominums'))).subscribe(
+        data => {
+          console.log(data);
+          this.employeee = this.employeeService.getEmployeeList(parseInt(localStorage.getItem('condominums')));
+        },
+        error => {
+          console.log(error);   
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = error['statusText'];          
+          }
+        });
+  
+        
+    }
+
+
     reloadDatas() 
     {
-  
+      this.employee.admin_condominiuns_id=localStorage.getItem('condominums');
       this.addressService.getEmployeeListcombo_sub().subscribe(
         data => {
           console.log(data);

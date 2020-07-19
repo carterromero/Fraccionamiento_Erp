@@ -63,7 +63,7 @@ export class ArticlesListComponent implements OnInit {
   }
 
   generalDetails(id: number){
-console.log(id);
+
     this.router.navigate(['articles1-details', id]);
   }
 

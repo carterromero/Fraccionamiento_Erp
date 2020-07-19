@@ -16,6 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UpdateArticlesComponent implements OnInit {
 
   id: number;
+  admin_condominiuns_id:number;
   employee: Articles;
   addresses: Observable<[SubCategories]>;
   addresses1: Observable<UnitOfMeasures[]>;
@@ -36,8 +37,8 @@ export class UpdateArticlesComponent implements OnInit {
 
     this.employee = new Articles();
     this.id = this.route.firstChild.snapshot.params['id']
-    
-    this.employeeService.getEmployee(this.id)
+    this.admin_condominiuns_id = this.route.firstChild.snapshot.params['admin_condominiuns_id']
+    this.employeeService.getEmployee(this.id,this.admin_condominiuns_id)
       .subscribe(data => {
         this.employee = data;
         this.employee.articles_skus = (String(this.employee.articles_skus) == "false") ? null:"true";

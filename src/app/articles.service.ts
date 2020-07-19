@@ -17,9 +17,10 @@ export class ArticlesService {
     return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_INSERT_ARTICLES/1.0/articles`, employee,{headers});
   }
 
-  getEmployee(id: number): Observable<any> {
+  getEmployee(id: number, p_condominiuns_id:number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ONE_ARTICL/1.0/articles/${id}`,{headers});
+    //return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ONE_ARTICL/1.0/articles/${id},${p_condominiuns_id}`,{headers});
+    return this.http.get(this.baseUrl + 'ic/api/integration/v1/flows/rest/ERP_INV_GET_ONE_ARTICL/1.0/articles/'+ id + ','+p_condominiuns_id,{headers});
   }
 
   updateEmployee(id: number, value: any): Observable<Object> {
