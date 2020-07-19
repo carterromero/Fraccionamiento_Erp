@@ -42,6 +42,14 @@
               <label for="name">Descripción del bien o servicio adquirido</label>
               <input type="text" class="form-control" id="billtopay_service_description"  [(ngModel)]="employee.billtopay_service_description" name="billtopay_service_description" required>
           </div>
+
+
+
+          <div class="custom-file">
+            <input type="file" alife-file-to-base  (change)="handleUpload($event)" class="custom-file-input"  id="employee.bilitoplay_arch"   name="bilitoplay_arch" required>
+            <label class="custom-file-label" for="validatedCustomFile">Elegir Factura ...</label>
+            <div class="invalid-feedback">invalid custom file </div>
+          </div>
          
             <div class="form-group">
                 <label for="name">Estatus</label> 

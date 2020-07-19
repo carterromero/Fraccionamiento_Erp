@@ -12,6 +12,7 @@ export class Billtopay
     last_updated_by  : number;
     last_updated_date : string;
     billtopay_status : string;
+    bilitoplay_arch : string;
     condominums_id :number;
     p_userid:string;
 

@@ -19,6 +19,7 @@ export class CreateBilltopayComponent implements OnInit {
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
+  datos:String;
 
   constructor(private employeeService: Billtopayservice,
     private purcharseService: PurcharseService,
@@ -49,6 +50,23 @@ export class CreateBilltopayComponent implements OnInit {
   newEmployee(): void {
     this.employee = new Billtopay();
   }
+
+
+
+  handleUpload(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        this.datos = reader.result.toString();
+        this.employee.bilitoplay_arch = this.datos.replace("data:application/pdf;base64,","")
+      /*  this.employee.employees_contract = this.datos.replace("data:application/pdf;base64,","")*/
+        event = this.employee.bilitoplay_arch;
+      /*  event = this.employee.employees_contract*/
+     
+    };
+}
 
 
 
