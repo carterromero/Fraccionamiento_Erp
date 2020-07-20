@@ -33,6 +33,7 @@ export class Articles
     articles_common_spaces :string;
     admin_condominiuns_id:string;
     articles_lot_place:string;
+    articles_lot_places:string;
   
 
 

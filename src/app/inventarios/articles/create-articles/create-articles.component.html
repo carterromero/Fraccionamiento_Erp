@@ -89,12 +89,21 @@
                     <input type="text" class="form-control" id="articles_internal_characteristics"  [(ngModel)]="employee.articles_internal_characteristics" name="articles_internal_characteristics" required> 
                   </div> 
 
+
+
+                  <div class="form-group">
+                    <label for="name">Tipo de Inmueble</label>
+                    <input type="text" class="form-control" id="articles_lot_places"  [(ngModel)]="employee.articles_lot_places" name="articles_lot_places" required> 
+                  </div>
+
+                  
+
               
                   <select class="form-control mr-sm-2" [(ngModel)]="employee.articles_lot_place"
                   id="articles_lot_place"   name="articles_lot_place"
                   >
                     
-                    <option value="0">Lote</option>
+                    <option value="0" >Lote</option>
                     <option value="1">Vivienda</option>
                   </select>
 
