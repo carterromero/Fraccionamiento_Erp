@@ -7,7 +7,7 @@
             <div class="form-group">
               <label for="exampleFormControlSelect1">Lugar</label>
               <select  class="custom-select"  id="articles_sku" required [(ngModel)]="reservation.articles_sku" name="articles_sku" >
-              <option *ngFor="let article of articles | async" value="{{article.articles_sku}}">{{article.tenants_name}}</option>
+              <option *ngFor="let article of articles | async" value="{{article.articles_sku}}">{{article.articles_name_article}}</option>
               </select>
             </div>     
             <div class="form-group">
