@@ -30,13 +30,15 @@ export class ArticlesListComponent implements OnInit {
       data => {
         console.log(data);
         this.general = this.generalService.getEmployeeList(parseInt(localStorage.getItem('condominums')));
+        
       },
       error => {
         console.log(error);   
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = error['statusText'];  
+          
         }
       });
 

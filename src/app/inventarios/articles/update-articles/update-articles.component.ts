@@ -34,8 +34,10 @@ export class UpdateArticlesComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-
+    
+    this.employee.admin_condominiuns_id=localStorage.getItem('condominums')
     this.employee = new Articles();
+   
     this.id = this.route.firstChild.snapshot.params['id']
     this.admin_condominiuns_id = this.route.firstChild.snapshot.params['admin_condominiuns_id']
     this.employeeService.getEmployee(this.id,this.admin_condominiuns_id)
@@ -58,6 +60,9 @@ export class UpdateArticlesComponent implements OnInit {
    
 
   updateEmployee() {
+    //this.reservation.last_update_by=Number(localStorage.getItem('id'));
+    this.employee.last_update_by=Number(localStorage.getItem('id'));
+    this.employee.admin_condominiuns_id=localStorage.getItem('condominums')
     this.employee.last_update_by=3;
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {

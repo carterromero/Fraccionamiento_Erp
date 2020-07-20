@@ -44,8 +44,6 @@ export class CreatePaymentDocumentsComponent implements OnInit {
   }
 
   save() {
-
-    //this.employee.userid="3";
    this.employee.condominums_id=Number(localStorage.getItem('condominums'));
    this.employee.created_by = Number(localStorage.getItem('id'));
    this.employee.last_updated_by = Number(localStorage.getItem('id'));

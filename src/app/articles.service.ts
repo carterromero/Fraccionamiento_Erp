@@ -25,7 +25,7 @@ export class ArticlesService {
 
   updateEmployee(id: number, value: any): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_UPDATE_ARTICLES/1.0/articles/{p_id}${id}`, value,{headers});
+    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_UPDATE_ARTICLES/1.0/articles/${id}`, value,{headers});
   }
 
   deleteEmployees(id: number): Observable<any> {
