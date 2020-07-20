@@ -76,6 +76,7 @@ export class CreateArticlesComponent implements OnInit {
 
 
     this.employee.admin_condominiuns_id=localStorage.getItem('condominums');
+    console.log(this.employee);
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
         {
@@ -93,6 +94,14 @@ export class CreateArticlesComponent implements OnInit {
         }    
       });
   }
+
+  public workStatuses = [
+    { id: 0, description: 'vivienda' },
+    { id: 1, description: 'lote' }
+   
+  ];
+  public contact = { name: '', isVIP: false, gender: '', workStatus: 0 };
+  
 
   onSubmit() 
   {

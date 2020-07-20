@@ -71,9 +71,10 @@ export class CreateBilltopayComponent implements OnInit {
 
 
   save() {
-    
-    this.employee.condominums_id = Number(localStorage.getItem('condonminums'));
+    console.log( localStorage.getItem('condominums'));
+    this.employee.condominums_id = localStorage.getItem('condominums');
     this.employee.p_userid="3";
+    console.log(this.employee);
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
         {
@@ -85,6 +86,7 @@ export class CreateBilltopayComponent implements OnInit {
       error => {
         console.log(error);    
         let coins = [];
+        
         for (let key in error) {
           this.alertDisable = false;
           this.alertMessage = "No se puede agregar el nombre esta duplicado";      

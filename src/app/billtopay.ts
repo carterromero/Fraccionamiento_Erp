@@ -13,7 +13,7 @@ export class Billtopay
     last_updated_date : string;
     billtopay_status : string;
     bilitoplay_arch : string;
-    condominums_id :number;
+    condominums_id :string;
     p_userid:string;
 
 }
