@@ -54,7 +54,7 @@
             
             <div class="form-group">
               <label for="exampleFormControlSelect1">Nombre del accredor</label>
-              <select type="text" action="reloadData2()"  class="custom-select"  id="creditor_business_name" required [(ngModel)]="employee.creditor_business_name" name="creditor_business_name" >
+              <select type="text" action="reloadData2()"  class="custom-select"  id="creditor_business_name" required [(ngModel)]="credito.creditor_business_name" name="creditor_business_name" >
               <option *ngFor="let creditors of credi | async" value="{{creditors.creditor_business_name}}"> {{creditors.creditor_business_name}}</option>
               
             </select>
@@ -64,26 +64,26 @@
             
             <div class="form-group">
               <label for="name">Dirección</label>
-              <input type=»text»  class="form-control" id="creditor_addres"  [(ngModel)]="employee.creditor_addres" name="creditor_addres" required>
+              <input type=»text»  class="form-control" id="creditor_addres"  [(ngModel)]="credito.creditor_addres" name="creditor_addres" required>
             </div>  
           
           
           <div class="form-group">
             <label for="name">Cuenta accredor</label>
-            <input type=»text» class="form-control" id="creditor_cuenta"  [(ngModel)]="employee.creditor_cuenta" name="creditor_cuenta" required>
+            <input type=»text» class="form-control" id="creditor_cuenta"  [(ngModel)]="credito.creditor_cuenta" name="creditor_cuenta" required>
           </div>
         
             <div class="form-group">
               <label for="name">telefono</label>
-              <input type=»text» readonly=»readonly» class="form-control" id="creditor_tel"  [(ngModel)]="employee.creditor_tel" name="creditor_tel" required>
+              <input type=»text» readonly=»readonly» class="form-control" id="creditor_tel"  [(ngModel)]="credito.creditor_tel" name="creditor_tel" required>
             </div>
             <div class="form-group">
               <label for="name">RFC</label>
-              <input type=»text» readonly=»readonly» class="form-control" id="creditor_rfc"  [(ngModel)]="employee.creditor_rfc" name="creditor_rfc" required>
+              <input type=»text» readonly=»readonly» class="form-control" id="creditor_rfc"  [(ngModel)]="credito.creditor_rfc" name="creditor_rfc" required>
             </div>
             <div class="form-group">
               <label for="name">Giro</label>
-              <input type=»text» readonly=»readonly» class="form-control" id="creditor_turn"  [(ngModel)]="employee.creditor_turn" name="creditor_turn" required>
+              <input type=»text» readonly=»readonly» class="form-control" id="creditor_turn"  [(ngModel)]="credito.creditor_turn" name="creditor_turn" required>
             </div>
           </form>
             <br>

@@ -65,13 +65,13 @@ name : string;
   
 
   reloadData2() {
-    this.name = this.route.firstChild.snapshot.params['name']
+   // this.name = this.route.firstChild.snapshot.params['name']
 
       console.log(this.name);
-      this.employeesService.getEmployeed(this.employee.creditor_business_name)
+      this.employeesService.getEmployeed(this.credito.creditor_business_name)
         .subscribe(data2 => {
           console.log(data2);
-          this.employee = data2;
+          this.credito = data2;
         });
    
   } 
