@@ -24,18 +24,20 @@ export class UpdateReservationsComponent implements OnInit {
   alertMessage = "null";
   alertMessages = "null";
 
+
+
+
   constructor(private route: ActivatedRoute,  private reservationsService:ReservationsService, private router: Router,
   private tenantService: TenantsService, private articlesService : ArticlesService) { }
 
   ngOnInit() {
     this.reloadDatas();
     this.reloadData();
-
     this.reservation = new Reservations();
-   
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.reservation.reservations_status);
     this.reservationsService.getReservation(this.id).subscribe(data => {
+      //  this.reservation.reservations_start.toLocaleDateString();
         console.log(data);
         this.reservation = data;
         this.reservation.reservations_status = (String(this.reservation.reservations_status) == "false") ? null:"false";
@@ -43,10 +45,14 @@ export class UpdateReservationsComponent implements OnInit {
       }, error => {
         console.log(error);
       });
+
+
   }
 
-  reloadDatas() 
-  {
+  
+
+
+  reloadDatas() {
     this.articlesService.getListCommons().subscribe(
       data => {
         console.log(data);
@@ -79,8 +85,8 @@ export class UpdateReservationsComponent implements OnInit {
       }
     );      
   }
- 
- 
+
+
   updateReservation() {
     this.reservation.last_update_by=Number(localStorage.getItem('id'));
     console.log(this.reservation);

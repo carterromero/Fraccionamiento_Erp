@@ -33,7 +33,12 @@
 
             
 
-          
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">metodo de pago </label>
+              <select  class="custom-select"  id="metodo_tipo" required [(ngModel)]="employee.metodo_tipo" name="metodo_tipo" >
+              <option *ngFor="let creditors of general | async" value="{{creditors.payment_description}}"> {{creditors.payment_description}}</option>
+              </select>
+          </div>  
 
             <div class="form-group">
              <label  for="inputGroupSelect01">metodo de pago </label>

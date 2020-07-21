@@ -1,4 +1,31 @@
-<p>create-reservations works!</p>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>           
+      <th>Ubicacion</th>
+      <th>Fecha inicial</th>
+      <th>Fecha final</th>
+      <th>Residente</th>
+      <th>Estatus </th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let reservation of reservations | async">
+            <td>{{reservation.articles_name_article}}</td>
+            <td>{{reservation.reservations_start}}</td>
+            <td>{{reservation.reservations_end}}</td>
+            <td>{{reservation.tenants_name}} {{reservation.tenants_father_surname}} {{reservation.tenants_mother_surname}}</td>
+            <td>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" [checked]="reservation.reservations_status == 'true'">
+                  <label class="custom-control-label" for="reservations_status">Active</label>
+               </div>
+              </td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <div class="col-md-6">

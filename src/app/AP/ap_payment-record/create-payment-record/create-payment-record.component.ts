@@ -11,7 +11,8 @@ import { Creditor } from 'src/app/creditor';
 import { CreditorService } from 'src/app/creditor.service';
 import { Billtopay } from 'src/app/billtopay';
 import { Billtopayservice } from 'src/app/billtopay.service';
-
+import { Payment } from 'src/app/payment';
+import { PaytmentService } from 'src/app/paytment.service';
 
 
 @Component({
@@ -27,6 +28,9 @@ export class CreatePaymentRecordComponent implements OnInit {
   factura: Observable<Billtopay[]>;
   fac: Billtopay= new Billtopay();
   creditor: Observable<Creditor[]>;
+  general: Observable<Payment[]>;
+  
+
   id: number;
   alertDisable = true;
   alertDisables = true;
@@ -42,6 +46,7 @@ export class CreatePaymentRecordComponent implements OnInit {
     private creditorService: CreditorService,
     private billtopayservice: Billtopayservice,
     private route: ActivatedRoute,
+    private generalService: PaytmentService,
     private router: Router) {
 
       
@@ -51,6 +56,7 @@ export class CreatePaymentRecordComponent implements OnInit {
       this.reloadDatas();
       this.reloadDatas1() ;
       this.reloadDatas2() ;
+      this.reloadData4();
       this.employee = new PaymentRecord();
      
       console.log(this.employee.payment_status = 'true');
@@ -117,6 +123,22 @@ export class CreatePaymentRecordComponent implements OnInit {
         }
       }
     );      
+  }
+
+  reloadData4() {
+    
+    this.generalService.getEmployeeList().subscribe(
+      data => {
+        this.general = this.generalService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      });
   }
 
  

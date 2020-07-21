@@ -19,6 +19,7 @@ export class CreateReservationsComponent implements OnInit {
   reservation: Reservations = new Reservations();
   tenants: Observable<Tenants[]>;
   articles: Observable<Articles[]>;
+  reservations: Observable<Reservations[]>;
   submitted = false;
   alertDisable = true;
   alertDisables = true;
@@ -32,10 +33,24 @@ export class CreateReservationsComponent implements OnInit {
     //code
     this.reloadDatas();
     this.reloadData();
+    this.reloadDataList();
   }
 
 
-
+  reloadDataList() {
+    /*localStorage.setItem('token', "");*/
+    /*this.employees = this.employeeService.getEmployeeList();*/
+    this.reservationsService.getReservationListR().subscribe(
+      data => {
+        console.log(data);
+        this.reservations = this.reservationsService.getReservationListR();
+      },
+      error => {
+        console.log(error);
+       // localStorage.setItem('token', "");
+       // this.router.navigate(['auth/signin']);     
+      });
+  } 
   reloadDatas() 
   {
 
@@ -88,6 +103,7 @@ export class CreateReservationsComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+  
     this.save();    
   }
 

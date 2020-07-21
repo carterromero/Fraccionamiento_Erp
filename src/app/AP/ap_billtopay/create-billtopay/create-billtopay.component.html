@@ -2,7 +2,7 @@
     <div class="col-sm-12">
       <div class="col-md-6">
         <app-card cardTitle="Crear factura" [options]="false">
-          <form >
+          <form (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="name">Folio de Factura</label>
               <input type="text" class="form-control" id="billtopay_invoice_folio"  [(ngModel)]="employee.billtopay_invoice_folio" name="billtopay_invoice_folio" required> 
@@ -12,7 +12,7 @@
             <div class="form-group">
               <label for="exampleFormControlSelect1">id orden de compra</label>
               <select  class="custom-select"  id="creditor_id" required [(ngModel)]="employee.creditor_id" name="creditor_id" >
-              <option *ngFor="let creditors of purcharse | async" value="{{creditors.purcharse_id}}">{{creditors.purcharse_id}}</option>
+              <option *ngFor="let creditors of purcharse | async" value="{{creditors.purcharse_id}}">{{creditors.purcharse_id}}{{creditors.purcharse_name}}</option>
               </select>
           </div>  
 
@@ -54,8 +54,8 @@
             
             <div class="form-group">
               <label for="exampleFormControlSelect1">Nombre del accredor</label>
-              <select type="text" action="reloadData2()"  class="custom-select"  id="creditor_business_name" required [(ngModel)]="credito.creditor_business_name" name="creditor_business_name" >
-              <option *ngFor="let creditors of credi | async" value="{{creditors.creditor_business_name}}"> {{creditors.creditor_business_name}}</option>
+              <select   class="custom-select"  id="creditor_business_name" required [(ngModel)]="employee.creditor_business_name" name="creditor_business_name" >
+              <option *ngFor="let creditors of credito | async" value="{{creditors.creditor_business_name}}"> {{creditors.creditor_business_name}}</option>
               
             </select>
             <button (click)="reloadData2()"   class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR nombre  </button>
@@ -64,26 +64,26 @@
             
             <div class="form-group">
               <label for="name">Dirección</label>
-              <input type=»text»  class="form-control" id="creditor_addres"  [(ngModel)]="credito.creditor_addres" name="creditor_addres" required>
+              <input type=»text»  class="form-control" id="creditor_addres" [(ngModel)]="employee.creditor_addres" name="creditor_addres" required>
+              <span>{{employee.creditor_addres}}</span>
             </div>  
-          
           
           <div class="form-group">
             <label for="name">Cuenta accredor</label>
-            <input type=»text» class="form-control" id="creditor_cuenta"  [(ngModel)]="credito.creditor_cuenta" name="creditor_cuenta" required>
+            <input type=»text» class="form-control" id="creditor_cuenta"  [(ngModel)]="employee.creditor_cuenta" name="creditor_cuenta" required>
           </div>
         
             <div class="form-group">
               <label for="name">telefono</label>
-              <input type=»text» readonly=»readonly» class="form-control" id="creditor_tel"  [(ngModel)]="credito.creditor_tel" name="creditor_tel" required>
+              <input type=»text» class="form-control" id="creditor_tel"  [(ngModel)]="employee.creditor_tel" name="creditor_tel" required>
             </div>
             <div class="form-group">
               <label for="name">RFC</label>
-              <input type=»text» readonly=»readonly» class="form-control" id="creditor_rfc"  [(ngModel)]="credito.creditor_rfc" name="creditor_rfc" required>
+              <input type=»text»  class="form-control" id="creditor_rfc"  [(ngModel)]="employee.creditor_rfc" name="creditor_rfc" required>
             </div>
             <div class="form-group">
               <label for="name">Giro</label>
-              <input type=»text» readonly=»readonly» class="form-control" id="creditor_turn"  [(ngModel)]="credito.creditor_turn" name="creditor_turn" required>
+              <input type=»text»  class="form-control" id="creditor_turn"  [(ngModel)]="employee.creditor_turn" name="creditor_turn" required>
             </div>
           </form>
             <br>
@@ -99,19 +99,19 @@
              
           <div class="form-group">
             <label for="name">cuenta cliente </label>
-            <input type=»text» disabled=»disabled» class="form-control" id="cliente_cuenta"  [(ngModel)]="employee.cliente_cuenta" name="cliente_cuenta" required>
+            <input type=»text»  class="form-control" id="cliente_cuenta"  [(ngModel)]="employee.cliente_cuenta" name="cliente_cuenta" required>
           </div>
             <div class="form-group">
               <label for="name">direccion</label>
-              <input type=»text» disabled=»disabled» class="form-control" id="cliente_direccion"  [(ngModel)]="employee.cliente_direccion" name="cliente_direccion" required>
+              <input type=»text» class="form-control" id="cliente_direccion"  [(ngModel)]="employee.cliente_direccion" name="cliente_direccion" required>
             </div>
             <div class="form-group">
                 <label for="name">RFC</label>
-                <input type=»text» readonly=»readonly» class="form-control" id="cliente_rfc"  [(ngModel)]="employee.cliente_rfc" name="cliente_rfc" required>
+                <input type=»text»  class="form-control" id="cliente_rfc"  [(ngModel)]="employee.cliente_rfc" name="cliente_rfc" required>
               </div>
               <div class="form-group">
                 <label for="name">Telefono</label>
-                <input type=»text» readonly=»readonly» class="form-control" id="cliente_tel"  [(ngModel)]="employee.cliente_tel" name="cliente_tel" required>
+                <input type=»text» class="form-control" id="cliente_tel"  [(ngModel)]="employee.cliente_tel" name="cliente_tel" required>
               </div>
               
             </form> 
