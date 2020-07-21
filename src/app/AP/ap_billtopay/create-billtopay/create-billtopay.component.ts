@@ -10,7 +10,8 @@ import { BankAccountsService } from '../../../bank-accounts.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Creditor } from 'src/app/creditor';
 import { CreditorService } from 'src/app/creditor.service';
-
+import { Client } from 'src/app/client';
+import { ClientService } from 'src/app/client.service';
 @Component({
   selector: 'app-create-billtopay',
   templateUrl: './create-billtopay.component.html',
@@ -22,6 +23,7 @@ export class CreateBilltopayComponent implements OnInit {
   purcharse: Observable<Purcharse[]>;
   credito: Observable<Creditor[]>;
   employees: Billtopay = new Billtopay();
+  client: Observable<Client[]>;
   
 name : string;
   alertDisable = true;
@@ -35,12 +37,14 @@ name : string;
     private purcharseService: PurcharseService,
     private bankAccountsService: BankAccountsService,
     private employeesService: CreditorService,
+    private clientService: ClientService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit() {
     this.reloadDatas();
     this.reloadDatas1();
+    this.reloadData5() 
    
     
   }
@@ -90,14 +94,14 @@ name : string;
       reloadData3() {
           // this.name = this.route.firstChild.snapshot.params['name']
        
-          this.cliente_name_cliente = this.route.firstChild.snapshot.params['name']
-          this.cliente_name_cliente = localStorage.getItem('tutorial');
+          this.name = this.route.firstChild.snapshot.params['name']
+         
              console.log(this.cliente_name_cliente);
              this.employeeService.getEmployeecl(this.employee.cliente_name_cliente)
                .subscribe(data => {
                  console.log(data);
                  this.employee = data;
-                 localStorage.setItem('usuario', JSON.stringify(this.cliente_name_cliente));
+                 
                },
                error => {
                  console.log(error);
@@ -110,7 +114,19 @@ name : string;
           
          } 
 
+ jav(event){
+  
+  event = (this.employee.creditor_business_name );
+  this.reloadData2()
+  
+  
+ }
+ javq(event){
  
+  event = (this.employee.cliente_name_cliente);
+
+  this.reloadData3()
+ }
 
 reloadDatas1() 
 {
@@ -131,6 +147,24 @@ reloadDatas1()
   )
   
        
+}
+reloadData5() {
+    
+  this.clientService.getEmployeeList().subscribe(
+    data => {
+      console.log(data);
+      this.client = this.clientService.getEmployeeList();
+    },
+    error => {
+      console.log(error);
+      let coins = [];
+      for (let key in error) {
+        this.alertDisable = false;
+        this.alertMessage = error['statusText'];          
+      }    
+    });
+
+    
 }
 
 
@@ -161,7 +195,7 @@ reloadDatas1()
   save() {
     console.log( localStorage.getItem('condominums'));
     this.employee.condominums_id = localStorage.getItem('condominums');
-    this.employee.p_userid = (localStorage.getItem('id'));
+    this.employee.p_userid = localStorage.getItem('id');
     console.log(this.employee);
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
@@ -170,7 +204,7 @@ reloadDatas1()
           this.alertDisables = false;
           this.alertMessages ="Se inserto la factura correctamente";
           this.employee= new Billtopay();  
-          localStorage.setItem('usuario', JSON.stringify(this.cliente_name_cliente));
+         
         }, 
       error => {
         console.log(error);    

@@ -58,14 +58,13 @@
               <option *ngFor="let creditors of credito | async" value="{{creditors.creditor_business_name}}"> {{creditors.creditor_business_name}}</option>
               
             </select>
-            <button (click)="reloadData2()"   class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR nombre  </button>
+            <button (click)="jav($event)" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR nombre  </button>
             
           </div>  
             
             <div class="form-group">
               <label for="name">Dirección</label>
               <input type=»text»  class="form-control" id="creditor_addres" [(ngModel)]="employee.creditor_addres" name="creditor_addres" required>
-              <span>{{employee.creditor_addres}}</span>
             </div>  
           
           <div class="form-group">
@@ -91,12 +90,14 @@
             <h2><label for="name">CLIENTE</label></h2>
 
             <div class="form-group">
-              <label for="name">Nombre del cliente </label>
-              <input  class="form-control" id="cliente_name_cliente"  [(ngModel)]="employee.cliente_name_cliente" name="cliente_name_cliente" required> 
-              <button (click)="reloadData3()"   class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR nombre  </button>
-            
-            </div>      
+              <label for="exampleFormControlSelect1">Nombre del cliente </label>
+              <select   class="custom-select"  id="cliente_name_cliente" required [(ngModel)]="employee.cliente_name_cliente" name="cliente_name_cliente" >
+              <option *ngFor="let creditors of client | async" value="{{creditors.cliente_name_cliente}}"> {{creditors.cliente_name_cliente}}</option>
+            </select>
+            <button (click)="jav($event)" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR nombre  </button> 
              
+          </div> 
+         
           <div class="form-group">
             <label for="name">cuenta cliente </label>
             <input type=»text»  class="form-control" id="cliente_cuenta"  [(ngModel)]="employee.cliente_cuenta" name="cliente_cuenta" required>

@@ -5,13 +5,16 @@
 
          
             <div>
-              <label><b>Total pagado: </b></label> {{employee.name_creditor}}
+              <label><b>nombre: </b></label> {{employee.name_creditor}}
             </div>
             <div>
-              <label><b>FECHA DE PAGO: </b></label> {{employee.payment_record_payment_date}}
+              <label><b>factura: </b></label> {{employee.billtopay_invoice_folio }}
             </div>
             <div>
-            <label><b>Total pagado: </b></label> {{employee.payment_record_amount}}
+              <label><b>FECHA DE PAGO: </b></label> {{employee.billtopay_invoice_date }}
+            </div>
+            <div>
+            <label><b>Total pagado: </b></label> {{employee.billtopay_amount }}
           </div>
           <div>
             <label><b>tipo de pago: </b></label> {{employee.metodo_tipo}}
