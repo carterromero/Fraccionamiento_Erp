@@ -9,18 +9,14 @@
               <select  class="custom-select"  id="articles_sku" required [(ngModel)]="reservation.articles_sku" name="articles_sku" >
               <option *ngFor="let article of articles | async" value="{{article.articles_sku}}">{{article.articles_name_article}}</option>
               </select>
-          </div>  
-            <div class="form-group">
-                <label for="name">Fecha de reservacion:</label>
-                <input type="date" class="form-control" id="reservations_date" required [(ngModel)]="reservation.reservations_date" name="reservations_date">
+          </div>             
+              <div class="form-group">
+                <label for="name">Fecha de inicio</label>
+                <input type="datetime-local" class="form-control" id="reservations_start" required [(ngModel)]="reservation.reservations_start" name="reservations_start">
               </div>    
               <div class="form-group">
-                <label for="name">Hora de inicio</label>
-                <input type="time" class="form-control" id="reservations_start_time" required [(ngModel)]="reservation.reservations_start_time" name="reservations_start_time">
-              </div>    
-              <div class="form-group">
-                <label for="name">Hora de fin</label>
-                <input type="time" class="form-control" id="reservations_end_time" required [(ngModel)]="reservation.reservations_end_time" name="reservations_end_time">
+                <label for="name">Fecha de fin</label>
+                <input type="datetime-local" class="form-control" id="reservations_end" required [(ngModel)]="reservation.reservations_end" name="reservations_end">
               </div>    
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Residente</label>

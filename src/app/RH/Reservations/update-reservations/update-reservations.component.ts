@@ -17,6 +17,7 @@ import { Articles } from "src/app/articles";
 export class UpdateReservationsComponent implements OnInit {
 
   id: number;
+  dat: Date;
   reservation: Reservations;
   tenants: Observable<Tenants[]>;
   articles: Observable<Articles[]>;
@@ -29,7 +30,9 @@ export class UpdateReservationsComponent implements OnInit {
   ngOnInit() {
     this.reloadDatas();
     this.reloadData();
+
     this.reservation = new Reservations();
+   
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.reservation.reservations_status);
     this.reservationsService.getReservation(this.id).subscribe(data => {
@@ -44,7 +47,6 @@ export class UpdateReservationsComponent implements OnInit {
 
   reloadDatas() 
   {
-
     this.articlesService.getListCommons().subscribe(
       data => {
         console.log(data);

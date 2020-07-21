@@ -41,4 +41,9 @@ export class CreditorService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_AP_CREDITOR_V1/1.0/creditors`,{headers});
   }
+
+  getEmployeed(id:string ): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_AP_NAMECREDIT/1.0/creditors/${id}`,{headers});
+  }
 }
