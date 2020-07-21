@@ -3,7 +3,7 @@ import { NumberValueToken } from 'html2canvas/dist/types/css/syntax/tokenizer';
 export class Articles
 {
 
-    p_admin_condominiuns_id :string;
+    p_admin_condominiuns_id :string
     p_id : number;
     articles_sku :number;
     articles_name_article : string;
@@ -38,18 +38,19 @@ export class Articles
     articles_lot_place:string;
     articles_lot_places:string;
 
-
+  
 
     articulo : string;
     descripcion : string;
-
+    sub_inventario: number;
     caract_extern : string;
     caract_int : string;
     alto : number;
     largo: number;
     ancho: number;
-    categoria : string;
-    subcategoria : string;
+    
+    categoria : number;
+    subcategoria : number;
     precio_nomb :string;
     precio :number;
     activo : string;
