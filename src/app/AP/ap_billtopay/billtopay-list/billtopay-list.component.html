@@ -18,7 +18,7 @@
               <th>Folio de Factura</th>
               <th>id orden de compra</th>
               <th>Fecha de Factura </th>
-              <th>Fecha de pago programada</th>
+              
               <th>Monto</th>
               <th>Descripción del bien o servicio adquirido</th>
               <th>Estatus </th>
@@ -28,13 +28,13 @@
             <th>telefono</th>
             <th>rfc</th>
             <th>Giro</th>
-            <th>Estatus</th>
+            
             <th>nombre cliente</th>
             <th>cuenta</th>
             <th>direccion</th>
             <th>rfc</th>
             <th>telefono</th>
-            <th>estatus</th>
+            
               
               
             </tr>
@@ -46,7 +46,6 @@
                     <td>{{general.billtopay_invoice_folio}}</td>
                     <td>{{general.creditor_id}}</td>
                     <td>{{general.billtopay_invoice_date}}</td>
-                    <td>{{general.billtopay_scheduled_payment_date}}</td>
                     <td>{{general.billtopay_amount}}</td>
                     <td>{{general.billtopay_service_description}}</td>
 
@@ -64,25 +63,13 @@
                       <td>{{general.creditor_rfc}}</td>
                       <td>{{general.creditor_turn}}</td>
 
-                      <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.creditor_status == 'true'">
-                          <label class="custom-control-label" for="creditor_status">Active</label>
-                       </div>
-                      </td>
-
-                     
+                  
                       <td>{{general.cliente_name_cliente}}</td>
                       <td>{{general.cliente_cuenta}}</td>
                       <td>{{general.cliente_direccion}}</td>
                       <td>{{general.cliente_rfc}}</td>
                       <td>{{general.cliente_tel}}</td>
-                        <td>
-                            <div class="custom-control custom-switch">
-                              <input type="checkbox" class="custom-control-input" [checked]="general.cliente_status == 'true'">
-                              <label class="custom-control-label" for="cliente_status">Active</label>
-                           </div>
-                          </td>
+                       
     
                     <td>
                       <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>

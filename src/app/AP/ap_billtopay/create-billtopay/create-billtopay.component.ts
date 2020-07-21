@@ -20,9 +20,9 @@ export class CreateBilltopayComponent implements OnInit {
   creditor: Observable<BankAccounts[]>;
   employee: Billtopay = new Billtopay();
   purcharse: Observable<Purcharse[]>;
-  general: Observable<Billtopay[]>;
-  credi: Observable<Creditor[]>;
-  credito:Creditor = new Creditor();
+  credito: Observable<Creditor[]>;
+  employees: Billtopay = new Billtopay();
+  
 name : string;
   alertDisable = true;
   alertDisables = true;
@@ -41,15 +41,17 @@ name : string;
   ngOnInit() {
     this.reloadDatas();
     this.reloadDatas1();
+   
+    
   }
 
   reloadDatas() 
   {
 
-    this.purcharseService.getEmployeeList(1).subscribe(
+    this.employeeService.getEmployeebill().subscribe(
       data => {
         console.log(data);
-        this.purcharse = this.purcharseService.getEmployeeList(1);
+        this.purcharse = this.employeeService.getEmployeebill();
       },
       error => {
         console.log(error);
@@ -67,25 +69,46 @@ name : string;
   reloadData2() {
    // this.name = this.route.firstChild.snapshot.params['name']
 
-      console.log(this.name);
-      this.employeesService.getEmployeed(this.credito.creditor_business_name)
-        .subscribe(data2 => {
-          console.log(data2);
-          this.credito = data2;
-        });
+   this.name = this.route.firstChild.snapshot.params['name']
+   console.log(this.name);
+      this.employeeService.getEmployeed(this.employee.creditor_business_name)
+      .subscribe(data => {
+        console.log(data);
+        this.employee = data;
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    ); 
+     
+      }
    
-  } 
+      reloadData3() {
+          // this.name = this.route.firstChild.snapshot.params['name']
+       
+          this.name = this.route.firstChild.snapshot.params['name']
+             console.log(this.name);
+             this.employeeService.getEmployeecl(this.employee.cliente_name_cliente)
+               .subscribe(data => {
+                 console.log(data);
+                 this.employee = data;
+               },
+               error => {
+                 console.log(error);
+                 let coins = [];
+                 for (let key in error) {
+                   this.alertMessage = error['statusText'];          
+                 }
+               }
+             ); 
+          
+         } 
 
-  reloadData3() {
-    this.name = this.route.firstChild.snapshot.params['name']
-    console.log(this.name);
-    this.employeeService.getEmployeecl(this.employee.cliente_name_cliente)
-      .subscribe(data3 => {
-        console.log(data3);
-        this.employee = data3;
-      });
-    
-} 
+ 
 
 reloadDatas1() 
 {
@@ -93,11 +116,8 @@ reloadDatas1()
   this.employeesService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.credi= this.employeesService.getEmployeeList();
+      this.credito= this.employeesService.getEmployeeList();
       console.log(this.creditor_business_name);
-      
-      if (this.creditor_business_name == this.employee.creditor_business_name )
-      this.reloadData2()
     },
     error => {
       console.log(error);
@@ -106,7 +126,9 @@ reloadDatas1()
         this.alertMessage = error['statusText'];          
       }
     }
-  );      
+  )
+  
+       
 }
 
 
@@ -137,7 +159,7 @@ reloadDatas1()
   save() {
     console.log( localStorage.getItem('condominums'));
     this.employee.condominums_id = localStorage.getItem('condominums');
-    this.employee.p_userid="3";
+    this.employee.p_userid = (localStorage.getItem('id'));
     console.log(this.employee);
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
@@ -145,7 +167,7 @@ reloadDatas1()
           console.log(data);
           this.alertDisables = false;
           this.alertMessages ="Se inserto la factura correctamente";
-          this.employee= new Billtopay();
+          this.employee= new Billtopay();  
         }, 
       error => {
         console.log(error);    
@@ -158,7 +180,23 @@ reloadDatas1()
       });
   }
 
- 
+  onSubmit() 
+  {
+
+  this.alertDisable = true;
+  this.alertDisables = true;
+
+  if(this.employee.billtopay_invoice_folio == "" ||  this.employee.billtopay_invoice_folio ==null ){
+    this.alertDisable = false;
+    this.alertMessage = "campo Incompleto o repetido";          
+  }
+
+
+
+  else{
+    this.save();    
+  }
+  }
 
   gotoList() 
   {
