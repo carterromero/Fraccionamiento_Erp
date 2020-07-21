@@ -1,5 +1,3 @@
-import { Time } from '@angular/common';
-
 export class Reservations {
     reservations_id: number;
     articles_sku: number;
