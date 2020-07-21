@@ -29,7 +29,7 @@ export class PdfArticulogListComponent implements OnInit {
    subcategorias :Observable<SubCategories[]>;
    Categorias : Observable<Categories[]>;
    Precios : Observable<Pricearticulo[]>;
-
+   Articulos : Observable<Articles[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -63,6 +63,7 @@ export class PdfArticulogListComponent implements OnInit {
 
 
   ngOnInit(): void {
+     
       
       this.reloadData();
       this.reloadDatas();
@@ -72,11 +73,12 @@ export class PdfArticulogListComponent implements OnInit {
   }
   
   reloadData() {
+
     
-    this.generalService.getEmployeeReport().subscribe(
+    this.generalService.getEmployeeReport(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService.getEmployeeReport();
+        this.general = this.generalService.getEmployeeReport(parseInt(localStorage.getItem('condominums')));
       },
       error => {
         console.log(error);   

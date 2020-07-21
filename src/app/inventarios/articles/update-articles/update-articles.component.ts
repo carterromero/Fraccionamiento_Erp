@@ -15,8 +15,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpdateArticlesComponent implements OnInit {
 
-  id: number;
-  admin_condominiuns_id:number;
+  id: number =4;
+  admin_condominiuns_id:number =1;
   employee: Articles;
   addresses: Observable<[SubCategories]>;
   addresses1: Observable<UnitOfMeasures[]>;
@@ -34,11 +34,13 @@ export class UpdateArticlesComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    
-    this.employee.admin_condominiuns_id=localStorage.getItem('condominums')
-    this.employee = new Articles();
-   
+    this.employee.p_id;
+    this.reloadDatas();
     this.id = this.route.firstChild.snapshot.params['id']
+    this.id=parseInt(localStorage.getItem('condominums'));
+  
+    this.employee = new Articles();
+
     this.admin_condominiuns_id = this.route.firstChild.snapshot.params['admin_condominiuns_id']
     this.employeeService.getEmployee(this.id,this.admin_condominiuns_id)
       .subscribe(data => {
@@ -59,11 +61,12 @@ export class UpdateArticlesComponent implements OnInit {
 
    
 
+
+
+  
+
   updateEmployee() {
-    //this.reservation.last_update_by=Number(localStorage.getItem('id'));
-    this.employee.last_update_by=Number(localStorage.getItem('id'));
-    this.employee.admin_condominiuns_id=localStorage.getItem('condominums')
-    this.employee.last_update_by=3;
+   /* this.employee.p_id=3;
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {
         
@@ -79,6 +82,26 @@ export class UpdateArticlesComponent implements OnInit {
           this.alertDisable = false;
           this.alertMessage = error['statusText'];          
         }
+      });*/
+
+      this.employee.admin_condominiuns_id="1";
+
+      console.log(this.employee.articles_skus);
+    this.employee.p_id;
+    this.employeeService.updateEmployee(this.id)
+      .subscribe(data => {
+        console.log(data);
+        this.alertDisables = false;
+        this.alertMessages ="Se actualizo la empresa correctamente";
+      }, 
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+        
       });
     
   
