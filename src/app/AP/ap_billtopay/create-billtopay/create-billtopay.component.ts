@@ -90,12 +90,14 @@ name : string;
       reloadData3() {
           // this.name = this.route.firstChild.snapshot.params['name']
        
-          this.name = this.route.firstChild.snapshot.params['name']
-             console.log(this.name);
+          this.cliente_name_cliente = this.route.firstChild.snapshot.params['name']
+          this.cliente_name_cliente = localStorage.getItem('tutorial');
+             console.log(this.cliente_name_cliente);
              this.employeeService.getEmployeecl(this.employee.cliente_name_cliente)
                .subscribe(data => {
                  console.log(data);
                  this.employee = data;
+                 localStorage.setItem('usuario', JSON.stringify(this.cliente_name_cliente));
                },
                error => {
                  console.log(error);
@@ -168,6 +170,7 @@ reloadDatas1()
           this.alertDisables = false;
           this.alertMessages ="Se inserto la factura correctamente";
           this.employee= new Billtopay();  
+          localStorage.setItem('usuario', JSON.stringify(this.cliente_name_cliente));
         }, 
       error => {
         console.log(error);    
