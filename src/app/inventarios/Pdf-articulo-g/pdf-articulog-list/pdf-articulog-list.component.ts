@@ -14,6 +14,7 @@ import { Categories } from 'src/app/categories';
 import { CategoriesService } from 'src/app/categories.service';
 import { Pricearticulo } from 'src/app/pricearticles';
 import { PrecioarticuloService } from 'src/app/precioarticulo.service';
+import { FiltergA } from 'src/app/filterga';
 
 @Component({
   selector: 'app-pdf-articulog-list',
@@ -21,6 +22,7 @@ import { PrecioarticuloService } from 'src/app/precioarticulo.service';
   styleUrls: ['./pdf-articulog-list.component.scss']
 })
 export class PdfArticulogListComponent implements OnInit {
+  filter: FiltergA= new FiltergA();
 
   id: number;
   general: Observable<Articles[]>;
@@ -57,14 +59,19 @@ export class PdfArticulogListComponent implements OnInit {
   
       }
 
-
+      onSubmit() 
+      {
+        
+        this.getsbusqueda();
+      }
+  
 
 
 
 
   ngOnInit(): void {
      
-      
+       
       this.reloadData();
       this.reloadDatas();
       this.reloadDatass();
@@ -220,6 +227,20 @@ console.log(id);
   updateGeneral(id: number){
     this.router.navigate(['update-articles', id]);
   }
+
+
+
+  getsbusqueda()
+    {
+      if(this.filter.sku!=null || this.filter.sub_inventario !=null){
+      this.reloadDatas();
+      
+    }
+    else{
+      alert("Ingrese Fecha para buscar y el estatus");
+    }
+     
+    }
 
   
 
