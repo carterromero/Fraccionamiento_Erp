@@ -14,6 +14,34 @@
           id="sku"   name="sku"
           class="form-control mr-sm-2" type="text" placeholder="Articulo"  >
 
+
+          <!--<div class="form-group">
+            <label for="exampleFormControlSelect1">Subinventario</label>
+            <select  class="custom-select" id="sub_inventario" required [(ngModel)]="filter.sub_inventario" name="sub_inventario"  >
+            <option *ngFor="let filter of Subinventarios | async" value="{{filter.sub_inventario}}">{{filter.sub_inventarys_description}}</option>
+            </select>
+            </div>!-->
+            
+           
+          
+          <button type="submit" class="btn btn-outline-success">Buscar articulo</button>   
+          <button type="button"  (click)="reloadData()" class="btn btn-outline-info" style="margin-left: 10px">Refrescar</button>  
+        </div>
+   
+       
+
+      </form>
+
+
+      <form class="form-inline waves-light" mdbWavesEffect (ngSubmit)="onSubmitsub()">
+        <div class="md-form mt-0" >
+
+          
+
+          <input [(ngModel)]="filter.sub_inventarys_description"
+          id="sku"   name="sku"
+          class="form-control mr-sm-2" type="text" placeholder="subinventario"  >
+
          
 
           <!--<div class="form-group">
@@ -25,13 +53,15 @@
             
            
           
-          <button type="submit" class="btn btn-outline-success">Buscar</button>    
+        
+          <button type="submit" class="btn btn-outline-success">Buscar subinventario</button> 
           <button type="button"  (click)="reloadData()" class="btn btn-outline-info" style="margin-left: 10px">Refrescar</button>  
         </div>
    
        
 
       </form>
+      
       
 
       <div class="table-responsive"   id="from-informacion">
