@@ -4,20 +4,21 @@ export class PaymentRecord
     
     payment_id :number;
     creditor_id :number;
-    payment_record_payment_date : string;
-    payment_record_amount : string;
+
+    
+
     payment_method : string;
     payment_status : string;
     created_by : number;
     created_date : string;
     last_updated_by : number;
     last_updated_date : string;
-    p_user_id :number;
+    p_userid :string;
     
-    condominums_id :number;
+    condominums_id :string;
     name_creditor : string;
     metodo_tipo :  string;
-    factura : number;
+   
 
     data: File;
     state: string;
@@ -26,5 +27,9 @@ export class PaymentRecord
     canRetry: boolean;
     canCancel: boolean;
     sub?: Subscription;
+
+    billtopay_invoice_folio: string;
+    billtopay_invoice_date: string;
+    billtopay_amount: string;
    
 }

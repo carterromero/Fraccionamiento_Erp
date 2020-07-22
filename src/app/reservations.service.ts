@@ -39,9 +39,9 @@ export class ReservationsService {
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ALL_RESERV/1.0/reservations`,{headers});
   }
 
-  getReservationListR(): Observable<any> {
+  getReservationListR(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_LIST_RESERV/1.0/listReservations`,{headers});
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_LIST_RESERV/1.0/listReservations/${id}`,{headers});
   }
   
   getReservationReport(): Observable<any> {

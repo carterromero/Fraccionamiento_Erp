@@ -25,7 +25,7 @@ export class CreatePaymentRecordComponent implements OnInit {
 
   employee: PaymentRecord = new PaymentRecord();
   condominums: Observable<Condominums[]>;
-  factura: Observable<Billtopay[]>;
+  facturass: Observable<Billtopay[]>;
   fac: Billtopay= new Billtopay();
   creditor: Observable<Creditor[]>;
   general: Observable<Payment[]>;
@@ -39,7 +39,8 @@ export class CreatePaymentRecordComponent implements OnInit {
   datos:String;
   submitted = false;
   
-
+  factura : String;
+  name : string;
   
   constructor(private employeeService: PaymentRecordService,
     private condominumsService: CondominumsService,
@@ -113,7 +114,7 @@ export class CreatePaymentRecordComponent implements OnInit {
         this.fac.billtopay_status = "true";
         console.log(this.fac.billtopay_status);
         this.fac.billtopay_status = (String(this.fac.billtopay_status) == "false") ? null:"false";
-          this.factura= this.billtopayservice.getEmployeeList(); 
+          this.facturass= this.billtopayservice.getEmployeeList(); 
       },
       error => {
         console.log(error);
@@ -141,13 +142,37 @@ export class CreatePaymentRecordComponent implements OnInit {
       });
   }
 
+
+  reloadData6() {
+    // this.name = this.route.firstChild.snapshot.params['name']
+ 
+    this.name = this.route.firstChild.snapshot.params['name']
+   
+       console.log(this.name);
+       this.employeeService.getEmployeefa(this.employee.billtopay_invoice_folio)
+         .subscribe(data => {
+           console.log(data);
+           this.employee = data;
+           
+         },
+         error => {
+           console.log(error);
+           let coins = [];
+           for (let key in error) {
+             this.alertMessage = error['statusText'];          
+           }
+         }
+       ); 
+    
+   } 
+
  
     save() {
-console.log(this.employee.payment_method);
-      
+      console.log( localStorage.getItem('condominums'));
+      this.employee.condominums_id = localStorage.getItem('condominums');
+      this.employee.p_userid = localStorage.getItem('id');
       console.log(this.employee);
-      this.employee.p_user_id = Number(localStorage.getItem('id'));
-    this.employee.condominums_id = Number(localStorage.getItem('condonminums'));
+    
       this.employeeService.createEmployee(this.employee)
         .subscribe(data => 
           {
@@ -173,15 +198,10 @@ console.log(this.employee.payment_method);
   this.alertDisable = true;
   this.alertDisables = true;
 
-  if(this.employee.payment_record_amount =="" ||  this.employee.payment_record_amount ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Monto";          
-  }
- 
-  else{
+  
     this.submitted = true;
     this.save();    
-  }
+  
  }
 
   gotoList() 
@@ -197,7 +217,7 @@ console.log(this.employee.payment_method);
     reader.onload = () => {
         this.datos = reader.result.toString();
         this.employee.payment_method = this.datos.replace("data:application/pdf;base64,","")
-      event = this.employee.payment_record_amount;
+     
      
     };
 }
