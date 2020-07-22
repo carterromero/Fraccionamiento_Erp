@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TenantsService } from 'src/app/tenants.service';
 import { Tenants } from 'src/app/tenants';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Reservations } from 'src/app/reservations';
 import { ReservationsService } from 'src/app/reservations.service';
@@ -19,31 +19,35 @@ export class CreateReservationsComponent implements OnInit {
   reservation: Reservations = new Reservations();
   tenants: Observable<Tenants[]>;
   articles: Observable<Articles[]>;
+  article : Articles=new Articles();
   reservations: Observable<Reservations[]>;
   submitted = false;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
+  id: number;
 
-  constructor(private tenantsService:TenantsService,
+  constructor(private tenantsService:TenantsService, private route: ActivatedRoute,
   private reservationsService: ReservationsService,  private articlesService : ArticlesService, private router: Router) { }
 
   ngOnInit() {
     //code
     this.reloadDatas();
     this.reloadData();
-    this.reloadDataList();
-  }
+    this.reloadDataCom();
+
+    }
 
 
   reloadDataList() {
     /*localStorage.setItem('token', "");*/
     /*this.employees = this.employeeService.getEmployeeList();*/
-    this.reservationsService.getReservationListR().subscribe(
+  //  this.id = this.route.firstChild.snapshot.params['id']
+    this.reservationsService.getReservationListR(this.article.articles_sku).subscribe(
       data => {
         console.log(data);
-        this.reservations = this.reservationsService.getReservationListR();
+        this.reservations = this.reservationsService.getReservationListR(this.article.articles_sku);
       },
       error => {
         console.log(error);
@@ -51,6 +55,23 @@ export class CreateReservationsComponent implements OnInit {
        // this.router.navigate(['auth/signin']);     
       });
   } 
+
+  reloadDataCom() {
+  
+    
+    this.reservationsService.getReservationList().subscribe(
+      data => {
+        console.log(data);
+        this.reservations = this.reservationsService.getReservationList();
+      },
+      error => {
+        console.log(error);
+       // localStorage.setItem('token', "");
+       // this.router.navigate(['auth/signin']);     
+      });
+  } 
+
+
   reloadDatas() 
   {
 
@@ -67,6 +88,7 @@ export class CreateReservationsComponent implements OnInit {
         }
       }
     );      
+   
   }
 
   reloadData() 
@@ -101,10 +123,11 @@ export class CreateReservationsComponent implements OnInit {
     this.gotoList();
   }
 
+
   onSubmit() {
     this.submitted = true;
-  
-    this.save();    
+      this.save();    
+    
   }
 
   gotoList() {
