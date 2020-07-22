@@ -82,11 +82,10 @@ export class PdfHistoriaListComponent implements OnInit {
   
   reloadData() {
   
-    
     this.generalService.getEmployeeHistori(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService. getEmployeeHistori(parseInt(localStorage.getItem('condominums')));
+        this.general = this.generalService.getEmployeeHistori(parseInt(localStorage.getItem('condominums')));
       },
       error => {
         console.log(error);   
