@@ -12,15 +12,16 @@
 
           <input [(ngModel)]="filter.sku"
           id="sku"   name="sku"
-          class="form-control mr-sm-2" type="text" placeholder="Articulo">
+          class="form-control mr-sm-2" type="text" placeholder="Articulo"  >
 
          
-          <div class="form-group">
+
+          <!--<div class="form-group">
             <label for="exampleFormControlSelect1">Subinventario</label>
             <select  class="custom-select" id="sub_inventario" required [(ngModel)]="filter.sub_inventario" name="sub_inventario"  >
             <option *ngFor="let filter of Subinventarios | async" value="{{filter.sub_inventario}}">{{filter.sub_inventarys_description}}</option>
             </select>
-            </div>
+            </div>!-->
             
            
           
@@ -44,7 +45,7 @@
                   
 
 
-                  
+
                   <th>Alto</th>
                   <th>Largo</th>
                   <th>Ancho </th>

@@ -17,6 +17,8 @@ import { User } from 'src/app/services/admin/user';
 import { Authentication } from 'src/app/authentication';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { PermissionsService } from 'src/app/services/admin/permissions.service';
+import { Tenants } from 'src/app/tenants';
+import { TenantsService } from 'src/app/tenants.service';
 
 @Component({
   selector: 'app-create-purcharse',
@@ -25,10 +27,14 @@ import { PermissionsService } from 'src/app/services/admin/permissions.service';
 })
 export class CreatePurcharseComponent implements OnInit {
   authentication: User = new User(); 
-  
+  teha: Tenants = new Tenants(); 
+  condo: Condominums = new Condominums();
+  Userr: User= new User();
   employee: Purcharse = new Purcharse();
   submitted = false;
   suppliers: Observable<Supplier[]>;
+  user: Observable<User[]>;
+  Condo: Observable<Condominums[]>;
   payments: Observable<Payment[]>;
   articlesc : Observable<ArticlesC[]>;
   categorias :Observable<CategoriasC[]>;
@@ -46,7 +52,8 @@ export class CreatePurcharseComponent implements OnInit {
     private categoriesService : CategoriesService,
     private authenticationService : AuthenticationService,
     private generalService: PermissionsService,
-    
+    private userService:UserService,
+    private tha:TenantsService,
     private router: Router) { }
 
 
@@ -60,7 +67,8 @@ export class CreatePurcharseComponent implements OnInit {
 
   reloadDatas() 
   {
-
+    this.condo.condominums_description = localStorage.getItem('condominums');
+    this.teha.tenants_name = localStorage.getItem('inquilino');
     this.suppliersService.getEmployeeListcombo().subscribe(
       data => {
         console.log(data);

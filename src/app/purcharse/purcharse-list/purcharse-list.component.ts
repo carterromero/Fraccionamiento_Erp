@@ -3,6 +3,10 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { PurcharseService } from 'src/app/purcharse.service';
 import { Purcharse } from 'src/app/purcharse';
+import { Tenants } from 'src/app/tenants';
+import { TenantsService } from 'src/app/tenants.service';
+import { Condominums } from 'src/app/services/admin/condominums';
+import { CondominumsService } from 'src/app/services/admin/condominums.service';
 
 @Component({
   selector: 'app-purcharse-list',
@@ -10,14 +14,19 @@ import { Purcharse } from 'src/app/purcharse';
   styleUrls: ['./purcharse-list.component.scss']
 })
 export class PurcharseListComponent implements OnInit {
-
+  condo: Condominums = new Condominums();
+  teha: Tenants = new Tenants(); 
+  tha: Observable<Tenants[]>; 
   general: Observable<Purcharse[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
+  Condo: Observable<Condominums[]>;
 
-  constructor(private generalService: PurcharseService,
+  constructor(private generalService: PurcharseService, 
+    private thaService :  TenantsService,
+    private conService :CondominumsService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -29,7 +38,8 @@ export class PurcharseListComponent implements OnInit {
 
   
   reloadData() {
-    
+    this.condo.condominums_description = localStorage.getItem('condominums');
+    this.teha.tenants_name = localStorage.getItem('inquilino');
     this.generalService.getEmployeeList(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);

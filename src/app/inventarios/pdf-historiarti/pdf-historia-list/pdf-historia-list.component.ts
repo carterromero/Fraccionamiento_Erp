@@ -35,7 +35,7 @@ export class PdfHistoriaListComponent implements OnInit {
    subcategorias :Observable<SubCategories[]>;
    Categorias : Observable<Categories[]>;
    Precios : Observable<Pricearticulo[]>;
-
+   Articulos : Observable<Articles[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -81,11 +81,12 @@ export class PdfHistoriaListComponent implements OnInit {
   }
   
   reloadData() {
+  
     
-    this.generalService.  getEmployeeHistori().subscribe(
+    this.generalService.getEmployeeHistori(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService. getEmployeeHistori();
+        this.general = this.generalService. getEmployeeHistori(parseInt(localStorage.getItem('condominums')));
       },
       error => {
         console.log(error);   
@@ -183,6 +184,7 @@ reloadDatassss() {
 
 
 reloadDatasssss() {
+  
     
   this.PreciosService.getEmployeeList().subscribe(
     data => {

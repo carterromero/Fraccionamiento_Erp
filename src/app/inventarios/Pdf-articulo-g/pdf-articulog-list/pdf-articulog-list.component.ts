@@ -77,8 +77,31 @@ export class PdfArticulogListComponent implements OnInit {
       this.reloadDatass();
       this.reloadDatasss();
       this.reloadDatassss();
+     
   }
   
+
+  reloadDatassssss() {
+    
+    this.filter.p_admin_condominiuns_id = localStorage.getItem('condominums');
+    console.log(this.filter);
+    this.generalService.createFilters(this.filter).subscribe(
+      data => {
+        console.log(data);
+        console.log('kaled');
+        this.general =this.generalService.createFilters(this.filter);
+      },
+      error => {
+        console.log(error);
+        //localStorage.setItem('token', "");
+        //this.router.navigate(['login']);     
+      });
+
+      
+  }
+
+
+
   reloadData() {
 
     
@@ -232,12 +255,12 @@ console.log(id);
 
   getsbusqueda()
     {
-      if(this.filter.sku!=null || this.filter.sub_inventario !=null){
+      if(this.filter.sku  == "" || this.filter.sku != null){
       this.reloadDatas();
       
     }
     else{
-      alert("Ingrese Fecha para buscar y el estatus");
+      alert("Ingrese sku para buscar");
     }
      
     }
