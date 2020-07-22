@@ -23,9 +23,11 @@ import { FiltergA } from 'src/app/filterga';
 })
 export class PdfArticulogListComponent implements OnInit {
   filter: FiltergA= new FiltergA();
-
+  p_condominiuns_id:number;
+  sub_inventario  : string;
   id: number;
   general: Observable<Articles[]>;
+  filters: Observable<FiltergA[]>;
    Transaction : Observable<TransactionsEntrys[]>;
    Subinventarios :Observable<SubInventarys[]>;
    subcategorias :Observable<SubCategories[]>;
@@ -48,9 +50,7 @@ export class PdfArticulogListComponent implements OnInit {
     private router: Router) { }
 
     imprimirLista(id:number){
-      
-      
-      const doc = new jsPDF(id);
+    const doc = new jsPDF(id);
       
       doc.fromHTML(document.getElementById('from-informacion'), 10,10);;
       doc.save(['lista']);
@@ -63,9 +63,15 @@ export class PdfArticulogListComponent implements OnInit {
       {
         
         this.getsbusqueda();
+   
       }
   
 
+      //subinventario
+      onSubmitsub() 
+      {
+        this.getsbusquedasub();
+      }
 
 
 
@@ -100,6 +106,27 @@ export class PdfArticulogListComponent implements OnInit {
       
   }
 
+
+  filtersgetsub() {
+   
+    console.log(this.filter.sub_inventarys_description);
+    this.filter.p_admin_condominiuns_id = localStorage.getItem('condominums');
+    
+    console.log(this.filter);
+   this.generalService.getEmployeesub(this.sub_inventario).subscribe(
+      data => {
+        console.log(data);
+        console.log('kaled');
+        this.general =this.generalService.createFilters(this.filter.sub_inventarys_description);
+      },
+      error => {
+        console.log(error);
+        //localStorage.setItem('token', "");
+        //this.router.navigate(['login']);     
+      });
+
+      
+  }
 
 
   reloadData() {
@@ -262,10 +289,20 @@ console.log(id);
     else{
       alert("Ingrese sku para buscar");
     }
+    
      
     }
 
   
+    getsbusquedasub()
+    {
+      if(this.filter.sub_inventarys_description  == "" || this.filter.sub_inventarys_description != null){
+        this.filtersgetsub();
+      
+    }
+    else{
+      alert("Ingrese subinventario para buscar");
+    }
 
-
+  }
 }
