@@ -1,7 +1,7 @@
 export class Historiaa  {
     id: number;
 
-
+    p_admin_condominiuns_id : string;
     articulo : string; 
     descripcion: string; 
     sub_inventario : string; 
