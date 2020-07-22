@@ -5,7 +5,6 @@
       <th>Ubicacion</th>
       <th>Fecha y hora inicial</th>
       <th>Fecha y hora final</th>
-      <th>Residente</th>
     </tr>
     </thead>
     <tbody>
@@ -13,7 +12,6 @@
             <td>{{reservation.articles_name_article}}</td>
             <td>{{reservation.reservations_start}}</td>
             <td>{{reservation.reservations_end}}</td>
-            <td>{{reservation.tenants_name}} {{reservation.tenants_father_surname}} {{reservation.tenants_mother_surname}}</td>
         </tr>
     </tbody>
   </table>
@@ -25,14 +23,16 @@
         <app-card cardTitle="Crear reservacion" [options]="false">
           <form (ngSubmit)="onSubmit()">
             <div class="form-group">
+              <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+              <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
               <label for="exampleFormControlSelect1">Lugar</label>
-              <select  class="custom-select"  id="articles_sku" required [(ngModel)]="reservation.articles_sku" name="articles_sku" >
-              <option *ngFor="let article of articles | async" value="{{article.articles_sku}}">{{article.articles_name_article}}</option>
+              <select class="custom-select"  id="articles_sku" required [(ngModel)]="reservation.articles_sku" name="articles_sku"   (ngModelChange)="javq($event)"  >
+              <option  *ngFor="let article of articles | async" value="{{article.articles_sku}}" >{{article.articles_name_article}}</option>
               </select>
           </div>             
               <div class="form-group">
                 <label for="name">Fecha y hora de inicio</label>
-                <input type="datetime-local" class="form-control" id="reservations_start" required [(ngModel)]="reservation.reservations_start" name="reservations_start">
+                <input type="datetime-local" class="form-control" id="reservations_start" required [(ngModel)]="reservation.reservations_start" name="reservations_start" >
               </div>    
               <div class="form-group">
                 <label for="name">Fecha y hora de fin</label>
@@ -40,7 +40,7 @@
               </div>    
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Residente</label>
-                <select  class="custom-select"  id="tenants_id" required [(ngModel)]="reservation.tenants_id" name="tenants_id" >
+                <select class="custom-select"  id="tenants_id" required [(ngModel)]="reservation.tenants_id" name="tenants_id" >
                 <option *ngFor="let tenant of tenants | async" value="{{tenant.tenants_id}}">{{tenant.tenants_name}}</option>
                 </select>
             </div>  

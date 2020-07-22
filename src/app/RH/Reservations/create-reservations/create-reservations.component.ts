@@ -35,42 +35,29 @@ export class CreateReservationsComponent implements OnInit {
     //code
     this.reloadDatas();
     this.reloadData();
-    this.reloadDataCom();
-
+    
     }
 
 
   reloadDataList() {
-    /*localStorage.setItem('token', "");*/
-    /*this.employees = this.employeeService.getEmployeeList();*/
-  //  this.id = this.route.firstChild.snapshot.params['id']
-    this.reservationsService.getReservationListR(this.article.articles_sku).subscribe(
+    this.reservationsService.getReservationListR(this.reservation.articles_sku).subscribe(
       data => {
         console.log(data);
-        this.reservations = this.reservationsService.getReservationListR(this.article.articles_sku);
+        this.reservations = this.reservationsService.getReservationListR(this.reservation.articles_sku);
       },
       error => {
-        console.log(error);
-       // localStorage.setItem('token', "");
-       // this.router.navigate(['auth/signin']);     
+        console.log(error);   
       });
   } 
 
-  reloadDataCom() {
+  javq(event){
+ 
+    event =  this.reloadDataList();
   
-    
-    this.reservationsService.getReservationList().subscribe(
-      data => {
-        console.log(data);
-        this.reservations = this.reservationsService.getReservationList();
-      },
-      error => {
-        console.log(error);
-       // localStorage.setItem('token', "");
-       // this.router.navigate(['auth/signin']);     
-      });
-  } 
+   
+   }
 
+  
 
   reloadDatas() 
   {
@@ -88,7 +75,6 @@ export class CreateReservationsComponent implements OnInit {
         }
       }
     );      
-   
   }
 
   reloadData() 
@@ -110,17 +96,23 @@ export class CreateReservationsComponent implements OnInit {
   }
  
   save() {
+    this.alertDisable = true;
+    this.alertDisables = true;
+
     this.reservation.create_by=Number(localStorage.getItem('id'));
     this.reservation.last_update_by=Number(localStorage.getItem('id'));
     this.reservationsService.createReservation(this.reservation)
-      .subscribe(data => console.log(data), 
+      .subscribe(data => {
+    this.alertDisables = false;
+    this.alertMessages = "Reservación creada"
+    this.gotoList();
+  },
       error => {
         console.log(error);
-       // localStorage.setItem('token', "");
-     //   this.router.navigate(['auth/signin']);
+        this.alertDisable = false;
+        this.alertMessage = "Fechas y horas no disponibles para la reservación";
       });
-    this.reservation = new Reservations();
-    this.gotoList();
+    
   }
 
 
