@@ -5,7 +5,7 @@ export class Articles
 
 
 
-
+    sub_inventarys_description :string;
 
     
     p_admin_condominiuns_id :string
@@ -58,7 +58,7 @@ export class Articles
     activo : string;
     
 
-
+ 
 
 
 

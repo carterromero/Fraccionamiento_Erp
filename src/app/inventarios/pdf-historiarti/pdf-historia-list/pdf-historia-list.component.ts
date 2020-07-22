@@ -82,11 +82,10 @@ export class PdfHistoriaListComponent implements OnInit {
   
   reloadData() {
   
-    
     this.generalService.getEmployeeHistori(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService. getEmployeeHistori(parseInt(localStorage.getItem('condominums')));
+        this.general = this.generalService.getEmployeeHistori(parseInt(localStorage.getItem('condominums')));
       },
       error => {
         console.log(error);   
@@ -102,14 +101,14 @@ export class PdfHistoriaListComponent implements OnInit {
 
 
 
-//TRansaction
+
 
   reloadDatas() {
     
     this.SubinventariosService.getEmployeeList().subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService.getEmployeeList(this.id);
+        this.Subinventarios = this.SubinventariosService.getEmployeeList();
       },
       error => {
         console.log(error);    
@@ -123,14 +122,13 @@ export class PdfHistoriaListComponent implements OnInit {
       
   }
 
-
-//Subinventario 
+//Transaccopm
 reloadDatass() {
     
   this.TransactionService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList(this.id);
+      this.Transaction = this.TransactionService.getEmployeeList();
     },
     error => {
       console.log(error);   
@@ -150,7 +148,7 @@ reloadDatasss() {
   this.SubcategoriasService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList(this.id);
+      this.subcategorias = this.SubcategoriasService.getEmployeeList();
     },
     error => {
       console.log(error);   
@@ -168,7 +166,7 @@ reloadDatassss() {
   this.CategoriasService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList(this.id);
+      this.Categorias = this.CategoriasService.getEmployeeList();
     },
     error => {
       console.log(error);   
@@ -189,7 +187,7 @@ reloadDatasssss() {
   this.PreciosService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList(this.id);
+      this.Precios = this.PreciosService.getEmployeeList();
     },
     error => {
       console.log(error);   
