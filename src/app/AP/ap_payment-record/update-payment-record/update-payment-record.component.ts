@@ -90,8 +90,7 @@ export class UpdatePaymentRecordComponent implements OnInit {
 
     
     console.log(this.employee.payment_status);
-    this.employee.p_user_id = Number(localStorage.getItem('id'));
-    this.employee.condominums_id = Number(localStorage.getItem('condonminums'));
+  
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {
         console.log(data);
@@ -117,16 +116,9 @@ export class UpdatePaymentRecordComponent implements OnInit {
     this.alertDisable = true;
     this.alertDisables = true;
   
-    if(this.employee.payment_record_amount =="" ||  this.employee.payment_record_amount ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "monto";          
-    }
-  
-   
-    
-    else{
+ 
       this.updateEmployee();    
-    }
+    
 
 
   }
@@ -143,7 +135,7 @@ export class UpdatePaymentRecordComponent implements OnInit {
     reader.onload = () => {
         this.datos = reader.result.toString();
         this.employee.payment_method = this.datos.replace("data:application/pdf;base64,","")
-      event = this.employee.payment_record_amount;
+     
      
     };
 }
