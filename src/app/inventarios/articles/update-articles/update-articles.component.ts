@@ -15,9 +15,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpdateArticlesComponent implements OnInit {
 
-  id: number =4;
-  admin_condominiuns_id:number =1;
-  employee: Articles;
+  id: number;
+  admin_condominiuns_id;
+  employee=new Articles();
   addresses: Observable<[SubCategories]>;
   addresses1: Observable<UnitOfMeasures[]>;
   alertDisable = true;
@@ -34,14 +34,15 @@ export class UpdateArticlesComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    
     this.employee.p_id;
     this.reloadDatas();
     this.id = this.route.firstChild.snapshot.params['id']
-    this.id=parseInt(localStorage.getItem('condominums'));
+    this.admin_condominiuns_id=parseInt(localStorage.getItem('condominums'));
   
-    this.employee = new Articles();
+    //this.employee = new Articles();
 
-    this.admin_condominiuns_id = this.route.firstChild.snapshot.params['admin_condominiuns_id']
+ 
     this.employeeService.getEmployee(this.id,this.admin_condominiuns_id)
       .subscribe(data => {
         this.employee = data;
@@ -57,6 +58,8 @@ export class UpdateArticlesComponent implements OnInit {
 
       });
       this.reloadDatas() ;
+      
+      
   }
 
    
@@ -66,7 +69,9 @@ export class UpdateArticlesComponent implements OnInit {
   
 
   updateEmployee() {
-   /* this.employee.p_id=3;
+    this.employee.p_id=3;
+    console.log(this.employee);
+  
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {
         
@@ -82,15 +87,15 @@ export class UpdateArticlesComponent implements OnInit {
           this.alertDisable = false;
           this.alertMessage = error['statusText'];          
         }
-      });*/
+      });
 
-      this.employee.admin_condominiuns_id="1";
-
+      
+/*
       console.log(this.employee.articles_skus);
     this.employee.p_id;
     this.employeeService.updateEmployee(this.id)
       .subscribe(data => {
-        console.log(data);
+        console.log();
         this.alertDisables = false;
         this.alertMessages ="Se actualizo la empresa correctamente";
       }, 
@@ -102,7 +107,7 @@ export class UpdateArticlesComponent implements OnInit {
           this.alertMessage = error['statusText'];          
         }
         
-      });
+      });*/
     
   
   }
@@ -145,6 +150,7 @@ export class UpdateArticlesComponent implements OnInit {
   {
   this.alertDisable = true;
   this.alertDisables = true;
+  
   if(this.employee.articles_name_article =="" ||  this.employee.articles_name_article ==null ){
     this.alertDisable = false;
     this.alertMessage = "Nombre Incompleto";          
@@ -157,10 +163,7 @@ export class UpdateArticlesComponent implements OnInit {
     this.alertDisable = false;
     this.alertMessage = "Unidad de Medida Incompleta";          
   }
-  else if(this.employee.articles_dimension =="" ||  this.employee.articles_dimension ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Articulos Dimension Incompleta";          
-  }
+  
     else if(this.employee.articles_articles_price ==null ||  this.employee.articles_articles_price ==null ){
       this.alertDisable = false;
       this.alertMessage = "Precio de Artículos Incompleta";          
@@ -178,6 +181,7 @@ export class UpdateArticlesComponent implements OnInit {
   
   
     else{
+      
       this.updateEmployee();    
     }
   }

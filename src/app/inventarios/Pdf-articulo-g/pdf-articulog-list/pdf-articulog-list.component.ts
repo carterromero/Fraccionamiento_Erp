@@ -81,8 +81,8 @@ export class PdfArticulogListComponent implements OnInit {
   }
   
 
-  reloadDatassssss() {
-    
+  filtersget() {
+    console.log(this.filter.sku);
     this.filter.p_admin_condominiuns_id = localStorage.getItem('condominums');
     console.log(this.filter);
     this.generalService.createFilters(this.filter).subscribe(
@@ -256,7 +256,7 @@ console.log(id);
   getsbusqueda()
     {
       if(this.filter.sku  == "" || this.filter.sku != null){
-      this.reloadDatas();
+        this.filtersget();
       
     }
     else{
