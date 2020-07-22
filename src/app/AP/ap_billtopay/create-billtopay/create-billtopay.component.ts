@@ -193,10 +193,13 @@ reloadData5() {
 
 
   save() {
+//condominio y p_user
     console.log( localStorage.getItem('condominums'));
     this.employee.condominums_id = localStorage.getItem('condominums');
     this.employee.p_userid = localStorage.getItem('id');
+// modulo de cuentas por pagar 
     this.employee.billtopay_table = "true";
+//
     console.log(this.employee);
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 

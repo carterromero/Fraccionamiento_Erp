@@ -11,7 +11,7 @@
 
             <div class="form-group">
               <label for="exampleFormControlSelect1">id orden de compra</label>
-              <select  class="custom-select"  id="creditor_id" required [(ngModel)]="employee.creditor_id" name="creditor_id" >
+              <select  class="custom-select"  id="purcharse_id" required [(ngModel)]="employee.purcharse_id" name="purcharse_id" >
               <option *ngFor="let creditors of purcharse | async" value="{{creditors.purcharse_id}}">{{creditors.purcharse_id}}{{creditors.purcharse_name}}</option>
               </select>
           </div>  
@@ -26,11 +26,11 @@
            
             <div class="form-group">
                 <label for="name">Monto</label>
-                <input type="text" class="form-control" id="billtopay_amount"  [(ngModel)]="employee.billtopay_amount" name="billtopay_amount" required>
+                <input type="text" class="form-control" id="purcharse_order_total"  [(ngModel)]="employee.purcharse_order_total" name="purcharse_order_total" required>
             </div>
             <div class="form-group">
               <label for="name">Descripción del bien o servicio adquirido</label>
-              <input type="text" class="form-control" id="billtopay_service_description"  [(ngModel)]="employee.billtopay_service_description" name="billtopay_service_description" required>
+              <input type="text" class="form-control" id="articles_name_article"  [(ngModel)]="employee.articles_name_article" name="articles_name_article" required>
           </div>
          
 
@@ -48,7 +48,7 @@
                     <label class="custom-control-label" for="billtopay_status">Active</label>
                  </div>
             </div>
-            <br><form>
+            <br>
             <h2><label for="name">ACREDOR</label></h2>
 
             
@@ -58,35 +58,14 @@
               <option *ngFor="let creditors of credito | async" value="{{creditors.creditor_business_name}}"> {{creditors.creditor_business_name}}</option>
               
             </select>
-            <button (click)="jav($event)" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR nombre  </button>
             
           </div>  
             
-            <div class="form-group">
-              <label for="name">Dirección</label>
-              <input type=»text»  class="form-control" id="creditor_addres" [(ngModel)]="employee.creditor_addres" name="creditor_addres" required>
-            </div>  
-          
-          <div class="form-group">
-            <label for="name">Cuenta accredor</label>
-            <input type=»text» class="form-control" id="creditor_cuenta"  [(ngModel)]="employee.creditor_cuenta" name="creditor_cuenta" required>
-          </div>
+            
         
-            <div class="form-group">
-              <label for="name">telefono</label>
-              <input type=»text» class="form-control" id="creditor_tel"  [(ngModel)]="employee.creditor_tel" name="creditor_tel" required>
-            </div>
-            <div class="form-group">
-              <label for="name">RFC</label>
-              <input type=»text»  class="form-control" id="creditor_rfc"  [(ngModel)]="employee.creditor_rfc" name="creditor_rfc" required>
-            </div>
-            <div class="form-group">
-              <label for="name">Giro</label>
-              <input type=»text»  class="form-control" id="creditor_turn"  [(ngModel)]="employee.creditor_turn" name="creditor_turn" required>
-            </div>
-          </form>
+         
             <br>
-            <form >
+            
             <h2><label for="name">CLIENTE</label></h2>
 
             <div class="form-group">
@@ -94,27 +73,8 @@
               <select   class="custom-select"  id="cliente_name_cliente" required [(ngModel)]="employee.cliente_name_cliente" name="cliente_name_cliente" >
               <option *ngFor="let creditors of client | async" value="{{creditors.cliente_name_cliente}}"> {{creditors.cliente_name_cliente}}</option>
             </select>
-            <button (click)="javq($event)" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR nombre  </button>  
           </div> 
            
-          <div class="form-group">
-            <label for="name">cuenta cliente </label>
-            <input type=»text»  class="form-control" id="cliente_cuenta"  [(ngModel)]="employee.cliente_cuenta" name="cliente_cuenta" required>
-          </div>
-            <div class="form-group">
-              <label for="name">direccion</label>
-              <input type=»text» class="form-control" id="cliente_direccion"  [(ngModel)]="employee.cliente_direccion" name="cliente_direccion" required>
-            </div>
-            <div class="form-group">
-                <label for="name">RFC</label>
-                <input type=»text»  class="form-control" id="cliente_rfc"  [(ngModel)]="employee.cliente_rfc" name="cliente_rfc" required>
-              </div>
-              <div class="form-group">
-                <label for="name">Telefono</label>
-                <input type=»text» class="form-control" id="cliente_tel"  [(ngModel)]="employee.cliente_tel" name="cliente_tel" required>
-              </div>
-              
-            </form> 
 
             <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
             <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
