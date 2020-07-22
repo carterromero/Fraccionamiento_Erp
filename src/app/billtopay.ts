@@ -29,7 +29,7 @@ cliente_direccion :string;
 cliente_rfc :string;
 cliente_tel : number;
 cliente_status :string;
-
+billtopay_table :string;
 }
 
     

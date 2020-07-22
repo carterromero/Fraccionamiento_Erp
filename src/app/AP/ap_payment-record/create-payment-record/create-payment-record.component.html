@@ -11,9 +11,9 @@
               </select>
           </div>  
 
-<form action="">
+         <form action="">
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Nombre del accredor</label>
+            <label for="exampleFormControlSelect1">FACTURA</label>
             <select  type="text"  class="custom-select"  id="billtopay_invoice_folio" required [(ngModel)]="employee.billtopay_invoice_folio" name="billtopay_invoice_folio" >
             <option *ngFor="let creditors of facturass | async" value="{{creditors.billtopay_invoice_folio}}"> {{creditors.billtopay_invoice_folio}}</option>
           </select>

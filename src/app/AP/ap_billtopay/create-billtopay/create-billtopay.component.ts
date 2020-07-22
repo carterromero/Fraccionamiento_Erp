@@ -196,6 +196,7 @@ reloadData5() {
     console.log( localStorage.getItem('condominums'));
     this.employee.condominums_id = localStorage.getItem('condominums');
     this.employee.p_userid = localStorage.getItem('id');
+    this.employee.billtopay_table = "true";
     console.log(this.employee);
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
