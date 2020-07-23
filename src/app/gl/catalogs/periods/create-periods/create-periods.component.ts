@@ -28,7 +28,10 @@ export class CreatePeriodsComponent implements OnInit {
     this.periods = new Periods();
   }
 
-  save() {    
+  save() {  
+   
+  //  this.periods.condominums_id = localStorage.getItem('condominums');
+    this.periods.createdBy = localStorage.getItem('id');  
     this.periodsService.createPeriods(this.periods)
       .subscribe(data => {
         let coins = [];

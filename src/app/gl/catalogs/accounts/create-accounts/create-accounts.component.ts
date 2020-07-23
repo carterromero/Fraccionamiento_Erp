@@ -28,8 +28,9 @@ export class CreateAccountsComponent implements OnInit {
   }
 
   save() {
-
-    this.employee.user_id="3";
+  //this.employee.accounting_accounts_condominums_id = localStorage.getItem('condominums');
+this.employee.created_by = localStorage.getItem('id');  
+   
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
         {

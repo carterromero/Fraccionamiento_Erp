@@ -4,6 +4,14 @@
         <app-card cardTitle="Crear factura" [options]="false">
           <form (ngSubmit)="onSubmit()">
             <div class="form-group">
+              <label for="exampleFormControlSelect1">id orden de compra</label>
+              <select  class="custom-select"  id="purcharse_id" required [(ngModel)]="employee.purcharse_id" name="purcharse_id" >
+              <option *ngFor="let creditors of purcharse | async" value="{{creditors.purcharse_id}}">{{creditors.purcharse_id}}{{creditors.purcharse_name}}</option>
+              </select>
+              <button (click)="reloadData3()" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR nombre  </button>
+          </div> 
+
+            <div class="form-group">
               <label for="name">Folio de Factura</label>
               <input type="text" class="form-control" id="billtopay_invoice_folio"  [(ngModel)]="employee.billtopay_invoice_folio" name="billtopay_invoice_folio" required> 
             </div>      
@@ -16,13 +24,7 @@
                class="form-control" id="billtopay_invoice_date"  [(ngModel)]="employee.billtopay_invoice_date" name="billtopay_invoice_date" required>
             </div>  
 
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">id orden de compra</label>
-              <select  class="custom-select"  id="purcharse_id" required [(ngModel)]="employee.purcharse_id" name="purcharse_id" >
-              <option *ngFor="let creditors of purcharse | async" value="{{creditors.purcharse_id}}">{{creditors.purcharse_id}}{{creditors.purcharse_name}}</option>
-              </select>
-              <button (click)="javq($event)" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR nombre  </button>
-          </div>  
+           
 
             <div class="form-group">
                 <label for="name">Monto</label>
