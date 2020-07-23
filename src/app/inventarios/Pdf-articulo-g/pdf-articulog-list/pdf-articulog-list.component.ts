@@ -111,15 +111,15 @@ export class PdfArticulogListComponent implements OnInit {
 
   filtersgetsub() {
    
-    console.log(this.filter.sub_inventarys_description);
-    this.filter.p_admin_condominiuns_id = localStorage.getItem('condominums');
+    console.log(this.generals.sub_inventario);
+    this.generals.p_admin_condominiuns_id = localStorage.getItem('condominums');
     
-    console.log(this.filter);
-   this.generalService.getEmployeesub(this.sub_inventario).subscribe(
+    console.log(this.generals);
+   this.generalService.getEmployeesub(this.generals).subscribe(
       data => {
         console.log(data);
         console.log('kaled');
-        this.general =this.generalService.createFilters(this.filter.sub_inventarys_description);
+        this.general =this.generalService.getEmployeesub(this.generals);
       },
       error => {
         console.log(error);
@@ -298,7 +298,7 @@ console.log(id);
   
     getsbusquedasub()
     {
-      if(this.filter.sub_inventarys_description  == "" || this.filter.sub_inventarys_description != null){
+      if(this.generals.sub_inventario  == "" || this.generals.sub_inventario != null){
         this.filtersgetsub();
       
     }

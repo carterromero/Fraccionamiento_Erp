@@ -6,8 +6,8 @@ export class Articles
 
 
     sub_inventarys_description :string;
-
-    
+    sub_inventario :string;
+ 
     p_admin_condominiuns_id :string
     p_id : number;
     articles_sku :number;
@@ -44,7 +44,7 @@ export class Articles
     articles_lot_places:string;
     articulo : string;
     descripcion : string;
-    sub_inventario: number;
+   
     caract_extern : string;
     caract_int : string;
     alto : number;

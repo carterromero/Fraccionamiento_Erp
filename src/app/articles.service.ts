@@ -72,10 +72,10 @@ export class ArticlesService {
 
 
 //filtro  por subinventario
-getEmployeesub(sub_inventario : string ): Observable<any> {
+getEmployeesub( employee: Object): Observable<any> {
   const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
   //return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ONE_ARTICL/1.0/articles/${id},${p_condominiuns_id}`,{headers});
-  return this.http.get(`${this.baseUrl }ic/api/integration/v1/flows/rest/ERP_INV_REPORTEF_SUB/1.0/subinv/${sub_inventario}`,{headers});
+  return this.http.post(`${this.baseUrl }ic/api/integration/v1/flows/rest/ERP_INV_REPORTEF_SUB/1.0/subinv`, employee,{headers});
 }
 
 }
