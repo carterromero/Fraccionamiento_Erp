@@ -21,7 +21,7 @@
               
               <th>Monto</th>
               <th>Descripción del bien o servicio adquirido</th>
-              <th>Estatus </th>
+              
               <th> Nombre del acredor</th>
             <th>Direccion</th>
             <th>cuenta</th>
@@ -35,7 +35,7 @@
             <th>rfc</th>
             <th>telefono</th>
             <th>modulo</th>
-            
+            <th>Estatus factura</th> 
               
               
             </tr>
@@ -45,17 +45,11 @@
                   
                   <td>{{general.billtopay_id}}</td>
                     <td>{{general.billtopay_invoice_folio}}</td>
-                    <td>{{general.creditor_id}}</td>
+                    <td>{{general.purcharse_id}}</td>
                     <td>{{general.billtopay_invoice_date}}</td>
-                    <td>{{general.billtopay_amount}}</td>
-                    <td>{{general.billtopay_service_description}}</td>
+                    <td>{{general.purcharse_order_total}}</td>
+                    <td>{{general.articles_name_article}}</td>
 
-                    <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.billtopay_status == 'true'">
-                          <label class="custom-control-label" for="billtopay_status">Active</label>
-                       </div>
-                      </td>
 
                       <td>{{general.creditor_business_name}}</td>
                       <td>{{general.creditor_addres}}</td>
@@ -72,9 +66,18 @@
                       <td>{{general.cliente_tel}}</td>
                       <td>{{general.billtopay_table}}</td>
     
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.billtopay_status == 'true'">
+                          <label class="custom-control-label" for="billtopay_status">Active</label>
+                       </div>
+                      </td>
+
                     <td>
                       <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
-                        <button (click)="updateGeneral(general.billtopay_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                      <!-- 
+                      <button (click)="updateGeneral(general.billtopay_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                       -->
                         <button (click)="generalDetails(general.billtopay_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
 
                         <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">

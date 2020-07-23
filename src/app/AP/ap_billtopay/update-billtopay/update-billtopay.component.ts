@@ -97,21 +97,8 @@ export class UpdateBilltopayComponent implements OnInit {
       this.alertMessage = "Fecha de Factura";          
     }
   
-    else if(this.employee.billtopay_scheduled_payment_date =="" ||  this.employee.billtopay_scheduled_payment_date ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Fecha de pago programada";          
-    }
   
-  
-    else if(this.employee.billtopay_amount =="" ||  this.employee.billtopay_amount ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Monto";          
-    }
-  
-    else if(this.employee.billtopay_service_description =="" ||  this.employee.billtopay_service_description ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Descripción del bien o servicio adquirido";          
-    }
+
   
    
   

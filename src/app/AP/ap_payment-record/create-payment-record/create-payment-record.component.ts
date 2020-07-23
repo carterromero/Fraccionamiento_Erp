@@ -178,7 +178,7 @@ export class CreatePaymentRecordComponent implements OnInit {
           {
             console.log(data);
             this.alertDisables = false;
-            this.alertMessages ="Se inserto la acredor correctamente";
+            this.alertMessages ="Se inserto  correctamente";
             this.employee= new PaymentRecord();
           }, 
         error => {

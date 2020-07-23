@@ -7,6 +7,8 @@ import { Reservations } from 'src/app/reservations';
 import { ReservationsService } from 'src/app/reservations.service';
 import { ArticlesService } from "src/app/articles.service";
 import { Articles } from "src/app/articles";
+import { formatDate } from '@angular/common';
+
 
 
 @Component({
@@ -17,13 +19,14 @@ import { Articles } from "src/app/articles";
 export class UpdateReservationsComponent implements OnInit {
 
   id: number;
-  dat: Date;
+  dat : Date;
   reservation: Reservations;
   tenants: Observable<Tenants[]>;
   articles: Observable<Articles[]>;
+  alertDisable = true;
+  alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
-
 
 
 
@@ -31,12 +34,14 @@ export class UpdateReservationsComponent implements OnInit {
   private tenantService: TenantsService, private articlesService : ArticlesService) { }
 
   ngOnInit() {
+    
     this.reloadDatas();
     this.reloadData();
     this.reservation = new Reservations();
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.reservation.reservations_status);
     this.reservationsService.getReservation(this.id).subscribe(data => {
+
       //  this.reservation.reservations_start.toLocaleDateString();
         console.log(data);
         this.reservation = data;
@@ -46,7 +51,7 @@ export class UpdateReservationsComponent implements OnInit {
         console.log(error);
       });
 
-
+   
   }
 
   
@@ -88,13 +93,20 @@ export class UpdateReservationsComponent implements OnInit {
 
 
   updateReservation() {
+    this.alertDisable = true;
+    this.alertDisables = true;
+
     this.reservation.last_update_by=Number(localStorage.getItem('id'));
     console.log(this.reservation);
     console.log(this.id);
     this.reservationsService.updateReservation(this.id, this.reservation).subscribe(data => {console.log(data);
-        this.gotoList();  
+      this.alertDisables = false;
+      this.alertMessages = "Reservación creada" 
+      this.gotoList();  
       }, 
         error => {
+        this.alertDisable = false;
+        this.alertMessage = "Fechas y horas no disponibles para la reservación";
         console.log(error);
       });
   }
@@ -111,3 +123,6 @@ export class UpdateReservationsComponent implements OnInit {
 
 
 }
+
+
+

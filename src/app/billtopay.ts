@@ -2,12 +2,12 @@ export class Billtopay
 {
     
     billtopay_id :number;
-    creditor_id :number;
+    purcharse_id :number;
     billtopay_invoice_folio : string;
     billtopay_invoice_date: string;
-    billtopay_scheduled_payment_date : string;
-    billtopay_amount : string;
-    billtopay_service_description :string;
+    purcharse_order_total : string;
+    articles_name_article :string;
+    
     created_by  : number;
     last_updated_by  : number;
     last_updated_date : string;
@@ -29,7 +29,7 @@ cliente_direccion :string;
 cliente_rfc :string;
 cliente_tel : number;
 cliente_status :string;
-
+billtopay_table :string;
 }
 
     
