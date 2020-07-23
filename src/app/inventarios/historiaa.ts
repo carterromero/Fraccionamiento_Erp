@@ -1,6 +1,6 @@
 export class Historiaa  {
     id: number;
-
+    articles_sku : string;
     p_admin_condominiuns_id : string;
     articulo : string; 
     descripcion: string; 
