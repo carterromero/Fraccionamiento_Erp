@@ -8,10 +8,10 @@
             <label><b>Ubicacion de reservacion: </b></label> {{reservation.articles_name_article}}
           </div>         
           <div>
-            <label><b>Fecha y hora inicial de reservacion: </b></label> {{reservation.reservations_start}}
+            <label><b>Fecha y hora inicial de reservacion: </b></label> {{reservation.reservations_start | date:'medium'}}
           </div>
           <div>
-            <label><b>Fecha y hora final de reservacion: </b></label> {{reservation.reservations_end}}
+            <label><b>Fecha y hora final de reservacion: </b></label> {{reservation.reservations_end | date:'medium'}}
           </div>
           <div>
             <label><b>Residente: </b></label>{{reservation.tenants_name}} {{reservation.tenants_father_surname}} {{reservation.tenants_mother_surname}}
