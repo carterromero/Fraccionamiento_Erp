@@ -14,4 +14,7 @@ export class Historiaa  {
     inquilino_apellido_1 :string; 
     inquilino_apellido_2 : string; 
 
+
+
+    
 }
