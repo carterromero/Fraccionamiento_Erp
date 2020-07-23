@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ModuleWithComponentFactories } from '@angular/core';
 import { TenantsService } from 'src/app/tenants.service';
 import { Tenants } from 'src/app/tenants';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -11,6 +11,7 @@ import { Articles } from "src/app/articles";
 
 
 
+
 @Component({
   selector: 'app-update-reservations',
   templateUrl: './update-reservations.component.html',
@@ -19,7 +20,7 @@ import { Articles } from "src/app/articles";
 export class UpdateReservationsComponent implements OnInit {
 
   id: number;
-  dat : Date;
+
   reservation: Reservations;
   tenants: Observable<Tenants[]>;
   articles: Observable<Articles[]>;
@@ -48,7 +49,7 @@ export class UpdateReservationsComponent implements OnInit {
         console.log(error);
       });
 
-   
+      
   }
 
   
@@ -92,7 +93,7 @@ export class UpdateReservationsComponent implements OnInit {
   updateReservation() {
     this.alertDisable = true;
     this.alertDisables = true;
-
+    this.reservation.reservations_start = new Date("2018-03-01T12:00 am");
     this.reservation.last_update_by=Number(localStorage.getItem('id'));
     this.reservationsService.updateReservation(this.id, this.reservation)
     .subscribe(data => {console.log(data);
