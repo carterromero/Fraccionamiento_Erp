@@ -73,6 +73,14 @@ export class PdfHistoriaListComponent implements OnInit {
       }
 
 
+      //subinventario
+      onSubmitsub() 
+      {
+        this.getsbusquedasub();
+      }
+
+
+
 
   ngOnInit(): void {
 
@@ -116,6 +124,26 @@ export class PdfHistoriaListComponent implements OnInit {
         console.log(data);
         console.log('kaled');
         this.general =this.generalService.createFilterHistoria(this.generals);
+      },
+      error => {
+        console.log(error);
+        //localStorage.setItem('token', "");
+        //this.router.navigate(['login']);     
+      });
+
+      
+  }
+  filtersgetsub() {
+   
+    console.log(this.generals.sub_inventario);
+    this.generals.p_admin_condominiuns_id = localStorage.getItem('condominums');
+    
+    console.log(this.generals);
+   this.generalService.getEmployeesub(this.generals).subscribe(
+      data => {
+        console.log(data);
+        console.log('kaled');
+        this.general =this.generalService.getEmployeesub(this.generals);
       },
       error => {
         console.log(error);
@@ -269,6 +297,23 @@ console.log(id);
    
   }
 
-  
+
+
+
+  getsbusquedasub()
+  {
+    if(this.generals.sub_inventario  == "" || this.generals.sub_inventario != null){
+      this.filtersgetsub();
+    
+  }
+  else{
+    alert("Ingrese subinventario para buscar");
+  }
+
+}
+
+
+
+
 
 }
