@@ -45,21 +45,6 @@ const NavigationItemss = [
       }
     ]
   },
-  {
-    id: 'reservations-main',
-    title: 'Reservaciones',
-    type: 'group',
-    icon: 'feather icon-monitor',
-    children: [
-      {
-        id: 'Reservations',
-        title: 'Manejo Reservaciones',
-        type: 'collapse',
-        url: '/reservations-list',
-        icon: 'feather icon-book',
-      }
-    ]
-  },
   {    
     id: 'admin-main',
     title: 'Administración',
@@ -481,6 +466,20 @@ const NavigationItemss = [
               }               
             ]
         },
+        {
+          id: 'Reservations-main',
+          title: 'Reservaciones',
+          type: 'collapse',
+          icon: 'feather icon-user',
+              children: [
+                {
+                  id: 'Reservations',
+                  title: 'Manejo Reservaciones',
+                  type: 'item',
+                  url: '/reservations-list'
+                }
+              ]
+            },
           {
             id: 'rh-reports',
             title: 'Reportes',
@@ -507,6 +506,7 @@ const NavigationItemss = [
            }                           
             ]
           },
+          
         ]
       },    
 {    
@@ -768,6 +768,21 @@ const NavigationItemss = [
             type: 'item',            
             url: '/ac-visitors-list'
             
+          }
+        ]
+      },
+      {
+        id: 'reservations-main',
+        title: 'Reservaciones',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'Reservations',
+            title: 'Manejo Reservaciones',
+            type: 'collapse',
+            url: '/reservations-list',
+            icon: 'feather icon-book',
           }
         ]
       },
@@ -1313,6 +1328,20 @@ export class NavigationItem
           }
         ]
       },
+      {
+        id: 'Reservations-main',
+        title: 'Reservaciones',
+        type: 'collapse',
+        icon: 'feather icon-user',
+            children: [
+              {
+                id: 'Reservations',
+                title: 'Manejo Reservaciones',
+                type: 'item',
+                url: '/reservations-list'
+              }
+            ]
+          },
           {
             id: 'rh-reports',
             title: 'Reportes',
