@@ -17,7 +17,7 @@ export class FiltergA {
     articles_articles_price :string;
     articles_status:string;
 
-
+ 
    
 
 }

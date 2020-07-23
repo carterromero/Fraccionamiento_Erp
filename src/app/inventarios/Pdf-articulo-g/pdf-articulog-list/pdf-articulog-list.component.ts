@@ -23,6 +23,8 @@ import { FiltergA } from 'src/app/filterga';
 })
 export class PdfArticulogListComponent implements OnInit {
   filter: FiltergA= new FiltergA();
+  generals :Articles = new Articles;
+
   p_condominiuns_id:number;
   sub_inventario  : string;
   id: number;
@@ -158,7 +160,7 @@ export class PdfArticulogListComponent implements OnInit {
     this.SubinventariosService.getEmployeeList().subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService.getEmployeeList(this.id);
+        this.general = this.SubinventariosService.getEmployeeList();
       },
       error => {
         console.log(error);   
@@ -179,7 +181,7 @@ reloadDatass() {
   this.TransactionService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList(this.id);
+      this.general = this.TransactionService.getEmployeeList();
     },
     error => {
       console.log(error);   
@@ -199,7 +201,7 @@ reloadDatasss() {
   this.SubcategoriasService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList(this.id);
+      this.general = this.SubcategoriasService.getEmployeeList();
     },
     error => {
       console.log(error);   
@@ -217,7 +219,7 @@ reloadDatassss() {
   this.CategoriasService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList(this.id);
+      this.general = this.CategoriasService.getEmployeeList();
     },
     error => {
       console.log(error);   
@@ -237,7 +239,7 @@ reloadDatasssss() {
   this.PreciosService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList(this.id);
+      this.general = this.PreciosService.getEmployeeList();
     },
     error => {
       console.log(error);   
