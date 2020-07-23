@@ -62,6 +62,12 @@ export class ArticlesService {
   }
 
 
+  createFilterHistoria(employee: Object): Observable <any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_REPOR_FILTE_ARTIC_HIST/1.0/filter_articles_hist`, employee,{headers});
+  }
+
+
  
 
 

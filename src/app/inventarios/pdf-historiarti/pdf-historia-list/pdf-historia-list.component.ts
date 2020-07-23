@@ -25,11 +25,12 @@ export class PdfHistoriaListComponent implements OnInit {
 
 
 
-
+  generals: Historiaa= new Historiaa();
   id: number;
   generall: Historiaa;
  
   general: Observable<Historiaa[]>;
+  
    Transaction : Observable<TransactionsEntrys[]>;
    Subinventarios :Observable<SubInventarys[]>;
    subcategorias :Observable<SubCategories[]>;
@@ -64,7 +65,12 @@ export class PdfHistoriaListComponent implements OnInit {
       }
 
 
-
+      onSubmit() 
+      {
+        
+        this.getsbusqueda();
+   
+      }
 
 
 
@@ -99,6 +105,26 @@ export class PdfHistoriaListComponent implements OnInit {
       
   }
 
+
+  
+  filtersget() {
+    console.log(this.generals.articles_sku);
+    this.generals.p_admin_condominiuns_id = localStorage.getItem('condominums');
+    console.log(this.generals);
+    this.generalService.createFilterHistoria(this.generals).subscribe(
+      data => {
+        console.log(data);
+        console.log('kaled');
+        this.general =this.generalService.createFilterHistoria(this.generals);
+      },
+      error => {
+        console.log(error);
+        //localStorage.setItem('token', "");
+        //this.router.navigate(['login']);     
+      });
+
+      
+  }
 
 
 
@@ -226,6 +252,21 @@ console.log(id);
 
   updateGeneral(id: number){
     this.router.navigate(['update-articles', id]);
+  }
+
+
+
+  getsbusqueda()
+  {
+    if(this.generals.articles_sku  == "" || this.generals.articles_sku != null){
+      this.filtersget();
+    
+  }
+  else{
+    alert("Ingrese sku para buscar");
+  }
+  
+   
   }
 
   

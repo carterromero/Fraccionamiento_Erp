@@ -7,11 +7,38 @@
       <app-card cardTitle="Articulos" blockClass="table-border-style">      
         
         <br>
+
+
+        <form class="form-inline waves-light" mdbWavesEffect (ngSubmit)="onSubmit()">
+          <div class="md-form mt-0" >
+  
+            <input [(ngModel)]="generals.articles_sku"
+            id="articles_sku"   name="articles_sku"
+            class="form-control mr-sm-2" type="text" placeholder="Articulo"  >
+  
+  
+            <!--<div class="form-group">
+              <label for="exampleFormControlSelect1">Subinventario</label>
+              <select  class="custom-select" id="sub_inventario" required [(ngModel)]="filter.sub_inventario" name="sub_inventario"  >
+              <option *ngFor="let filter of Subinventarios | async" value="{{filter.sub_inventario}}">{{filter.sub_inventarys_description}}</option>
+              </select>
+              </div>!-->
+              
+             
+            
+            <button type="submit" class="btn btn-outline-success">Buscar articulo</button>   
+            <button type="button"  (click)="reloadData()" class="btn btn-outline-info" style="margin-left: 10px">Refrescar</button>  
+          </div>
+     
+         
+  
+        </form>
+  
         <div class="table-responsive"   id="from-informacion">
           <table class="table"   >
             <thead>
                 <tr>      
-  
+                  <th>SKU </th> 
                     <th>Articulo </th>
                     <th>Descripcion</th>
                     <th>Subinventario</th>
@@ -28,7 +55,8 @@
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                    <td>{{general.articulo}} </td>
+                  <td>{{general.articles_sku}} </td>  
+                  <td>{{general.articulo}} </td>
                     <td>{{general.descripcion}} </td>
                     <td>{{general.sub_inventario}}</td>
 
