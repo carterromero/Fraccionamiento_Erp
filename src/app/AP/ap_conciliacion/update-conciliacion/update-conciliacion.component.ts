@@ -79,7 +79,7 @@ export class UpdateConciliacionComponent implements OnInit {
     }
 
     save() {
-
+      this.employee.concilitiation_condominums_id = localStorage.getItem('condominums');
       this.employee.user_id="3";
       this.employeeService.createEmployee(this.employee)
         .subscribe(data => 
