@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/customer';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomerService } from 'src/app/customer.service';
-
+import * as jsPDF from 'jspdf'
 @Component({
   selector: 'app-customer-details',
   templateUrl: './customer-details.component.html',
@@ -36,5 +36,27 @@ export class CustomerDetailsComponent implements OnInit {
           this.alertMessage = error['statusText'];          
         }
       });
+  }
+
+
+
+  imprimirLista(){
+    const doc = new jsPDF
+    doc.text(20, 20, 'REPORTE CONTABLE ');
+   doc.fromHTML(document.getElementById('from-informacion'),20,30);
+   //doc.addPage();
+    //doc.text(20, 20, 'Hello world!');
+    doc.save('Reporte contable');
+
+
+  }
+
+  gocv(){
+    var windo = window.open("", "");  
+    var objbuilder = '';
+    objbuilder += ('<embed width=\'100%\' height=\'100%\'  src="data:application/pdf;base64,');
+    //objbuilder += (this.employee.payment_method);
+    objbuilder += ('" type="application/pdf" />');
+    windo.document.write(objbuilder); 
   }
 }

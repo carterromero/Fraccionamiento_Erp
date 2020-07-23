@@ -2,7 +2,7 @@ export class Billtopay
 {
     
     billtopay_id :number;
-    purcharse_id :number;
+    purcharse_id : string;
     billtopay_invoice_folio : string;
     billtopay_invoice_date: string;
     purcharse_order_total : string;

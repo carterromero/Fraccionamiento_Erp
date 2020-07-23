@@ -1,0 +1,107 @@
+<div class="row justify-content-center">
+  <div class="col-sm-12">
+    <div class="col-md-6">
+      <app-card cardTitle="Crear acredor" [options]="false">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">concilitiation_document_header_id</label>
+            <select class="custom-select" id="concilitiation_document_header_id" required
+              [(ngModel)]="employee.concilitiation_document_header_id" name="concilitiation_document_header_id">
+              <option *ngFor="let Collection of Collection | async" value="{{Collection.collection_id}}">
+                {{Collection.collection_id}}{{Collection.collection_name}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="name">concilitiation_document_line_id</label>
+            <input type="text" class="form-control" id="concilitiation_document_line_id"
+              [(ngModel)]="employee.concilitiation_document_line_id" name="concilitiation_document_line_id" required>
+          </div>
+          <div class="form-group">
+            <label for="name">concilitiation_account_id</label>
+            <input type="text" class="form-control" id="concilitiation_account_id"
+              [(ngModel)]="employee.concilitiation_account_id" name="concilitiation_account_id" required>
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="name">concilitiation_origin</label>
+            <input type="text" class="form-control" id="concilitiation_origin"
+              [(ngModel)]="employee.concilitiation_origin" name="concilitiation_origin" required>
+          </div> -->
+
+
+          <div class="form-group">
+            <label for="name">concilitiation_document_type</label>
+
+            <select class="custom-select" id="concilitiation_document_type" required
+              [(ngModel)]="employee.concilitiation_document_type" name="concilitiation_document_type">
+              <option value="Poliza">
+                Poliza
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="name">concilitiation_debe</label>
+            <input type="text" class="form-control" id="concilitiation_debe" [(ngModel)]="employee.concilitiation_debe"
+              name="concilitiation_debe" required>
+          </div>
+          <div class="form-group">
+            <label for="name">concilitiation_haber</label>
+            <input type="text" class="form-control" id="concilitiation_haber"
+              [(ngModel)]="employee.concilitiation_haber" name="concilitiation_haber" required>
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="name">created_by</label>
+            <input type="text" class="form-control" id="created_by" [(ngModel)]="employee.created_by" name="created_by"
+              required>
+          </div> -->
+          <!-- <div class="form-group">
+            <label for="name">concilitiation_condominums_id</label>
+            <input type="text" class="form-control" id="concilitiation_condominums_id"
+              [(ngModel)]="employee.concilitiation_condominums_id" name="concilitiation_condominums_id" required>
+          </div> -->
+          <!-- <div class="form-group">
+            <label for="exampleFormControlSelect1">cuenta</label>
+            <select class="custom-select" id="creditor_cuenta" required [(ngModel)]="employee.creditor_cuenta"
+              name="creditor_cuenta">
+              <option *ngFor="let creditors of creditor | async"
+                value="{{creditors.bank_accounts_bank_account_number}}"> {{creditors.bank_accounts_bank_account_number}}
+                {{creditors.bank_accounts_bank_account_name}}</option>
+            </select>
+          </div> -->
+
+          <div class="form-group">
+            <label for="name">Estatus</label>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="concilitiation_status"
+                [(ngModel)]="employee.concilitiation_status" name="concilitiation_status" style="margin-left: 10px">
+              <label class="custom-control-label" for="concilitiation_status">Active</label>
+            </div>
+          </div>
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
+          <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+            <div class="app-modal-header">
+              <h5 class="modal-title">Crear acredor</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close"
+                (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="app-modal-body">
+              <p>Esta seguro de insertar un acredor </p>
+            </div>
+            <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary" style="margin-left: 10px" data-dismiss="modal"
+                (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"
+                style="margin-left: 10px">Guardar</button>
+            </div>
+          </app-ui-modal>
+          <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+            (click)="createPeriodsDialog.show()">Guardar</button>
+          <button [routerLink]="['/collection-list']" class="btn btn-outline-secondary"
+            style="margin-left: 10px">Regresar</button>
+        </form>
+      </app-card>
+    </div>
+  </div>

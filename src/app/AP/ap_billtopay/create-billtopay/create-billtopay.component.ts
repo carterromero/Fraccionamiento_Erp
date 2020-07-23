@@ -52,10 +52,10 @@ name : string;
   reloadDatas() 
   {
 
-    this.employeeService.getEmployeebill().subscribe(
+    this.employeeService.getPUSER().subscribe(
       data => {
         console.log(data);
-        this.purcharse = this.employeeService.getEmployeebill();
+        this.purcharse = this.employeeService.getPUSER();
       },
       error => {
         console.log(error);
@@ -67,37 +67,12 @@ name : string;
     );      
   }
 
- 
-  
-
-  reloadData2() {
-   // this.name = this.route.firstChild.snapshot.params['name']
-
-   this.name = this.route.firstChild.snapshot.params['name']
-   console.log(this.name);
-      this.employeeService.getEmployeed(this.employee.creditor_business_name)
-      .subscribe(data => {
-        console.log(data);
-        this.employee = data;
-      },
-      error => {
-        console.log(error);
-        let coins = [];
-        for (let key in error) {
-          this.alertMessage = error['statusText'];          
-        }
-      }
-    ); 
-     
-      }
    
       reloadData3() {
           // this.name = this.route.firstChild.snapshot.params['name']
        
           this.name = this.route.firstChild.snapshot.params['name']
-         
-             console.log(this.cliente_name_cliente);
-             this.employeeService.getEmployeecl(this.employee.cliente_name_cliente)
+             this.employeeService.getONEPUSHA(this.employee.purcharse_id)
                .subscribe(data => {
                  console.log(data);
                  this.employee = data;
@@ -114,13 +89,6 @@ name : string;
           
          } 
 
- jav(event){
-  
-  event = (this.employee.creditor_business_name );
-  this.reloadData2()
-  
-  
- }
  javq(event){
  
   event = (this.employee.cliente_name_cliente);

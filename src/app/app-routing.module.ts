@@ -275,6 +275,11 @@ import { PaymentsARDetailsComponent } from './AR/payments/payments-ar-details/pa
 import { CreatePaymentsARComponent } from './AR/payments/create-payments-ar/create-payments-ar.component';
 import { UpdatePaymentsARComponent } from './AR/payments/update-payments-ar/update-payments-ar.component';
 
+import { ConciliacionARListComponent } from './AR/ar-conciliacion/conciliacion-ar-list/conciliacion-ar-list.component';
+import { ConciliacionARDetailsComponent } from './AR/ar-conciliacion/conciliacion-ar-details/conciliacion-ar-details.component';
+import { CreateConciliacionARComponent } from './AR/ar-conciliacion/create-conciliacion-ar/create-conciliacion-ar.component';
+import { UpdateConciliacionARComponent } from './AR/ar-conciliacion/update-conciliacion-ar/update-conciliacion-ar.component';
+
 import { PdfSupplierDetailsComponent } from './po/pdf/pdf-purcharse-details/pdf-supplier-details.component';
 
 import { PdfPurcharseListComponent } from './po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list.component';
@@ -1608,6 +1613,47 @@ const routes: Routes = [
           {
             path: 'update-payments-ar/:id',
             loadChildren: () => import('./AR/payments/update-payments-ar/update-payments-ar.module').then(module => module.UpdatePaymentsARModule)
+          }
+        ]
+      },
+      //
+      {
+        path: '',
+        component: ConciliacionARListComponent,
+        children: [
+          {
+            path: 'conciliacion-ar-list',
+            loadChildren: () => import('./AR/ar-conciliacion/conciliacion-ar-list/conciliacion-ar-list.module').then(module => module.ConciliacionListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ConciliacionARDetailsComponent,
+        children: [
+          {
+            path: 'conciliacion-ar-details/:id',
+            loadChildren: () => import('./AR/ar-conciliacion/conciliacion-ar-details/conciliacion-ar-details.module').then(module => module.ConciliacionDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateConciliacionARComponent,
+        children: [
+          {
+            path: 'create-conciliacion-ar',
+            loadChildren: () => import('./AR/ar-conciliacion/create-conciliacion-ar/create-conciliacion-ar.module').then(module => module.CreateConciliacionARModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateConciliacionARComponent,
+        children: [
+          {
+            path: 'update-conciliacion-ar/:id',
+            loadChildren: () => import('./AR/ar-conciliacion/update-conciliacion-ar/update-conciliacion-ar.module').then(module => module.UpdateConciliacionModule)
           }
         ]
       },

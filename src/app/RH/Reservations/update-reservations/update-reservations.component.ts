@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ModuleWithComponentFactories } from '@angular/core';
 import { TenantsService } from 'src/app/tenants.service';
 import { Tenants } from 'src/app/tenants';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -7,7 +7,8 @@ import { Reservations } from 'src/app/reservations';
 import { ReservationsService } from 'src/app/reservations.service';
 import { ArticlesService } from "src/app/articles.service";
 import { Articles } from "src/app/articles";
-import { formatDate } from '@angular/common';
+
+
 
 
 
@@ -19,7 +20,7 @@ import { formatDate } from '@angular/common';
 export class UpdateReservationsComponent implements OnInit {
 
   id: number;
-  dat : Date;
+
   reservation: Reservations;
   tenants: Observable<Tenants[]>;
   articles: Observable<Articles[]>;
@@ -39,10 +40,7 @@ export class UpdateReservationsComponent implements OnInit {
     this.reloadData();
     this.reservation = new Reservations();
     this.id = this.route.firstChild.snapshot.params['id']
-    console.log(this.reservation.reservations_status);
     this.reservationsService.getReservation(this.id).subscribe(data => {
-
-      //  this.reservation.reservations_start.toLocaleDateString();
         console.log(data);
         this.reservation = data;
         this.reservation.reservations_status = (String(this.reservation.reservations_status) == "false") ? null:"false";
@@ -51,7 +49,7 @@ export class UpdateReservationsComponent implements OnInit {
         console.log(error);
       });
 
-   
+      
   }
 
   
@@ -95,19 +93,22 @@ export class UpdateReservationsComponent implements OnInit {
   updateReservation() {
     this.alertDisable = true;
     this.alertDisables = true;
-
+    this.reservation.reservations_start = new Date("2018-03-01T12:00 am");
     this.reservation.last_update_by=Number(localStorage.getItem('id'));
-    console.log(this.reservation);
-    console.log(this.id);
-    this.reservationsService.updateReservation(this.id, this.reservation).subscribe(data => {console.log(data);
-      this.alertDisables = false;
-      this.alertMessages = "Reservación creada" 
+    this.reservationsService.updateReservation(this.id, this.reservation)
+    .subscribe(data => {console.log(data);
       this.gotoList();  
-      }, 
-        error => {
-        this.alertDisable = false;
-        this.alertMessage = "Fechas y horas no disponibles para la reservación";
-        console.log(error);
+          this.alertDisables = false;
+          this.alertMessages ="Se actualizo";
+          this.gotoList();
+        }, 
+      error => {
+        console.log(error);    
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = "No se error al actualizar";
+        }      
       });
   }
 
