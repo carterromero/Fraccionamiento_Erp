@@ -89,6 +89,7 @@ export class UpdateReservationsComponent implements OnInit {
 
 
   updateReservation() {
+    
     this.alertDisable = true;
     this.alertDisables = true;
 
@@ -97,13 +98,14 @@ export class UpdateReservationsComponent implements OnInit {
     this.reservation.reservations_start = new Date(this.reservation.reservations_start);
     this.reservation.reservations_end=new Date(this.reservation.reservations_end);
     this.reservation.last_update_by=Number(localStorage.getItem('id'));
+    this.reservation.reservations_status;
     this.reservationsService.updateReservation(this.id, this.reservation)
-    .subscribe(data => {console.log(data);
-      this.gotoList();  
+    .subscribe(data => {console.log(data); 
           this.alertDisables = false;
           this.alertMessages ="Se actualizo";
           this.gotoList();
-        }, 
+    
+      },
       error => {
         console.log(error);    
         let coins = [];
@@ -112,12 +114,23 @@ export class UpdateReservationsComponent implements OnInit {
           this.alertMessage = "No se error al actualizar";
         }      
       });
+    
   }
 
 
 
   onSubmit() {
-    this.updateReservation();    
+    this.alertDisable = true;
+    this.alertDisables = true;
+  
+    if(this.reservation.reservations_start >= this.reservation.reservations_end ){
+      this.alertDisable = false;
+      this.alertMessage = "La fecha y hora inicial no puede ser mayor o igual a la fecha final "; 
+    }
+    else{
+      this.updateReservation(); 
+    }
+
   }
 
   gotoList() {
