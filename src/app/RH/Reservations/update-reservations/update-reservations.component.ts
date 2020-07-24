@@ -41,12 +41,6 @@ export class UpdateReservationsComponent implements OnInit {
     this.reservationsService.getReservation(this.id).subscribe(data => {
         console.log(data);
         this.reservation = data;
-   
-       
-   //    this.reservation.reservations_start.replace(/ /g,'T');
-        // this.reservation.reservations_start= new Date()
-        // console.log( this.reservation.reservations_start.toISOString());
-
         this.reservation.reservations_status = (String(this.reservation.reservations_status) == "false") ? null:"false";
         console.log(this.reservation.reservations_status);
       }, error => {
@@ -98,14 +92,10 @@ export class UpdateReservationsComponent implements OnInit {
     this.alertDisable = true;
     this.alertDisables = true;
 
-   moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
-   moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
-    console.log(this.reservation.reservations_start)
-
+    moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
+    moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
     this.reservation.reservations_start = new Date(this.reservation.reservations_start);
     this.reservation.reservations_end=new Date(this.reservation.reservations_end);
-    // console.log(this.datePipe.transform(this.reservation.reservations_start,"yyyy-MM-ddT12:00:00"));
-    
     this.reservation.last_update_by=Number(localStorage.getItem('id'));
     this.reservationsService.updateReservation(this.id, this.reservation)
     .subscribe(data => {console.log(data);

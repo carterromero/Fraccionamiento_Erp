@@ -52,6 +52,16 @@ export class AuthSigninComponent implements OnInit {
     this.submitted = false;
     this.authentication = new User();
   }
+  
+  ResetPass() 
+  {    
+    this.authenticationService.Reset(this.authentication) 
+    .subscribe(data => console.log(data), 
+    error => {
+      console.log(error);
+    });
+      
+  }
 
   authenticate() 
   {    
