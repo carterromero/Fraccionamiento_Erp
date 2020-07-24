@@ -1,7 +1,7 @@
 export class Conciliacion
 {
     
-    concilitiation_id  : number;
+    concilitiation_id : string;
     concilitiation_document_header_id  : number;
     concilitiation_document_line_id  : number;
     concilitiation_account_id  : number;
@@ -15,7 +15,7 @@ export class Conciliacion
     last_updated_by : number;
     last_updated_date : string;
     user_id:string;
-  
+    concilitiation_condominums_id  : string;
     
    
 }

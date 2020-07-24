@@ -6,6 +6,7 @@ export class PaymentRecord
     creditor_id :number;
 
     
+    
 
     payment_method : string;
     payment_status : string;
@@ -30,6 +31,6 @@ export class PaymentRecord
 
     billtopay_invoice_folio: string;
     billtopay_invoice_date: string;
-    billtopay_amount: string;
+    purcharse_order_total : string;
    
 }

@@ -1,75 +1,65 @@
 <div class="row justify-content-center">
   <div class="col-sm-12">
     <div class="col-md-6">
-      <app-card cardTitle="Crear acredor" [options]="false">
+      <app-card cardTitle="Crear " [options]="false">
         <form (ngSubmit)="onSubmit()">
+
+
+
           <div class="form-group">
-            <label for="name">concilitiation_document_header_id</label>
-            <select class="custom-select" id="concilitiation_document_header_id" required
-              [(ngModel)]="employee.concilitiation_document_header_id" name="concilitiation_document_header_id">
-              <option *ngFor="let Collection of Collection | async" value="{{Collection.collection_id}}">
-                {{Collection.collection_id}}{{Collection.collection_name}}
+            <label for="exampleFormControlSelect1">num orden de compra</label>
+            <select class="custom-select" id="concilitiation_document_line_id" required
+              [(ngModel)]="employee.concilitiation_document_line_id" name="concilitiation_document_line_id">
+              <option *ngFor="let creditors of purcharses | async" value="{{creditors.payment_id}}">
+                {{creditors.payment_id }}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">CUENTA CONTABLE</label>
+            <select class="custom-select" id="concilitiation_account_id" required
+              [(ngModel)]="employee.concilitiation_account_id" name="concilitiation_account_id">
+              <option *ngFor="let creditors of purcharsess | async" value="{{creditors.accounting_accounts_lines_id}}">
+                {{creditors.accounting_accounts_lines_parent_1}}{{creditors.accounting_accounts_lines_parent_2}}{{creditors.accounting_accounts_lines_parent_3}}{{creditors.accounting_accounts_lines_children}}
               </option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="name">concilitiation_document_line_id</label>
-            <input type="text" class="form-control" id="concilitiation_document_line_id"
-              [(ngModel)]="employee.concilitiation_document_line_id" name="concilitiation_document_line_id" required>
-          </div>
-          <div class="form-group">
-            <label for="name">concilitiation_account_id</label>
-            <input type="text" class="form-control" id="concilitiation_account_id"
-              [(ngModel)]="employee.concilitiation_account_id" name="concilitiation_account_id" required>
-          </div>
+
 
           <!-- <div class="form-group">
-            <label for="name">concilitiation_origin</label>
-            <input type="text" class="form-control" id="concilitiation_origin"
+            <label for="inputGroupSelect01">origen </label>
+            <select class="custom-select" id="inputGroupSelect01" class="form-control" id="concilitiation_origin"
               [(ngModel)]="employee.concilitiation_origin" name="concilitiation_origin" required>
+              <option selected></option>
+              <option value="AR">AR</option>
+            </select>
           </div> -->
 
-
-          <div class="form-group">
-            <label for="name">concilitiation_document_type</label>
-
-            <select class="custom-select" id="concilitiation_document_type" required
-              [(ngModel)]="employee.concilitiation_document_type" name="concilitiation_document_type">
-              <option value="Poliza">
-                Poliza
-              </option>
+          <!-- <div class="form-group">
+            <label for="inputGroupSelect01">documento tipo </label>
+            <select class="custom-select" id="inputGroupSelect01" class="form-control" id="concilitiation_document_type"
+              [(ngModel)]="employee.concilitiation_document_type" name="concilitiation_document_type" required>
+              <option selected></option>
+              <option value="POLIZA">POLIZA</option>
             </select>
-          </div>
+          </div> -->
+
           <div class="form-group">
-            <label for="name">concilitiation_debe</label>
+            <label for="name">debe</label>
             <input type="text" class="form-control" id="concilitiation_debe" [(ngModel)]="employee.concilitiation_debe"
               name="concilitiation_debe" required>
           </div>
           <div class="form-group">
-            <label for="name">concilitiation_haber</label>
+            <label for="name">haber</label>
             <input type="text" class="form-control" id="concilitiation_haber"
               [(ngModel)]="employee.concilitiation_haber" name="concilitiation_haber" required>
           </div>
+         <!--  <div class="form-group">
+            <label for="name">creado por:</label>
+            <input type="number" class="form-control" id="created_by" [(ngModel)]="employee.created_by"
+              name="created_by" required>
+          </div> -->
 
-          <!-- <div class="form-group">
-            <label for="name">created_by</label>
-            <input type="text" class="form-control" id="created_by" [(ngModel)]="employee.created_by" name="created_by"
-              required>
-          </div> -->
-          <!-- <div class="form-group">
-            <label for="name">concilitiation_condominums_id</label>
-            <input type="text" class="form-control" id="concilitiation_condominums_id"
-              [(ngModel)]="employee.concilitiation_condominums_id" name="concilitiation_condominums_id" required>
-          </div> -->
-          <!-- <div class="form-group">
-            <label for="exampleFormControlSelect1">cuenta</label>
-            <select class="custom-select" id="creditor_cuenta" required [(ngModel)]="employee.creditor_cuenta"
-              name="creditor_cuenta">
-              <option *ngFor="let creditors of creditor | async"
-                value="{{creditors.bank_accounts_bank_account_number}}"> {{creditors.bank_accounts_bank_account_number}}
-                {{creditors.bank_accounts_bank_account_name}}</option>
-            </select>
-          </div> -->
 
           <div class="form-group">
             <label for="name">Estatus</label>
@@ -83,12 +73,12 @@
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
           <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
             <div class="app-modal-header">
-              <h5 class="modal-title">Crear acredor</h5>
+              <h5 class="modal-title">Crear </h5>
               <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close"
                 (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="app-modal-body">
-              <p>Esta seguro de insertar un acredor </p>
+              <p>Esta seguro de insertar </p>
             </div>
             <div class="app-modal-footer">
               <button type="button" class="btn btn-secondary" style="margin-left: 10px" data-dismiss="modal"
@@ -99,7 +89,7 @@
           </app-ui-modal>
           <button type="button" class="btn btn-outline-primary" data-toggle="modal"
             (click)="createPeriodsDialog.show()">Guardar</button>
-          <button [routerLink]="['/collection-list']" class="btn btn-outline-secondary"
+          <button [routerLink]="['/conciliacionp-list']" class="btn btn-outline-secondary"
             style="margin-left: 10px">Regresar</button>
         </form>
       </app-card>

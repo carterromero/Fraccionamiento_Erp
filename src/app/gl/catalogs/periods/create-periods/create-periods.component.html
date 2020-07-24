@@ -5,12 +5,12 @@
         <app-card cardTitle="Crear Peridos" [options]="false">      
             <app-alert type="success" [hidden]="alertDisable">{{alertMessage}}</app-alert>  
           <form (ngSubmit)="onSubmit()">
-
+            <label for="name">Perido numero</label>
             <div class="input-group mb-1">
+              
                 <div class="input-group-prepend">
-                  <label class="input-group-text"  for="inputGroupSelect01">numero de periodo</label>
                 </div>
-                <select  class="custom-select" id="inputGroupSelect01" class="form-control" id="periodsNumber"  [(ngModel)]="periods.periodsNumber" name="periodsNumber" required>
+               <select  class="custom-select" id="inputGroupSelect01" class="form-control" id="periodsNumber"  [(ngModel)]="periods.periodsNumber" name="periodsNumber" required>
                   <option selected></option>
                  
                   <option value="1">1</option>
@@ -25,50 +25,15 @@
                   <option value="10">10</option>
                   <option value="11">11</option>
                   <option value="12">12</option>
-                
-                
                 </select>
               </div>
      
-            
-            <div class="input-group mb-1">
-                <div class="input-group-prepend">
-                  <label   class="input-group-text"  for="inputGroupSelect01">nombre del periodo</label>
-                </div>
-                <select class="custom-select" id="inputGroupSelect01" class="form-control" id="periodsName"  [(ngModel)]="periods.periodsName" name="periodsName" required>
-                  <option selected></option>
-                  <option value="Enero">Enero</option>
-                  <option value="febrero">febrero</option>
-                  <option value="marzo">marzo</option>
-                  <option value="abril">abril</option>
-                  <option value="mayo">mayo</option>
-                  <option value="junio">junio</option>
-                  <option value="julio">julio</option>
-                  <option value="agosto">agosto</option>
-                  <option value="septiemre">septiemre</option>
-                  <option value="octubre">octubre</option>
-                  <option value="noviembre">noviembre</option>
-                  <option value="diciembre">diciembre</option>
-                
-                </select>
-              </div>
-            
-     
-                
+    
             <div class="form-group">
                 <label for="name">Año</label>
-                <input width="1" type="number" min="2000" max="2025" class="form-control" id="periodsYear" required [(ngModel)]="periods.periodsYear" name="periodsYear">
+                <input width="1" type="number" min="2020" max="2023" class="form-control" id="periodsYear" required [(ngModel)]="periods.periodsYear" name="periodsYear">
             </div>    
-                
-            <div class="form-group">
-                <label for="name">Fecha de inicio del periodo</label>
-                <input type="date" class="form-control" id="periodsStartDate" required [(ngModel)]="periods.periodsStartDate" name="periodsStartDate">
-            </div>    
-                
-            <div class="form-group">
-                <label for="name">fecha de fin de periodo</label>
-                <input type="date" class="form-control" id="periodsEndDate" required [(ngModel)]="periods.periodsEndDate" name="periodsEndDate">
-            </div>    
+            
                 
             <div class="form-group">
                 <label for="name">Estatus</label>
@@ -79,10 +44,7 @@
             </div>
   
                 
-            <div class="form-group">
-                <label for="name">creado por:</label>
-                <input type="text" class="form-control" id="createdBy" required [(ngModel)]="periods.createdBy" name="createdBy">
-            </div>    
+         
           
             <button [routerLink]="['/periods-list']" class="btn btn-secondary app-modal-footer" style="margin-left: 10px">Cancelar</button>
             <button type="button" class="btn btn-primary " data-toggle="modal" (click)="createPeriodsDialog.show()">Aceptar</button>
