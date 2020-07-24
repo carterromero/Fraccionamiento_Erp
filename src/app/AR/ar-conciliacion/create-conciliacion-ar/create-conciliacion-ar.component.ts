@@ -114,7 +114,7 @@ export class CreateConciliacionARComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['conciliacionp-list']);
+    this.router.navigate(['conciliacion-ar-list']);
   }
 
 }
