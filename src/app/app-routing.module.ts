@@ -295,6 +295,8 @@ import { ClientListComponent } from './AP/ap_client/client-list/client-list.comp
 import { CreateClientComponent } from './AP/ap_client/create-client/create-client.component';
 import { UpdateClientComponent } from './AP/ap_client/update-client/update-client.component';
 import { ClientDetailsComponent } from './AP/ap_client/client-details/client-details.component';
+import { FacpvListComponent } from './po/portal/facpv-list/facpv-list.component';
+import { CreateFacpvComponent } from './po/portal/create-facpv/create-facpv.component';
 
 
 
@@ -1101,6 +1103,29 @@ const routes: Routes = [
           {
             path: 'create-billtopay',
             loadChildren: () => import('./AP/ap_billtopay/create-billtopay/create-billtopay.module').then(module => module.CreateBilltopayModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: FacpvListComponent,
+        children: [
+          {
+            path: 'facpv-list',
+            loadChildren: () => import('./po/portal/facpv-list/facpv-list.module').then(module => module.FacpvListModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+
+        component: CreateFacpvComponent,
+        children: [
+          {
+            path: 'create-facpv',
+            loadChildren: () => import('./po/portal/create-facpv/create-facpv.module').then(module => module.CreateFacpvModule)
           }
         ]
       },
