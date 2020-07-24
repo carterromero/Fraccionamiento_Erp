@@ -73,11 +73,10 @@ export class CreateConciliacionARComponent implements OnInit {
 
   save() {
 
-    this.employeeService.createEmployee(this.employee)
     this.employee.concilitiation_condominums_id = localStorage.getItem('condominums');
     this.employee.concilitiation_document_type="Poliza";
     this.employee.created_by=Number(localStorage.getItem('id'));
-    this.employee.concilitiation_origin="AR";
+    
 
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => {
@@ -100,7 +99,7 @@ export class CreateConciliacionARComponent implements OnInit {
 
     this.alertDisable = true;
     this.alertDisables = true;
-
+    this.employee.concilitiation_origin="AR";
     if (this.employee.concilitiation_origin == "" || this.employee.concilitiation_origin == null) {
       this.alertDisable = false;
       this.alertMessage = "Nombre Incompleto";
@@ -114,7 +113,7 @@ export class CreateConciliacionARComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['conciliacionp-list']);
+    this.router.navigate(['conciliacion-ar-list']);
   }
 
 }

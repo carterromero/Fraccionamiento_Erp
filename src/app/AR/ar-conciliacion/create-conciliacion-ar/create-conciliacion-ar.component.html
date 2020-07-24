@@ -7,7 +7,13 @@
 
 
           <div class="form-group">
-            <label for="exampleFormControlSelect1">num orden de compra</label>
+            <label for="exampleFormControlSelect1">concilitiation_document_header_id</label>
+            <input type="text" class="form-control" id="concilitiation_document_header_id"
+              [(ngModel)]="employee.concilitiation_document_header_id" name="concilitiation_document_header_id"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">concilitiation_document_line_id</label>
             <select class="custom-select" id="concilitiation_document_line_id" required
               [(ngModel)]="employee.concilitiation_document_line_id" name="concilitiation_document_line_id">
               <option *ngFor="let creditors of purcharses | async" value="{{creditors.payment_id}}">
@@ -16,7 +22,7 @@
           </div>
 
           <div class="form-group">
-            <label for="exampleFormControlSelect1">CUENTA CONTABLE</label>
+            <label for="exampleFormControlSelect1">Cuenta Contable</label>
             <select class="custom-select" id="concilitiation_account_id" required
               [(ngModel)]="employee.concilitiation_account_id" name="concilitiation_account_id">
               <option *ngFor="let creditors of purcharsess | async" value="{{creditors.accounting_accounts_lines_id}}">
@@ -45,16 +51,16 @@
           </div> -->
 
           <div class="form-group">
-            <label for="name">debe</label>
+            <label for="name">Debe</label>
             <input type="text" class="form-control" id="concilitiation_debe" [(ngModel)]="employee.concilitiation_debe"
               name="concilitiation_debe" required>
           </div>
           <div class="form-group">
-            <label for="name">haber</label>
+            <label for="name">Haber</label>
             <input type="text" class="form-control" id="concilitiation_haber"
               [(ngModel)]="employee.concilitiation_haber" name="concilitiation_haber" required>
           </div>
-         <!--  <div class="form-group">
+          <!--  <div class="form-group">
             <label for="name">creado por:</label>
             <input type="number" class="form-control" id="created_by" [(ngModel)]="employee.created_by"
               name="created_by" required>
@@ -89,7 +95,7 @@
           </app-ui-modal>
           <button type="button" class="btn btn-outline-primary" data-toggle="modal"
             (click)="createPeriodsDialog.show()">Guardar</button>
-          <button [routerLink]="['/conciliacionp-list']" class="btn btn-outline-secondary"
+          <button [routerLink]="['/conciliacion-ar-list']" class="btn btn-outline-secondary"
             style="margin-left: 10px">Regresar</button>
         </form>
       </app-card>

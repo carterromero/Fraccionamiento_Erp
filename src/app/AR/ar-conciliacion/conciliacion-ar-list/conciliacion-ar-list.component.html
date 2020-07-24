@@ -1,54 +1,56 @@
-
 <div class="row">
-    <div class="col-xl-12">
-      <app-card cardTitle="conciliacion " blockClass="table-border-style">      
-        <div class="app-modal-footer">
-          <button style="margin: 10px" [routerLink]="['/update-conciliacion-ar']" class="btn btn-outline-primary" >crear</button>
-         <button [routerLink]="['/conciliacion-ar-list']"   class="btn btn-outline-primary" >regresar </button>
-        </div>
-        <div class="table-responsive">
-          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
-          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
-          <table class="table">
-            <thead>
-            <tr>              
-              
+  <div class="col-xl-12">
+    <app-card cardTitle="Conciliacion " blockClass="table-border-style">
+      <div class="app-modal-footer"> <button [routerLink]="['/create-conciliacion-ar']"
+          class="btn btn-outline-primary">Crear Contabilidad</button>
+        <button [routerLink]="['/collection-list']" class="btn btn-outline-primary">regresar </button>
+      </div>
+      <div class="table-responsive">
+        <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+        <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
+        <table class="table">
+          <thead>
+            <tr>
+
               <th>id conciliacion</th>
-              <th>id factura </th>
+              <th>concilitiation_header_id </th>
+              <th>concilitiation_line_id</th>
               <th>id cuenta linea</th>
               <th>origen</th>
               <th>documento tipo</th>
               <th>debe</th>
               <th>haber</th>
               <th>status</th>
-              
-               
+
+
             </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let general of general | async">
-                    
-                  <td>{{general.concilitiation_id}}</td>
-                  <td>{{general.concilitiation_document_line_id}}</td>
-                  <td>{{general.concilitiation_account_id}}</td>
-                  <td>{{general.concilitiation_origin}}</td>
-                  <td>{{general.concilitiation_document_type}}</td>
-                  <td>{{general.concilitiation_debe}}</td>
-                  <td>{{general.concilitiation_debe}}</td>
+          </thead>
+          <tbody>
+            <tr *ngFor="let general of general | async">
 
-                    
-                  <td>
-                    <div class="custom-control custom-switch">
-                      <input type="checkbox" class="custom-control-input" [checked]="general.concilitiation_status == 'true'">
-                      <label class="custom-control-label" for="concilitiation_status">Active</label>
-                   </div>
-                  </td>
+              <td>{{general.concilitiation_id}}</td>
+              <td>{{general.concilitiation_document_header_id}}</td>
+              <td>{{general.concilitiation_document_line_id}}</td>
+              <td>{{general.concilitiation_account_id}}</td>
+              <td>{{general.concilitiation_origin}}</td>
+              <td>{{general.concilitiation_document_type}}</td>
+              <td>{{general.concilitiation_debe}}</td>
+              <td>{{general.concilitiation_haber}}</td>
 
-                
-                </tr>
-            </tbody>
-          </table>
-        </div>
-      </app-card>
-    </div>
+
+              <td>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input"
+                    [checked]="general.concilitiation_status == 'true'">
+                  <label class="custom-control-label" for="concilitiation_status">Active</label>
+                </div>
+              </td>
+
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
   </div>
+</div>
