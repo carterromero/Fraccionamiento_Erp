@@ -1,4 +1,9 @@
 export class Historiaa  {
+    
+    
+    
+    sku:string;
+    
     id: number;
     articles_sku : string;
     p_admin_condominiuns_id : string;
@@ -10,7 +15,7 @@ export class Historiaa  {
     estatus:string; 
     desde:string; 
     hasta: string; 
-    inquilino_nombre : string; 
+    inquilino_nombre: string; 
     inquilino_apellido_1 :string; 
     inquilino_apellido_2 : string; 
 

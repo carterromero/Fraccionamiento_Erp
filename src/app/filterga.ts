@@ -18,6 +18,29 @@ export class FiltergA {
     articles_articles_price :string;
     articles_status:string;
 
+
+    articulo : string; 
+    descripcion: string; 
+  
+  
+    estatus:string; 
+    desde:string; 
+    hasta: string; 
+    inquilino_nombre : string; 
+    inquilino_apellido_1 :string; 
+    inquilino_apellido_2 : string; 
+
+    caract_extern : string;
+    caract_int : string;
+    alto : number;
+    largo: number;
+    ancho: number;
+    
+    categoria : number;
+    subcategoria : number;
+    precio_nomb :string;
+    precio :number;
+    activo : string;
  
    
 

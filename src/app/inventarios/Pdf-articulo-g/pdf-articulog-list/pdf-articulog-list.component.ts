@@ -15,6 +15,7 @@ import { CategoriesService } from 'src/app/categories.service';
 import { Pricearticulo } from 'src/app/pricearticles';
 import { PrecioarticuloService } from 'src/app/precioarticulo.service';
 import { FiltergA } from 'src/app/filterga';
+import { Historiaa } from '../../historiaa';
 
 @Component({
   selector: 'app-pdf-articulog-list',
@@ -25,11 +26,13 @@ export class PdfArticulogListComponent implements OnInit {
   filter: FiltergA= new FiltergA();
   generals :Articles = new Articles;
 
+  
+
   p_condominiuns_id:number;
   sub_inventario  : string;
   id: number;
-  general: Observable<Articles[]>;
-  filters: Observable<FiltergA[]>;
+  general: Observable<Historiaa[]>;
+  filters: Observable<Historiaa[]>;
    Transaction : Observable<TransactionsEntrys[]>;
    Subinventarios :Observable<SubInventarys[]>;
    subcategorias :Observable<SubCategories[]>;
