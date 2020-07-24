@@ -6,6 +6,9 @@ import { ConciliacionService } from 'src/app/conciliacion.service';
 import { PaymentRecord } from 'src/app/payment-record';
 import { PaymentRecordService } from 'src/app/payment-record.service';
 
+
+import { CollectionService } from 'src/app/collection.service';
+import { Collection } from 'src/app/collection';
 import { LinesService } from "src/app/services/gl/lines.service";
 import { Lines } from "src/app/services/gl/lines";
 
@@ -20,6 +23,7 @@ export class CreateConciliacionARComponent implements OnInit {
   employee: Conciliacion = new Conciliacion();
   purcharses: Observable<PaymentRecord[]>;
   purcharsess: Observable<Lines[]>;
+  Collection:Observable<Collection[]>
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -29,6 +33,7 @@ export class CreateConciliacionARComponent implements OnInit {
     private employeeService: ConciliacionService,
     private paymentRecordService: PaymentRecordService,
     private accountsService: LinesService,
+    private CollectionService:CollectionService,
     private router: Router) { }
 
   ngOnInit() {
@@ -56,6 +61,19 @@ export class CreateConciliacionARComponent implements OnInit {
       data => {
         console.log(data);
         this.purcharsess = this.accountsService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];
+        }
+      }
+    );
+    this.CollectionService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.Collection = this.CollectionService.getEmployeeList();
       },
       error => {
         console.log(error);
