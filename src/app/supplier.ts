@@ -14,6 +14,10 @@ export class Supplier {
     userid : string;
     id : number;
 
+    bank_accounts_id : string;
+   bank_accounts_bank_account_number: number;
+
+
 
 
 }

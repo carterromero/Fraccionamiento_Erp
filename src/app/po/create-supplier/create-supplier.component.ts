@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Supplier } from 'src/app/supplier';
 import { Router } from '@angular/router';
 import { SupplierService } from 'src/app/supplier.service';
+import { BankAccounts } from 'src/app/bankAccounts';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-supplier',
@@ -10,19 +12,25 @@ import { SupplierService } from 'src/app/supplier.service';
 })
 export class CreateSupplierComponent implements OnInit {
 
+ 
+cuentass : BankAccounts = new BankAccounts();
   employee: Supplier = new Supplier();
   submitted = false;
   
+
+
+  cuentas: Observable<BankAccounts[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
   constructor(private employeeService: SupplierService,
+  
     private router: Router) { }
 
   ngOnInit() {
-    //code
+   this. reloadDatas()
   }
 
   newEmployee(): void {
@@ -124,6 +132,28 @@ export class CreateSupplierComponent implements OnInit {
   }
 
 
+
+
+   
+  reloadDatas() 
+  {
+    
+   
+    this.employeeService.getEmployeeListCuentas().subscribe(
+      data => {
+        console.log(data);
+        this.cuentas = this.employeeService.getEmployeeListCuentas();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
 
 
   gotoList() 
