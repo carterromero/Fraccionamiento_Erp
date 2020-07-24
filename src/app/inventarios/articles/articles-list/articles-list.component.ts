@@ -37,6 +37,8 @@ export class ArticlesListComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
+          this.alertDisable = false;
+          this.alertDisable = false;
           this.alertMessage = error['statusText'];  
           
         }
