@@ -124,8 +124,16 @@ export class CreateReservationsComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.alertDisable = true;
+    this.alertDisables = true;
+  
+    if(this.reservation.reservations_start >= this.reservation.reservations_end ){
+      this.alertDisable = false;
+      this.alertMessage = "La fecha y hora inicial no puede ser mayor o igual a la fecha final "; 
+    }
+    else{
       this.save();    
-    
+    }
   }
 
   gotoList() {
