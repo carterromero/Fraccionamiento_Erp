@@ -17,7 +17,7 @@ export class SupplierDetailsComponent implements OnInit {
 
 
 
-cuentas : BankAccounts = new BankAccounts();
+cuenta : BankAccounts = new BankAccounts();
 
 
 
@@ -26,7 +26,7 @@ submitted = false;
 
 
 
-cuentass: Observable<BankAccounts[]>;
+cuentas: Observable<BankAccounts[]>;
 alertDisable = true;
 alertDisables = true;
 alertMessage = "null";
@@ -34,7 +34,7 @@ alertMessages = "null";
 
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: SupplierService
-    , private cuentaServivec: BankAccountsService )
+  )
 
      { }
 
@@ -44,7 +44,7 @@ alertMessages = "null";
 
   ngOnInit() {
     this.employee = new Supplier();    
-    this.cuentas = new BankAccounts();  
+    
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
     
@@ -71,10 +71,10 @@ alertMessages = "null";
   {
     
    
-    this.cuentaServivec.getEmployeeList().subscribe(
+    this.employeeService.getEmployeeListCuentas().subscribe(
       data => {
         console.log(data);
-        this.cuentass= this.cuentaServivec.getEmployeeList();
+        this.cuentas= this.employeeService.getEmployeeListCuentas();
       },
       error => {
         console.log(error);
