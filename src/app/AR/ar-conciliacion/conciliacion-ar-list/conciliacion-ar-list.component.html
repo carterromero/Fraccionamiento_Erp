@@ -13,7 +13,7 @@
             <tr>
 
               <th>id conciliacion</th>
-              <th>id factura </th>
+              <th>concilitiation_header_id </th>
               <th>id cuenta linea</th>
               <th>origen</th>
               <th>documento tipo</th>
@@ -28,12 +28,13 @@
             <tr *ngFor="let general of general | async">
 
               <td>{{general.concilitiation_id}}</td>
+              <td>{{general.concilitiation_document_header_id}}</td>
               <td>{{general.concilitiation_document_line_id}}</td>
               <td>{{general.concilitiation_account_id}}</td>
               <td>{{general.concilitiation_origin}}</td>
               <td>{{general.concilitiation_document_type}}</td>
               <td>{{general.concilitiation_debe}}</td>
-              <td>{{general.concilitiation_debe}}</td>
+              <td>{{general.concilitiation_haber}}</td>
 
 
               <td>
