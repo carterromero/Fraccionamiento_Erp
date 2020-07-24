@@ -90,7 +90,7 @@ export class CreateLegalsComponent implements OnInit {
     this.save();    
   }
   }
-
+ 
   gotoList() 
   {
     this.router.navigate(['legals-list']);
