@@ -15,6 +15,7 @@ export class Billtopay
     bilitoplay_arch : string;
     condominums_id :string;
     p_userid:string;
+    bi_archivo: string;
 
 creditor_business_name :string;
 creditor_addres:string;

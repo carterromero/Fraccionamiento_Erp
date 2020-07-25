@@ -10,13 +10,18 @@
           <thead>
           <tr>              
             <th>Nombre Categoria</th>
+            <th>Identificador</th>
             <th>Estatus </th>
             <th>Acciones</th>
           </tr>
           </thead>
           <tbody>
               <tr *ngFor="let general of general | async">
-                  <td>{{general.categories_name}}</td>
+                  
+                
+                <td>{{general.inv_categories_identificador}}</td>
+                <td>{{general.categories_name}}</td>
+                  
                   <td>
                       <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" [checked]="general.categories_status == 'true'">
