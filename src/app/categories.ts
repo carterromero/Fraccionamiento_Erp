@@ -10,5 +10,12 @@ export class Categories
     last_update_date :string;
     purcharse_order_categories_id
 
+
+    inv_categories_identificador :string;
+    inv_categories_attribute1 :string;
+    inv_categories_attribute2 :string;
+    inv_categories_attribute3:string;
+  
+
 }
     
