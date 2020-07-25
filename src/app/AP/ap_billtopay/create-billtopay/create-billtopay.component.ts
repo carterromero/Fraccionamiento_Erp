@@ -12,6 +12,9 @@ import { Creditor } from 'src/app/creditor';
 import { CreditorService } from 'src/app/creditor.service';
 import { Client } from 'src/app/client';
 import { ClientService } from 'src/app/client.service';
+import { Supplier } from 'src/app/supplier';
+import { SupplierService } from 'src/app/supplier.service';
+
 @Component({
   selector: 'app-create-billtopay',
   templateUrl: './create-billtopay.component.html',
@@ -24,6 +27,8 @@ export class CreateBilltopayComponent implements OnInit {
   credito: Observable<Creditor[]>;
   employees: Billtopay = new Billtopay();
   client: Observable<Client[]>;
+  supplier: Observable<Purcharse[]>;
+  
   
 name : string;
   alertDisable = true;
@@ -39,12 +44,14 @@ name : string;
     private employeesService: CreditorService,
     private clientService: ClientService,
     private route: ActivatedRoute,
+    private supplierService: SupplierService,
     private router: Router) { }
 
   ngOnInit() {
     this.reloadDatas();
     this.reloadDatas1();
     this.reloadData5() 
+    this.reloadData6() 
    
     
   }
@@ -134,6 +141,22 @@ reloadData5() {
 
     
 }
+reloadData6() {
+    
+  this.supplierService.getEmployeeList().subscribe(
+    data => {
+      console.log(data);
+      this.supplier = this.supplierService.getEmployeeList();
+    },
+    error => {
+      console.log(error);
+      //localStorage.setItem('token', "");
+      //this.router.navigate(['login']);     
+    });
+
+    
+}
+
 
 
 

@@ -12,6 +12,9 @@ import { Creditor } from 'src/app/creditor';
 import { CreditorService } from 'src/app/creditor.service';
 import { Client } from 'src/app/client';
 import { ClientService } from 'src/app/client.service';
+import { Supplier } from 'src/app/supplier';
+import { SupplierService } from 'src/app/supplier.service';
+
 @Component({
   selector: 'app-create-facpv',
   templateUrl: './create-facpv.component.html',
@@ -24,6 +27,7 @@ export class CreateFacpvComponent implements OnInit {
   purcharse: Observable<Purcharse[]>;
   credito: Observable<Creditor[]>;
   employees: Billtopay = new Billtopay();
+  supplier: Observable<Purcharse[]>;
   client: Observable<Client[]>;
   
 name : string;
@@ -40,12 +44,14 @@ name : string;
     private employeesService: CreditorService,
     private clientService: ClientService,
     private route: ActivatedRoute,
+    private supplierService: SupplierService,
     private router: Router) { }
 
   ngOnInit() {
     this.reloadDatas();
     this.reloadDatas1();
-    this.reloadData5() 
+    this.reloadData5();
+    this.reloadData6() 
    
     
   }
@@ -131,6 +137,22 @@ reloadData5() {
         this.alertDisable = false;
         this.alertMessage = error['statusText'];          
       }    
+    });
+
+    
+}
+
+reloadData6() {
+    
+  this.supplierService.getEmployeeList().subscribe(
+    data => {
+      console.log(data);
+      this.supplier = this.supplierService.getEmployeeList();
+    },
+    error => {
+      console.log(error);
+      //localStorage.setItem('token', "");
+      //this.router.navigate(['login']);     
     });
 
     

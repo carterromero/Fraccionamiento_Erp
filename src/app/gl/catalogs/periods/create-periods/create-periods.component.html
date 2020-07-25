@@ -6,28 +6,47 @@
             <app-alert type="success" [hidden]="alertDisable">{{alertMessage}}</app-alert>  
           <form (ngSubmit)="onSubmit()">
             <label for="name">Perido numero</label>
-            <div class="input-group mb-1">
-              
-                <div class="input-group-prepend">
-                </div>
-               <select  class="custom-select" id="inputGroupSelect01" class="form-control" id="periodsNumber"   [(ngModel)]="periods.periodsNumber" name="periodsNumber" required>
+           
+              <form name = "selectForm">
+                <p>
+                  <label for="number">Perido numero</label>
+               <select  class="custom-select" id="periodsNumber"   [(ngModel)]="periods.periodsNumber" name="periodsNumber" required>
                   <option selected></option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
+                  <option value="1">uno</option>
+                  <option value="2">dos</option>
+                  <option value="3">tres</option>
+                  <option value="4">cuatro</option>
+                  <option value="5">cinco</option>
+                  <option value="6">seis</option>
+                  <option value="7">siete</option>
+                  <option value="8">ocho</option>
+                  <option value="9">nueve</option>
+                  <option value="10">diez</option>
+                  <option value="11">once</option>
+                  <option value="12">doce</option>
                  
                 </select>
-              </div>
-     
+                </p>
+                <p><input id="periodsNumber" type="button" value="How many are selected?" /></p>
+              </form>
+                <script>
+                  function howMany(selectObject) {
+                    var numberSelected = 0;
+                    for (var i = 0; i < selectObject.options.length; i++) {
+                      if (selectObject.options[i].selected) {
+                        numberSelected++;
+                      }
+                    }
+                    return numberSelected;
+                  }
+                  
+                  var periodsNumber = document.getElementById("periodsNumber");
+                  periodsNumber.addEventListener("click", function(){
+                    alert('Number of options selected: ' + howMany(document.selectForm.musicTypes))
+                  });
+                  </script>
+             
+            
     
             <div class="form-group">
                 <label for="name">Año</label>
@@ -43,24 +62,27 @@
                  </div>
             </div>
   
-                
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>   
          
-          
-            <button [routerLink]="['/periods-list']" class="btn btn-secondary app-modal-footer" style="margin-left: 10px">Cancelar</button>
-            <button type="button" class="btn btn-primary " data-toggle="modal" (click)="createPeriodsDialog.show()">Aceptar</button>
             <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
-                <div class="app-modal-header">
-                <h5 class="modal-title">Create Period: {{periods.periodsName}}</h5>
-                <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="app-modal-body">
-                <p>desea guardar los cambios?</p>
-                </div>
-                <div class="app-modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
-                <button type="submit" class="btn btn-primary">cambios guardados</button>
-                </div>
-            </app-ui-modal>
+              <div class="app-modal-header">
+              <h5 class="modal-title">Crear periodo</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de insertar periodo</p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+
+          
+            <button [routerLink]="['/periods-list']" class="btn btn-secondary app-modal-footer" style="margin-left: 10px">Regresar</button>
+            <button type="button" class="btn btn-primary " data-toggle="modal" (click)="createPeriodsDialog.show()">Aceptar</button>
+           
           </form>
         </app-card>
       </div>

@@ -26,13 +26,13 @@
           </div>
       
             <br>
-            <h2><label for="name">ACREDOR</label></h2>
+            <h2><label for="name">provedor</label></h2>
 
             
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Nombre del accredor</label>
+              <label for="exampleFormControlSelect1">Nombre del provedor</label>
               <select   class="custom-select"  id="creditor_business_name" required [(ngModel)]="employee.creditor_business_name" name="creditor_business_name" >
-              <option *ngFor="let creditors of credito | async" value="{{creditors.creditor_business_name}}"> {{creditors.creditor_business_name}}</option>
+              <option *ngFor="let creditors of supplier | async" value="{{creditors.supplier_name}}"> {{creditors.supplier_name}}</option>
               
             </select>
             
