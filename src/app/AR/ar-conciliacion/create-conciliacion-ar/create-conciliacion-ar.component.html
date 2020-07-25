@@ -52,13 +52,19 @@
 
           <div class="form-group">
             <label for="name">Debe</label>
-            <input type="text" class="form-control" id="concilitiation_debe" [(ngModel)]="employee.concilitiation_debe"
-              name="concilitiation_debe" required>
+            <select class="custom-select" id="concilitiation_debe" required
+              [(ngModel)]="employee.concilitiation_debe" name="concilitiation_debe">
+              <option *ngFor="let Collection of Collection | async" value="{{Collection.collection_amount}}">
+                {{Collection.collection_amount}}</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="name">Haber</label>
-            <input type="text" class="form-control" id="concilitiation_haber"
-              [(ngModel)]="employee.concilitiation_haber" name="concilitiation_haber" required>
+              <select class="custom-select" id="concilitiation_haber" required
+              [(ngModel)]="employee.concilitiation_haber" name="concilitiation_haber">
+              <option *ngFor="let Collection of Collection | async" value="{{Collection.collection_amount}}">
+                {{Collection.collection_amount}}</option>
+            </select>
           </div>
           <!--  <div class="form-group">
             <label for="name">creado por:</label>

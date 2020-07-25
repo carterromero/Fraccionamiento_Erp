@@ -564,7 +564,7 @@ const NavigationItemss = [
             id: 'por',
             title: 'Portal Proveedor',
             type: 'item',            
-            url: '/Portal_list'
+            url: '/facpv-list'
             
           }
                                 
@@ -1430,7 +1430,7 @@ export class NavigationItem
                 id: 'por',
                 title: 'Portal Proveedor',
                 type: 'item',            
-                url: '/Portal_list'
+                url: '/facpv-list'
                 
               }
                                     
