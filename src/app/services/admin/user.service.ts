@@ -47,9 +47,9 @@ export class UserService {
 
   
 
-  Reset(employee: Object): Observable<any> {
+  Reset(correo: string): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVI_ERP_ERP_ADMI_USER_RESE_PWD_/1.0/resetPWD`, employee,{headers});
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVI_ERP_ADMI_UPDA_RESE_PWD_EHP/1.0/updateResetPWD/${correo}`,{ responseType: 'text', headers});
   }
   
 

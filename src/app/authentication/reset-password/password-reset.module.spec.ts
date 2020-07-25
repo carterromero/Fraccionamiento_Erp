@@ -1,10 +1,10 @@
-import { AuthSignupModule } from './password-reset.module';
+import { ResetPasswordModule } from './password-reset.module';
 
 describe('AuthSignupModule', () => {
-  let authSignupModule: AuthSignupModule;
+  let authSignupModule: ResetPasswordModule;
 
   beforeEach(() => {
-    authSignupModule = new AuthSignupModule();
+    authSignupModule = new ResetPasswordModule();
   });
 
   it('should create an instance', () => {

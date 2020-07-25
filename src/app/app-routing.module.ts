@@ -135,7 +135,7 @@ import { CreateContactsComponent } from './RH/contact/create-contacts/create-con
 import { ContactsListComponent } from './RH/contact/contacts-list/contacts-list.component';
 import { UpdateContactsComponent } from './RH/contact/update-contacts/update-contacts.component';
 import { ContactsDetailsComponent } from './RH/contact/contacts-details/contacts-details.component';
-
+import { ResetPasswordComponent } from './authentication/reset-password/password-reset.component';
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
 import { TransactionDetailsComponent } from './admin/transaction/transaction-details/transaction-details.component';
@@ -354,6 +354,16 @@ const routes: Routes = [
           {
             path: 'profile',
             loadChildren: () => import('./user/profile/profile.module').then(module => module.ProfileModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ResetPasswordComponent,
+        children: [
+          {
+            path: 'password-reset',
+            loadChildren: () => import('./authentication/reset-password/password-reset.module').then(module => module.ResetPasswordModule)
           }
         ]
       },

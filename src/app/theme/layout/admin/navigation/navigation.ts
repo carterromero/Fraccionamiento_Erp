@@ -98,7 +98,6 @@ const NavigationItemss = [
             url: '/permissions-list'
             
           },
-
           {
             id: 'usuarios',
             title: 'Usuarios',

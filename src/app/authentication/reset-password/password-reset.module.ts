@@ -13,4 +13,4 @@ import {SharedModule} from '../../theme/shared/shared.module';
   ],
   declarations: [ResetPasswordComponent]
 })
-export class AuthSignupModule { }
+export class ResetPasswordModule { }
