@@ -46,9 +46,11 @@ export class UpdateReservationsComponent implements OnInit {
       }, error => {
         console.log(error);
       });
- // moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
-  //  moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
-      
+      moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
+      moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
+
+    //  this.reservation.reservations_start = new Date(this.reservation.reservations_start);
+   //   this.reservation.reservations_end=new Date(this.reservation.reservations_end);
   }
 
   
@@ -93,12 +95,10 @@ export class UpdateReservationsComponent implements OnInit {
     this.reservation.last_update_by=Number(localStorage.getItem('id'));
     this.alertDisable = true;
     this.alertDisables = true;
-    moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
-    moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
+   // moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
+    //moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
     this.reservation.reservations_start = new Date(this.reservation.reservations_start);
     this.reservation.reservations_end=new Date(this.reservation.reservations_end);
-    
-    this.reservation.reservations_status;
     this.reservationsService.updateReservation(this.id, this.reservation)
     .subscribe(data => {console.log(data); 
           this.alertDisables = false;

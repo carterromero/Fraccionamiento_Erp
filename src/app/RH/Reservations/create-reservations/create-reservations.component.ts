@@ -99,12 +99,10 @@ export class CreateReservationsComponent implements OnInit {
   save() {
     this.alertDisable = true;
     this.alertDisables = true;
-    moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
-    moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
-     console.log(this.reservation.reservations_start)
- 
-     this.reservation.reservations_start = new Date(this.reservation.reservations_start);
-     this.reservation.reservations_end=new Date(this.reservation.reservations_end);
+  //  moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
+   // moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
+  //   this.reservation.reservations_start = new Date(this.reservation.reservations_start);
+   //  this.reservation.reservations_end=new Date(this.reservation.reservations_end);
     this.reservation.create_by=Number(localStorage.getItem('id'));
     this.reservation.last_update_by=Number(localStorage.getItem('id'));
     this.reservationsService.createReservation(this.reservation)
