@@ -48,11 +48,11 @@ export class ResetPasswordComponent implements OnInit {
       this.alertDisable = true;
       
       this.submitted = true;
-      if(this.authentication.user_password== this.authentication.user_password){
+    //  if(this.authentication.user_password== this.authentication.user_password){
       this.ResetPass();    
-      }
+     /* }
       else
-           this.alertMessage = "Las contraseñas no coinciden";
+           this.alertMessage = "Las contraseñas no coinciden";*/
     }
   
     goToHome() {

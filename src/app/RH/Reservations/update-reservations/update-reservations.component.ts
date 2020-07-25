@@ -41,13 +41,12 @@ export class UpdateReservationsComponent implements OnInit {
     this.reservationsService.getReservation(this.id).subscribe(data => {
         console.log(data);
         this.reservation = data;
-        this.reservation.reservations_status = (String(this.reservation.reservations_status) == "false") ? null:"false";
+      //  this.reservation.reservations_status = (String(this.reservation.reservations_status) == "false") ? null:"false";
         console.log(this.reservation.reservations_status);
       }, error => {
         console.log(error);
       });
-      moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
-      moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
+     
 
     //  this.reservation.reservations_start = new Date(this.reservation.reservations_start);
    //   this.reservation.reservations_end=new Date(this.reservation.reservations_end);
@@ -95,10 +94,11 @@ export class UpdateReservationsComponent implements OnInit {
     this.reservation.last_update_by=Number(localStorage.getItem('id'));
     this.alertDisable = true;
     this.alertDisables = true;
-   // moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
-    //moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
+    moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
+    moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
     this.reservation.reservations_start = new Date(this.reservation.reservations_start);
     this.reservation.reservations_end=new Date(this.reservation.reservations_end);
+    console.log(this.reservation.reservations_status);
     this.reservationsService.updateReservation(this.id, this.reservation)
     .subscribe(data => {console.log(data); 
           this.alertDisables = false;
@@ -109,7 +109,7 @@ export class UpdateReservationsComponent implements OnInit {
           this.alertDisable = false;
           this.alertMessage = "Fechas y horas no disponibles para la reservación";     
       });
-    
+      console.log(this.reservation.reservations_status);
   }
 
 
