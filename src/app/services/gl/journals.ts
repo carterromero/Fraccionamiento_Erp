@@ -7,9 +7,9 @@ export class Journals
     journals_description : string;
     journals_number :number;
     journals_currency_code : string;
-    journals_condominiums_id :number;
+    journals_condominiums_id : string;
     journals_status: string;
-    created_by : number;
+    created_by : string;
     created_date : string;
     last_updated_by : number;
     last_updated_date : string;

@@ -5,8 +5,7 @@
         <app-card cardTitle="Crear Peridos" [options]="false">      
             <app-alert type="success" [hidden]="alertDisable">{{alertMessage}}</app-alert>  
           <form (ngSubmit)="onSubmit()">
-            <label for="name">Perido numero</label>
-           
+            
               <form name = "selectForm">
                 <p>
                   <label for="number">Perido numero</label>
@@ -27,7 +26,7 @@
                  
                 </select>
                 </p>
-                <p><input id="periodsNumber" type="button" value="How many are selected?" /></p>
+                
               </form>
                 <script>
                   function howMany(selectObject) {
@@ -61,9 +60,8 @@
                     <label class="custom-control-label" for="periodsStatus">Active</label>
                  </div>
             </div>
-  
-            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
-            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>   
+            <app-alert type="danger" [hidden]="alertDisable">dato repetido de validacion mes </app-alert> 
+           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>   
          
             <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
               <div class="app-modal-header">

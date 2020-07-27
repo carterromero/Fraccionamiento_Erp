@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PeriodsService } from "../../../../services/gl/periods.service";
 import { Periods } from "../../../../services/gl/periods";
 import { Router } from '@angular/router';
-
+ 
 @Component({
   selector: 'app-create-periods',
   templateUrl: './create-periods.component.html',
