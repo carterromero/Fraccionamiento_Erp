@@ -79,12 +79,22 @@
                 <label for="name">Total de Orden :</label>
                 {{employee.purcharse_order_total}}
                      </div> 
-             
+    
+                     
+
+
+                     <td>
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" [checked]="employee.purcharse_entrada_transacciones == 'true'">
+                        <label class="custom-control-label" for="purcharse_entrada_transacciones">Transaccion</label>
+                     </div>
+                    </td>
+                 
 
 <div class="form-group">
         <label><b>Estatus:  </b></label>
       <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input"  id="purcharse_status"       name="purcharse_status"   style="margin-left: 10px" [checked]="employee.purcharse_status == 'true'">
+        <input type="checkbox" class="custom-control-input"  id="purcharse_status"    name="purcharse_status"   style="margin-left: 10px" [checked]="employee.purcharse_status == 'true'">
         <label class="custom-control-label" for="purcharse_status">Active</label>
      </div>
  </div>

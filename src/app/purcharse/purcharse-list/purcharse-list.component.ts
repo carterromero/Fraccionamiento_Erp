@@ -50,7 +50,10 @@ export class PurcharseListComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = error['statusText'];      
+       
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];     
         }
       });
 
