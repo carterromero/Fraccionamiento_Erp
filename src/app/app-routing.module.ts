@@ -291,12 +291,16 @@ import { PdfArticulogListComponent } from './inventarios/Pdf-articulo-g/pdf-arti
 import { PdfHistoriaListComponent } from './inventarios/pdf-historiarti/pdf-historia-list/pdf-historia-list.component';
 import { AcCreateTagsComponent } from './AC/ac-tags/ac-create-tags/ac-create-tags.component';
 import { ConciliacionpListComponent } from './AP/ap_conciliacion/conciliacionp-list/conciliacionp-list.component';
+
+import { ChatRoomComponent } from './chat/chat-room/chat-room.component';
+
 import { ClientListComponent } from './AP/ap_client/client-list/client-list.component';
 import { CreateClientComponent } from './AP/ap_client/create-client/create-client.component';
 import { UpdateClientComponent } from './AP/ap_client/update-client/update-client.component';
 import { ClientDetailsComponent } from './AP/ap_client/client-details/client-details.component';
 import { FacpvListComponent } from './po/portal/facpv-list/facpv-list.component';
 import { CreateFacpvComponent } from './po/portal/create-facpv/create-facpv.component';
+
 
 
 
@@ -3370,6 +3374,17 @@ component: CreateTransfersComponent,
           {
             path: 'ac-create-tags',
             loadChildren: () => import('./AC/ac-tags/ac-create-tags/ac-create-tags.module').then(module => module.AcCreateTagsModule)
+    
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ChatRoomComponent,
+        children: [
+          {
+            path: 'chat-room',
+            loadChildren: () => import('./chat/chat-room/chat-room.module').then(module => module.ChatRoomModule)
     
           }
         ]
