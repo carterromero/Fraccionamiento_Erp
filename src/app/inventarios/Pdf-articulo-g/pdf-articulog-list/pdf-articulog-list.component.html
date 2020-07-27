@@ -1,58 +1,115 @@
 <div class="row">
-    <div class="col-xl-12">
-        <div>
-          
-            <button type="button"  style="margin: 10 px;" class="btn btn-primary" >Imprimir Lista General</button>
-          </div>
-      <app-card cardTitle="Articulos" blockClass="table-border-style">      
+  <div class="col-xl-12">
+      <div>
         
-        <br>
-        <div class="table-responsive"   id="from-informacion">
-          <table class="table"   >
-            <thead>
-                <tr>      
-  
-                    <th>Articulo </th>
-                    <th>Descipcion</th>
-                    <th>Subinventario</th>
-                    <th>Caracteristicas Externas</th>
-                    <th>Caracteristicas Internas</th>
-                    <th>Alto</th>
-                    <th>Largo</th>
-                    <th>Ancho </th>
-                    <th> Categoria</th>
-                    <th>Subcategorias</th>
-                    <th>Precio Estatus </th>
-                  </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let general of general | async">
-                    <td>{{general.articles_name_article}} </td>
-                    <td>{{general.articles_description}} </td>
-                    <td>{{general.sub_inventarys_id}}</td>
-                    <td>{{general.articles_external_feactures}}</td>
-                    <td>{{general.articles_internal_characteristics}}</td>
-  
-                    <td>{{general.articles_width}}</td>
-                    <td>{{general.articles_tall}}</td>
-                    <td>{{general.articles_long}}</td>
-                    <td>{{general.lote_longitud}}</td>
-                    <td>{{general.lote_latitud}}</td>
-                    
-                    
-  
-                    <td>{{general.sub_categories_name}}</td>
-                    <td>{{general.price_nombre}}</td> 
-                    
-                    <td>
-                        
-                        <button (click)="generalDetails(general.articles_sku)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
-                        
-                    </td>
-                </tr>
-            </tbody>
-          </table>
+          <button type="button"  style="margin: 10 px;" class="btn btn-primary" >Imprimir Lista General</button>
         </div>
-      </app-card>
-    </div>
+    <app-card cardTitle="Articulos" blockClass="table-border-style">      
+      
+      <br>
+      <form class="form-inline waves-light" mdbWavesEffect (ngSubmit)="onSubmit()">
+        <div class="md-form mt-0" >
+
+          <input [(ngModel)]="filter.sku"
+          id="sku"   name="sku"
+          class="form-control mr-sm-2" type="text" placeholder="Articulo"  >
+
+
+          <!--<div class="form-group">
+            <label for="exampleFormControlSelect1">Subinventario</label>
+            <select  class="custom-select" id="sub_inventario" required [(ngModel)]="filter.sub_inventario" name="sub_inventario"  >
+            <option *ngFor="let filter of Subinventarios | async" value="{{filter.sub_inventario}}">{{filter.sub_inventarys_description}}</option>
+            </select>
+            </div>!-->
+            
+           
+          
+          <button type="submit" class="btn btn-outline-success">Buscar articulo</button>   
+          <button type="button"  (click)="reloadData()" class="btn btn-outline-info" style="margin-left: 10px">Refrescar</button>  
+        </div>
+   
+       
+
+      </form>
+
+
+      <form class="form-inline waves-light" mdbWavesEffect (ngSubmit)="onSubmitsub()">
+        <div class="md-form mt-0" >
+
+          
+
+          <input [(ngModel)]="generals.sub_inventario"
+          id="sub_inventario"   name="sub_inventario"
+          class="form-control mr-sm-2" type="text" placeholder="subinventario"  >
+
+         
+
+          <!--<div class="form-group">
+            <label for="exampleFormControlSelect1">Subinventario</label>
+            <select  class="custom-select" id="sub_inventario" required [(ngModel)]="filter.sub_inventario" name="sub_inventario"  >
+            <option *ngFor="let filter of Subinventarios | async" value="{{filter.sub_inventario}}">{{filter.sub_inventarys_description}}</option>
+            </select>
+            </div>!-->
+            
+           
+          
+        
+          <button type="submit" class="btn btn-outline-success">Buscar subinventario</button> 
+          <button type="button"  (click)="reloadData()" class="btn btn-outline-info" style="margin-left: 10px">Refrescar</button>  
+        </div>
+   
+       
+
+      </form>
+      
+      
+
+      <div class="table-responsive"   id="from-informacion">
+        <table class="table"   >
+          <thead>
+              <tr>      
+                <th>Id Articulo</th>
+                  <th>Articulo </th>
+                  <th>Descipcion</th>
+                  <th>Subinventario</th>
+                  
+
+
+
+                  <th>Alto</th>
+                  <th>Largo</th>
+                  <th>Ancho </th>
+                  <th>Categoria</th>
+                  <th>Subcategorias</th>
+                  <th>Precio Estatus </th>
+                </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let general of general | async">
+                <td>{{general.articles_sku}} </td>
+                  <td>{{general.articulo}} </td>
+                  <td>{{general.descripcion}} </td>
+
+                  <td>{{general.sub_inventario}}</td>
+                  <td>{{general.price_nombre}}</td> 
+
+                  <td>{{general.alto}}</td>
+                 
+                  <td>{{general.largo}}</td>
+                  <td>{{general.categoria}}</td>
+                  <td>{{general.subcategoria}}</td>
+                  <td>{{general.precio}}</td>
+
+                  
+                  <td>
+                      
+                      <button (click)="generalDetails(general.articles_sku)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                      
+                  </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
   </div>
+</div>

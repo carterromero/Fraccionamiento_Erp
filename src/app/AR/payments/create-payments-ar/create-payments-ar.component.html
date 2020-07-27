@@ -27,7 +27,7 @@
             <select class="custom-select" id="payments_deposit_account" required
               [(ngModel)]="employee.payments_deposit_account" name="payments_deposit_account">
               <option *ngFor="let depositaccount of depositaccount | async"
-                value="{{depositaccount.deposit_account_name_deposit_account}}">
+                value="{{depositaccount.deposit_account_id}}">
                 {{depositaccount.deposit_account_name_deposit_account}}</option>
             </select>
           </div>
@@ -36,33 +36,25 @@
             <select class="custom-select" id="payments_amount_payable" required
               [(ngModel)]="employee.payments_amount_payable" name="payments_amount_payable">
 
-              <option *ngFor="let collection of collection | async"
-                value="{{collection.collection_amount}}">
+              <option *ngFor="let collection of collection | async" value="{{collection.collection_amount}}">
                 {{collection.collection_amount}}</option>
-              </select>
+            </select>
           </div>
-          <!-- <div class="form-group">
-            <label for="name">condominums_id</label>
-            <input type="text" class="form-control" id="condominums_id" [(ngModel)]="employee.condominums_id"
-              name="condominums_id" required>
-
-          </div>
-          <div class="form-group">
-            <label for="name">created_by</label>
-            <input type="text" class="form-control" id="created_by" [(ngModel)]="employee.created_by" name="created_by"
-              required>
-          </div>-->
-          <div class="form-group">
+          <!--  <div class="form-group">
             <label for="name">transaction_types_id</label>
-            <input type="text" class="form-control" id="transaction_types_id"
-              [(ngModel)]="employee.transaction_types_id" name="transaction_types_id" required>
-
-          </div>
+              <select class="custom-select" id="transaction_types_id" required
+              [(ngModel)]="employee.transaction_types_id" name="transaction_types_id">
+              <option *ngFor="let transactionTypes of transactionTypes | async"
+                value="{{transactionTypes.transaction_types_id}}">
+                {{transactionTypes.transaction_types_name_type_transaction}}</option>
+              </select>
+          </div> -->
+          <!-- 
           <div class="form-group">
             <label for="name">customer_customer_id</label>
             <input type="text" class="form-control" id="customer_customer_id"
               [(ngModel)]="employee.customer_customer_id" name="customer_customer_id" required>
-          </div> 
+          </div>  -->
           <div class="form-group">
             <label for="name">Estatus</label>
             <div class="custom-control custom-switch">

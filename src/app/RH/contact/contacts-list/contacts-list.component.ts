@@ -15,6 +15,7 @@ export class ContactsListComponent implements OnInit {
   employees: Observable<Employee[]>;
   contact: Contacts = new Contacts();
   contacts: Observable<Contacts[]>;
+  
   elements: any = [];
   alertDisable = true;
   alertDisables = true;
@@ -27,6 +28,7 @@ export class ContactsListComponent implements OnInit {
   ngOnInit() {    
 
     this.reloadDatas();
+
   }
 
   reloadDatas(){
@@ -44,8 +46,7 @@ export class ContactsListComponent implements OnInit {
       }
     );      
   }
-
-
+ 
   deleteContact(id: number) {
     this.contactsService.deleteContact(id)
       .subscribe(
@@ -68,5 +69,10 @@ export class ContactsListComponent implements OnInit {
   updateContact(id: number){
     console.log(id);
     this.router.navigate(['update-contacts', id]);
+  }
+
+  goEmployee(){
+
+    this.router.navigate(['employees-list']);
   }
 }

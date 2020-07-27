@@ -3,9 +3,19 @@
     <div class="col-sm-12">
       <app-card cardTitle="Categorias Detalle" [options]="false">
         <div *ngIf="employee">
+         
           <div>
-            <label><b>Nombre Categoria: </b></label> {{employee.categories_name}}
+            <label><b>Nombre Categoría: </b></label> {{employee.inv_categories_identificador}}
           </div>
+         
+         
+         
+          <div>
+            <label><b>Identificador Categoría: </b></label> {{employee.categories_name}}
+          </div>
+
+
+         
           <div>
             <label><b>Estatus:  </b></label>
             <div class="custom-control custom-switch">

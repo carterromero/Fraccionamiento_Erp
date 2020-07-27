@@ -122,10 +122,7 @@ import { CreateTenantsComponent } from './RH/Inquilinos/create-tenants/create-te
 import { TenantsListComponent } from './RH/Inquilinos/tenants-list/tenants-list.component';
 import { UpdateTenantsComponent } from './RH/Inquilinos/update-tenants/update-tenants.component';
 import { TenantsDetailsComponent } from './RH/Inquilinos/tenants-details/tenants-details.component';
-import { CreateAgreementsComponent } from './RH/agreements/create-agreements/create-agreements.component';
-import { AgreementsListComponent } from './RH/agreements/agreements-list/agreements-list.component';
-import { UpdateAgreementsComponent } from './RH/agreements/update-agreements/update-agreements.component';
-import { AgreementsDetailsComponent } from './RH/agreements/agreements-details/agreements-details.component';
+
 import { CreateReservationsComponent } from './RH/Reservations/create-reservations/create-reservations.component';
 import { ReservationsListComponent } from './RH/Reservations/reservations-list/reservations-list.component';
 import { UpdateReservationsComponent } from './RH/Reservations/update-reservations/update-reservations.component';
@@ -138,7 +135,7 @@ import { CreateContactsComponent } from './RH/contact/create-contacts/create-con
 import { ContactsListComponent } from './RH/contact/contacts-list/contacts-list.component';
 import { UpdateContactsComponent } from './RH/contact/update-contacts/update-contacts.component';
 import { ContactsDetailsComponent } from './RH/contact/contacts-details/contacts-details.component';
-
+import { ResetPasswordComponent } from './authentication/reset-password/password-reset.component';
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
 import { TransactionDetailsComponent } from './admin/transaction/transaction-details/transaction-details.component';
@@ -278,6 +275,11 @@ import { PaymentsARDetailsComponent } from './AR/payments/payments-ar-details/pa
 import { CreatePaymentsARComponent } from './AR/payments/create-payments-ar/create-payments-ar.component';
 import { UpdatePaymentsARComponent } from './AR/payments/update-payments-ar/update-payments-ar.component';
 
+import { ConciliacionARListComponent } from './AR/ar-conciliacion/conciliacion-ar-list/conciliacion-ar-list.component';
+import { ConciliacionARDetailsComponent } from './AR/ar-conciliacion/conciliacion-ar-details/conciliacion-ar-details.component';
+import { CreateConciliacionARComponent } from './AR/ar-conciliacion/create-conciliacion-ar/create-conciliacion-ar.component';
+import { UpdateConciliacionARComponent } from './AR/ar-conciliacion/update-conciliacion-ar/update-conciliacion-ar.component';
+
 import { PdfSupplierDetailsComponent } from './po/pdf/pdf-purcharse-details/pdf-supplier-details.component';
 
 import { PdfPurcharseListComponent } from './po/pdf/pdf-purcharse/pdf-purcharse-list/pdf-purcharse-list.component';
@@ -289,7 +291,16 @@ import { PdfArticulogListComponent } from './inventarios/Pdf-articulo-g/pdf-arti
 import { PdfHistoriaListComponent } from './inventarios/pdf-historiarti/pdf-historia-list/pdf-historia-list.component';
 import { AcCreateTagsComponent } from './AC/ac-tags/ac-create-tags/ac-create-tags.component';
 import { ConciliacionpListComponent } from './AP/ap_conciliacion/conciliacionp-list/conciliacionp-list.component';
+
 import { ChatRoomComponent } from './chat/chat-room/chat-room.component';
+
+import { ClientListComponent } from './AP/ap_client/client-list/client-list.component';
+import { CreateClientComponent } from './AP/ap_client/create-client/create-client.component';
+import { UpdateClientComponent } from './AP/ap_client/update-client/update-client.component';
+import { ClientDetailsComponent } from './AP/ap_client/client-details/client-details.component';
+import { FacpvListComponent } from './po/portal/facpv-list/facpv-list.component';
+import { CreateFacpvComponent } from './po/portal/create-facpv/create-facpv.component';
+
 
 
 
@@ -354,6 +365,16 @@ const routes: Routes = [
       },
       {
         path: '',
+        component: ResetPasswordComponent,
+        children: [
+          {
+            path: 'password-reset',
+            loadChildren: () => import('./authentication/reset-password/password-reset.module').then(module => module.ResetPasswordModule)
+          }
+        ]
+      },
+      {
+        path: '',
         component: ContactsListComponent,
         children: [
           {
@@ -378,7 +399,7 @@ const routes: Routes = [
         children: [
           {
             path: 'contacts-details/:id',
-            loadChildren: () => import('src/app/RH/contact/contacts-details/contacts-details.component').then(module => module.ContactsDetailsComponent)
+            loadChildren: () => import('src/app/RH/contact/contacts-details/contacts-details.module').then(module => module.ContactsDetailModule)
           }
         ]
       },
@@ -469,46 +490,6 @@ const routes: Routes = [
           {
             path: 'departmentsr-list',
             loadChildren: () => import('./RH/REPORTES/departmentsr-list/departmentsr-list.module').then(module => module.DepartmentsRListModule)
-          }
-        ]
-      },
-      {
-        path: '',
-        component: AgreementsListComponent,
-        children: [
-          {
-            path: 'agreements-list',
-            loadChildren: () => import('./RH/agreements/agreements-list/agreements-list.module').then(module => module.AgreementsListModule)
-          }
-        ]
-      },
-      {
-        path: '',
-        component: CreateAgreementsComponent,
-        children: [
-          {
-            path: 'create-agreements',
-            loadChildren: () => import('./RH/agreements/create-agreements/create-agreements.module').then(module => module.CreateAgreementsModule)
-          }
-        ]
-      },
-      {
-        path: '',
-        component: AgreementsDetailsComponent,
-        children: [
-          {
-            path: 'agreements-details/:id',
-            loadChildren: () => import('./RH/agreements/agreements-details/agreements-details.module').then(module => module.AgreementsDetailsModule)
-          }
-        ]
-      },
-      {
-        path: '',
-        component: UpdateAgreementsComponent,
-        children: [
-          {
-            path: 'update-agreements/:id',
-            loadChildren: () => import('./RH/agreements/update-agreements/update-agreements.module').then(module => module.UpdateAgreementsModule)
           }
         ]
       },
@@ -1074,6 +1055,51 @@ const routes: Routes = [
       {
         path: '',
 
+        component: ClientListComponent,
+        children: [
+          {
+            path: 'client-list',
+            loadChildren: () => import('./AP/ap_client/client-list/client-list.module').then(module => module.ClientListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: CreateClientComponent,
+        children: [
+          {
+            path: 'create-client',
+            loadChildren: () => import('./AP/ap_client/create-client/create-client.module').then(module => module.CreateClientModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: UpdateClientComponent,
+        children: [
+          {
+            path: 'update-client/:id',
+            loadChildren: () => import('./AP/ap_client/update-client/update-client.module').then(module => module.UpdateClientModule)
+          }
+        ]
+      }
+      ,
+      {
+        path: '',
+
+        component: ClientDetailsComponent,
+        children: [
+          {
+            path: 'client-details/:id',
+            loadChildren: () => import('./AP/ap_client/client-details/client-details.module').then(module => module.ClientDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
         component: BilltopayListComponent,
         children: [
           {
@@ -1091,6 +1117,29 @@ const routes: Routes = [
           {
             path: 'create-billtopay',
             loadChildren: () => import('./AP/ap_billtopay/create-billtopay/create-billtopay.module').then(module => module.CreateBilltopayModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: FacpvListComponent,
+        children: [
+          {
+            path: 'facpv-list',
+            loadChildren: () => import('./po/portal/facpv-list/facpv-list.module').then(module => module.FacpvListModule)
+          }
+        ]
+      },
+
+      {
+        path: '',
+
+        component: CreateFacpvComponent,
+        children: [
+          {
+            path: 'create-facpv',
+            loadChildren: () => import('./po/portal/create-facpv/create-facpv.module').then(module => module.CreateFacpvModule)
           }
         ]
       },
@@ -1603,6 +1652,47 @@ const routes: Routes = [
           {
             path: 'update-payments-ar/:id',
             loadChildren: () => import('./AR/payments/update-payments-ar/update-payments-ar.module').then(module => module.UpdatePaymentsARModule)
+          }
+        ]
+      },
+      //
+      {
+        path: '',
+        component: ConciliacionARListComponent,
+        children: [
+          {
+            path: 'conciliacion-ar-list',
+            loadChildren: () => import('./AR/ar-conciliacion/conciliacion-ar-list/conciliacion-ar-list.module').then(module => module.ConciliacionListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ConciliacionARDetailsComponent,
+        children: [
+          {
+            path: 'conciliacion-ar-details/:id',
+            loadChildren: () => import('./AR/ar-conciliacion/conciliacion-ar-details/conciliacion-ar-details.module').then(module => module.ConciliacionDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateConciliacionARComponent,
+        children: [
+          {
+            path: 'create-conciliacion-ar',
+            loadChildren: () => import('./AR/ar-conciliacion/create-conciliacion-ar/create-conciliacion-ar.module').then(module => module.CreateConciliacionARModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateConciliacionARComponent,
+        children: [
+          {
+            path: 'update-conciliacion-ar/:id',
+            loadChildren: () => import('./AR/ar-conciliacion/update-conciliacion-ar/update-conciliacion-ar.module').then(module => module.UpdateConciliacionModule)
           }
         ]
       },
@@ -3253,6 +3343,18 @@ component: CreateTransfersComponent,
         ]
     
       },
+
+      {
+        path: '',
+
+        component: BilltopayListComponent,
+        children: [
+          {
+            path: 'Portal_list',
+            loadChildren: () => import('./AP/ap_billtopay/billtopay-list/billtopay-list.module').then(module => module.BilltopayListModule)
+          }
+        ]
+      },
       {
         path: '',
         component: AcReportsVisitorComponent,
@@ -3287,6 +3389,7 @@ component: CreateTransfersComponent,
           }
         ]
       },
+
       
       
 

@@ -16,7 +16,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UpdateArticlesComponent implements OnInit {
 
   id: number;
-  employee: Articles;
+  admin_condominiuns_id;
+  employee=new Articles();
   addresses: Observable<[SubCategories]>;
   addresses1: Observable<UnitOfMeasures[]>;
   alertDisable = true;
@@ -33,11 +34,16 @@ export class UpdateArticlesComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-
-    this.employee = new Articles();
-    this.id = this.route.firstChild.snapshot.params['id']
     
-    this.employeeService.getEmployee(this.id)
+    this.employee.p_id;
+    this.reloadDatas();
+    this.id = this.route.firstChild.snapshot.params['id']
+    this.admin_condominiuns_id=parseInt(localStorage.getItem('condominums'));
+  
+    //this.employee = new Articles();
+
+ 
+    this.employeeService.getEmployee(this.id,this.admin_condominiuns_id)
       .subscribe(data => {
         this.employee = data;
         this.employee.articles_skus = (String(this.employee.articles_skus) == "false") ? null:"true";
@@ -52,12 +58,20 @@ export class UpdateArticlesComponent implements OnInit {
 
       });
       this.reloadDatas() ;
+      
+      
   }
 
    
 
+
+
+  
+
   updateEmployee() {
-    this.employee.last_update_by=3;
+    this.employee.p_id=3;
+    console.log(this.employee);
+  
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {
         
@@ -74,6 +88,26 @@ export class UpdateArticlesComponent implements OnInit {
           this.alertMessage = error['statusText'];          
         }
       });
+
+      
+/*
+      console.log(this.employee.articles_skus);
+    this.employee.p_id;
+    this.employeeService.updateEmployee(this.id)
+      .subscribe(data => {
+        console.log();
+        this.alertDisables = false;
+        this.alertMessages ="Se actualizo la empresa correctamente";
+      }, 
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+        
+      });*/
     
   
   }
@@ -116,6 +150,7 @@ export class UpdateArticlesComponent implements OnInit {
   {
   this.alertDisable = true;
   this.alertDisables = true;
+  
   if(this.employee.articles_name_article =="" ||  this.employee.articles_name_article ==null ){
     this.alertDisable = false;
     this.alertMessage = "Nombre Incompleto";          
@@ -128,10 +163,7 @@ export class UpdateArticlesComponent implements OnInit {
     this.alertDisable = false;
     this.alertMessage = "Unidad de Medida Incompleta";          
   }
-  else if(this.employee.articles_dimension =="" ||  this.employee.articles_dimension ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Articulos Dimension Incompleta";          
-  }
+  
     else if(this.employee.articles_articles_price ==null ||  this.employee.articles_articles_price ==null ){
       this.alertDisable = false;
       this.alertMessage = "Precio de Artículos Incompleta";          
@@ -149,6 +181,7 @@ export class UpdateArticlesComponent implements OnInit {
   
   
     else{
+      
       this.updateEmployee();    
     }
   }

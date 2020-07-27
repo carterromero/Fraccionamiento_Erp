@@ -23,7 +23,8 @@
                   <th>Precio</th>
                   <th>Articulos Externos</th>
                   <th>Caracteristicas Internas</th>
-                  <th>Sub Categoria Nombre</th>
+                  <th>Sub Categoria Nombre</th>  
+                  <th>Espacio en Comun</th>
                   
                   <th>Estatus </th>
                   
@@ -35,7 +36,6 @@
                   <td>{{general.articles_sku}} </td>
                   <td>{{general.articles_description}}</td>
                   <td>{{general.of_measuares_description}}</td>
-               
 
                   <td>{{general.articles_width}}</td>
                   <td>{{general.articles_tall}}</td>
@@ -50,6 +50,41 @@
                   <td>{{general.articles_internal_characteristics}}</td>
                   <td>{{general.sub_categories_name}}</td>
                   
+        
+
+
+                
+
+
+
+                  <div class="form-group">
+                    <label for="name">Espacio en comun</label>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input"  id="articles_common_spaces"  [(ngModel)]="general.articles_common_spaces"  disabled   name="articles_common_spaces"   style="margin-left: 10px">
+                        <label class="custom-control-label" for="articles_common_spaces" readonly="readonly">Active</label>
+                     </div>
+                    </div>
+
+                         
+
+
+                    
+                  <div class="form-group">
+                    <label for="name">Lote O Vivienda </label>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input"  id="articles_lot_place"  [(ngModel)]="general.articles_lot_place"  disabled   name="articles_lot_place"   style="margin-left: 10px">
+                        <label class="custom-control-label" for="articles_lot_place"   readonly="readonly">Active</label>
+                     </div>
+                    </div>
+
+
+                  
+                    
+
+
+
+
+
                   <td>
                       <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" [checked]="general.articles_status == 'true'">

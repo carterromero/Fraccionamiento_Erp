@@ -212,7 +212,7 @@ th,tr,td{
 	width:150px;
 	height:45px;
 	vertical-align:middle;
-	text-align:center;
+  text-align:center;
 }
 th{
 	color:#fff;
@@ -225,6 +225,21 @@ tr:nth-child(odd) td{
 
 }
 
+.tableList{
+  border-collapse:collapse;
+  font-family: $theme-font-family;
+  font-size: 12px;
+  align-content: center;
+th,tr,td{
+	border:2px;
+	width:150px;
+	height:45px;
+	vertical-align:middle;
+  text-align:center;
+  font-weight: bold;
+  color: #2A2738;
+}
+}
 /*multi-select*/
 .dual-list .listbox .record-picker::-webkit-scrollbar-thumb {
   background: $primary-color;

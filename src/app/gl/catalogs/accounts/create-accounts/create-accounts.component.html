@@ -4,25 +4,29 @@
       <div class="col-md-6">
         <app-card cardTitle="Crear cuenta" [options]="false">
           <form (ngSubmit)="onSubmit()" >
+                
+            
+
+            <label for="name">codigo</label>
+            <div class="input-group mb-3">
+              <select class="custom-select" id="accounting_accounts_currency_code" class="form-control" id="accounting_accounts_currency_code"  [(ngModel)]="employee.accounting_accounts_currency_code" name="accounting_accounts_currency_code" required>
+                <option selected></option>
+                <option value="una sola exhibición">MX</option>
+                
+              </select>
+            </div>
             <div class="form-group">
-              <label for="name">condominio id</label>
-              <input type="text" class="form-control" id="accounting_accounts_condominums_id"  [(ngModel)]="employee.accounting_accounts_condominums_id" name="accounting_accounts_condominums_id" required> 
-            </div>      
-            <div class="form-group">
-              <label for="name">codigo</label>
-              <input type="text" class="form-control" id="accounting_accounts_currency_code"  [(ngModel)]="employee.accounting_accounts_currency_code" name="accounting_accounts_currency_code" required>
-            </div>  
+              <label for="name">periodo id</label>
+              <input type="text" class="form-control" id="accounting_accounts_condominums_id"  [(ngModel)]="employee.accounting_accounts_condominums_id" name="accounting_accounts_condominums_id" required>
+            </div>
+
             <div class="form-group">
               <label for="name">periodo id</label>
               <input type="text" class="form-control" id="accounting_accounts_period_id"  [(ngModel)]="employee.accounting_accounts_period_id" name="accounting_accounts_period_id" required>
             </div>
             <div class="form-group">
                 <label for="name">Año</label>
-                <input type="text" class="form-control" id="accounting_accounts_fiscal_year"  [(ngModel)]="employee.accounting_accounts_fiscal_year" name="accounting_accounts_fiscal_year" required>
-            </div>
-            <div class="form-group">
-                <label for="name">creado por:</label>
-                <input type="text" class="form-control" id="created_by"  [(ngModel)]="employee.created_by" name="created_by" required>
+                <input width="1" type="number" min="2000" max="2025"  class="form-control" id="accounting_accounts_fiscal_year"  [(ngModel)]="employee.accounting_accounts_fiscal_year" name="accounting_accounts_fiscal_year" required>
             </div>
          
             <div class="form-group">

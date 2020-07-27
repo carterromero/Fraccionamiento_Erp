@@ -52,7 +52,7 @@ export class AuthSigninComponent implements OnInit {
     this.submitted = false;
     this.authentication = new User();
   }
-
+  
   authenticate() 
   {    
     this.authenticationService.login(this.authentication)
@@ -84,6 +84,7 @@ export class AuthSigninComponent implements OnInit {
             localStorage.setItem("inventario",this.permisions.permissions_inventario);
             localStorage.setItem("nomina",this.permisions.permissions_nomina);
             localStorage.setItem("control",this.permisions.permissions_control);
+            localStorage.setItem("proveedor",this.permisions.permissions_control);
             this.goToHome();   
             }, error => {
               console.log(error);

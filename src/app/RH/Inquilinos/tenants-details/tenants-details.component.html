@@ -5,7 +5,7 @@
         <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
         <div *ngIf="tenant">
           <div>
-            <label><b>Nombre inquilino: </b></label> {{tenant.tenants_name}}
+            <label><b>Nombre residente: </b></label> {{tenant.tenants_name}}
           </div>
           <div>
             <label><b>Apellido paterno: </b></label> {{tenant.tenants_father_surname}}
@@ -26,7 +26,10 @@
             <label><b>Numero de residencia: </b></label> {{tenant.tenants_residential_number}}
           </div>
           <div>
-            <label><b>Tipo de inquilino: </b></label> {{tenant.tenants_type}}
+            <label><b>Tipo de residente: </b></label> {{tenant.tenants_type}}
+          </div>
+          <div>
+            <label (click)="goagreements()" ><b><u>Descargar Contrato</u></b></label>
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Condominio</label>

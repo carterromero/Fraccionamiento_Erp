@@ -2,11 +2,11 @@
   <div class="col-xl-12">
     <app-card cardTitle="Cliente" blockClass="table-border-style">
       <button [routerLink]="['/create-customer']" class="btn btn-outline-primary">Agregar cliente</button>
-      
+
       <div class="table-responsive">
         <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
         <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
-        <table class="table">
+        <table id='from-informacion' class="table">
           <thead>
             <tr>
               <th>Nombre completo</th>
@@ -52,10 +52,13 @@
                       (click)="createPeriodsDialog.hide()" style="margin-left: 10px">Eliminar</button>
                   </div>
                 </app-ui-modal>
+
               </td>
             </tr>
           </tbody>
         </table>
+        <button type="button" class="btn btn-outline-primary" (click)="imprimirLista()">Imprimir pdf reporte </button>
+        <button (click)="gocv()" class="btn btn-info">Descargar COMPROBANTE</button>
       </div>
     </app-card>
   </div>

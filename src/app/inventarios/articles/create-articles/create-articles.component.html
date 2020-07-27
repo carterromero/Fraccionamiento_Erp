@@ -7,6 +7,7 @@
                 <label for="name">Nombre Articulos</label>
                 <input type="text" class="form-control" id="articles_name_article"  [(ngModel)]="employee.articles_name_article" name="articles_name_article" required> 
               </div>  
+               
 
        
 
@@ -27,6 +28,12 @@
                     <option *ngFor="let address of addresses | async" value="{{address.sub_categories_id}}">{{address.sub_categories_name}}</option>
                     </select>
                     </div>
+
+
+  
+
+
+                     
               
                         
                   <div class="form-group">
@@ -55,9 +62,11 @@
                     <input type="text" class="form-control" id="lote_latitud"  [(ngModel)]="employee.lote_latitud" name="lote_latitud" required> 
                   </div>
 
+               
                   
-
-
+                               
+                 
+                
 
 
 
@@ -73,13 +82,50 @@
                     <label for="name">Características Internas</label>
                     <input type="text" class="form-control" id="articles_internal_characteristics"  [(ngModel)]="employee.articles_internal_characteristics" name="articles_internal_characteristics" required> 
                   </div> 
+
+
+
+                 
+                  
+
+                  <div class="form-group">
+                    <label for="name">Espacio en comun</label>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input"  id="articles_common_spaces"  [(ngModel)]="employee.articles_common_spaces"     name="articles_common_spaces"   style="margin-left: 10px">
+                        <label class="custom-control-label" for="articles_common_spaces">Active</label>
+                     </div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label for="name">Lote o Vivienda</label>
+                      <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input"  id="articles_lot_place"  [(ngModel)]="employee.articles_lot_place"     name="articles_lot_place"   style="margin-left: 10px">
+                          <label class="custom-control-label" for="articles_lot_place">Active</label>
+                       </div>
+                    </div>
+                
+
+
+
+                
+
+                  <div class="form-group">
+                    <label for="name">ESTATUS</label>
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input"  id="articles_status"  [(ngModel)]="employee.articles_status"     name="articles_status"   style="margin-left: 10px">
+                        <label class="custom-control-label" for="articles_status">Active</label>
+                     </div>
+    
                      
-            <div class="form-group">
-                <label for="name">Estatus</label>
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input"  id="articles_status"  [(ngModel)]="employee.articles_status"     name="articles_status"   style="margin-left: 10px">
-                    <label class="custom-control-label" for="articles_status">Active</label>
-                 </div>
+          
+
+
+                
+  
+                
+               
+
             </div>
             <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
             <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 

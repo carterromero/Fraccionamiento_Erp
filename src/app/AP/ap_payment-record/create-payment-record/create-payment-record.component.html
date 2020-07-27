@@ -6,37 +6,40 @@
 
             <div class="form-group">
               <label for="exampleFormControlSelect1">creditor</label>
-              <select  class="custom-select"  id="creditor_id" required [(ngModel)]="employee.creditor_id" name="creditor_id" >
-              <option *ngFor="let creditors of creditor | async" value="{{creditors.creditor_id}}">{{creditors.creditor_business_name}}</option>
+              <select  class="custom-select"  id="name_creditor" required [(ngModel)]="employee.name_creditor" name="name_creditor" >
+              <option *ngFor="let creditors of creditor | async" value="{{creditors.creditor_business_name}}">{{creditors.creditor_business_name}}</option>
               </select>
           </div>  
+
+         <form action="">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">FACTURA</label>
+            <select  type="text"  class="custom-select"  id="billtopay_invoice_folio" required [(ngModel)]="employee.billtopay_invoice_folio" name="billtopay_invoice_folio" >
+            <option *ngFor="let creditors of facturass | async" value="{{creditors.billtopay_invoice_folio}}"> {{creditors.billtopay_invoice_folio}}{{creditors.billtopay_table }}</option>
+          </select>
+          <button (click)="reloadData6()" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR nombre  </button>
+        </div> 
         
-
-            <div class="form-group">
-                <label for="name">Fecha de pago</label>
-                <input type="date" id="start" name="trip-start"
-                value="2020-01-01"
-                min="2020-01-01" max="2030-12-31" 
-                 class="form-control" id="payment_record_payment_date"  [(ngModel)]="employee.payment_record_payment_date" name="payment_record_payment_date" required>
-              </div> 
-                
-            <div class="form-group">
+        <div class="form-group">
+          <label for="name">Fecha de pago</label>
+          <input type="text" class="form-control" id="payment_record_payment_date"  [(ngModel)]="employee.billtopay_invoice_date" name="payment_record_payment_date" required>
+        </div>
+  
+         <div class="form-group">
               <label for="name">Monto</label>
-              <input type="text" class="form-control" id="payment_record_amount"  [(ngModel)]="employee.payment_record_amount" name="payment_record_amount" required>
-            </div>
+              <input type="text" class="form-control" id="purcharse_order_total"  [(ngModel)]="employee.purcharse_order_total" name="purcharse_order_total" required>
+        </div>
+
+      </form>        
+      
 
             <div class="form-group">
-              <label for="name">creado por :</label>
-              <input type="number" class="form-control" id="p_user_id"  [(ngModel)]="employee.p_user_id" name="p_user_id" required>
-            </div>
-
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Condominio</label>
-              <select  class="custom-select"  id="condominums_id" required [(ngModel)]="employee.condominums_id" name="condominums_id" >
-              <option *ngFor="let condominum of condominums | async" value="{{condominum.condominums_id}}">{{condominum.condominums_id}}</option>
+              <label for="exampleFormControlSelect1">metodo de pago </label>
+              <select  class="custom-select"  id="metodo_tipo" required [(ngModel)]="employee.metodo_tipo" name="metodo_tipo" >
+              <option *ngFor="let creditors of general | async" value="{{creditors.payment_description}}"> {{creditors.payment_description}}</option>
               </select>
-            </div>  
-
+          </div>  
+<!--
             <div class="form-group">
              <label  for="inputGroupSelect01">metodo de pago </label>
              <select class="custom-select" id="inputGroupSelect01" class="form-control" id="metodo_tipo"  [(ngModel)]="employee.metodo_tipo" name="metodo_tipo" required>
@@ -45,7 +48,7 @@
                 <option value="parcialidades">parcialidades</option>
               </select>
             </div>
-
+-->
               <div class="custom-file">
                 <label  for="inputGroupSelect01">agregar comprovante </label>
                 <input type="file" alife-file-to-base (change)="handleUpload($event)" class="custom-file-input" id="payment_method"   name="payment_method" required>

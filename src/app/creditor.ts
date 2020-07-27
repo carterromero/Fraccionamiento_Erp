@@ -4,6 +4,9 @@ export class Creditor
     creditor_id :number;
     creditor_business_name : string;
     creditor_addres : string;
+    creditor_cuenta : string;
+    creditor_tel :  number;
+    creditor_rfc : string;
     creditor_turn : string;
     creditor_status : string;
     created_by : number;

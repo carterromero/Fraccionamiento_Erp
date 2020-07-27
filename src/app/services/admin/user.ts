@@ -4,6 +4,7 @@ export class User
   rol_description : string;
   user_name : string;
   user_password : string;
+  user_passwordR : string;
   user_email : string;
   user_status : string;
   created_by : string;

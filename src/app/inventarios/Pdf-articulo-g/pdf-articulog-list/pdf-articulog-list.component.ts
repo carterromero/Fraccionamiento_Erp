@@ -14,6 +14,8 @@ import { Categories } from 'src/app/categories';
 import { CategoriesService } from 'src/app/categories.service';
 import { Pricearticulo } from 'src/app/pricearticles';
 import { PrecioarticuloService } from 'src/app/precioarticulo.service';
+import { FiltergA } from 'src/app/filterga';
+import { Historiaa } from '../../historiaa';
 
 @Component({
   selector: 'app-pdf-articulog-list',
@@ -21,15 +23,22 @@ import { PrecioarticuloService } from 'src/app/precioarticulo.service';
   styleUrls: ['./pdf-articulog-list.component.scss']
 })
 export class PdfArticulogListComponent implements OnInit {
+  filter: FiltergA= new FiltergA();
+  generals :Articles = new Articles;
 
+  
+
+  p_condominiuns_id:number;
+  sub_inventario  : string;
   id: number;
-  general: Observable<Articles[]>;
+  general: Observable<Historiaa[]>;
+  filters: Observable<Historiaa[]>;
    Transaction : Observable<TransactionsEntrys[]>;
    Subinventarios :Observable<SubInventarys[]>;
    subcategorias :Observable<SubCategories[]>;
    Categorias : Observable<Categories[]>;
    Precios : Observable<Pricearticulo[]>;
-
+   Articulos : Observable<Articles[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -46,9 +55,7 @@ export class PdfArticulogListComponent implements OnInit {
     private router: Router) { }
 
     imprimirLista(id:number){
-      
-      
-      const doc = new jsPDF(id);
+    const doc = new jsPDF(id);
       
       doc.fromHTML(document.getElementById('from-informacion'), 10,10);;
       doc.save(['lista']);
@@ -57,26 +64,83 @@ export class PdfArticulogListComponent implements OnInit {
   
       }
 
+      onSubmit() 
+      {
+        
+        this.getsbusqueda();
+   
+      }
+  
 
-
+      //subinventario
+      onSubmitsub() 
+      {
+        this.getsbusquedasub();
+      }
 
 
 
   ngOnInit(): void {
-      
+     
+       
       this.reloadData();
       this.reloadDatas();
       this.reloadDatass();
       this.reloadDatasss();
       this.reloadDatassss();
+     
   }
   
-  reloadData() {
-    
-    this.generalService.getEmployeeReport().subscribe(
+
+  filtersget() {
+    console.log(this.filter.sku);
+    this.filter.p_admin_condominiuns_id = localStorage.getItem('condominums');
+    console.log(this.filter);
+    this.generalService.createFilters(this.filter).subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService.getEmployeeReport();
+        console.log('kaled');
+        this.general =this.generalService.createFilters(this.filter);
+      },
+      error => {
+        console.log(error);
+        //localStorage.setItem('token', "");
+        //this.router.navigate(['login']);     
+      });
+
+      
+  }
+
+
+  filtersgetsub() {
+   
+    console.log(this.generals.sub_inventario);
+    this.generals.p_admin_condominiuns_id = localStorage.getItem('condominums');
+    
+    console.log(this.generals);
+   this.generalService.getEmployeesub(this.generals).subscribe(
+      data => {
+        console.log(data);
+        console.log('kaled');
+        this.general =this.generalService.getEmployeesub(this.generals);
+      },
+      error => {
+        console.log(error);
+        //localStorage.setItem('token', "");
+        //this.router.navigate(['login']);     
+      });
+
+      
+  }
+
+
+  reloadData() {
+
+    
+    this.generalService.getEmployeeReport(parseInt(localStorage.getItem('condominums'))).subscribe(
+      data => {
+        console.log(data);
+        this.general = this.generalService.getEmployeeReport(parseInt(localStorage.getItem('condominums')));
       },
       error => {
         console.log(error);   
@@ -99,7 +163,7 @@ export class PdfArticulogListComponent implements OnInit {
     this.SubinventariosService.getEmployeeList().subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService.getEmployeeList();
+        this.general = this.SubinventariosService.getEmployeeList();
       },
       error => {
         console.log(error);   
@@ -120,7 +184,7 @@ reloadDatass() {
   this.TransactionService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList();
+      this.general = this.TransactionService.getEmployeeList();
     },
     error => {
       console.log(error);   
@@ -140,7 +204,7 @@ reloadDatasss() {
   this.SubcategoriasService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList();
+      this.general = this.SubcategoriasService.getEmployeeList();
     },
     error => {
       console.log(error);   
@@ -158,7 +222,7 @@ reloadDatassss() {
   this.CategoriasService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList();
+      this.general = this.CategoriasService.getEmployeeList();
     },
     error => {
       console.log(error);   
@@ -178,7 +242,7 @@ reloadDatasssss() {
   this.PreciosService.getEmployeeList().subscribe(
     data => {
       console.log(data);
-      this.general = this.generalService.getEmployeeList();
+      this.general = this.PreciosService.getEmployeeList();
     },
     error => {
       console.log(error);   
@@ -219,7 +283,31 @@ console.log(id);
     this.router.navigate(['update-articles', id]);
   }
 
+
+
+  getsbusqueda()
+    {
+      if(this.filter.sku  == "" || this.filter.sku != null){
+        this.filtersget();
+      
+    }
+    else{
+      alert("Ingrese sku para buscar");
+    }
+    
+     
+    }
+
   
+    getsbusquedasub()
+    {
+      if(this.generals.sub_inventario  == "" || this.generals.sub_inventario != null){
+        this.filtersgetsub();
+      
+    }
+    else{
+      alert("Ingrese subinventario para buscar");
+    }
 
-
+  }
 }

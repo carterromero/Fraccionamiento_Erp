@@ -17,6 +17,8 @@ import { User } from 'src/app/services/admin/user';
 import { Authentication } from 'src/app/authentication';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { PermissionsService } from 'src/app/services/admin/permissions.service';
+import { Tenants } from 'src/app/tenants';
+import { TenantsService } from 'src/app/tenants.service';
 
 @Component({
   selector: 'app-create-purcharse',
@@ -25,10 +27,14 @@ import { PermissionsService } from 'src/app/services/admin/permissions.service';
 })
 export class CreatePurcharseComponent implements OnInit {
   authentication: User = new User(); 
-  permisions:Permissions =  new Permissions();
+  teha: Tenants = new Tenants(); 
+  condo: Condominums = new Condominums();
+  Userr: User= new User();
   employee: Purcharse = new Purcharse();
   submitted = false;
   suppliers: Observable<Supplier[]>;
+  user: Observable<User[]>;
+  Condo: Observable<Condominums[]>;
   payments: Observable<Payment[]>;
   articlesc : Observable<ArticlesC[]>;
   categorias :Observable<CategoriasC[]>;
@@ -46,7 +52,8 @@ export class CreatePurcharseComponent implements OnInit {
     private categoriesService : CategoriesService,
     private authenticationService : AuthenticationService,
     private generalService: PermissionsService,
-    
+    private userService:UserService,
+    private tha:TenantsService,
     private router: Router) { }
 
 
@@ -60,7 +67,8 @@ export class CreatePurcharseComponent implements OnInit {
 
   reloadDatas() 
   {
-
+    this.condo.condominums_description = localStorage.getItem('condominums');
+    this.teha.tenants_name = localStorage.getItem('inquilino');
     this.suppliersService.getEmployeeListcombo().subscribe(
       data => {
         console.log(data);
@@ -116,51 +124,7 @@ export class CreatePurcharseComponent implements OnInit {
 
 
 
-  authenticate() 
-  {    
-    this.authenticationService.login(this.authentication)
-      .subscribe(data => 
-        {
-        this.authentication = data;
-        console.log(this.authentication);
-        if(this.authentication.user_id != 0)
-        {
-          localStorage.setItem('id', this.authentication.user_id.toString());
-          localStorage.setItem('rol', this.authentication.rol_id.toString());
-          localStorage.setItem('condominums', this.authentication.condominums_id.toString());
-          
-          
-          this.generalService.getEmployeeP(this.permisions)
-            .subscribe(data => {
-              console.log("aqui es navigator");
-              this.permisions = new Permissions();
-              this.permisions = data;
-              console.log(this.permisions);
-           ;   
-            }, error => {
-              console.log(error);
-             
-            });
-
-
-        
-            
-        }
-        else
-        {
-          this.alertDisable = false;
-          this.alertMessage = 'Usuario y Contraseña Incorrecta';               
-        }
-      },
-      error => {console.log(error);
-        let coins = [];
-        for (let key in error) {
-          this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
-        }    
-      });            
-  }
-
+ 
 
   reloadDatassss() 
   {
@@ -194,7 +158,7 @@ export class CreatePurcharseComponent implements OnInit {
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto Ordenn de pago";
+          this.alertMessages ="Se inserto Orden de Compra";
           this.employee = new Purcharse();
         }, 
       error => {

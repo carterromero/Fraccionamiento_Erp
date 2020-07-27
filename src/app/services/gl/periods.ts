@@ -1,12 +1,12 @@
 export class Periods {
     periodsId: number;
-    periodsNumber: number;
+    periodsNumber: string;
     periodsName: string;
-    periodsYear: number;
+    periodsYear: string;
     periodsStartDate: string;
     periodsEndDate: string;
     periodsCurrentStatus: number;
-    createdBy: number;
+    createdBy: string;
     createdDate: Date;
     lastUpdatedBy: number;
     lastUpdatedDate: Date;

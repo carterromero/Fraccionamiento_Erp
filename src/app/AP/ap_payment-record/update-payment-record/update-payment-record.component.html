@@ -4,59 +4,14 @@
         <app-card cardTitle="Actualizar Registro de pago" [options]="false">
           <form (ngSubmit)="onSubmit()">
 
-            <div class="form-group">
-              <label for="name">nombre creditor</label>
-              <input type="text" class="form-control" id="name_creditor"  [(ngModel)]="employee.name_creditor" name="name_creditor" required>
-             
-            </div>  
-
-            <div class="form-group">
-                <label for="start">Fecha de pago: </label>
-
-                    <input type="date" id="start" name="trip-start"
-                  value="2020-01-01"
-               min="2020-01-01" max="2030-12-31" 
-                  class="form-control" id="payment_record_payment_date"  [(ngModel)]="employee.payment_record_payment_date" name="payment_record_payment_date" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="name">monto</label>
-                <input type="text" class="form-control" id="payment_record_amount"  [(ngModel)]="employee.payment_record_amount" name="payment_record_amount" required>
-               
-              </div>  
-
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <label class="input-group-text"  for="inputGroupSelect01">Options</label>
-                </div>
-                <select class="custom-select" id="inputGroupSelect01" class="form-control" id="metodo_tipo"  [(ngModel)]="employee.metodo_tipo" name="metodo_tipo" required>
-                  <option selected>Choose...</option>
-                  <option value="una sola exhibición">una sola exhibición</option>
-                  <option value="parcialidades">parcialidades</option>
-                </select>
-              </div>
-             
-              <div class="custom-file">
-              
-                <input type="file" alife-file-to-base (change)="handleUpload($event)" class="custom-file-input" id="payment_method"   name="payment_method" required>
-                <label class="custom-file-label" for="validatedCustomFile">anexar archivo</label>
-                <div class="invalid-feedback">invalid custom file </div>
-              </div>  
-
-              <div class="form-group">
-                <label for="name">actualizado por:</label>
-                <input type="text" class="form-control" id="p_user_id"  [(ngModel)]="employee.p_user_id" name="p_user_id" required>
-               
-              </div>  
          
-            <div class="form-group">
-                <label for="name">Estatus</label> 
+        
+        
 
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input"  id="payment_status"  [(ngModel)]="employee.payment_status"     name="payment_status"   style="margin-left: 10px">
-                    <label class="custom-control-label" for="payment_status">Active</label>
-                 </div>
-            </div>
+            
+             
+             
+         
             <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
             <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
             <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">

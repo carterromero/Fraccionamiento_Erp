@@ -74,6 +74,9 @@ export class CreateTenantsComponent implements OnInit {
 }
   
   save() {
+    this.tenant.condominums_id=Number(localStorage.getItem('condominums'));
+    this.tenant.create_by = Number(localStorage.getItem('id'));
+    this.tenant.last_update_by = Number(localStorage.getItem('id'));
     this.tenantsService.createTenant(this.tenant)
       .subscribe(data => console.log(data), 
       error => {

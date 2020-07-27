@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DepositAccount } from 'src/app/depositAccount';
 import { DepositAccountService } from 'src/app/deposit-account.service';
+import { CollectionConcepts } from 'src/app/collection-concepts';
+import { CollectionConceptsService } from 'src/app/collection-concepts.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-deposit-account',
@@ -10,17 +13,24 @@ import { Router } from '@angular/router';
 })
 
 export class CreateDepositAccountComponent implements OnInit {
-
+///condominio
+///collection
+//validacion ver los bancos (falta tesoreria completar)
   employee: DepositAccount = new DepositAccount();
+  CollectionConcepts:CollectionConcepts=new CollectionConcepts();
+  CollectionConceptss:Observable<CollectionConcepts[]>
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private employeeService: DepositAccountService,
+  constructor(
+    private employeeService: DepositAccountService,
+    private CollectionConceptsService:CollectionConceptsService,
     private router: Router) { }
 
   ngOnInit() {
+    this.reloadDatas();
   }
 
   newEmployee(): void {
@@ -29,7 +39,8 @@ export class CreateDepositAccountComponent implements OnInit {
 
   save() {
 
-    //this.employee.transaction_types_id=3;
+    this.employee.condominums_id = Number(localStorage.getItem('condominums'));
+    this.employee.created_by = Number(localStorage.getItem('id'));
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
         {
@@ -47,7 +58,22 @@ export class CreateDepositAccountComponent implements OnInit {
         }      
       });
   }
-
+  reloadDatas() 
+  {
+    this.CollectionConceptsService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.CollectionConceptss = this.CollectionConceptsService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
+  }
   onSubmit() 
   {
 
@@ -87,6 +113,10 @@ export class CreateDepositAccountComponent implements OnInit {
   else if(this.employee.deposit_account_key ==null ||  this.employee.deposit_account_key ==null ){
     this.alertDisable = false;
     this.alertMessage = "	Clave Incompleta";          
+  }
+  else if(this.employee.collection_concepts_id ==null ||  this.employee.collection_concepts_id ==null ){
+    this.alertDisable = false;
+    this.alertMessage = "	collection_concepts_id Incompleta";          
   }
 
 

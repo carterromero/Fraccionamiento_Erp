@@ -4,6 +4,8 @@ import { CollectionConceptsService } from 'src/app/collection-concepts.service';
 
 import { Articles } from 'src/app/articles';
 import { ArticlesService } from 'src/app/articles.service';
+import { LinesService } from "src/app/services/gl/lines.service";
+import { Lines } from "src/app/services/gl/lines";
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -22,6 +24,8 @@ export class CollectionConceptsCreateComponent implements OnInit {
 
   employee: CollectionConcepts = new CollectionConcepts();
   Articles:Observable<Articles[]>
+  Lines:Observable<Lines[]>
+  Liness: Lines=new Lines();
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -30,6 +34,7 @@ export class CollectionConceptsCreateComponent implements OnInit {
   constructor(
     private employeeService: CollectionConceptsService,
     private ArticlesService:ArticlesService,
+    private LinesService:LinesService,
     private router: Router) { }
 
   ngOnInit() {
@@ -42,10 +47,24 @@ export class CollectionConceptsCreateComponent implements OnInit {
 
   reloadDatas() 
   {
-    this.ArticlesService.getEmployeeList().subscribe(
+
+    this.ArticlesService.getEmployeeList(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);
-        this.Articles = this.ArticlesService.getEmployeeList();
+        this.Articles = this.ArticlesService.getEmployeeList(1);
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
+    this.LinesService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.Lines = this.LinesService.getEmployeeList();
       },
       error => {
         console.log(error);
@@ -59,7 +78,9 @@ export class CollectionConceptsCreateComponent implements OnInit {
 
   save() {
 
-    //this.employee.userid="3";
+    this.employee.created_by = Number(localStorage.getItem('id'));
+    this.employee.condominums_id=Number(localStorage.getItem('id'));
+   // this.employee.accounting_accounts_id=Number(localStorage.getItem('id'));
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
         {

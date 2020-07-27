@@ -22,7 +22,7 @@ cond :number;
   employee: Purcharse = new Purcharse();
 supplier : Supplier = new Supplier();
 payment : Payment = new Payment();
-article:ArticlesC = new ArticlesC();
+article: ArticlesC = new ArticlesC();
 
 
   submitted = false;

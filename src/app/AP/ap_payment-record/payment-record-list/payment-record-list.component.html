@@ -13,10 +13,12 @@
             <tr>      
               <th>id_pago</th>     
               <th>nombre creditor </th>
+              <th>Factura </th>
               <th>Fecha de pago </th>
               <th>Monto</th>
               <th>Método de pago</th>
-              <th>Comprobante</th>
+              
+              
               
               
             </tr>
@@ -26,16 +28,17 @@
                   
                   <td>{{general.payment_id}}</td>
                   <td>{{general.name_creditor}}</td>
-                    <td>{{general.payment_record_payment_date}}</td>
-                    <td>{{general.payment_record_amount}}</td>
+                  <td>{{general.billtopay_invoice_folio }}</td>
+                    <td>{{general.billtopay_invoice_date }}</td>
+                    <td>{{general.purcharse_order_total }}</td>
                     <td>{{general.metodo_tipo}}</td>
-                    <td>{{general.payment_method}}</td>
+                    
                    
       
                     <td>
                       <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
                         <button (click)="updateGeneral(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                        <button (click)="generalDetails(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px"> informe contable </button>    
+                        <button (click)="generalDetails(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px"> COMPROBANTE DE PAGO</button>    
 
                         <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                           <div class="app-modal-header">

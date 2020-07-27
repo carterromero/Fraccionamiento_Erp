@@ -10,13 +10,9 @@
             <div class="form-group">
               <label for="name">Formato de Pago</label>
               <input type="text" class="form-control" id="payment_documents_payment_format"  [(ngModel)]="employee.payment_documents_payment_format" name="payment_documents_payment_format" required>
-            </div>  
+            </div>      
             <div class="form-group">
-              <label for="name">Estado de Pago</label>
-              <input type="text" class="form-control" id="payment_documents_status_state"  [(ngModel)]="employee.payment_documents_status_state" name="payment_documents_status_state" required>
-            </div>        
-            <div class="form-group">
-              <label for="name">Categoria de Documento de Pago</label>
+              <label for="name">Categoría de Documento de Pago</label>
               <input type="text" class="form-control" id="payment_documents_payment_document_category"  [(ngModel)]="employee.payment_documents_payment_document_category" name="payment_documents_payment_document_category" required>
             </div>      
             <div class="form-group">
@@ -24,11 +20,13 @@
               <input type="text" class="form-control" id="payment_documents_checkbook_data"  [(ngModel)]="employee.payment_documents_checkbook_data" name="payment_documents_checkbook_data" required>
             </div>  
             <div class="form-group">
-              <label for="name">Banco</label>
-              <input type="text" class="form-control" id="bank_accounts_id"  [(ngModel)]="employee.bank_accounts_id" name="bank_accounts_id" required>
-            </div>
+              <label for="exampleFormControlSelect1">Banco</label>
+              <select  class="custom-select"  id="manage_banks_id" required [(ngModel)]="employee.manage_banks_id" name="manage_banks_id" >
+              <option *ngFor="let manage of manages | async" value="{{manage.manage_banks_id}}">{{manage.manage_banks_bank_name}}</option>
+              </select>
+          </div>      
             <div class="form-group">
-                <label for="name">Estatus</label> 
+                <label for="name">Estado</label> 
   
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input"  id="payment_documents_status"  [(ngModel)]="employee.payment_documents_status" name="bank_accounts_status"   style="margin-left: 10px">

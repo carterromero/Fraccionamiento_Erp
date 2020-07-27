@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaymentRecord } from 'src/app/payment-record';
 import { PaymentRecordService } from 'src/app/payment-record.service';
-
-
+import { Creditor } from 'src/app/creditor';
+import { CreditorService } from 'src/app/creditor.service';
+import { Billtopay } from 'src/app/billtopay';
+import { Billtopayservice } from 'src/app/billtopay.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-update-payment-record',
   templateUrl: './update-payment-record.component.html',
@@ -11,7 +14,8 @@ import { PaymentRecordService } from 'src/app/payment-record.service';
 })
 export class UpdatePaymentRecordComponent implements OnInit {
  
-  
+  factura: Observable<Billtopay[]>;
+  creditor: Observable<Creditor[]>;
   id: number;
   employee: PaymentRecord;
   alertDisable = true;
@@ -21,10 +25,13 @@ export class UpdatePaymentRecordComponent implements OnInit {
   datos:String;
   
   constructor(private route: ActivatedRoute,private router: Router,
+    private creditorService: CreditorService,
+    private billtopayservice: Billtopayservice,
     private employeeService: PaymentRecordService) { }
 
   ngOnInit() {
-
+    this.reloadDatas1() ;
+    this.reloadDatas2() ;
     this.employee = new PaymentRecord();
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.employee.payment_status);
@@ -44,13 +51,46 @@ export class UpdatePaymentRecordComponent implements OnInit {
       });
   }
 
-   
+  reloadDatas1() 
+  {
+
+    this.creditorService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.creditor= this.creditorService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+  reloadDatas2() 
+  {
+
+    this.billtopayservice.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.factura= this.billtopayservice.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
 
   updateEmployee() {
 
     
     console.log(this.employee.payment_status);
-    
+  
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {
         console.log(data);
@@ -76,16 +116,9 @@ export class UpdatePaymentRecordComponent implements OnInit {
     this.alertDisable = true;
     this.alertDisables = true;
   
-    if(this.employee.payment_record_amount =="" ||  this.employee.payment_record_amount ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "monto";          
-    }
-  
-   
-    
-    else{
+ 
       this.updateEmployee();    
-    }
+    
 
 
   }
@@ -102,7 +135,7 @@ export class UpdatePaymentRecordComponent implements OnInit {
     reader.onload = () => {
         this.datos = reader.result.toString();
         this.employee.payment_method = this.datos.replace("data:application/pdf;base64,","")
-      event = this.employee.payment_record_amount;
+     
      
     };
 }

@@ -30,6 +30,7 @@ export class UpdateEmployeeComponent implements OnInit {
   alertMessage = "null";
   alertMessages = "null";
   datos:String;
+  dato:String;
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: EmployeeService, private departmentsService: DepartmentsService, private workplacesService: WorkplacesService,
     private condominumsService: CondominumsService) { }
@@ -48,6 +49,21 @@ export class UpdateEmployeeComponent implements OnInit {
         //  event = this.employee.employees_contract;
        
       };
+  }
+
+  handleUpload2(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        this.dato = reader.result.toString();
+        this.employee.employees_contract = this.dato.replace("data:application/pdf;base64,","")
+      /*  this.employee.employees_contract = this.datos.replace("data:application/pdf;base64,","")*/
+        event = this.employee.employees_contract;
+      /*  event = this.employee.employees_contract*/
+     
+    };
   }
 
   ngOnInit() {
@@ -125,11 +141,12 @@ export class UpdateEmployeeComponent implements OnInit {
 
   updateEmployee() {
     //this.employee.=3;
-    console.log(this.employee.employees_cv.toString());
+ 
     console.log(this.employee);
     console.log(this.id);
     
-    
+    this.employee.last_update_by = Number(localStorage.getItem('id'));
+
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {console.log(data);
         this.gotoList();  

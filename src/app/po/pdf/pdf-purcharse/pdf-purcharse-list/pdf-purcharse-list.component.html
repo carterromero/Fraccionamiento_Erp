@@ -2,6 +2,8 @@
   <div class="col-xl-12">
 
     <div>
+
+     
           
       <button type="button"  style="margin: 10 px;" class="btn btn-primary" (click)="imprimirLista()">Imprimir Lista General Ordenes de Compra</button>
     </div>
@@ -9,6 +11,31 @@
     <app-card cardTitle="ORDEN DE COMPRA" blockClass="table-border-style">      
       
       <br>
+
+      <form class="form-inline waves-light" mdbWavesEffect (ngSubmit)="onSubmit()">
+        <div class="md-form mt-0" >
+
+          <input [(ngModel)]="filter.created_date"
+          id="created_date"   name="created_date"
+          class="form-control mr-sm-2" type="date" placeholder="Search">
+
+          <select class="form-control mr-sm-2" [(ngModel)]="filter.purcharse_status"
+          id="purcharse_status"   name="purcharse_status"
+          >
+            
+            <option value="1">Activos</option>
+            <option value="2">Desactivos</option>
+          </select>
+          <button type="submit" class="btn btn-outline-success">Buscar</button>    
+          <button type="button"  (click)="reloadData()" class="btn btn-outline-info" style="margin-left: 10px">Refrescar</button>  
+        </div>
+   
+       
+
+      </form>
+
+
+
       <div class="table-responsive"  id="from-informacion" >
         <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
         <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
@@ -45,7 +72,7 @@
                 <td>{{general.purcharse_quantity_items}}</td>
                 <td>{{general.articles_prices}}</td>
                 <td>{{general.purcharse_order_total}}</td>
-                <td>{{general. purcharse_address}}</td>
+                <td>{{general. created_date}}</td>
     
                   <td>
                       <div class="custom-control custom-switch">

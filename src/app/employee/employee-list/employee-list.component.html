@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-xl-12">
     <app-card cardTitle="Employee List" blockClass="table-border-style">      
-      <button [routerLink]="['/create-employee']" class="btn btn-primary">Add Employee</button><br>
-      <br>
+      <button [routerLink]="['/create-employee']" class="btn btn-primary">Add Employee</button><br>  <br>
       <button [routerLink]="['/contacts-list']" class="btn btn-primary">Ingresar contacto</button><br>
+      <br>
       <div class="table-responsive">
         <table class="table">
           <thead>
@@ -19,7 +19,6 @@
             <th>CURP</th>
             <th>Teléfono</th>
             <th>Sindicalizado</th>
-            <th>Condominio</th>
             <th>Puesto</th>
             <th>Departamento</th>
             <th>Unidad de fraccionamiento</th>
@@ -52,7 +51,6 @@
                   <td>{{employee.employees_curp}}</td>
                   <td>{{employee.employees_telephone}}</td>
                   <td>{{employee.employees_sindicalizado}}</td>
-                  <td>{{employee.condominums_id}}</td>
                   <td>{{employee.departments_name}}</td>
                   <td>{{employee.workplaces_name}}</td>
                   <td>{{employee.employees_fractionation_unit}}</td>

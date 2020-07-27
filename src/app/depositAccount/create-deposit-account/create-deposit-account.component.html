@@ -1,13 +1,13 @@
 <div class="row justify-content-center">
   <div class="col-sm-12">
     <div class="col-md-6">
-      <app-card cardTitle="Crear Transicion" [options]="false">
+      <app-card cardTitle="Crear Cuenta de Deposito" [options]="false">
         <form (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="name">Nombre de la Cuenta de Deposito</label>
             <input type="text" class="form-control" id="deposit_account_name_deposit_account"
-              [(ngModel)]="employee.deposit_account_name_deposit_account"
-              name="deposit_account_name_deposit_account" required>
+              [(ngModel)]="employee.deposit_account_name_deposit_account" name="deposit_account_name_deposit_account"
+              required>
           </div>
           <div class="form-group">
             <label for="name"> Descripción</label>
@@ -17,39 +17,42 @@
           <div class="form-group">
             <label for="name"> Banco</label>
             <input type="text" class="form-control" id="deposit_account_bank"
-              [(ngModel)]="employee.deposit_account_bank" name="deposit_account_bank"
-              required>
+              [(ngModel)]="employee.deposit_account_bank" name="deposit_account_bank" required>
           </div>
           <div class="form-group">
             <label for="name"> Sucursal</label>
             <input type="text" class="form-control" id="deposit_account_branch_office"
-              [(ngModel)]="employee.deposit_account_branch_office"
-              name="deposit_account_branch_office" required>
+              [(ngModel)]="employee.deposit_account_branch_office" name="deposit_account_branch_office" required>
           </div>
           <div class="form-group">
-            <label for="name">	Cuenta</label>
+            <label for="name"> Cuenta</label>
             <input type="text" class="form-control" id="deposit_account_bill"
-              [(ngModel)]="employee.deposit_account_bill"
-              name="deposit_account_bill" required>
+              [(ngModel)]="employee.deposit_account_bill" name="deposit_account_bill" required>
           </div>
           <div class="form-group">
-            <label for="name">	Tarjeta</label>
+            <label for="name"> Tarjeta</label>
             <input type="text" class="form-control" id="deposit_account_card"
-              [(ngModel)]="employee.deposit_account_card"
-              name="deposit_account_card" required>
+              [(ngModel)]="employee.deposit_account_card" name="deposit_account_card" required>
           </div>
           <div class="form-group">
-            <label for="name">	Clave</label>
-            <input type="text" class="form-control" id="deposit_account_key"
-              [(ngModel)]="employee.deposit_account_key"
+            <label for="name"> Clave</label>
+            <input type="text" class="form-control" id="deposit_account_key" [(ngModel)]="employee.deposit_account_key"
               name="deposit_account_key" required>
+          </div>
+          <div class="form-group">
+            <label for="name">CollectionConceptss</label>
+            <select class="custom-select" id="collection_concepts_id" required
+              [(ngModel)]="employee.collection_concepts_id" name="collection_concepts_id">
+              <option *ngFor="let CollectionConceptss of CollectionConceptss | async"
+                value="{{CollectionConceptss.accounting_accounts_id}}">
+                {{CollectionConceptss.collection_concepts_concept_name}}</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="name">Estatus</label>
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="deposit_account_status"
-                [(ngModel)]="employee.deposit_account_status" name="deposit_account_status"
-                style="margin-left: 10px">
+                [(ngModel)]="employee.deposit_account_status" name="deposit_account_status" style="margin-left: 10px">
               <label class="custom-control-label" for="deposit_account_status">Active</label>
             </div>
           </div>

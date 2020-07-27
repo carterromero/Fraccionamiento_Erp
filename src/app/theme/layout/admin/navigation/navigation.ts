@@ -43,24 +43,6 @@ const NavigationItemss = [
         classes: 'nav-item',
         icon: 'feather icon-home'
       }
-  
-    ]
-  
-    
-  },
-  {
-    id: 'reservations-main',
-    title: 'Reservaciones',
-    type: 'group',
-    icon: 'feather icon-monitor',
-    children: [
-      {
-        id: 'Reservations',
-        title: 'Manejo Reservaciones',
-        type: 'collapse',
-        url: '/reservations-list',
-        icon: 'feather icon-user'
-      }
     ]
   },
   {    
@@ -116,7 +98,6 @@ const NavigationItemss = [
             url: '/permissions-list'
             
           },
-
           {
             id: 'usuarios',
             title: 'Usuarios',
@@ -421,21 +402,8 @@ const NavigationItemss = [
                                   
           ]
         },
-
-
-
-
-
-
-
-
-
       ]
-        
-    
-
-      },
-  {    
+      },{    
         id: 'RH-main',
         title: 'Recursos Humanos ',
         type: 'group',
@@ -484,20 +452,6 @@ const NavigationItemss = [
             ]
           },
           {
-            id: 'rh-agreements',
-            title: 'Contrato',
-            type: 'collapse',
-            icon: 'feather icon-user',
-            children: [
-              {
-                 id: 'rh-agreement',
-                title: 'Registrar contrato',
-                type: 'item',            
-                url: '/agreements-list'
-              }               
-            ]
-          },
-          {
             id: 'Tenants-main',
             title: 'Residentes',
             type: 'collapse',
@@ -511,6 +465,20 @@ const NavigationItemss = [
               }               
             ]
         },
+        {
+          id: 'Reservations-main',
+          title: 'Reservaciones',
+          type: 'collapse',
+          icon: 'feather icon-user',
+              children: [
+                {
+                  id: 'Reservations',
+                  title: 'Manejo Reservaciones',
+                  type: 'item',
+                  url: '/reservations-list'
+                }
+              ]
+            },
           {
             id: 'rh-reports',
             title: 'Reportes',
@@ -537,6 +505,7 @@ const NavigationItemss = [
            }                           
             ]
           },
+          
         ]
       },    
 {    
@@ -582,7 +551,22 @@ const NavigationItemss = [
             url: '/purchase_orders-list'
             
           }
-
+                                
+        ]
+      },
+      {
+        id: 'portal',
+        title: 'portals',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'por',
+            title: 'Portal Proveedor',
+            type: 'item',            
+            url: '/facpv-list'
+            
+          }
                                 
         ]
       },
@@ -787,6 +771,21 @@ const NavigationItemss = [
         ]
       },
       {
+        id: 'reservations-main',
+        title: 'Reservaciones',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'Reservations',
+            title: 'Manejo Reservaciones',
+            type: 'collapse',
+            url: '/reservations-list',
+            icon: 'feather icon-book',
+          }
+        ]
+      },
+      {
         id: 'ac-tags',
         title: 'Tags',
         type: 'collapse',
@@ -858,6 +857,7 @@ export class NavigationItem
     var nomina= {};
     var inquilino ={};
     var control ={};
+    var proveedor ={};
 
 
     dashboard= {
@@ -1021,6 +1021,13 @@ export class NavigationItem
             title: 'Acreedor',
             type: 'item',            
             url: '/creditor-list'
+            
+          },
+          {
+            id: 'cliente',
+            title: 'Unidad Operativa',
+            type: 'item',            
+            url: '/client-list'
             
           },
           
@@ -1307,20 +1314,6 @@ export class NavigationItem
             ]
           },
           {
-            id: 'rh-agreements',
-            title: 'Contrato',
-            type: 'collapse',
-            icon: 'feather icon-user',
-            children: [
-              {
-                 id: 'rh-agreement',
-                title: 'Registrar contrato',
-                type: 'item',            
-                url: '/agreements-list'
-              }               
-            ]
-          },
-          {
         id: 'rh-tenants',
         title: 'Residentes',
         type: 'collapse',
@@ -1334,6 +1327,20 @@ export class NavigationItem
           }
         ]
       },
+      {
+        id: 'Reservations-main',
+        title: 'Reservaciones',
+        type: 'collapse',
+        icon: 'feather icon-user',
+            children: [
+              {
+                id: 'Reservations',
+                title: 'Manejo Reservaciones',
+                type: 'item',
+                url: '/reservations-list'
+              }
+            ]
+          },
           {
             id: 'rh-reports',
             title: 'Reportes',
@@ -1409,6 +1416,23 @@ export class NavigationItem
                 
               }
     
+                                    
+            ]
+          },
+
+          {
+            id: 'portal',
+            title: 'Portal Proveedor',
+            type: 'collapse',
+            icon: 'feather icon-monitor',
+            children: [
+              {
+                id: 'por',
+                title: 'Portal Proveedor',
+                type: 'item',            
+                url: '/facpv-list'
+                
+              }
                                     
             ]
           },
@@ -1577,6 +1601,23 @@ export class NavigationItem
         ]
       };
     };
+    if(localStorage.getItem("proveedor")== 'true'){
+      proveedor = {
+          id: 'portal',
+          title: 'portals',
+          type: 'collapse',
+          icon: 'feather icon-monitor',
+          children: [
+            
+            {
+              id: 'por',
+              title: 'Portal Proveedor',
+              type: 'item',            
+              url: '/Portal_list'
+            }                     
+          ]
+      };
+    };
     if(localStorage.getItem("inquilino") == 'true'){
       inquilino =
       {    
@@ -1682,7 +1723,7 @@ export class NavigationItem
       
      
 
-    const permisoss=[dashboard,admin,contabilidad,cuentasporpagar,tesoreria,cuentasporcobrar,recursoshumanos,compras,inventarios,nomina,inquilino,control];       
+    const permisoss=[dashboard,admin,contabilidad,cuentasporpagar,tesoreria,cuentasporcobrar,recursoshumanos,compras,inventarios,nomina,inquilino,control,proveedor];       
     return permisoss;
       
       

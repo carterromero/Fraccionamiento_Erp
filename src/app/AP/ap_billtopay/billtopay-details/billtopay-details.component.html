@@ -10,16 +10,10 @@
           <div>
             <label><b>Fecha de Factura: </b></label> {{employee.billtopay_invoice_date}}
           </div>
-          <div>
-            <label><b>Fecha de pago programada: </b></label> {{employee.billtopay_scheduled_payment_date}}
-          </div>
-          <div>
-            <label><b>Monto: </b></label> {{employee.billtopay_amount}}
-          </div>
-
-          <div>
-            <label><b>Descripción del bien o servicio adquirido: </b></label> {{employee.billtopay_service_description}}
-          </div>
+       
+              <div>
+          <label (click)="gocv()" ><b><u>Descargar Factura</u></b></label>
+        </div>
 
 
           <div>

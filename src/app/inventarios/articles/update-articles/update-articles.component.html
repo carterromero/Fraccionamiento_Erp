@@ -7,6 +7,7 @@
                 <label for="name">Nombre Articulos</label>
                 <input type="text" class="form-control" id="articles_name_article"  [(ngModel)]="employee.articles_name_article" name="articles_name_article" required> 
               </div>  
+            
               <div class="form-group">
                 <label for="name">Articulos Descripción</label>
                 <input type="text" class="form-control" id="articles_description"  [(ngModel)]="employee.articles_description" name="articles_description" required> 
@@ -67,6 +68,7 @@
                     <label class="custom-control-label" for="articles_status">Active</label>
                  </div>
             </div>
+            
             <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
             <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
             <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
@@ -85,6 +87,7 @@
             <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>        
             <button [routerLink]="['/Articles-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
           </form>
+        
         </app-card>
       </div>
     </div>

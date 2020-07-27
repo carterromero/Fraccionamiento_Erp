@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Creditor } from 'src/app/creditor';
 import { CreditorService } from 'src/app/creditor.service';
 import { Router } from '@angular/router';
-
+import { BankAccounts } from '../../../bankAccounts';
+import { BankAccountsService } from '../../../bank-accounts.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-create-creditor',
   templateUrl: './create-creditor.component.html',
@@ -11,15 +13,36 @@ import { Router } from '@angular/router';
 export class CreateCreditorComponent implements OnInit {
  
   employee: Creditor = new Creditor();
+  creditor: Observable<BankAccounts[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
   constructor(private employeeService: CreditorService,
+    private bankAccountsService: BankAccountsService,
     private router: Router) { }
 
     ngOnInit() {
+      this.reloadDatas1() ;
+    }
+
+    reloadDatas1() 
+    {
+  
+      this.bankAccountsService.getEmployeeList().subscribe(
+        data => {
+          console.log(data);
+          this.creditor= this.bankAccountsService.getEmployeeList();
+        },
+        error => {
+          console.log(error);
+          let coins = [];
+          for (let key in error) {
+            this.alertMessage = error['statusText'];          
+          }
+        }
+      );      
     }
 
     newEmployee(): void {

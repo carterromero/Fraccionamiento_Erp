@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <app-card cardTitle="Cliente Detalle" [options]="false">
-        <div *ngIf="employee">
+        <div id='from-informacion' *ngIf="employee">
 
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <div>
@@ -36,6 +36,9 @@
         </div>
         <br>
         <button [routerLink]="['/customer-list']" class="btn btn-outline-primary">Regresar</button><br>
+        <button type="button"   class="btn btn-outline-primary" (click)="imprimirLista()">Imprimir pdf reporte </button>
+        <button (click)="gocv()" class="btn btn-info">Descargar COMPROBANTE</button>
+
       </app-card>
       </div>
   </div>

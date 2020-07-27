@@ -70,7 +70,13 @@ export class CreateArticlesComponent implements OnInit {
   }
 
   save()
+
+  
    {this.employee.last_update_by=3;
+
+
+    this.employee.admin_condominiuns_id=localStorage.getItem('condominums');
+    console.log(this.employee);
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
         {
@@ -89,6 +95,14 @@ export class CreateArticlesComponent implements OnInit {
       });
   }
 
+  public workStatuses = [
+    { id: 0, description: 'vivienda' },
+    { id: 1, description: 'lote' }
+   
+  ];
+  public contact = { name: '', isVIP: false, gender: '', workStatus: 0 };
+  
+
   onSubmit() 
   {
   this.alertDisable = true;
@@ -105,10 +119,7 @@ export class CreateArticlesComponent implements OnInit {
     this.alertDisable = false;
     this.alertMessage = "Unidad de Medida Incompleta";          
   }
-  else if(this.employee.articles_dimension =="" ||  this.employee.articles_dimension ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Articulos Dimension Incompleta";          
-  }
+  
   else if(this.employee.articles_articles_price ==null ||  this.employee.articles_articles_price ==null ){
     this.alertDisable = false;
     this.alertMessage = "Precio de Artículos Incompleta";          
