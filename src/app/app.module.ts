@@ -23,6 +23,18 @@ import { FilterPipe } from './filter.pipe';
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { MessagingService } from './messaging.service';
+import { environment } from '../environments/environment';
+import { AsyncPipe } from '../../node_modules/@angular/common';
+
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AutosizeModule } from 'ngx-autosize';
+// import { environment } from 'src/environments/environment';
+// import { AngularFireModule } from 'angularfire2';
 
 @NgModule({
   declarations: [
@@ -59,8 +71,13 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
     NgbTooltipModule,
     NgbButtonsModule,
     NgbTabsetModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AutosizeModule,
   ],
-  providers: [NavigationItem],
+  providers: [NavigationItem,MessagingService,AsyncPipe,AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

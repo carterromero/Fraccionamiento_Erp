@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
-
+import  {  MessagingService  }  from  "./messaging.service" ;
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,8 @@ import {NavigationEnd, Router} from '@angular/router';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  message;
+  constructor(private router: Router, private  messagingService : MessagingService) { }
 
   ngOnInit() {
     this.router.events.subscribe((evt) => {
@@ -18,5 +19,10 @@ export class AppComponent implements OnInit {
       }
       window.scrollTo(0, 0);
     });
+
+    const userId = localStorage.getItem('id');
+    this.messagingService.requestPermission();
+    this.messagingService.receiveMessage();
+    this.message = this.messagingService.currentMessage;
   }
 }

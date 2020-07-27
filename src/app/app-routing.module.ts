@@ -289,6 +289,7 @@ import { PdfArticulogListComponent } from './inventarios/Pdf-articulo-g/pdf-arti
 import { PdfHistoriaListComponent } from './inventarios/pdf-historiarti/pdf-historia-list/pdf-historia-list.component';
 import { AcCreateTagsComponent } from './AC/ac-tags/ac-create-tags/ac-create-tags.component';
 import { ConciliacionpListComponent } from './AP/ap_conciliacion/conciliacionp-list/conciliacionp-list.component';
+import { ChatRoomComponent } from './chat/chat-room/chat-room.component';
 
 
 
@@ -3271,6 +3272,17 @@ component: CreateTransfersComponent,
           {
             path: 'ac-create-tags',
             loadChildren: () => import('./AC/ac-tags/ac-create-tags/ac-create-tags.module').then(module => module.AcCreateTagsModule)
+    
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ChatRoomComponent,
+        children: [
+          {
+            path: 'chat-room',
+            loadChildren: () => import('./chat/chat-room/chat-room.module').then(module => module.ChatRoomModule)
     
           }
         ]
