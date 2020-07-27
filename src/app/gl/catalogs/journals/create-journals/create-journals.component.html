@@ -5,35 +5,66 @@
       <div class="col-md-6">
         <app-card cardTitle="Crear cuenta Contables" [options]="false">
           <form (ngSubmit)="onSubmit()" >
+
             <div class="form-group">
-              <label for="name">polizas periodos id</label>
-              <input type="text" class="form-control" id="journals_periods_id"  [(ngModel)]="employee.journals_periods_id" name="journals_periods_id" required> 
-            </div>      
+              <label for="exampleFormControlSelect1">polizas periodos id</label>
+              <select  class="custom-select"  id="journals_periods_id" required [(ngModel)]="employee.journals_periods_id" name="journals_periods_id" >
+              <option *ngFor="let creditors of periods | async" value="{{creditors.periodsId}}">{{creditors.periodsId}}{{creditors.periodsName}}</option>
+              </select>
+          </div>  
+    
             <div class="form-group">
               <label for="name">fecha</label>
-              <input type="text" class="form-control" id="journals_date"  [(ngModel)]="employee.journals_date" name="journals_date" required>
+              <input type="date"
+              value="2020-01-01"
+              min="2020-01-01" max="2030-01-01"
+               class="form-control" id="journals_date"  [(ngModel)]="employee.journals_date" name="journals_date"  required>
+            
             </div>  
             <div class="form-group">
               <label for="name">descripcion</label>
-              <input type="text" class="form-control" id="journals_description"  [(ngModel)]="employee.journals_description" name="journals_description" required>
+              <input  type="text" limit="%$#"  OnlyNumber="true" onkeypress="return soloLetras(event)" onblur="limpia()" maxlength="30" class="soloNumeros"  class="form-control" id="journals_description"  [(ngModel)]="employee.journals_description" name="journals_description" required  pattern="[A-Za-z0-9]+" >
+             <script>
+           function 
+           soloLetras(e) {
+    var key = e.keyCode || e.which,
+      tecla = String.fromCharCode(key).toLowerCase(),
+      letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+      especiales = [8,30,31,32,33,34,35,36,37,38,39,46],
+      tecla_especial = false;
+
+    for (var i in especiales) {
+      if (key == especiales[i]) {
+        tecla_especial = true;
+        break;
+      }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+      return false;
+    }
+  }
+              </script>
+              
+             
             </div>
             <div class="form-group">
                 <label for="name">numero</label>
                 <input type="text" class="form-control" id="journals_number"  [(ngModel)]="employee.journals_number" name="journals_number" required>
             </div>
-            <div class="form-group">
-                <label for="name">codigo de moneda</label>
-                <input type="text" class="form-control" id="journals_currency_code"  [(ngModel)]="employee.journals_currency_code" name="journals_currency_code" required>
-            </div>
-            <div class="form-group">
-              <label for="name">condominio_id</label>
-              <input type="text" class="form-control" id="journals_condominiums_id"  [(ngModel)]="employee.journals_condominiums_id" name="journals_condominiums_id" required>
-          </div>
+          
+            <form name = "selectForm">
+              <p>
+                <label for="number">codigo de moneda</label>
+             <select  class="custom-select" id="journals_currency_code"   [(ngModel)]="employee.journals_currency_code" name="journals_currency_code" required>
+                <option selected></option>
+                <option value="MX">MX</option>
+              </select>
+              </p>
+              
+            </form>
          
-        <div class="form-group">
-          <label for="name">creado por</label>
-          <input type="text" class="form-control" id="created_by"  [(ngModel)]="employee.created_by" name="created_by" required>
-      </div>
+     
           
 
             <div class="form-group">
