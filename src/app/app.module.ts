@@ -31,10 +31,6 @@ import { MessagingService } from './messaging.service';
 import { environment } from '../environments/environment';
 import { AsyncPipe } from '../../node_modules/@angular/common';
 
-import { AngularFirestore } from 'angularfire2/firestore';
-import { AutosizeModule } from 'ngx-autosize';
-// import { environment } from 'src/environments/environment';
-// import { AngularFireModule } from 'angularfire2';
 
 @NgModule({
   declarations: [
@@ -78,9 +74,9 @@ import { AutosizeModule } from 'ngx-autosize';
     AngularFireAuthModule,
     AngularFireMessagingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AutosizeModule,
+
   ],
-  providers: [NavigationItem,MessagingService,AsyncPipe,AngularFirestore],
+  providers: [NavigationItem,MessagingService,AsyncPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
