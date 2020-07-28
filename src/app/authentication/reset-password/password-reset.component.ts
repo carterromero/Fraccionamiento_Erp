@@ -29,8 +29,8 @@ export class ResetPasswordComponent implements OnInit {
       private generalService: PermissionsService,private router: Router,private route: ActivatedRoute,private fb: FormBuilder) {
         
     this.form = this.fb.group({
-      password: ['', [Validators.required]],
-      repeat_password: ''
+      password: ['', [Validators.required,Validators.minLength(8)]],
+      repeat_password: ['', [Validators.required,Validators.minLength(8)]]
     });
 
     this.form.get('repeat_password').setValidators(
@@ -38,24 +38,14 @@ export class ResetPasswordComponent implements OnInit {
     );
        }
 
-       initForm() {
-        this.form = this.fb.group({
-          'contrasena':  this.authentica.user_password,
-          'repetirContrasena': this.authentication.user_password
-        });
-      }
+      
 
     ngOnInit() {
       //this.authentication.user_email;
      // this.authentication.user_password;
-     this.initForm();
+     //this.initForm();     
     }
 
- /* checarSiSonIguales(): boolean {
-    return this.form.hasError('noSonIguales') &&
-      this.form.get('password').dirty &&
-      this.form.get('confirmarPassword').dirty;
-  }*/
     initalSubmit(): void {
       this.submitted = false;
       this.authentication = new User();
@@ -64,7 +54,8 @@ export class ResetPasswordComponent implements OnInit {
   
     ResetPass() 
     {    
-
+    
+     this.authentication.user_email = localStorage.getItem('correo');
       this.authenticationService.updateReset(this.authentication.user_email, this.authentica)
         .subscribe(data => 
           {
@@ -140,6 +131,7 @@ export class ResetPasswordComponent implements OnInit {
       const password = this.form.get('password').value as string;
       this.submitted=true;
       this.ResetPass();  
+      this.goToHome();
    /*   this.alertDisables = false;
       
     if(this.authentica.user_password != this.authentication.user_password){

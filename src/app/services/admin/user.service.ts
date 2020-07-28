@@ -44,15 +44,14 @@ export class UserService {
     return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_ADMIN_LOGIN/1.0/login`, employee,{headers});
   }
 
-  Reset(correo:string, value:any): Observable<any> {
-    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    console.log(value);
-    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVI_ERP_ADMI_UPDA_RESE_PWD_EHP/1.0/updateResetPWD/${correo}`, value,{headers});
-  //  console.log(value);
-  }
-
   updateReset(correo:string, value: any): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVI_ERP_ADMI_UPDA_RESE_PWD_EHP/1.0/updateResetPWD/${correo}`, value,{headers});
   }
+
+  correo(employee: any): Observable<Object> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVI_ERP_ERP_ADMI_USER_RESE_PWD_/1.0/resetPWD`, employee,{headers});
+  }
+
 }
