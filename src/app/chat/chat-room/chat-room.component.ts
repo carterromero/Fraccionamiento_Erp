@@ -1,11 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { ChatService } from '../services/chat.service';
 import { Mensaje } from '../interfaces/mensaje.interface';
 import { MessagingService } from '../../messaging.service';
 //import { Mensaje } from '../models/mensaje';
-//import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-chat-room',
@@ -49,11 +47,17 @@ export class ChatRoomComponent implements OnInit {
     // this.elemento = document.getElementById('app-mensajes');
 
     // this.messagingService.requestPermission()
-    this.messagingService.receiveMessage()
-    this.message = this.messagingService.currentMessage
+    this.messagingService.receiveMessage();
+    this.messagingService.currentMessage.subscribe( data =>{
+      if(data !== null){
+        this.msgs.push(JSON.parse(data['data']['param']));
+      }
+    })
+    // this.message = this.messagingService.currentMessage
     
-    this.msgs.push(this.messagingService.chat);
-     
+    // if(this.messagingService.chat !== null){
+    // this.msgs.push(this.messagingService.chat);
+    // }
   }
 
   

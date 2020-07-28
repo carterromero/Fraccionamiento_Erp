@@ -47,7 +47,7 @@ export class MessagingService {
 
           let chatG = JSON.parse(payload['data']['param']);
 
-          this.chat.push(chatG);
+          this.chat = chatG;
           console.log(this.chat);
         })
   }
