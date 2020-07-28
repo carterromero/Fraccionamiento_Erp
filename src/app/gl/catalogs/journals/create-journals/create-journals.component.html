@@ -23,7 +23,7 @@
             </div>  
             <div class="form-group">
               <label for="name">descripcion</label>
-              <input  type="text, number" limit="%$#" pattern="[0-9]" OnlyNumber="true" onkeypress="return soloLetras(e)" onblur="limpia()" maxlength="30" class="soloNumeros"  class="form-control" id="journals_description"  [(ngModel)]="employee.journals_description" name="journals_description" required >
+              <input  type="tel"  pattern="[0-9]"  onkeypress="return soloLetras(event)"  maxlength="30"  class="form-control" id="journals_description"  [(ngModel)]="employee.journals_description" name="journals_description" required >
             
               <script>
                      // pattern="[A-Za-z0-9]+" >

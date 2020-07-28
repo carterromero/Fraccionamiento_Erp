@@ -17,6 +17,7 @@
               <th>Fecha de pago </th>
               <th>Monto</th>
               <th>Método de pago</th>
+              <th>Cuenta de pago </th>
               
               
               
@@ -32,13 +33,16 @@
                     <td>{{general.billtopay_invoice_date }}</td>
                     <td>{{general.purcharse_order_total }}</td>
                     <td>{{general.metodo_tipo}}</td>
+                    <td>{{general.cuentapago}}</td>
                     
                    
       
                     <td>
                       <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
-                        <button (click)="updateGeneral(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                        <button (click)="generalDetails(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px"> COMPROBANTE DE PAGO</button>    
+                     <!-- 
+                      <button (click)="updateGeneral(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                      --> 
+                      <button (click)="generalDetails(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px"> COMPROBANTE DE PAGO</button>    
 
                         <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                           <div class="app-modal-header">
