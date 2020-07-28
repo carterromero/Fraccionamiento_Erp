@@ -22,6 +22,9 @@ export class Purcharse {
     inv_categories_id : string;
     categories_name: string
     purcharse_order_categories_id : string;
+    purcharse_entrada_transacciones: string;
+    rol_description :string;
+    user_name :string ;
 
 
    

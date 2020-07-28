@@ -7,6 +7,7 @@ import { Tenants } from 'src/app/tenants';
 import { TenantsService } from 'src/app/tenants.service';
 import { Condominums } from 'src/app/services/admin/condominums';
 import { CondominumsService } from 'src/app/services/admin/condominums.service';
+import { User } from 'src/app/services/admin/user';
 
 @Component({
   selector: 'app-purcharse-list',
@@ -18,6 +19,9 @@ export class PurcharseListComponent implements OnInit {
   teha: Tenants = new Tenants(); 
   tha: Observable<Tenants[]>; 
   general: Observable<Purcharse[]>;
+  id: number;
+  user: User = new User();
+  userss: Observable<User[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -32,7 +36,29 @@ export class PurcharseListComponent implements OnInit {
   ngOnInit(): void {
       
       this.reloadData();
+      this.users();
   }
+
+
+  users() 
+  {
+    this.user.user_name = localStorage.getItem('name');
+  
+    this.generalService.getOneUser(this.id).subscribe(
+      data => {
+        console.log(data);
+        this.userss = this.generalService.getOneUser(this.id);
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
   
 
 
@@ -50,7 +76,10 @@ export class PurcharseListComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = error['statusText'];      
+       
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];     
         }
       });
 

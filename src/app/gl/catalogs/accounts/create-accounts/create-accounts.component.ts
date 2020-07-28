@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AccountsService } from "../../../../services/gl/accounts.service";
 import { Accounts } from "../../../../services/gl/accounts";
 import { Router } from '@angular/router';
+import { PeriodsService } from "../../../../services/gl/periods.service";
+import { Periods } from "../../../../services/gl/periods";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-create-accounts',
@@ -9,18 +12,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-accounts.component.scss']
 })
 export class CreateAccountsComponent implements OnInit {
-
+ 
  
   employee: Accounts = new Accounts();
+  periods: Observable<Periods[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
   constructor(private employeeService: AccountsService,
+    private periodsService: PeriodsService,
     private router: Router) { }
 
   ngOnInit() {
+    this.reloadDatas1() 
+  }
+
+  reloadDatas1() {
+    this.periodsService.getPeriodsList().subscribe(
+      data => {
+        console.log(data);
+        this.periods = this.periodsService.getPeriodsList();
+      },
+      error => {
+        console.log(error);
+        //localStorage.setItem('token', "");
+        //this.router.navigate(['auth/signin']);     
+      });
   }
 
   newEmployee(): void {
@@ -28,7 +47,7 @@ export class CreateAccountsComponent implements OnInit {
   }
 
   save() {
-  //this.employee.accounting_accounts_condominums_id = localStorage.getItem('condominums');
+  this.employee.accounting_accounts_condominums_id = localStorage.getItem('condominums');
 this.employee.created_by = localStorage.getItem('id');  
    
     this.employeeService.createEmployee(this.employee)

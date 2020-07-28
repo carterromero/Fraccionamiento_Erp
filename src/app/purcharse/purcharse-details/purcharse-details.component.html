@@ -13,10 +13,6 @@
             {{employee.applicant_name}}
            </div>
            
-           <div class="form-group">
-            <label for="name">Direccion:</label>
-            {{employee.fractionation_address}}
-           </div>
            
           
            <div class="form-group">
@@ -79,12 +75,30 @@
                 <label for="name">Total de Orden :</label>
                 {{employee.purcharse_order_total}}
                      </div> 
-             
+    
+
+                     <div class="form-group">
+                      <label for="name">Nombre del solicitante :</label>
+                      {{user.user_name}}
+                           </div> 
+          
+
+
+                     
+
+
+                        <td>
+                          <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" [checked]="employee.purcharse_entrada_transacciones == 'true'">
+                            <label class="custom-control-label" for="purcharse_entrada_transacciones">Transaccion</label>
+                        </div>
+                        </td>
+                 
 
 <div class="form-group">
         <label><b>Estatus:  </b></label>
       <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input"  id="purcharse_status"       name="purcharse_status"   style="margin-left: 10px" [checked]="employee.purcharse_status == 'true'">
+        <input type="checkbox" class="custom-control-input"  id="purcharse_status"    name="purcharse_status"   style="margin-left: 10px" [checked]="employee.purcharse_status == 'true'">
         <label class="custom-control-label" for="purcharse_status">Active</label>
      </div>
  </div>

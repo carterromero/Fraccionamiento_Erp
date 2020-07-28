@@ -20,11 +20,17 @@
                  </select>
                </div>
              
-              
-              <div class="form-group">
-                <label for="name">Nombre del solicitante</label>
-                <input type="text" class="form-control"    readonly="readonly"  id="tenants_name"  [(ngModel)]="teha.tenants_name" name="tenants_name" required> 
+
+
+               <div class="form-group">
+                <label for="name">Nombre del Solicitante</label>
+                <input type="text" class="form-control"    readonly="readonly"  id="user_name"  [(ngModel)]="user.user_name" name="user_name" required> 
               </div>
+  
+
+
+              
+              
 
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Proveedor</label>
@@ -83,6 +89,16 @@
               </div> 
 
             
+
+              <td>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" [checked]="employee.purcharse_entrada_transacciones == 'true'">
+                  <label class="custom-control-label" for="purcharse_entrada_transacciones">Transaccion</label>
+               </div>
+              </td>
+           
+
+
                 <div class="form-group">
                 <label for="name">Estatus</label>
                 <div class="custom-control custom-switch">

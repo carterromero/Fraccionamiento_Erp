@@ -13,6 +13,7 @@ import { PermissionsService } from 'src/app/services/admin/permissions.service';
 export class AuthSigninComponent implements OnInit {
 
   authentication: User = new User();  
+  authenti: User; 
   submitted = false;
   alertDisable = true;
   alertMessage = "null";
@@ -46,6 +47,7 @@ export class AuthSigninComponent implements OnInit {
     }
     this.authentication.user_email;
     this.authentication.user_password;
+
   }
 
   initalSubmit(): void {
@@ -63,9 +65,15 @@ export class AuthSigninComponent implements OnInit {
         if(this.authentication.user_id != 0)
         {
           localStorage.setItem('id', this.authentication.user_id.toString());
+         
           localStorage.setItem('rol', this.authentication.rol_id.toString());
           localStorage.setItem('condominums', this.authentication.condominums_id.toString());
-          
+          localStorage.getItem('name');
+          localStorage.setItem('name', "");
+          localStorage.setItem('name', this.authentication.user_name);
+          localStorage.getItem('correo');
+          localStorage.setItem('correo', "");
+          localStorage.setItem('correo', this.authentication.user_email);
           this.permisions.rol_id = localStorage.getItem("rol");
           this.generalService.getEmployeeP(this.permisions)
             .subscribe(data => {
@@ -84,6 +92,7 @@ export class AuthSigninComponent implements OnInit {
             localStorage.setItem("inventario",this.permisions.permissions_inventario);
             localStorage.setItem("nomina",this.permisions.permissions_nomina);
             localStorage.setItem("control",this.permisions.permissions_control);
+            
             localStorage.setItem("proveedor",this.permisions.permissions_control);
             this.goToHome();   
             }, error => {
@@ -110,9 +119,28 @@ export class AuthSigninComponent implements OnInit {
       });            
   }
 
+  Mandarcorreo(){
+    this.authenti = new User();
+    this.authenti.user_email = this.authentication.user_email;
+    this.authenticationService.correo(this.authenti)
+    .subscribe(data => 
+      {
+  //    this.authentication = data;
+      console.log(this.authentication);
+      localStorage.getItem('correo');
+      localStorage.setItem('correo', "");
+      localStorage.setItem('correo', this.authentication.user_email);
+      }, error => {
+        console.log(error);
+       
+      });
+
+  }
+
   onSubmit() {
     this.submitted = true;
     this.authenticate();    
+    
   }
 
   goToHome() {
