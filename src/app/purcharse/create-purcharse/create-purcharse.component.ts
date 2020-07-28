@@ -26,14 +26,18 @@ import { TenantsService } from 'src/app/tenants.service';
   styleUrls: ['./create-purcharse.component.scss']
 })
 export class CreatePurcharseComponent implements OnInit {
+  id: number;
+
+  user: User = new User();
   authentication: User = new User(); 
   teha: Tenants = new Tenants(); 
   condo: Condominums = new Condominums();
-  Userr: User= new User();
+  userss: Observable<User[]>;
   employee: Purcharse = new Purcharse();
   submitted = false;
   suppliers: Observable<Supplier[]>;
-  user: Observable<User[]>;
+  
+
   Condo: Observable<Condominums[]>;
   payments: Observable<Payment[]>;
   articlesc : Observable<ArticlesC[]>;
@@ -63,6 +67,7 @@ export class CreatePurcharseComponent implements OnInit {
     this.reloadDatass();
     this.reloadDatasss();
     this.reloadDatassss();
+    this.users();
   }
 
   reloadDatas() 
@@ -172,6 +177,28 @@ export class CreatePurcharseComponent implements OnInit {
 
 
 
+  }
+
+
+
+
+  users() 
+  {
+    this.user.user_name = localStorage.getItem('name');
+  
+    this.employeeService.getOneUser(this.id).subscribe(
+      data => {
+        console.log(data);
+        this.userss = this.employeeService.getOneUser(this.id);
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
   }
 
   onSubmit() 

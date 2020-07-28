@@ -11,9 +11,7 @@
           <tr>         
             
             <th>Id de la Orden  </th>
-            
-            <th>NOMBRE del Solicitante </th>
-            <th>ADDRESS</th>
+        
             <th>ARTICULO </th>
             <th>Proveedor</th>
             <th>Termino de pago</th>
@@ -23,9 +21,13 @@
             <th>Total de orden</th>
             <th>FECHA DE CREACION</th>
             <th>CATEGORIA</th>
-            
+            <th>Solicitante</th>
+           
             <th>Estatus</th>
             <th>Transaccion</th>
+            
+            
+
             <th>#</th>
           </tr>
           </thead>
@@ -33,9 +35,6 @@
               <tr *ngFor="let general of general | async">
                  
                 <td>{{general.purcharse_id}}</td>
-                
-                <td>{{teha.tenants_name}}</td>
-                <td>{{condo.condominums_description}}</td>
                 <td>{{general.articles_name_article}}</td> 
                 <td>{{general.supplier_name}}</td>
                 <td>{{general.payment_description}}</td>
@@ -43,9 +42,8 @@
                 <td>{{general.articles_prices}}</td>
                 <td>{{general.purcharse_order_total}}</td>
                 <td>{{general. purcharse_address}}</td>
-                <td>{{general. categories_name}}</td>
-               
-                
+                <td>{{general.categories_name}}</td>  
+                <td>{{user.user_name}}</td>
                
                   
                   <td>

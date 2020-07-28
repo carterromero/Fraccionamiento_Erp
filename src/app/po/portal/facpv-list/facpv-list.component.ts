@@ -71,7 +71,6 @@ export class FacpvListComponent implements OnInit {
     );      
   }
  
-
   deleteGeneral(id: number) {
     this.generalService.deleteEmployee(id)
       .subscribe(
