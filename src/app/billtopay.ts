@@ -1,6 +1,5 @@
 export class Billtopay
 {
-    
     billtopay_id :number;
     purcharse_id : string;
     billtopay_invoice_folio : string;

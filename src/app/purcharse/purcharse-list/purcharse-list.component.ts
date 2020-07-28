@@ -40,10 +40,6 @@ export class PurcharseListComponent implements OnInit {
   }
 
 
-
-
-
-
   users() 
   {
     this.user.user_name = localStorage.getItem('name');

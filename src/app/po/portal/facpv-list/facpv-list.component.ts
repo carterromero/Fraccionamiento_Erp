@@ -91,7 +91,7 @@ export class FacpvListComponent implements OnInit {
   }
 
   generalDetails(id: number){
-    this.router.navigate(['billtopay-details', id]);
+    this.router.navigate(['fac_detalis', id]);
   }
 
   updateGeneral(id: number){
