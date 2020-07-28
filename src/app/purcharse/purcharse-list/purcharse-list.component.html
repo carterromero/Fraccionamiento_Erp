@@ -25,6 +25,7 @@
             <th>CATEGORIA</th>
             
             <th>Estatus</th>
+            <th>Transaccion</th>
             <th>#</th>
           </tr>
           </thead>
@@ -53,6 +54,16 @@
                         <label class="custom-control-label" for="purcharse_status">Active</label>
                      </div>
                     </td>
+
+  
+                    <td>
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" [checked]="general.purcharse_entrada_transacciones == 'true'">
+                        <label class="custom-control-label" for="purcharse_entrada_transacciones">Active</label>
+                     </div>
+                    </td>
+                 
+
 
                   <td>
                     <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>

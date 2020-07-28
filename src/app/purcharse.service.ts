@@ -46,7 +46,7 @@ export class PurcharseService {
 
   getEmployeeListcombo(): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_ARTIC_COMBO/1.0/articles_combo`,{headers});
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_GET_ALL_ARTICL/1.0/false_articles`,{headers});
   }
 
 
