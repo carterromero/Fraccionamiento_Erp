@@ -31,6 +31,11 @@ cliente_rfc :string;
 cliente_tel : number;
 cliente_status :string;
 billtopay_table :string;
+
+
+rol_description :string;
+    user_name :string ;
+
 }
 
     

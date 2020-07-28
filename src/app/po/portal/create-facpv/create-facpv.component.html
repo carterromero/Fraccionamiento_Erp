@@ -26,26 +26,16 @@
           </div>
       
             <br>
-            <h2><label for="name">provedor</label></h2>
+            <h2><label for="name">ACREDOR</label></h2>
 
             
+         
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Nombre del provedor</label>
-              <select   class="custom-select"  id="creditor_business_name" required [(ngModel)]="employee.creditor_business_name" name="creditor_business_name" >
-              <option *ngFor="let creditors of supplier | async" value="{{creditors.supplier_name}}"> {{creditors.supplier_name}}</option>
-              
-            </select>
-            
-          </div>  
-            
-            <h2><label for="name">CLIENTE</label></h2>
+              <label for="name">Nombre del Proveedor</label>
+              <input type="text" class="form-control"    readonly="readonly"  id="user_name"  [(ngModel)]="user.user_name" name="user_name" required> 
+            </div>
 
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Nombre del cliente </label>
-              <select   class="custom-select"  id="cliente_name_cliente" required [(ngModel)]="employee.cliente_name_cliente" name="cliente_name_cliente" >
-              <option *ngFor="let creditors of client | async" value="{{creditors.cliente_name_cliente}}"> {{creditors.cliente_name_cliente}}</option>
-            </select>
-          </div> 
+     
            
           <div class="form-group">
             <label for="name">Folio de Factura</label>
