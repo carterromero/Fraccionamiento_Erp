@@ -1016,13 +1016,7 @@ export class NavigationItem
         type: 'collapse',
         icon: 'feather icon-layout',
         children: [
-          {
-            id: 'creditor',
-            title: 'Acreedor',
-            type: 'item',            
-            url: '/creditor-list'
-            
-          },
+        
           {
             id: 'cliente',
             title: 'Unidad Operativa',
