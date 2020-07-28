@@ -130,24 +130,12 @@ export class ResetPasswordComponent implements OnInit {
     onSubmit() { 
       const password = this.form.get('password').value as string;
       this.submitted=true;
-      this.ResetPass();  
-      this.goToHome();
-   /*   this.alertDisables = false;
-      
-    if(this.authentica.user_password != this.authentication.user_password){
-      this.alertDisables = true;
-      this.alertMessages = "Contraseña actualizada";
-   }
-   else{
-           this.alertDisable = true;
-          this.alertMessage = "Contraseña no Actualizada";*/
-          
-  // }
-    
+      this.ResetPass(); 
+      this.goToHome();     
   }
   
     goToHome() {
-      this.router.navigate(['dashboard/default']);
+      this.router.navigate(['auth/signin']);
     }
   
 }

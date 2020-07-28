@@ -63,7 +63,7 @@ export class CreateLegalsComponent implements OnInit {
     this.alertDisable = false;
     this.alertMessage = "Dirección Incompleta";          
   }
-
+ 
   else if(this.employee.legals_description =="" ||  this.employee.legals_description ==null ){
     this.alertDisable = false;
     this.alertMessage = "Descripción Incompleta";          

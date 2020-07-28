@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class LegalsListComponent implements OnInit {
 
   general: Observable<Legals[]>;
+  generales : Legals = new Legals();
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";

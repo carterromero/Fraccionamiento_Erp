@@ -13,6 +13,7 @@ export class Permissions
     permissions_admin : string;
     permissions_inquilino : string;
     permissions_control : string;
+    permissions_proveedor:string;
     permissions_status : string;
     created_by : string;
     created_date : string;
