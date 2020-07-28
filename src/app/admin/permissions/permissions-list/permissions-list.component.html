@@ -21,6 +21,8 @@
               <th>Recursos Humanos</th>
               <th>Residente</th>
               <th>Administración</th>
+              <th>Control accesos</th>
+              <th>Proveedores</th>
               <th>Estatus</th>
               <th>#</th>
             </tr>
@@ -101,7 +103,20 @@
                        </div>
                       </td>
 
-                    
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_control == 'true'">
+                          <label class="custom-control-label" for="permissions_control">Active</label>
+                       </div>
+                      </td>
+
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_proveedor == 'true'">
+                          <label class="custom-control-label" for="permissions_proveedor">Active</label>
+                       </div>
+                      </td>
+
                       <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="general.permissions_status == 'true'">

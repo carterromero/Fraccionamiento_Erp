@@ -17,6 +17,8 @@ export class AuthSigninComponent implements OnInit {
   submitted = false;
   alertDisable = true;
   alertMessage = "null";
+  alertDisables = false;
+  alertMessages = "";
   permisions:Permissions =  new Permissions();
   
 
@@ -120,12 +122,14 @@ export class AuthSigninComponent implements OnInit {
   }
 
   Mandarcorreo(){
+
     this.authenti = new User();
     this.authenti.user_email = this.authentication.user_email;
     this.authenticationService.correo(this.authenti)
     .subscribe(data => 
       {
-  //    this.authentication = data;
+        this.alertDisables = false;
+        this.alertMessages = "Se envío un correo para restablecer su contraseña";
       console.log(this.authentication);
       localStorage.getItem('correo');
       localStorage.setItem('correo', "");
@@ -134,7 +138,7 @@ export class AuthSigninComponent implements OnInit {
         console.log(error);
        
       });
-
+     
   }
 
   onSubmit() {
