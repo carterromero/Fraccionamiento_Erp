@@ -45,7 +45,7 @@ export class UpdateLinesComponent implements OnInit {
    
 
   updateEmployee() {
-
+    this.employee.last_updated_by = localStorage.getItem('id');  
     this.employee.user_id="3";
     console.log(this.employee.accounting_accounts_lines_status);
     

@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { LinesService } from "../../../../services/gl/lines.service";
 import { Lines } from "../../../../services/gl/lines";
 import { Router } from '@angular/router';
-
+import { Observable } from "rxjs";
+import { AccolintypeService } from "../../../../services/gl/accolintype.service";
+import { Accolintype } from "../../../../services/gl/accolintype";
+import { AccountsService } from "../../../../services/gl/accounts.service";
+import { Accounts } from "../../../../services/gl/accounts";
 @Component({
   selector: 'app-create-lines',
   templateUrl: './create-lines.component.html',
@@ -12,15 +16,54 @@ export class CreateLinesComponent implements OnInit {
 
 
   employee: Lines = new Lines();
+  tipos: Observable<Accolintype[]>;
+  cuenta: Observable<Accounts[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
   constructor(private employeeService: LinesService,
+    private tiposService: AccolintypeService,
+    private cuentaService: AccountsService,
+   
     private router: Router) { }
 
   ngOnInit() {
+     
+    this.reloadData();
+    this.reloadData2();
+  }
+
+  reloadData() {
+    
+    this.tiposService.getEmployeeList().subscribe(
+      data => {
+        this.tipos = this.tiposService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      });
+  }
+  reloadData2() {
+    
+    this.cuentaService.getEmployeeList().subscribe(
+      data => {
+        this.cuenta = this.cuentaService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      });
   }
 
   newEmployee(): void {
@@ -28,7 +71,7 @@ export class CreateLinesComponent implements OnInit {
   }
 
   save() {
-
+    this.employee.created_by = localStorage.getItem('id');  
     this.employee.user_id="3";
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 

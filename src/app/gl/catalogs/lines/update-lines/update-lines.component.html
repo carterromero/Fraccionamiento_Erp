@@ -10,20 +10,20 @@
                 <input type="text" class="form-control" id="accounting_accounts_id"  [(ngModel)]="employee.accounting_accounts_id" name="accounting_accounts_id" required> 
               </div>      
               <div class="form-group">
-                <label for="name">lines_parent_1</label>
-                <input type="text" class="form-control" id="accounting_accounts_lines_parent_1"  [(ngModel)]="employee.accounting_accounts_lines_parent_1" name="accounting_accounts_lines_parent_1" required>
+                <label for="name">padre 1</label>
+                <input type="number" min="1" class="form-control" id="accounting_accounts_lines_parent_1"  [(ngModel)]="employee.accounting_accounts_lines_parent_1" name="accounting_accounts_lines_parent_1" required>
               </div>  
               <div class="form-group">
-                <label for="name">lines_parent_2</label>
-                <input type="text" class="form-control" id="accounting_accounts_lines_parent_2"  [(ngModel)]="employee.accounting_accounts_lines_parent_2" name="accounting_accounts_lines_parent_2" required>
+                <label for="name">padre 2</label>
+                <input type="number"  min="1"class="form-control" id="accounting_accounts_lines_parent_2"  [(ngModel)]="employee.accounting_accounts_lines_parent_2" name="accounting_accounts_lines_parent_2" required>
               </div>
               <div class="form-group">
-                  <label for="name">lines_parent_3</label>
-                  <input type="text" class="form-control" id="accounting_accounts_lines_parent_3"  [(ngModel)]="employee.accounting_accounts_lines_parent_3" name="accounting_accounts_lines_parent_3" required>
+                  <label for="name">padre 3</label>
+                  <input type="number"  min="1" class="form-control" id="accounting_accounts_lines_parent_3"  [(ngModel)]="employee.accounting_accounts_lines_parent_3" name="accounting_accounts_lines_parent_3" required>
               </div>
               <div class="form-group">
-                  <label for="name">children</label>
-                  <input type="text" class="form-control" id="accounting_accounts_lines_children"  [(ngModel)]="employee.accounting_accounts_lines_children" name="accounting_accounts_lines_children" required>
+                  <label for="name">hijo</label>
+                  <input type="number" min="1" class="form-control" id="accounting_accounts_lines_children"  [(ngModel)]="employee.accounting_accounts_lines_children" name="accounting_accounts_lines_children" required>
               </div>
               <div class="form-group">
                 <label for="name">descripcion</label>
@@ -33,10 +33,8 @@
               <label for="name">tipo id</label>
               <input type="text" class="form-control" id="accounting_accounts_types_id"  [(ngModel)]="employee.accounting_accounts_types_id" name="accounting_accounts_types_id" required>
           </div>
-          <div class="form-group">
-            <label for="name">ultimo actualizado por:</label>
-            <input type="text" class="form-control" id="last_updated_by"  [(ngModel)]="employee.last_updated_by" name="last_updated_by" required>
-        </div>
+       
+         
         <div class="form-group">
             <label for="name">Estatus</label>
             <div class="custom-control custom-switch">
