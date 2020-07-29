@@ -209,6 +209,23 @@ reloadData6() {
 
 
 
+
+handleUpload2(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  
+  reader.readAsDataURL(file);
+  reader.onload = () => {
+      this.datos = reader.result.toString();
+      this.employee.bilitoplay_arch = this.datos.replace("data:application/pdf;base64,","")
+    /*  this.employee.employees_contract = this.datos.replace("data:application/pdf;base64,","")*/
+      event = this.employee.bilitoplay_arch;
+    /*  event = this.employee.employees_contract*/
+   
+  };
+}
+
+
   save() {
 //condominio y p_user
     console.log( localStorage.getItem('condominums'));
