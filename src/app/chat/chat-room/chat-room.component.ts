@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ChatService } from '../services/chat.service';
 import { Mensaje } from '../interfaces/mensaje.interface';
@@ -8,7 +8,8 @@ import { MessagingService } from '../../messaging.service';
 @Component({
   selector: 'app-chat-room',
   templateUrl: './chat-room.component.html',
-  styleUrls: ['./chat-room.component.scss']
+  styleUrls: ['./chat-room.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChatRoomComponent implements OnInit {
   @ViewChild('content') content: ElementRef;
@@ -41,23 +42,29 @@ export class ChatRoomComponent implements OnInit {
 
   title = 'push-notification';
   message: Observable<Mensaje[]>;
-  constructor(private messagingService: MessagingService,public _cs: ChatService) { }
+  constructor(private messagingService: MessagingService,public _cs: ChatService) { 
+    // this.messagingService.currentMessage;
+  }
 
   ngOnInit() {
     // this.elemento = document.getElementById('app-mensajes');
 
     // this.messagingService.requestPermission()
     this.messagingService.receiveMessage();
-    this.messagingService.currentMessage.subscribe( data =>{
-      if(data !== null){
-        this.msgs.push(JSON.parse(data['data']['param']));
-      }
-    })
-    // this.message = this.messagingService.currentMessage
-    
-    // if(this.messagingService.chat !== null){
-    // this.msgs.push(this.messagingService.chat);
-    // }
+    this.message = this.messagingService.currentMessage
+    // .subscribe( data =>{
+    //   if(data !== null){
+    //     // this.msgs.push(JSON.parse(data['data']['param']));
+    //     this.addMessage(JSON.parse(data['data']['param']));
+    //     this.elemento = document.getElementById('content');
+    //     setTimeout( () => {
+    //       this.elemento = document.getElementById('content');
+    //       this.elemento.scrollTop = this.elemento.scrollHeight;
+    //     });
+    //   }
+    // });
+    this.loadMessage();
+    this.getMessages();
   }
 
   
@@ -79,8 +86,8 @@ export class ChatRoomComponent implements OnInit {
       to: this.tkn
     };
 
-    this.msgs.push(msg.data.param);
-
+    // this.msgs.push(msg.data.param);
+    this.addMessage(msg.data.param);
     console.log(msg);
 
     console.log(this.msgs);
@@ -110,6 +117,36 @@ export class ChatRoomComponent implements OnInit {
     });
   }
 
+  addMessage(list){
+    this.msgs.push(list);
+    localStorage.setItem('chats',JSON.stringify(this.msgs));
+  }
+
+  getMessages(){
+    var storeMsg = localStorage.getItem('chats');
+    if( storeMsg === null){
+      this.msgs = [];
+    }else{
+      this.msgs = JSON.parse(storeMsg);
+    }
+    console.log(this.msgs);
+    return this.msgs;
+  }
+
+  loadMessage(){
+    this.messagingService.currentMessage
+    .subscribe( data =>{
+      if(data !== null){
+        // this.msgs.push(JSON.parse(data['data']['param']));
+        this.addMessage(JSON.parse(data['data']['param']));
+        this.elemento = document.getElementById('content');
+        setTimeout( () => {
+          this.elemento = document.getElementById('content');
+          this.elemento.scrollTop = this.elemento.scrollHeight;
+        });
+      }
+    });
+  }
   // constructor(/*db:AngularFirestore, public _cs: ChatService*/) {
   //   // this.chats = db.collection('chats').valueChanges(); 
   //   // this._cs.cargarMensajes().subscribe(
