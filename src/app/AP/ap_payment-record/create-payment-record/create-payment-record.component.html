@@ -32,9 +32,15 @@
               <input type="text" class="form-control" id="purcharse_order_total"  [(ngModel)]="employee.purcharse_order_total" name="purcharse_order_total" required>
         </div>
 
-        <div class="form-group">
-          <label for="name">cuenta de pago</label>
-          <input type="text" class="form-control" id="cuentapago"  [(ngModel)]="employee.cuentapago" name="cuentapago" required>
+   
+
+
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">cuenta de pago</label>
+      <select   class="custom-select"  id="cuentapago" required [(ngModel)]="employee.cuentapago" name="cuentapago" >
+      <option *ngFor="let creditors of banco | async" value="{{creditors.bank_accounts_bank_account_number}}"> {{creditors.bank_accounts_bank_account_number}}</option>
+      
+    </select>
     </div>
 
       </form>        

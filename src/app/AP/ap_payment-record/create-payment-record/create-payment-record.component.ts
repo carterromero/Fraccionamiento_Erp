@@ -15,7 +15,8 @@ import { Payment } from 'src/app/payment';
 import { PaytmentService } from 'src/app/paytment.service';
 import { Supplier } from 'src/app/supplier';
 import { SupplierService } from 'src/app/supplier.service';
-
+import { BankAccounts } from '../../../bankAccounts';
+import { BankAccountsService } from '../../../bank-accounts.service';
 
 @Component({
   selector: 'app-create-payment-record',
@@ -32,7 +33,7 @@ export class CreatePaymentRecordComponent implements OnInit {
   creditor: Observable<Creditor[]>;
   general: Observable<Payment[]>;
   supplier: Observable<Supplier[]>;
-  
+  banco: Observable<BankAccounts[]>;
 
   id: number;
   alertDisable = true;
@@ -52,6 +53,7 @@ export class CreatePaymentRecordComponent implements OnInit {
     private route: ActivatedRoute,
     private generalService: PaytmentService,
     private supplierService: SupplierService,
+    private bancoService: BankAccountsService,
     private router: Router) {
 
       
@@ -62,7 +64,8 @@ export class CreatePaymentRecordComponent implements OnInit {
       this.reloadDatas1() ;
       this.reloadDatas2() ;
       this.reloadData4();
-      this.reloadData7() 
+      this.reloadData7();
+     this.reloadData8();
       this.employee = new PaymentRecord();
      
       console.log(this.employee.payment_status = 'true');
@@ -182,6 +185,24 @@ export class CreatePaymentRecordComponent implements OnInit {
         console.log(error);
         //localStorage.setItem('token', "");
         //this.router.navigate(['login']);     
+      });
+
+      
+  }
+  reloadData8() {
+    
+    this.bancoService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.banco = this.bancoService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }    
       });
 
       
