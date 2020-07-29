@@ -24,14 +24,8 @@ export class DepartmentsRListComponent implements OnInit {
   alertMessage = "null";
   alertMessages = "null";
   
-
- 
   data1 = [];
   head = [['Id Departamento', 'Departamento', 'Puesto', 'Activo/Inactivo']];
-
-  
-
-
 
 
   constructor(private departmentService: DepartmentsService,
@@ -87,192 +81,11 @@ export class DepartmentsRListComponent implements OnInit {
     this.router.navigate(['departmentsr-list']);
   }
 
-  imprimirLista(){
-    const doc = new jsPDF('p', 'mm', 'a4');
-    doc.fromHTML(document.getElementById('frmDepartment'),15,15);
-    doc.text(10, 10, 'REPORTE DEPARTAMENTO');
-   //doc.addPage();
-    //doc.text(20, 20, 'Hello world!');
-    doc.save('Lista de departamentos');
-
-  }
+ 
 
   generate() 
   { 
-   /* var columns = [document.getElementById('head').innerText]
-        let cell = [
-            [{content: document.getElementById('content').innerText}]
-        ];
-       
-        var doc = new jsPDF('p', 'mm', 'a4');
-        doc.autoTable(columns, cell, { 
-          willDrawCell: function (data) {
-          var tdElement = cell.raw;
-          if (tdElement.classList.contains('blank')) {
-              cell.styles.fontStyle = 'bold';
-              cell.styles.fontSize = '10';
-          }
-          });*/
-
-        //doc.text("Departamentos", 10, 10);
-        //doc.save('table.pdf');
-  /*  
-    var doc = new jsPDF('l', 'pt');
-
-    var res = doc.fromHTML(document.getElementById("frmDepartment"));
-  //  doc.autoTable(res.columns, res.data, {margin: {top: 80}});
-
-    var header = function(data) {
-      doc.setFontSize(8);
-      doc.setTextColor(40);
-      doc.setFontStyle('normal');
-      //doc.addImage(headerImgData, 'JPEG', data.settings.margin.left, 20, 50, 50);
-    //doc.text("Testing Report", data.settings.margin.left, 50);
-    };
-
-    var options = {
-      addPageContent  : header,
-
-      margin: {
-          top: 200,
-                      bottom: 10,
-                      left: 1,
-                      right: 1,
-      },
-      startY: doc.autoTableEndPosY() + 20,
-        styles: {overflow: 'linebreak'},
-
-  createdCell: function (cell, opts) {
-                      if (cell.text[0].indexOf('10000') > -1) { // count startrs from 0
-                          // cell.raw contains the cell data
-                          cell.styles.fillColor = [216, 78, 75];     // random color
-                          cell.styles.textColor = [58, 121, 152];
-                          cell.styles.fontStyle = 'bold';
-                          cell.styles.fontSize = '10';
-                      }
-                  },
-
-          tableWidth: 'auto',
-    };
-
-    doc.autoTable(res.columns, res.data, options);
-
-    doc.save("table.pdf");
-*/
-/*
-var docs = new jsPDF();
-var totalPagesExp = "{total_pages_count_string}";
- 
-// It can parse html:
-// <table id="my-table"><!-- ... --></table>
-docs.autoTable({ html: 'frmDepartment' })
- 
-// Or use javascript directly:
-docs.autoTable({
-  
-  columnStyles: { 0: { halign: 'center' },
-  1: { halign: 'center' },
-  2: { halign: 'center' },
-
-}, // Cells in first column centered and green
-  
-
-  didDrawCell: (data) => {
-  
-    var base64Img = 'data:image/png;base64,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';
-    docs.setFontSize(20);
-    docs.setTextColor(40);
-    docs.setFontStyle('normal');
-    if (base64Img) {
-        docs.addImage(base64Img, 'JPEG', data.settings.margin.left, 15, 10, 10);
-    }
-    docs.text("Reporte de Departamentos", data.settings.margin.left + 15, 22);
-    docs.text("Reporte de Departamentos", data.settings.margin.left + 15, 28);
-
-    // Footer
-    var str = "Page " + docs.internal.getNumberOfPages()
-    // Total page number plugin only available in jspdf v1.0+
-    if (typeof docs.putTotalPages === 'function') {
-        str = str + " of " + totalPagesExp;
-    }
-    docs.setFontSize(10);
-
-    // jsPDF 1.4+ uses getWidth, <1.4 uses .width
-    var pageSize = docs.internal.pageSize;
-    var pageHeight = pageSize.height ? pageSize.height : pageSize.getHeight();
-    docs.text(str, data.settings.margin.left, pageHeight - 10);
-},
-
-
-  head: [['Name', 'Email', 'Country']],
-  body: [
-    ['David', 'david@example.com', 'Sweden'],
-    ['Castille', 'castille@example.com', 'Spain'],
-  
-  
-  ],
-      margin: {top: 30}
-
-})
- 
-docs.save('tables.pdf')
-
-
-
-var doc = new jsPDF();
-
-var res = doc.autoTableHtmlToJson(document.getElementById("frmDepartment"));
-  doc.autoTable(res.columns, res.data, {margin: {top: 80}},
-    {columnStyles: { 0: { halign: 'center' },
-    1: { halign: 'center' },
-    2: { halign: 'center' }}}
-    );
-
-  var header = function(data) {
-    doc.setFontSize(18);
-    doc.setTextColor(40);
-    doc.setFontStyle('normal');
-    //doc.addImage(headerImgData, 'JPEG', data.settings.margin.left, 20, 50, 50);
-    doc.text("Testing Report", data.settings.margin.left, 50);
-  };
-
-  var options = {
-    beforePageContent: header,
-    startY: doc.autoTableEndPosY() + 20,
-    
-  };
-
-
-
-/*
-  doc.autoTable(
-    res.columns, res.data, options);
-    */
-
-    
-/*
-  doc.save("table.pdf");
-
-
-*/
-/*
-    let DATA = this.htmlData.nativeElement;
-    let doc = new jsPDF();
-
-    let handleElement = {
-      '#editor':function(element,renderer){
-        return true;
-      }
-    };
-    doc.fromHTML(DATA.innerHTML,15,15,{
-      'width': 400,
-      'elementHandlers': handleElement
-    });
-
-    doc.save('angular-demo.pdf');
-    */
- 
-
+   
     //La receta
    let now = new Date();
    var doc = new jsPDF();
@@ -326,48 +139,8 @@ var res = doc.autoTableHtmlToJson(document.getElementById("frmDepartment"));
    doc.save('Departamentos.pdf');
 } 
 
-  generatePdf(){
+  
 
-    /*const doc = new jsPDF()
-    doc.autoTable({
-      body: [
-        [{ content: document.getElementById('frmDepartment').innerText, colSpan: 5, rowSpan: 5}],
-      ],
-    })
-    doc.save('table.pdf')
-    
-*/  
-          var pdf = new jsPDF('p', 'mm', 'a4');
-          var res = pdf.fromHTML(document.getElementById('frmDepartment'),15,15);
-          pdf.autoTable(res.columns, res.data, {
-            startY: 60,
-            tableWidth: 'auto',
-            columnWidth: 'auto',
-            styles: {
-              overflow: 'linebreak',
-              theme : 'Gridth'
-            }
-          });
-          pdf.save("Departamentos")
-          }
-
-  /*generatePdf(){
-    let chartHeder = document.getElementById('frmDepartment').innerText;
-    var docDefinition = {
-        content:  {
-          table: {
-           headerRows: 'auto',
-           margin: [ 5, 2, 10, 20 ],
-            widths: ["50%", "40%", "40%"],
-            body: [
-              [ { canvas: chartHeder, bold: true }]
-            ]
-          }
-        }
-        //[document.getElementById('frmDepartment').innerText]
-    }
-    pdfMake.createPdf(docDefinition).download('Departamentos');
-  }*/
 
   exportTableToExcel() {
     var type = "xlsx"
@@ -378,22 +151,7 @@ var res = doc.autoTableHtmlToJson(document.getElementById("frmDepartment"));
   ////////////////////////////////////
 
 
-  convetToPDF(){
-      var data = document.getElementById('frmDepartment');
-      html2canvas(data).then(canvas => {
-      // Few necessary setting options
-      var imgWidth = 208;
-      var pageHeight = 295;
-      var imgHeight = canvas.height * imgWidth / canvas.width;
-      var heightLeft = imgHeight;
-      
-      const contentDataURL = canvas.toDataURL('image/png')
-      let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
-      var position = 0;
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-      pdf.save('new-file.pdf'); // Generated PDF
-      });
-      }
+  
 
     }
 
