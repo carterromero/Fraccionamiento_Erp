@@ -3107,7 +3107,13 @@ $style-block-width: 400px;
                                 &::-webkit-input-placeholder {
                                     color: #fff;
                                 }
+                                & :invalid {
+                                    background-color: #e23232;
+                                  }
                             }
+                            
+                              
+                              
                         }
 
                         .search-btn {

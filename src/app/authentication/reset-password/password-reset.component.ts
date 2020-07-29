@@ -4,8 +4,7 @@ import { UserService } from 'src/app/services/admin/user.service';
 import { User } from 'src/app/services/admin/user';
 import { Permissions } from 'src/app/services/admin/permissions';
 import { PermissionsService } from 'src/app/services/admin/permissions.service';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { CustomValidators } from './reset-password.validator';
+
 
 
 @Component({
@@ -23,19 +22,10 @@ export class ResetPasswordComponent implements OnInit {
     alertMessages = "null";
     correo: string;
     permisions:Permissions =  new Permissions();
-    form: FormGroup| null = null;
+
   
     constructor(private authenticationService: UserService,
-      private generalService: PermissionsService,private router: Router,private route: ActivatedRoute,private fb: FormBuilder) {
-        
-    this.form = this.fb.group({
-      password: ['', [Validators.required,Validators.minLength(8)]],
-      repeat_password: ['', [Validators.required,Validators.minLength(8)]]
-    });
-
-    this.form.get('repeat_password').setValidators(
-      CustomValidators.equals(this.form.get('password'))
-    );
+      private generalService: PermissionsService,private router: Router,private route: ActivatedRoute) {
        }
 
       
@@ -128,7 +118,7 @@ export class ResetPasswordComponent implements OnInit {
         }*/
   
     onSubmit() { 
-      const password = this.form.get('password').value as string;
+
       this.submitted=true;
       this.ResetPass(); 
       this.goToHome();     
