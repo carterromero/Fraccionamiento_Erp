@@ -1,4 +1,5 @@
 export interface Chat{
-    user_id: number;
-    message: string;
+    metodo: number;
+    nombreUsuario: String;
+    msg: string;
 }
