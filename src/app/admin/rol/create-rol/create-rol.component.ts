@@ -30,7 +30,7 @@ export class CreateRolComponent implements OnInit {
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se agrego el rol correctamente";
+          this.alertMessages ="Se inserto el rol correctamente";
           this.employee= new Rol();
         }, 
       error => {

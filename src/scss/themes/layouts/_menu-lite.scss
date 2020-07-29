@@ -3091,10 +3091,13 @@ $style-block-width: 400px;
                         @media only screen and (max-width: 991px) {
                             background: $body-bg;
                         }
+                        input:invalid  {
+                            background-color: #e23232;
+                        }
                         @media only screen and (min-width: 992px) {
                             .form-control {
                                 color: #fff;
-
+                               
                                 &::-moz-placeholder {
                                     color: #fff;
                                     opacity: 1;
@@ -3107,7 +3110,13 @@ $style-block-width: 400px;
                                 &::-webkit-input-placeholder {
                                     color: #fff;
                                 }
+                               
+                                    
+                                  
                             }
+                            
+                              
+                              
                         }
 
                         .search-btn {

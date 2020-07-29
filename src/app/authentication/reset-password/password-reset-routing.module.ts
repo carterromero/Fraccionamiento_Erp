@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {ResetPasswordComponent} from './password-reset.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 const routes: Routes = [
   {
     path: '',
@@ -11,7 +10,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  exports: [RouterModule]
 })
 export class ResetPasswordRoutingModule { }

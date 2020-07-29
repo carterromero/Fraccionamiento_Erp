@@ -4,8 +4,9 @@ import { UserService } from 'src/app/services/admin/user.service';
 import { User } from 'src/app/services/admin/user';
 import { Permissions } from 'src/app/services/admin/permissions';
 import { PermissionsService } from 'src/app/services/admin/permissions.service';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { CustomValidators } from './reset-password.validator';
+import { FacpvListModule } from 'src/app/po/portal/facpv-list/facpv-list.module';
+
+
 
 
 @Component({
@@ -17,40 +18,34 @@ export class ResetPasswordComponent implements OnInit {
     authentication = new User();  
     authentica = new User();
     submitted = false;
-    alertDisable = false;
-    alertMessage = "null";
-    alertDisables = false;
-    alertMessages = "null";
+    alertDisable = true;
+    alertMessage ="";
+    alertDisables= true;
+    alertMessages="";
     correo: string;
     permisions:Permissions =  new Permissions();
-    form: FormGroup| null = null;
+ 
   
     constructor(private authenticationService: UserService,
-      private generalService: PermissionsService,private router: Router,private route: ActivatedRoute,private fb: FormBuilder) {
-        
-    this.form = this.fb.group({
-      password: ['', [Validators.required,Validators.minLength(8)]],
-      repeat_password: ['', [Validators.required,Validators.minLength(8)]]
-    });
-
-    this.form.get('repeat_password').setValidators(
-      CustomValidators.equals(this.form.get('password'))
-    );
+      private generalService: PermissionsService,private router: Router,private route: ActivatedRoute) {
        }
+       
 
       
 
     ngOnInit() {
       //this.authentication.user_email;
      // this.authentication.user_password;
-     //this.initForm();     
     }
-
+    
+  
     initalSubmit(): void {
       this.submitted = false;
       this.authentication = new User();
       this.authentica = new User();
     }
+
+
   
     ResetPass() 
     {    
@@ -59,10 +54,7 @@ export class ResetPasswordComponent implements OnInit {
       this.authenticationService.updateReset(this.authentication.user_email, this.authentica)
         .subscribe(data => 
           {
-          //  console.log(this.authentica);
-          //  this.authenticate();
             console.log(data);
-        //    this.goToHome();
               }, error => {
                 console.log(error);
               });
@@ -128,10 +120,18 @@ export class ResetPasswordComponent implements OnInit {
         }*/
   
     onSubmit() { 
-      const password = this.form.get('password').value as string;
+      
       this.submitted=true;
-      this.ResetPass(); 
-      this.goToHome();     
+      if(this.authentica.user_password == this.authentication.user_password){
+        this.alertDisable = false;
+        this.alertMessages = "Contraseña actualizada";
+        this.ResetPass(); 
+        this.goToHome();     
+    }
+    else {
+         this.alertDisables = false;
+         this.alertMessage = "Las contraseñas no coinciden";
+    }
   }
   
     goToHome() {

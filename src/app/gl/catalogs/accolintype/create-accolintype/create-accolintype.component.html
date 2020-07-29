@@ -1,24 +1,31 @@
-<p>create-accolintype works!</p>
-<p>create-accounts works!</p>
+
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <div class="col-md-6">
         <app-card cardTitle="Crear tipo" [options]="false">
           <form (ngSubmit)="onSubmit()" >
-            <div class="form-group">
-              <label for="name">nombre</label>
-              <input type="text" class="form-control" id="accounting_accounts_types_name"  [(ngModel)]="employee.accounting_accounts_types_name" name="accounting_accounts_types_name" required> 
-            </div>      
+
+
+            <p>
+              <label for="number">Nombre Tipo Cuenta</label>
+           <select  class="custom-select" id="accounting_accounts_types_name"   [(ngModel)]="employee.accounting_accounts_types_name" name="accounting_accounts_types_name" required>
+              <option selected></option>
+              <option value="Activo">Activo</option>
+              <option value="Pasivo">Pasivo</option>
+              <option value="Capital">Capital</option>
+              <option value="Ingresos">Ingresos</option>
+              <option value="Gastos">Gastos</option>
+             
+             
+            </select>
+            </p>
+   
             <div class="form-group">
               <label for="name">descripcion</label>
               <input type="text" class="form-control" id="accounting_accounts_types_description"  [(ngModel)]="employee.accounting_accounts_types_description" name="accounting_accounts_types_description" required>
             </div>  
-            <div class="form-group">
-              <label for="name">creado por </label>
-              <input type="text" class="form-control" id="created_by"  [(ngModel)]="employee.created_by" name="created_by" required>
-            </div>
-            
-         
+          
+          
             <div class="form-group">
                 <label for="name">Estatus</label>
                 <div class="custom-control custom-switch">
