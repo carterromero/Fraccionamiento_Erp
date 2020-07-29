@@ -61,9 +61,12 @@
         color: $theme-heading-color;
         font-weight: 600;
     }
-
     .input-group {
         background: transparent;
+        
+        input:required:invalid {
+            border-color: #C00000;
+          }
     }
 
     .card {
