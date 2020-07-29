@@ -23,7 +23,7 @@
         <table id="frmEquipos" class="table">
           <thead>
           <tr>              
-            <th>nombre acreedor</th>
+            <th>nombre</th>
             <th>Fecha de pago </th>
             <th>monto </th>
             <th>Método de pago</th>
@@ -31,10 +31,10 @@
           </thead>
           <tbody>
               <tr *ngFor="let general of general | async   " >
-                  <td>{{general.creditor_business_name}}</td>
-                  <td>{{general.payment_record_payment_date}}</td>
-                  <td>{{general.payment_record_amount}}</td>
-                  <td>{{general.metodo_tipo}}</td>
+                <td>{{general.name_creditor}}</td>
+                <td>{{general.billtopay_invoice_date}}</td>
+                <td>{{general.purcharse_order_total}}</td>
+                <td>{{general.metodo_tipo}}</td>
                  
                  
               </tr>

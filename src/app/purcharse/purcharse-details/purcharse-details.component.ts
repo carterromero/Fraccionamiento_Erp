@@ -9,6 +9,7 @@ import { PurcharseService } from 'src/app/purcharse.service';
 import { SupplierService } from 'src/app/supplier.service';
 import { PaymentRecordService } from 'src/app/payment-record.service';
 import { PaytmentService } from 'src/app/paytment.service';
+import { User } from 'src/app/services/admin/user';
 
 @Component({
   selector: 'app-purcharse-details',
@@ -25,6 +26,8 @@ payment : Payment = new Payment();
 article: ArticlesC = new ArticlesC();
 
 
+  user: User = new User();
+  userss: Observable<User[]>;
   submitted = false;
   suppliers: Observable<Supplier[]>;
   payments: Observable<Payment[]>;
@@ -48,7 +51,7 @@ article: ArticlesC = new ArticlesC();
     this.reloadDatas() ;
     this.reloadDatass() ;
     this.reloadDatasss() ;
-    
+    this.users();
     
     this.employeeService.getEmployee(this.id)
       .subscribe(data => {
@@ -64,6 +67,29 @@ article: ArticlesC = new ArticlesC();
 
       });
   }
+
+
+
+
+  users() 
+  {
+    this.user.user_name = localStorage.getItem('name');
+  
+    this.employeeService.getOneUser(this.id).subscribe(
+      data => {
+        console.log(data);
+        this.userss = this.employeeService.getOneUser(this.id);
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
 
 
   reloadDatas() 

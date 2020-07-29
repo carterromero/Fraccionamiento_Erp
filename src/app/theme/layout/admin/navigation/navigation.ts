@@ -1016,13 +1016,7 @@ export class NavigationItem
         type: 'collapse',
         icon: 'feather icon-layout',
         children: [
-          {
-            id: 'creditor',
-            title: 'Acreedor',
-            type: 'item',            
-            url: '/creditor-list'
-            
-          },
+        
           {
             id: 'cliente',
             title: 'Unidad Operativa',
@@ -1613,9 +1607,26 @@ export class NavigationItem
               id: 'por',
               title: 'Portal Proveedor',
               type: 'item',            
-              url: '/Portal_list'
-            }                     
+              url: '/facpv-list'
+            }
+                                
           ]
+          
+      }, {
+        id: 'portal',
+        title: 'Portal Proveedor',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'por',
+            title: 'Portal Proveedor',
+            type: 'item',            
+            url: '/facpv-list'
+            
+          }
+                                
+        ]
       };
     };
     if(localStorage.getItem("inquilino") == 'true'){

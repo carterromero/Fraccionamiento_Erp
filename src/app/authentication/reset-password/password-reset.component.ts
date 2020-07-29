@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/admin/user.service';
 import { User } from 'src/app/services/admin/user';
 import { Permissions } from 'src/app/services/admin/permissions';
 import { PermissionsService } from 'src/app/services/admin/permissions.service';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { CustomValidators } from './reset-password.validator';
+
 
 @Component({
   selector: 'app-password-reset',
@@ -11,40 +14,63 @@ import { PermissionsService } from 'src/app/services/admin/permissions.service';
   styleUrls: ['./password-reset.component.scss']
 })
 export class ResetPasswordComponent implements OnInit {
-    authentication: User = new User();  
+    authentication = new User();  
+    authentica = new User();
     submitted = false;
-    alertDisable = true;
+    alertDisable = false;
     alertMessage = "null";
+    alertDisables = false;
+    alertMessages = "null";
+    correo: string;
     permisions:Permissions =  new Permissions();
-    
+    form: FormGroup| null = null;
   
     constructor(private authenticationService: UserService,
-      private generalService: PermissionsService
-      ,private router: Router) { }
-  
+      private generalService: PermissionsService,private router: Router,private route: ActivatedRoute,private fb: FormBuilder) {
+        
+    this.form = this.fb.group({
+      password: ['', [Validators.required,Validators.minLength(8)]],
+      repeat_password: ['', [Validators.required,Validators.minLength(8)]]
+    });
+
+    this.form.get('repeat_password').setValidators(
+      CustomValidators.equals(this.form.get('password'))
+    );
+       }
+
+      
+
     ngOnInit() {
-      this.authentication.user_email;
-      this.authentication.user_password;
+      //this.authentication.user_email;
+     // this.authentication.user_password;
+     //this.initForm();     
     }
-  
+
     initalSubmit(): void {
       this.submitted = false;
       this.authentication = new User();
+      this.authentica = new User();
     }
   
     ResetPass() 
     {    
-      this.authenticationService.Reset(this.authentication.user_email)
+    
+     this.authentication.user_email = localStorage.getItem('correo');
+      this.authenticationService.updateReset(this.authentication.user_email, this.authentica)
         .subscribe(data => 
           {
-          this.authentication = data;
-              this.goToHome();   
+          //  console.log(this.authentica);
+          //  this.authenticate();
+            console.log(data);
+        //    this.goToHome();
               }, error => {
                 console.log(error);
               });
         }
 
-        authenticate() 
+
+
+      /*  authenticate() 
         {    
           this.authenticationService.login(this.authentication)
             .subscribe(data => 
@@ -99,21 +125,17 @@ export class ResetPasswordComponent implements OnInit {
                 this.alertMessage = error['statusText'];          
               }    
             });            
-        }
+        }*/
   
     onSubmit() { 
-      this.alertDisable = false;
-      this.submitted = true;
-      if(this.authentication.user_password == this.authentication.user_passwordR){
-      this.ResetPass();    
-     }
-      else
-           this.alertDisable = true;
-           this.alertMessage = "Las contraseñas no coinciden";
-    }
+      const password = this.form.get('password').value as string;
+      this.submitted=true;
+      this.ResetPass(); 
+      this.goToHome();     
+  }
   
     goToHome() {
-      this.router.navigate(['dashboard/default']);
+      this.router.navigate(['auth/signin']);
     }
   
 }

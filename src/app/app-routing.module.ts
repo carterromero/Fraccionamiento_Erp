@@ -300,6 +300,7 @@ import { UpdateClientComponent } from './AP/ap_client/update-client/update-clien
 import { ClientDetailsComponent } from './AP/ap_client/client-details/client-details.component';
 import { FacpvListComponent } from './po/portal/facpv-list/facpv-list.component';
 import { CreateFacpvComponent } from './po/portal/create-facpv/create-facpv.component';
+import { FacpayDetailsComponent } from './po/portal/facpay-details/facpay-details.component';
 
 
 
@@ -2628,8 +2629,19 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./admin/user/user-details/user-details.module').then(module => module.UserDetailsModule)
           }
         ]
+      },
+      {
+        path: '',
+        component: FacpayDetailsComponent,
+        children: [
+          {
+            path: 'fac_detalis/:id',
+            loadChildren: () => import('./po/portal/facpay-details/facpay-details.module').then(module => module.FacpayDetailsModule)
+          }
+        ]
       }
 
+      
       ,
       {
         path: '',

@@ -14,6 +14,7 @@ import { Client } from 'src/app/client';
 import { ClientService } from 'src/app/client.service';
 import { Supplier } from 'src/app/supplier';
 import { SupplierService } from 'src/app/supplier.service';
+import { User } from 'src/app/services/admin/user';
 
 @Component({
   selector: 'app-create-facpv',
@@ -21,7 +22,8 @@ import { SupplierService } from 'src/app/supplier.service';
   styleUrls: ['./create-facpv.component.scss']
 })
 export class CreateFacpvComponent implements OnInit {
-
+  user: User = new User();
+  id: number;
   creditor: Observable<BankAccounts[]>;
   employee: Billtopay = new Billtopay();
   purcharse: Observable<Purcharse[]>;
@@ -29,7 +31,7 @@ export class CreateFacpvComponent implements OnInit {
   employees: Billtopay = new Billtopay();
   supplier: Observable<Purcharse[]>;
   client: Observable<Client[]>;
-  
+  userss: Observable<User[]>;
 name : string;
   alertDisable = true;
   alertDisables = true;
@@ -41,6 +43,7 @@ name : string;
   constructor(private employeeService: Billtopayservice,
     private purcharseService: PurcharseService,
     private bankAccountsService: BankAccountsService,
+ 
     private employeesService: CreditorService,
     private clientService: ClientService,
     private route: ActivatedRoute,
@@ -51,18 +54,41 @@ name : string;
     this.reloadDatas();
     this.reloadDatas1();
     this.reloadData5();
-    this.reloadData6() 
+    this.reloadData6();
+    this.users();
    
     
   }
 
   reloadDatas() 
   {
-
+    
+  
     this.employeeService.getPUSER().subscribe(
       data => {
         console.log(data);
         this.purcharse = this.employeeService.getPUSER();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
+
+
+  users() 
+  {
+    this.user.user_name = localStorage.getItem('name');
+  
+    this.employeeService.getOneUser(this.id).subscribe(
+      data => {
+        console.log(data);
+        this.userss = this.employeeService.getOneUser(this.id);
       },
       error => {
         console.log(error);

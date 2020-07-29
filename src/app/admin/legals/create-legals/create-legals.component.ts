@@ -29,13 +29,13 @@ export class CreateLegalsComponent implements OnInit {
 
   save() {
 
-    this.employee.userid="3";
+    this.employee.userid= localStorage.getItem('id');
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto la empresa correctamente";
+          this.alertMessages ="Se agrego la empresa correctamente";
           this.employee= new Legals();
         }, 
       error => {
@@ -43,7 +43,7 @@ export class CreateLegalsComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = "La empresa ya existe";     
         }      
       });
   }
@@ -56,36 +56,34 @@ export class CreateLegalsComponent implements OnInit {
 
   if(this.employee.legals_name =="" ||  this.employee.legals_name ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Nombre Incompleto";          
+    this.alertMessage = "El nombre de la empresa es un campo obligatorio";          
   }
 
   else if(this.employee.legals_address =="" ||  this.employee.legals_address ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Dirección Incompleta";          
+    this.alertMessage = "Dirección incompleta, es un campo obligatorio";          
   }
-
+ 
   else if(this.employee.legals_description =="" ||  this.employee.legals_description ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Descripción Incompleta";          
+    this.alertMessage = "Descripción incompleta, es un campo obligatorio";          
   }
 
 
   else if(this.employee.legals_rfc =="" ||  this.employee.legals_rfc ==null ){
     this.alertDisable = false;
-    this.alertMessage = "RFC Incompleta";          
+    this.alertMessage = "RFC incompleto, es un campo obligatorio";          
   }
 
   else if(this.employee.legals_employer_registration =="" ||  this.employee.legals_employer_registration ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Registro Patronal Incompleta";          
+    this.alertMessage = "Registro Patronal incompleto, es un campo obligatorio";          
   }
 
   else if(this.employee.legals_tax_regime =="" ||  this.employee.legals_tax_regime ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Regimen Fiscal Incompleta";          
+    this.alertMessage = "Regimen Fiscal incompleto, es un campo obligatorio";          
   }
-
-
   else{
     this.save();    
   }

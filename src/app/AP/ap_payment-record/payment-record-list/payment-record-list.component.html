@@ -12,15 +12,15 @@
             <thead>
             <tr>      
               <th>id_pago</th>     
-              <th>nombre creditor </th>
+              <th>nombre provedor </th>
               <th>Factura </th>
               <th>Fecha de pago </th>
               <th>Monto</th>
               <th>Método de pago</th>
+              <th>Cuenta de pago </th>
+              <th>Estatus</th>
               
-              
-              
-              
+            
             </tr>
             </thead>
             <tbody>
@@ -32,13 +32,20 @@
                     <td>{{general.billtopay_invoice_date }}</td>
                     <td>{{general.purcharse_order_total }}</td>
                     <td>{{general.metodo_tipo}}</td>
-                    
-                   
-      
+                    <td>{{general.cuentapago}}</td>
+                    <td>
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" [checked]="general.payment_status == 'true'">
+                        <label class="custom-control-label" for="payment_status">Active</label>
+                     </div>
+                    </td>
+
                     <td>
                       <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
-                        <button (click)="updateGeneral(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                        <button (click)="generalDetails(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px"> COMPROBANTE DE PAGO</button>    
+                     <!-- 
+                      <button (click)="updateGeneral(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                      --> 
+                      <button (click)="generalDetails(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px"> COMPROBANTE DE PAGO</button>    
 
                         <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                           <div class="app-modal-header">

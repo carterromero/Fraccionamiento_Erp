@@ -105,6 +105,21 @@
                </div>
           </div>
 
+          <div class="form-group">
+            <label for="name">Control de accesos</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="permissions_control"  [(ngModel)]="employee.permissions_control"     name="permissions_control"   style="margin-left: 10px">
+                <label class="custom-control-label" for="permissions_control">Active</label>
+             </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Proveedores</label>
+          <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input"  id="permissions_proveedor"  [(ngModel)]="employee.permissions_proveedor"     name="permissions_proveedor"   style="margin-left: 10px">
+              <label class="custom-control-label" for="permissions_proveedor">Active</label>
+           </div>
+      </div>
             <div class="form-group">
                 <label for="name">Estatus</label>
                 <div class="custom-control custom-switch">

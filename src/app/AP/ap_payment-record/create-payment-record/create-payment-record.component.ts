@@ -13,6 +13,8 @@ import { Billtopay } from 'src/app/billtopay';
 import { Billtopayservice } from 'src/app/billtopay.service';
 import { Payment } from 'src/app/payment';
 import { PaytmentService } from 'src/app/paytment.service';
+import { Supplier } from 'src/app/supplier';
+import { SupplierService } from 'src/app/supplier.service';
 
 
 @Component({
@@ -29,6 +31,7 @@ export class CreatePaymentRecordComponent implements OnInit {
   fac: Billtopay= new Billtopay();
   creditor: Observable<Creditor[]>;
   general: Observable<Payment[]>;
+  supplier: Observable<Supplier[]>;
   
 
   id: number;
@@ -48,6 +51,7 @@ export class CreatePaymentRecordComponent implements OnInit {
     private billtopayservice: Billtopayservice,
     private route: ActivatedRoute,
     private generalService: PaytmentService,
+    private supplierService: SupplierService,
     private router: Router) {
 
       
@@ -58,6 +62,7 @@ export class CreatePaymentRecordComponent implements OnInit {
       this.reloadDatas1() ;
       this.reloadDatas2() ;
       this.reloadData4();
+      this.reloadData7() 
       this.employee = new PaymentRecord();
      
       console.log(this.employee.payment_status = 'true');
@@ -165,6 +170,22 @@ export class CreatePaymentRecordComponent implements OnInit {
        ); 
     
    } 
+
+   reloadData7() {
+    
+    this.supplierService.getEmployeeList().subscribe(
+      data => {
+        console.log(data);
+        this.supplier = this.supplierService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        //localStorage.setItem('token', "");
+        //this.router.navigate(['login']);     
+      });
+
+      
+  }
 
  
     save() {
