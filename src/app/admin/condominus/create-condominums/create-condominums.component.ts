@@ -65,26 +65,26 @@ export class CreateCondominumsComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = "Fraccionamiento duplicado, no se puede agregar";          
         }    
       });
   }
 
   onSubmit() 
-  {
-  this.alertDisable = true;
-  this.alertDisables = true;
-  if(this.employee.condominums_description =="" ||  this.employee.condominums_description ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Descripción Incompleto";          
-  }
-  else if(this.employee.legals_id =="" ||  this.employee.legals_id ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "Empresa Incompleta";          
-  }
-  else{
-    this.save();    
-  } 
+      {
+            this.alertDisable = true;
+            this.alertDisables = true;
+        if(this.employee.condominums_description =="" ||  this.employee.condominums_description ==null ){
+            this.alertDisable = false;
+            this.alertMessage = "El Atributo Descripción es Obligatorio";          
+        }
+        else if(this.employee.legals_id =="" ||  this.employee.legals_id ==null ){
+            this.alertDisable = false;
+            this.alertMessage = "El Atributo empresa es Obligatorio";          
+        }
+        else{
+           this.save();    
+        } 
   }
 
   gotoList() 

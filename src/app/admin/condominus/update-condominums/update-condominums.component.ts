@@ -65,7 +65,8 @@ export class UpdateCondominumsComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.alertDisables = false;
-        this.alertMessages ="Se actualizo la empresa correctamente";  
+        this.alertMessages ="Se actualizo el fraccionamiento correctamente";  
+        this.gotoList();
       }, 
       error => 
       {
@@ -103,12 +104,12 @@ export class UpdateCondominumsComponent implements OnInit {
   
     if(this.employee.condominums_description =="" ||  this.employee.condominums_description ==null ){
       this.alertDisable = false;
-      this.alertMessage = "Nombre Incompleto";          
+      this.alertMessage = "El Atributo descripción es Obligatorio";          
     }
   
     else if(this.employee.legals_id =="" ||  this.employee.legals_id ==null ){
       this.alertDisable = false;
-      this.alertMessage = "Dirección Incompleta";          
+      this.alertMessage = "El Atributo empresa es Obligatorio";          
     }
   
     else{

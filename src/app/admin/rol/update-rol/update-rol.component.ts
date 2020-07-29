@@ -75,7 +75,7 @@ export class UpdateRolComponent implements OnInit {
   
     if(this.employee.rol_description =="" ||  this.employee.rol_description ==null ){
       this.alertDisable = false;
-      this.alertMessage = "Descripción Incompleto";          
+      this.alertMessage = "Nombre del rol incompleto, este atributo es obligatorio";          
     }
   
   
