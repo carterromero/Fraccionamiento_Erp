@@ -47,10 +47,16 @@ export class DepartmentsRListComponent implements OnInit {
   reloadData() {
     this.departmentService.getDepartmentR().subscribe(
       data => {
-        let status;
+        
         this.departments = this.departmentService.getDepartmentR();
+
+
+
+        ///////////////////////////////Para llenar la informacion
+        let status;
         for (let key in data) {
           var dats = data[key];
+          console.log(dats);
         if(dats['departments_status'] =='true'){
           status ='Activo';
         }
@@ -61,6 +67,9 @@ export class DepartmentsRListComponent implements OnInit {
           this.data1.push(
             [dats['departments_id'], dats['departments_name'], dats['workplaces_name'], status]);
         }
+        ///////////////////////////////////////////
+
+
       },
       error => {
         console.log(error);   
@@ -88,7 +97,8 @@ export class DepartmentsRListComponent implements OnInit {
 
   }
 
-  generate() { 
+  generate() 
+  { 
    /* var columns = [document.getElementById('head').innerText]
         let cell = [
             [{content: document.getElementById('content').innerText}]
