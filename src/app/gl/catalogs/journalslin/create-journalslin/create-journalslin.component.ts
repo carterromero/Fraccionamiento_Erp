@@ -30,6 +30,7 @@ export class CreateJournalslinComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.reloadDatas();
   }
 
   newEmployee(): void {
@@ -67,6 +68,7 @@ export class CreateJournalslinComponent implements OnInit {
   save() {
 
     this.employee.user_id = "3";
+    this.employee.created_by=localStorage.getItem('id') ;
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => {
         console.log(data);
