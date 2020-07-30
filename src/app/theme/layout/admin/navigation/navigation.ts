@@ -996,6 +996,13 @@ export class NavigationItem
             type: 'item',            
             url: '/transl-list'
             
+          } ,
+          {
+            id: 'transl-list',
+            title: 'Reporte conciliacion',
+            type: 'item',            
+            url: '/consi-list'
+            
           }                   
         ]
       }

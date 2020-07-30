@@ -301,6 +301,8 @@ import { ClientDetailsComponent } from './AP/ap_client/client-details/client-det
 import { FacpvListComponent } from './po/portal/facpv-list/facpv-list.component';
 import { CreateFacpvComponent } from './po/portal/create-facpv/create-facpv.component';
 import { FacpayDetailsComponent } from './po/portal/facpay-details/facpay-details.component';
+import { ConsiListComponent } from './gl/report/consi/consi-list/consi-list.component';
+import { CreateConsiComponent } from './gl/report/consi/create-consi/create-consi.component';
 
 
 
@@ -1005,6 +1007,26 @@ const routes: Routes = [
           {
             path: 'legals-list',
             loadChildren: () => import('./admin/legals/legals-list/legals-list.module').then(module => module.LegalsListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ConsiListComponent,
+        children: [
+          {
+            path: 'consi-list',
+            loadChildren: () => import('./gl/report/consi/consi-list/consi-list.module').then(module => module.ConsiListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateConsiComponent,
+        children: [
+          {
+            path: 'create-consi',
+            loadChildren: () => import('./gl/report/consi/create-consi/create-consi.module').then(module => module.CreateConsiModule)
           }
         ]
       },
