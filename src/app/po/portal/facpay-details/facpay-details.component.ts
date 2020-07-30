@@ -58,7 +58,7 @@ export class FacpayDetailsComponent implements OnInit {
       var objbuilder = '';
       objbuilder += ('<embed width=\'100%\' height=\'100%\'  src="data:application/pdf;base64,');
       objbuilder += (this.employee.bi_archivo);
-      objbuilder += ('" type="application/pdf" />');
+      objbuilder += ('" type="application/xml" />');
       windo.document.write(objbuilder); 
     }
   

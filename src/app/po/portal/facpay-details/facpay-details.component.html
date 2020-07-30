@@ -3,19 +3,60 @@
       <app-card cardTitle="FACTURA Detalle" [options]="false">
         <div *ngIf="employee">
 
+
+
+
+          <div>
+            <label><b>Folio: </b></label> {{employee.billtopay_id}}
+          </div>
+          
+          <div>
+            <label><b>fecha: </b></label> {{employee.billtopay_invoice_date}}
+          </div>
+          
+         
+
+
+
+
+
+
+          
+          
+          <div>
+            <label><b>Monto: </b></label> {{employee.billtopay_amount}}
+          </div>
+          
+
+
+
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <div>
             <label><b>Folio de Factura : </b></label> {{employee.billtopay_invoice_folio}}
           </div>
 
            
+
+
+          
+
           <div>
             <label><b>Fecha de Factura: </b></label> {{employee.billtopay_invoice_date}}
           </div>
        
               <div>
           <label (click)="gocv()" ><b><u>Descargar Factura</u></b></label>
-          <label (click)="dsd()" ><b><u>Descargar Archivo</u></b></label>
+         
+
+        </div>
+
+
+
+        
+        <div>
+          <label (click)=" dsd()" ><b><u>Descargar XML</u></b></label>
+         
+
         </div>
 
 

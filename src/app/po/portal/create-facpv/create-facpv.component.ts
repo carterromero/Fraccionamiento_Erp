@@ -217,9 +217,9 @@ handleUpload2(event) {
   reader.readAsDataURL(file);
   reader.onload = () => {
       this.datos = reader.result.toString();
-      this.employee.bilitoplay_arch = this.datos.replace("data:application/pdf;base64,","")
+      this.employee.bi_archivo = this.datos.replace("data:application/pdf;base64,","")
     /*  this.employee.employees_contract = this.datos.replace("data:application/pdf;base64,","")*/
-      event = this.employee.bilitoplay_arch;
+      event = this.employee.bi_archivo;
     /*  event = this.employee.employees_contract*/
    
   };
