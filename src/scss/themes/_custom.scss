@@ -198,6 +198,7 @@ select-dropdown .selected.highlighted {
   background-color: $primary-color !important;
 }
 .table{
+  text-transform: capitalize;
   td, th{
     font-family: $theme-font-family;
   }
