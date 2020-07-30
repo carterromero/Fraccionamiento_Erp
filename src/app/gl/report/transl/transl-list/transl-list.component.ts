@@ -56,24 +56,7 @@ filterPost = '';
       
   }
 
-  deleteGeneral(id: number) {
-    this.generalService.deleteEmployee(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.reloadData();
-          this.alertDisables = false;
-          this.alertMessages =" se a eliminado correctamente";
-        },
-        error => {console.log(error);
-          let coins = [];
-          for (let key in error) {
-            this.alertDisable = false;
-            this.alertMessage = error['statusText'];          
-          }
-        }
-      );
-  }
+  
 
   getEmployee(date: string){
     this.router.navigate(['repo-cred-pay-cont-list', date]);

@@ -2,19 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Conciliacion } from 'src/app/conciliacion';
 import { Observable } from 'rxjs';
-import { ConciliacionService } from 'src/app/conciliacion.service';
+
 import { PaymentRecord } from 'src/app/payment-record';
 import { PaymentRecordService } from 'src/app/payment-record.service';
-
+import { TranslService } from "../../../../services/gl/transl.service";
 import { LinesService } from "src/app/services/gl/lines.service";
 import { Lines } from "src/app/services/gl/lines";
 
 @Component({
-  selector: 'app-update-conciliacion',
-  templateUrl: './update-conciliacion.component.html',
-  styleUrls: ['./update-conciliacion.component.scss']
+  selector: 'app-create-consi',
+  templateUrl: './create-consi.component.html',
+  styleUrls: ['./create-consi.component.scss']
 })
-export class UpdateConciliacionComponent implements OnInit {
+export class CreateConsiComponent implements OnInit {
 
  
   employee: Conciliacion = new Conciliacion();
@@ -26,10 +26,11 @@ export class UpdateConciliacionComponent implements OnInit {
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private employeeService: ConciliacionService,
-    
+  constructor(
+    private employeeService: TranslService,
     private paymentRecordService: PaymentRecordService,
     private accountsService: LinesService,
+    private linesService: LinesService,
     private router: Router) { }
 
     ngOnInit() {
@@ -73,6 +74,7 @@ export class UpdateConciliacionComponent implements OnInit {
         }
       );      
     }
+
 
     newEmployee(): void {
       this.employee = new Conciliacion();

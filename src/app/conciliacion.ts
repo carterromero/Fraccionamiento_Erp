@@ -10,7 +10,7 @@ export class Conciliacion
     concilitiation_debe  : number;
     concilitiation_haber  : number;
     concilitiation_status : string;
-    created_by : number;
+    created_by : string;
     created_date : string;
     last_updated_by : number;
     last_updated_date : string;

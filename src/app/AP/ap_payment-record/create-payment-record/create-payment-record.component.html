@@ -40,7 +40,7 @@
       <select   class="custom-select"  id="cuentapago" required [(ngModel)]="employee.cuentapago" name="cuentapago" >
       <option *ngFor="let creditors of banco | async" value="{{creditors.bank_accounts_bank_account_number}}"> {{creditors.bank_accounts_bank_account_number}}</option>
       
-    </select>
+    </select>     
     </div>
 
       </form>        

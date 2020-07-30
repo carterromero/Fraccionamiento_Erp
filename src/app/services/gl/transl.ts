@@ -5,4 +5,9 @@ export class Transl {
     debe : number;
     haber : number;
     importe : number;
+    origen : string;
+    estatus : string;
+    created_by: string;
+    description : string;
+    concilitiation_condominums_id: string;
     }

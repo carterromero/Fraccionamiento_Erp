@@ -19,26 +19,23 @@ export class TranslService  {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_GL_REPORTE_TRANSACC/1.0/reporte_transacciones/${p_condominio_id},${p_periodo_id}`,{headers});
   }
-//////////////////////
-  updateEmployee(p_id: number, value: any): Observable<Object> {
+
+
+  getEmployeesaldobalz(p_condominiums_id: number, p_periods_id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_GL_UPDAT_ACCOU_ACCOU_LINES/1.0/ccounting_accounts_lines/${p_id}`, value,{headers});
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_GL_REPORT_SALDO_BALANZ/1.0/reporte_saldo_balanza/${p_condominiums_id},${p_periods_id}`,{headers});
   }
 
-
-  deleteEmployee(p_id: number): Observable<any> {
+  getEmployeesconsilia(): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.delete(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_GL_DELET_ACCOU_ACCOU_LINES/1.0/accounting_accounts_lines/${p_id}`, { responseType: 'text', headers});
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_GL_REPORTE_CONCIALI/1.0/reporte_concialiacion`,{headers});
   }
-
   createEmployee(employee: Object): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_GL_INSER_ACCOU_ACCOU_LINES/1.0/accounting_accounts_lines`, employee,{headers});
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_GL_INSERT_CONCILIT/1.0/insert_concilitiation`, employee,{headers});
   }
+ 
 
+//////////////////////
 
-  getEmployeeList(): Observable<any> {
-    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_GL_GET_ALL_ACCO_ACCO_LINE/1.0/accounting_accounts_lines`,{headers});
-  }
 }
