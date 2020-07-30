@@ -195,7 +195,7 @@ reloadData6() {
   handleUpload(event) {
     const file = event.target.files[0];
     const reader = new FileReader();
-    
+    console.log(this.datos);
     reader.readAsDataURL(file);
     reader.onload = () => {
         this.datos = reader.result.toString();
