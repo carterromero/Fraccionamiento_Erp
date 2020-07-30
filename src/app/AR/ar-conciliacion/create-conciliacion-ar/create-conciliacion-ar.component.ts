@@ -93,7 +93,7 @@ export class CreateConciliacionARComponent implements OnInit {
 
     this.employee.concilitiation_condominums_id = localStorage.getItem('condominums');
     this.employee.concilitiation_document_type="Poliza";
-    this.employee.created_by=Number(localStorage.getItem('id'));
+    this.employee.created_by=(localStorage.getItem('id'));
     
 
     this.employeeService.createEmployee(this.employee)
