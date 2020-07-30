@@ -60,7 +60,7 @@
                   <div class="form-group">
                     <label for="name">Espacio en comun</label>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input"  id="articles_common_spaces"  [(ngModel)]="general.articles_common_spaces"  disabled   name="articles_common_spaces"   style="margin-left: 10px">
+                        <input type="checkbox" class="custom-control-input"  id="articles_common_spaces"   [checked] ="general.articles_common_spaces == 'true'"  disabled   name="articles_common_spaces"   style="margin-left: 10px">
                         <label class="custom-control-label" for="articles_common_spaces" readonly="readonly">Active</label>
                      </div>
                     </div>
@@ -72,7 +72,7 @@
                   <div class="form-group">
                     <label for="name">Lote O Vivienda </label>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input"  id="articles_lot_place"  [(ngModel)]="general.articles_lot_place"  disabled   name="articles_lot_place"   style="margin-left: 10px">
+                        <input type="checkbox" class="custom-control-input"  id="articles_lot_place"  [checked]="general.articles_lot_place == 'true'"  disabled   name="articles_lot_place"   style="margin-left: 10px">
                         <label class="custom-control-label" for="articles_lot_place"   readonly="readonly">Active</label>
                      </div>
                     </div>

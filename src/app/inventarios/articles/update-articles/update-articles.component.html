@@ -64,10 +64,31 @@
             <div class="form-group">
                 <label for="name">Estatus</label>
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input"  id="articles_status"  [(ngModel)]="employee.articles_status"     name="articles_status"   style="margin-left: 10px">
+                    <input type="checkbox" class="custom-control-input"  id="articles_status"   [checked]="employee.articles_status  == 'true'"     name="articles_status"   style="margin-left: 10px">
                     <label class="custom-control-label" for="articles_status">Active</label>
                  </div>
             </div>
+
+
+
+            <div class="form-group">
+              <label for="name">Espacio en Común</label>
+              <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input"  id="articles_common_spaces"   [checked]="employee.articles_common_spaces == 'true'"     name="articles_common_spaces"   style="margin-left: 10px">
+                  <label class="custom-control-label" for="articles_common_spaces">Active</label>
+               </div>
+          </div>
+
+
+
+
+          <div class="form-group">
+            <label for="name">Lotes o Viviendas</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="articles_lot_place"   [checked]="employee.articles_lot_place == 'true'"     name="articles_lot_place"   style="margin-left: 10px">
+                <label class="custom-control-label" for="articles_lot_place">Active</label>
+             </div>
+        </div>
             
             <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
             <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
