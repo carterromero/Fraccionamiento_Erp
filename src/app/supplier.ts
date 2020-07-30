@@ -14,6 +14,13 @@ export class Supplier {
     userid : string;
     id : number;
 
+
+
+
+    supplier_account:number;
+    suppier_bank :string;
+    supplier_key_interbank : number;
+
     bank_accounts_id : string;
    bank_accounts_bank_account_number: number;
 

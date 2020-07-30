@@ -33,10 +33,10 @@ export class FacpvListComponent implements OnInit {
   
   reloadData() {
     
-    this.generalService.getEmployeeList().subscribe(
+    this.generalService.getEmployeeListap().subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService.getEmployeeList();
+        this.general = this.generalService.getEmployeeListap();
       },
       error => {
         console.log(error);   

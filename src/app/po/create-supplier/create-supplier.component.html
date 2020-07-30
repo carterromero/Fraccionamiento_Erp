@@ -30,12 +30,18 @@
                 <input type="email"  class="form-control" id="supplier_email"  [(ngModel)]="employee.supplier_email" name="supplier_email" aria-describedby="emailHelp" placeholder="@email" required="required">
             </div>
 
-            <div class="form-group">
-              <label  for="phone">TELEFONO</label>
-              <input type="number" id="phone"  placeholder="123-45-678" pattern="[0-9][0-9]-[0-9][0-9]-[0-9][0-9]-[0-9][0-9]"  max="10" class="form-control" id="supplier_phone"  [(ngModel)]="employee.supplier_phone" name="supplier_phone" required="required">
-          </div>
+            
 
-          
+          <div class="required">
+            <label for="name">Teléfono</label>
+          </div>  
+          <div class="input-group mb-3">
+            <input placeholder="5555123456" type="text" maxlength = "10" class="form-control" id="user_phone_number" [(ngModel)]="employee.supplier_phone" name="supplier_phone" required>
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="small material-icons" aria-hidden="true">phone</i></span>
+            </div>
+          </div>
+          <br>
 
 
           <div class="form-group">
@@ -44,13 +50,19 @@
         </div>
         
    
+          
         <div class="form-group">
-          <label for="exampleFormControlSelect1">CUENTAS  BANCANRIAS </label>
-          <select  class="custom-select"  id="supplier_id" required [(ngModel)]="employee.bank_accounts_id" name=" bank_accounts_id" >
-          <option *ngFor="let address of  cuentas | async" value="{{address.bank_accounts_id}}">{{address.bank_accounts_bank_account_number}}</option>
-           </select>
-         </div>    
-
+          <label for="name">CUENTA BANCARIA </label>
+          <input type="number" class="form-control" id="supplier_account" placeholder="33333"  [(ngModel)]="employee.supplier_account" name="supplier_account" required="required">
+      </div>
+      <div class="form-group">
+        <label for="name">BANCO </label>
+        <input type="text" class="form-control" id="suppier_bank" placeholder="NOMBRE "  [(ngModel)]="employee.suppier_bank" name="suppier_bank" required="required">
+    </div>
+    <div class="form-group">
+      <label for="name">CLAVE INTERBANCARIA </label>
+      <input type="number" class="form-control" id="supplier_key_interbank" placeholder="33455"  [(ngModel)]="employee.supplier_key_interbank" name="supplier_key_interbank" required="required">
+  </div>
 
 
             <div class="form-group">

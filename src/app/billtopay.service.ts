@@ -84,6 +84,12 @@ export class Billtopayservice {
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_ADMIN_GET_ONE_USER/1.0/user/${id}`,{headers});
   }
 
+  getEmployeeListap(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_GET_BILLPROV/1.0/billprov`,{headers});
+  }
+
+  
 
 
 }

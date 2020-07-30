@@ -54,7 +54,7 @@ export class FacpayDetailsComponent implements OnInit {
 
 
     dsd(){
-      var windo = window.open("", "Factura");  
+      var windo = window.open("", "");  
       var objbuilder = '';
       objbuilder += ('<embed width=\'100%\' height=\'100%\'  src="data:application/pdf;base64,');
       objbuilder += (this.employee.bi_archivo);
@@ -62,6 +62,9 @@ export class FacpayDetailsComponent implements OnInit {
       windo.document.write(objbuilder); 
     }
   
+
+
+
   }
   
   

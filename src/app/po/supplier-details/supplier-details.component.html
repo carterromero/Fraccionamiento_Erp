@@ -19,14 +19,19 @@
             <label><b>GIRO: </b></label> {{employee.supplier_turn}}
           </div>
 
+          <div>
+            <label><b>CUENTA: </b></label> {{employee.supplier_account}}
+          </div>
+        
+          <div>
+            <label><b>BANCO: </b></label> {{employee.suppier_bank}}
+          </div>
+          <div>
+            <label><b>CLAVE : </b></label> {{employee.supplier_key_interbank}}
+          </div>
 
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Cuentas Bancarias</label>
-            <select  class="custom-select"  id="bank_accounts_id" required [(ngModel)]="employee.bank_accounts_id" name="bank_accounts_id" >
-            <option *ngFor="let address of cuentas | async" value="{{address.bank_accounts_id}}">{{address.bank_accounts_bank_account_number}}</option>
-             </select>
-           </div>
 
+          
           <div>
             <label><b>Estatus:  </b></label>
           <div class="custom-control custom-switch">
