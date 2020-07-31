@@ -47,7 +47,7 @@ export class FacpayDetailsComponent implements OnInit {
     gocv(){
       var windo = window.open("", "");  
       var objbuilder = '';
-      objbuilder += ('<embed width=\'100%\' height=\'100%\'  src="data:application/pdf;base64,');
+      objbuilder += ('<embed width=\'100%\' height=\'100%\'src="data:application/pdf;base64,');
       objbuilder += (this.employee.bilitoplay_arch);
       objbuilder += ('" type="application/pdf" />');
       windo.document.write(objbuilder); 
