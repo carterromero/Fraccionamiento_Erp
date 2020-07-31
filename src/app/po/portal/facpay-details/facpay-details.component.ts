@@ -46,7 +46,7 @@ export class FacpayDetailsComponent implements OnInit {
     gocv(){
       var windo = window.open("", "Factura");  
       var objbuilder = '';
-      objbuilder += ('<embed width=\'100%\' height=\'100%\'  src="data:application/pdf;base64,');
+      objbuilder += ('<embed width=\'100%\' height=\'100%\'  src="data:application/xml;base64,');
       objbuilder += (this.employee.bilitoplay_arch);
       objbuilder += ('" type="application/pdf" />');
       windo.document.write(objbuilder); 
@@ -56,7 +56,7 @@ export class FacpayDetailsComponent implements OnInit {
     dsd(){
       var windo = window.open("", "fac");  
       var objbuilder = '';
-      objbuilder += ('<embed width=\'100%\' height=\'100%\'  src="data:application/pdf;base64,');
+      objbuilder += ('<embed width=\'100%\' height=\'100%\'src="data:application/xml;base64,');
       objbuilder += (this.employee.bi_archivo);
       objbuilder += ('" type="application/pdf" />');
       windo.document.write(objbuilder); 

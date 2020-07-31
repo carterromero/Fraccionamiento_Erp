@@ -33,6 +33,9 @@ cliente_status :string;
 billtopay_table :string;
 
 
+
+
+
 rol_description :string;
     user_name :string ;
 
