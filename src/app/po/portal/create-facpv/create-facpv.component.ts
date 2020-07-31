@@ -15,13 +15,17 @@ import { ClientService } from 'src/app/client.service';
 import { Supplier } from 'src/app/supplier';
 import { SupplierService } from 'src/app/supplier.service';
 import { User } from 'src/app/services/admin/user';
-
+import { HttpHeaders } from '@angular/common/http';
+import { parseString } from 'xml2js';
+import xml2js from 'xml2js';  
+import { HttpClientModule }    from '@angular/common/http';
 @Component({
   selector: 'app-create-facpv',
   templateUrl: './create-facpv.component.html',
   styleUrls: ['./create-facpv.component.scss']
 })
 export class CreateFacpvComponent implements OnInit {
+  public xmlItems: any; 
   user: User = new User();
   id: number;
   creditor: Observable<BankAccounts[]>;
@@ -38,6 +42,7 @@ name : string;
   alertMessage = "null";
   alertMessages = "null";
   datos:String;
+  datoss:String;
   creditor_business_name:String;
   cliente_name_cliente :String;
   constructor(private employeeService: Billtopayservice,
@@ -207,17 +212,59 @@ reloadData6() {
     };
 }
 
+/*
+loadXML() {  
+  this.employee.bi_archivo = this.datos.replace("data:application/pdf;base64,","")
+  this._http.get('/assets/users.xml',  
+    {  
+      headers: new HttpHeaders()  
+        .set('Content-Type', 'text/xml')  
+        .append('Access-Control-Allow-Methods', 'GET')  
+        .append('Access-Control-Allow-Origin', '*')  
+        .append('Access-Control-Allow-Headers', "Access-Control-Allow-Headers, Access-Control-Allow-Origin, Access-Control-Request-Method"),  
+      responseType: 'text'  
+    })  
+    .subscribe((data) => {  
+      this.parseXML(data)  
+        .then((data) => {  
+          this.xmlItems = data;  
+        });  
+    });  
+}  
+parseXML(data) {  
+  return new Promise(resolve => {  
+    var k: string | number,  
+      arr = [],  
+      parser = new  xml2js.Parser(  
+        {  
+          trim: true,  
+          explicitArray: true  
+        });  
+    parser.parseString(data, function (err, result) {  
+      var obj = result.Employee;  
+      for (k in obj.emp) {  
+        var item = obj.emp[k];  
+        arr.push({  
+          id: item.id[0],  
+          name: item.name[0],  
+          gender: item.gender[0],  
+          mobile: item.mobile[0]  
+        });  
+      }  
+      resolve(arr);  
+    });  
+  });  
+}  
 
-
-
+*/
 handleUpload2(event) {
   const file = event.target.files[0];
   const reader = new FileReader();
   
   reader.readAsDataURL(file);
   reader.onload = () => {
-      this.datos = reader.result.toString();
-      this.employee.bi_archivo = this.datos.replace("data:application/xml;base64,","")
+      this.datoss = reader.result.toString();
+      this.employee.bi_archivo = this.datoss.replace("data:application/xml;base64,","")
     /*  this.employee.employees_contract = this.datos.replace("data:application/pdf;base64,","")*/
       event = this.employee.bi_archivo;
     /*  event = this.employee.employees_contract*/
