@@ -34,7 +34,7 @@ export class CreatePeriodsComponent implements OnInit {
    
   //  this.periods.condominums_id = localStorage.getItem('condominums');
     this.periods.createdBy = localStorage.getItem('id');  
-    this.periodsService.createPeriods(this.periods)
+    this.periodsService.createPeriod(this.periods)
     .subscribe(data => 
       {
         console.log(data);
@@ -62,15 +62,11 @@ export class CreatePeriodsComponent implements OnInit {
   
    
   
-     if(this.periods.periodsNumber =="" ||  this.periods.periodsNumber ==null ){
+     if(this.periods.periods_start_date =="" ||  this.periods.periods_start_date ==null ){
       this.alertDisable = false;
       this.alertMessage = "number incompleta";          
     }
   
-    else if(this.periods.periodsYear =="" ||  this.periods.periodsYear ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "año Incompleta";          
-    }
   
    
    

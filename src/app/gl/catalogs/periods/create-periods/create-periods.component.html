@@ -9,7 +9,7 @@
               <form name = "selectForm">
                 <p>
                   <label for="number">Perido numero</label>
-               <select  class="custom-select" id="periodsNumber"   [(ngModel)]="periods.periodsNumber" name="periodsNumber" required>
+               <select  class="custom-select" id="periods_number"   [(ngModel)]="periods.periods_number" name="periods_number" required>
                   <option selected></option>
                   <option value="1">uno</option>
                   <option value="2">dos</option>
@@ -23,6 +23,7 @@
                   <option value="10">diez</option>
                   <option value="11">once</option>
                   <option value="12">doce</option>
+                  <option value="13">trece</option>
                  
                 </select>
                 </p>
@@ -44,20 +45,52 @@
                     alert('Number of options selected: ' + howMany(document.selectForm.musicTypes))
                   });
                   </script>
+                  <form name = "selectForm">
+                    <p>
+                      <label for="number">Perido mes</label>
+                   <select  class="custom-select" id="periods_name"   [(ngModel)]="periods.periods_name" name="periods_name" required>
+                      <option selected></option>
+                      <option value="ENERO">1_ENERO</option>
+                      <option value="FEFRERO">2_FEFRERO</option>
+                      <option value="MARZO">3MARZO</option>
+                      <option value="ABRIL">4ABRIL</option>
+                      <option value="MAYO">5MAYO</option>
+                      <option value="JUNIO">6JUNIO</option>
+                      <option value="JULIO">7JULIO</option>
+                      <option value="AGOSTO">8AGOSTO</option>
+                      <option value="SEPTIEMBRE">9SEPTIEMBRE</option>
+                      <option value="OCTUBRE">10OCTUBRE</option>
+                      <option value="NOVIEMBRE">11NOVIEMBRE</option>
+                      <option value="DICIEMBRE">12DICIEMBRE</option>
+                      <option value="AGUSTE DEL MES">13AGUSTE DEL MES</option>
+                     
+                    </select>
+                    </p>
+                    
+                  </form>
              
-            
+             <div class="form-group">
+              <label for="name">Año</label>
+              <input width="1" type="number" min="2020" max="2023" class="form-control" id="periods_year" required [(ngModel)]="periods.periods_year" name="periods_year">
+          </div>    
+          
     
             <div class="form-group">
-                <label for="name">Año</label>
-                <input width="1" type="number" min="2020" max="2023" class="form-control" id="periodsYear" required [(ngModel)]="periods.periodsYear" name="periodsYear">
+                <label for="name">AGENDA PRIMER DIA DEL PERIODO</label>
+                <input width="1" type="date"  class="form-control" id="periods_start_date" required [(ngModel)]="periods.periods_start_date" name="periods_start_date">
             </div>    
+
+            <div class="form-group">
+              <label for="name">AGENDA ULTIMO DIA DEL PERIODO</label>
+              <input width="1" type="date"  class="form-control" id="periods_end_date" required [(ngModel)]="periods.periods_end_date" name="periods_end_date">
+          </div>  
             
                 
             <div class="form-group">
                 <label for="name">Estatus</label>
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input"  id="periodsStatus"  [(ngModel)]="periods.periodsStatus"     name="periodsStatus"   style="margin-left: 10px">
-                    <label class="custom-control-label" for="periodsStatus">Active</label>
+                    <input type="checkbox" class="custom-control-input"  id="periods_status"  [(ngModel)]="periods.periods_status"     name="periods_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="periods_status">Active</label>
                  </div>
             </div>
             <app-alert type="danger" [hidden]="alertDisable">dato repetido de validacion mes </app-alert> 
