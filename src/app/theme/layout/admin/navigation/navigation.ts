@@ -489,7 +489,7 @@ const NavigationItemss = [
                  id: 'rh-reports',
                 title: 'Reporte viviendas',
                 type: 'item',            
-                url: '/tagvivienda-list'
+                url: '/reservationsR-list'
               },
               {
                 id: 'rh-reports',
@@ -1352,7 +1352,7 @@ export class NavigationItem
                  id: 'rh-reports',
                 title: 'Reporte viviendas',
                 type: 'item',            
-                url: '/tagvivienda-list'
+                url: '/reservationsR-list'
               },
               {
                 id: 'rh-reports',
