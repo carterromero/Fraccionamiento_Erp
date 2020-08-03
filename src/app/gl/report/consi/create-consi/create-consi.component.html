@@ -3,7 +3,7 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <div class="col-md-6">
-        <app-card cardTitle="Crear " [options]="false">
+        <app-card cardTitle="Crear Conciliacion " [options]="false">
           <form (ngSubmit)="onSubmit()" >
            
             <div class="form-group">
@@ -79,7 +79,7 @@
               </div>
           </app-ui-modal>
             <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>          
-            <button [routerLink]="['/conciliacionp-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+            <button [routerLink]="['/consi-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
           </form>
         </app-card>
       </div>

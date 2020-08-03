@@ -4,22 +4,21 @@
       <app-card cardTitle="Crear cuenta Contables" [options]="false">
         <form (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="name">polizas cabecero id</label>
-            <select class="custom-select" id="journals_header_id" required [(ngModel)]="employee.journals_header_id"
-              name="journals_header_id">
-              <option *ngFor="let creditors of periods | async" value="{{creditors.periodsId}}">
-                {{creditors.periodsName}}{{creditors.periodsYear}}</option>
+            <label for="name">polizas</label>
+            <select class="custom-select" id="journals_header_id" required [(ngModel)]="employee.journals_header_id" name="journals_header_id">
+              <option *ngFor="let creditors of journa | async" value="{{creditors.journals_id}}">
+                {{creditors.journals_date}}{{creditors.journals_description}}</option>
             </select>
           </div>
 
+      
+
           <div class="form-group">
-            <label for="name">linea id</label>
-            <select for="name" class="custom-select" id="journals_accounts_line_id" required
-              [(ngModel)]="employee.journals_accounts_line_id" name="journals_accounts_line_id">
-              <option *ngFor="let Journalslin of Journalslin | async" value="{{Journalslin.journals_accounts_line_id}}">
-                {{Journalslin.journals_accounts_line_id}}</option>
+            <label for="exampleFormControlSelect1">CUENTA CONTABLE</label>
+            <select  class="custom-select"  id="journals_accounts_line_id" required [(ngModel)]="employee.journals_accounts_line_id" name="journals_accounts_line_id" >
+            <option *ngFor="let creditors of purcharsess | async" value="{{creditors.accounting_accounts_lines_id}}">{{creditors.accounting_accounts_lines_parent_1}}{{creditors.accounting_accounts_lines_parent_2}}{{creditors.accounting_accounts_lines_parent_3}}{{creditors.accounting_accounts_lines_children}}</option>
             </select>
-          </div>
+        </div> 
 
 
 
