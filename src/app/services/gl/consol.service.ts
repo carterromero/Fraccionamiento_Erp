@@ -19,6 +19,11 @@ export class ConsolService  {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_GL_REPORTE_TRANSACC/1.0/reporte_transacciones/${p_condominio_id},${p_periodo_id}`,{headers});
   }
+
+  getEmployeesa(p_condominio_id: number, p_periodo_id: number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_GL_REPORT_SALDO_BALANZ/1.0/reporte_saldo_balanza/${p_condominio_id},${p_periodo_id}`,{headers});
+  }
 //////////////////////
   updateEmployee(p_id: number, value: any): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
