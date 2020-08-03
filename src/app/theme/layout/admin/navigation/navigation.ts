@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import { Permissions } from 'src/app/services/admin/permissions';
+import { Permissions } from 'src/app/services/admin/Permissions';
 import { PermissionsService } from 'src/app/services/admin/permissions.service';
 
 export interface NavigationItem {
@@ -1259,6 +1259,21 @@ export class NavigationItem
             title: 'Pago',
             type: 'item',            
             url: '/payments-ar-list'
+            
+          },
+  
+        ]
+      },
+      { id: 'AR-report',
+          title: 'Report',
+          type: 'collapse',
+          icon: 'feather icon-monitor',
+          children: [
+          {
+            id: 'Report',
+            title: 'Reporte cliente',
+            type: 'item',            
+            url: '/resporte-ar-list'
             
           },
   

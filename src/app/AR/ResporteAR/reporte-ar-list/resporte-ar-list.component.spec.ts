@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResporteARListComponent } from './resporte-ar-list.component';
+import { ReporteARListComponent } from './resporte-ar-list.component';
 
-describe('ResporteARListComponent', () => {
-  let component: ResporteARListComponent;
-  let fixture: ComponentFixture<ResporteARListComponent>;
+describe('ReporteARListComponent', () => {
+  let component: ReporteARListComponent;
+  let fixture: ComponentFixture<ReporteARListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResporteARListComponent ]
+      declarations: [ ReporteARListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ResporteARListComponent);
+    fixture = TestBed.createComponent(ReporteARListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

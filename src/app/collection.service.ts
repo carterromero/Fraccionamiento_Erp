@@ -45,4 +45,9 @@ export class CollectionService {
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/GET_AR_COLLETION/1.0/customer`,{headers});
   }
 
+  getEmployeeRepo(p_collection_name_resident:string): Observable<any> {
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.username + ':' + this.password) })
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_AR_REPORT_ESTADO_CUENTA/1.0/reporte_estado_cuenta/${p_collection_name_resident}`, { headers });
+                  ///{p_collection_name_resident}  
+  }
 }
