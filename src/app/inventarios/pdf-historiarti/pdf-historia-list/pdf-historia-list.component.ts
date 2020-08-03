@@ -15,6 +15,7 @@ import { CategoriesService } from 'src/app/categories.service';
 import { PrecioarticuloService } from 'src/app/precioarticulo.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as jsPDF from 'jspdf'
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-pdf-historia-list',
@@ -52,15 +53,18 @@ export class PdfHistoriaListComponent implements OnInit {
   
     private router: Router) { }
 
-    imprimirLista(id:number){
+    imprimirLista()  : void{ 
+      if(this.general){ 
+        let element = document.getElementById('tenants'); 
+         console.log(element); 
+      }    
       
+      const doc = new jsPDF();
       
-      const doc = new jsPDF(id);
-      
-      doc.fromHTML(document.getElementById('from-informacion'), 10,10);;
+      doc.fromHTML(document.getElementById('tenants'), 10,10);;
       doc.save(['lista']);
       
-      console.log(id);
+      console.log();
   
       }
 
@@ -113,6 +117,41 @@ export class PdfHistoriaListComponent implements OnInit {
       
   }
 
+
+  
+      
+  exportExcelTenants(): void 
+  {   
+    if(this.general){ 
+    let element = document.getElementById('tenants'); 
+     console.log(element); 
+
+     //let options:JSON2SheetOpts  = {header: ['Tag Codigo', 'Nombre Completo', 'Número de vivienda','Activo / Inactivo','Entrada','Salida']};
+     const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element,{raw:true});
+
+     ws['!cols'] = [
+      {wpx: 150}, // "characters"
+      {wpx: 150}, // "pixels"
+      {wpx: 150},
+      {wpx: 80},
+      {wpx: 175},
+      {wpx: 175}
+      //{hidden: true} // hide column
+    ];
+
+     /* generate workbook and add the worksheet */
+     const wb: XLSX.WorkBook = XLSX.utils.book_new();
+     //console.log(wb);
+     //const wb: XLSX.WorkBook = { Sheets: {'data': ws}, SheetNames:['data']};
+     XLSX.utils.book_append_sheet(wb, ws, 'Tags de Viviendas');
+
+     /* save to file */
+     XLSX.writeFile(wb, 'Reporte_General_Articulos.xlsx',{type: "base64"});
+    }else{
+      console.log('Realice busqueda');
+    }
+    
+  }
 
   
   filtersget() {

@@ -29,6 +29,7 @@ export class DepartmentsListComponent implements OnInit {
       data => {
         console.log(data);
         this.departments = this.departmentService.getDepartmentList();
+        
       },
       error => {
         console.log(error);

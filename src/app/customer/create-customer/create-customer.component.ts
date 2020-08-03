@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './create-customer.component.html',
   styleUrls: ['./create-customer.component.scss']
 })
-
+/* tenans id list */
 export class CreateCustomerComponent implements OnInit {
 
   employee: Customer = new Customer();

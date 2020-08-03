@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-xl-12">
+    <app-card cardTitle=" REPORTE DEPARTAMENTOS " class="tableR">
+      <br>
+
+      <input type="text" required [(ngModel)]="Collections.p_collection_name_resident" class="custom-select"
+        name="filterPost" value="2020-01-01" min="2020-01-01" max="2030-12-31">
+
+      <select class="form-control" id="p_collection_name_resident" required
+        [(ngModel)]="Collections.p_collection_name_resident"
+        name="p_collection_name_resident">
+        <option *ngFor="let Collection of Collection | async" value="{{Collection.collection_name_resident}}">
+          {{Collection.collection_name_resident}}</option>
+      </select>
+
+      <button (click)="generate()" class="btn btn-outline-primary" style="margin-left: 10px">Generar pdf</button>
+      <button (click)="exportTableToExcel()" class="btn btn-outline-primary" style="margin-left: 10px">Generar
+        excel</button>
+
+      <div class="tableR" id="frmDepartment">
+        <br>
+        <table class="tableR">
+          <thead>
+            <tr>
+              <th>Mes</th>
+              <th>Monto </th>
+              <th>Concepto_Cobro </th>
+              <th>Num_Cobro</th>
+              <th>Status</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let Collectionsalida of Collectionsalida | async">
+              <td>{{Collectionsalida.created_by}} </td>
+              <td>{{Collectionsalida.collection_amount}} </td>
+              <td>{{Collectionsalida.collection_collection_concept}} </td>
+              <td>{{Collectionsalida.collection_id}} </td>
+              <td>{{Collectionsalida.collection_status}} </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+</div>
