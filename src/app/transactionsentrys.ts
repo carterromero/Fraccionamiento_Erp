@@ -16,14 +16,16 @@ export class TransactionsEntrys
     numero_trasaction_entrada :number;
     numero_trasaction_salidas : number;
     transaction_crea :string;
-    transaction_total : number;
-    transaction_cantidad : number;
-    attribute_1 : number;
-    attribute_2  : number;
+
+    purcharse_order_total : number;
+    purcharse_quantity_items : number;
+    articles_name_article : number;
+    purcharse_name  : number;
+
     attribute_3 : number;
     attribute_4 : number;
     attribute_5 : number;
-    purcharse_name : string ;
+    
     purcharse_id : string ;
     sub_inventarys_description: string;
     price_nombre: string;
