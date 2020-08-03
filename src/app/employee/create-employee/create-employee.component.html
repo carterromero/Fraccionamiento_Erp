@@ -131,6 +131,8 @@
           <label for="name">Uso CFDI</label>
           <input type="text" class="form-control" id="employees_use_CFDI" required [(ngModel)]="employee.employees_use_CFDI" name="employees_use_CFDI">
         </div> 
+        <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+        <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
           <button type="submit" class="btn btn-success">Submit</button>          
           <button [routerLink]="['/employee-list']" class="btn btn-danger" style="margin-left: 10px">Cancel</button>
         </form>
