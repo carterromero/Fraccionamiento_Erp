@@ -19,6 +19,16 @@ export class Historiaa  {
     inquilino_apellido_1 :string; 
     inquilino_apellido_2 : string; 
     
+    alto : number;
+    largo :number;
+    ancho : number;
+    categoria : string;
+    subcategoria : string;
+    precio_nomb : string;
+    precio : number;
+    activo : string;
+  
+    
 
 
 

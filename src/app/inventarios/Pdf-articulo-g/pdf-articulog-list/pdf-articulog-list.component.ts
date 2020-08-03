@@ -33,8 +33,8 @@ export class PdfArticulogListComponent implements OnInit {
   p_condominiuns_id:number;
   sub_inventario  : string;
   id: number;
+  //general: Observable<Historiaa[]>;
   general: Observable<Historiaa[]>;
-  filters: Observable<Historiaa[]>;
    Transaction : Observable<TransactionsEntrys[]>;
    Subinventarios :Observable<SubInventarys[]>;
    subcategorias :Observable<SubCategories[]>;
@@ -81,17 +81,6 @@ export class PdfArticulogListComponent implements OnInit {
         this.getsbusqueda();
    
       }
-
-
-
-
-
-
-
-
-
-
-
 
       
     exportExcelTenants(): void 
