@@ -18,6 +18,11 @@ export class Historiaa  {
     inquilino_nombre: string; 
     inquilino_apellido_1 :string; 
     inquilino_apellido_2 : string; 
+    
+
+
+
+
 
 
 
