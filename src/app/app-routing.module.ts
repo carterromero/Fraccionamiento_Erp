@@ -305,6 +305,7 @@ import { ConsiListComponent } from './gl/report/consi/consi-list/consi-list.comp
 import { CreateConsiComponent } from './gl/report/consi/create-consi/create-consi.component';
 import { CreateEntrysComponent } from './inventarios/transactions_entrys/create-entrys/create-Entrys.component';
 import { ReporteARListComponent } from './AR/ResporteAR/reporte-ar-list/resporte-ar-list.component';
+import { SaldovaListComponent } from './gl/report/saldova/saldova-list/saldova-list.component';
 //import { CreateTransactionsEntrysComponent } from './inventarios/transactions_entrys/create-transactions-entrys/create-transactions-entrys.component';
 
 
@@ -1039,6 +1040,17 @@ const routes: Routes = [
           {
             path: 'create-consi',
             loadChildren: () => import('./gl/report/consi/create-consi/create-consi.module').then(module => module.CreateConsiModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
+        component: SaldovaListComponent,
+        children: [
+          {
+            path: 'saldova-list',
+            loadChildren: () => import('./gl/report/saldova/saldova-list/saldova-list.module').then(module => module.SaldovaListModule)
           }
         ]
       },

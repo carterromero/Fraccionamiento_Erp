@@ -969,7 +969,7 @@ export class NavigationItem
           }   , 
           {
             id: 'accounts-list',
-            title: 'Contablilidad Cuentas',
+            title: 'Cuentas',
             type: 'item',            
             url: '/accounts-list'
             
@@ -1003,7 +1003,14 @@ export class NavigationItem
             type: 'item',            
             url: '/consi-list'
             
-          }                   
+          }  ,
+          {
+            id: 'saldova-list',
+            title: 'Reporte saldo balanza',
+            type: 'item',            
+            url: '/saldova-list'
+            
+          }                    
         ]
       }
     ] 

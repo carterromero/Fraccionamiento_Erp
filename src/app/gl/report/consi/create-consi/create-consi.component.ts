@@ -29,6 +29,7 @@ export class CreateConsiComponent implements OnInit {
   constructor(
     private employeeService: TranslService,
     private paymentRecordService: PaymentRecordService,
+  
     private accountsService: LinesService,
     private linesService: LinesService,
     private router: Router) { }
