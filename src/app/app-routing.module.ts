@@ -122,6 +122,7 @@ import { CreateTenantsComponent } from './RH/Inquilinos/create-tenants/create-te
 import { TenantsListComponent } from './RH/Inquilinos/tenants-list/tenants-list.component';
 import { UpdateTenantsComponent } from './RH/Inquilinos/update-tenants/update-tenants.component';
 import { TenantsDetailsComponent } from './RH/Inquilinos/tenants-details/tenants-details.component';
+import { ReleasesListComponent } from './admin/releases/releases-list/releases-list.component';
 
 import { CreateReservationsComponent } from './RH/Reservations/create-reservations/create-reservations.component';
 import { ReservationsListComponent } from './RH/Reservations/reservations-list/reservations-list.component';
@@ -248,7 +249,6 @@ import { UpdateStatusComponent } from './inventarios/status/update-status/update
 
 import { StatusPrecioarticuloListComponent } from './inventarios/status-precio/status-precioarticulo-list/status-precioarticulo-list.component';
 
-import { ReservationsReportListModule } from './RH/REPORTES/reservationsreport-list/reservationsreport-list.module';
 import { CreatePreciosComponent } from './inventarios/status-precio/create-precio/create-precios.component';
 
 import { AccolintypeListComponent } from './gl/catalogs/accolintype/accolintype-list/accolintype-list.component';
@@ -389,6 +389,26 @@ const routes: Routes = [
       },
       {
         path: '',
+        component: ReservationsreportListComponent,
+        children: [
+          {
+            path: 'reservationsR-list',
+            loadChildren: () => import('src/app/RH/REPORTES/reservationsreport-list/reservationsreport-list.module').then(module => module.ReservationsReportListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ReleasesListComponent,
+        children: [
+          {
+            path: 'list-releases',
+            loadChildren: () => import('src/app/admin/releases/releases-list/releases-list.module').then(module => module.ReleasesListModule)
+          }
+        ]
+      },
+      {
+        path: '',
         component: CreateContactsComponent,
         children: [
           {
@@ -464,16 +484,6 @@ const routes: Routes = [
           {
             path: 'tagvivienda-list',
             loadChildren: () => import('./RH/REPORTES/tagvivienda/tagvivienda-list/tagvivienda-list.module').then(module => module.TagviviendaListModule)
-          }
-        ]
-      },
-      {
-        path: '',
-        component: ReservationsreportListComponent,
-        children: [
-          {
-            path: 'reservationsreport-list',
-            loadChildren: () => import('./RH/REPORTES/reservationsreport-list/reservationsreport-list.module').then(module => module.ReservationsReportListModule)
           }
         ]
       },

@@ -24,6 +24,9 @@ export class PeriodsService {
   createPeriods(periods: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl+'/ERP_GL_PERIODS_INSERT/1.0/periods'}`, periods, this.httpOptions);
   }
+  createPeriod(periods: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl+'/ERP_GL_PERIODO_INSERTDA/1.0/periods'}`, periods, this.httpOptions);
+  }
 
   getPeriods(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl+'/ERP_GL_PERIODS_GET_BY_ID/1.0/periods'}/${id}`, this.httpOptions);
