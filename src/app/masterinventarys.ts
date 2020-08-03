@@ -12,4 +12,10 @@ export class MasterInventarys
     create_date : string;
     last_update_by : number;
     last_update_date :string;
+
+    sub_inventarys_tenants_id  : number;
+    sub_inventarys_identificador : string;
+    sub_inventarys_attribute1 : string;
+     sub_inventarys_attribute2 : string;
+      sub_inventarys_attribute3 : string;
 }

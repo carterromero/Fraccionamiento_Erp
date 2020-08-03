@@ -303,7 +303,8 @@ import { CreateFacpvComponent } from './po/portal/create-facpv/create-facpv.comp
 import { FacpayDetailsComponent } from './po/portal/facpay-details/facpay-details.component';
 import { ConsiListComponent } from './gl/report/consi/consi-list/consi-list.component';
 import { CreateConsiComponent } from './gl/report/consi/create-consi/create-consi.component';
-
+import { CreateEntrysComponent } from './inventarios/transactions_entrys/create-entrys/create-Entrys.component';
+//import { CreateTransactionsEntrysComponent } from './inventarios/transactions_entrys/create-transactions-entrys/create-transactions-entrys.component';
 
 
 
@@ -2718,9 +2719,21 @@ component: CreateTransfersComponent,
             loadChildren: () => import('./purcharse/create-purcharse/create-purcharse.module').then(module => module.PurcharseCreateModule)
           }
         ]
-      }
+      },
 
-      ,
+      ////INV-TRANSACIONES DE ENTRADA
+
+      {
+        path: '',
+        component: CreateEntrysComponent,
+        children: [
+          {
+            path: 'create-entrys',
+            loadChildren: () => import('./inventarios/transactions_entrys/create-entrys/create-entrys.module').then(module => module.CreateEntrysModule)
+          }
+        ]
+      },
+      
       {
         path: '',
         component: UpdatePurcharseComponent,

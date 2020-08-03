@@ -16,6 +16,8 @@ import { Pricearticulo } from 'src/app/pricearticles';
 import { PrecioarticuloService } from 'src/app/precioarticulo.service';
 import { FiltergA } from 'src/app/filterga';
 import { Historiaa } from '../../historiaa';
+import * as XLSX from 'xlsx';
+
 
 @Component({
   selector: 'app-pdf-articulog-list',
@@ -54,13 +56,22 @@ export class PdfArticulogListComponent implements OnInit {
   
     private router: Router) { }
 
-    imprimirLista(id:number){
-    const doc = new jsPDF(id);
+
+      
+
+    imprimirLista() : void{ 
+        if(this.general){ 
+          let element = document.getElementById('from-informacion'); 
+           console.log(element); 
+        }  
+
+      
+    const doc = new jsPDF();
       
       doc.fromHTML(document.getElementById('from-informacion'), 10,10);;
       doc.save(['lista']);
       
-      console.log(id);
+      console.log();
   
       }
 
@@ -70,6 +81,52 @@ export class PdfArticulogListComponent implements OnInit {
         this.getsbusqueda();
    
       }
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    exportExcelTenants(): void 
+    {   
+      if(this.general){ 
+      let element = document.getElementById('tenants'); 
+       console.log(element); 
+
+       //let options:JSON2SheetOpts  = {header: ['Tag Codigo', 'Nombre Completo', 'Número de vivienda','Activo / Inactivo','Entrada','Salida']};
+       const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element,{raw:true});
+
+       ws['!cols'] = [
+        {wpx: 150}, // "characters"
+        {wpx: 150}, // "pixels"
+        {wpx: 150},
+        {wpx: 80},
+        {wpx: 175},
+        {wpx: 175}
+        //{hidden: true} // hide column
+      ];
+
+       /* generate workbook and add the worksheet */
+       const wb: XLSX.WorkBook = XLSX.utils.book_new();
+       //console.log(wb);
+       //const wb: XLSX.WorkBook = { Sheets: {'data': ws}, SheetNames:['data']};
+       XLSX.utils.book_append_sheet(wb, ws, 'Tags de Viviendas');
+
+       /* save to file */
+       XLSX.writeFile(wb, 'Reporte_General_Articulos.xlsx',{type: "base64"});
+      }else{
+        console.log('Realice busqueda');
+      }
+			
+    }
+
   
 
       //subinventario

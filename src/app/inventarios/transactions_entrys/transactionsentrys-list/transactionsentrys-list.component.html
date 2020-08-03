@@ -1,38 +1,38 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle="Transacción de Entradas" blockClass="table-border-style">      
-        <button [routerLink]="['/create-master']" class="btn btn-outline-info">Agregar Transacción de Entrada</button><br>
+        <button [routerLink]="['/create-entrys']" class="btn btn-outline-info">Agregar Transacción de Entrada</button><br>
         <br>
         <div class="table-responsive">
           <table class="table">
             <thead>
-                <tr>     
-                  <th>Id Articulo </th>         
+                <tr>   
+                  
+                  <th>Tipo de transaccion</th>
+                          
                     <th>Articulo</th>
-                    <th>Estus de articulo</th>
-                    <th>Entrada de Fraccionamiento</th>
-                    <th>Fraccionamiento de Entrada</th>
-                    <th>Tipo de transaccion</th>
-                    <th>Costo de transación</th>
-                    <th>Subcategoría</th>
-                    <th>Conceptos de Colección</th>
+                  
+                    <th>Concepto</th>
                     
+                    
+                    
+                    <th>SubInventario</th>
+                    <th>Costo de Transacción</th>
 
-                    <th>Condominio de Entrada</th>
-                    <th>Costo</th>
-                    <th></th>
-                    <th>Estatus</th>
-                    <th>Acciones</th>
+                    <th>Tipo de Precio</th>
+                    <th>Estatus de articulo</th>
                   </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                    <td>{{general.transactions_entrys_name_article}}</td>
-                    <td>{{general.transactions_entrys_fractionation}}</td>
-                    <td>{{general.transactions_entrys_condominium}}</td>
+                  <td>{{general.tipo_transation}}</td>
+                    <td>{{general.articles_name_article}}</td>   
+                 
+                    <td>{{general.purcharse_name}} & {{general.purcharse_id}} </td>
+                    <td>{{general.sub_inventarys_description}}</td>
                     <td>{{general.transactions_entrys_cost}}</td>
-
-
+                    <td>{{general.price_nombre}}</td> 
+                    <td>{{general.status_name}}</td>
                     
                     <td>
                         <div class="custom-control custom-switch">

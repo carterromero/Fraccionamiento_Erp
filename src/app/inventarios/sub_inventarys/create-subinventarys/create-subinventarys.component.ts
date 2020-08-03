@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SubInventarys } from 'src/app/subinventarys';
 import { SubInventarysService } from 'src/app/subinventarys.service';
 import { Router } from '@angular/router';
+import { MasterInventarys } from 'src/app/masterinventarys';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-subinventarys',
@@ -9,18 +11,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-subinventarys.component.scss']
 })
 export class CreateSubinventarysComponent implements OnInit {
-
+  master: Observable<MasterInventarys[]>;
   employee: SubInventarys = new SubInventarys();
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
+
   constructor(private employeeService: SubInventarysService,
     private router: Router) { }
 
   ngOnInit() {
+    this.reloadDatass();
   }
+ 
 
   newEmployee(): void {
     this.employee = new SubInventarys();
@@ -46,7 +51,29 @@ export class CreateSubinventarysComponent implements OnInit {
       });
   }
 
-  onSubmit() 
+
+  reloadDatass() 
+  {
+
+    this.employeeService.getEmployeeLisMaster(1).subscribe(
+      data => {
+        console.log(data);
+        this.master = this.employeeService.getEmployeeLisMaster(1);
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+  
+ 
+
+  onSubmit()
   {
 
   this.alertDisable = true;
