@@ -56,28 +56,19 @@
           id="sub_inventario"   name="sub_inventario"
           class="form-control mr-sm-2" type="text" placeholder="subinventario"  >
 
-         
-
           <!--<div class="form-group">
             <label for="exampleFormControlSelect1">Subinventario</label>
             <select  class="custom-select" id="sub_inventario" required [(ngModel)]="filter.sub_inventario" name="sub_inventario"  >
             <option *ngFor="let filter of Subinventarios | async" value="{{filter.sub_inventario}}">{{filter.sub_inventarys_description}}</option>
             </select>
             </div>!-->
-            
-           
-          
+
         
           <button type="submit" class="btn btn-outline-success">Buscar subinventario</button> 
           <button type="button"  (click)="reloadData()" class="btn btn-outline-info" style="margin-left: 10px">Refrescar</button>  
-        </div>
-   
-       
+        </div>  
 
       </form>
-      
-      
-
       <div class="table-responsive"   id="from-informacion">
         <table class="table" id="tenants"  >
           <thead>
@@ -95,6 +86,7 @@
                   <th>Precio  Estatus </th>
                 </tr>
           </thead>
+
           <tbody>
               <tr *ngFor="let general of general | async">
                 <td>{{general.articles_sku}} </td>

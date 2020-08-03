@@ -9,6 +9,7 @@
               <tr>      
 
                   <th>Articulo Nombre</th>
+                  <th>SKU</th>
                   <th>Numero de articulo</th>
                   <th>Articulo Descripción</th>
                   <th>Unidad de Medida</th>
@@ -33,7 +34,7 @@
           <tbody>
               <tr *ngFor="let general of general | async">
                   <td>{{general.articles_name_article}} </td>
-                  <td>{{general.articles_sku}} </td>
+                  <td>{{general.articulo_sku}} </td>
                   <td>{{general.articles_description}}</td>
                   <td>{{general.of_measuares_description}}</td>
 
