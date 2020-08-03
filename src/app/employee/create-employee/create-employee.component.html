@@ -23,6 +23,10 @@
             <label for="name">Teléfono</label>
             <input type="number" class="form-control" id="employees_telephone" required [(ngModel)]="employee.employees_telephone" name="employees_telephone" oninput="if(value.length>11)value=value.slice(0,10)">
           </div> 
+          <div class="form-group">
+            <label for="name">Correo</label>
+            <input type="email" class="form-control" id="employees_email" required [(ngModel)]="employee.employees_email" name="employees_email" >
+          </div> 
           <div class="custom-file">
             <input type="file" alife-file-to-base  (change)="handleUpload($event)" class="custom-file-input"  id="employee.employees_cv"   name="employees_cv">
             <label class="custom-file-label" for="validatedCustomFile">Elegir CV ...</label>

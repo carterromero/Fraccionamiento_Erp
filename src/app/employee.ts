@@ -34,6 +34,7 @@ export class Employee {
     pr_receipt_base_salary: number;
     pr_receipt_type_of_perception: string;
     employees_telephone: string;
+    employees_email: string;
     create_by: number;
     last_update_by : number;
 }
