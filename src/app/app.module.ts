@@ -30,6 +30,10 @@ import { AngularFireModule } from '@angular/fire';
 import { MessagingService } from './messaging.service';
 import { environment } from '../environments/environment';
 import { AsyncPipe } from '../../node_modules/@angular/common';
+import { CreateCommentsComponent } from './admin/releases/comments/create-comments/create-comments.component';
+import { CommentsListComponent } from './admin/releases/comments/comments-list/comments-list.component';
+import { CommentsDetailsComponent } from './admin/releases/comments/comments-details/comments-details.component';
+import { UpdateCommentsComponent } from './admin/releases/comments/update-comments/update-comments.component';
 
 
 
@@ -51,6 +55,14 @@ import { AsyncPipe } from '../../node_modules/@angular/common';
     ConfigurationComponent,
 
     ToggleFullScreenDirective,
+
+    CreateCommentsComponent,
+
+    CommentsListComponent,
+
+    CommentsDetailsComponent,
+
+    UpdateCommentsComponent,
 
 
 
