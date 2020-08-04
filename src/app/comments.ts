@@ -1,4 +1,4 @@
-export class comments {
+export class Comments {
     id_comments: number;
     releases_comments: string;
     releasesC_status: string;
