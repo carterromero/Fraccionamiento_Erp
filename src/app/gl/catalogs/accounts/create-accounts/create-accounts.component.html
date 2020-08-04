@@ -20,7 +20,7 @@
             <div class="form-group">
               <label for="exampleFormControlSelect1"> periodos id</label>
               <select  class="custom-select"  id="journals_periods_id" required [(ngModel)]="employee.accounting_accounts_period_id" name="accounting_accounts_period_id" >
-              <option *ngFor="let creditors of periods | async" value="{{creditors.periodsId}}">{{creditors.periodsName}}{{creditors.periodsYear}}</option>
+              <option *ngFor="let creditors of periods | async" value="{{creditors.periodsId}}">{{creditors.periodsName}}/{{creditors.periodsYear}}</option>
               </select>
           </div>
 
