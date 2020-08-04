@@ -7,14 +7,19 @@
           <table class="table">
             <thead>
                 <tr>              
-                    <th>Nombre Sub Categoria</th>
-                    <th>Identificador  Categoria</th>
+                    <th>Nombre SubCategoria</th>
+                    
+                  
+                    <th>Identificador SubCategoria</th>
+                    <th>Categoría </th>
                     <th>Estatus </th>
+                    
                     <th>Acciones</th>
                   </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
+                    <td>{{general.sub_categories_identificador}} </td>
                     <td>{{general.sub_categories_name}} </td>
                     <td>{{general.categories_name}}</td>
                     
