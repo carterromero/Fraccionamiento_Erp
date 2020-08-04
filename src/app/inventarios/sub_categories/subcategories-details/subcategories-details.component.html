@@ -7,10 +7,13 @@
 
           <div class="form-group">
             <label for="name">Categoria Nombre:</label>
-            {{employee.sub_categories_name}}
+            {{employee.sub_categories_identificador}}
           </div> 
 
-
+          <div class="form-group">
+            <label for="name">Identificador:</label>
+            {{employee.sub_categories_name}}
+          </div> 
           <div class="form-group">
             <label for="exampleFormControlSelect1">Identicador Categoria</label>
             <select  disabled class="custom-select"  id="inv_categories_id" required [(ngModel)]="employee.inv_categories_id" name="inv_categories_id" >

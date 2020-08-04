@@ -9,4 +9,5 @@ export class SubCategories
     create_date : string;
     last_update_by : number;
     last_update_date :string;
+    sub_categories_identificador : string;
 }

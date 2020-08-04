@@ -75,11 +75,11 @@ export class CreateSubcategoriesComponent implements OnInit {
   this.alertDisables = true;
   if(this.employee.sub_categories_name =="" ||  this.employee.sub_categories_name ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Descripción Incompleto";          
+    this.alertMessage = "Nombre Subcategoria Incompleto";          
   }
   else if(this.employee.inv_categories_id =="" ||  this.employee.inv_categories_id ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Sub Categoria Incompleta";          
+    this.alertMessage = "Categoria Incompleta";          
   }
   else{
     this.save();    
