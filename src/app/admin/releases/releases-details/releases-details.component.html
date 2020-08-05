@@ -1,0 +1,27 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Detalles de aviso" [options]="false">
+        <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+        <div *ngIf="release">
+          <div>
+            <label><b>Fecha: </b></label> {{release.releases_date| date:'medium' }}
+          </div>         
+          <div>
+            <label><b>Asunto</b></label> {{release.releases_subject}}
+          </div>
+          <div>
+            <label><b>Adjunto: </b></label><img [src]="release.releases_attached">
+           </div>
+          <div>
+            <label><b>Estatus:  </b></label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" disabled class="custom-control-input"  id="releases_status"       name="releases_status"   style="margin-left: 10px" [checked]="release.releases_status == 'true'">
+                <label class="custom-control-label" for="releases_status">Activo</label>
+             </div>
+              </div>
+
+        </div>
+        <button [routerLink]="['/releases-list']" class="btn btn-primary">Regresar a avisos</button><br>
+      </app-card>
+      </div>
+  </div>

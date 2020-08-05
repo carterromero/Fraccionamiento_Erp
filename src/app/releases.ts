@@ -1,4 +1,4 @@
-export class releases {
+export class Releases {
     releases_id: number;
     releases_date: Date;
     releases_subject: string;
@@ -8,4 +8,5 @@ export class releases {
     last_update_by: number;
     creation_date: Date;
     last_update_date:Date;
+    id_condominiums: number;
 }

@@ -940,6 +940,12 @@ export class NavigationItem
                 title: 'Usuarios',
                 type: 'item',            
                 url: '/usuarios-list' 
+              },
+              {
+                id: 'Avisos',
+                title: 'Aviso',
+                type: 'item',            
+                url: '/list-releases' 
               }
             ]
           }

@@ -94,6 +94,11 @@ import { CreateUserComponent } from './admin/user/create-user/create-user.compon
 import { UserDetailsComponent } from './admin/user/user-details/user-details.component';
 import { UserListComponent } from './admin/user/user-list/user-list.component';
 import { UpdateUserComponent } from './admin/user/update-user/update-user.component';
+import { CreateReleasesComponent } from './admin/releases/create-releases/create-releases.component';
+import { ReleasesListComponent } from './admin/releases/releases-list/releases-list.component';
+import { UpdateReleasesComponent } from './admin/releases/update-releases/update-releases.component'
+import { ReleasesDetailsComponent } from './admin/releases/releases-details/releases-details.component'
+
 
 import { CreateBankAccountsComponent } from './treasury/bankAccounts/create-bank-accounts/create-bank-accounts.component';
 import { BankAccountsDetailsComponent } from './treasury/bankAccounts/bank-accounts-details/bank-accounts-details.component';
@@ -122,7 +127,6 @@ import { CreateTenantsComponent } from './RH/Inquilinos/create-tenants/create-te
 import { TenantsListComponent } from './RH/Inquilinos/tenants-list/tenants-list.component';
 import { UpdateTenantsComponent } from './RH/Inquilinos/update-tenants/update-tenants.component';
 import { TenantsDetailsComponent } from './RH/Inquilinos/tenants-details/tenants-details.component';
-import { ReleasesListComponent } from './admin/releases/releases-list/releases-list.component';
 
 import { CreateReservationsComponent } from './RH/Reservations/create-reservations/create-reservations.component';
 import { ReservationsListComponent } from './RH/Reservations/reservations-list/reservations-list.component';
@@ -406,6 +410,36 @@ const routes: Routes = [
           {
             path: 'list-releases',
             loadChildren: () => import('src/app/admin/releases/releases-list/releases-list.module').then(module => module.ReleasesListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateReleasesComponent,
+        children: [
+          {
+            path: 'create-releases',
+            loadChildren: () => import('src/app/admin/releases/create-releases/create-releases.module').then(module => module.CreateReleasesModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: ReleasesDetailsComponent,
+        children: [
+          {
+            path: 'releases-detail/:id',
+            loadChildren: () => import('src/app/admin/releases/releases-details/releases-details.module').then(module => module.ReleasesDetailsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: UpdateReleasesComponent,
+        children: [
+          {
+            path: 'update-releases/:id',
+            loadChildren: () => import('src/app/admin/releases/update-releases/update-releases.module').then(module => module.UpdateReleasesModule)
           }
         ]
       },
