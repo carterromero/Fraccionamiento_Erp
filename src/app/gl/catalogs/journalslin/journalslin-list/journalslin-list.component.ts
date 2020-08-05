@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./journalslin-list.component.scss']
 })
 export class JournalslinListComponent implements OnInit {
-
  
   general: Observable<Journalslin[]>;
   alertDisable = true;
@@ -28,9 +27,9 @@ export class JournalslinListComponent implements OnInit {
   
   reloadData() {
     
-    this.generalService.getEmployeeList().subscribe(
+    this.generalService.getEmployeeListsc().subscribe(
       data => {
-        this.general = this.generalService.getEmployeeList();
+        this.general = this.generalService.getEmployeeListsc();
       },
       error => {
         console.log(error);

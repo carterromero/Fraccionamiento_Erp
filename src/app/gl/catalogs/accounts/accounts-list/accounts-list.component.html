@@ -13,10 +13,10 @@
             <thead>
             <tr>    
               <th> id cuenta</th> 
-              <th> id Condominio</th>         
+                    
               <th>Condominio descripcion</th>
               <th>codigo de moneda </th>
-              <th>periodo id</th>
+              
               <th>nombre de periodo</th>
               <th>año fiscal</th>
               <th>Estatus </th>
@@ -27,10 +27,10 @@
                 <tr *ngFor="let general of general | async">
                   
                   <td>{{general.accounting_accounts_id}}</td>
-                    <td>{{general.accounting_accounts_condominums_id}}</td>
+                    
                     <td>{{general.condominums_description}}</td>
                     <td>{{general.accounting_accounts_currency_code}}</td>
-                    <td>{{general.accounting_accounts_period_id}}</td>
+                   
                     <td>{{general.periods_name}}</td>
                     <td>{{general.accounting_accounts_fiscal_year}}</td>
                     

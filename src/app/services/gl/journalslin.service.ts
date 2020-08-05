@@ -41,4 +41,8 @@ export class JournalslinService  {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_GL_GET_ALL_JOURN_LINES/1.0/journals_lines`,{headers});
   }
+  getEmployeeListsc(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_GL_LISTA_CUENTA/1.0/jo`,{headers});
+  }
 }

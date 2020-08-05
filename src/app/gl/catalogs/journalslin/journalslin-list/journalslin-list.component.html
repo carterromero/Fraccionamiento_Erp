@@ -13,8 +13,11 @@
           <table class="table">
             <thead>
             <tr>     
-              <th> id cabecero</th>         
-              <th>cuentas_línea_id </th>
+        
+              <th>descripcion del poliza</th>
+              <th>fecha del poliza</th>
+              <th>numero de cuenta </th>
+              <th>descripcion cuenta </th>
               <th>debe</th>
               <th>haber</th>
               <th>Estatus </th>
@@ -24,8 +27,11 @@
             <tbody>
                 <tr *ngFor="let general of general | async">
                     
-                    <td>{{general.journals_header_id}}</td>
-                    <td>{{general.journals_accounts_line_id}}</td>
+                  
+                    <td>{{general.journals_description}}</td>
+                    <td>{{general.journals_date}}</td>
+                    <td>{{general.cuenta}}</td>
+                    <td>{{general.accounting_accounts_lines_description}}</td>
                     <td>{{general.journals_lines_debe}}</td>
                     <td>{{general.journals_lines_haber}}</td>
     

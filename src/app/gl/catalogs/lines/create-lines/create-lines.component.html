@@ -8,7 +8,7 @@
             <div class="form-group">
               <label for="exampleFormControlSelect1"> cuenta id</label>
               <select  class="custom-select"  id="accounting_accounts_id" required [(ngModel)]="employee.accounting_accounts_id" name="accounting_accounts_id" >
-              <option *ngFor="let creditors of cuenta | async" value="{{creditors.accounting_accounts_id}}">{{creditors.accounting_accounts_id}}{{creditors.condominums_description}}{{creditors.periods_name}}</option>
+              <option *ngFor="let creditors of cuenta | async" value="{{creditors.accounting_accounts_id}}">{{creditors.condominums_description}}/{{creditors.periods_name}}</option>
               </select>
           </div>
 
