@@ -5,6 +5,7 @@ import { ReleasesService } from 'src/app/releases.service';
 import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 
+
 @Component({
   selector: 'app-releases-list',
   templateUrl: './releases-list.component.html',
@@ -19,7 +20,7 @@ export class ReleasesListComponent implements OnInit {
   alertMessage = "null";
   alertMessages = "null";
  condo : number;
-  constructor(private releasesService: ReleasesService, private _sanitizer: DomSanitizer,
+  constructor(private releasesService: ReleasesService, private _sanitizer: DomSanitizer, 
     private router: Router) { }
 
   ngOnInit(): void {
@@ -80,6 +81,13 @@ export class ReleasesListComponent implements OnInit {
   updateRelease(id: number){
     this.router.navigate(['update-releases', id]);
   }
+
+  createComments(id: number){
+    this.router.navigate(['create-comments', id]);
+  }
+
+  
+
 
 
 }
