@@ -3,16 +3,8 @@
         <app-card cardTitle="Cobro" blockClass="table-border-style">
             <button [routerLink]="['/create-collection']" class="btn btn-outline-primary">Agregar Cobro</button>
             <button [routerLink]="['/conciliacion-ar-list']" class="btn btn-outline-primary">Contabilidad</button>
-            
-            <div class="form-group">
-                        <label for="name">Dirección</label>
-                        <input type="text" class="form-control" id="p_collection_name_resident"
-                            [(ngModel)]="Collections.p_collection_name_resident" name="p_collection_name_resident" required>
-                    </div>
-                    <button type="submit" class="btn btn-success" (click)="generate()"
-                                style="margin-left: 10px">imprimir</button>
+            <button [routerLink]="['/collection-repo-list']" class="btn btn-outline-primary">Reporte</button>
             <div class="table-responsive">
-                
                 <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
                 <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
                 <table class="table">
