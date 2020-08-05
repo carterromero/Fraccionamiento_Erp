@@ -68,7 +68,7 @@ export class CreatePurcharseComponent implements OnInit {
     this.reloadDatas();
     this.reloadDatass();
     this.reloadDatasss();
-    this.reloadDatassss();
+    //this.reloadDatassss();
     this.users();
 
   }
@@ -92,7 +92,7 @@ export class CreatePurcharseComponent implements OnInit {
       }
     );      
   }
-  reloadDatass() 
+  reloadDatass()
   {
 
     this.paymentService.getEmployeeListcombo().subscribe(
@@ -137,7 +137,7 @@ export class CreatePurcharseComponent implements OnInit {
 
 
     this.employee.admin_condominiuns_id=localStorage.getItem('condominums');
-    this.reloadDatas();
+   // this.reloadDatas();
    
     this.employee.admin_condominiuns_id=localStorage.getItem('condominums');
     this.employee.p_condominiuns_id=parseInt(localStorage.getItem('condominums'));
@@ -149,11 +149,14 @@ export class CreatePurcharseComponent implements OnInit {
            console.log(data);
            this.employee = data;
            
+           this.alertDisable = true;
+           
          },
          error => {
            console.log(error);
            let coins = [];
            for (let key in error) {
+             console.log("Error");
              this.alertMessage = error['statusText'];          
            }
          }
@@ -170,7 +173,7 @@ this.reloadData3()
 
  
 
-  reloadDatassss() 
+ /* reloadDatassss() 
   {
 
     this.employeeService.getEmployeeListcomboC().subscribe(
@@ -188,7 +191,7 @@ this.reloadData3()
       }
     );      
   }
-
+*/
 
   save()
    {
@@ -215,7 +218,7 @@ this.reloadData3()
       });
 
 
-
+      
   }
 
 
@@ -244,14 +247,11 @@ this.reloadData3()
   {
   this.alertDisable = true;
   this.alertDisables = true;
-  if(this.employee.purcharse_order_categories_id =="" ||  this.employee.purcharse_order_categories_id ==null ){
-    this.alertDisable = false;
-            
-  }
   
-  else{
+  
+  
     this.save();    
-  } 
+   
   }
 
   gotoList() 

@@ -10,42 +10,44 @@
           <thead>
           <tr>         
             
-            <th>Id de la Orden  </th>
+            <th>FOLIO  </th>
         
             <th>ARTICULO </th>
+            <th>Descripcion Articulo </th>
+            <th> Precio Articulos </th>
+            <th> SKU </th>
             <th>Proveedor</th>
             <th>Termino de pago</th>
-            
             <th> Cantidad de articulos </th>
-            <th> Precio Articulos </th>
             <th>Total de orden</th>
+          
             <th>FECHA DE CREACION</th>
-            <th>CATEGORIA</th>
-            <th>Solicitante</th>
-           
             <th>Estatus</th>
             <th>Transaccion</th>
             
             
-
+            
             <th>#</th>
           </tr>
           </thead>
           <tbody>
               <tr *ngFor="let general of general | async">
-                 
-                <td>{{general.purcharse_id}}</td>
-                <td>{{general.articles_name_article}}</td> 
+                <td>{{general.purcharse_folio}}</td> 
+             
+                <td>{{general.articles_name_article}}</td>
+                <td>{{general.articles_description}}</td>
+                <td>{{general.articles_articles_price}}</td>
+                <td>{{general.articulo_sku}}</td>
                 <td>{{general.supplier_name}}</td>
                 <td>{{general.payment_description}}</td>
                 <td>{{general.purcharse_quantity_items}}</td>
-                <td>{{general.articles_prices}}</td>
+                
                 <td>{{general.purcharse_order_total}}</td>
+                
                 <td>{{general. purcharse_address}}</td>
-                <td>{{general.categories_name}}</td>  
-                <td>{{user.user_name}}</td>
-               
-                  
+                 
+                
+                
                   <td>
                       <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" [checked]="general.purcharse_status == 'true'">

@@ -8,12 +8,13 @@ export class Purcharse {
     purcharse_address : number;
     purcharse_quantity_items : number;
     sku : number;
-    articles_prices : number;
+    articles_articles_price : string; 
     purcharse_order_total :  Number;
     purcharse_status :string;
     purcharse_order_creation_date :string;
     create_date :string;
     last_update_by : string;
+    articles_prices : number;
     last_update_date :string;
     admin_condominiuns_id : string;
     userid : string;
@@ -27,12 +28,20 @@ export class Purcharse {
     user_name :string ;
     articles_description : string ;
     articulo_sku : string;
-    articles_articles_price :string;
+    
     purcharse_folio : string ;
     p_condominiuns_id: number;
    id  : number;
    articles_sku : number;
     create_by :  number;
    
+    created_date : string;
+    
+    supplier_name :string;
    
+    articles_name_article : string;
+    condominums_description : string;
+    payment_description : string;
+    legals_address : string;
+    
 }
