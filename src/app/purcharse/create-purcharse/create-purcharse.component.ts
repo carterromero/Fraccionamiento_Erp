@@ -27,7 +27,7 @@ import { TenantsService } from 'src/app/tenants.service';
 })
 export class CreatePurcharseComponent implements OnInit {
   id: number;
-  p_condominiuns_id:number;
+  
   name : string;
   user: User = new User();
   authentication: User = new User(); 
@@ -70,6 +70,7 @@ export class CreatePurcharseComponent implements OnInit {
     this.reloadDatasss();
     this.reloadDatassss();
     this.users();
+
   }
 
   reloadDatas() 
@@ -129,6 +130,7 @@ export class CreatePurcharseComponent implements OnInit {
     );      
   }
 
+  
 
   reloadData3() {
     // this.name = this.route.firstChild.snapshot.params['name']
@@ -136,9 +138,10 @@ export class CreatePurcharseComponent implements OnInit {
 
     this.employee.admin_condominiuns_id=localStorage.getItem('condominums');
     this.reloadDatas();
-    this.id = this.route.firstChild.snapshot.params['id']
-    this.p_condominiuns_id=parseInt(localStorage.getItem('condominums'));
-    this.employeeService.getEOneAricleButton(this.id,this.p_condominiuns_id)
+   
+    this.employee.admin_condominiuns_id=localStorage.getItem('condominums');
+    this.employee.p_condominiuns_id=parseInt(localStorage.getItem('condominums'));
+    this.employeeService.getEOneAricleButton(this.employee.sku,this.employee.p_condominiuns_id)
  
   //  this.name = this.route.firstChild.snapshot.params['name']
      //  this.employeeService.getEOneAricleButton(this.employee.purcharse_id)

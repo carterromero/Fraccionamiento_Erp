@@ -63,10 +63,7 @@ export class CreateAccolintypeComponent implements OnInit {
     this.alertMessage = "nombre incompleta ";          
   }
 
-  else if(this.employee.accounting_accounts_types_description =="" ||  this.employee.accounting_accounts_types_description ==null ){
-    this.alertDisable = false;
-    this.alertMessage = "descripcion Incompleta";          
-  }
+ 
 
   else{
     this.save();    

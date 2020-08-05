@@ -29,8 +29,8 @@ export class Purcharse {
     articulo_sku : string;
     articles_articles_price :string;
     purcharse_folio : string ;
-    
-   
+    p_condominiuns_id: number;
+   id  : number;
    
     create_by :  number;
    

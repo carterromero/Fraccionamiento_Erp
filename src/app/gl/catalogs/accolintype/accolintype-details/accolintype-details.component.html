@@ -5,15 +5,11 @@
         <div *ngIf="employee">
 
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
-          <div>
-            <label><b> id tipo </b></label> {{employee.accounting_accounts_types_id}}
-          </div>
+          
           <div>
             <label><b>nombre de tipo </b></label> {{employee.accounting_accounts_types_name}}
           </div>
-          <div>
-            <label><b>descripcion </b></label> {{employee.accounting_accounts_types_description}}
-          </div>
+         
          
 
 

@@ -8,7 +8,7 @@
             
               <form name = "selectForm">
                 <p>
-                  <label for="number">Perido numero</label>
+                  <label for="number">Número del Periodo</label>
                <select  class="custom-select" id="periods_number"   [(ngModel)]="periods.periods_number" name="periods_number" required>
                   <option selected></option>
                   <option value="1">uno</option>
@@ -47,22 +47,22 @@
                   </script>
                   <form name = "selectForm">
                     <p>
-                      <label for="number">Perido mes</label>
+                      <label for="number">Mes del periodo</label>
                    <select  class="custom-select" id="periods_name"   [(ngModel)]="periods.periods_name" name="periods_name" required>
                       <option selected></option>
-                      <option value="ENERO">1_ENERO</option>
-                      <option value="FEFRERO">2_FEFRERO</option>
-                      <option value="MARZO">3MARZO</option>
-                      <option value="ABRIL">4ABRIL</option>
-                      <option value="MAYO">5MAYO</option>
-                      <option value="JUNIO">6JUNIO</option>
-                      <option value="JULIO">7JULIO</option>
-                      <option value="AGOSTO">8AGOSTO</option>
-                      <option value="SEPTIEMBRE">9SEPTIEMBRE</option>
-                      <option value="OCTUBRE">10OCTUBRE</option>
-                      <option value="NOVIEMBRE">11NOVIEMBRE</option>
-                      <option value="DICIEMBRE">12DICIEMBRE</option>
-                      <option value="AGUSTE DEL MES">13AGUSTE DEL MES</option>
+                      <option value="ENERO">ENERO</option>
+                      <option value="FEFRERO">FEFRERO</option>
+                      <option value="MARZO">MARZO</option>
+                      <option value="ABRIL">ABRIL</option>
+                      <option value="MAYO">MAYO</option>
+                      <option value="JUNIO">JUNIO</option>
+                      <option value="JULIO">JULIO</option>
+                      <option value="AGOSTO">AGOSTO</option>
+                      <option value="SEPTIEMBRE">SEPTIEMBRE</option>
+                      <option value="OCTUBRE">OCTUBRE</option>
+                      <option value="NOVIEMBRE">NOVIEMBRE</option>
+                      <option value="DICIEMBRE">DICIEMBRE</option>
+                      <option value="AGUSTE DEL MES">AJUSTE DEL MES</option>
                      
                     </select>
                     </p>
@@ -71,17 +71,17 @@
              
              <div class="form-group">
               <label for="name">Año</label>
-              <input width="1" type="number" min="2020" max="2023" class="form-control" id="periods_year" required [(ngModel)]="periods.periods_year" name="periods_year">
+              <input width="1" type="text" min="2020" max="2023" class="form-control" id="periods_year" required [(ngModel)]="periods.periods_year" name="periods_year">
           </div>    
           
     
             <div class="form-group">
-                <label for="name">AGENDA PRIMER DIA DEL PERIODO</label>
+                <label for="name">Fecha de inicio del periodo</label>
                 <input width="1" type="date"  class="form-control" id="periods_start_date" required [(ngModel)]="periods.periods_start_date" name="periods_start_date">
             </div>    
 
             <div class="form-group">
-              <label for="name">AGENDA ULTIMO DIA DEL PERIODO</label>
+              <label for="name">Fecha fin del periodo</label>
               <input width="1" type="date"  class="form-control" id="periods_end_date" required [(ngModel)]="periods.periods_end_date" name="periods_end_date">
           </div>  
             
