@@ -1549,7 +1549,7 @@ const routes: Routes = [
         component: ReporteARListComponent,
         children: [
           {
-            path: 'resporte-ar-list/:id',
+            path: 'collection-repo-list',
             loadChildren: () => import('./AR/ResporteAR/reporte-ar-list/reporte-ar-list.module').then(module => module.ReporteARListModule)
           }
         ]

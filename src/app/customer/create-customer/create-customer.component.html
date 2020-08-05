@@ -6,9 +6,12 @@
 
                     <div class="form-group">
                         <label for="name">Nombre Completo</label>
-                        <input type="text" class="form-control" id="customer_customer_name"
-                            [(ngModel)]="employee.customer_customer_name" name="customer_customer_name" required>
-                            <!-- lista desplegable con tenans id -->
+                        <select class="custom-select" id="customer_customer_name" required
+                            [(ngModel)]="employee.customer_customer_name" name="customer_customer_name">
+                            <option *ngFor="let Tenants of Tenants | async" value="{{Tenants.tenants_name}}">
+                                {{Tenants.tenants_name }}{{Tenants.tenants_father_surname}}{{Tenants.tenants_mother_surname}}
+                            </option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="name">Dirección</label>
@@ -43,8 +46,8 @@
                             <label class="custom-control-label" for="customer_status">Active</label>
                         </div>
                     </div>
-                    
-                    
+
+
                     <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
                     <app-alert type="danger" [hidden]="alertDisable">Error valores repetidos</app-alert>
                     <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>

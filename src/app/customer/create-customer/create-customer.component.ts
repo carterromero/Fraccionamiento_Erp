@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/customer';
 import { CustomerService } from 'src/app/customer.service';
+
+import { TenantsService } from "src/app/tenants.service";
+import { Tenants } from "src/app/tenants";
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-customer',
@@ -12,6 +16,7 @@ import { Router } from '@angular/router';
 export class CreateCustomerComponent implements OnInit {
 
   employee: Customer = new Customer();
+  Tenants: Observable<Tenants[]>
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -19,9 +24,27 @@ export class CreateCustomerComponent implements OnInit {
 
   constructor(
     private CustomerService: CustomerService,
+    private TenantsService:TenantsService,
     private router: Router) { }
 
   ngOnInit() {
+    this.reloadDatas();
+  }
+  reloadDatas() {
+
+    this.TenantsService.getTenantList().subscribe(
+      data => {
+        console.log(data);
+        this.Tenants = this.TenantsService.getTenantList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];
+        }
+      }
+    );
   }
 
   newEmployee(): void {

@@ -12,29 +12,30 @@
           <table class="table">
             <thead>
             <tr>     
-              <th> id cuenta lineas</th>         
-              <th>id cuenta</th>
+             
               <th>padre1 </th>
               <th>padre2</th>
               <th>padre3</th>
               <th>hijos </th>
               <th>lineas descripcion </th>
-              <th>lineas tipos id </th>
+              <th>Tipo de cuenta </th>
+              <th>Saldo inicial </th>
+              <th>Saldo final</th>
               <th>Estatus </th>
               <th>#</th>
             </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                    <td>{{general.accounting_accounts_lines_id}}</td>
-                    <td>{{general.accounting_accounts_id}}</td>
+                   
                     <td>{{general.accounting_accounts_lines_parent_1}}</td>
                     <td>{{general.accounting_accounts_lines_parent_2}}</td>
                     <td>{{general.accounting_accounts_lines_parent_3}}</td>
                     <td>{{general.accounting_accounts_lines_children}}</td>
                     <td>{{general.accounting_accounts_lines_description}}</td>
-                    <td>{{general.accounting_accounts_types_id}}</td>
-                    
+                    <td>{{general.accounting_accounts_types_name}}</td>
+                    <td>{{general.saldo_inicial}}</td>
+                    <td>{{general.saldo_final}}</td>
 
                     
                     <td>

@@ -1,58 +1,68 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import * as jsPDF from 'jspdf';
-import * as XLSX from 'xlsx';
-import html2canvas from 'html2canvas';
-import { Customer } from 'src/app/customer';
-import { CustomerService } from 'src/app/customer.service';
 import { CollectionService } from 'src/app/collection.service';
+import { Router } from '@angular/router';
 import { Collection } from 'src/app/collection';
+
 import { Collections } from 'src/app/collections';
 import { Collectionsaslida } from 'src/app/collectionsalida';
-import 'jspdf-autotable';
+
+
+import { Observable } from 'rxjs';
+import * as XLSX from 'xlsx';
+import * as jsPDF from 'jspdf'
 import { formatDate } from '@angular/common';
-
-
-
+////////////////correcto
 @Component({
   selector: 'app-resporte-ar-list',
   templateUrl: './resporte-ar-list.component.html',
   styleUrls: ['./resporte-ar-list.component.scss']
 })
 export class ReporteARListComponent implements OnInit {
-  Collectionsalida: Observable<Collectionsaslida[]>;
-  Collections: Collections = new Collections();
-  Collection:Observable<Collection[]>
+
+  general: Observable<Collection[]>;
+  Collections = new Collections();
+  Collectionsaslida: Observable<Collectionsaslida[]>
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
   data1 = [];
-  head = [['Mes', 'Monto', 'Concepto_Cobro', 'Num_Cobro','Status']];
+  head = [['collection_name_resident','Mes', 'Monto', 'Puesto', 'concepto_cobro', 'num_cobro', 'Activo/Inactivo']];
 
-
-  constructor(
-    private CollectionService: CollectionService,
+  constructor(private generalService: CollectionService,
     private router: Router) { }
-  filterPost = '';
-
 
   ngOnInit(): void {
-    this.reloadData();
 
+    this.reloadData();
+    this.reloadData2();
   }
 
   reloadData() {
-    this.CollectionService.getEmployeeRepo(this.Collections.p_collection_name_resident).subscribe(
+
+    this.generalService.getEmployeeList().subscribe(
       data => {
-        this.Collection=this.CollectionService.getEmployeeList();
-        this.Collectionsalida = this.CollectionService.getEmployeeRepo(this.Collections.p_collection_name_resident);
+        this.general = this.generalService.getEmployeeList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];
+        }
+      });
+  }
+
+  reloadData2() {
+    this.generalService.getEmployeeRepo(this.Collections.p_collection_name_resident).subscribe(
+      data => {
+        this.Collectionsaslida = this.generalService.getEmployeeRepo(this.Collections.p_collection_name_resident);
 
 
 
-        ///////////////////////////////Para llenar la informacion
+
         let status;
         for (let key in data) {
           var dats = data[key];
@@ -65,9 +75,9 @@ export class ReporteARListComponent implements OnInit {
           }
 
           this.data1.push(
-            [dats['created_by'], dats['collection_amount'], dats['collection_collection_concept'],dats['collection_id'], status]);
+            [dats['collection_name_resident'],dats['created_by'], dats['collection_amount'], dats['collection_collection_concept'], dats['collection_id'], status]);
         }
-        ///////////////////////////////////////////
+
 
 
       },
@@ -81,14 +91,50 @@ export class ReporteARListComponent implements OnInit {
       });
 
 
+
+
   }
 
-  getDepartmentR() {
-    this.router.navigate(['customer-list']);
+  getsbusqueda() {
+    if (this.Collections.p_collection_name_resident != null) {
+      this.reloadData2();
+    }
+    else {
+      alert("Ingrese Nombre");
+    }
+
   }
 
+  deleteGeneral(id: number) {
+    this.alertDisable = true;
+    this.alertDisables = true;
+    this.generalService.deleteEmployee(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+          this.alertDisables = false;
+          this.alertMessages = "El Cobro se a eliminado correctamente";
+        },
+        error => {
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = error['statusText'];
+          }
+        }
+      );
+  }
 
+  generalDetails(id: number) {
+    this.router.navigate(['collection-details', id]);
+  }
 
+  updateGeneral(id: number) {
+    this.router.navigate(['update-collection', id]);
+  }
+
+  ///////////////////////////////////
   generate() {
 
     //La receta
@@ -96,7 +142,7 @@ export class ReporteARListComponent implements OnInit {
     var doc = new jsPDF();
 
     doc.setFontSize(11);
-    doc.text('Reporte de Departamentos', 82, 21);
+    doc.text('Reporte de Cliente/Residente', 82, 21);
     doc.text('Fecha de Ejecucion:' + formatDate(now, 'dd-MM-yyyy', 'en-US', '+0530'), 79, 29);
     doc.setTextColor(100);
 
@@ -142,7 +188,7 @@ export class ReporteARListComponent implements OnInit {
     doc.output('dataurlnewwindow')
 
     // Download PDF document  
-    doc.save('Departamentos.pdf');
+    doc.save('CuentasCliente.pdf');
   }
 
 
@@ -152,12 +198,9 @@ export class ReporteARListComponent implements OnInit {
     var type = "xlsx"
     var elt = document.getElementById('frmDepartment');
     var wb = XLSX.utils.table_to_book(elt);
-    return XLSX.writeFile(wb, undefined || ('Departamentos.' + (type || 'xlsx')));
+    return XLSX.writeFile(wb, undefined || ('CuentasCliente.' + (type || 'xlsx')));
   }
-  ////////////////////////////////////
-
 
 
 
 }
-
