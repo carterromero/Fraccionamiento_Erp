@@ -13,7 +13,7 @@
             <tr>     
               <th> tipo id</th>         
               <th>nombre tipo</th>
-              <th>descripcion tipo </th>
+             
               <th>Estatus </th>
               <th>#</th>
             </tr>
@@ -22,9 +22,7 @@
                 <tr *ngFor="let general of general | async">
                     <td>{{general.accounting_accounts_types_id}}</td>
                     <td>{{general.accounting_accounts_types_name}}</td>
-                    <td>{{general.accounting_accounts_types_description}}</td>
-                   
-                    
+               
                     <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="general.accounting_accounts_types_status == 'true'">

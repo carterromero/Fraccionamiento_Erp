@@ -44,7 +44,7 @@ export class CreateAccolintypeComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertMessage  = "No se puede agregar el nombre esta duplicado";            
         }      
       });
   }
@@ -56,6 +56,7 @@ export class CreateAccolintypeComponent implements OnInit {
   this.alertDisables = true;
 
  
+  
 
    if(this.employee.accounting_accounts_types_name =="" ||  this.employee.accounting_accounts_types_name ==null ){
     this.alertDisable = false;
