@@ -27,6 +27,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let Collectionsaslida of Collectionsaslida | async">
+                                <td>{{Collectionsaslida.collection_name_resident}}</td>
                                 <td>{{Collectionsaslida.created_by}}</td>
                                 <td>{{Collectionsaslida.collection_amount}}</td>
                                 <td>{{Collectionsaslida.collection_collection_concept}}</td>
