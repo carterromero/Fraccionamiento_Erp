@@ -31,7 +31,7 @@ export class Purcharse {
     purcharse_folio : string ;
     p_condominiuns_id: number;
    id  : number;
-   
+   articles_sku : number;
     create_by :  number;
    
    

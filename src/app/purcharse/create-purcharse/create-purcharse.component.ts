@@ -141,7 +141,7 @@ export class CreatePurcharseComponent implements OnInit {
    
     this.employee.admin_condominiuns_id=localStorage.getItem('condominums');
     this.employee.p_condominiuns_id=parseInt(localStorage.getItem('condominums'));
-    this.employeeService.getEOneAricleButton(this.employee.sku,this.employee.p_condominiuns_id)
+    this.employeeService.getEOneAricleButton(this.employee.articles_sku,this.employee.p_condominiuns_id)
  
   //  this.name = this.route.firstChild.snapshot.params['name']
      //  this.employeeService.getEOneAricleButton(this.employee.purcharse_id)

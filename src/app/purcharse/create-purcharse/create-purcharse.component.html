@@ -9,7 +9,7 @@
            
             <div class="form-group">
               <label for="exampleFormControlSelect1">Articulos</label>
-              <select  class="custom-select"  id="sku" required [(ngModel)]="employee.sku" name="sku" >
+              <select  class="custom-select"  id="sku" required [(ngModel)]="employee.articles_sku" name="sku" >
               <option *ngFor="let address of articlesc | async" value="{{address.articles_sku}}">{{address.articles_name_article}}</option>
                </select>
                <button (click)="reloadData3()" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR ARTICULO </button>
