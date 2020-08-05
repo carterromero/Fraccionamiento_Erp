@@ -6,7 +6,7 @@
           <form (ngSubmit)="onSubmit()" >
             
             <div class="form-group">
-              <label for="exampleFormControlSelect1"> cuenta id</label>
+              <label for="exampleFormControlSelect1"> cuenta </label>
               <select  class="custom-select"  id="accounting_accounts_id" required [(ngModel)]="employee.accounting_accounts_id" name="accounting_accounts_id" >
               <option *ngFor="let creditors of cuenta | async" value="{{creditors.accounting_accounts_id}}">{{creditors.condominums_description}}/{{creditors.periods_name}}</option>
               </select>
@@ -36,11 +36,17 @@
          
        
         <div class="form-group">
-          <label for="exampleFormControlSelect1"> tipos id</label>
+          <label for="exampleFormControlSelect1"> tipos</label>
           <select  class="custom-select"  id="accounting_accounts_types_id" required [(ngModel)]="employee.accounting_accounts_types_id" name="accounting_accounts_types_id" >
-          <option *ngFor="let creditors of tipos | async" value="{{creditors.accounting_accounts_types_id}}">{{creditors.accounting_accounts_types_id}}{{creditors.accounting_accounts_types_name}}</option>
+          <option *ngFor="let creditors of tipos | async" value="{{creditors.accounting_accounts_types_id}}">{{creditors.accounting_accounts_types_name}}</option>
           </select>
       </div>
+
+
+      <div class="form-group">
+        <label for="name">Saldo inicial</label>
+        <input type="text" class="form-control" id="saldo_inicial"  [(ngModel)]="employee.saldo_inicial" name="saldo_inicial" required>
+    </div>
 
 
           
