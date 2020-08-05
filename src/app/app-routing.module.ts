@@ -141,6 +141,8 @@ import { ContactsListComponent } from './RH/contact/contacts-list/contacts-list.
 import { UpdateContactsComponent } from './RH/contact/update-contacts/update-contacts.component';
 import { ContactsDetailsComponent } from './RH/contact/contacts-details/contacts-details.component';
 import { ResetPasswordComponent } from './authentication/reset-password/password-reset.component';
+import { CreateCommentsComponent} from './admin/releases/comments/create-comments/create-comments.component';
+
 
 import { TransactionListComponent } from './admin/transaction/transaction-list/transaction-list.component';
 import { TransactionDetailsComponent } from './admin/transaction/transaction-details/transaction-details.component';
@@ -420,6 +422,16 @@ const routes: Routes = [
           {
             path: 'create-releases',
             loadChildren: () => import('src/app/admin/releases/create-releases/create-releases.module').then(module => module.CreateReleasesModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CreateCommentsComponent,
+        children: [
+          {
+            path: 'create-comments/:id',
+            loadChildren: () => import('src/app/admin/releases/comments/create-comments/create-comments.module').then(module => module.CreateCommentsModule)
           }
         ]
       },

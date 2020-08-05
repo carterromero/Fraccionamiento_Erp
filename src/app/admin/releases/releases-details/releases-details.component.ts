@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Releases } from 'src/app/releases';
 import { ReleasesService } from 'src/app/releases.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-releases-details',
@@ -18,7 +18,7 @@ export class ReleasesDetailsComponent implements OnInit {
   alertMessage = "null";
   alertMessages = "null";
   
-  constructor(private route: ActivatedRoute,private router: Router, 
+  constructor(private route: ActivatedRoute,private router: Router, private http: HttpClient,
   private releaseService: ReleasesService) { }
 
  ngOnInit() {
@@ -41,7 +41,38 @@ export class ReleasesDetailsComponent implements OnInit {
       });
   }
 
-  
+  enviarAviso(){
+
+    
+    var body ={
+      "notification":{
+      "title": "AVISO",
+      "body":this.release.releases_subject,
+      "click_action":"FCM_PLUGIN_ACTIVITY",
+      "sound":"default"
+      },
+      "data":{
+      "param":{
+      "metodo":2
+      }
+      },
+      "to":"/topics/all"
+      };
+      const headers = new HttpHeaders({ Authorization: 'key=AAAAzgdTJtc:APA91bECXFF5RzpyTiY49RP9y1BSer70--X45VDvA4ff5RLBKEBOzI6wOxBcSVATEdKE7jtEJ73kXpoKBvZVDXqx1AVLT7FPX-x3hWNkW45C91gYYlNIuVGa8mdVd1J8f7MJ4hpA9kCS' });
+      this.http.post("https://fcm.googleapis.com/fcm/send", body, {headers})
+      .subscribe((result)=>{
+      console.log("Result: ",result);
+      },(error)=>{
+      console.log("Error: ",error);
+      });
+
+
+  }
+
+  gotoList() 
+  {
+    this.router.navigate(['releases-list']);
+  }
 
 
 }

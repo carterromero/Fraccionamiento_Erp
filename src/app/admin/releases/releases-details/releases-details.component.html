@@ -2,6 +2,7 @@
     <div class="col-sm-12">
       <app-card cardTitle="Detalles de aviso" [options]="false">
         <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+        <button class="btn btn-outline-primary"  (click)="enviarAviso()">Enviar</button>    
         <div *ngIf="release">
           <div>
             <label><b>Fecha: </b></label> {{release.releases_date| date:'medium' }}
@@ -21,7 +22,7 @@
               </div>
 
         </div>
-        <button [routerLink]="['/releases-list']" class="btn btn-primary">Regresar a avisos</button><br>
+        <button (click)="gotoList()" class="btn btn-primary">Regresar a avisos</button><br>
       </app-card>
       </div>
   </div>

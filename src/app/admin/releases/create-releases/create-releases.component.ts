@@ -4,6 +4,7 @@ import { Releases } from 'src/app/releases'
 import { Observable } from 'rxjs';
 import { ReleasesService } from 'src/app/releases.service';
 
+
 @Component({
   selector: 'app-create-releases',
   templateUrl: './create-releases.component.html',
@@ -20,12 +21,15 @@ export class CreateReleasesComponent implements OnInit {
   alertMessages = "null";
   condo : number;
   datos:String;
-  constructor(private releasesService: ReleasesService,
+  constructor(private releasesService: ReleasesService,  
     private router: Router) { }
 
 
   ngOnInit() {
     this.reloadDatas();
+
+    
+      
   }
 
   reloadDatas() 
@@ -105,5 +109,7 @@ export class CreateReleasesComponent implements OnInit {
   {
     this.router.navigate(['releases-list']);
   }
+
+  
 
 }
