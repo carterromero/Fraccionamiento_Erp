@@ -7,11 +7,29 @@
             
             
            
-
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Articulos</label>
+              <select  class="custom-select"  id="sku" required [(ngModel)]="employee.sku" name="sku" >
+              <option *ngFor="let address of articlesc | async" value="{{address.articles_sku}}">{{address.articles_name_article}}</option>
+               </select>
+               <button (click)="reloadData3()" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR ARTICULO </button>
+              </div>
      
 
+              <div class="form-group">
+                <label for="name">Descripción</label>
+                <input type="text" class="form-control" id="articles_description"  [(ngModel)]="employee.articles_description" name="articles_description" required>
+            </div>
+            <div class="form-group">
+              <label for="name">articles precio </label>
+              <input type="text" class="form-control" id="articles_articles_price"  [(ngModel)]="employee.articles_articles_price" name="articles_articles_price" required>
+          </div>
 
 
+          <div class="form-group">
+            <label for="name">Articulo sku</label>
+            <input type="text" class="form-control" id="articulo_sku"  [(ngModel)]="employee.articulo_sku" name="articulo_sku" required>
+        </div>
              
            
              
@@ -46,12 +64,7 @@
                  </select>
                </div>
                    
-               <div class="form-group">
-                <label for="exampleFormControlSelect1">Articulos</label>
-                <select  class="custom-select"  id="sku" required [(ngModel)]="employee.sku" name="sku" >
-                <option *ngFor="let address of articlesc | async" value="{{address.articles_sku}}">{{address.articles_name_article}}</option>
-                 </select>
-               </div>    
+                   
                
              
                <div class="form-group">

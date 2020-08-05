@@ -5,7 +5,7 @@ import { PurcharseService } from 'src/app/purcharse.service';
 import { Supplier } from 'src/app/supplier';
 import { Payment } from 'src/app/payment';
 import { SupplierService } from 'src/app/supplier.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PaytmentService } from 'src/app/paytment.service';
 import { Condominums } from 'src/app/services/admin/condominums';
 import { ArticlesC } from 'src/app/articlesc';
@@ -27,7 +27,8 @@ import { TenantsService } from 'src/app/tenants.service';
 })
 export class CreatePurcharseComponent implements OnInit {
   id: number;
-
+  p_condominiuns_id:number;
+  name : string;
   user: User = new User();
   authentication: User = new User(); 
   teha: Tenants = new Tenants(); 
@@ -53,6 +54,7 @@ export class CreatePurcharseComponent implements OnInit {
   constructor(private employeeService: PurcharseService,
     private suppliersService: SupplierService,
     private paymentService: PaytmentService,
+    private route: ActivatedRoute,
     private categoriesService : CategoriesService,
     private authenticationService : AuthenticationService,
     private generalService: PermissionsService,
@@ -128,6 +130,40 @@ export class CreatePurcharseComponent implements OnInit {
   }
 
 
+  reloadData3() {
+    // this.name = this.route.firstChild.snapshot.params['name']
+
+
+    this.employee.admin_condominiuns_id=localStorage.getItem('condominums');
+    this.reloadDatas();
+    this.id = this.route.firstChild.snapshot.params['id']
+    this.p_condominiuns_id=parseInt(localStorage.getItem('condominums'));
+    this.employeeService.getEOneAricleButton(this.id,this.p_condominiuns_id)
+ 
+  //  this.name = this.route.firstChild.snapshot.params['name']
+     //  this.employeeService.getEOneAricleButton(this.employee.purcharse_id)
+         .subscribe(data => {
+           console.log(data);
+           this.employee = data;
+           
+         },
+         error => {
+           console.log(error);
+           let coins = [];
+           for (let key in error) {
+             this.alertMessage = error['statusText'];          
+           }
+         }
+       ); 
+    
+   } 
+
+javq(event){
+
+
+
+this.reloadData3()
+}
 
  
 

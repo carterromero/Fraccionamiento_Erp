@@ -25,7 +25,14 @@ export class Purcharse {
     purcharse_entrada_transacciones: string;
     rol_description :string;
     user_name :string ;
-
-
+    articles_description : string ;
+    articulo_sku : string;
+    articles_articles_price :string;
+    purcharse_folio : string ;
+    
+   
+   
+    create_by :  number;
+   
    
 }
