@@ -47,9 +47,8 @@
                         </div>
                     </div>
 
-
+                    <app-alert type="danger" [hidden]="alertDisable">Error RFC o valores repetidos</app-alert>
                     <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
-                    <app-alert type="danger" [hidden]="alertDisable">Error valores repetidos</app-alert>
                     <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
                     <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                         <div class="app-modal-header">
