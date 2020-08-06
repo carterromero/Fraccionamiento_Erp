@@ -146,6 +146,7 @@ export class CreatePurcharseComponent implements OnInit {
   //  this.name = this.route.firstChild.snapshot.params['name']
      //  this.employeeService.getEOneAricleButton(this.employee.purcharse_id)
          .subscribe(data => {
+          console.log('Trajo Datos');
            console.log(data);
            this.employee = data;
            
@@ -216,7 +217,6 @@ this.reloadData3()
           this.alertMessage = error['statusText'];          
         }    
       });
-
 
       
   }

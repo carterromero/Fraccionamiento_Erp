@@ -27,10 +27,10 @@ import { MasterInventarys } from 'src/app/masterinventarys';
   templateUrl: './create-entrys.component.html',
   styleUrls: ['./create-entrys.component.scss']
 })
-export class CreateEntrysComponent implements OnInit {
+export class CreateEntrysComponent implements OnInit 
+{
 
   id: number;
-  
   name : string;
   user: User = new User();
   authentication: User = new User(); 
@@ -40,8 +40,6 @@ export class CreateEntrysComponent implements OnInit {
   employee: TransactionsEntrys = new TransactionsEntrys();
   submitted = false;
   purcharse: Observable<Purcharse[]>;
-  
-
   Condo: Observable<Condominums[]>;
   payments: Observable<Payment[]>;
   articlesc : Observable<ArticlesC[]>;
@@ -66,7 +64,8 @@ export class CreateEntrysComponent implements OnInit {
     private router: Router) { }
 
 
-  ngOnInit() {
+  ngOnInit() 
+  {
     
     this.reloadDatas();
     this.reloadDatass();
@@ -82,7 +81,7 @@ export class CreateEntrysComponent implements OnInit {
     this.employeeService.getEmployeeListPurcharse(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);
-        this.purcharse = this.employeeService.getEmployeeListPurcharse(1);
+        this.purcharse = this.employeeService.getEmployeeListPurcharse(parseInt(localStorage.getItem('condominums')));
       },
       error => {
         console.log(error);
@@ -137,9 +136,9 @@ export class CreateEntrysComponent implements OnInit {
 
   
 */
-  reloadData3() {
+  reloadData3()
+  {
     // this.name = this.route.firstChild.snapshot.params['name']
-
 
     this.employee.condominiuns_id=localStorage.getItem('condominums');
    // this.reloadDatas();
@@ -150,12 +149,11 @@ export class CreateEntrysComponent implements OnInit {
  
   //  this.name = this.route.firstChild.snapshot.params['name']
      //  this.employeeService.getEOneAricleButton(this.employee.purcharse_id)
-         .subscribe(data => {
+         .subscribe(data => 
+          {
            console.log(data);
            this.employee = data;
-           
-           this.alertDisable = true;
-           
+           console.log('Trajo Datos');
          },
          error => {
            console.log(error);
@@ -201,7 +199,7 @@ this.reloadData3()
   save()
    {
     //this.employee.userid = localStorage.getItem('id');
-    this.employee.condominiuns_id=localStorage.getItem('condominums');
+    this.employee.transactions_entrys_condominium=localStorage.getItem('condominums');
     
     console.log(this.employee);
     
@@ -210,7 +208,7 @@ this.reloadData3()
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto Transacciom";
+          this.alertMessages ="Se inserto Transaccion";
           this.employee = new TransactionsEntrys ();
         }, 
       error => {
@@ -220,24 +218,15 @@ this.reloadData3()
           this.alertDisable = false;
           this.alertMessage = error['statusText'];          
         }    
-      });
-
-
-      
+      });      
   }
-
-
-
-
   
   onSubmit() 
   {
+
   this.alertDisable = true;
   this.alertDisables = true;
-  
-  
-  
-    this.save();    
+  this.save();    
    
   }
 

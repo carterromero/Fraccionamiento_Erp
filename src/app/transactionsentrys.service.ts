@@ -45,7 +45,7 @@ export class TransactionsEntrysService {
   getEOnePurcharseButton(id: number, p_condominiuns_id:number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     //return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ONE_ARTICL/1.0/articles/${id},${p_condominiuns_id}`,{headers});
-    return this.http.get(this.baseUrl + 'ic/api/integration/v1/flows/rest/ERP_PO_INV_GETONE_ARTICL/1.0/getone_articles/'+ id + ','+p_condominiuns_id,{headers});
+    return this.http.get(this.baseUrl + 'api/integration/v1/flows/rest/ERP_INV_PO_GETONE_TRANSA/1.0/getpurcharseTransaction'+ id + ','+p_condominiuns_id,{headers});
   }
 
 

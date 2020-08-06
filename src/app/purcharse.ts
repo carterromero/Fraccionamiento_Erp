@@ -15,6 +15,7 @@ export class Purcharse {
     create_date :string;
     last_update_by : string;
     articles_prices : number;
+    transactions_entrys_condominium : string;
     last_update_date :string;
     admin_condominiuns_id : string;
     userid : string;
