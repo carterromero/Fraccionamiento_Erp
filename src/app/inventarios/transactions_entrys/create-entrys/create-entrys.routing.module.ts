@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateEntrysComponent } from './create-Entrys.component';
-//import {CreateTenantsComponent} from './create-tenants.component';
+import { CreateEntrysComponent } from './create-entrys.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: CreateEntrysComponent
+    path: '', 
+    component:  CreateEntrysComponent
   }
 ];
 

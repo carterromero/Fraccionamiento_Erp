@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateEntrysComponent } from './create-Entrys.component';
+import { CreateEntrysComponent } from './create-entrys.component';
 
-describe('CreateTenantsComponent', () => {
+describe('CreateEntrysComponent', () => {
   let component: CreateEntrysComponent;
   let fixture: ComponentFixture<CreateEntrysComponent>;
 

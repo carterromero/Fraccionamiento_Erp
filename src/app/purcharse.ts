@@ -31,8 +31,8 @@ export class Purcharse {
     
     purcharse_folio : string ;
     p_condominiuns_id: number;
-   id  : number;
-   articles_sku : number;
+     id : number;
+     articles_sku : number;
     create_by :  number;
    
     created_date : string;
@@ -43,5 +43,8 @@ export class Purcharse {
     condominums_description : string;
     payment_description : string;
     legals_address : string;
-    
+
+
+
+   
 }

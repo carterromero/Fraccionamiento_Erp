@@ -14,6 +14,13 @@ export class TransactionService {
 
   constructor(private http: HttpClient) { }
 
+
+
+
+  createEmployee(employee: Object): Observable<Object> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_INSERT_TRANSA_ENTRYS/1.0/transactions_entrys`, employee,{headers});
+  }
   getEmployee(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_ADMIN_GET_ONE_TRANSA/1.0/transaction/${id}`,{headers});
@@ -31,4 +38,43 @@ export class TransactionService {
   }
 
 
+  getEmployeeListPurcharse(p_admin_condominiuns_id:number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_PO_TRANSA_GETALL/1.0/transa/${p_admin_condominiuns_id}`,{headers});
+  }
+
+
+
+
+
+  getEOneAricleButton(id: number, p_condominiuns_id:number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    //return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ONE_ARTICL/1.0/articles/${id},${p_condominiuns_id}`,{headers});
+    return this.http.get(this.baseUrl + 'ic/api/integration/v1/flows/rest/ERP_INV_PO_GETONE_TRANSA/1.0/getpurcharseTransaction/'+ id + ','+p_condominiuns_id,{headers});
+  }
+
+
+  getEmployeeListMaster(id: number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_MASTE_INVEN/1.0/master_inventarys/${id}`,{headers});
+  }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 }

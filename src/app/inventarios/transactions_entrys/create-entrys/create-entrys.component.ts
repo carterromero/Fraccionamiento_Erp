@@ -1,106 +1,250 @@
 import { Component, OnInit } from '@angular/core';
-import { TenantsService } from 'src/app/tenants.service';
+import { User } from 'src/app/services/admin/user';
 import { Tenants } from 'src/app/tenants';
-import { Router } from '@angular/router';
 import { Condominums } from 'src/app/services/admin/condominums';
-import { CondominumsService } from 'src/app/services/admin/condominums.service';
 import { Observable } from 'rxjs';
-import { Agreements } from 'src/app/agreements';
-import { AgreementService } from 'src/app/agreements.service';
+import { Purcharse } from 'src/app/purcharse';
+import { Supplier } from 'src/app/supplier';
+import { PurcharseService } from 'src/app/purcharse.service';
+import { Payment } from 'src/app/payment';
+import { ArticlesC } from 'src/app/articlesc';
+import { CategoriasC } from 'src/app/categoriasc';
+import { SupplierService } from 'src/app/supplier.service';
+import { PaytmentService } from 'src/app/paytment.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CategoriesService } from 'src/app/categories.service';
+import { AuthenticationService } from 'src/app/authentication.service';
+import { UserService } from 'src/app/services/admin/user.service';
+import { TenantsService } from 'src/app/tenants.service';
+import { PermissionsService } from 'src/app/services/admin/permissions.service';
+import { Authentication } from 'src/app/authentication';
+import { TransactionService } from 'src/app/services/admin/transaction.service';
 import { TransactionsEntrys } from 'src/app/transactionsentrys';
-
-
+import { MasterInventarys } from 'src/app/masterinventarys';
 
 @Component({
-  selector: 'app-create-Entrys',
-  templateUrl: './create-Entrys.component.html',
-  styleUrls: ['./create-Entrys.component.scss']
+  selector: 'app-create-entrys',
+  templateUrl: './create-entrys.component.html',
+  styleUrls: ['./create-entrys.component.scss']
 })
 export class CreateEntrysComponent implements OnInit {
-  currentItem = 'Television';
+
+  id: number;
   
-  tipo_transation='Entradas';
-  tenant: TransactionsEntrys = new TransactionsEntrys();
-  condominums: Observable<Condominums[]>;
-  agreements: Observable<Agreements[]>;
+  name : string;
+  user: User = new User();
+  authentication: User = new User(); 
+  teha: Tenants = new Tenants(); 
+  condo: Condominums = new Condominums();
+  userss: Observable<User[]>;
+  employee: TransactionsEntrys = new TransactionsEntrys();
   submitted = false;
+  purcharse: Observable<Purcharse[]>;
+  
+
+  Condo: Observable<Condominums[]>;
+  payments: Observable<Payment[]>;
+  articlesc : Observable<ArticlesC[]>;
+  categorias :Observable<CategoriasC[]>;
+  authentications : Observable<Authentication []>;
+  master : Observable<MasterInventarys []>;
+
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
-  datos:String;
-  dato:String;
 
+  constructor(private employeeService: TransactionService,
+    private purchar: PurcharseService,
+    private paymentService: PaytmentService,
+    private route: ActivatedRoute,
+    private categoriesService : CategoriesService,
+    private authenticationService : AuthenticationService,
+    private generalService: PermissionsService,
+    private userService:UserService,
+    private tha:TenantsService,
+    private router: Router) { }
 
-  constructor(private tenantsService:TenantsService, private condominumsService:CondominumsService,
-  private agreementService: AgreementService,  private router: Router) {
-   }
 
   ngOnInit() {
-    //code
+    
     this.reloadDatas();
+    this.reloadDatass();
+   /// this.reloadDatasss();
+    //this.reloadDatassss();
+  //  this.users();
+
   }
-
-
 
   reloadDatas() 
   {
-
-    this.condominumsService.getEmployeeListcombo().subscribe(
+   
+    this.employeeService.getEmployeeListPurcharse(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);
-        this.condominums = this.condominumsService.getEmployeeListcombo();
+        this.purcharse = this.employeeService.getEmployeeListPurcharse(1);
       },
       error => {
         console.log(error);
         let coins = [];
         for (let key in error) {
+          this.alertDisable = false;
           this.alertMessage = error['statusText'];          
         }
       }
     );      
   }
 
-  /*handleUpload(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-        this.datos = reader.result.toString();
-        this.tenant.tenants_agreement = this.datos.replace("data:application/pdf;base64,","")
-        this.employee.employees_contract = this.datos.replace("data:application/pdf;base64,","")
-        event = this.tenant.tenants_agreement;
-        event = this.employee.employees_contract
-     
-    };
-} 
-  */
-  save() {
-    //this.tenant.condominums_id=Number(localStorage.getItem('condominums'));
-    //this.tenant.create_by = Number(localStorage.getItem('id'));
-    //this.tenant.last_update_by = Number(localStorage.getItem('id'));
-    //this.tenantsService.createTenant(this.tenant)
-      //.subscribe(data => console.log(data), 
-      //error => {
-       // console.log(error);
-       // localStorage.setItem('token', "");
-     //   this.router.navigate(['auth/signin']);
-    //  });
-   // this.tenant = new Tenants();
-    this.gotoList();
+
+
+  reloadDatass()
+  {
+
+    this.employeeService.getEmployeeListMaster(parseInt(localStorage.getItem('condominums'))).subscribe(
+      data => {
+        console.log(data);
+        this.master = this.employeeService.getEmployeeListMaster(parseInt(localStorage.getItem('condominums')));
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+  
+ /* reloadDatasss() 
+  {
+
+    this.employeeService.getEmployeeListcombo().subscribe(
+      data => {
+        console.log(data);
+        this.articlesc = this.employeeService.getEmployeeListcombo();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
   }
 
-  onSubmit() {
+  
+*/
+  reloadData3() {
+    // this.name = this.route.firstChild.snapshot.params['name']
+
+
+    this.employee.condominiuns_id=localStorage.getItem('condominums');
+   // this.reloadDatas();
    
+    this.employee.condominiuns_id=localStorage.getItem('condominums');
+    this.employee.p_condominiuns_id=parseInt(localStorage.getItem('condominums'));
+    this.employeeService.getEOneAricleButton(this.employee.purcharse_id,this.employee.p_condominiuns_id)
+ 
+  //  this.name = this.route.firstChild.snapshot.params['name']
+     //  this.employeeService.getEOneAricleButton(this.employee.purcharse_id)
+         .subscribe(data => {
+           console.log(data);
+           this.employee = data;
+           
+           this.alertDisable = true;
+           
+         },
+         error => {
+           console.log(error);
+           let coins = [];
+           for (let key in error) {
+             console.log("Error");
+             this.alertMessage = error['statusText'];          
+           }
+         }
+       ); 
     
-    this.save();
+   } 
 
-     
+javq(event){
+
+
+
+this.reloadData3()
+}
+
+ 
+
+ /* reloadDatassss() 
+  {
+
+    this.employeeService.getEmployeeListcomboC().subscribe(
+      data => {
+        console.log(data);
+        this.categorias = this.employeeService.getEmployeeListcomboC();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+*/
+
+  save()
+   {
+    //this.employee.userid = localStorage.getItem('id');
+    this.employee.condominiuns_id=localStorage.getItem('condominums');
     
+    console.log(this.employee);
+    
+       this.employeeService.createEmployee(this.employee)
+      .subscribe(data => 
+        {
+          console.log(data);
+          this.alertDisables = false;
+          this.alertMessages ="Se inserto Transacciom";
+          this.employee = new TransactionsEntrys ();
+        }, 
+      error => {
+        console.log(error);  
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }    
+      });
+
+
+      
   }
 
-  gotoList() {
-    this.router.navigate(['tenants-list']);
+
+
+
+  
+  onSubmit() 
+  {
+  this.alertDisable = true;
+  this.alertDisables = true;
+  
+  
+  
+    this.save();    
+   
   }
+
+  gotoList() 
+  {
+    this.router.navigate(['purchase_orders-list']);
+  }
+
+
 }

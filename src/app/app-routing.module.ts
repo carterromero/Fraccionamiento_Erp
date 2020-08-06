@@ -309,9 +309,10 @@ import { CreateFacpvComponent } from './po/portal/create-facpv/create-facpv.comp
 import { FacpayDetailsComponent } from './po/portal/facpay-details/facpay-details.component';
 import { ConsiListComponent } from './gl/report/consi/consi-list/consi-list.component';
 import { CreateConsiComponent } from './gl/report/consi/create-consi/create-consi.component';
-import { CreateEntrysComponent } from './inventarios/transactions_entrys/create-entrys/create-Entrys.component';
+
 import { ReporteARListComponent } from './AR/ResporteAR/reporte-ar-list/resporte-ar-list.component';
 import { SaldovaListComponent } from './gl/report/saldova/saldova-list/saldova-list.component';
+import { CreateEntrysComponent } from './inventarios/transactions_entrys/create-entrys/create-entrys.component';
 //import { CreateTransactionsEntrysComponent } from './inventarios/transactions_entrys/create-transactions-entrys/create-transactions-entrys.component';
 
 
@@ -2792,7 +2793,7 @@ const routes: Routes = [
 
       ////INV-TRANSACIONES DE ENTRADA
 
-      {
+     {
         path: '',
         component: CreateEntrysComponent,
         children: [
@@ -2801,7 +2802,9 @@ const routes: Routes = [
             loadChildren: () => import('./inventarios/transactions_entrys/create-entrys/create-entrys.module').then(module => module.CreateEntrysModule)
           }
         ]
-      },
+      }
+      
+      ,
 
       {
         path: '',
