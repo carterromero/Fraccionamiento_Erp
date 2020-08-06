@@ -2,6 +2,7 @@ import { Component, OnInit, Query } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as jsPDF from 'jspdf';
+import * as XLSX from 'xlsx';
 //servicios
 import { TranslService } from "../../../../services/gl/transl.service";
 import { Transl } from "../../../../services/gl/transl";
@@ -102,7 +103,12 @@ filterPost = '';
   else
   return ref.where('status','=',1);
   }
-
+  exportTableToExcel() {
+    var type = "xlsx"
+    var elt = document.getElementById('frmEquipos');
+    var wb = XLSX.utils.table_to_book(elt);
+    return XLSX.writeFile(wb, undefined || ('REPORTETRANSACCION.' + (type || 'xlsx')));
+  }
 
 }
  

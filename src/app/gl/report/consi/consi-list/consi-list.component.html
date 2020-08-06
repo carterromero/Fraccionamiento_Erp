@@ -2,11 +2,12 @@
     <div class="col-xl-12">
       <app-card cardTitle="Conciliacion" blockClass="table-border-style">      
         <button [routerLink]="['/create-consi']"   class="btn btn-outline-primary" >Agregar Conciliacion </button>
+        <button (click)="exportTableToExcel()"   class="btn btn-outline-primary"style="margin-left: 10px">Reporte Excel</button>   
         <br><br>
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
-          <table class="table">
+          <table class="table" id="frmEquipos">
             <thead>
             <tr>              
               
@@ -25,11 +26,7 @@
                     <td>{{general.estatus}}</td>
                     <td>{{general.description}}</td>
                     <td>{{general.debe}}</td>
-                    <td>{{general.haber}}</td>
-  
-                    <td>
-                    
-                    </td>          
+                    <td>{{general.haber}}</td>         
                 </tr>
             </tbody>
           </table>

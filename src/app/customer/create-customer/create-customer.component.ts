@@ -55,7 +55,8 @@ export class CreateCustomerComponent implements OnInit {
   save() {
 
     // this.employee.cutomer_customer_id = 3;
-    this.employee.tenants_id=this.Tenants1.tenants_id;
+    this.employee.condominums_id = localStorage.getItem('condominums');
+    this.employee.create_by = localStorage.getItem('id');
     this.CustomerService.createEmployee(this.employee)
       .subscribe(data => {
         console.log(data);

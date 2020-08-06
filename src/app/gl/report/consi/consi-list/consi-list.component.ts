@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { TranslService } from "../../../../services/gl/transl.service";
 import { Transl } from "../../../../services/gl/transl";
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-consi-list',
@@ -47,7 +48,12 @@ export class ConsiListComponent implements OnInit {
 
       
   }
-
+  exportTableToExcel() {
+    var type = "xlsx"
+    var elt = document.getElementById('frmEquipos');
+    var wb = XLSX.utils.table_to_book(elt);
+    return XLSX.writeFile(wb, undefined || ('REPORTECONCILIACION.' + (type || 'xlsx')));
+  }
 
 
 
