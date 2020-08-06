@@ -16,7 +16,7 @@ export class CommentsService {
 
   createComment(comments: Object): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVIS_ERP_ADMIN_COMME_INSER_EHP/1.0/insertComments`, comments,{headers});
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVIS_ERP_ADMIN_COMME_INSER_EHP/1.0/insertComments`, comments,{headers});
   }
 
   getCommentO(id: number): Observable<any> {
@@ -26,7 +26,7 @@ export class CommentsService {
   
   updateComment(id: number, value: any): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVIS_ERP_ADMIN_COMME_UPDAT_EHP/1.0/updateComments/${id}`, value,{headers});
+    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVIS_ERP_ADMIN_COMME_UPDAT_EHP/1.0/updateComments/${id}`, value,{headers});
   }
 
   deleteComment(id: number): Observable<any> {

@@ -9,11 +9,14 @@
                         {{general.collection_name_resident }}</option>
                 </select>
 
-                <button type="submit" class="btn btn-success" (click)="getsbusqueda()" (click)="generate()"
+                <button type="submit" class="btn btn-success" (click)="getsbusqueda()"
                     style="margin-left: 10px">imprimir</button>
-                <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
-                <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
+                <button type="submit" class="btn btn-success"  (click)="generate()"
+                    style="margin-left: 10px">generar</button>
+
                 <div class="table-responsive">
+                    <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+                    <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
                     <table class="table">
                         <thead>
                             <tr>
@@ -27,6 +30,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let Collectionsaslida of Collectionsaslida | async">
+                                <td>{{Collectionsaslida.collection_name_resident}}</td>
                                 <td>{{Collectionsaslida.created_by}}</td>
                                 <td>{{Collectionsaslida.collection_amount}}</td>
                                 <td>{{Collectionsaslida.collection_collection_concept}}</td>

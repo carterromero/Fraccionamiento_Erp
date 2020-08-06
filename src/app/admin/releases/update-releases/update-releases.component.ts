@@ -1,4 +1,4 @@
-import { Component, OnInit, ModuleWithComponentFactories } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Releases } from 'src/app/releases';

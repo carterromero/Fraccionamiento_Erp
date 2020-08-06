@@ -11,60 +11,65 @@ import { Observable } from 'rxjs';
 export class CreateCommentsComponent implements OnInit {
 
   comment : Comments = new Comments();
-  comments: Observable<Comments[]>;
-  submitted = false;
+  id: number;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
   datos:String;
-  id : number;
+
+  constructor(private route: ActivatedRoute, private router: Router,
+  private commentsService: CommentsService) { }
+
+  ngOnInit() {
+    this.id = this.route.firstChild.snapshot.params['id'];
+    
+  }
  
-  constructor(private commentService:CommentsService,private route: ActivatedRoute,
-    private router: Router) { }
+    save()
+    {
 
-
-    ngOnInit() {
-    
-      this.id = this.route.firstChild.snapshot.params['id']
-      this.commentService.createComment(this.id).subscribe(data => {
+    this.comment.created_by = Number(localStorage.getItem('id'));
+    this.comment.last_update_by = Number(localStorage.getItem('id'));
+    this.comment.releases_id =this.id;
+    this.commentsService.createComment(this.comment)
+      .subscribe(data => 
+        {
           console.log(data);
-       //   this.comments = data;
-          this.comment.releasesC_status = (String(this.comment.releasesC_status) == "false") ? null:"false";
-     
-        }, error => {
-          console.log(error);
-        });
-       
+          this.alertDisables = false;
+          this.alertMessages ="Se inserto el comentario correctamente";
+          this.comment  = new Comments();
+        }, 
+      error => {
+        console.log(error);  
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = "El comentario no se puede agregar";          
+        }    
+      });
     }
-   
-    createComment() {
-      this.alertDisable = true;
-      this.alertDisables = true;
-      this.commentService.createComment(this.comment)
-      .subscribe(data => {console.log(data); 
-            this.alertDisables = false;
-            this.alertMessages ="Se actualizo";
-            this.gotoList();  
-        },
-        error => { 
+
+    onSubmit() 
+      {
+            this.alertDisable = true;
+            this.alertDisables = true;
+      /*  if(this.employee.condominums_description =="" ||  this.employee.condominums_description ==null ){
             this.alertDisable = false;
-            this.alertMessage = "Erro al actualizar";     
-        });
+            this.alertMessage = "El Atributo Descripción es Obligatorio";          
+        }
+        else if(this.employee.legals_id =="" ||  this.employee.legals_id ==null ){
+            this.alertDisable = false;
+            this.alertMessage = "El Atributo empresa es Obligatorio";          
+        }
+        else{*/
+            this.save();    
+        // } 
     }
-  
-  
-  
-    onSubmit() {
-    
-     
-        this.createComment(); 
-    
-  
-    }
-  
-    gotoList() {
-      this.router.navigate(['releases-list']);
-    }
-  
+
+
+  gotoList() {
+    this.router.navigate(['releases-list']);
+  }
+
 }

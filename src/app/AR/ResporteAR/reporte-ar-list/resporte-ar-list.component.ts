@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 import * as XLSX from 'xlsx';
 import * as jsPDF from 'jspdf'
 import { formatDate } from '@angular/common';
-
+////////////////correcto
 @Component({
   selector: 'app-resporte-ar-list',
   templateUrl: './resporte-ar-list.component.html',
@@ -28,7 +28,7 @@ export class ReporteARListComponent implements OnInit {
   alertMessages = "null";
 
   data1 = [];
-  head = [['Mes', 'Monto', 'Puesto', 'concepto_cobro', 'num_cobro', 'Activo/Inactivo']];
+  head = [['collection_name_resident','Mes', 'Monto', 'Puesto', 'concepto_cobro', 'num_cobro', 'Activo/Inactivo']];
 
   constructor(private generalService: CollectionService,
     private router: Router) { }
@@ -75,7 +75,7 @@ export class ReporteARListComponent implements OnInit {
           }
 
           this.data1.push(
-            [dats['created_by'], dats['collection_amount'], dats['collection_collection_concept'], dats['collection_id'], status]);
+            [dats['collection_name_resident'],dats['created_by'], dats['collection_amount'], dats['collection_collection_concept'], dats['collection_id'], status]);
         }
 
 
@@ -198,7 +198,7 @@ export class ReporteARListComponent implements OnInit {
     var type = "xlsx"
     var elt = document.getElementById('frmDepartment');
     var wb = XLSX.utils.table_to_book(elt);
-    return XLSX.writeFile(wb, undefined || ('Departamentos.' + (type || 'xlsx')));
+    return XLSX.writeFile(wb, undefined || ('CuentasCliente.' + (type || 'xlsx')));
   }
 
 
