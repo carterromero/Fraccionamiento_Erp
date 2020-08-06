@@ -12,7 +12,8 @@
           <input type="text" class="form-control"  [(ngModel)]="busqueda.p_condominio_id" name="p_condominio_id" >
           <label for="name">periodo:</label>
           <input type="text" class="form-control"  [(ngModel)]="busqueda.p_periodo_id" name="p_periodo_id" >
-          <button (click)="getsbusqueda()"   class="btn btn-outline-primary"style="margin-left: 10px">BUSCAR  </button>   
+          <button (click)="getsbusqueda()"   class="btn btn-outline-primary"style="margin-left: 10px">BUSCAR  </button> 
+          <button (click)="exportTableToExcel()"   class="btn btn-outline-primary"style="margin-left: 10px">Reporte Excel</button>   
     <!--
 <button [routerLink]="['/repo-cred-pay-cont-list/date']"  class="btn btn-outline-primary">Regresar</button><br>
        <button [routerLink]="['/create-payment-record']"  (click)="generalDetails(general.payment_record_payment_date)" class="btn btn-outline-primary"style="margin-left: 10px">BUSCAR CORTE DE FECHA VENCIMIENTO </button>
