@@ -7,7 +7,7 @@ export class Customer {
     customer_phone: number;
     customer_email: string;
     customer_status: string;
-    condominums_id: number;
+    condominums_id: string;
     create_by: string;
     create_date: Date;
     last_update_by: string;
