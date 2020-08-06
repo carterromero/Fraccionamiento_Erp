@@ -8,11 +8,13 @@
                     <option *ngFor="let general of general | async" value="{{general.collection_name_resident}}">
                         {{general.collection_name_resident }}</option>
                 </select>
-
                 <button type="submit" class="btn btn-success" (click)="getsbusqueda()"
-                    style="margin-left: 10px">imprimir</button>
-                <button type="submit" class="btn btn-success"  (click)="generate()"
-                    style="margin-left: 10px">generar</button>
+                    style="margin-left: 10px">Mostrar</button>
+                <button type="submit" class="btn btn-success" (click)="generate()" style="margin-left: 10px">Generar
+                    PDF</button>
+                <button type="submit" class="btn btn-success" (click)="exportTableToExcel()"
+                    style="margin-left: 10px">Generar
+                    PDF</button>
 
                 <div class="table-responsive">
                     <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
@@ -20,9 +22,10 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th>residente</th>
                                 <th>Mes</th>
                                 <th>Monto</th>
-                                <th>Puesto </th>
+
                                 <th>concepto_cobro</th>
                                 <th>num_cobro</th>
                                 <th>Activo/Inactivo</th>
@@ -30,12 +33,13 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let Collectionsaslida of Collectionsaslida | async">
-                                <td>{{Collectionsaslida.collection_name_resident}}</td>
-                                <td>{{Collectionsaslida.created_by}}</td>
-                                <td>{{Collectionsaslida.collection_amount}}</td>
-                                <td>{{Collectionsaslida.collection_collection_concept}}</td>
-                                <td>{{Collectionsaslida.collection_id}}</td>
-                                <td>{{Collectionsaslida.collection_status}}</td>
+                                <td>{{Collectionsaslida.residente}}</td>
+                                <td>{{Collectionsaslida.mes}}</td>
+                                <td>{{Collectionsaslida.monto}}</td>
+                                <td>{{Collectionsaslida.concepto_cobro}}</td>
+                                <td>{{Collectionsaslida.num_cobro}}</td>
+                                <td>{{Collectionsaslida.status}}</td>
+
                             </tr>
                         </tbody>
                     </table>

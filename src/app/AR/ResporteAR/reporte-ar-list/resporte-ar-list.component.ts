@@ -6,6 +6,9 @@ import { Collection } from 'src/app/collection';
 import { Collections } from 'src/app/collections';
 import { Collectionsaslida } from 'src/app/collectionsalida';
 
+import { TenantsService } from "src/app/tenants.service";
+import { Tenants } from "src/app/tenants";
+
 
 import { Observable } from 'rxjs';
 import * as XLSX from 'xlsx';
@@ -22,21 +25,24 @@ export class ReporteARListComponent implements OnInit {
   general: Observable<Collection[]>;
   Collections = new Collections();
   Collectionsaslida: Observable<Collectionsaslida[]>
+  Tenants: Observable<Tenants[]>
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
-
+  p_collection_name_resident :string;
   data1 = [];
-  head = [['collection_name_resident','Mes', 'Monto', 'Puesto', 'concepto_cobro', 'num_cobro', 'Activo/Inactivo']];
+  head = [['collection_name_resident','Mes', 'Monto', 'concepto_cobro', 'num_cobro', 'Activo/Inactivo']];
 
-  constructor(private generalService: CollectionService,
+  constructor(
+    private generalService: CollectionService,
+    private TenantsService:TenantsService,
     private router: Router) { }
 
   ngOnInit(): void {
 
     this.reloadData();
-    this.reloadData2();
+   // this.reloadData2();
   }
 
   reloadData() {
@@ -53,15 +59,26 @@ export class ReporteARListComponent implements OnInit {
           this.alertMessage = error['statusText'];
         }
       });
+      this.TenantsService.getTenantList().subscribe(
+        data => {
+          console.log(data);
+          this.Tenants = this.TenantsService.getTenantList();
+        },
+        error => {
+          console.log(error);
+          let coins = [];
+          for (let key in error) {
+            this.alertMessage = error['statusText'];
+          }
+        }
+      );
   }
 
   reloadData2() {
     this.generalService.getEmployeeRepo(this.Collections.p_collection_name_resident).subscribe(
       data => {
+        console.log(this.Collections.p_collection_name_resident);
         this.Collectionsaslida = this.generalService.getEmployeeRepo(this.Collections.p_collection_name_resident);
-
-
-
 
         let status;
         for (let key in data) {
@@ -75,10 +92,8 @@ export class ReporteARListComponent implements OnInit {
           }
 
           this.data1.push(
-            [dats['collection_name_resident'],dats['created_by'], dats['collection_amount'], dats['collection_collection_concept'], dats['collection_id'], status]);
+            [dats['residente'], dats['mes'], dats['monto'], dats['concepto_cobro'],dats['num_cobro'], status]);
         }
-
-
 
       },
       error => {

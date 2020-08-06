@@ -17,6 +17,7 @@ export class CreateCustomerComponent implements OnInit {
 
   employee: Customer = new Customer();
   Tenants: Observable<Tenants[]>
+  Tenants1: Tenants=new Tenants();
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -24,7 +25,7 @@ export class CreateCustomerComponent implements OnInit {
 
   constructor(
     private CustomerService: CustomerService,
-    private TenantsService:TenantsService,
+    private TenantsService: TenantsService,
     private router: Router) { }
 
   ngOnInit() {
@@ -53,12 +54,12 @@ export class CreateCustomerComponent implements OnInit {
 
   save() {
 
-   // this.employee.cutomer_customer_id = 3;
+    // this.employee.cutomer_customer_id = 3;
+    this.employee.tenants_id=this.Tenants1.tenants_id;
     this.CustomerService.createEmployee(this.employee)
       .subscribe(data => {
         console.log(data);
         this.alertDisables = false;
-        
         this.alertMessages = "Se inserto el cliente correctamente";
         this.employee = new Customer();
       },
@@ -79,11 +80,11 @@ export class CreateCustomerComponent implements OnInit {
     this.alertDisable = true;
     this.alertDisables = true;
 
-    if (this.employee.customer_customer_name == "" || this.employee.customer_customer_name == null ) {
+    if (this.employee.customer_customer_name == "" || this.employee.customer_customer_name == null) {
       this.alertDisable = false;
       this.alertMessage = "Nombre Incompleto o Repetido";
     }
-    else if (this.employee.customer_customer_rfc == "" || this.employee.customer_customer_rfc == null ) {
+    else if (this.employee.customer_customer_rfc == "" || this.employee.customer_customer_rfc == null) {
       this.alertDisable = false;
       this.alertMessage = "RFC Incompleto o Repetido";
     }
