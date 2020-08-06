@@ -2,24 +2,19 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle=" REPORTE SALDO BALANZA " blockClass="table-border-style">  
-        <button (click)="imprimirLista()"   class="btn btn-outline-primary" > generar pdf reporte contable</button>
       
-      <div>
+          <br>
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">peridos</label>
+            <select  class="custom-select"  required [(ngModel)]="busqueda.p_periodo_id" name="p_periodo_id" >
+            <option *ngFor="let creditors of periods | async" value="{{creditors.periodsId}}">{{creditors.periodsName}}/{{creditors.periodsYear}}</option>
+            </select>
+            <button (click)="getsbusqueda()"   class="btn btn-outline-primary"style="margin-left: 10px">BUSCAR  </button> 
+            <button (click)="exportTableToExcel()"   class="btn btn-outline-primary"style="margin-left: 10px">Reporte Excel</button>   
+             <button (click)="imprimirLista()"   class="btn btn-outline-primary" > generar pdf reporte contable</button>
       
-          <label for="name"> REPORTE SALDO BALANZA </label>
-          <br>
-          <label for="name">condominio:</label>
-          <input type="text" class="form-control"  [(ngModel)]="busqueda.p_condominio_id" name="p_condominio_id" >
-          <label for="name">periodo:</label>
-          <input type="text" class="form-control"  [(ngModel)]="busqueda.p_periodo_id" name="p_periodo_id" >
-          <button (click)="getsbusqueda()"   class="btn btn-outline-primary"style="margin-left: 10px">BUSCAR  </button> 
-          <button (click)="exportTableToExcel()"   class="btn btn-outline-primary"style="margin-left: 10px">Reporte Excel</button>   
-    <!--
-<button [routerLink]="['/repo-cred-pay-cont-list/date']"  class="btn btn-outline-primary">Regresar</button><br>
-       <button [routerLink]="['/create-payment-record']"  (click)="generalDetails(general.payment_record_payment_date)" class="btn btn-outline-primary"style="margin-left: 10px">BUSCAR CORTE DE FECHA VENCIMIENTO </button>
-    -->
-          </div>
-          <br>
+          </div> 
         
         <div id="frmEquipos" class="table-responsive">
           

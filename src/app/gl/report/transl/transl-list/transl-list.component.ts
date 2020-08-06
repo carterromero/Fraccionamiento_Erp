@@ -8,7 +8,9 @@ import { TranslService } from "../../../../services/gl/transl.service";
 import { Transl } from "../../../../services/gl/transl";
 //busqueda
 import { Trans } from "../../../../services/gl/trans";
-
+//peridos
+import { PeriodsService } from "../../../../services/gl/periods.service";
+import { Periods } from "../../../../services/gl/periods";
 
 
 import { BusquedaQ } from 'src/app/busqueda';
@@ -29,17 +31,21 @@ export class TranslListComponent implements OnInit {
   p_condominio_id: number;
   p_periodo_id : number;
   employee: Transl;  
+  periods: Observable<Periods[]>;
 
   constructor(private generalService: TranslService,
+    private periodsService: PeriodsService,
     private router: Router) { }
 filterPost = '';
   ngOnInit(): void {
     
      // this.reloadData();
+     this.reloadData1() ;
   }
   
   reloadData() {
-    
+    console.log( localStorage.getItem('condominums'));
+    this.busqueda.p_condominio_id=parseInt(localStorage.getItem('condominums'));
     this.generalService.getEmployee(this.busqueda.p_condominio_id,this.busqueda.p_periodo_id).subscribe(
       data => {
         console.log(this.p_condominio_id,this.p_periodo_id);
@@ -55,6 +61,20 @@ filterPost = '';
       });
 
       
+  }
+
+
+  reloadData1() {
+    this.periodsService.getPeriodsList().subscribe(
+      data => {
+        console.log(data);
+        this.periods = this.periodsService.getPeriodsList();
+      },
+      error => {
+        console.log(error);
+        //localStorage.setItem('token', "");
+        //this.router.navigate(['auth/signin']);     
+      });
   }
 
   
