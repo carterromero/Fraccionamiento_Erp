@@ -69,7 +69,7 @@ export class ReleasesDetailsComponent implements OnInit {
 
   }
 
-  gotoList() 
+  onSubmit() 
   {
     this.router.navigate(['releases-list']);
   }
