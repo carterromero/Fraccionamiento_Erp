@@ -69,7 +69,7 @@ export class Billtopayservice {
 //servicio  con informacion requerida de la orden de compra
   getPUSER(): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_AP_GEFACPURHA/1.0/purchas`,{headers});
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_AP_GET_FACPURHA/1.0/purchas`,{headers});
   }
 
   

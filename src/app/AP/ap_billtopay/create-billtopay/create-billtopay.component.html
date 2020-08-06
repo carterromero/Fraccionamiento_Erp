@@ -4,13 +4,13 @@
         <app-card cardTitle="Crear factura" [options]="false">
           <form (ngSubmit)="onSubmit()">
             <div class="form-group">
-              <label for="exampleFormControlSelect1">id orden de compra</label>
+              <label for="exampleFormControlSelect1">Factura orden de compra</label>
               <select  class="custom-select"  id="purcharse_id" required [(ngModel)]="employee.purcharse_id" name="purcharse_id" >
-              <option *ngFor="let creditors of purcharse | async" value="{{creditors.purcharse_id}}">{{creditors.purcharse_id}}{{creditors.purcharse_name}}</option>
+              <option *ngFor="let creditors of purcharse | async" value="{{creditors.purcharse_id}}">{{creditors.purcharse_folio}}/{{creditors.purcharse_name}}</option>
               </select>
               <button (click)="reloadData3()" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR nombre  </button>
           </div> 
-
+ 
           
            
 
