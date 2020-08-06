@@ -1003,13 +1003,7 @@ export class NavigationItem
             url: '/transl-list'
             
           } ,
-          {
-            id: 'transl-list',
-            title: 'Reporte conciliacion',
-            type: 'item',            
-            url: '/consi-list'
-            
-          }  ,
+           
           {
             id: 'saldova-list',
             title: 'Reporte saldo balanza',
