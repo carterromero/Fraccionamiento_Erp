@@ -13,6 +13,7 @@ export class TransactionsEntrys
     last_update_by : number;
     last_update_date :string;
     tipo_transation : string;
+    master_inventarys_name_inventary : string;
     numero_trasaction_entrada :number;
     numero_trasaction_salidas : number;
     transaction_crea :string;
