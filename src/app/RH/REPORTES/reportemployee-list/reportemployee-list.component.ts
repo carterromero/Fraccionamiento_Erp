@@ -18,7 +18,6 @@ export class ReportEmployeeListComponent implements OnInit {
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
-  employees_frequency_payment : string;
   verSeleccion: string        = '';
   
   constructor(private employeeService: EmployeeService,
@@ -48,11 +47,10 @@ export class ReportEmployeeListComponent implements OnInit {
       }
     );    
 
-  
-  
+    
   }
      reloadData() {
-     this.verSeleccion=this.employees_frequency_payment;
+     this.verSeleccion=this.employe.employees_frequency_payment;
       this.employeeService.getReporEmployee(this.verSeleccion).subscribe(
       data => {
         this.employees = this.employeeService.getReporEmployee(this.verSeleccion);

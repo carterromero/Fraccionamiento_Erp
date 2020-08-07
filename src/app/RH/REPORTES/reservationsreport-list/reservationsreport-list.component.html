@@ -24,7 +24,7 @@
                 <tr *ngFor="let reservation of reservations | async   " >
                     <td>{{reservation.reservations_id}}</td>
                     <td>{{reservation.articles_name_article}}</td>
-                    <td>{{reservation.tenants_name}} {{reservation.tenants_father_surname}} {{reservation.tenants_mother_surname}} </td>
+                    <td>{{reservation.NameR}}</td>
                     <td>{{reservation.tenants_residential_number}}</td>
                     <td>{{reservation.reservations_start | date:'medium'}}</td>
                     <td>{{reservation.reservations_end | date:'medium'}}</td>

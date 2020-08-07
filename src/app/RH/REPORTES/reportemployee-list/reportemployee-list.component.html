@@ -9,8 +9,9 @@
           <br>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Tipo</label>
-            <select  class="custom-select"  id="employees_frequency_payment" required [(ngModel)]='employees_frequency_payment' name="employees_frequency_payment" >
-            <option *ngFor="let emplo of employees | async" value="{{emplo.employees_frequency_payment}}">{{emplo.employees_frequency_payment}}</option>
+            <select  class="custom-select" required
+            [(ngModel)]="employe.employees_frequency_payment" id="employees_frequency_payment" name="employees_frequency_payment" >
+            <option *ngFor="let general of employees | async" value="{{general.employees_frequency_payment}}">{{general.employees_frequency_payment}}</option>
             </select>
         </div>  
         <div id="frmEmployee"  class="table-responsive">
@@ -31,18 +32,18 @@
             </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let employee of employees | async   " >
-                    <td>{{employee.employees_id}}</td>
-                    <td>{{employee.employees_name}}</td> 
-                    <td>{{employee.employees_father_surname}}</td>
-                    <td>{{employee.employees_mother_surname}}</td>
-                    <td>{{employee.departments_name}}</td>
-                    <td>{{employee.workplaces_name}}</td>
-                    <td>{{employee.employees_work_start_date}}</td>
-                    <td>{{employee.employees_work_end_date}}</td>
-                    <td>{{employee.pr_receipt_base_salary}}</td>
-                    <td>{{employee.pr_receipt_type_of_perception}}</td>
-                    <td>{{employee.employees_status}}</td>
+                <tr *ngFor="let employeed of employees | async   " >
+                    <td>{{employeed.employees_id}}</td>
+                    <td>{{employeed.employees_name}}</td> 
+                    <td>{{employeed.employees_father_surname}}</td>
+                    <td>{{employeed.employees_mother_surname}}</td>
+                    <td>{{employeed.departments_name}}</td>
+                    <td>{{employeed.workplaces_name}}</td>
+                    <td>{{employeed.employees_work_start_date}}</td>
+                    <td>{{employeed.employees_work_end_date}}</td>
+                    <td>{{employeed.pr_receipt_base_salary}}</td>
+                    <td>{{employeed.pr_receipt_type_of_perception}}</td>
+                    <td>{{employeed.employees_status}}</td>
                 </tr>
             </tbody>
           </table>
