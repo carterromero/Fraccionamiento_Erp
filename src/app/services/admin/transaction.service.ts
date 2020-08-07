@@ -44,8 +44,22 @@ export class TransactionService {
   }
 
 
+  getEmployeeListStatusPrec(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_PRICE_ARTIC/1.0/price_articles`,{headers});
+  }
 
 
+
+  getEmployeeListEstatus(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_STATU_ARTIC/1.0/status_articles`,{headers});
+  }
+
+  getTenantList(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_RH_GET_ALL_TENANT/1.0/tenants`,{headers});
+  }
 
   getEOneAricleButton(id: number, p_condominiuns_id:number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
@@ -53,6 +67,13 @@ export class TransactionService {
     return this.http.get(this.baseUrl + 'ic/api/integration/v1/flows/rest/ERP_INV_PO_GETONE_TRANSA/1.0/getpurcharseTransaction/'+ id + ','+p_condominiuns_id,{headers});
   }
 
+
+
+  getEmployeeListSubI(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_SUB_INVEN/1.0/sub_inventarys`,{headers});
+  
+  } 
 
   getEmployeeListMaster(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})

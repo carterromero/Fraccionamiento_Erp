@@ -3,11 +3,11 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <div class="col-md-6">
-        <app-card cardTitle="Crear cuenta Contables" [options]="false">
+        <app-card cardTitle="Crear polizas" [options]="false">
           <form (ngSubmit)="onSubmit()" >
 
             <div class="form-group">
-              <label for="exampleFormControlSelect1">polizas periodos id</label>
+              <label for="exampleFormControlSelect1">periodos</label>
               <select  class="custom-select"  id="journals_periods_id" required [(ngModel)]="employee.journals_periods_id" name="journals_periods_id" >
               <option *ngFor="let creditors of periods | async" value="{{creditors.periodsId}}">{{creditors.periodsName}}/{{creditors.periodsYear}}</option>
               </select>
@@ -51,7 +51,7 @@
              
             </div>
             <div class="form-group">
-                <label for="name">Numero del periodo</label>
+                <label for="name">Numero del polizas</label>
                 <input type="text" class="form-control" id="journals_number"  [(ngModel)]="employee.journals_number" name="journals_number" required>
             </div>
           

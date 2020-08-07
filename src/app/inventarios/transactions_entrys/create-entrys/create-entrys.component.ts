@@ -21,6 +21,9 @@ import { Authentication } from 'src/app/authentication';
 import { TransactionService } from 'src/app/services/admin/transaction.service';
 import { TransactionsEntrys } from 'src/app/transactionsentrys';
 import { MasterInventarys } from 'src/app/masterinventarys';
+import { Pricearticulo } from 'src/app/pricearticles';
+import { Status } from 'src/app/status';
+import { SubInventarys } from 'src/app/subinventarys';
 
 @Component({
   selector: 'app-create-entrys',
@@ -34,7 +37,7 @@ export class CreateEntrysComponent implements OnInit
   name : string;
   user: User = new User();
   authentication: User = new User(); 
-  teha: Tenants = new Tenants(); 
+  //teha: Tenants = new Tenants(); 
   condo: Condominums = new Condominums();
   userss: Observable<User[]>;
   employee: TransactionsEntrys = new TransactionsEntrys();
@@ -42,11 +45,13 @@ export class CreateEntrysComponent implements OnInit
   purcharse: Observable<Purcharse[]>;
   Condo: Observable<Condominums[]>;
   payments: Observable<Payment[]>;
-  articlesc : Observable<ArticlesC[]>;
-  categorias :Observable<CategoriasC[]>;
+  
   authentications : Observable<Authentication []>;
   master : Observable<MasterInventarys []>;
-
+  precio : Observable<Pricearticulo[]>;
+  teha : Observable<Tenants[]>;
+  status : Observable<Status []>;
+  sub : Observable<SubInventarys []>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -60,6 +65,7 @@ export class CreateEntrysComponent implements OnInit
     private authenticationService : AuthenticationService,
     private generalService: PermissionsService,
     private userService:UserService,
+    
     private tha:TenantsService,
     private router: Router) { }
 
@@ -69,8 +75,10 @@ export class CreateEntrysComponent implements OnInit
     
     this.reloadDatas();
     this.reloadDatass();
-   /// this.reloadDatasss();
-    //this.reloadDatassss();
+    this.reloadDatasss();
+    this.reloadDatassss();
+    this.ReEstatus();
+    this.SubInventa();
   //  this.users();
 
   }
@@ -114,14 +122,14 @@ export class CreateEntrysComponent implements OnInit
       }
     );      
   }
-  
- /* reloadDatasss() 
+  //PrecioStatus
+ reloadDatasss() 
   {
 
-    this.employeeService.getEmployeeListcombo().subscribe(
+    this.employeeService.getEmployeeListStatusPrec().subscribe(
       data => {
         console.log(data);
-        this.articlesc = this.employeeService.getEmployeeListcombo();
+        this.precio = this.employeeService.getEmployeeListStatusPrec();
       },
       error => {
         console.log(error);
@@ -135,7 +143,7 @@ export class CreateEntrysComponent implements OnInit
   }
 
   
-*/
+
   reloadData3()
   {
     // this.name = this.route.firstChild.snapshot.params['name']
@@ -174,15 +182,15 @@ javq(event){
 this.reloadData3()
 }
 
- 
+ //Than
 
- /* reloadDatassss() 
+ reloadDatassss() 
   {
 
-    this.employeeService.getEmployeeListcomboC().subscribe(
+    this.employeeService.getTenantList().subscribe(
       data => {
         console.log(data);
-        this.categorias = this.employeeService.getEmployeeListcomboC();
+        this.teha = this.employeeService.getTenantList();
       },
       error => {
         console.log(error);
@@ -194,13 +202,58 @@ this.reloadData3()
       }
     );      
   }
-*/
+
+
+
+  SubInventa() 
+  {
+
+    this.employeeService. getEmployeeListSubI().subscribe(
+      data => {
+        console.log(data);
+        this.sub = this.employeeService. getEmployeeListSubI();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
+
+
+
+
+
+  ReEstatus() 
+  {
+
+    this.employeeService. getEmployeeListEstatus().subscribe(
+      data => {
+        console.log(data);
+        this.status = this.employeeService. getEmployeeListEstatus();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
 
   save()
    {
     //this.employee.userid = localStorage.getItem('id');
     this.employee.transactions_entrys_condominium=localStorage.getItem('condominums');
-    
+    this.employee.tipo_transation="entrada"
     console.log(this.employee);
     
        this.employeeService.createEmployee(this.employee)

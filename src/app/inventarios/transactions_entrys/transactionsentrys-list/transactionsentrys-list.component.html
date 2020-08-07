@@ -17,32 +17,35 @@
             <thead>
                 <tr>   
                   
-                  <th>Tipo de transaccion</th>
-                          
-                    <th>Articulo</th>
-                  
-                    <th>Concepto</th>
-                    
-                    
-                    
-                    <th>SubInventario</th>
-                    <th>Costo de Transacción</th>
-
+                  <th>Tipo de transaccion</th>    
+                    <th>Orden de Compra</th>
+                    <th>Total</th>
+                    <th>Cantidad de Articulos</th>
+                    <th>Nombre de Articulo </th>
+                    <th>Inquilino</th>
                     <th>Tipo de Precio</th>
                     <th>Estatus de articulo</th>
+                 
+                    <th>Subinventario</th>
+                    <th>Maestro Inventario</th>
                   </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
                   <td>{{general.tipo_transation}}</td>
-                    <td>{{general.articles_name_article}}</td>   
+
+                    <td>{{general.purcharse_name}}</td>   
                  
-                    <td>{{general.purcharse_name}} & {{general.purcharse_id}} </td>
-                    <td>{{general.sub_inventarys_description}}</td>
-                    <td>{{general.transactions_entrys_cost}}</td>
+                    
+                    <td>{{general.purcharse_order_total}}</td>
+                    <td>{{general.purcharse_quantity_items}}</td>
+
+                    <td>{{general.articles_name_article}}</td> 
+                    <td>{{general.tenants_name}}</td>
                     <td>{{general.price_nombre}}</td> 
                     <td>{{general.status_name}}</td>
-                    
+                    <td>{{general.sub_inventarys_description}}</td>
+                    <td>{{general.master_inventarys_name_inventary}}</td>
                     <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="general.transactions_entrys_status == 'true'">

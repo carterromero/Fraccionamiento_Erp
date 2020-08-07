@@ -8,7 +8,7 @@
             
 
             
-            <label for="name">codigo</label>
+            <label for="name">Código de moneda </label>
             <div class="input-group mb-3">
               <select class="custom-select" id="accounting_accounts_currency_code" class="form-control" id="accounting_accounts_currency_code"  [(ngModel)]="employee.accounting_accounts_currency_code" name="accounting_accounts_currency_code" required>
                 <option selected></option>
@@ -18,7 +18,7 @@
              
 
             <div class="form-group">
-              <label for="exampleFormControlSelect1"> periodos id</label>
+              <label for="exampleFormControlSelect1"> periodos</label>
               <select  class="custom-select"  id="journals_periods_id" required [(ngModel)]="employee.accounting_accounts_period_id" name="accounting_accounts_period_id" >
               <option *ngFor="let creditors of periods | async" value="{{creditors.periodsId}}">{{creditors.periodsName}}/{{creditors.periodsYear}}</option>
               </select>
@@ -26,7 +26,7 @@
 
             <div class="form-group">
                 <label for="name">Año</label>
-                <input width="1" type="number" min="2020" max="2023"  class="form-control" id="accounting_accounts_fiscal_year"  [(ngModel)]="employee.accounting_accounts_fiscal_year" name="accounting_accounts_fiscal_year" required>
+                <input  type="text"   class="form-control" id="accounting_accounts_fiscal_year"  [(ngModel)]="employee.accounting_accounts_fiscal_year" name="accounting_accounts_fiscal_year" required>
             </div>
          
             <div class="form-group">
