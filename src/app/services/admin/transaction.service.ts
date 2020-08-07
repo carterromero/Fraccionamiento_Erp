@@ -69,6 +69,19 @@ export class TransactionService {
 
 
 
+  getEOneAricleButtonSalida(id: number, p_condominiuns_id:number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    //return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ONE_ARTICL/1.0/articles/${id},${p_condominiuns_id}`,{headers});
+    return this.http.get(this.baseUrl + 'ic/api/integration/v1/flows/rest/ERP_INV_TRANSA_ONE_SALIDA/1.0/salidatransaction_get_one/'+ id + ','+p_condominiuns_id,{headers});
+  }
+
+  getEmployeeListArticle(p_admin_condominiuns_id:number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_TRANSA_ARTICL_GETALL/1.0/transaction_articles_salidas/${p_admin_condominiuns_id}`,{headers});
+  }
+
+
+
   getEmployeeListSubI(): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_SUB_INVEN/1.0/sub_inventarys`,{headers});
