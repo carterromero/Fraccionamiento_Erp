@@ -16,14 +16,14 @@ export class TransactionsEntrys
     numero_trasaction_entrada :number;
     numero_trasaction_salidas : number;
     transaction_crea :string;
-    
+    status_name :  string;
     purcharse_order_total : number;
     purcharse_quantity_items : number;
     articles_name_article : string;
     purcharse_name  : number;
 
-    
-
+   
+    sub_inventarys_id : number;
 
 
 
@@ -37,8 +37,7 @@ export class TransactionsEntrys
 
     sub_inventarys_description: string;
     price_nombre: string;
-    status_name: string;
-
+   
     condominiuns_id : string;
 
 
@@ -48,6 +47,7 @@ export class TransactionsEntrys
     transactions_entrys_status_id : number;
      transactions_entrys_price_id : number;
 
-
+     transactions_entrys_price_i:number;
+     tenants_name: string;
  
 }
