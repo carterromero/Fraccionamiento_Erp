@@ -15,8 +15,8 @@ export class Employee {
     departments_id: number;
     workplaces_id: number;
     employees_fractionation_unit: string;
-    employees_work_start_date: Date;
-    employees_work_end_date: Date;
+    employees_work_start_date: string;
+    employees_work_end_date: string;
     employees_working_days: string;
     employees_working_hours_start: string;
     employees_working_hours_end: string;
@@ -37,4 +37,5 @@ export class Employee {
     employees_email: string;
     create_by: number;
     last_update_by : number;
+    NameE: string;
 }

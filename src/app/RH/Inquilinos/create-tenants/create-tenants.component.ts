@@ -5,9 +5,6 @@ import { Router } from '@angular/router';
 import { Condominums } from 'src/app/services/admin/condominums';
 import { CondominumsService } from 'src/app/services/admin/condominums.service';
 import { Observable } from 'rxjs';
-import { Agreements } from 'src/app/agreements';
-import { AgreementService } from 'src/app/agreements.service';
-
 
 
 @Component({
@@ -19,7 +16,6 @@ export class CreateTenantsComponent implements OnInit {
   
   tenant: Tenants = new Tenants();
   condominums: Observable<Condominums[]>;
-  agreements: Observable<Agreements[]>;
   submitted = false;
   alertDisable = true;
   alertDisables = true;
@@ -30,11 +26,10 @@ export class CreateTenantsComponent implements OnInit {
 
 
   constructor(private tenantsService:TenantsService, private condominumsService:CondominumsService,
-  private agreementService: AgreementService,  private router: Router) {
+  private router: Router) {
    }
 
   ngOnInit() {
-    //code
     this.reloadDatas();
   }
 
@@ -42,7 +37,6 @@ export class CreateTenantsComponent implements OnInit {
 
   reloadDatas() 
   {
-
     this.condominumsService.getEmployeeListcombo().subscribe(
       data => {
         console.log(data);
@@ -61,15 +55,11 @@ export class CreateTenantsComponent implements OnInit {
   handleUpload(event) {
     const file = event.target.files[0];
     const reader = new FileReader();
-    
     reader.readAsDataURL(file);
     reader.onload = () => {
         this.datos = reader.result.toString();
         this.tenant.tenants_agreement = this.datos.replace("data:application/pdf;base64,","")
-      /*  this.employee.employees_contract = this.datos.replace("data:application/pdf;base64,","")*/
         event = this.tenant.tenants_agreement;
-      /*  event = this.employee.employees_contract*/
-     
     };
 }
   
@@ -81,20 +71,14 @@ export class CreateTenantsComponent implements OnInit {
       .subscribe(data => console.log(data), 
       error => {
         console.log(error);
-       // localStorage.setItem('token', "");
-     //   this.router.navigate(['auth/signin']);
       });
     this.tenant = new Tenants();
     this.gotoList();
   }
 
   onSubmit() {
-   
-    
-    this.save();
-
-     
-    
+    console.log(this.tenant.tenants_type);
+    this.save(); 
   }
 
   gotoList() {

@@ -2,7 +2,8 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle=" REPORTE EMPLEADOS " blockClass="table-border-style">  
-        <button (click)="imprimirLista()"   class="btn btn-outline-primary" >Generar pdf</button>
+        <button (click)="generate()"   class="btn btn-outline-primary" >Generar pdf</button>
+        <button class="btn btn-outline-primary" (click)="exportTableToExcel()" style="margin-left: 10px">Generar excel</button>
       <div>
           <label for="name"> REPORTE EMPLEADOS</label>
           </div>
@@ -11,17 +12,18 @@
             <label for="exampleFormControlSelect1">Tipo</label>
             <select  class="custom-select" required
             [(ngModel)]="employe.employees_frequency_payment" id="employees_frequency_payment" name="employees_frequency_payment" >
-            <option *ngFor="let general of employees | async" value="{{general.employees_frequency_payment}}">{{general.employees_frequency_payment}}</option>
+            <option *ngFor="let general of employ | async" value="{{general.employees_frequency_payment}}">{{general.employees_frequency_payment}}</option>
             </select>
         </div>  
+        <button type="submit" class="btn btn-success" (click)="reloadData()"
+        style="margin-left: 10px">Mostrar</button>
+
         <div id="frmEmployee"  class="table-responsive">
           <table class="table">
             <thead>
             <tr>              
               <th>Id Empleado</th>
               <th>Nombre </th>
-              <th>Apellido paterno </th>
-              <th>Apellido materno</th>
               <th>Departamento</th>
               <th>Puesto</th>
               <th>Fecha Contratacion</th>
@@ -34,9 +36,7 @@
             <tbody>
                 <tr *ngFor="let employeed of employees | async   " >
                     <td>{{employeed.employees_id}}</td>
-                    <td>{{employeed.employees_name}}</td> 
-                    <td>{{employeed.employees_father_surname}}</td>
-                    <td>{{employeed.employees_mother_surname}}</td>
+                    <td>{{employeed.NameE}}</td> 
                     <td>{{employeed.departments_name}}</td>
                     <td>{{employeed.workplaces_name}}</td>
                     <td>{{employeed.employees_work_start_date}}</td>
