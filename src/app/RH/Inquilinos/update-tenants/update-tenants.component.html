@@ -36,12 +36,15 @@
                 <input type="text" class="form-control" id="tenants_fractionation_unit"  [(ngModel)]="tenant.tenants_fractionation_unit" name="tenants_fractionation_unit" required>
               </div>  
               <div class="form-group">
-                <label for="name">Tipo de inquilino</label>
-                <input type="text" class="form-control" id="tenants_type"  [(ngModel)]="tenant.tenants_type" name="tenants_type" required>
-              </div>  
+                <label for="exampleFormControlSelect1">Tipo de residente</label>
+                <select  class="custom-select" required [(ngModel)]="tenant.tenants_type" id="tenants_type" name="tenants_type" >
+                <option value="C">Con contrato</option>
+                <option value="I">Residente</option>
+                </select>
+            </div>  
               <div class="form-group">
                 <label for="name">Telefono</label>
-                <input type="number" class="form-control" id="tenants_telephone" required [(ngModel)]="tenant.tenants_telephone" formControlName="tenants_telephone" name="tenants_telephone" oninput="if(value.length>10)value=value.slice(0,10)">
+                <input type="number" class="form-control" id="tenants_telephone" required [(ngModel)]="tenant.tenants_telephone" formControlName="tenants_telephone" name="tenants_telephone" oninput="if(value.length>11)value=value.slice(0,10)">
               </div>
               <div class="form-group">
                 <label for="name">Deposito de la residencia</label>

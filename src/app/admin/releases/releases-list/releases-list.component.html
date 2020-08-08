@@ -7,7 +7,6 @@
           <table class="table">
             <thead>
             <tr>
-              <th>#</th>
               <th>Fecha</th>
               <th>Asunto</th>
               <th>Adjunto</th>
@@ -17,7 +16,6 @@
             </thead>
             <tbody>
                 <tr *ngFor="let release of releases | async">
-                    <td>{{release.releases_id}}</td>
                     <td>{{release.releases_date | date:'medium'}}</td>
                     <td>{{release.releases_subject}}</td>
                     <td><img [src]="release.releases_attached"></td>
@@ -26,7 +24,7 @@
                       <button (click)="deleteRelease(release.releases_id)" class="btn btn-danger">Delete</button>
                       <button (click)="updateRelease(release.releases_id)" class="btn btn-info" style="margin-left: 10px">Update</button>
                       <button (click)="releaseDetails(release.releases_id)" class="btn btn-info" style="margin-left: 10px">Details</button>
-                      <button (click)="createComments(release.releases_id)" class="btn btn-info">Comentar</button>   
+                    
                     </td>
                 </tr>
             </tbody>

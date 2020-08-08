@@ -3,6 +3,9 @@ import { Releases } from 'src/app/releases';
 import { ReleasesService } from 'src/app/releases.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { Comments } from 'src/app/comments';
+import { CommentsService } from 'src/app/comments.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-releases-details',
@@ -12,13 +15,15 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 export class ReleasesDetailsComponent implements OnInit {
   id: number;
   release: Releases;
+  comment: Comments;
+  comments: Observable<Comments[]>;
   submitted = false;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
   
-  constructor(private route: ActivatedRoute,private router: Router, private http: HttpClient,
+  constructor(private route: ActivatedRoute,private router: Router, private http: HttpClient,  private commentService: CommentsService,
   private releaseService: ReleasesService) { }
 
  ngOnInit() {
@@ -31,6 +36,7 @@ export class ReleasesDetailsComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.release = data;
+        this.reloadData();
       }, error => {
         console.log(error);
         let coins = [];
@@ -39,6 +45,25 @@ export class ReleasesDetailsComponent implements OnInit {
           this.alertMessage = error['statusText'];          
         }
       });
+      
+  }
+
+  reloadData() {
+    this.commentService.getComment(this.id).subscribe(
+      data => {
+        console.log(data);
+        this.comments = this.commentService.getComment(this.id);
+      },
+      error => {
+        console.log(error);   
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      });
+
+      
   }
 
   enviarAviso(){
@@ -69,10 +94,17 @@ export class ReleasesDetailsComponent implements OnInit {
 
   }
 
+  createComments(id: number){
+    this.router.navigate(['create-comments', id]);
+  }
+
+
   onSubmit() 
   {
     this.router.navigate(['releases-list']);
   }
+
+  
 
 
 }
