@@ -1,4 +1,4 @@
-export class TransactionsEntrys
+export class Salida 
 {
     
     transactions_entrys_sku :number;
