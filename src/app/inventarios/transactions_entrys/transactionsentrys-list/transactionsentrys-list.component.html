@@ -14,7 +14,7 @@
                 <tr>   
                   
                   <th>Tipo de transaccion</th>    
-                    <th>Orden de Compra</th>
+                    <th>Folio de Orden de Compra</th>
                     <th>Total</th>
                     <th>Cantidad de Articulos</th>
                     <th>Nombre de Articulo </th>
@@ -31,7 +31,7 @@
                 <tr *ngFor="let general of general | async">
                   <td>{{general.tipo_transation}}</td>
 
-                    <td>{{general.purcharse_name}}</td>   
+                    <td>{{general.purcharse_folio}}</td>   
                  
                     
                     <td>{{general.purcharse_order_total}}</td>
