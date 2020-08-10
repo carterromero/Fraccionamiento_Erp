@@ -26,8 +26,14 @@
         <button class="btn btn-outline-primary" (click)="exportExcelPeople()" style="cursor: pointer" >
             <i class="fa fa-file-excel-o">Excel</i>
         </button>
-      </div>  
-      <div class="table-responsive">
+      </div>
+      
+      <div class="text-right">
+        <button type="button"  (click)="imprimirLista()"style="margin: 10 px;"class="btn btn-outline-primary" >
+            <i class="fa fa-file-excel-o">PDF</i>
+        </button>
+      </div>
+      <div class="table-responsive" id="from-informacion">
         <table id="people" class="table">
             <thead>
             <tr>
