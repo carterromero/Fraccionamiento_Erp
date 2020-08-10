@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Reports } from '../../models/reports';
 import { ReportsService } from '../../service/reports.service';
 import * as XLSX from 'xlsx';
-
+import * as jsPDF from 'jspdf'
 @Component({
   selector: 'app-ac-reports-people',
   templateUrl: './ac-reports-people.component.html',
@@ -49,6 +49,25 @@ export class AcReportsPeopleComponent implements OnInit {
         }
       );
     }
+  }
+
+
+
+
+  imprimirLista() : void{ 
+    if(this.report){ 
+      let element = document.getElementById('from-informacion'); 
+       console.log(element); 
+    }  
+
+  
+const doc = new jsPDF();
+  
+  doc.fromHTML(document.getElementById('from-informacion'), 10,10);;
+  doc.save(['lista']);
+  
+  console.log();
+
   }
 
   exportExcelPeople(): void 
