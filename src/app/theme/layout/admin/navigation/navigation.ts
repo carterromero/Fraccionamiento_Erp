@@ -530,7 +530,7 @@ const NavigationItemss = [
 
           {
             id: 'payment_terms',
-            title: 'Terminos de Pagos',
+            title: 'Terminos de Pago',
             type: 'item',            
             url: '/payment_terms-list'
             
@@ -734,30 +734,6 @@ const NavigationItemss = [
       }
     ]
   },
-
-  {
-    id: 'report',
-    title: 'Reportes',
-    type: 'collapse',
-    icon: 'feather icon-monitor',
-    children: [
-      {
-        id: 'report',
-        title: 'Reporte Contable',
-        type: 'item',            
-        url: '/reports-payroll'
-        
-      },
-      {
-        id: 'report',
-        title: 'Reporte Saldos Vencidos Nómina',
-        type: 'item',            
-        url: '/report-list'
-        
-      } 
-    ]
-  }                         
-,
   {    
     id: 'AC_main',
     title: 'Control de Accesos',
@@ -853,15 +829,10 @@ const NavigationItemss = [
           }
         ]
       }
-
-
     ]
   }
    
 
-  
-
-  
 ];
 
 

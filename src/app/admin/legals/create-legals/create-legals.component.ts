@@ -43,7 +43,7 @@ export class CreateLegalsComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = "La empresa ya existe";     
+          this.alertMessage = "La empresa ya existe, revise el nombre o el RFC";     
         }      
       });
   }
