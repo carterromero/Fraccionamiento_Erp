@@ -35,8 +35,9 @@ export class ReportService {
     return this.http.delete(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PR_DELETE_PAYROL_RECEIP/1.0/payroll_receipt/${id}`, { responseType: 'text', headers});
   }
 
-  getEmployeeList(): Observable<any> {
+  getEmployeeList(): Observable<any> {//
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PR_GET_ALL_PAYRO_RECEI/1.0/payroll_receipt`,{headers});
   }
+
 }
