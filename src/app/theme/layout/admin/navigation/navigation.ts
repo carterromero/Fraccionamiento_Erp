@@ -530,7 +530,7 @@ const NavigationItemss = [
 
           {
             id: 'payment_terms',
-            title: 'Terminos de Pago',
+            title: 'Terminos de Pagos',
             type: 'item',            
             url: '/payment_terms-list'
             
@@ -858,6 +858,8 @@ const NavigationItemss = [
     ]
   }
    
+
+  
 
   
 ];
