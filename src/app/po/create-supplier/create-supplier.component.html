@@ -6,6 +6,15 @@
       <div class="col-md-6">
         <app-card cardTitle="Crear Proveedor" [options]="false">
           <form (ngSubmit)="onSubmit()">
+            
+            <div class="form-group">
+              <label for="name">Folio</label>
+              <input type="text" font style="text-transform: uppercase;" class="form-control" placeholder="folio" id="folio_supplier"  [(ngModel)]="employee.folio_supplier" name="folio_supplier"    required="required"> 
+            </div> 
+            
+            
+            
+            
             <div class="form-group">
               <label for="name">Nombre Completo</label>
               <input type="text" class="form-control" placeholder="Nombre" id="supplier_name"  [(ngModel)]="employee.supplier_name" name="supplier_name"    required="required"> 

@@ -2,6 +2,11 @@
     <div class="col-sm-12">
       <app-card cardTitle="Proveedor Detalles" [options]="false">
         <div *ngIf="employee">
+          
+          
+          <div>
+            <label><b>Folio: </b></label> {{employee.folio_supplier}}
+          </div>
           <div>
             <label><b>Nombre: </b></label> {{employee.supplier_name}}
           </div>
