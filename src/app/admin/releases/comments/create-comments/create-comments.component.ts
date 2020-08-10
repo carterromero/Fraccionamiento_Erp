@@ -68,8 +68,8 @@ export class CreateCommentsComponent implements OnInit {
     }
 
 
-  gotoList() {
-    this.router.navigate(['releases-list']);
-  }
+    releaseDetails(id: number){
+      this.router.navigate(['releases-detail', id]);
+    }
 
 }

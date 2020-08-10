@@ -4,27 +4,27 @@
         <app-card cardTitle="Agregar Empresa" [options]="false">
           <form (ngSubmit)="onSubmit()" >
             <div class="form-group">
-              <label for="name">Empresa: *</label>
+              <label for="name">*Empresa:</label>
               <input type="text" class="form-control" id="legals_name"  [(ngModel)]="employee.legals_name" name="legals_name" required> 
             </div>      
             <div class="form-group">
-              <label for="name">Dirección: *</label>
+              <label for="name">*Dirección: </label>
               <input type="text" class="form-control" id="legals_address"  [(ngModel)]="employee.legals_address" name="legals_address" required>
             </div>  
             <div class="form-group">
-              <label for="name">Descripción: *</label>
+              <label for="name">*Descripción:</label>
               <input type="text" class="form-control" id="legals_description"  [(ngModel)]="employee.legals_description" name="legals_description" required>
             </div>
             <div class="form-group">
-                <label for="name">RFC: *</label>
+                <label for="name">*RFC:</label>
                 <input type="text" class="form-control" id="legals_rfc"  [(ngModel)]="employee.legals_rfc" name="legals_rfc" required>
             </div>
             <div class="form-group">
-              <label for="name">Registro Patronal: *</label>
+              <label for="name">*Registro Patronal: </label>
               <input type="text" class="form-control" id="legals_employer_registration"  [(ngModel)]="employee.legals_employer_registration" name="legals_employer_registration" required>
           </div>
           <div class="form-group">
-            <label for="name">Regimen Fiscal: *</label>
+            <label for="name">*Regimen Fiscal:</label>
             <input type="text" class="form-control" id="legals_tax_regime"  [(ngModel)]="employee.legals_tax_regime" name="legals_tax_regime" required>
         </div>
             <div class="form-group">
@@ -36,20 +36,7 @@
             </div>
             <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
             <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
-            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
-              <div class="app-modal-header">
-              <h5 class="modal-title">Agregar Empresa</h5>
-              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
-              </div>
-              <div class="app-modal-body">
-              <p>¿Está seguro de agregar la empresa?</p>
-              </div>
-              <div class="app-modal-footer">
-              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
-              <button type="button" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
-              </div>
-          </app-ui-modal>
-            <button type="submit"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>          
+            <button type="submit"  class="btn btn-outline-primary" data-toggle="modal">Guardar</button>          
             <button [routerLink]="['/legals-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
           </form>
         </app-card>
