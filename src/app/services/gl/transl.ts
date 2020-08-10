@@ -10,4 +10,5 @@ export class Transl {
     created_by: string;
     description : string;
     concilitiation_condominums_id: string;
+    create_date : string;
     }

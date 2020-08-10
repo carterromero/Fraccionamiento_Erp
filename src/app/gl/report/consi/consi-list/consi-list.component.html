@@ -1,7 +1,9 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle="Conciliacion" blockClass="table-border-style">      
+       <!--
         <button [routerLink]="['/create-consi']"   class="btn btn-outline-primary" >Agregar Conciliacion </button>
+        -->
         <button (click)="exportTableToExcel()"   class="btn btn-outline-primary"style="margin-left: 10px">Reporte Excel</button>   
         <br><br>
         <div class="table-responsive">
@@ -10,7 +12,7 @@
           <table class="table" id="frmEquipos">
             <thead>
             <tr>              
-              
+              <th>fecha</th>
                 <th>cuenta</th>
                 <th>origen </th>
                 <th>estatus</th>
@@ -21,7 +23,8 @@
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                    <td>{{general.cuenta}}</td>
+                  <td>{{general.create_date}}</td>  
+                  <td>{{general.cuenta}}</td>
                     <td>{{general.origen}}</td>
                     <td>{{general.estatus}}</td>
                     <td>{{general.description}}</td>
