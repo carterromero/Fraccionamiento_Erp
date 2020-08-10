@@ -108,9 +108,17 @@ export class CreateJournalslinComponent implements OnInit {
     
        if(this.employee.journals_header_id =="" ||  this.employee.journals_header_id ==null ){
         this.alertDisable = false;
-        this.alertMessage = "fecha incompleta ";          
+        this.alertMessage = " polizas incompleta";          
       }
     
+      if(this.employee.journals_lines_debe =="" ||  this.employee.journals_lines_debe ==null ){
+        this.alertDisable = false;
+        this.alertMessage = "debe incompleta ";          
+      }
+      if(this.employee.journals_lines_haber =="" ||  this.employee.journals_lines_haber ==null ){
+        this.alertDisable = false;
+        this.alertMessage = "haber incompleta ";          
+      }
   
      
     

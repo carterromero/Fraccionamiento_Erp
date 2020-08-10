@@ -996,14 +996,21 @@ export class NavigationItem
         type: 'collapse',
         icon: 'feather icon-server',
         children: [
+          //{
+          //  id: 'transl-list',
+          //  title: 'Reporte transacciones',
+          //  type: 'item',            
+          //  url: '/transl-list'
+            
+         // } ,
+         
           {
-            id: 'transl-list',
+            id: 'consi-list',
             title: 'Reporte transacciones',
             type: 'item',            
-            url: '/transl-list'
+            url: '/consi-list'
             
           } ,
-           
           {
             id: 'saldova-list',
             title: 'Reporte saldo balanza',

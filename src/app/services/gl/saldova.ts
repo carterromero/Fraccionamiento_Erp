@@ -7,4 +7,6 @@ export class Saldova {
     debe : string;
     haber : string;
     saldo_final : string;
+    journals_lines_debe : string;
+    journals_lines_haber : string;
     }
