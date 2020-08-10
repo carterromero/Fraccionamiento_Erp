@@ -16,6 +16,7 @@ export class ConsiListComponent implements OnInit {
 
 
   general: Observable<Transl[]>;
+  generals: Observable<Transl[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -28,6 +29,7 @@ export class ConsiListComponent implements OnInit {
   ngOnInit(): void {
       
       this.reloadData();
+      this.reloadDatas();
   }
 
   reloadData() {
@@ -45,9 +47,25 @@ export class ConsiListComponent implements OnInit {
           this.alertMessage = error['statusText'];          
         }
       });
+}
 
-      
-  }
+reloadDatas() {
+   
+  this.generalService.getEmployeesconsiliatotal().subscribe(
+    data => {
+      console.log(data);
+      this.generals = this.generalService.getEmployeesconsiliatotal();
+    },
+    error => {
+      console.log(error);   
+      let coins = [];
+      for (let key in error) {
+        this.alertDisable = false;
+        this.alertMessage = error['statusText'];          
+      }
+    });
+}
+
   exportTableToExcel() {
     var type = "xlsx"
     var elt = document.getElementById('frmEquipos');
