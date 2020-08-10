@@ -40,11 +40,15 @@
           <thead>
           <tr>         
             
-            <th>Id de la Orden  </th>
+            <th>Folio </th>
             <th>NOMBRE de Orden </th>
             <th>NOMBRE del Solicitante </th>
-            <th>ADDRESS</th>
+       
             <th>ARTICULO </th>
+
+              
+            <th> Precio Articulos </th>
+            <th> SKU </th>
             <th>Proveedor</th>
             <th>Termino de pago</th>
             
@@ -59,17 +63,21 @@
           <tbody>
               <tr *ngFor="let general of general | async">
                  
-                <td>{{general.purcharse_id}}</td>
+                <td>{{general.purcharse_folio}}</td> 
                 <td>{{general.purcharse_name}}</td>
                 <td>{{general.applicant_name}}</td>
-                <td>{{general.fractionation_address}}</td>
-                <td>{{general.articles_name_article}}</td> 
+               
+                <td>{{general.articles_name_article}}</td>
+                
+                <td>{{general.articles_articles_price}}</td>
+                <td>{{general.articulo_sku}}</td>
+
                 <td>{{general.supplier_name}}</td>
                 <td>{{general.payment_description}}</td>
                 <td>{{general.purcharse_quantity_items}}</td>
                 <td>{{general.articles_prices}}</td>
                 <td>{{general.purcharse_order_total}}</td>
-                <td>{{general. created_date}}</td>
+                <td>{{general.created_date}}</td>
     
                   <td>
                       <div class="custom-control custom-switch">
@@ -81,7 +89,7 @@
                   <td>
                     
                      
-                      <button (click)="generalDetails(general.purcharse_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                     <!--   <button (click)="generalDetails(general.purcharse_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    --> 
 
                       <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                         
