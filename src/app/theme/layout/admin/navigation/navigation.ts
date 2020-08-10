@@ -1765,6 +1765,8 @@ export class NavigationItem
                 id: 'ac-people',
                 title: 'Ingreso de Personas',
                 type: 'item',            
+                
+                
                 url: '/ac-reports-people'
                 
               }
