@@ -325,8 +325,6 @@ import { CreateSalidasComponent } from './inventarios/transactions_entrys/create
 
 
 
-
-
 const routes: Routes = [
   /* Default page */
   {
