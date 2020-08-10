@@ -4,7 +4,7 @@ import { Reports } from '../../models/reports';
 import { Router } from '@angular/router';
 import { ReportsService } from '../../service/reports.service';
 import * as XLSX from 'xlsx';
-
+import * as jsPDF from 'jspdf'
 @Component({
   selector: 'app-ac-reports-internal',
   templateUrl: './ac-reports-internal.component.html',
@@ -42,6 +42,21 @@ export class AcReportsInternalComponent implements OnInit {
   }
 
   
+  imprimirLista() : void{ 
+    if(this.report){ 
+      let element = document.getElementById('from-informacion'); 
+       console.log(element); 
+    }  
+
+  
+const doc = new jsPDF();
+  
+  doc.fromHTML(document.getElementById('from-informacion'), 10,10);;
+  doc.save(['lista']);
+  
+  console.log();
+
+  }
 
 
   getReports() {

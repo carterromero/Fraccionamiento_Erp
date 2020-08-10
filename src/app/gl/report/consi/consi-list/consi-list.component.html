@@ -9,6 +9,7 @@
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+          
           <table class="table" id="frmEquipos">
             <thead>
             <tr>              
@@ -31,9 +32,36 @@
                     <td>{{general.debe}}</td>
                     <td>{{general.haber}}</td>         
                 </tr>
+              
+            </tbody>
+
+          </table>
+         
+          <tr>
+            <td><strong>TOTAL</strong></td>
+          </tr>
+          <div class="col-sm-20">
+            <div class="col-md-4"> 
+          <table class="table" id="frmEquipos" style="margin-left:550px;" >  
+            <thead>
+            <tr>           
+                <th>total de debe</th>
+                <th>total de haber</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let generals of generals | async">  
+                    <td>{{generals.debes}}</td>
+                    <td>{{generals.habers}}</td>         
+                </tr>
             </tbody>
           </table>
+        </div>
+        </div>
         </div>
       </app-card>
     </div>
   </div>
+
+
+  

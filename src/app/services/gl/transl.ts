@@ -4,6 +4,8 @@ export class Transl {
     descripcion : string;
     debe : number;
     haber : number;
+    debes : number;
+    habers : number;
     importe : number;
     origen : string;
     estatus : string;

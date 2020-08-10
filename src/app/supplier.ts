@@ -14,7 +14,7 @@ export class Supplier {
     userid : string;
     id : number;
 
-
+    folio_supplier: string;
 
 
     supplier_account:string;
