@@ -853,7 +853,7 @@ const NavigationItemss = [
       }
     ]
   },
-@Injectable()
+ @Injectable()
 export class NavigationItem 
 {
   
