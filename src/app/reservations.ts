@@ -12,4 +12,5 @@ export class Reservations {
     tenants_name: string;
     tenants_father_surname: string;
     tenants_mother_surname: string;
+    NameR: string;
 }

@@ -37,6 +37,12 @@ export class TransactionsEntrysService {
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_TRANS_ENTRY/1.0/transactions_entrys`,{headers});
   }
 
+
+  getEmployeeListSalidas(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_TRANS_SALID/1.0/transactions_entrys`,{headers});
+  }
+
   getEmployeepuchar(id: number): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_PO_TRANSACT/1.0/purchase_transaction/${id}`,{headers});

@@ -45,7 +45,9 @@ export class Purcharse {
     payment_description : string;
     legals_address : string;
 
-
+    name_sta : string;
+    id_status_purcharse : number;
+    status_name_purcharse : string;
 
    
 }

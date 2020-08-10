@@ -3,63 +3,47 @@
     <div class="col-sm-12">
       <div class="col-md-6">
         <app-card cardTitle="Crear Orden de Compra" [options]="false">
-          <button (click)="reloadData3()" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR FOLIO DE ORDEN DE COMPRA</button>
+          <button (click)="reloadData3()" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR ARTICULO</button>
           <form (ngSubmit)="onSubmit()">  
            
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Folio Orden de Compra</label>
-              <select  class="custom-select"  id="purcharse_id" required [(ngModel)]="employee.purcharse_id" name="purcharse_id" >
-              <option *ngFor="let address of purcharse| async" value="{{address.purcharse_id}}">{{address.purcharse_folio}}</option>
+              <label for="exampleFormControlSelect1">articulo</label>
+              <select  class="custom-select"  id="articles_sku" required [(ngModel)]="employee.articles_sku" name="articles_sku" >
+              <option *ngFor="let address of purcharse| async" value="{{address.articles_sku}}">{{address.articulo_sku}}</option>
                </select>
               </div>
      
               <div class="form-group">
-                <label for="name">Total </label>
-                <input type="text" class="form-control" id="purcharse_order_total"  [(ngModel)]="employee.purcharse_order_total" name="purcharse_order_total" required>
+                <label for="name">Nombre Articulo </label>
+                <input type="text" class="form-control" id="articles_name_article"  [(ngModel)]="employee.articles_name_article" name="articles_name_article" required>
             </div>
 
             <div class="form-group">
-              <label for="name">Cantidad de Articulos</label>
-              <input type="text" class="form-control" id="purcharse_quantity_items"  [(ngModel)]="employee.purcharse_quantity_items" name="purcharse_quantity_items" required>
+              <label for="name">Precio</label>
+              <input type="text" class="form-control" id="articles_articles_price"  [(ngModel)]="employee.articles_articles_price" name="articles_articles_price" required>
           </div>
 
 
-          <div class="form-group">
-            <label for="name">Nombre del articulo</label>
-            <input type="text" class="form-control" id="articles_name_article"  [(ngModel)]="employee.articles_name_article" name="articles_name_article" required>
+  
+
+
+        <div class="form-group">
+            <label for="name">Cantidad </label>
+            <input type="text" class="form-control" id="attribute_3"  [(ngModel)]="employee.attribute_3" name="attribute_3" required>
         </div>
-
-
-
-
+             
         
-        <div class="form-group">
-          <label for="name">Cantidad de Articulos  Recibidos </label>
-          <input type="text" class="form-control" id="numero_trasaction_salidas"  [(ngModel)]="employee.numero_trasaction_salidas" name="numero_trasaction_salidas" required>
-      </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Master</label>
-            <select  class="custom-select"  id="master_inventarys_id" required [(ngModel)]="employee.master_inventarys_id" name="master_inventarys_id" >
-            <option *ngFor="let address of master  | async" value="{{address.master_inventarys_id}}">{{address.master_inventarys_name_inventary}}</option>
-             </select>
-           </div>   
-
 
 
            <div class="form-group">
-            <label for="exampleFormControlSelect1">Estatus Precio</label>
+            <label for="exampleFormControlSelect1">Tipo de Precio</label>
             <select  class="custom-select"  id="transactions_entrys_price_id" required [(ngModel)]="employee.transactions_entrys_price_id" name="transactions_entrys_price_id" >
             <option *ngFor="let address of precio  | async" value="{{address.price_id}}">{{address.price_nombre}}</option>
              </select>
            </div>   
         
 
-           <div class="form-group">
-            <label for="exampleFormControlSelect1">Inquilino</label>
-            <select  class="custom-select"  id="transactions_entrys_tenants_id" required [(ngModel)]="employee.transactions_entrys_tenants_id" name="transactions_entrys_price_id" >
-            <option *ngFor="let address of teha  | async" value="{{address.tenants_id}}">{{address.tenants_name}}</option>
-             </select>
-           </div>  
+          
         
 
 

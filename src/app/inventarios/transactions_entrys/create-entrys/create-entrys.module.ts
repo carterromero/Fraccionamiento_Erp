@@ -14,19 +14,7 @@ import { CreateEntrysRoutingModule } from './create-entrys.routing.module';
     SharedModule
   ]
 })
-export class CreateEntrysModule {
-
-
-
-
-
-
-
-
-
-
-
-
+export class CreateEntrysModule{
 
 
 

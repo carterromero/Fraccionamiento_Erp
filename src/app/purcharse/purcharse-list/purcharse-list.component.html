@@ -22,12 +22,13 @@
             <th>Total de orden</th>
           
             <th>FECHA DE CREACION</th>
+           
             <th>Estatus</th>
-            <th>Transaccion</th>
+        
             
             
             
-            <th>#</th>
+            
           </tr>
           </thead>
           <tbody>
@@ -43,26 +44,8 @@
                 <td>{{general.purcharse_quantity_items}}</td>
                 
                 <td>{{general.purcharse_order_total}}</td>
-                
-                <td>{{general. purcharse_address}}</td>
-                 
-                
-                
-                  <td>
-                      <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" [checked]="general.purcharse_status == 'true'">
-                        <label class="custom-control-label" for="purcharse_status">Active</label>
-                     </div>
-                    </td>
-
-  
-                    <td>
-                      <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" [checked]="general.purcharse_entrada_transacciones == 'true'">
-                        <label class="custom-control-label" for="purcharse_entrada_transacciones">Active</label>
-                     </div>
-                    </td>
-                 
+                <td>{{general.purcharse_address}}</td>
+                <td>{{general. status_name_purcharse}}</td>
 
 
                   <td>
@@ -72,12 +55,12 @@
 
                       <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                         <div class="app-modal-header">
-                        <h5 class="modal-title">Eliminar Fraccionamiento</h5>
+                        <h5 class="modal-title">Eliminar Orden de Compra</h5>
                         <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
                         </div>
                         
                         <div class="app-modal-body">
-                        <p>Esta seguro de eliminar el fraccionamiento?</p>
+                        <p>Esta seguro de eliminar el la orden de compra?</p>
                         </div>
                         <div class="app-modal-footer">
                         <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>

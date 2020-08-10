@@ -1379,7 +1379,7 @@ export class NavigationItem
             children: [
               {
                  id: 'rh-reports',
-                title: 'Reporte viviendas',
+                title: 'Reporte Reservaciones',
                 type: 'item',            
                 url: '/reservationsR-list'
               },
@@ -1394,7 +1394,13 @@ export class NavigationItem
              title: 'Reporte departamento',
              type: 'item',            
              url: '/departmentsr-list'
-           }                           
+           }   ,
+           {
+            id: 'rh-reports',
+           title: 'Reporte Viviendas',
+           type: 'item',            
+           url: '/tagvivienda-list'
+         }                               
             ]
           },
         ]

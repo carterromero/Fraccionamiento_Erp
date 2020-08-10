@@ -31,6 +31,7 @@ import { MessagingService } from './messaging.service';
 import { environment } from '../environments/environment';
 import { AsyncPipe } from '../../node_modules/@angular/common';
 
+
 @NgModule({
   declarations: [
     FilterPipe,
@@ -50,6 +51,7 @@ import { AsyncPipe } from '../../node_modules/@angular/common';
 
     ToggleFullScreenDirective,
 
+ 
 
 
 

@@ -1,4 +1,4 @@
-export class TransactionsEntrys
+export class Salida 
 {
     
     transactions_entrys_sku :number;
@@ -23,7 +23,7 @@ export class TransactionsEntrys
     articles_name_article : string;
     purcharse_name  : number;
 
-    purcharse_folio: string;
+   
     sub_inventarys_id : number;
 
 

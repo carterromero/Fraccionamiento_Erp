@@ -38,10 +38,10 @@ export class ReservationsreportListComponent implements OnInit {
         let nombre;
         for (let key in data) {
           var dats = data[key];
-          nombre = dats['tenants_name']||dats['tenants_father_surname']||dats['tenants_mother_surname'];
+      //    nombre = dats['tenants_name']||dats['tenants_father_surname']||dats['tenants_mother_surname'];
           console.log(dats);
           this.data1.push(
-            [dats['reservations_id'], dats['articles_name_article'],nombre, dats['tenants_residential_number'],dats['reservations_start'],dats['reservations_end'],dats['tenants_fractionation_unit']]);
+            [dats['reservations_id'], dats['articles_name_article'],dats['NameR'], dats['tenants_residential_number'],dats['reservations_start'],dats['reservations_end'],dats['tenants_fractionation_unit']]);
         }
       },
       error => {

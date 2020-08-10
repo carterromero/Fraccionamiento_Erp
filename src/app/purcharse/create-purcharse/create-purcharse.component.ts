@@ -19,6 +19,7 @@ import { AuthenticationService } from 'src/app/authentication.service';
 import { PermissionsService } from 'src/app/services/admin/permissions.service';
 import { Tenants } from 'src/app/tenants';
 import { TenantsService } from 'src/app/tenants.service';
+import { StatusPurchase } from 'src/app/statuspurchase';
 
 @Component({
   selector: 'app-create-purcharse',
@@ -35,9 +36,12 @@ export class CreatePurcharseComponent implements OnInit {
   condo: Condominums = new Condominums();
   userss: Observable<User[]>;
   employee: Purcharse = new Purcharse();
+
+
+  sta: StatusPurchase = new StatusPurchase();
   submitted = false;
   suppliers: Observable<Supplier[]>;
-  
+  statuspur: Observable<[StatusPurchase]>;
 
   Condo: Observable<Condominums[]>;
   payments: Observable<Payment[]>;
@@ -70,6 +74,7 @@ export class CreatePurcharseComponent implements OnInit {
     this.reloadDatasss();
     //this.reloadDatassss();
     this.users();
+    this. estatusPurcharse() ;
 
   }
 
@@ -92,6 +97,29 @@ export class CreatePurcharseComponent implements OnInit {
       }
     );      
   }
+
+  //Status
+
+  estatusPurcharse() 
+  {
+    //this.condo.condominums_description = localStorage.getItem('condominums');
+    //this.teha.tenants_name = localStorage.getItem('inquilino');
+    this.employeeService.getEmployeeListStatusPurcharse().subscribe(
+      data => {
+        console.log(data);
+        this.statuspur= this.employeeService.getEmployeeListStatusPurcharse();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
   reloadDatass()
   {
 
@@ -196,6 +224,7 @@ this.reloadData3()
 
   save()
    {
+     this.employee.id_status_purcharse=1
     //this.employee.userid = localStorage.getItem('id');
     this.employee.admin_condominiuns_id=localStorage.getItem('condominums');
     

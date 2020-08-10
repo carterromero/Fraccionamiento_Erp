@@ -313,6 +313,7 @@ import { CreateConsiComponent } from './gl/report/consi/create-consi/create-cons
 import { ReporteARListComponent } from './AR/ResporteAR/reporte-ar-list/resporte-ar-list.component';
 import { SaldovaListComponent } from './gl/report/saldova/saldova-list/saldova-list.component';
 import { CreateEntrysComponent } from './inventarios/transactions_entrys/create-entrys/create-entrys.component';
+import { CreateSalidasComponent } from './inventarios/transactions_entrys/create-salidas/create-salidas.component';
 //import { CreateTransactionsEntrysComponent } from './inventarios/transactions_entrys/create-transactions-entrys/create-transactions-entrys.component';
 
 
@@ -2202,6 +2203,7 @@ const routes: Routes = [
           }
         ]
       },
+    
       {
         path: '',
         component: TransactionsentrysListComponent,
@@ -2800,6 +2802,22 @@ const routes: Routes = [
           {
             path: 'create-entrys',
             loadChildren: () => import('./inventarios/transactions_entrys/create-entrys/create-entrys.module').then(module => module.CreateEntrysModule)
+          }
+        ]
+      }
+      
+      ,
+
+
+     
+    
+      {
+        path: '',
+        component: CreateSalidasComponent ,
+        children: [
+          {
+            path: 'create-salidas',
+            loadChildren: () => import('./inventarios/transactions_entrys/create-salidas/create-salidas.module').then(module => module.CreateSalidasModule)
           }
         ]
       }

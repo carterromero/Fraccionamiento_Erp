@@ -20,6 +20,7 @@ export class Articles
     articles_external_feactures: string;
     articles_internal_characteristics: string;
     articles_status : string;
+    articulo_sku: number;
     created_by : number;
     create_date : string;
     last_update_by : number;
@@ -41,7 +42,7 @@ export class Articles
     articles_common_spaces :string;
     admin_condominiuns_id:string;
     articles_lot_place:string;
-    articulo_sku:string;
+    
     articulo : string;
     descripcion : string;
    

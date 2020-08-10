@@ -11,7 +11,7 @@
             <label><b>Asunto</b></label> {{release.releases_subject}}
           </div>
           <div>
-            <label><b>Adjunto: </b></label><img [src]="release.releases_attached">
+            <label><b>Adjunto: </b></label><img [src]="release.releases_attached" width="50" height="50">
            </div>
           <div>
             <label><b>Estatus:  </b></label>
@@ -20,8 +20,32 @@
                 <label class="custom-control-label" for="releases_status">Activo</label>
              </div>
               </div>
-
+              <button (click)="createComments(release.releases_id)" class="btn btn-info">Comentar</button>   
         </div>
+
+        <div class="row">
+          <div class="col-xl-12">
+              <br>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>Comentario</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let comment of comments | async">
+                          <td>{{comment.releases_comments}}</td>
+                          <td>              
+                          </td>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div>
+        </div>
+      
+      
         <button [routerLink]="['/list-releases']" class="btn btn-success">Regresar a avisos</button><br>
       </app-card>
       </div>

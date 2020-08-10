@@ -83,9 +83,6 @@ export class ReleasesListComponent implements OnInit {
     this.router.navigate(['update-releases', id]);
   }
 
-  createComments(id: number){
-    this.router.navigate(['create-comments', id]);
-  }
 
   
   

@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class TransactionsentrysListComponent implements OnInit {
 
   general: Observable<TransactionsEntrys[]>;
+  salida: Observable<TransactionsEntrys[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -23,6 +24,7 @@ export class TransactionsentrysListComponent implements OnInit {
   ngOnInit(): void {
       
       this.reloadData();
+      this.reloadDatas();
   }
   
   reloadData() {
@@ -41,6 +43,25 @@ export class TransactionsentrysListComponent implements OnInit {
       });
   }
 
+
+
+
+
+  reloadDatas() {
+    
+    this.generalService.getEmployeeListSalidas().subscribe(
+      data => {
+        this.salida = this.generalService.getEmployeeListSalidas();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      });
+  }
   deleteGeneral(id: number) {
     this.alertDisable = true;
     this.alertDisables = true;
