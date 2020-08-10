@@ -4,7 +4,7 @@
         <div *ngIf="employee">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Empresa:</label>
+            <label for="exampleFormControlSelect1">Fracionamiento:</label>
             <select  disabled class="custom-select"  id="legals_id" required [(ngModel)]="employee.legals_id" name="legals_id" >
             <option *ngFor="let address of addresses | async" value="{{address.legasl_id}}">{{address.legals_name}}</option>
             </select>

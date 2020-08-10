@@ -57,7 +57,7 @@ export class CreateCondominumsComponent implements OnInit {
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto el fraccionamiento correctamente";
+          this.alertMessages ="Se agrego el fraccionamiento correctamente";
           this.employee  = new Condominums();
         }, 
       error => {

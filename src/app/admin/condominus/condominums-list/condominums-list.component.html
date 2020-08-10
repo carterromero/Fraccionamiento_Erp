@@ -9,9 +9,9 @@
           <table class="table">
             <thead>
             <tr>              
-              <th>Empresa:</th>
-              <th>Descripción:</th>
-              <th>Estatus:</th>
+              <th>Fracionamiento</th>
+              <th>Descripción</th>
+              <th>Estatus</th>
               <th>Acciones</th>
             </tr>
             </thead>
@@ -19,12 +19,7 @@
                 <tr *ngFor="let general of general | async">
                     <td>{{general.legals_name}}</td>
                     <td>{{general.condominums_description}}</td>
-                    <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.condominums_status == 'true'">
-                          <label class="custom-control-label" for="condominums_status">Active</label>
-                       </div>
-                      </td>
+                    <td>{{general.condominums_status}}</td>
                     <td>
                       <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
                         <button (click)="updateGeneral(general.condominums_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>

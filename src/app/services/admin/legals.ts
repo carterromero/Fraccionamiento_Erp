@@ -6,6 +6,7 @@ export class Legals
     legals_address : string;
     legals_description : string;
     legals_status : string;
+    status: string;
     legals_rfc : string;
     create_by : number;
     create_date : string;
