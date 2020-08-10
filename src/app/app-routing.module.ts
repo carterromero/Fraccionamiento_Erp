@@ -203,6 +203,7 @@ import { CustomerDetailsComponent } from './customer/customer-details/customer-d
 import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
 import { UpdateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/update-unit-of-measures/update-unit-of-measures.component';
 import { CreateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/create-unit-of-measures/create-unit-of-measures.component';
+import { ReportListComponent } from './config-mainte/reports-payroll/report-list/report-list.component';
 
 
 
@@ -1844,6 +1845,18 @@ component: CreateTransfersComponent,
           {
             path: 'Update-payroll/:id',
             loadChildren: () => import('./config-mainte/update-payroll/update-payroll.module').then(module => module.UpdatePayrollModule)
+          }
+        ]
+      }
+      ,
+      {
+        path: '',
+
+        component: ReportListComponent,
+        children: [
+          {
+            path: 'reports-payroll',
+            loadChildren: () => import('./config-mainte/reports-payroll/report-list/report-list.module').then(module => module.ReportListModule)
           }
         ]
       }
