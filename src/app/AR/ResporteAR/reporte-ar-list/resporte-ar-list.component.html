@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-xl-12">
+        <app-card cardTitle="Cobro" blockClass="table-border-style">
+            <div class="form-group">
+                <label for="name">Nombre de Redidente</label>
+                <select type="text" class="form-control" class="custom-select" id="p_collection_name_resident" required
+                    [(ngModel)]="Collections.p_collection_name_resident" name="p_collection_name_resident">
+                    <option *ngFor="let general of general | async" value="{{general.collection_name_resident}}">
+                        {{general.collection_name_resident }}</option>
+                </select>
+                <button type="submit" class="btn btn-success" (click)="getsbusqueda()"
+                    style="margin-left: 10px">Mostrar</button>
+                <button type="submit" class="btn btn-success" (click)="generate()" style="margin-left: 10px">Generar
+                    PDF</button>
+                <button type="submit" class="btn btn-success" (click)="exportTableToExcel()"
+                    style="margin-left: 10px">Generar
+                    Excel</button>
+
+                <div class="table-responsive">
+                    <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+                    <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
+                    <table class="table" id="frmDepartment">
+                        <thead>
+                            <tr>
+                                <th>residente</th>
+                                <th>Mes</th>
+                                <th>Monto</th>
+
+                                <th>concepto_cobro</th>
+                                <th>num_cobro</th>
+                                <th>Activo/Inactivo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let Collectionsaslida of Collectionsaslida | async">
+                                <td>{{Collectionsaslida.residente}}</td>
+                                <td>{{Collectionsaslida.mes}}</td>
+                                <td>{{Collectionsaslida.monto}}</td>
+                                <td>{{Collectionsaslida.concepto_cobro}}</td>
+                                <td>{{Collectionsaslida.num_cobro}}</td>
+                                <td>{{Collectionsaslida.status}}</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </app-card>
+    </div>
+</div>

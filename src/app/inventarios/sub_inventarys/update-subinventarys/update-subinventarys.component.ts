@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SubInventarys } from 'src/app/subinventarys';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SubInventarysService } from 'src/app/subinventarys.service';
+import { MasterInventarys } from 'src/app/masterinventarys';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-update-subinventarys',
@@ -11,6 +13,7 @@ import { SubInventarysService } from 'src/app/subinventarys.service';
 export class UpdateSubinventarysComponent implements OnInit {
   id: number;
   employee: SubInventarys;
+  master: Observable<MasterInventarys[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -38,7 +41,33 @@ export class UpdateSubinventarysComponent implements OnInit {
         }
         
       });
+  
+      this.reloadDatas() ;
+    }
+
+
+
+
+  reloadDatas() 
+  {
+
+    this.employeeService.getEmployeeLisMaster(1).subscribe(
+      data => {
+        console.log(data);
+        this.master = this.employeeService.getEmployeeLisMaster(1);
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );  
+
   }
+  
 
    
 
@@ -62,7 +91,7 @@ export class UpdateSubinventarysComponent implements OnInit {
         }
         
       });
-    
+       
   
   }
 

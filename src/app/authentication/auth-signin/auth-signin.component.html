@@ -6,7 +6,7 @@
         <div class="col-md-12">
           <div class="card-body">
             <form (ngSubmit)="onSubmit()">
-              <h4 class="mb-3 f-w-400">Signin</h4>
+              <h4 class="mb-3 f-w-400">Iniciar sesión</h4>
               <div class="input-group mb-3">
                 <input type="email" class="form-control" placeholder="Email address" id="email" name="email" required [(ngModel)]="authentication.user_email">
               </div>
@@ -16,13 +16,14 @@
               <div class="form-group text-left mt-2">
                 <div class="checkbox checkbox-primary d-inline">
                   <input type="checkbox" name="checkbox-fill-1" id="checkbox-fill-a1" checked="">
-                  <label for="checkbox-fill-a1" class="cr"> Save credentials</label>
+                  <label for="checkbox-fill-a1" class="cr">Guardar</label>
                 </div>
               </div>
               <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+              <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
               <button class="btn btn-block btn-login mb-4" type="submit">Signin</button>
-              <p class="mb-2 text-muted">Forgot password? <a [routerLink]="['/auth/reset-password']" class="f-w-400">Reset</a></p>
-              <p class="mb-0 text-muted">Don’t have an account? <a [routerLink]="['/auth/signup']" class="f-w-400">Signup</a></p>
+              <p class="mb-2 text-muted">¿Olvidó su contraseña? <a  (click)="Mandarcorreo()" class="f-w-400">Reset</a></p>
+              <p class="mb-0 text-muted">¿Aún no tiene una cuenta? <a [routerLink]="['/auth/signup']" class="f-w-400">Registrarse</a></p>
             </form>
           </div>
         </div>

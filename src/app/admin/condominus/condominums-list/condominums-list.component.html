@@ -9,24 +9,22 @@
           <table class="table">
             <thead>
             <tr>              
-              <th>Descripción General</th>
-              <th>Empresa</th>
-              <th>Estatus </th>
-              <th>#</th>
+              <th>Empresa:</th>
+              <th>Descripción:</th>
+              <th>Estatus:</th>
+              <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                    <td>{{general.condominums_description}}</td>
                     <td>{{general.legals_name}}</td>
-                    
+                    <td>{{general.condominums_description}}</td>
                     <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="general.condominums_status == 'true'">
                           <label class="custom-control-label" for="condominums_status">Active</label>
                        </div>
                       </td>
-
                     <td>
                       <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
                         <button (click)="updateGeneral(general.condominums_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
@@ -39,7 +37,7 @@
                           </div>
                           
                           <div class="app-modal-body">
-                          <p>Esta seguro de eliminar el fraccionamiento?</p>
+                          <p>¿Está seguro de eliminar el fraccionamiento?</p>
                           </div>
                           <div class="app-modal-footer">
                           <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>

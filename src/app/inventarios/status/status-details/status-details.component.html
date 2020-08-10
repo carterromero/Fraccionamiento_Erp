@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle=" Estatus Articulo  Detalle" [options]="false">
+        <div *ngIf="employee">
+          <div>
+            <label><b>Nombre: </b></label> {{employee.status_name}}
+          </div>
+          <div>
+            <label><b>Decripcion: </b></label> {{employee.status_description}}
+          </div>
+          
+          
+
+          <div>
+            <label><b>Estatus: </b></label> {{employee.status}}
+          </div>
+
+
+        
+
+
+          <div>
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input"  id="status"  name="status"   style="margin-left: 10px" [checked]="employee.status == 'true'">
+            <label class="custom-control-label" for="status">Active</label>
+        
+          </div>
+        </div>
+        </div>
+        <br>
+        
+        
+      
+      </app-card>
+      </div>
+  </div>

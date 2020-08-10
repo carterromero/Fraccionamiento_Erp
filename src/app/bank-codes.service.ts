@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class BankCodesService {
   private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/';
-  private username='obed.galicia@dti-consultores.com';
-  private password='Consultores2020';
+  private username='andres.coyotl@dti-consultores.com';
+  private password='ASDFGHJ1234+*a';
   
 
   constructor(private http: HttpClient) { }

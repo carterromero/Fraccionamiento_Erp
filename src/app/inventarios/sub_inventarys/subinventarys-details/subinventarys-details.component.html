@@ -2,8 +2,16 @@
     <div class="col-sm-12">
       <app-card cardTitle="Sub Inventario Detalle" [options]="false">
         <div *ngIf="employee">
+         
           <div>
-            <label><b>Descripción: </b></label> {{employee.sub_inventarys_description}}
+            <label><b>Mombre: </b></label> {{employee.sub_inventarys_description}}
+          </div>
+         
+          <div>
+            <label><b>Identificador: </b></label> {{employee.sub_inventarys_identificador}}
+          </div>
+          <div>
+            <label><b>Maestro Inventario Asigando: </b></label> {{employee.master_inventarys_name_inventary}}
           </div>
           <div>
             <label><b>Estatus:  </b></label>

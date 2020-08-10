@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ManageBanksService } from '../../../manage-banks.service';
 import { ManageBanks } from '../../../manageBank';
 
+
 @Component({
   selector: 'app-update-manage-banks',
   templateUrl: './update-manage-banks.component.html',
@@ -12,12 +13,10 @@ export class UpdateManageBanksComponent implements OnInit {
 
   id: number;
   employee: ManageBanks;
-  
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: ManageBanksService) { }
 
   ngOnInit() {
-
     this.employee = new ManageBanks();
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.employee.mab_status);
@@ -32,12 +31,11 @@ export class UpdateManageBanksComponent implements OnInit {
       });
   }
 
-   
-
+  
   updateEmployee() {
 
     //this.employee.userid="3";
-    console.log(this.employee.mab_status);
+    console.log(this.employee.manage_banks_status);
     
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {console.log(data);

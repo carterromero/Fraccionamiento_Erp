@@ -1,0 +1,49 @@
+<p>transl-list works!</p>
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle=" REPORTE TRANSACCION " blockClass="table-border-style">  
+       
+    
+          <br>
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">peridos</label>
+            <select  class="custom-select"  required [(ngModel)]="busqueda.p_periodo_id" name="p_periodo_id" >
+            <option *ngFor="let creditors of periods | async" value="{{creditors.periodsId}}">{{creditors.periodsName}}/{{creditors.periodsYear}}</option>
+            </select>
+            <button (click)="getsbusqueda()"   class="btn btn-outline-primary"style="margin-left: 10px">BUSCAR  </button>   
+            <button (click)="exportTableToExcel()"   class="btn btn-outline-primary"style="margin-left: 10px">Reporte Excel</button> 
+            <button (click)="imprimirLista()"    class="btn btn-outline-primary"style="margin-left: 10px" > generar pdf reporte contable</button>
+      
+          </div> 
+
+        
+        <div id="frmEquipos" class="table-responsive">
+          
+          <table id="frmEquipos"  class="table">
+            <thead>
+            <tr>              
+              <th>fecha</th>
+              <th>cuenta </th>
+              <th>descripcion </th>
+              <th>debe</th>
+              <th>haber</th>
+              <th>importe</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async   " >
+                    <td>{{general.fecha}}</td>
+                    <td>{{general.cuenta}}</td>
+                    <td>{{general.descripcion}}</td>
+                    <td>{{general.debe}}</td>
+                    <td>{{general.haber}}</td>
+                    <td>{{general.importe}}</td>
+                   
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

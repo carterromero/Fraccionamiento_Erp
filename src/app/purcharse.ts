@@ -8,14 +8,46 @@ export class Purcharse {
     purcharse_address : number;
     purcharse_quantity_items : number;
     sku : number;
-    articles_prices : number;
+    articles_articles_price : string; 
     purcharse_order_total :  Number;
     purcharse_status :string;
     purcharse_order_creation_date :string;
     create_date :string;
     last_update_by : string;
+    articles_prices : number;
+    transactions_entrys_condominium : string;
     last_update_date :string;
     admin_condominiuns_id : string;
     userid : string;
+    applicant_name: string ;
+    fractionation_address : string;
+    inv_categories_id : string;
+    categories_name: string
+    purcharse_order_categories_id : string;
+    purcharse_entrada_transacciones: string;
+    rol_description :string;
+    user_name :string ;
+    articles_description : string ;
+    articulo_sku : string;
+    
+    purcharse_folio : string ;
+    p_condominiuns_id: number;
+     id : number;
+     articles_sku : number;
+    create_by :  number;
+   
+    created_date : string;
+    
+    supplier_name :string;
+   
+    articles_name_article : string;
+    condominums_description : string;
+    payment_description : string;
+    legals_address : string;
 
+    name_sta : string;
+    id_status_purcharse : number;
+    status_name_purcharse : string;
+
+   
 }

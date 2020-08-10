@@ -1,0 +1,65 @@
+<p>update-lines works!</p>
+
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Actualizar " [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">accounts id</label>
+                <input type="text" class="form-control" id="accounting_accounts_id"  [(ngModel)]="employee.accounting_accounts_id" name="accounting_accounts_id" required> 
+              </div>      
+              <div class="form-group">
+                <label for="name">padre 1</label>
+                <input type="number" min="1" class="form-control" id="accounting_accounts_lines_parent_1"  [(ngModel)]="employee.accounting_accounts_lines_parent_1" name="accounting_accounts_lines_parent_1" required>
+              </div>  
+              <div class="form-group">
+                <label for="name">padre 2</label>
+                <input type="number"  min="1"class="form-control" id="accounting_accounts_lines_parent_2"  [(ngModel)]="employee.accounting_accounts_lines_parent_2" name="accounting_accounts_lines_parent_2" required>
+              </div>
+              <div class="form-group">
+                  <label for="name">padre 3</label>
+                  <input type="number"  min="1" class="form-control" id="accounting_accounts_lines_parent_3"  [(ngModel)]="employee.accounting_accounts_lines_parent_3" name="accounting_accounts_lines_parent_3" required>
+              </div>
+              <div class="form-group">
+                  <label for="name">hijo</label>
+                  <input type="number" min="1" class="form-control" id="accounting_accounts_lines_children"  [(ngModel)]="employee.accounting_accounts_lines_children" name="accounting_accounts_lines_children" required>
+              </div>
+              <div class="form-group">
+                <label for="name">descripcion</label>
+                <input type="text" class="form-control" id="accounting_accounts_lines_description"  [(ngModel)]="employee.accounting_accounts_lines_description" name="accounting_accounts_lines_description" required>
+            </div>
+            <div class="form-group">
+              <label for="name">tipo id</label>
+              <input type="text" class="form-control" id="accounting_accounts_types_id"  [(ngModel)]="employee.accounting_accounts_types_id" name="accounting_accounts_types_id" required>
+          </div>
+       
+         
+        <div class="form-group">
+            <label for="name">Estatus</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="accounting_accounts_lines_status"  [(ngModel)]="employee.accounting_accounts_lines_status"     name="accounting_accounts_lines_status"   style="margin-left: 10px">
+                <label class="custom-control-label" for="accounting_accounts_lines_status">Active</label>
+             </div>
+        </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Autualizar </h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de actualizar </p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+          <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>          
+          <button [routerLink]="['/lines-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

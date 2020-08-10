@@ -1,26 +1,51 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/customer';
 import { CustomerService } from 'src/app/customer.service';
+
+import { TenantsService } from "src/app/tenants.service";
+import { Tenants } from "src/app/tenants";
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-customer',
   templateUrl: './create-customer.component.html',
   styleUrls: ['./create-customer.component.scss']
 })
-
+/* tenans id list */
 export class CreateCustomerComponent implements OnInit {
 
   employee: Customer = new Customer();
+  Tenants: Observable<Tenants[]>
+  Tenants1: Tenants=new Tenants();
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
 
-  constructor(private employeeService: CustomerService,
+  constructor(
+    private CustomerService: CustomerService,
+    private TenantsService: TenantsService,
     private router: Router) { }
 
   ngOnInit() {
+    this.reloadDatas();
+  }
+  reloadDatas() {
+
+    this.TenantsService.getTenantList().subscribe(
+      data => {
+        console.log(data);
+        this.Tenants = this.TenantsService.getTenantList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];
+        }
+      }
+    );
   }
 
   newEmployee(): void {
@@ -29,8 +54,10 @@ export class CreateCustomerComponent implements OnInit {
 
   save() {
 
-    this.employee.cutomer_customer_id = 3;
-    this.employeeService.createEmployee(this.employee)
+    // this.employee.cutomer_customer_id = 3;
+    this.employee.condominums_id = localStorage.getItem('condominums');
+    this.employee.create_by = localStorage.getItem('id');
+    this.CustomerService.createEmployee(this.employee)
       .subscribe(data => {
         console.log(data);
         this.alertDisables = false;
@@ -47,6 +74,8 @@ export class CreateCustomerComponent implements OnInit {
         });
   }
 
+
+
   onSubmit() {
 
     this.alertDisable = true;
@@ -54,11 +83,11 @@ export class CreateCustomerComponent implements OnInit {
 
     if (this.employee.customer_customer_name == "" || this.employee.customer_customer_name == null) {
       this.alertDisable = false;
-      this.alertMessage = "Nombre Incompleto";
+      this.alertMessage = "Nombre Incompleto o Repetido";
     }
     else if (this.employee.customer_customer_rfc == "" || this.employee.customer_customer_rfc == null) {
       this.alertDisable = false;
-      this.alertMessage = "RFC Incompleta";
+      this.alertMessage = "RFC Incompleto o Repetido";
     }
 
     else if (this.employee.customer_customer_type == "" || this.employee.customer_customer_type == null) {
@@ -79,10 +108,6 @@ export class CreateCustomerComponent implements OnInit {
     else if (this.employee.customer_email == "" || this.employee.customer_email == null) {
       this.alertDisable = false;
       this.alertMessage = "Email Incompleta";
-    }
-    else if (this.employee.condominums_id == null || this.employee.condominums_id == null) {
-      this.alertDisable = false;
-      this.alertMessage = "condomi Incompleta";
     }
 
     else {

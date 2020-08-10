@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="conceptos de pago" blockClass="table-border-style">      
+        <button [routerLink]="['/create-collection-concepts']"   class="btn btn-outline-primary" >Agregar concepto de pago</button>
+        <br><br>
+        <div class="table-responsive">
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+          <table class="table">
+            <thead>
+            <tr>              
+              <th>Nombre de concepto</th>
+              <th>Descripcion</th>
+              <th>Unidad de media</th>
+              <th>precio</th>
+              <th>Cuenta contable de ingreso</th>
+              <!-- 
+              <th>condominio</th>
+              <th>create by</th>
+              <th>collection_id</th>
+              <th>sku</th>
+              <th>accounting_accounts_id</th>
+              <th>purcharse_id</th> -->
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                    <td>{{general.collection_concepts_concept_name}}</td>
+                    <td>{{general.collection_concepts_description}}</td>
+                    <td>{{general.collection_concepts_unit_measurement}}</td>
+                    <td>{{general.collection_concepts_price}}</td>
+                    <td>{{general.collection_concepts_accounting_income_account}}</td>
+                    <!-- <td>{{general.condominums_id}}</td>
+                    <td>{{general.created_by}}</td>
+                    <td>{{general.sku}}</td>
+                    <td>{{general.accounting_accounts_id}}</td>
+                    <td>{{general.purcharse_id}}</td> -->
+                    <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.collection_concepts_status == 'true'">
+                          <label class="custom-control-label" for="periodsStatus">Active</label>
+                       </div>
+                      </td>
+  
+                    <td>
+                        <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
+                        <button (click)="updateGeneral(general.collection_concepts_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        <button (click)="generalDetails(general.collection_concepts_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+                        
+                        
+                        
+                        <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+                          <div class="app-modal-header">
+                          <h5 class="modal-title">Eliminar concepto de pago</h5>
+                          <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+                          </div>
+  
+                          <div class="app-modal-body">
+                          <p>Esta seguro de eliminar la concepto de pago?</p>
+                          </div>
+                          <div class="app-modal-footer">
+                          <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+                          <button type="submit" class="btn btn-danger"  (click)="deleteGeneral(general.collection_concepts_id)"   (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Eliminar</button>
+                          </div>
+                      </app-ui-modal>
+                    </td>          
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

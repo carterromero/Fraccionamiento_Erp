@@ -1,26 +1,50 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle="Transacción de Entradas" blockClass="table-border-style">      
-        <button [routerLink]="['/create-master']" class="btn btn-outline-info">Agregar Transacción de Entrada</button><br>
+        <button [routerLink]="['/create-entrys']" class="btn btn-outline-info">Agregar Transacción de Entrada</button><br>
+
         <br>
+
+
+       
+        
         <div class="table-responsive">
           <table class="table">
             <thead>
-                <tr>              
-                    <th>Articulo Nombre de Transacción</th>
-                    <th>Fraccionamiento de Entrada</th>
-                    <th>Condominio de Entrada</th>
-                    <th>Estatus</th>
-                    <th>Acciones</th>
+                <tr>   
+                  
+                  <th>Tipo de transaccion</th>    
+                    <th>Folio de Orden de Compra</th>
+                    <th>Total</th>
+                    <th>Cantidad de Articulos</th>
+                    <th>Nombre de Articulo </th>
+                    <th>Inquilino</th>
+                    <th>Tipo de Precio</th>
+                    <th>Estatus de articulo</th>
+                 
+                    <th>Subinventario</th>
+                    <th>Maestro Inventario</th>
+                    <th>Concepto</th>
                   </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                    <td>{{general.transactions_entrys_name_article}}</td>
-                    <td>{{general.transactions_entrys_fractionation}}</td>
-                    <td>{{general.transactions_entrys_condominium}}</td>
+                  <td>{{general.tipo_transation}}</td>
 
+                    <td>{{general.purcharse_folio}}</td>   
+                 
                     
+                    <td>{{general.purcharse_order_total}}</td>
+                    <td>{{general.purcharse_quantity_items}}</td>
+
+                    <td>{{general.articles_name_article}}</td> 
+                    <td>{{general.tenants_name}}</td>
+                    <td>{{general.price_nombre}}</td> 
+                    <td>{{general.status_name}}</td>
+                    <td>{{general.sub_inventarys_description}}</td>
+                    <td>{{general.master_inventarys_name_inventary}}</td>
+                    <td>{{general.concept_entry}}</td>
+                    <th>#</th>
                     <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="general.transactions_entrys_status == 'true'">
@@ -34,13 +58,73 @@
                         <button (click)="updateTransac(general.transactions_entrys_sku)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
                         <button (click)="generalDetails(general.transactions_entrys_sku)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
 
-                         
-                        
+  
                     </td>
                 </tr>
             </tbody>
           </table>
         </div>
       </app-card>
+        <br>
+        <br>
+        <app-card cardTitle="Transacción Salida " blockClass="table-border-style">  
+          
+          <form>
+            <div>
+          
+              <button [routerLink]="['/create-salidas']" class="btn btn-outline-info">Agregar Transaccion de Salida </button><br>
+            </div>
+            
+          </form>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+                <tr>   
+                  
+                     
+                  
+                  <th>SKU </th>
+                    <th>Nombre de Articulo </th>
+                    <th>Precio</th>
+                    <th>Tipo de Precio</th>
+                    <th>Estatus de articulo</th>
+                    <th>Concepto</th>
+                    <th>Subinventario</th>
+                   
+                    <th>#</th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of salida | async">
+                  
+                  <td>{{general.articulo_sku}}</td> 
+                    <td>{{general.articles_name_article}}</td> 
+                    <td>{{general.articles_articles_price}}</td> 
+                    <td>{{general.price_nombre}}</td> 
+                    <td>{{general.status_name}}</td>
+                    <td>{{general.concept_entry}}</td>
+                    <td>{{general.sub_inventarys_description}}</td>
+                   
+                    <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.transactions_entrys_status == 'true'">
+                          <label class="custom-control-label" for="transactions_entrys_status">Active</label>
+                       </div>
+                      </td>
+
+                    <td>
+
+                        <button (click)="deleteGeneral(general.sub_categories_id)"  class="btn btn-outline-danger">Eliminar</button>
+                        <button (click)="updateTransac(general.transactions_entrys_sku)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        <button (click)="generalDetails(general.transactions_entrys_sku)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+
+  
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+        </app-card>
+      
     </div>
   </div>

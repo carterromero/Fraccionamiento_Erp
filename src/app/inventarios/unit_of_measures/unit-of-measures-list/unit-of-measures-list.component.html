@@ -1,20 +1,27 @@
 <div class="row">
     <div class="col-xl-12">
-      <app-card cardTitle="Fraccionamientos" blockClass="table-border-style">      
+      <app-card cardTitle="Unidades de Medida" blockClass="table-border-style">      
         <button [routerLink]="['/create-measures']" class="btn btn-outline-info">Agregar Unidad de Medida</button><br>
         <br>
         <div class="table-responsive">
           <table class="table">
             <thead>
                 <tr>              
+                    <th>Nombre</th>
+                    <th>Codigo UM</th>
                     <th>Descripción</th>
                     <th>Estatus </th>
+                    
                     <th>Acciones</th>
                   </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                    <td>{{general.of_measuares_description}} </td>
+                  
+                  <td>{{general.unit_of_measures_nombre}} </td>
+                  <td>{{general.of_measuares_description}} </td>
+                  <td>{{general.unit_of_measures_identificador}} </td>
+                   
                     <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="general.of_measuares_status == 'true'">

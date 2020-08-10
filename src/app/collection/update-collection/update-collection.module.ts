@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { UpdatecollectionRoutingModule } from './update-collection-routing.module';
-import { UpdatecollectionComponent } from './update-collection.component';
+import { UpdateCollectionRoutingModule } from './update-collection-routing.module';
+import { UpdateCollectionComponent } from './update-collection.component';
 import {SharedModule} from '../../theme/shared/shared.module';
 
 @NgModule({
-  declarations: [UpdatecollectionComponent],
+  declarations: [UpdateCollectionComponent],
   imports: [
     CommonModule,
-    UpdatecollectionRoutingModule,
+    UpdateCollectionRoutingModule,
     SharedModule
   ]
 })
 
-export class UpdatecollectionModule { }
+export class UpdateCollectionModule { }

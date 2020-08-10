@@ -25,19 +25,22 @@ export class ArticlesListComponent implements OnInit {
       this.reloadData();
   }
   
-  reloadData() {
-    
-    this.generalService.getEmployeeList().subscribe(
+  reloadData() { 
+    this.generalService.getEmployeeList(parseInt(localStorage.getItem('condominums'))).subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService.getEmployeeList();
+        this.general = this.generalService.getEmployeeList(parseInt(localStorage.getItem('condominums')));
+        
       },
       error => {
         console.log(error);   
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertDisable = false;
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];  
+          
         }
       });
 
@@ -64,7 +67,7 @@ export class ArticlesListComponent implements OnInit {
   }
 
   generalDetails(id: number){
-console.log(id);
+
     this.router.navigate(['articles1-details', id]);
   }
 

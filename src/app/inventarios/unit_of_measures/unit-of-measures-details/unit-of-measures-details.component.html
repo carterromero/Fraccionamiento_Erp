@@ -4,8 +4,21 @@
       <app-card cardTitle="Unidad de Medida Detalle" [options]="false">
         <div *ngIf="employee">
           <div>
-            <label><b>Descripción: </b></label> {{employee.of_measuares_description}}
+            <label><b>Nombre: </b></label> {{employee.unit_of_measures_nombre}}
           </div>
+         
+         
+          <div>
+            <label><b>Codigo : </b></label> {{employee.of_measuares_description}}
+          </div>
+
+         
+          <div>
+            <label><b>Descripcion : </b></label> {{employee.unit_of_measures_identificador}}
+          </div>
+         
+
+          
           <div>
             <label><b>Estatus:  </b></label>
             <div class="custom-control custom-switch">
@@ -15,7 +28,7 @@
         </div>
         </div>
         <br>
-        <button [routerLink]="['/categories-list']" class="btn btn-primary">Regresar a Categorias</button><br>
+        <button [routerLink]="['/unitof-measures-list']" class="btn btn-primary">Regresar a Categorias</button><br>
       </app-card>
       </div>
   </div>

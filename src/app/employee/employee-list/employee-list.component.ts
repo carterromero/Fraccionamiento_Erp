@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class EmployeeListComponent implements OnInit {
   employees: Observable<Employee[]>;
+  employee : Employee = new Employee();
   elements: any = [];
 
   constructor(private employeeService: EmployeeService,
@@ -18,15 +19,6 @@ export class EmployeeListComponent implements OnInit {
 
   ngOnInit() {    
     this.reloadData();
-
-    for (let i = 1; i <= 11; i++) {
-      this.elements.push({
-        id: i,
-        first: {nick: 'Nick ' + i, name: 'Name ' + i},
-        last: 'Name ' + i,
-        handle: 'Handle ' + i
-      });
-    }
   }
 
   reloadData() {
@@ -34,7 +26,8 @@ export class EmployeeListComponent implements OnInit {
     /*this.employees = this.employeeService.getEmployeeList();*/
     this.employeeService.getEmployeeList().subscribe(
       data => {
-        console.log(data);
+        console.log(data);      
+        console.log(this.employee.employees_status);
         this.employees = this.employeeService.getEmployeeList();
       },
       error => {

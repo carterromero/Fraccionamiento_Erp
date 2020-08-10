@@ -1,0 +1,32 @@
+
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Proveedores" blockClass="table-border-style">  
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Nombre Completo</label>
+              <input type="text" class="form-control" id="status_name"  [(ngModel)]="employee.status_name" name="status_name" required> 
+            </div>      
+            <div class="form-group">
+              <label for="name">Descripcion</label>
+              <input type="text" class="form-control" id="status_description"  [(ngModel)]="employee.status_description" name="status_description" required>
+            </div>  
+            
+        
+
+         
+
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="status"  [(ngModel)]="employee.status"     name="status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="status">Active</label>
+                 </div>
+            </div>
+            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button [routerLink]="['/status-articles-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

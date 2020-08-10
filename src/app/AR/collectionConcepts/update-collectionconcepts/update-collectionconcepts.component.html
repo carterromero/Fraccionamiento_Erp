@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Actualizar conceptos pago" [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="name">Nombre de concepto</label>
+              <input type="text" class="form-control" id="collection_concepts_concept_name"  [(ngModel)]="employee.collection_concepts_concept_name" name="collection_concepts_concept_name" required>
+            </div>      
+            <div class="form-group">
+              <label for="name">Descripcion</label>
+              <input type="text" class="form-control" id="collection_concepts_description"  [(ngModel)]="employee.collection_concepts_description" name="collection_concepts_description" required>
+            </div>  
+            <div class="form-group">
+              <label for="name">Unidad de medida</label>
+              <input type="text" class="form-control" id="collection_concepts_unit_measurement"  [(ngModel)]="employee.collection_concepts_unit_measurement" name="collection_concepts_unit_measurement" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Precio</label>
+                <input type="text" class="form-control" id="collection_concepts_price"  [(ngModel)]="employee.collection_concepts_price" name="collection_concepts_price" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Cuenta contable de ingreso</label>
+              <input type="text" class="form-control" id="collection_concepts_accounting_income_account"  [(ngModel)]="employee.collection_concepts_accounting_income_account" name="collection_concepts_accounting_income_account" required>
+          </div>
+          
+            <div class="form-group">
+                <label for="name">Estatus</label> 
+  
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="collection_concepts_status"  [(ngModel)]="employee.collection_concepts_status"     name="collection_concepts_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="collection_concepts_status">Active</label>
+                 </div>
+            </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Autualizar conceptos pago</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de actualizar la conceptos pago</p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+          <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>          
+          <button [routerLink]="['/collectionconcepts-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

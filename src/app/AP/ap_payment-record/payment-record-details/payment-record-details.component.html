@@ -1,17 +1,28 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
-      <app-card cardTitle="FACTURA Detalle" [options]="false">
-        <div *ngIf="employee">
+      <app-card cardTitle="Registro de pago Detalle" [options]="false">
+        <div  id="from-informacion" *ngIf="employee">
 
-          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
-          
-          <div>
-            <label><b>Total pagado: </b></label> {{employee.payment_record_amount}}
+         
+            <div>
+              <label><b>nombre: </b></label> {{employee.name_creditor}}
+            </div>
+            <div>
+              <label><b>factura: </b></label> {{employee.billtopay_invoice_folio }}
+            </div>
+            <div>
+              <label><b>FECHA DE PAGO: </b></label> {{employee.billtopay_invoice_date }}
+            </div>
+            <div>
+            <label><b>Total pagado: </b></label> {{employee.purcharse_order_total }}
           </div>
           <div>
-            <label><b>Método de pago: </b></label> {{employee.payment_method}}
+            <label><b>tipo de pago: </b></label> {{employee.metodo_tipo}}
           </div>
-
+         
+          <div>
+            <button (click)="gocv()" class="btn btn-info">Descargar COMPROBANTE</button>
+          </div>
    
 
           <div>
@@ -24,6 +35,10 @@
         </div>
         <br>
         <button [routerLink]="['/payment-record-list']" class="btn btn-outline-primary">Regresar</button><br>
+        <button type="button"   class="btn btn-outline-primary" (click)="imprimirLista()">Imprimir pdf reporte </button>
+     
       </app-card>
+
       </div>
   </div>
+    

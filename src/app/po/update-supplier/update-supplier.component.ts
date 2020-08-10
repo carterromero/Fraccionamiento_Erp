@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SupplierService } from 'src/app/supplier.service';
 import { Supplier } from 'src/app/supplier';
+import { BankAccounts } from 'src/app/bankAccounts';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-update-supplier',
@@ -12,6 +14,12 @@ export class UpdateSupplierComponent implements OnInit {
 
   id: number;
   employee: Supplier;
+  cuentas: Observable<BankAccounts[]>;
+ 
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
   
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: SupplierService) { }
@@ -30,7 +38,10 @@ export class UpdateSupplierComponent implements OnInit {
       }, error => {
         console.log(error);
       });
-  }
+  
+      this. reloadDatas()
+  
+    }
 
    
 
@@ -50,6 +61,30 @@ export class UpdateSupplierComponent implements OnInit {
     
   
   }
+
+
+
+
+  reloadDatas() 
+
+  {
+
+    this.employeeService.getEmployeeListCuentas().subscribe(
+      data => {
+        console.log(data);
+        this.cuentas = this.employeeService.getEmployeeListCuentas();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
 
   onSubmit() {
     this.updateEmployee();    

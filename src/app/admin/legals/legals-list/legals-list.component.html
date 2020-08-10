@@ -8,15 +8,15 @@
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
           <table class="table">
             <thead>
-            <tr>              
-              <th>Nombre Completo</th>
-              <th>Dirección Completa</th>
-              <th>Descripción General</th>
+            <tr>       
+              <th>Empresa</th>
+              <th>Dirección</th>
+              <th>Descripción</th>
               <th>RFC</th>
               <th>Registro Patronal</th>
               <th>Regimen Fiscal</th>
               <th>Estatus </th>
-              <th>#</th>
+              <th>Acciones </th>
             </tr>
             </thead>
             <tbody>
@@ -30,7 +30,7 @@
                     <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="general.legals_status == 'true'">
-                          <label class="custom-control-label" for="periodsStatus">Active</label>
+                          <label class="custom-control-label" for="periodsStatus">Activo</label>
                        </div>
                       </td>
 

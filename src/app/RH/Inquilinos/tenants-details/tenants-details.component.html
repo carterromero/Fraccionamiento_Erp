@@ -5,7 +5,7 @@
         <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
         <div *ngIf="tenant">
           <div>
-            <label><b>Nombre inquilino: </b></label> {{tenant.tenants_name}}
+            <label><b>Nombre residente: </b></label> {{tenant.tenants_name}}
           </div>
           <div>
             <label><b>Apellido paterno: </b></label> {{tenant.tenants_father_surname}}
@@ -26,7 +26,10 @@
             <label><b>Numero de residencia: </b></label> {{tenant.tenants_residential_number}}
           </div>
           <div>
-            <label><b>Tipo de inquilino: </b></label> {{tenant.tenants_type}}
+            <label><b>Tipo de residente: </b></label> {{tenant.tenants_type}}
+          </div>
+          <div>
+            <label (click)="goagreements()" ><b><u>Descargar Contrato</u></b></label>
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Condominio</label>
@@ -34,12 +37,18 @@
             <option *ngFor="let condominum of condominums | async" value="{{condominum.condominums_id}}">{{condominum.condominums_description}}</option>
             </select>
         </div>  
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Contrato</label>
-          <select disabled class="custom-select"  id="agreement_id"  required [(ngModel)]="tenant.agreement_id" name="agreement_id" >
-          <option *ngFor="let agreement of agreements | async" value="{{agreement.agreement_id}}">{{agreement.agreements_name}}</option>
-          </select>
-      </div>  
+        <div>
+          <label><b>Teléfono: </b></label> {{tenant.tenants_telephone}}
+        </div>
+        <div>
+          <label><b>Deposito: </b></label> {{tenant.tenants_deposit}}
+        </div>
+        <div>
+          <label><b>Fecha inicio de contrato: </b></label> {{tenant.tenants_start_date}}
+        </div>
+        <div>
+          <label><b>Fecha fin de contrato: </b></label> {{tenant.tenants_end_date}}
+        </div>
           <div>
             <label><b>Estatus:  </b></label>
             <div class="custom-control custom-switch">

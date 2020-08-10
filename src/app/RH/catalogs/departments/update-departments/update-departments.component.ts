@@ -3,6 +3,7 @@ import { DepartmentsService } from "src/app/departments.service";
 import { Departments } from "src/app/departments";
 import { Router, ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-update-departments',
   templateUrl: './update-departments.component.html',
@@ -12,9 +13,16 @@ export class UpdateDepartmentsComponent implements OnInit {
 
   id: number;
   department: Departments;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
+
+
+
 
   constructor(private route: ActivatedRoute,private router: Router,
-    private departmentService: DepartmentsService) { }
+    private departmentService: DepartmentsService) {}
 
   ngOnInit() {
     this.department = new Departments();
@@ -36,25 +44,42 @@ export class UpdateDepartmentsComponent implements OnInit {
   }
 
   updateDepartment() {
-    this.department.last_update_by=3;
     console.log(this.department);
     console.log(this.id);
     
-    
-    this.departmentService.updateDepartment(this.id, this.department)
+
+      this.department.last_update_by= 17;
+      this.departmentService.updateDepartment(this.id, this.department)
       .subscribe(data => {console.log(data);
         this.gotoList();  
-      }, 
-      error => {
-        console.log(error);
-        
-      });
-    
+            this.alertDisables = false;
+            this.alertMessages ="Se actualizo el departamento";
+            this.gotoList();
+          }, 
+        error => {
+          console.log(error);    
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = "No se puede agregar el nombre esta duplicado";
+          }      
+        });
   
   }
 
-  onSubmit() {
-    this.updateDepartment();    
+  onSubmit() { 
+
+    this.alertDisable = true;
+    this.alertDisables = true;
+  
+    if(this.department.departments_name == "" ||  this.department.departments_name == null){
+      this.alertDisable = false;
+      this.alertMessage = "Departamento incompleto o repetido";          
+    }
+
+    else{
+      this.updateDepartment();    
+    }
   }
 
   gotoList() {

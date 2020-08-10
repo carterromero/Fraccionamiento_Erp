@@ -7,10 +7,10 @@ export class Customer {
     customer_phone: number;
     customer_email: string;
     customer_status: string;
-    condominums_id: number;
-    create_by: number;
+    condominums_id: string;
+    create_by: string;
     create_date: Date;
-    last_update_by: number;
+    last_update_by: string;
     last_update_date: Date;
     tenants_id: number;
 }

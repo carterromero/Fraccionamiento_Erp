@@ -6,9 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SupplierService {
+
   private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/';
-  private username='evelin.picazo@dti-consultores.com';
-  private password='ASDFGHJ1234+*n';
+  private username='abdiel.romero@dti-consultores.com';
+  private password='Ingenieroars7';
   
 
   constructor(private http: HttpClient) { }
@@ -38,6 +39,15 @@ export class SupplierService {
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_GET_ALL_SUPPLI/1.0/supplier`,{headers});
   }
 
+
+
+  getEmployeeListCuentas(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_TS_GET_ALL_BANK_ACCOU/1.0/bankaccounts`,{headers});
+  }
+
+
+  
   getEmployeeListcombo(): Observable<any> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_GET_ALL_SUPPL_COMBO/1.0/supplier_combo
@@ -49,4 +59,11 @@ export class SupplierService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_GET_REPORT_PROVEE/1.0/reporte_proveedores/${id}`,{headers});
   }
+
+  createFilter(employee: Object): Observable <any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_SUPPLIERFI/1.0/supplierfilter`, employee,{headers});
+  }
+
+ 
 }

@@ -16,12 +16,6 @@
           <label><b>Direccion: </b></label> {{employee.employees_address}}
         </div>
         <div>
-          <label><b>CV: </b></label> {{employee.employees_address}}
-        </div>
-        <div>
-          <label><b>Contrato: </b></label> {{employee.employees_cv}}
-        </div>
-        <div>
           <label><b>Estatus: </b></label> {{employee.employees_status}}
         </div>
         <div>
@@ -34,16 +28,28 @@
           <label><b>CURP: </b></label> {{employee.employees_curp}}
         </div>
         <div>
+          <label><b>Teléfono: </b></label> {{employee.employees_telephone}}
+        </div>
+        <div>
+          <label><b>Correo: </b></label> {{employee.employees_email}}
+        </div>
+        <div>
           <label><b>Sindicalizado : </b></label> {{employee.employees_sindicalizado}}
         </div>
         <div>
           <label><b>Condominio: </b></label> {{employee.condominums_id}}
         </div>
         <div>
-          <label><b>Departamento: </b></label> {{employee.departments_id}}
+          <label (click)="gocv()"  ><b><u>Descargar CV</u></b></label>
         </div>
         <div>
-          <label><b>Puesto: </b></label> {{employee.workplaces_id}}
+          <label (click)="gocontract()" ><b><u>Descargar Contrato</u></b></label>
+        </div>
+        <div>
+          <label><b>Departamento: </b></label> {{employee.departments_name}}
+        </div>
+        <div>
+          <label><b>Puesto: </b></label> {{employee.workplaces_name}}
         </div>
         <div>
           <label><b>Unidad de fraccionamiento: </b></label> {{employee.employees_fractionation_unit}}

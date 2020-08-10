@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <div class="col-sm-12">
-    <app-card cardTitle="Detalles de Cuentas Bancarias" [options]="false">
+    <app-card cardTitle="Detalles de Cuentas de Deposito" [options]="false">
       <div *ngIf="employee">
         <div>
           <label><b>Nombre de Cuenta de Deposito: </b></label> {{employee.deposit_account_name_deposit_account}}
@@ -23,9 +23,9 @@
         <div>
           <label><b>Clave:</b></label> {{employee.deposit_account_key}}
         </div>
-        <div>
-          <label><b>Empresa: </b></label> {{employee.condominums_id}}
-        </div>
+        <!-- <div>
+          <label><b>Condominio: </b></label> {{employee.condominums_id}}
+        </div> -->
         <div>
           <label for="name">Estatus</label>
         <div class="custom-control custom-switch">

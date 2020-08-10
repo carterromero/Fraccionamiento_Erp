@@ -1,42 +1,76 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <div class="col-md-6">
-        <app-card cardTitle="Crear facturas" [options]="false">
+        <app-card cardTitle="Crear Registro de pago" [options]="false">
           <form (ngSubmit)="onSubmit()" >
 
-            <div class="form-group">
-                <label for="name">Fecha de pago</label>
-                <input type="date" id="start" name="trip-start"
-                value="2020-01-01"
-                min="2020-01-01" max="2030-12-31" 
-                 class="form-control" id="payment_record_payment_date"  [(ngModel)]="employee.payment_record_payment_date" name="payment_record_payment_date" required>
-              </div> 
-                
-            <div class="form-group">
+          
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Nombre del provedor</label>
+            <select   class="custom-select"  id="name_creditor" required [(ngModel)]="employee.name_creditor" name="name_creditor" >
+            <option *ngFor="let creditors of supplier | async" value="{{creditors.supplier_name}}"> {{creditors.supplier_name}}</option>
+            
+          </select>
+          </div>
+
+         <form action="">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">FACTURA</label>
+            <select  type="text"  class="custom-select"  id="billtopay_invoice_folio" required [(ngModel)]="employee.billtopay_invoice_folio" name="billtopay_invoice_folio" >
+            <option *ngFor="let creditors of facturass | async" value="{{creditors.billtopay_invoice_folio}}"> {{creditors.billtopay_invoice_folio}}{{creditors.billtopay_table }}</option>
+          </select>
+          <button (click)="reloadData6()" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR nombre  </button>
+        </div> 
+        
+        <div class="form-group">
+          <label for="name">Fecha de pago</label>
+          <input type="text" class="form-control" id="payment_record_payment_date"  [(ngModel)]="employee.billtopay_invoice_date" name="payment_record_payment_date" required>
+        </div>
+  
+         <div class="form-group">
               <label for="name">Monto</label>
-              <input type="text" class="form-control" id="payment_record_amount"  [(ngModel)]="employee.payment_record_amount" name="payment_record_amount" required>
+              <input type="text" class="form-control" id="purcharse_order_total"  [(ngModel)]="employee.purcharse_order_total" name="purcharse_order_total" required>
+        </div>
+
+   
+
+
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">cuenta de pago</label>
+      <select   class="custom-select"  id="cuentapago" required [(ngModel)]="employee.cuentapago" name="cuentapago" >
+      <option *ngFor="let creditors of banco | async" value="{{creditors.bank_accounts_bank_account_number}}"> {{creditors.bank_accounts_bank_account_number}}</option>
+      
+    </select>     
+    </div>
+
+      </form>        
+      
+
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">metodo de pago </label>
+              <select  class="custom-select"  id="metodo_tipo" required [(ngModel)]="employee.metodo_tipo" name="metodo_tipo" >
+              <option *ngFor="let creditors of general | async" value="{{creditors.payment_description}}"> {{creditors.payment_description}}</option>
+              </select>
+          </div>  
+<!--
+            <div class="form-group">
+             <label  for="inputGroupSelect01">metodo de pago </label>
+             <select class="custom-select" id="inputGroupSelect01" class="form-control" id="metodo_tipo"  [(ngModel)]="employee.metodo_tipo" name="metodo_tipo" required>
+                <option selected></option>
+                <option value="una sola exhibición">una sola exhibición</option>
+                <option value="parcialidades">parcialidades</option>
+              </select>
             </div>
-
-
-
-
-              <div class="input-group">
-                <select class="custom-select" id="payment_method"  [(ngModel)]="employee.payment_method" name="payment_method" required>
-                  <option value="">ninguno</option>
-                  <option value="efectivo">efectivo</option>
-                  <option value="targeta">targeta</option>
-                 
-                </select>
-              </div>
-              
-
+-->
               <div class="custom-file">
-              
-                <input type="file" alife-file-to-base (change)="handleUpload($event)" class="custom-file-input" id="payment_method"  [(ngModel)]="employee.payment_method" name="payment_method" required>
-                <label class="custom-file-label" for="validatedCustomFile">Método de pago</label>
-                <div class="invalid-feedback">Example invalid custom file feedback</div>
+                <label  for="inputGroupSelect01">agregar comprovante </label>
+                <input type="file" alife-file-to-base (change)="handleUpload($event)" class="custom-file-input" id="payment_method"   name="payment_method" required>
+                <label class="custom-file-label" for="validatedCustomFile">anexar archivo</label>
+                <div class="invalid-feedback">invalid custom file </div>
               </div>  
 
+
+              
             <div class="form-group">
                 <label for="name">Estatus</label>
                 <div class="custom-control custom-switch">
@@ -65,3 +99,6 @@
         </app-card>
       </div>
     </div>
+
+
+

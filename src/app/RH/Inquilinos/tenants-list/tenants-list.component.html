@@ -1,21 +1,22 @@
 <p>tenants-list works!</p>
 <div class="row">
     <div class="col-xl-12">
-      <app-card cardTitle="Inquilinos" blockClass="table-border-style">      
+      <app-card cardTitle="Residente" blockClass="table-border-style">      
         <button [routerLink]="['/create-tenants']" class="btn btn-outline-primary">Agregar Residente</button><br>
         <br>
         <div class="table-responsive">
           <table class="table">
             <thead>
             <tr>              
-              <th>Nombre inquilino</th>
+              <th>Nombre residente</th>
               <th>Apellido paterno</th>
               <th>Apeliido materno</th>
               <th>Marca de auto</th>
               <th>Placa de auto</th>
               <th>Ubicacion</th>
               <th>Numero de residencia</th>
-              <th>Tipo de inquilino</th>
+              <th>Tipo de residente</th>
+              <th>Teléfono</th>
               <th>Estatus </th>
               <th>Acciones</th>
             </tr>
@@ -30,6 +31,7 @@
                     <td>{{tenant.tenants_location}}</td>
                     <td>{{tenant.tenants_residential_number}}</td>
                     <td>{{tenant.tenants_type}}</td>
+                    <td>{{tenant.tenants_telephone}}</td>
                     <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="tenant.tenants_status == 'true'">

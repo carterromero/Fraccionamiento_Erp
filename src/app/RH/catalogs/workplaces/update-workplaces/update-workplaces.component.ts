@@ -23,7 +23,6 @@ export class UpdateWorkplacesComponent implements OnInit {
   ngOnInit() {
     this.workplace = new Workplaces();
 
-
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.workplace.workplaces_status);
     this.workplaceService.getWorkplace(this.id)
@@ -44,31 +43,38 @@ export class UpdateWorkplacesComponent implements OnInit {
 
 
   updateWorkplace() {    
-    this.workplace.last_update_by=3;
+    this.workplace.last_update_by=17;
     console.log(this.workplace);
     console.log(this.id);
        
     this.workplaceService.updateWorkplace(this.id, this.workplace)
       .subscribe(data => {console.log(data);
-        this.gotoList();  
         this.alertDisables = false;
         this.alertMessages ="Se actualizo el puesto correctamente";
+        this.gotoList();  
       }, 
       error => {
         console.log(error);
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = "Dato duplicado"          
         }
-        
       });
-    
   
   }
 
   onSubmit() {
-    this.updateWorkplace();    
+    this.alertDisable = true;
+    this.alertDisables = true;
+    
+    if(this.workplace.workplaces_name =="" ||  this.workplace.workplaces_name ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "Agregar nombre de puesto";          
+    }
+    else{
+      this.updateWorkplace();    
+    }
   }
 
   gotoList() {

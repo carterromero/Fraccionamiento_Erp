@@ -1,33 +1,80 @@
 <div class="row">
   <div class="col-xl-12">
-    <app-card cardTitle="Proveedores" blockClass="table-border-style">      
+    <div>
+          
+      <button type="button"  style="margin: 10 px;"   class="btn btn-primary" (click)="imprimirLista(employee.supplier_id)">Imprimir Lista General</button>
+    </div>
+    <app-card cardTitle="Proveedores" blockClass="table-border-style"  >      
      
+
       <br>
-      <div class="table-responsive"   >
-        <table class="table" >
+      <form class="form-inline waves-light" mdbWavesEffect (ngSubmit)="onSubmit()">
+        <div class="md-form mt-0" >
+
+          <input [(ngModel)]="filter.create_date"
+          id="create_date"   name="create_date"
+          class="form-control mr-sm-2" type="date" placeholder="Search">
+
+          <select class="form-control mr-sm-2" [(ngModel)]="filter.supplier_status"
+          id="supplier_status"   name="supplier_status"
+          >
+            
+            <option value="1">Activos</option>
+            <option value="2">Desactivos</option>
+          </select>
+          <button type="submit" class="btn btn-outline-success">Buscar</button>    
+          <button    (click)="reloadData()" class="btn btn-outline-info" style="margin-left: 10px">Refrescar</button>  
+        </div>
+   
+       
+
+      </form>
+
+
+      <div class="table-responsive"  id="from-informacion" >
+        <table class="table"    >
+          
+          
           <thead  >
+
+             
+
+
           <tr >          
             
-            <th>Id </th>   
-            <th>Nombre </th> 
-            <th>RFC</th> 
+
+            <th>Folio</th>             
+            <th>Nombre </th>
             <th>Dirección Completa</th>
-            <th>Fecha de creacion </th>   
+           
+            <th>RFC</th>
+            <th>Email</th>
+
+            <th>Telefono</th>
             <th>Giro</th>
+            <th>Fecha</th>
+            <th>Cuenta Bancaria</th>
+            <th>Banco</th>
+            <th>Clave Interbancaria</th>
+           
             <th>Estatus </th>
-            
+            <th>#</th>
           </tr>
           </thead>
           <tbody >
-              <tr    *ngFor="let general of general | async">
-                <td >{{general.supplier_id}}</td>
+              <tr  *ngFor="let general of general | async">
+                <td >{{general.folio_supplier}}</td>
                   <td >{{general.supplier_name}}</td>
-                  <td>{{general.supplier_rfc}}</td>
                   <td>{{general.supplier_address}}</td>
-                  <td>{{general.create_date}}</td>
+                  <td>{{general.supplier_rfc}}</td>
+                  <td>{{general.supplier_email}}</td>
+                  <td>{{general._supplier_phone}}</td>
                   <td>{{general.supplier_turn}}</td>
-                
- 
+                  <td>{{general.create_date}}</td>
+                  <td>{{general.supplier_account}}</td>
+
+                  <td>{{general.suppier_bank}}</td>
+                  <td>{{general.supplier_key_interbank}}</td>
                   
                   <td>
                       <div class="custom-control custom-switch">
@@ -38,23 +85,25 @@
 
                            
                   <td>
-                      
-                      
-                      
-                      <button    (click)="generalDetails(general.supplier_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>  
+                  
+                    <button    (click)="generalDetails(general.supplier_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>  
+                     
                       
                     
 
                      
-
-                        
 
 
                   </td>
               </tr>
           </tbody>
         </table>
+        
+        
       </div>
     </app-card>
+
+
+   
   </div>
 </div>

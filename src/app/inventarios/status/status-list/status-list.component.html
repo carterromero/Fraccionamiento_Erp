@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Estatus Articulos" blockClass="table-border-style">      
+        <button [routerLink]="['/status-create']" class="btn btn-primary">Agregar Estatus</button><br>
+        <br>
+        <div class="table-responsive"   >
+          <table class="table" >
+            <thead  >
+            <tr > 
+                         
+              <th>Nombre </th>
+              <th>Descripcion</th>
+            
+              <th>Estatus </th>
+              <th>#</th>
+            </tr>
+            </thead>
+            <tbody >
+                <tr  *ngFor="let general of general | async">
+                 
+                  <td >{{general.status_name}}</td>
+                  <td >{{general.status_description}}</td>
+                  
+                  
+                  
+
+  
+  
+  
+                    
+                    <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.status == 'true'">
+                          <label class="custom-control-label" for="status">Active</label>
+                       </div>
+                      </td>
+  
+                             
+                    <td>
+                        <button  (click)="createPeriodsDialog.show()"  class="btn btn-outline-danger">Eliminar</button>
+                        <button (click)="updateGeneral(general.status_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                        
+                        <button    (click)="generalDetails(general.status_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>  
+                        
+                      
+                        <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+                          <div class="app-modal-header">
+                          <h5 class="modal-title">Eliminar Proveedores</h5>
+                          <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+                            
+                        </div>
+  
+                          <div class="app-modal-body">
+                          <p>Esta seguro de eliminar la empresa?</p>
+                          </div>
+                          <div class="app-modal-footer">
+                          <button type="button" class="btn btn-secondary"  style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+                          <button type="submit" class="btn btn-danger"  (click)="deleteGeneral(general.supplier_id)"   (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Eliminar</button>
+                          
+                            
+                          </div>
+                      
+                          
+                     
+                        </app-ui-modal>
+  
+  
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

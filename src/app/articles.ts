@@ -1,6 +1,15 @@
+import { NumberValueToken } from 'html2canvas/dist/types/css/syntax/tokenizer';
+
 export class Articles
 {
-    
+
+
+
+    sub_inventarys_description :string;
+    sub_inventario :string;
+ 
+    p_admin_condominiuns_id :string
+    p_id : number;
     articles_sku :number;
     articles_name_article : string;
     articles_description : string;
@@ -11,10 +20,64 @@ export class Articles
     articles_external_feactures: string;
     articles_internal_characteristics: string;
     articles_status : string;
+    articulo_sku: number;
     created_by : number;
     create_date : string;
     last_update_by : number;
     last_update_date :string;
-    sub_categories_id :string;
+    lote_latitud :number;
+    lote_longitud :number;
+    sub_categories_id :number;
     unit_of_measuares_id :string;
-}
+    unit_of_measures_nombre:string;
+    articles_tall:number;
+    articles_long : number;
+    articles_width :number;
+    articles_since :string;
+    articles_until :string;
+    articles_status_id: number;
+    articles_price_id: number;
+    categories_name : number;
+
+    articles_common_spaces :string;
+    admin_condominiuns_id:string;
+    articles_lot_place:string;
+    
+    articulo : string;
+    descripcion : string;
+   
+    caract_extern : string;
+    caract_int : string;
+    alto : number;
+    largo: number;
+    ancho: number;
+    
+    categoria : number;
+    subcategoria : number;
+    precio_nomb :string;
+    precio :number;
+    activo : string;
+
+
+
+  
+  
+    estatus:string; 
+    desde:string; 
+    hasta: string; 
+    inquilino_nombre : string; 
+    inquilino_apellido_1 :string; 
+    inquilino_apellido_2 : string; 
+
+  
+    
+
+ 
+
+
+
+
+
+
+    
+    }

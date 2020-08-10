@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Conciliacion" blockClass="table-border-style">      
+       <!--
+        <button [routerLink]="['/create-consi']"   class="btn btn-outline-primary" >Agregar Conciliacion </button>
+        -->
+        <button (click)="exportTableToExcel()"   class="btn btn-outline-primary"style="margin-left: 10px">Reporte Excel</button>   
+        <br><br>
+        <div class="table-responsive">
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+          <table class="table" id="frmEquipos">
+            <thead>
+            <tr>              
+              <th>fecha</th>
+                <th>cuenta</th>
+                <th>origen </th>
+                <th>estatus</th>
+                <th>descripcion</th>
+                <th>debe</th>
+                <th>haber</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                  <td>{{general.create_date}}</td>  
+                  <td>{{general.cuenta}}</td>
+                    <td>{{general.origen}}</td>
+                    <td>{{general.estatus}}</td>
+                    <td>{{general.description}}</td>
+                    <td>{{general.debe}}</td>
+                    <td>{{general.haber}}</td>         
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

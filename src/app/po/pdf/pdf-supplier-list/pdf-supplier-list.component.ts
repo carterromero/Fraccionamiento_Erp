@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SupplierService } from 'src/app/supplier.service';
-import * as jsPDF from 'jspdf'
 import { Supplier } from 'src/app/supplier';
+import * as jsPDF from 'jspdf'
+import { FilterS } from 'src/app/filters';
 
 @Component({
   selector: 'app-pdf-supplier-list',
@@ -14,14 +15,15 @@ export class PdfSupplierListComponent implements OnInit {
 
   id: number;
   employee: Supplier;
+  filter :FilterS= new FilterS();
   
-
-  
-
-
   general: Observable<Supplier[]>;
+  filterss: Observable<FilterS[]>;
 
-  constructor(  private route: ActivatedRoute,private generalService: SupplierService, private router: Router) { }
+  constructor(  private route: ActivatedRoute,
+    private generalService: 
+    SupplierService, private router: Router) { }
+   
     imprimirLista(id:number){
       
       
@@ -34,6 +36,7 @@ export class PdfSupplierListComponent implements OnInit {
   
       }
 
+      
 
 
       ngOnInit() :void{
@@ -55,6 +58,10 @@ export class PdfSupplierListComponent implements OnInit {
       }
 
 
+
+     
+      
+
   reloadData() {
     
     this.generalService.getEmployeeList().subscribe(
@@ -70,6 +77,40 @@ export class PdfSupplierListComponent implements OnInit {
 
       
   }
+  reloadDatas() {
+    
+    this.generalService.createFilter(this.filter).subscribe(
+      data => {
+        console.log(data);
+        this.general =this.generalService.createFilter(this.filter);
+      },
+      error => {
+        console.log(error);
+        //localStorage.setItem('token', "");
+        //this.router.navigate(['login']);     
+      });
+
+      
+  }
+
+  onSubmit() 
+  {
+    
+    this.getsbusqueda();
+  }
+
+  getsbusqueda()
+  {
+    if(this.filter.create_date !=null || this.filter.supplier_status !=null){
+    this.reloadDatas();
+    console.log(this.filter);
+  }
+  else{
+    alert("Ingrese Fecha para buscar y el estatus");
+  }
+   
+  }
+
 
 
   generalDetails(id: number){

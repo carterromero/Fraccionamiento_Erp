@@ -4,15 +4,18 @@ import { PdfPurcharseListComponent } from './pdf-purcharse-list.component';
 
 
 
+
 const routes: Routes = [
   {
     path: '',
-    component: PdfPurcharseListComponent
+    component: 
+    PdfPurcharseListComponent
+    
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule] 
 })
 export class PdfPurcharseListRoutingModule { }

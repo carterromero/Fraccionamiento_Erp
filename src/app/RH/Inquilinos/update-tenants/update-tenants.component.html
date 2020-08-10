@@ -1,8 +1,7 @@
-<p>update-tenants works!</p>
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <div class="col-md-6">
-        <app-card cardTitle="Actualizar inquilino" [options]="false">
+        <app-card cardTitle="Actualizar Residente" [options]="false">
           <form (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="name">Nombre inquilino</label>
@@ -30,28 +29,40 @@
               </div>   
               <div class="form-group">
                 <label for="name">Numero de residencia</label>
-                <input type="text" class="form-control" id="tenants_residential_number"  [(ngModel)]="tenant.tenants_residential_number" name="tenants_residential_number" required>
+                <input type="number" class="form-control" id="tenants_residential_number"  [(ngModel)]="tenant.tenants_residential_number" name="tenants_residential_number" required>
               </div>   
               <div class="form-group">
                 <label for="name">Unidad de residencia</label>
                 <input type="text" class="form-control" id="tenants_fractionation_unit"  [(ngModel)]="tenant.tenants_fractionation_unit" name="tenants_fractionation_unit" required>
               </div>  
               <div class="form-group">
-                <label for="name">Tipo de inquilino</label>
-                <input type="text" class="form-control" id="tenants_type"  [(ngModel)]="tenant.tenants_type" name="tenants_type" required>
-              </div>  
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Condominio</label>
-                <select  class="custom-select"  id="condominums_id" required [(ngModel)]="tenant.condominums_id" name="condominums_id" >
-                <option *ngFor="let condominum of condominums | async" value="{{condominum.condominums_id}}">{{condominum.condominums_description}}</option>
+                <label for="exampleFormControlSelect1">Tipo de residente</label>
+                <select  class="custom-select" required [(ngModel)]="tenant.tenants_type" id="tenants_type" name="tenants_type" >
+                <option value="C">Con contrato</option>
+                <option value="I">Residente</option>
                 </select>
             </div>  
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Contrato</label>
-              <select  class="custom-select"  id="agreement_id" required [(ngModel)]="tenant.agreement_id" name="agreement_id" >
-              <option *ngFor="let agreement of agreements | async" value="{{agreement.agreement_id}}">{{agreement.agreements_name}}</option>
-              </select>
-          </div>  
+              <div class="form-group">
+                <label for="name">Telefono</label>
+                <input type="number" class="form-control" id="tenants_telephone" required [(ngModel)]="tenant.tenants_telephone" formControlName="tenants_telephone" name="tenants_telephone" oninput="if(value.length>11)value=value.slice(0,10)">
+              </div>
+              <div class="form-group">
+                <label for="name">Deposito de la residencia</label>
+                <input type="number" class="form-control" id="tenants_deposit" required [(ngModel)]="tenant.tenants_deposit" formControlName="tenants_deposit" name="tenants_deposit">
+              </div>
+              <div class="form-group">
+                <label for="name">Fecha inicio de contrato</label>
+                <input type="date" class="form-control" id="tenants_start_date" required [(ngModel)]="tenant.tenants_start_date" formControlName="tenants_start_date" name="tenants_start_date">
+              </div>
+              <div class="form-group">
+                <label for="name">Fecha final de contrato</label>
+                <input type="date" class="form-control" id="tenants_end_date" required [(ngModel)]="tenant.tenants_end_date" formControlName="tenants_end_date" name="tenants_end_date">
+              </div>
+            <div class="custom-file">
+              <input type="file" alife-file-to-base  (change)="handleUpload($event)" class="custom-file-input"  id="tenant.tenants_agreement"   name="tenants_agreement" required>
+              <label class="custom-file-label" for="validatedCustomFile">Elegir contrato ...</label>
+              <div class="invalid-feedback">invalid custom file </div>
+            </div>  
             <div class="form-group">
                 <label for="name">Estatus</label> 
                 <div class="custom-control custom-switch">

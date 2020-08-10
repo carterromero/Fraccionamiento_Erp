@@ -1,74 +1,119 @@
 <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-12">          
-        <app-card cardTitle="Create Periods" [options]="false">      
+        <div class="col-sm-12">
+            <div class="col-md-4">      
+        <app-card cardTitle="Crear Peridos" [options]="false">      
             <app-alert type="success" [hidden]="alertDisable">{{alertMessage}}</app-alert>  
           <form (ngSubmit)="onSubmit()">
-            <div class="form-group">
-                <label for="name">Periods Number</label>
-                <input type="number" class="form-control" id="periodsNumber" required [(ngModel)]="periods.periodsNumber" name="periodsNumber">
-            </div>    
-                
-            <div class="form-group">
-                <label for="name">Periods Name</label>
-                <input type="text" class="form-control" id="periodsName" required [(ngModel)]="periods.periodsName" name="periodsName">
-            </div>    
-                
-            <div class="form-group">
-                <label for="name">Periods Year</label>
-                <input type="number" class="form-control" id="periodsYear" required [(ngModel)]="periods.periodsYear" name="periodsYear">
-            </div>    
-                
-            <div class="form-group">
-                <label for="name">Periods Start Date</label>
-                <input type="date" class="form-control" id="periodsStartDate" required [(ngModel)]="periods.periodsStartDate" name="periodsStartDate">
-            </div>    
-                
-            <div class="form-group">
-                <label for="name">Periods End Date</label>
-                <input type="date" class="form-control" id="periodsEndDate" required [(ngModel)]="periods.periodsEndDate" name="periodsEndDate">
-            </div>    
-                
-            <div class="form-group">
-                <label for="name">Periods Current Status</label>
-                <input type="text" class="form-control" id="periodsCurrentStatus" required [(ngModel)]="periods.periodsCurrentStatus" name="periodsCurrentStatus">
-            </div>    
-                
-            <div class="form-group">
-                <label for="name">Created By</label>
-                <input type="number" class="form-control" id="createdBy" required [(ngModel)]="periods.createdBy" name="createdBy">
-            </div>    
-                
-            <div class="form-group">
-                <label for="name">Created Date</label>
-                <input type="date" class="form-control" id="createdDate" required [(ngModel)]="periods.createdDate" name="createdDate">
-            </div>    
-                
-            <div class="form-group">
-                <label for="name">Last Updated By</label>
-                <input type="number" class="form-control" id="lastUpdatedBy" required [(ngModel)]="periods.lastUpdatedBy" name="lastUpdatedBy">
-            </div>    
-                
-            <div class="form-group">
-                <label for="name">Last Updated Date</label>
-                <input type="date" class="form-control" id="lastUpdatedDate" required [(ngModel)]="periods.lastUpdatedDate" name="lastUpdatedDate">
-            </div>                    
             
-            <button [routerLink]="['/periods-list']" class="btn btn-secondary app-modal-footer" style="margin-left: 10px">Cancel</button>
-            <button type="button" class="btn btn-primary " data-toggle="modal" (click)="createPeriodsDialog.show()">Submit</button>
+              <form name = "selectForm">
+                <p>
+                  <label for="number">Número del Periodo</label>
+               <select  class="custom-select" id="periods_number"   [(ngModel)]="periods.periods_number" name="periods_number" required>
+                  <option selected></option>
+                  <option value="1">uno</option>
+                  <option value="2">dos</option>
+                  <option value="3">tres</option>
+                  <option value="4">cuatro</option>
+                  <option value="5">cinco</option>
+                  <option value="6">seis</option>
+                  <option value="7">siete</option>
+                  <option value="8">ocho</option>
+                  <option value="9">nueve</option>
+                  <option value="10">diez</option>
+                  <option value="11">once</option>
+                  <option value="12">doce</option>
+                  <option value="13">trece</option>
+                 
+                </select>
+                </p>
+                
+              </form>
+                <script>
+                  function howMany(selectObject) {
+                    var numberSelected = 0;
+                    for (var i = 0; i < selectObject.options.length; i++) {
+                      if (selectObject.options[i].selected) {
+                        numberSelected++;
+                      }
+                    }
+                    return numberSelected;
+                  }
+                  
+                  var periodsNumber = document.getElementById("periodsNumber");
+                  periodsNumber.addEventListener("click", function(){
+                    alert('Number of options selected: ' + howMany(document.selectForm.musicTypes))
+                  });
+                  </script>
+                  <form name = "selectForm">
+                    <p>
+                      <label for="number">Mes del periodo</label>
+                   <select  class="custom-select" id="periods_name"   [(ngModel)]="periods.periods_name" name="periods_name" required>
+                      <option selected></option>
+                      <option value="ENERO">ENERO</option>
+                      <option value="FEFRERO">FEFRERO</option>
+                      <option value="MARZO">MARZO</option>
+                      <option value="ABRIL">ABRIL</option>
+                      <option value="MAYO">MAYO</option>
+                      <option value="JUNIO">JUNIO</option>
+                      <option value="JULIO">JULIO</option>
+                      <option value="AGOSTO">AGOSTO</option>
+                      <option value="SEPTIEMBRE">SEPTIEMBRE</option>
+                      <option value="OCTUBRE">OCTUBRE</option>
+                      <option value="NOVIEMBRE">NOVIEMBRE</option>
+                      <option value="DICIEMBRE">DICIEMBRE</option>
+                      <option value="AGUSTE DEL MES">AJUSTE DEL MES</option>
+                     
+                    </select>
+                    </p>
+                    
+                  </form>
+             
+             <div class="form-group">
+              <label for="name">Año</label>
+              <input width="1" type="text" min="2020" max="2023" class="form-control" id="periods_year" required [(ngModel)]="periods.periods_year" name="periods_year">
+          </div>    
+          
+    
+            <div class="form-group">
+                <label for="name">Fecha de inicio del periodo</label>
+                <input width="1" type="date"  class="form-control" id="periods_start_date" required [(ngModel)]="periods.periods_start_date" name="periods_start_date">
+            </div>    
+
+            <div class="form-group">
+              <label for="name">Fecha fin del periodo</label>
+              <input width="1" type="date"  class="form-control" id="periods_end_date" required [(ngModel)]="periods.periods_end_date" name="periods_end_date">
+          </div>  
+            
+                
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="periods_status"  [(ngModel)]="periods.periods_status"     name="periods_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="periods_status">Active</label>
+                 </div>
+            </div>
+            <app-alert type="danger" [hidden]="alertDisable">dato repetido de validacion mes </app-alert> 
+           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>   
+         
             <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
-                <div class="app-modal-header">
-                <h5 class="modal-title">Create Period: {{periods.periodsName}}</h5>
-                <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="app-modal-body">
-                <p>you want to save your changes?</p>
-                </div>
-                <div class="app-modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="createPeriodsDialog.hide()">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </app-ui-modal>
+              <div class="app-modal-header">
+              <h5 class="modal-title">Crear periodo</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de insertar periodo</p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+
+          
+            <button [routerLink]="['/periods-list']" class="btn btn-secondary app-modal-footer" style="margin-left: 10px">Regresar</button>
+            <button type="button" class="btn btn-primary " data-toggle="modal" (click)="createPeriodsDialog.show()">Aceptar</button>
+           
           </form>
         </app-card>
       </div>

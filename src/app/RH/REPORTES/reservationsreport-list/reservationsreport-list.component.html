@@ -1,0 +1,38 @@
+<p>reservationsreport-list works!</p>
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle=" REPORTE RESERVACIONES " blockClass="table-border-style">  
+        <button (click)="generate()"   class="btn btn-outline-primary" >Generar pdf</button>
+      <div>
+          <label for="name" > REPORTE RESERVACIONES</label>
+          </div>
+          <br>
+        <div id="frmReservations"  class="table-responsive" >
+          <table class="table" text-align="center">
+            <thead>
+            <tr>              
+              <th>Numero de reservacion</th>
+              <th>Ubicacion </th>
+              <th>Nombre Residente </th>
+              <th>Numero Vivienda </th>
+              <th>Fecha inicio </th>
+              <th>Fecha de fin</th>
+              <th>Numero Residencial </th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reservation of reservations | async   " >
+                    <td>{{reservation.reservations_id}}</td>
+                    <td>{{reservation.articles_name_article}}</td>
+                    <td>{{reservation.NameR}}</td>
+                    <td>{{reservation.tenants_residential_number}}</td>
+                    <td>{{reservation.reservations_start | date:'medium'}}</td>
+                    <td>{{reservation.reservations_end | date:'medium'}}</td>
+                    <td>{{reservation.tenants_fractionation_unit}}</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

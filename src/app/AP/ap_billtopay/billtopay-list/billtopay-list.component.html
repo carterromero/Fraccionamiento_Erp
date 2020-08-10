@@ -1,35 +1,72 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle="FACTURAS" blockClass="table-border-style">      
-        <button [routerLink]="['/create-billtopay']" class="btn btn-outline-primary">Agregar Factura</button><br>
-        <br>
+        
+        <div class="app-modal-footer">
+          <button style="margin: 10px" [routerLink]="['/create-billtopay']"   class="btn btn-outline-primary" >Agregar Factura</button>
+       <!--
+          <button [routerLink]="['/conciliacion-list']"   class="btn btn-outline-primary" >poliza contable </button>
+        -->
+        </div>
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
           <table class="table">
             <thead>
-            <tr>              
+            <tr>            
+              <th>id  Factura</th>  
               <th>Folio de Factura</th>
+              <th>id orden de compra</th>
               <th>Fecha de Factura </th>
-              <th>Fecha de pago programada</th>
+              
               <th>Monto</th>
               <th>Descripción del bien o servicio adquirido</th>
-              <th>Estatus </th>
-              <th>#</th>
+              
+              <th> Nombre del provedor</th>
+            <th>Direccion</th>
+            <th>cuenta</th>
+            <th>telefono</th>
+            <th>rfc</th>
+            <th>Giro</th>
+            
+            <th>nombre cliente</th>
+            <th>cuenta</th>
+            <th>direccion</th>
+            <th>rfc</th>
+            <th>telefono</th>
+            <th>modulo</th>
+            <th>Estatus factura</th> 
               
               
             </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
+                  
+                  <td>{{general.billtopay_id}}</td>
                     <td>{{general.billtopay_invoice_folio}}</td>
+                    <td>{{general.purcharse_id}}</td>
                     <td>{{general.billtopay_invoice_date}}</td>
-                    <td>{{general.billtopay_scheduled_payment_date}}</td>
-                    <td>{{general.billtopay_amount}}</td>
-                    <td>{{general.billtopay_service_description}}</td>
-                    
-                    
-                    <td>
+                    <td>{{general.purcharse_order_total}}</td>
+                    <td>{{general.articles_name_article}}</td>
+
+
+                      <td>{{general.creditor_business_name}}</td>
+                      <td>{{general.creditor_addres}}</td>
+                      <td>{{general.creditor_cuenta}}</td>
+                      <td>{{general.creditor_tel}}</td>
+                      <td>{{general.creditor_rfc}}</td>
+                      <td>{{general.creditor_turn}}</td>
+
+                  
+                      <td>{{general.cliente_name_cliente}}</td>
+                      <td>{{general.cliente_cuenta}}</td>
+                      <td>{{general.cliente_direccion}}</td>
+                      <td>{{general.cliente_rfc}}</td>
+                      <td>{{general.cliente_tel}}</td>
+                      <td>{{general.billtopay_table}}</td>
+    
+                      <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="general.billtopay_status == 'true'">
                           <label class="custom-control-label" for="billtopay_status">Active</label>
@@ -38,7 +75,9 @@
 
                     <td>
                       <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
-                        <button (click)="updateGeneral(general.billtopay_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                      <!-- 
+                      <button (click)="updateGeneral(general.billtopay_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                       -->
                         <button (click)="generalDetails(general.billtopay_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
 
                         <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">

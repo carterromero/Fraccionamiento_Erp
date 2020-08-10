@@ -7,14 +7,20 @@
           <table class="table">
             <thead>
                 <tr>              
-                    <th>Descripción</th>
+                  <th>Nombre</th>
+                    <th>Identificador Subinventario</th>
+                    <th>Maestro Inventario Asignado </th>
                     <th>Estatus </th>
                     <th>Acciones</th>
                   </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
+                  
+                    <td>{{general.sub_inventarys_identificador}} </td>
                     <td>{{general.sub_inventarys_description}} </td>
+                    <td>{{general.master_inventarys_name_inventary}} </td>
+
                     
                     <td>
                         <div class="custom-control custom-switch">

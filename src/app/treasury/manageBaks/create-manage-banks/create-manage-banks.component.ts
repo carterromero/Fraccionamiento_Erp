@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ManageBanks } from '../../../manageBank';
 import { Router } from '@angular/router';
+import { ManageBanks } from '../../../manageBank';
 import { ManageBanksService } from '../../../manage-banks.service';
+
 
 @Component({
   selector: 'app-create-manage-banks',
@@ -18,6 +19,7 @@ export class CreateManageBanksComponent implements OnInit {
 
   ngOnInit() {
     //code
+ 
   }
 
   newEmployee(): void {
@@ -25,10 +27,11 @@ export class CreateManageBanksComponent implements OnInit {
     this.employee = new ManageBanks();
   }
 
+  
   save() {
 
-    //this.employee.userid="3";
-
+    this.employee.created_by= Number(localStorage.getItem('id'));
+    this.employee.created_by = Number(localStorage.getItem('id'));
 
     this.employeeService.createEmployee(this.employee)
       .subscribe(data => 

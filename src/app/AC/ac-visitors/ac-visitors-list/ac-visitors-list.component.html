@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Acceso Visitantes" blockClass="table-border-style">      
+      <button [routerLink]="['/ac-create-visitors']" class="btn btn-primary" style="margin-top: 10px; margin-bottom: 10px;">Nuevo Visitante</button><br>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+                    <th>Visitante</th>
+                    <th>Identificación</th>
+                    <th>Tag asignado</th>
+                    <th>Residente visitado</th>
+                    <th>Ubicación</th>
+                    <!--<th>Tipo Visita</th>-->
+                    <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let visitor of visitors | async ">
+                    <td>{{visitor.ac_name}} {{visitor.ac_father_surname}} {{visitor.ac_mother_surname}}</td>
+                    <td>{{visitor.identification_id}}</td>
+                    <td>{{visitor.tag_code}}</td>
+                    <td>{{visitor.tenant}}</td>
+                    <td>{{visitor.tenants_location}} No. {{visitor.tenants_residential_number}}</td>
+                    <!--<td>{{visitor.type_visit}}</td>-->
+                    <td>
+                        <button (click)="visitorDetail(visitor.ac_id)"  class="btn btn-outline-primary" aria-pressed="true">Detalles</button>
+                        <button (click)="updateVisitor(visitor.ac_id)"  class="btn btn-outline-info" style="margin-left: 10px" aria-pressed="true">Actualizar</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

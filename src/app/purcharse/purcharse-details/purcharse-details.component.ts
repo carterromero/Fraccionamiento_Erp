@@ -9,6 +9,7 @@ import { PurcharseService } from 'src/app/purcharse.service';
 import { SupplierService } from 'src/app/supplier.service';
 import { PaymentRecordService } from 'src/app/payment-record.service';
 import { PaytmentService } from 'src/app/paytment.service';
+import { User } from 'src/app/services/admin/user';
 
 @Component({
   selector: 'app-purcharse-details',
@@ -22,9 +23,11 @@ cond :number;
   employee: Purcharse = new Purcharse();
 supplier : Supplier = new Supplier();
 payment : Payment = new Payment();
-article:ArticlesC = new ArticlesC();
+article: ArticlesC = new ArticlesC();
 
 
+  user: User = new User();
+  userss: Observable<User[]>;
   submitted = false;
   suppliers: Observable<Supplier[]>;
   payments: Observable<Payment[]>;
@@ -46,7 +49,9 @@ article:ArticlesC = new ArticlesC();
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
     this.reloadDatas() ;
-    
+    this.reloadDatass() ;
+    this.reloadDatasss() ;
+    this.users();
     
     this.employeeService.getEmployee(this.id)
       .subscribe(data => {
@@ -62,6 +67,29 @@ article:ArticlesC = new ArticlesC();
 
       });
   }
+
+
+
+
+  users() 
+  {
+    this.user.user_name = localStorage.getItem('name');
+  
+    this.employeeService.getOneUser(this.id).subscribe(
+      data => {
+        console.log(data);
+        this.userss = this.employeeService.getOneUser(this.id);
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
 
 
   reloadDatas() 
@@ -83,14 +111,13 @@ article:ArticlesC = new ArticlesC();
     );      
   }
   
-
   reloadDatass() 
   {
 
     this.paymentService.getEmployeeListcombo().subscribe(
       data => {
         console.log(data);
-        this.payments= this.paymentService.getEmployeeListcombo();
+        this.payments = this.paymentService.getEmployeeListcombo();
       },
       error => {
         console.log(error);
@@ -103,6 +130,28 @@ article:ArticlesC = new ArticlesC();
     );      
   }
 
+
+
+
+
+  reloadDatasss() 
+  {
+
+    this.employeeService.getEmployeeListcombo().subscribe(
+      data => {
+        console.log(data);
+        this.articlesc = this.employeeService.getEmployeeListcombo();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
 
   
 

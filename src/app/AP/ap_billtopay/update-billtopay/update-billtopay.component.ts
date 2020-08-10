@@ -15,6 +15,7 @@ export class UpdateBilltopayComponent implements OnInit {
   alertDisables = true;
   alertMessage = "null";
   alertMessages = "null";
+  datos :string;
   
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: Billtopayservice) { }
@@ -39,7 +40,21 @@ export class UpdateBilltopayComponent implements OnInit {
         
       });
   }
-
+  handleUpload(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+        this.datos = reader.result.toString();
+        this.employee.bilitoplay_arch = this.datos.replace("data:application/pdf;base64,","")
+        event = this.employee.bilitoplay_arch;
+      /*  this.employee.employees_contract = this.datos.replace("data:application/pdf;base64,","")*/
+       // event = this.employee.employees_cv;
+      //  event = this.employee.employees_contract;
+     
+    };
+}
    
 
   updateEmployee() {
@@ -82,21 +97,8 @@ export class UpdateBilltopayComponent implements OnInit {
       this.alertMessage = "Fecha de Factura";          
     }
   
-    else if(this.employee.billtopay_scheduled_payment_date =="" ||  this.employee.billtopay_scheduled_payment_date ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Fecha de pago programada";          
-    }
   
-  
-    else if(this.employee.billtopay_amount =="" ||  this.employee.billtopay_amount ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Monto";          
-    }
-  
-    else if(this.employee.billtopay_service_description =="" ||  this.employee.billtopay_service_description ==null ){
-      this.alertDisable = false;
-      this.alertMessage = "Descripción del bien o servicio adquirido";          
-    }
+
   
    
   

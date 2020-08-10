@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
-      <app-card cardTitle="Proveedor Detalles" [options]="false">
+      <app-card cardTitle="Terminos de Pago Detalles" [options]="false">
         <div *ngIf="employee">
           <div>
             <label><b>Nombre: </b></label> {{employee.payment_description}}
@@ -20,7 +20,7 @@
         </div>
         </div>
         <br>
-        <button [routerLink]="['/payment_terms-list']" class="btn btn-primary">Regresar a Terminos </button><br>
+        <button [routerLink]="['/payment_terms-list']" class="btn btn-primary">Regresar </button><br>
       </app-card>
       </div>
   </div>

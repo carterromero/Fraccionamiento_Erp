@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
   <div class="col-sm-12">
     <div class="col-md-6">
-      <app-card cardTitle="Actualizar Cuenta Bancaria" [options]="false">
+      <app-card cardTitle="Actualizar Cuenta de Deposito" [options]="false">
         <form (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="name">Nombre de Cuenta de Deposito</label>
@@ -31,10 +31,10 @@
             <label for="name">Clave</label>
             <input type="text" class="form-control" id="deposit_account_key"  [(ngModel)]="employee.deposit_account_key" name="deposit_account_key" required>
           </div>  
-          <div class="form-group">
-            <label for="name">Empresa</label>
+         <!--  <div class="form-group">
+            <label for="name">Condominio</label>
             <input type="text" class="form-control" id="condominums_id"  [(ngModel)]="employee.condominums_id" name="condominums_id" required>
-          </div>
+          </div> -->
           <div class="form-group">
               <label for="name">Estatus</label> 
 

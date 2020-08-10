@@ -1,0 +1,119 @@
+
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Crear Orden de Compra" [options]="false">
+          <button (click)="reloadData3()" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR FOLIO DE ORDEN DE COMPRA</button>
+          <form (ngSubmit)="onSubmit()">  
+           
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Folio Orden de Compra</label>
+              <select  class="custom-select"  id="purcharse_id" required [(ngModel)]="employee.purcharse_id" name="purcharse_id" >
+              <option *ngFor="let address of purcharse| async" value="{{address.purcharse_id}}">{{address.purcharse_folio}}</option>
+               </select>
+              </div>
+     
+              <div class="form-group">
+                <label for="name">Total </label>
+                <input type="text" class="form-control" id="purcharse_order_total"  [(ngModel)]="employee.purcharse_order_total" name="purcharse_order_total" required>
+            </div>
+
+            <div class="form-group">
+              <label for="name">Cantidad de Articulos</label>
+              <input type="text" class="form-control" id="purcharse_quantity_items"  [(ngModel)]="employee.purcharse_quantity_items" name="purcharse_quantity_items" required>
+          </div>
+
+
+          <div class="form-group">
+            <label for="name">Nombre del articulo</label>
+            <input type="text" class="form-control" id="articles_name_article"  [(ngModel)]="employee.articles_name_article" name="articles_name_article" required>
+        </div>
+
+
+
+
+        
+        <div class="form-group">
+          <label for="name">Cantidad de Articulos  Recibidos </label>
+          <input type="text" class="form-control" id="numero_trasaction_salidas"  [(ngModel)]="employee.numero_trasaction_salidas" name="numero_trasaction_salidas" required>
+      </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Master</label>
+            <select  class="custom-select"  id="master_inventarys_id" required [(ngModel)]="employee.master_inventarys_id" name="master_inventarys_id" >
+            <option *ngFor="let address of master  | async" value="{{address.master_inventarys_id}}">{{address.master_inventarys_name_inventary}}</option>
+             </select>
+           </div>   
+
+
+
+           <div class="form-group">
+            <label for="exampleFormControlSelect1">Estatus Precio</label>
+            <select  class="custom-select"  id="transactions_entrys_price_id" required [(ngModel)]="employee.transactions_entrys_price_id" name="transactions_entrys_price_id" >
+            <option *ngFor="let address of precio  | async" value="{{address.price_id}}">{{address.price_nombre}}</option>
+             </select>
+           </div>   
+        
+
+           <div class="form-group">
+            <label for="exampleFormControlSelect1">Inquilino</label>
+            <select  class="custom-select"  id="transactions_entrys_tenants_id" required [(ngModel)]="employee.transactions_entrys_tenants_id" name="transactions_entrys_price_id" >
+            <option *ngFor="let address of teha  | async" value="{{address.tenants_id}}">{{address.tenants_name}}</option>
+             </select>
+           </div>  
+        
+
+
+           <div class="form-group">
+            <label for="exampleFormControlSelect1"> Estatus Articulo </label>
+            <select  class="custom-select"  id="transactions_entrys_status_id" required [(ngModel)]="employee.transactions_entrys_status_id" name="transactions_entrys_status_id" >
+            <option *ngFor="let address of status   | async" value="{{address.status_id}}">{{address.status_name}}</option>
+             </select>
+           </div>  
+
+
+
+           <div class="form-group">
+            <label for="exampleFormControlSelect1"> Subinventario </label>
+            <select  class="custom-select"  id="sub_inventarys_id" required [(ngModel)]="employee.sub_inventarys_id" name="sub_inventarys_id" >
+            <option *ngFor="let address of sub   | async" value="{{address.sub_inventarys_id}}">{{address.sub_inventarys_description}}</option>
+             </select>
+           </div>  
+        
+
+                <div class="form-group">
+                <label for="name">Tipo de Precio</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="transactions_entrys_status"  [(ngModel)]="employee.transactions_entrys_status"     name="transactions_entrys_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="transactions_entrys_status">Active</label>
+                 </div>
+
+
+
+                 <div class="form-group">
+                  <label for="name">Concepto </label>
+                  <input type="text" class="form-control" id="concept_entry"  [(ngModel)]="employee.concept_entry" name="concept_entry" required>
+              </div>
+
+              </div>
+              <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+             <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+               <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Crear Orden de Compra</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de insertar Orden</p>
+             
+            </div>
+               <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+               </app-ui-modal>
+               <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>        
+               <button [routerLink]="['/transactions-entrys-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

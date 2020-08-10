@@ -2,6 +2,11 @@
     <div class="col-sm-12">
       <app-card cardTitle="Proveedor Detalles" [options]="false">
         <div *ngIf="employee">
+          
+          
+          <div>
+            <label><b>Folio: </b></label> {{employee.folio_supplier}}
+          </div>
           <div>
             <label><b>Nombre: </b></label> {{employee.supplier_name}}
           </div>
@@ -20,13 +25,18 @@
           </div>
 
           <div>
-            <label><b>Estatus: </b></label> {{employee.supplier_status}}
+            <label><b>CUENTA: </b></label> {{employee.supplier_account}}
+          </div>
+        
+          <div>
+            <label><b>BANCO: </b></label> {{employee.suppier_bank}}
+          </div>
+          <div>
+            <label><b>CLAVE : </b></label> {{employee.supplier_key_interbank}}
           </div>
 
 
-        
-
-
+          
           <div>
             <label><b>Estatus:  </b></label>
           <div class="custom-control custom-switch">
@@ -39,8 +49,7 @@
         </div>
         </div>
         <br>
-        
-        
+        <button [routerLink]="['/supplier-list']" class="btn btn-primary">Regresar </button><br>
       
       </app-card>
       </div>

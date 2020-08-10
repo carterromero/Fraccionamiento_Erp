@@ -54,6 +54,7 @@ export class UpdateLegalsComponent implements OnInit {
         console.log(data);
         this.alertDisables = false;
         this.alertMessages ="Se actualizo la empresa correctamente";
+        this.gotoList();
       }, 
       error => {
         console.log(error);
@@ -65,7 +66,7 @@ export class UpdateLegalsComponent implements OnInit {
         
       });
     
-  
+ 
   }
 
   onSubmit() {
@@ -107,7 +108,7 @@ export class UpdateLegalsComponent implements OnInit {
   
   
     else{
-      this.updateEmployee();    
+      this.updateEmployee();  
     }
 
 

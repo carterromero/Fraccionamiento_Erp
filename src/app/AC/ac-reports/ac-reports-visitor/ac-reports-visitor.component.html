@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Reporte Visitantes" blockClass="table-border-style">      
+      <!-- <button [routerLink]="['/ac-create-visitors']" class="btn btn-primary">Tags registrados</button><br> -->
+      <div class="form-group ">
+        <form (ngSubmit)="onSubmit2()">
+            <label class="col-form-label" for="timedate"><strong>fecha
+                    desde</strong></label>
+            <input type="date" placeholder="YYYY-MM-DD" [(ngModel)]="startDateV"
+                name="hora_entrada" value="">
+            <label class="col-form-label" for="timedate"><strong>a</strong></label>
+            <input type="date" placeholder="YYYY-MM-DD" [(ngModel)]="endDateV"
+                name="hora_salida" value="">
+            <button type="submit" class="btn btn-sm btn-primary">Buscar</button>
+        </form>
+
+    </div>
+      <div class="text-right">
+        <button class="btn btn-outline-primary" (click)="exportExcelVisitors()" style="cursor: pointer" >
+            <i class="fa fa-file-excel-o">Excel</i>
+        </button>
+      </div>  
+      <div class="table-responsive">
+        <table id="visitors" class="table">
+            <thead>
+            <tr>
+                <th>Visitante</th>
+                <th>Tag</th>
+                <th>Fecha de Entrada</th>
+                <th>Fecha de Salida</th>
+                <th>Placas</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rv of vReport | async ">
+                    <td>{{rv.ac_name}} {{rv.ac_father_surname}} {{rv.ac_mother_surname}}</td>
+                    <td>{{rv.tag_code}}</td>
+                    <td>{{rv.access_entry_date | date:"medium"}}</td>
+                    <td>{{rv.access_departure_date | date:"medium"}}</td>
+                    <td>{{rv.ac_self_plate}}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

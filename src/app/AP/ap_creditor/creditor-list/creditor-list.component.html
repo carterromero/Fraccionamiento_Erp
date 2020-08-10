@@ -9,8 +9,11 @@
         <table class="table">
           <thead>
           <tr>              
-            <th> Nombre o Razón Social</th>
+            <th> Nombre del acredor</th>
             <th>Direccion</th>
+            <th>cuenta</th>
+            <th>telefono</th>
+            <th>rfc</th>
             <th>Giro</th>
             <th>Estatus</th>
             <th>#</th>
@@ -20,6 +23,9 @@
               <tr *ngFor="let general of general | async">
                 <td>{{general.creditor_business_name}}</td>
                 <td>{{general.creditor_addres}}</td>
+                <td>{{general.creditor_cuenta}}</td>
+                <td>{{general.creditor_tel}}</td>
+                <td>{{general.creditor_rfc}}</td>
                 <td>{{general.creditor_turn}}</td>
                   <td>
                       <div class="custom-control custom-switch">

@@ -13,6 +13,7 @@
               <th>Categoria del Documento</th>
               <th>Numero del Primer Documento Activo</th>            
               <th>Estatus</th>  
+              <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -23,7 +24,6 @@
                     <td>{{general.transfers_status_state}}</td>
                     <td>{{general.transfers_category_shit_document}}</td>
                     <td>{{general.transfers_number_first_available_document}}</td>                  
-                    <td>{{general.transfers_status}}</td>
                     <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="general.transfers_status == 'true'">

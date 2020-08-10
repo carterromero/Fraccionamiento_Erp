@@ -9,6 +9,9 @@ import { Payment } from 'src/app/payment';
 import { LegalsService } from 'src/app/services/admin/legals.service';
 import { PurcharseService } from 'src/app/purcharse.service';
 import { SupplierService } from 'src/app/supplier.service';
+import { PaytmentService } from 'src/app/paytment.service';
+import { Categories } from 'src/app/categories';
+import { CategoriesService } from 'src/app/categories.service';
 
 @Component({
   selector: 'app-update-purcharse',
@@ -18,10 +21,12 @@ import { SupplierService } from 'src/app/supplier.service';
 export class UpdatePurcharseComponent implements OnInit {
   id: number;
   employee: Purcharse = new Purcharse();
+
   submitted = false;
   suppliers: Observable<Supplier[]>;
   payments: Observable<Payment[]>;
   articlesc : Observable<ArticlesC[]>;
+  caregotias :Observable<Categories[]>;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -32,6 +37,8 @@ export class UpdatePurcharseComponent implements OnInit {
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: PurcharseService,
     private supplierService: SupplierService,
+    private paymentService: PaytmentService,
+    private caregotiass :CategoriesService,
     
     ) { }
 
@@ -59,6 +66,9 @@ export class UpdatePurcharseComponent implements OnInit {
       });
       
       this.reloadDatas() ;
+     this.reloadDatasss();
+     this.reloadDatass();
+     this.reloadDatassss();
   }
 
    
@@ -87,6 +97,7 @@ export class UpdatePurcharseComponent implements OnInit {
   }
 
   reloadDatas() 
+
   {
 
     this.supplierService.getEmployeeListcombo().subscribe(
@@ -105,6 +116,65 @@ export class UpdatePurcharseComponent implements OnInit {
     );      
   }
 
+
+
+  reloadDatass() 
+  {
+
+    this.paymentService.getEmployeeListcombo().subscribe(
+      data => {
+        console.log(data);
+        this.payments = this.paymentService.getEmployeeListcombo();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
+
+  reloadDatasss() 
+  {
+
+    this.employeeService.getEmployeeListcombo().subscribe(
+      data => {
+        console.log(data);
+        this.articlesc = this.employeeService.getEmployeeListcombo();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
+
+  reloadDatassss() 
+  {
+
+    this.employeeService.getCatList().subscribe(
+      data => {
+        console.log(data);
+        this.articlesc = this.employeeService.getCatList();
+      },
+      error => {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );      
+  }
 
 
 

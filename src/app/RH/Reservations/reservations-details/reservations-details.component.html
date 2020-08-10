@@ -5,23 +5,17 @@
         <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
         <div *ngIf="reservation">
           <div>
-            <label><b>Ubicacion de reservacion: </b></label> {{reservation.reservations_location}}
+            <label><b>Ubicacion de reservacion: </b></label> {{reservation.articles_name_article}}
+          </div>         
+          <div>
+            <label><b>Fecha y hora inicial de reservacion: </b></label> {{reservation.reservations_start | date:'medium'}}
           </div>
           <div>
-            <label><b>Fecha de reservacion: </b></label> {{reservation.reservations_date}}
+            <label><b>Fecha y hora final de reservacion: </b></label> {{reservation.reservations_end | date:'medium'}}
           </div>
           <div>
-            <label><b>Hora inicial de reservacion: </b></label> {{reservation.reservations_start_time}}
-          </div>
-          <div>
-            <label><b>Hora final de reservacion: </b></label> {{reservation.reservations_end_time}}
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Nombre de inquilino</label>
-            <select disabled class="custom-select"  id="tenants_id" required [(ngModel)]="reservation.tenants_id"  name="tenants_id" >
-            <option *ngFor="let tenant of tenants | async" value="{{tenant.tenants_id}}">{{tenant.tenants_name}} {{tenant.tenants_father_surname}} {{tenant.tenants_mother_surname}}</option>
-            </select>
-        </div>  
+            <label><b>Residente: </b></label>{{reservation.tenants_name}} {{reservation.tenants_father_surname}} {{reservation.tenants_mother_surname}}
+           </div>
           <div>
             <label><b>Estatus:  </b></label>
             <div class="custom-control custom-switch">

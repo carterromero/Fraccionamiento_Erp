@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Actualizar Contacto" [options]="false">
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Nombre(s)</label>
+                <input type="text" ng-pattern="contact.contacts_name" class="form-control" id="contacts_name" required [(ngModel)]="contact.contacts_name" name="contacts_name">
+              </div>      
+              <div class="form-group">
+                <label for="name">Apellido Paterno</label>
+                <input type="text" ng-pattern="contact.contacts_father_surname" class="form-control" id="contacts_father_surname" required [(ngModel)]="contact.contacts_father_surname" name="contacts_father_surname">
+              </div>  
+              <div class="form-group">
+                <label for="name">Apellido Materno</label>
+                <input type="text" ng-pattern="contact.contacts_mother_surname" class="form-control" id="contacts_mother_surname" required [(ngModel)]="contact.contacts_mother_surname" name="contacts_mother_surname">
+              </div>     
+              <div class="form-group">
+                  <label for="name">Numero de seguridad social</label>
+                  <input type="number" class="form-control" id="contacts_nss" required [(ngModel)]="contact.contacts_nss" name="contacts_nss" oninput="if(value.length>11)value=value.slice(0,11)">
+                </div>  
+                <div class="form-group">
+                  <label for="name">Parentesco</label>
+                  <input type="text" class="form-control" id="contacts_relationship" required [(ngModel)]="contact.contacts_relationship" name="contacts_relationship" >
+                </div>     
+              <div class="form-group">
+                <label for="name">Teléfono</label>
+                <input type="number" class="form-control" id="contacts_cellphone" required [(ngModel)]="contact.contacts_cellphone" name="contacts_cellphone" oninput="if(value.length>10)value=value.slice(0,10)">
+              </div> 
+              <div class="form-group">
+                  <label for="exampleFormControlSelect1">Empleado</label>
+                  <select  class="custom-select"  id="employees_id" required [(ngModel)]="contact.employees_id" name="employees_id" >
+                  <option *ngFor="let employee of employees | async" value="{{employee.employees_id}}">{{employee.employees_name}} {{employee.employees_father_surname}} {{employee.employees_mother_surname}} </option>
+                  </select>
+              </div>  
+              <div class="form-group">
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="contacts_status"  [(ngModel)]="contact.contacts_status"     name="contacts_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="contacts_status">Active</label>
+                 </div>
+            </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button [routerLink]="['/contacts-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

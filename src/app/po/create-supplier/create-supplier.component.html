@@ -1,36 +1,78 @@
+
+
+
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <div class="col-md-6">
         <app-card cardTitle="Crear Proveedor" [options]="false">
           <form (ngSubmit)="onSubmit()">
+            
+            <div class="form-group">
+              <label for="name">Folio</label>
+              <input type="text" font style="text-transform: uppercase;" class="form-control" placeholder="folio" id="folio_supplier"  [(ngModel)]="employee.folio_supplier" name="folio_supplier"    required="required"> 
+            </div> 
+            
+            
+            
+            
             <div class="form-group">
               <label for="name">Nombre Completo</label>
-              <input type="text" class="form-control" id="supplier_name"  [(ngModel)]="employee.supplier_name" name="supplier_name" required> 
+              <input type="text" class="form-control" placeholder="Nombre" id="supplier_name"  [(ngModel)]="employee.supplier_name" name="supplier_name"    required="required"> 
             </div>      
             <div class="form-group">
               <label for="name">Dirección</label>
-              <input type="text" class="form-control" id="supplier_address"  [(ngModel)]="employee.supplier_address" name="supplier_address" required>
+              <input type="text" class="form-control" id="supplier_address"   placeholder="Dirección" [(ngModel)]="employee.supplier_address" name="supplier_address" required="required">
             </div>  
             <div class="form-group">
               <label for="name">RFC</label>
-              <input type="text" class="form-control" id="supplier_rfc"  [(ngModel)]="employee.supplier_rfc" name="supplier_rfc" required>
+              <input   font style="text-transform: uppercase;" onkeyup="validar()" onblur="validar()" onkeypress="return sololetras(event)" limit="%$#" pattern="[0-9-A-Z]+" type="" class="form-control"   placeholder="RFC" [(ngModel)]="employee.supplier_rfc" name="supplier_rfc" required="">
             </div>
+            
+
+ 
+
+
+
             <div class="form-group">
                 <label for="name">EMAIL</label>
-                <input type="email" class="form-control" id="supplier_email"  [(ngModel)]="employee.supplier_email" name="supplier_email" required>
+                
+                <input type="email"  class="form-control" id="supplier_email"  [(ngModel)]="employee.supplier_email" name="supplier_email" aria-describedby="emailHelp" placeholder="@email" required="required">
             </div>
 
-            <div class="form-group">
-              <label for="name">TELEFONO</label>
-              <input type="text" class="form-control" id="supplier_phone"  [(ngModel)]="employee.supplier_phone" name="supplier_phone" required>
+            
+
+          <div class="required">
+            <label for="name">Teléfono</label>
+          </div>  
+          <div class="input-group mb-3">
+            <input placeholder="5555123456" type="number" maxlength = "10" class="form-control" id="user_phone_number" [(ngModel)]="employee.supplier_phone" name="supplier_phone" required>
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="small material-icons" aria-hidden="true">phone</i></span>
+            </div>
           </div>
+          <br>
+
+
           <div class="form-group">
             <label for="name">Giro </label>
-            <input type="text" class="form-control" id="supplier_turn"  [(ngModel)]="employee.supplier_turn" name="supplier_turn" required>
+            <input type="text" class="form-control" id="supplier_turn" placeholder="Giro"  [(ngModel)]="employee.supplier_turn" name="supplier_turn" required="required">
         </div>
         
+   
+          
+        <div class="form-group">
+          <label for="name">CUENTA BANCARIA </label>
+          <input type="number" class="form-control" id="supplier_account" placeholder="33333"  [(ngModel)]="employee.supplier_account" name="supplier_account" required="required">
+      </div>
+      <div class="form-group">
+        <label for="name">BANCO </label>
+        <input type="text" class="form-control" id="suppier_bank" placeholder="NOMBRE "  [(ngModel)]="employee.suppier_bank" name="suppier_bank" required="required">
+    </div>
+    <div class="form-group">
+      <label for="name">CLAVE INTERBANCARIA </label>
+      <input type="text" class="form-control" id="supplier_key_interbank" placeholder="33455"  [(ngModel)]="employee.supplier_key_interbank" name="supplier_key_interbank" required="required">
+  </div>
 
-         
 
             <div class="form-group">
                 <label for="name">Estatus</label>
@@ -39,9 +81,124 @@
                     <label class="custom-control-label" for="supplier_status">Active</label>
                  </div>
             </div>
+            
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
             <button type="submit" class="btn btn-success">Guardar</button>          
             <button [routerLink]="['/supplier-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
           </form>
         </app-card>
+
+
+  
+
+        <script>   
+        function sololetras(e){
+   key=e.keyCode || e.which;
+   teclado =String.fromCharCode(key).toLocaleLowerCase();
+    letras="BCDFGHJKLÑOPKRCTVWXZ";
+   especiales="8-37-38-46-164";
+   teclado_especial = false
+     for(var i in  especiales){
+       if (key==especiales[i]){
+         teclado_especial=true;
+         break;
+
+       }
+      }
+
+    }
+
+        
+        if (
+          letras.indexOf(teclado)==-1 && !teclado_especial){
+
+          alert("Solo letras y numeros");
+          return false;
+        }
+        
+        </script>
+
+
+
+      <script>
+function validar() {
+      // Variable que usaremos para determinar si el input es valido
+      let isValid = false;
+
+      // El input que queremos validar
+      const input = document.forms['validationForm']['letras'];
+
+      //El div con el mensaje de advertencia:
+      const message = document.getElementById('message');
+
+      input.willValidate = false;
+
+      // El tamaño maximo para nuestro input
+      const maximo = 35;
+
+      // El pattern que vamos a comprobar
+      const pattern = new RegExp('^[A-Z]+$', 'i');
+
+      // Primera validacion, si input esta vacio entonces no es valido
+      if(!input.value) {
+        isValid = false;
+      } else {
+        // Segunda validacion, si input es mayor que 35
+        if(input.value.length > maximo) {
+          isValid = false;
+        } else {
+          // Tercera validacion, si input contiene caracteres diferentes a los permitidos
+          if(!pattern.test(input.value)){ 
+          // Si queremos agregar letras acentuadas y/o letra ñ debemos usar
+          // codigos de Unicode (ejemplo: Ñ: \u00D1  ñ: \u00F1)
+            isValid = false;
+          } else {
+            // Si pasamos todas la validaciones anteriores, entonces el input es valido
+            isValid = true;
+          }
+        }
+      }
+
+      //Ahora coloreamos el borde de nuestro input
+      if(!isValid) {
+        // rojo: no es valido
+        input.style.borderColor = 'salmon'; // me parece que 'salmon' es un poco menos agresivo que 'red'
+        // mostramos mensaje
+        message.hidden = false;
+      } else {
+        // verde: si es valido
+        input.style.borderColor = 'palegreen'; // 'palegreen' se ve mejor que 'green' en mi opinion
+        // ocultamos mensaje;
+        message.hidden = true;
+      }
+
+      // devolvemos el valor de isValid
+      return isValid;
+    }
+
+    // Por último, nuestra función que verifica si el campo es válido antes de realizar cualquier otra acción.
+    function verificar() {
+      const valido = validar();
+      if (!valido) {
+        alert('El campo no es válido.');
+      } else {
+        alert('El campo es válido');
+      }
+    }
+
+</script>
+
+
       </div>
+
+
+   
+
+   
+
+
+
     </div>
+    

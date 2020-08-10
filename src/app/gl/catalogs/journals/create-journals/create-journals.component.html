@@ -1,0 +1,99 @@
+<p>create-journals works!</p>
+
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Crear polizas" [options]="false">
+          <form (ngSubmit)="onSubmit()" >
+
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">periodos</label>
+              <select  class="custom-select"  id="journals_periods_id" required [(ngModel)]="employee.journals_periods_id" name="journals_periods_id" >
+              <option *ngFor="let creditors of periods | async" value="{{creditors.periodsId}}">{{creditors.periodsName}}/{{creditors.periodsYear}}</option>
+              </select>
+          </div>  
+    
+            <div class="form-group">
+              <label for="name">fecha</label>
+              <input type="date"
+              value="2020-01-01"
+              min="2020-01-01" max="2030-01-01"
+               class="form-control" id="journals_date"  [(ngModel)]="employee.journals_date" name="journals_date"  required>
+            
+            </div>  
+            <div class="form-group">
+              <label for="name">descripcion</label>
+              <input  type="tel"  pattern="[0-9]"  onkeypress="return soloLetras(event)"  maxlength="30"  class="form-control" id="journals_description"  [(ngModel)]="employee.journals_description" name="journals_description" required >
+            
+              <script>
+                     // pattern="[A-Za-z0-9]+" >
+           function 
+           soloLetras(e) {
+    var key = e.keyCode || e.which,
+      tecla = String.fromCharCode(key).toLowerCase(),
+      letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+      especiales = [8,30,31,32,33,34,35,36,37,38,39,46],
+      tecla_especial = false;
+
+    for (var i in especiales) {
+      if (key == especiales[i]) {
+        tecla_especial = true;
+        break;
+      }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+      return false;
+    }
+  }
+              </script>
+              
+             
+            </div>
+            <div class="form-group">
+                <label for="name">Numero del polizas</label>
+                <input type="text" class="form-control" id="journals_number"  [(ngModel)]="employee.journals_number" name="journals_number" required>
+            </div>
+          
+            <form name = "selectForm">
+              <p>
+                <label for="number">codigo de moneda</label>
+             <select  class="custom-select" id="journals_currency_code"   [(ngModel)]="employee.journals_currency_code" name="journals_currency_code" required>
+                <option selected></option>
+                <option value="MXN">MXN</option>
+              </select>
+              </p>
+              
+            </form>
+         
+     
+          
+
+            <div class="form-group">
+                <label for="name">Estatus</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="journals_status"  [(ngModel)]="employee.journals_status"     name="journals_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="journals_status">Active</label>
+                 </div>
+            </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Crear poliza</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>Esta seguro de insertar poliza</p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+            <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>          
+            <button [routerLink]="['/journals-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

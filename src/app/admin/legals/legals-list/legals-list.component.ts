@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class LegalsListComponent implements OnInit {
 
   general: Observable<Legals[]>;
+  generales : Legals = new Legals();
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -29,6 +30,7 @@ export class LegalsListComponent implements OnInit {
     
     this.generalService.getEmployeeList().subscribe(
       data => {
+        console.log(data);
         this.general = this.generalService.getEmployeeList();
       },
       error => {
@@ -39,6 +41,7 @@ export class LegalsListComponent implements OnInit {
           this.alertMessage = error['statusText'];          
         }
       });
+      this 
   }
 
   deleteGeneral(id: number) {

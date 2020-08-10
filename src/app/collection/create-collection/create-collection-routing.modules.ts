@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreatecollectionComponent} from './create-collection.component';
+import { CreateCollectionComponent } from './create-collection.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CreatecollectionComponent
+    component: CreateCollectionComponent
   }
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class createcollectionRoutingModule { }
+export class CreateCollectionRoutingModule { }

@@ -8,5 +8,6 @@ export class Payment {
     last_update_by : string;
     last_update_date :string;
     userid : string;
+    
 
 }

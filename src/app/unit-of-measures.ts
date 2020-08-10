@@ -8,4 +8,7 @@ export class UnitOfMeasures
     create_date : string;
     last_update_by : number;
     last_update_date :string;
+    unit_of_measures_identificador : string;
+    unit_of_measures_nombre: string;
+
 }

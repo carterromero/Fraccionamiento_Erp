@@ -15,8 +15,8 @@ export class Employee {
     departments_id: number;
     workplaces_id: number;
     employees_fractionation_unit: string;
-    employees_work_start_date: Date;
-    employees_work_end_date: Date;
+    employees_work_start_date: string;
+    employees_work_end_date: string;
     employees_working_days: string;
     employees_working_hours_start: string;
     employees_working_hours_end: string;
@@ -28,4 +28,14 @@ export class Employee {
     employees_bank_account: string;
     employees_frequency_payment: string;
     employees_use_CFDI: string;
+    workplaces_name: string;
+    departments_name: string;
+    condominums_descrption: string;
+    pr_receipt_base_salary: number;
+    pr_receipt_type_of_perception: string;
+    employees_telephone: string;
+    employees_email: string;
+    create_by: number;
+    last_update_by : number;
+    NameE: string;
 }

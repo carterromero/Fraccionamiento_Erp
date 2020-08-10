@@ -7,6 +7,9 @@
                 <label for="name">Nombre Articulos</label>
                 <input type="text" class="form-control" id="articles_name_article"  [(ngModel)]="employee.articles_name_article" name="articles_name_article" required> 
               </div>  
+
+              
+            
               <div class="form-group">
                 <label for="name">Articulos Descripción</label>
                 <input type="text" class="form-control" id="articles_description"  [(ngModel)]="employee.articles_description" name="articles_description" required> 
@@ -23,10 +26,7 @@
                     <option *ngFor="let address of addresses | async" value="{{address.sub_categories_id}}">{{address.sub_categories_name}}</option>
                     </select>
                     </div>
-                <div class="form-group">
-                    <label for="name">Articulos Dimension</label>
-                    <input type="text" class="form-control" id="articles_dimension"  [(ngModel)]="employee.articles_dimension" name="articles_dimension" required> 
-                  </div> 
+                
                   <div class="form-group">
                     <label for="name">Precio de Artículos</label>
                     <input type="text" class="form-control" id="articles_articles_price"  [(ngModel)]="employee.articles_articles_price" name="articles_articles_price" required> 
@@ -39,14 +39,59 @@
                     <label for="name">Características Internas</label>
                     <input type="text" class="form-control" id="articles_internal_characteristics"  [(ngModel)]="employee.articles_internal_characteristics" name="articles_internal_characteristics" required> 
                   </div> 
+                  
+                  
+                  
+                  <div class="form-group">
+                    <label for="name">Ancho</label>
+                    <input type="text" class="form-control" id="articles_width"  [(ngModel)]="employee.articles_width" name="articles_width" required> 
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Alto</label>
+                    <input type="text" class="form-control" id="articles_tall"  [(ngModel)]="employee.articles_tall" name="articles_tall" required> 
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Largo</label>
+                    <input type="text" class="form-control" id="articles_long"  [(ngModel)]="employee.articles_long" name="articles_long" required> 
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Longitud</label>
+                    <input type="text" class="form-control" id="lote_longitud"  [(ngModel)]="employee.lote_longitud" name="articles_long" required> 
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Latitud</label>
+                    <input type="text" class="form-control" id="lote_latitud"  [(ngModel)]="employee.lote_latitud" name="lote_latitud" required> 
+                  </div>
                      
             <div class="form-group">
                 <label for="name">Estatus</label>
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input"  id="articles_status"  [(ngModel)]="employee.articles_status"     name="articles_status"   style="margin-left: 10px">
+                    <input type="checkbox" class="custom-control-input"  id="articles_status"   [checked]="employee.articles_status  == 'true'"     name="articles_status"   style="margin-left: 10px">
                     <label class="custom-control-label" for="articles_status">Active</label>
                  </div>
             </div>
+
+
+
+            <div class="form-group">
+              <label for="name">Espacio en Común</label>
+              <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input"  id="articles_common_spaces"   [checked]="employee.articles_common_spaces == 'true'"     name="articles_common_spaces"   style="margin-left: 10px">
+                  <label class="custom-control-label" for="articles_common_spaces">Active</label>
+               </div>
+          </div>
+
+
+
+
+          <div class="form-group">
+            <label for="name">Lotes o Viviendas</label>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input"  id="articles_lot_place"   [checked]="employee.articles_lot_place == 'true'"     name="articles_lot_place"   style="margin-left: 10px">
+                <label class="custom-control-label" for="articles_lot_place">Active</label>
+             </div>
+        </div>
+            
             <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
             <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
             <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
@@ -65,6 +110,7 @@
             <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>        
             <button [routerLink]="['/Articles-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
           </form>
+        
         </app-card>
       </div>
     </div>

@@ -14,4 +14,17 @@ export class Supplier {
     userid : string;
     id : number;
 
+    folio_supplier: string;
+
+
+    supplier_account:string;
+    suppier_bank :string;
+    supplier_key_interbank : string;
+
+    bank_accounts_id : string;
+   bank_accounts_bank_account_number: number;
+
+
+
+
 }

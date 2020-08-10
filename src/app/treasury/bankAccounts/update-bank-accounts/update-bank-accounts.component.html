@@ -4,46 +4,42 @@
       <app-card cardTitle="Actualizar Cuenta Bancaria" [options]="false">
         <form (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="name">Nombre de Cuenta Bancaria</label>
-            <input type="text" class="form-control" id="bank_accounts_bank_account_name"  [(ngModel)]="employee.bank_accounts_bank_account_name" name="bank_accounts_bank_account_name" required>
-          </div>      
+            <label for="exampleFormControlSelect1">Banco</label>
+            <select  class="custom-select"  id="manage_banks_id" required [(ngModel)]="employee.manage_banks_id" name="manage_banks_id" >
+            <option *ngFor="let manage of manages | async" value="{{manage.manage_banks_id}}">{{manage.manage_banks_bank_name}}</option>
+            </select>
+        </div>  
           <div class="form-group">
-            <label for="name">Numero de Cuenta Bancaria</label>
+            <label for="name">Número de Cuenta Bancaria</label>
             <input type="text" class="form-control" id="bank_accounts_bank_account_number"  [(ngModel)]="employee.bank_accounts_bank_account_number" name="bank_accounts_bank_account_number" required>
           </div>  
           <div class="form-group">
             <label for="name">Moneda</label>
             <input type="text" class="form-control" id="bank_accounts_currency"  [(ngModel)]="employee.bank_accounts_currency" name="bank_accounts_currency" required>
-          </div>        
-          <div class="form-group">
-            <label for="name">Cuenta Bancaria</label>
-            <input type="text" class="form-control" id="bank_accounts_bank"  [(ngModel)]="employee.bank_accounts_bank" name="bank_accounts_bank" required>
-          </div>      
+          </div>   
           <div class="form-group">
             <label for="name">Uso</label>
             <input type="text" class="form-control" id="bank_accounts_use_account"  [(ngModel)]="employee.bank_accounts_use_account" name="bank_accounts_use_account" required>
           </div>  
           <div class="form-group">
-            <label for="name">Combinacion de Cuenta Contable</label>
-            <input type="text" class="form-control" id="bank_accounts_accounting_combination_cash"  [(ngModel)]="employee.bank_accounts_accounting_combination_cash" name="bank_accounts_accounting_combination_cash" required>
-          </div>
+            <label for="exampleFormControlSelect1">Combinación de cuenta</label>
+            <select  class="custom-select"  id="accounting_accounts_id" required [(ngModel)]="employee.accounting_accounts_id" name="accounting_accounts_id" >
+            <option *ngFor="let account of accounts | async" value="{{account.accounting_accounts_id}}">{{account.accounting_accounts_id}}</option>
+            </select>
+        </div>   
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Documento de pago</label>
+          <select  class="custom-select"  id="payment_documents_id" required [(ngModel)]="employee.payment_documents_id" name="payment_documents_id" >
+          <option *ngFor="let doc of documents | async" value="{{doc.payment_documents_id}}">{{doc.payment_documents_name_payment_document}}</option>
+          </select>
+      </div>  
           <div class="form-group">
-            <label for="name">Compensacion</label>
-            <input type="text" class="form-control" id="bank_accounts_compensation_combination"  [(ngModel)]="employee.bank_accounts_compensation_combination" name="bank_accounts_compensation_combination" required>
-          </div>  
-          <div class="form-group">
-            <label for="name">Documento de Pago</label>
-            <input type="text" class="form-control" id="bank_accounts_payment_documents"  [(ngModel)]="employee.bank_accounts_payment_documents" name="bank_accounts_payment_documents" required>
-          </div>
-          <div class="form-group">
-              <label for="name">Estatus</label> 
-
+              <label for="name">Estatus</label>
               <div class="custom-control custom-switch">
-                  <input type="checkbox" class="custom-control-input"  id="bank_accounts_status"  [(ngModel)]="employee.bank_accounts_status" name="bank_accounts_status"   style="margin-left: 10px">
+                  <input type="checkbox" class="custom-control-input"  id="bank_accounts_status"  [(ngModel)]="employee.bank_accounts_status"     name="bank_accounts_status"   style="margin-left: 10px">
                   <label class="custom-control-label" for="bank_accounts_status">Active</label>
                </div>
           </div>
-          
           <button type="submit" class="btn btn-success">Guardar</button>          
           <button [routerLink]="['/bank-accounts-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
         </form>

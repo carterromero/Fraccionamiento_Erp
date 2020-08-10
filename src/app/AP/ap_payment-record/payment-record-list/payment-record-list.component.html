@@ -1,43 +1,51 @@
 <div class="row">
     <div class="col-xl-12">
-      <app-card cardTitle="cuenta por pagar FACTURAS" blockClass="table-border-style">      
-        <button [routerLink]="['/create-payment-record']" class="btn btn-outline-primary">Agregar  cuenta por pagar Factura</button><br>
-        <br>
+      <app-card cardTitle="Registro de pago" blockClass="table-border-style">      
+        <div class="app-modal-footer">
+        <button style="margin: 10px" [routerLink]="['/create-payment-record']" class="btn btn-outline-primary">Agregar  Registro de pago</button>
+       <button [routerLink]="['/conciliacionp-list']"   class="btn btn-outline-primary" >poliza pago contable </button>
+        </div>
         <div class="table-responsive">
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
           <table class="table">
             <thead>
-            <tr>              
-              <th>ID del acreedor</th>
+            <tr>      
+              <th>id_pago</th>     
+              <th>nombre provedor </th>
+              <th>Factura </th>
               <th>Fecha de pago </th>
               <th>Monto</th>
               <th>Método de pago</th>
-              <th>Estatus </th>
-              <th>#</th>
+              <th>Cuenta de pago </th>
+              <th>Estatus</th>
               
-               
+            
             </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                    <td>{{general.creditor_id}}</td>
-                    <td>{{general.payment_record_payment_date}}</td>
-                    <td>{{general.payment_record_amount}}</td>
-                    <td>{{general.payment_method}}</td>
-                    
-                    
+                  
+                  <td>{{general.payment_id}}</td>
+                  <td>{{general.name_creditor}}</td>
+                  <td>{{general.billtopay_invoice_folio }}</td>
+                    <td>{{general.billtopay_invoice_date }}</td>
+                    <td>{{general.purcharse_order_total }}</td>
+                    <td>{{general.metodo_tipo}}</td>
+                    <td>{{general.cuentapago}}</td>
                     <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.payment_status == 'true'">
-                          <label class="custom-control-label" for="payment_status">Active</label>
-                       </div>
-                      </td>
+                      <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" [checked]="general.payment_status == 'true'">
+                        <label class="custom-control-label" for="payment_status">Active</label>
+                     </div>
+                    </td>
 
                     <td>
                       <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
-                        <button (click)="updateGeneral(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
-                        <button (click)="generalDetails(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px"> informe contable </button>    
+                     <!-- 
+                      <button (click)="updateGeneral(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
+                      --> 
+                      <button (click)="generalDetails(general.payment_id)" class="btn btn-outline-info" style="margin-left: 10px"> COMPROBANTE DE PAGO</button>    
 
                         <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
                           <div class="app-modal-header">

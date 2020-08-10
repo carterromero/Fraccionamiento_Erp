@@ -20,23 +20,16 @@ import { NavRightComponent } from './theme/layout/admin/nav-bar/nav-right/nav-ri
 import { ConfigurationComponent } from './theme/layout/admin/configuration/configuration.component';
 import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-full-screen';
 import { FilterPipe } from './filter.pipe';
-
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { MessagingService } from './messaging.service';
+import { environment } from '../environments/environment';
+import { AsyncPipe } from '../../node_modules/@angular/common';
 
 
 @NgModule({
@@ -58,63 +51,14 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
 
     ToggleFullScreenDirective,
 
-
-    
-    
+ 
 
 
 
 
-   
-    
-
-   
 
 
     
-
-
-   
-    
-
-   
-
-
-    
-
-
-   
-    
-
-   
-
-
-    
-
-
-   
-    
-
-   
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -129,10 +73,13 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
     NgbTooltipModule,
     NgbButtonsModule,
     NgbTabsetModule,
-
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
+    AngularFireModule.initializeApp(environment.firebase),
 
   ],
-  providers: [NavigationItem],
+  providers: [NavigationItem,MessagingService,AsyncPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

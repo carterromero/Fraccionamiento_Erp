@@ -36,4 +36,38 @@ export class TransactionsEntrysService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_TRANS_ENTRY/1.0/transactions_entrys`,{headers});
   }
+
+
+  getEmployeeListSalidas(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_TRANS_SALID/1.0/transactions_entrys`,{headers});
+  }
+
+  getEmployeepuchar(id: number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_PO_TRANSACT/1.0/purchase_transaction/${id}`,{headers});
+  }
+  
+  getEOnePurcharseButton(id: number, p_condominiuns_id:number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    //return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ONE_ARTICL/1.0/articles/${id},${p_condominiuns_id}`,{headers});
+    return this.http.get(this.baseUrl + 'api/integration/v1/flows/rest/ERP_INV_PO_GETONE_TRANSA/1.0/getpurcharseTransaction'+ id + ','+p_condominiuns_id,{headers});
+  }
+
+
+
+
+  getEmployeeListPurcharse(p_admin_condominiuns_id:number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_GET_ALL_PURCH_ORDER/1.0/purcharse_order/${p_admin_condominiuns_id}`,{headers});
+  }
+
+
+
+
+  getEmployeButton(id: number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_GET_ONE_PURCH_ORDER/1.0/purcharse_order/${id}`,{headers});
+  }
+  
 }

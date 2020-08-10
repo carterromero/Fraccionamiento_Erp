@@ -1,5 +1,4 @@
 import { Component, OnInit, Query } from '@angular/core';
-
 import { Router } from '@angular/router';
 import { RepoCredPay } from 'src/app/repo-cred-pay';
 import { RepoCredPayService } from 'src/app/repo-cred-pay.service';
@@ -33,10 +32,10 @@ filterPost = '';
   
   reloadData() {
     
-    this.generalService.getEmployee(this.busqueda.filters).subscribe(
+    this.generalService.getEmployeeco(this.busqueda.date).subscribe(
       data => {
         console.log(this.date);
-        this.general = this.generalService.getEmployeeList();
+        this.general = this.generalService.getEmployeeco(this.busqueda.date);
       },
       error => {
         console.log(error);   
@@ -75,7 +74,7 @@ filterPost = '';
 
   getsbusqueda()
   {
-    if(this.busqueda.filters !=null){
+    if(this.busqueda.date !=null){
     this.reloadData();
   }
   else{
@@ -92,10 +91,13 @@ filterPost = '';
   imprimirLista(){
     const doc = new jsPDF
     doc.text(20, 20, 'REPORTE CONTABLE ');
+    doc.text(20, 20, '------------------------------------------------------------------------------------ ');
     doc.fromHTML(document.getElementById('frmEquipos'),10,10);
    //doc.addPage();
     //doc.text(20, 20, 'Hello world!');
-    doc.save('Lista de Equipos');
+    doc.save('Reporte contable');
+
+
   }
 
 
@@ -108,4 +110,4 @@ filterPost = '';
 
 
 }
-
+ 

@@ -3,50 +3,13 @@
       <div class="col-md-6">
         <app-card cardTitle="Actualizar facturas" [options]="false">
           <form (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label for="name">Folio de Factura</label>
-              <input type="text" class="form-control" id="billtopay_invoice_folio"  [(ngModel)]="employee.billtopay_invoice_folio" name="billtopay_invoice_folio" required>
-            </div>  
             
-            
-            <div class="form-group">
-                <label for="name">Fecha de Factura</label>
-                <input type="date" id="start" name="trip-start"
-                value="2020-01-01"
-                min="2020-01-01" max="2030-12-31" 
-                 class="form-control" id="billtopay_invoice_date"  [(ngModel)]="employee.billtopay_invoice_date" name="billtopay_invoice_date" required>
-              </div>  
-              <div class="form-group">
-                  <label for="start">Fecha de pago programada</label>
-  
-                      <input type="date" id="start" name="trip-start"
-                    value="2020-01-01"
-                 min="2020-01-01" max="2030-12-31" 
-                    class="form-control" id="billtopay_scheduled_payment_date"  [(ngModel)]="employee.billtopay_scheduled_payment_date" name="billtopay_scheduled_payment_date" required>
-  
-                
-              </div>
+        
 
 
+              
 
-    
-            <div class="form-group">
-                <label for="name">Monto</label>
-                <input type="text" class="form-control" id="billtopay_amount"  [(ngModel)]="employee.billtopay_amount" name="billtopay_amount" required>
-            </div>
-            <div class="form-group">
-              <label for="name">Descripción del bien o servicio adquirido</label>
-              <input type="text" class="form-control" id="billtopay_service_description"  [(ngModel)]="employee.billtopay_service_description" name="billtopay_service_description" required>
-          </div>
-         
-            <div class="form-group">
-                <label for="name">Estatus</label> 
 
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input"  id="billtopay_status"  [(ngModel)]="employee.billtopay_status"     name="billtopay_status"   style="margin-left: 10px">
-                    <label class="custom-control-label" for="billtopay_status">Active</label>
-                 </div>
-            </div>
             <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
             <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
             <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">

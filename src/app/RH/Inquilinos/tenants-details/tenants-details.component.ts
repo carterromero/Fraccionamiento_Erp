@@ -5,8 +5,7 @@ import { TenantsService } from 'src/app/tenants.service';
 import { Condominums } from 'src/app/services/admin/condominums';
 import { CondominumsService } from 'src/app/services/admin/condominums.service';
 import { Observable } from 'rxjs';
-import { Agreements } from 'src/app/agreements';
-import { AgreementService } from 'src/app/agreements.service';
+
 
 @Component({
   selector: 'app-tenants-details',
@@ -17,7 +16,6 @@ export class TenantsDetailsComponent implements OnInit {
   id: number;
   tenant: Tenants;
   condominums: Observable<Condominums[]>;
-  agreements: Observable<Agreements[]>;
   submitted = false;
   alertDisable = true;
   alertDisables = true;
@@ -25,12 +23,23 @@ export class TenantsDetailsComponent implements OnInit {
   alertMessages = "null";
   
   constructor(private route: ActivatedRoute,private router: Router,
-    private tenantService: TenantsService, private condominumsService: CondominumsService, private agreementService: AgreementService) { }
+    private tenantService: TenantsService, private condominumsService: CondominumsService) { }
+
+   
+  goagreements(){
+    var windo = window.open("", "");  
+    var objbuilder = '';
+    objbuilder += ('<embed width=\'100%\' height=\'100%\'  src="data:application/pdf;base64,');
+    objbuilder += (this.tenant.tenants_agreement);
+    objbuilder += ('" type="application/pdf" />');
+    windo.document.write(objbuilder); 
+  }
+
 
  ngOnInit() {
    this.reloadDatas();
-   this. reloadDatas2();
-    this.tenant = new Tenants();    
+    this.tenant = new Tenants();  
+    console.log(this.tenant.tenants_agreement);  
     this.id = this.route.firstChild.snapshot.params['id']
     console.log(this.id);
     
@@ -66,37 +75,6 @@ export class TenantsDetailsComponent implements OnInit {
       }
     );      
   }
-
-  reloadDatas2() 
-  {
-
-    this.agreementService.getAgreementCombo().subscribe(
-      data => {
-        console.log(data);
-        this.agreements = this.agreementService.getAgreementCombo();
-      },
-      error => {
-        console.log(error);
-        let coins = [];
-        for (let key in error) {
-          this.alertMessage = error['statusText'];          
-        }
-      }
-    );      
-  }
-/*  reloadDatas() 
-  {
-    this.addressService.getAddressList().subscribe(
-      data => {
-        console.log(data);
-        this.addresses = this.addressService.getAddressList();
-      },
-      error => {
-        console.log(error);
-        //localStorage.setItem('token', "");
-        //this.router.navigate(['login']);     
-      });  
-  }*/
 
 
 }

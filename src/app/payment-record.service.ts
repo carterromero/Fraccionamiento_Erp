@@ -41,4 +41,10 @@ export class PaymentRecordService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_AP_GET_PAYMEN_RECORD/1.0/payment_record`,{headers});
   }
+
+  getEmployeefa(name: string): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_AP_SELEFACT/1.0/bil/${name}`,{headers});
+  }
+
 }

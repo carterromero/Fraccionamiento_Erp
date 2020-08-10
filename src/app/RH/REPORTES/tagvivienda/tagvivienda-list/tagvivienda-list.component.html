@@ -1,0 +1,36 @@
+<p>tagvivienda-list works!</p>
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle=" REPORTE VIVIENDAS " blockClass="table-border-style">  
+        <button (click)="imprimirLista()"   class="btn btn-outline-primary" >Generar pdf</button>
+      <div>
+          <label for="name" > REPORTE VIVIENDAS</label>
+          </div>
+          <br>
+        <div id="frmViviendas"  class="table-responsive" >
+          <table class="tableR" text-align="center">
+            <thead>
+            <tr>              
+              <th>Id Tag</th>
+              <th>Nombre Completo </th>
+              <th>Numero Vivienda </th>
+              <th>Activo/Inactivo</th>
+              <th>Fecha Inicio</th>
+              <th>Fecha Fin</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let agreement of agreements | async   " >
+                    <td>{{agreement.agreements_id}}</td>
+                    <td>{{agreement.agreements_name}} {{agreement.agreements_father_surname}} {{agreement.agreements_mother_surname}}</td>
+                    <td>{{agreement.agreements_residential_number}}</td>
+                    <td>{{agreement.agreements_status}}</td>
+                    <td>{{agreement.agreements_start_date}}</td>
+                    <td>{{agreement.agreements_end_date}}</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>

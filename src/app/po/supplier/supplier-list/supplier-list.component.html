@@ -1,13 +1,17 @@
 <div class="row">
   <div class="col-xl-12">
+
+
     <app-card cardTitle="Proveedores" blockClass="table-border-style">      
       <button [routerLink]="['/supplier-create']" class="btn btn-primary">Agregar Proveedores</button><br>
       <br>
       <div class="table-responsive"   >
+        
+        
         <table class="table" >
           <thead  >
           <tr > 
-            <th>ID</th>             
+            <th>Folio </th>             
             <th>Nombre </th>
             <th>Dirección Completa</th>
            
@@ -16,21 +20,29 @@
 
             <th>Telefono</th>
             <th>Giro</th>
-           
+            <th>Fecha</th>
+            <th>Cuenta Bancaria</th>
+            <th>Banco</th>
+            <th>Clave Interbancaria</th>
             <th>Estatus </th>
+           
             <th>#</th>
           </tr>
           </thead>
           <tbody >
               <tr  *ngFor="let general of general | async">
-                <td >{{general.supplier_id}}</td>
+                <td >{{general.folio_supplier}}</td>
                   <td >{{general.supplier_name}}</td>
                   <td>{{general.supplier_address}}</td>
                   <td>{{general.supplier_rfc}}</td>
                   <td>{{general.supplier_email}}</td>
                   <td>{{general.supplier_phone}}</td>
                   <td>{{general.supplier_turn}}</td>
-                  
+                  <td>{{general.last_update_date}}</td>
+                  <td>{{general.supplier_account}}</td>
+
+                  <td>{{general.suppier_bank}}</td>
+                  <td>{{general.supplier_key_interbank}}</td>
                   <td>
                       <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" [checked]="general.supplier_status == 'true'">
@@ -54,7 +66,7 @@
                       </div>
 
                         <div class="app-modal-body">
-                        <p>Esta seguro de eliminar la empresa?</p>
+                        <p>Esta seguro de eliminar la Proveedores?</p>
                         </div>
                         <div class="app-modal-footer">
                         <button type="button" class="btn btn-secondary"  style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>

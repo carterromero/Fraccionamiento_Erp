@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <div class="col-md-6">
+        <app-card cardTitle="Agregar Aviso" [options]="false">
+          <form (ngSubmit)="onSubmit()">  
+            <div class="form-group">
+                <label for="name">Asunto: *</label>
+                <input type="text" class="form-control" id="releases_subject"  [(ngModel)]="release.releases_subject" name="releases_subject" required> 
+              </div>   
+              <div class="custom-file">
+                <input type="file" alife-file-to-base (change)="handleUpload($event)" class="custom-file-input" id="release.releases_attached"   name="releases_attached">
+                <label class="custom-file-label" for="validatedCustomFile">Elegir adjunto ...</label>
+                <div class="invalid-feedback">Archivo invalido</div>
+              </div>          
+            <div class="form-group">
+                <label for="name">Estatus: *</label>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input"  id="releases_status"  [(ngModel)]="release.releases_status"     name="releases_status"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="releases_status">Active</label>
+                 </div>
+            </div>
+            <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+            <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
+              <div class="app-modal-header">
+              <h5 class="modal-title">Agregar Aviso</h5>
+              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="app-modal-body">
+              <p>¿Está seguro de agregar el aviso?</p>
+              </div>
+              <div class="app-modal-footer">
+              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
+              </div>
+          </app-ui-modal>
+            <button type="submit"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>        
+            <button [routerLink]="['/releases-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
+          </form>
+        </app-card>
+      </div>
+    </div>

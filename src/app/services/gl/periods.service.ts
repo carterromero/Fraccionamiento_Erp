@@ -10,8 +10,8 @@ export class PeriodsService {
   
 
   private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/ic/api/integration/v1/flows/rest';
-  private username = 'susana-orozco@dti-consultores.com';
-  private password = 'ConsultoresDTI2020.';
+  private username = 'andres.coyotl@dti-consultores.com';
+  private password = 'ASDFGHJ1234+*a';
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -23,6 +23,9 @@ export class PeriodsService {
   
   createPeriods(periods: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl+'/ERP_GL_PERIODS_INSERT/1.0/periods'}`, periods, this.httpOptions);
+  }
+  createPeriod(periods: Object): Observable<Object> {
+    return this.http.post(`${this.baseUrl+'/ERP_GL_PERIODO_INSERTDA/1.0/periods'}`, periods, this.httpOptions);
   }
 
   getPeriods(id: number): Observable<any> {

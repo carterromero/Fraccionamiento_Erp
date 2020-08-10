@@ -39,5 +39,12 @@ export class SubInventarysService {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_SUB_INVEN/1.0/sub_inventarys`,{headers});
   
-  }  
+  } 
+  
+  
+
+  getEmployeeLisMaster(id: number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_INV_GET_ALL_MASTE_INVEN/1.0/master_inventarys/${id}`,{headers});
+  }
 }

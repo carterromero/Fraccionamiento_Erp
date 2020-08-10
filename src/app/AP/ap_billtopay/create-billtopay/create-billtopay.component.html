@@ -2,44 +2,76 @@
     <div class="col-sm-12">
       <div class="col-md-6">
         <app-card cardTitle="Crear factura" [options]="false">
-          <form (ngSubmit)="onSubmit()" >
+          <form (ngSubmit)="onSubmit()">
             <div class="form-group">
-              <label for="name">Folio de Factura</label>
-              <input type="text" class="form-control" id="billtopay_invoice_folio"  [(ngModel)]="employee.billtopay_invoice_folio" name="billtopay_invoice_folio" required> 
-            </div>      
-            <div class="form-group">
-              <label for="name">Fecha de Factura</label>
-              <input type="date" id="start" name="trip-start"
-              value="2020-01-01"
-              min="2020-01-01" max="2030-12-31" 
-               class="form-control" id="billtopay_invoice_date"  [(ngModel)]="employee.billtopay_invoice_date" name="billtopay_invoice_date" required>
-            </div>  
-            <div class="form-group">
-                <label for="start">Fecha de pago programada</label>
+              <label for="exampleFormControlSelect1">Factura orden de compra</label>
+              <select  class="custom-select"  id="purcharse_id" required [(ngModel)]="employee.purcharse_id" name="purcharse_id" >
+              <option *ngFor="let creditors of purcharse | async" value="{{creditors.purcharse_id}}">{{creditors.purcharse_folio}}/{{creditors.purcharse_name}}</option>
+              </select>
+              <button (click)="reloadData3()" class="btn btn-outline-secondary" style="margin-left: 10px">BUSCAR nombre  </button>
+          </div> 
+ 
+          
+           
 
-       <input type="date" id="start" name="trip-start"
-       value="2020-01-01"
-       min="2020-01-01" max="2030-12-31" 
-       class="form-control" id="billtopay_scheduled_payment_date"  [(ngModel)]="employee.billtopay_scheduled_payment_date" name="billtopay_scheduled_payment_date" required>
-
-              
-            </div>
             <div class="form-group">
                 <label for="name">Monto</label>
-                <input type="text" class="form-control" id="billtopay_amount"  [(ngModel)]="employee.billtopay_amount" name="billtopay_amount" required>
+                <input type="text" class="form-control" id="purcharse_order_total"  [(ngModel)]="employee.purcharse_order_total" name="purcharse_order_total" required>
             </div>
+            
             <div class="form-group">
               <label for="name">Descripción del bien o servicio adquirido</label>
-              <input type="text" class="form-control" id="billtopay_service_description"  [(ngModel)]="employee.billtopay_service_description" name="billtopay_service_description" required>
+              <input type="text" class="form-control" id="articles_name_article"  [(ngModel)]="employee.articles_name_article" name="articles_name_article" required>
           </div>
-         
+      
+            <br>
+            <h2><label for="name">provedor</label></h2>
+
+            
             <div class="form-group">
-                <label for="name">Estatus</label>
+              <label for="exampleFormControlSelect1">Nombre del provedor</label>
+              <select   class="custom-select"  id="creditor_business_name" required [(ngModel)]="employee.creditor_business_name" name="creditor_business_name" >
+              <option *ngFor="let creditors of supplier | async" value="{{creditors.supplier_name}}"> {{creditors.supplier_name}}</option>
+              
+            </select>
+            
+          </div>  
+            
+            <h2><label for="name">CLIENTE</label></h2>
+
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Nombre del cliente </label>
+              <select   class="custom-select"  id="cliente_name_cliente" required [(ngModel)]="employee.cliente_name_cliente" name="cliente_name_cliente" >
+              <option *ngFor="let creditors of client | async" value="{{creditors.cliente_name_cliente}}"> {{creditors.cliente_name_cliente}}</option>
+            </select>
+          </div> 
+           
+          <div class="form-group">
+            <label for="name">Folio de Factura</label>
+            <input type="text" class="form-control" id="billtopay_invoice_folio"  [(ngModel)]="employee.billtopay_invoice_folio" name="billtopay_invoice_folio" required> 
+          </div>      
+      
+          <div class="form-group">
+            <label for="name">Fecha de Factura</label>
+            <input type="date" id="start" name="trip-start"
+            value="2020-01-01"
+            min="2020-01-01" max="2030-12-31" 
+             class="form-control" id="billtopay_invoice_date"  [(ngModel)]="employee.billtopay_invoice_date" name="billtopay_invoice_date" required>
+          </div>  
+
+
+         
+         
+<br><br>
+            <div class="form-group">
+                <label for="name">Estatus factura</label>
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input"  id="billtopay_status"  [(ngModel)]="employee.billtopay_status"     name="billtopay_status"   style="margin-left: 10px">
                     <label class="custom-control-label" for="billtopay_status">Active</label>
                  </div>
             </div>
+
+
             <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
             <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
             <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">

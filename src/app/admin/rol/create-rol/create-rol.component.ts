@@ -38,7 +38,7 @@ export class CreateRolComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = "El rol esta duplicado, no se puede agregar";          
         }      
       });
   }
@@ -51,7 +51,7 @@ export class CreateRolComponent implements OnInit {
 
   if(this.employee.rol_description =="" ||  this.employee.rol_description ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Descripcion Incompleto";          
+    this.alertMessage = "Nombre de rol incompleto, este atributo es obligatorio";          
   }
 
  
