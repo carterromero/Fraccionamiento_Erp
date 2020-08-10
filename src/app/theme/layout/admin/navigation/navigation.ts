@@ -734,7 +734,7 @@ const NavigationItemss = [
       }
     ]
   },
-<<<<<<< HEAD
+
   {
     id: 'report',
     title: 'Reportes',
@@ -754,8 +754,10 @@ const NavigationItemss = [
         type: 'item',            
         url: '/report-list'
         
-      }                           
-=======
+      } 
+    ]
+  }                         
+,
   {    
     id: 'AC_main',
     title: 'Control de Accesos',
@@ -851,14 +853,13 @@ const NavigationItemss = [
           }
         ]
       }
->>>>>>> 2f0f6ef4b213cb4b33d63545373ca16216022a0c
+
     ]
   }
    
 
+  
 ];
-
-
 @Injectable()
 export class NavigationItem 
 {

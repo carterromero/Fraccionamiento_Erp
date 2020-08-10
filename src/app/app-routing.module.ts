@@ -217,9 +217,9 @@ import { CustomerDetailsComponent } from './customer/customer-details/customer-d
 import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
 import { UpdateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/update-unit-of-measures/update-unit-of-measures.component';
 import { CreateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/create-unit-of-measures/create-unit-of-measures.component';
-<<<<<<< HEAD
+
 import { ReportListComponent } from './config-mainte/reports-payroll/report-list/report-list.component';
-=======
+
 import { AcTenantsListComponent } from './AC/ac-tenants/ac-tenants-list/ac-tenants-list.component';
 import { AcVisitorsListComponent } from './AC/ac-visitors/ac-visitors-list/ac-visitors-list.component';
 import { AcVisitorsDetailsComponent } from './AC/ac-visitors/ac-visitors-details/ac-visitors-details.component';
@@ -322,7 +322,6 @@ import { CreateSalidasComponent } from './inventarios/transactions_entrys/create
 
 
 
->>>>>>> 2f0f6ef4b213cb4b33d63545373ca16216022a0c
 
 
 
