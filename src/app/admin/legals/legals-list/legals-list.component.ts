@@ -23,7 +23,7 @@ export class LegalsListComponent implements OnInit {
 
   ngOnInit(): void {
       
-      this.reloadData();
+    this.reloadData();
   }
   
   reloadData() {

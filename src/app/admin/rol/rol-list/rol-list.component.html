@@ -9,22 +9,16 @@
           <table class="table" text-transform="capitalize">
             <thead>
             <tr>              
-              <th>Nombre del rol:</th>
-              <th>Estatus: </th>
+              <th>Nombre del rol</th>
+              <th>Estatus</th>
               <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
                     <td>{{general.rol_description}}</td>
+                    <td>{{general.rol_status}}</td>
                     
-                    <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.rol_status == 'true'">
-                          <label class="custom-control-label" for="rol_status">Active</label>
-                       </div>
-                      </td>
-
                     <td>
                         <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Eliminar</button>
                         <button (click)="updateGeneral(general.rol_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
