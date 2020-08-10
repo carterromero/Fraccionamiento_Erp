@@ -734,6 +734,28 @@ const NavigationItemss = [
       }
     ]
   },
+<<<<<<< HEAD
+  {
+    id: 'report',
+    title: 'Reportes',
+    type: 'collapse',
+    icon: 'feather icon-monitor',
+    children: [
+      {
+        id: 'report',
+        title: 'Reporte Contable',
+        type: 'item',            
+        url: '/reports-payroll'
+        
+      },
+      {
+        id: 'report',
+        title: 'Reporte Saldos Vencidos Nómina',
+        type: 'item',            
+        url: '/report-list'
+        
+      }                           
+=======
   {    
     id: 'AC_main',
     title: 'Control de Accesos',
@@ -829,6 +851,7 @@ const NavigationItemss = [
           }
         ]
       }
+>>>>>>> 2f0f6ef4b213cb4b33d63545373ca16216022a0c
     ]
   }
    
