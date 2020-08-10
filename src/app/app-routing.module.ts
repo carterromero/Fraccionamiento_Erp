@@ -182,7 +182,9 @@ import { UnitOfMeasuresDetailsComponent } from './inventarios/unit_of_measures/u
 import { UpdateMasterinventarysComponent } from './inventarios/master_inventarys/update-masterinventarys/update-masterinventarys.component';
 import { TransactionsentrysListComponent } from './inventarios/transactions_entrys/transactionsentrys-list/transactionsentrys-list.component';
 
+import { RepoCredPayContListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-cont-list/repo-cred-pay-cont-list.component';
 import { RepoCredPayNocontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-nocont-list/repo-cred-pay-nocont-list.component';
+import { RepoCredPayVencontListComponent } from './AP/ap_repo_cred_pay/repo-cred-pay-vencont-list/repo-cred-pay-vencont-list.component';
 
 import { CreateArticlesComponent } from './inventarios/articles/create-articles/create-articles.component';
 import { ArticlesDetailsComponent } from './inventarios/articles/articles-details/articles-details.component';
@@ -203,7 +205,6 @@ import { CustomerDetailsComponent } from './customer/customer-details/customer-d
 import { CreateCustomerComponent } from './customer/create-customer/create-customer.component';
 import { UpdateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/update-unit-of-measures/update-unit-of-measures.component';
 import { CreateUnitOfMeasuresComponent } from './inventarios/unit_of_measures/create-unit-of-measures/create-unit-of-measures.component';
-import { ReportListComponent } from './config-mainte/reports-payroll/report-list/report-list.component';
 
 
 
@@ -792,6 +793,17 @@ const routes: Routes = [
       {
         path: '',
 
+        component: RepoCredPayContListComponent,
+        children: [
+          {
+            path: 'repo-cred-pay-cont-list/:date',
+            loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-cont-list/repo-cred-pay-cont-list.module').then(module => module.RepoCredPayContListModule)
+          }
+        ]
+      },
+      {
+        path: '',
+
         component: RepoCredPayNocontListComponent,
         children: [
           {
@@ -800,7 +812,18 @@ const routes: Routes = [
           }
         ]
       },
-     
+      {
+        path: '',
+
+        component: RepoCredPayVencontListComponent,
+        children: [
+          {
+            path: 'repo-cred-pay-vencont-list/:date',
+            loadChildren: () => import('./AP/ap_repo_cred_pay/repo-cred-pay-vencont-list/repo-cred-pay-vencont-list.module').then(module => module.RepoCredPayVencontListModule)
+          }
+        ]
+      }
+      ,
 
       {
         path: '',
@@ -1845,18 +1868,6 @@ component: CreateTransfersComponent,
           {
             path: 'Update-payroll/:id',
             loadChildren: () => import('./config-mainte/update-payroll/update-payroll.module').then(module => module.UpdatePayrollModule)
-          }
-        ]
-      }
-      ,
-      {
-        path: '',
-
-        component: ReportListComponent,
-        children: [
-          {
-            path: 'reports-payroll',
-            loadChildren: () => import('./config-mainte/reports-payroll/report-list/report-list.module').then(module => module.ReportListModule)
           }
         ]
       }

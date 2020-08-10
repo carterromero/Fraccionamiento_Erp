@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xl-12">
       <app-card cardTitle=" REPORTE CONTABLE " blockClass="table-border-style">  
-        <button (click)="imprimirLista()"   class="btn btn-outline-primary" > generar pdf reporte contable</button>
+        <button (click)="imprimirLista()"   class="btn btn-outline-primary" > generar pdf</button>
       
       <div>
       
@@ -18,9 +18,10 @@
           </div>
           <br>
         
-        <div id="frmEquipos" class="table-responsive">
-          
-          <table id="frmEquipos"  class="table">
+        <div id="frmEquipos"  class="table-responsive">
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+          <table class="table">
             <thead>
             <tr>              
               <th>nombre acreedor</th>
