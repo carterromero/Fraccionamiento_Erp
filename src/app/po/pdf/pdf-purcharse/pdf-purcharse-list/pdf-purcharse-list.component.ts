@@ -7,6 +7,7 @@ import { Purcharse } from 'src/app/purcharse';
 import { PurcharseService } from 'src/app/purcharse.service';
 
 import { FilterP } from 'src/app/filterp';
+import { StatusPurchase } from 'src/app/statuspurchase';
 
 @Component({
   selector: 'app-pdf-purcharse-list',
@@ -18,8 +19,8 @@ export class PdfPurcharseListComponent implements OnInit {
   id: number;
   generals: Purcharse;
   filter: FilterP= new FilterP();
-  
- 
+  employee: Purcharse = new Purcharse();
+  statuspur: Observable<[StatusPurchase]>;
   general: Observable<Purcharse[]>;
   //filterss: Observable<FilterP[]>;
 
@@ -50,14 +51,11 @@ export class PdfPurcharseListComponent implements OnInit {
           });
       
 
-
-
-
-
      
   
   */
  this.reloadData();
+ this.estatusPurcharse() ;
     }
 
 
@@ -81,6 +79,31 @@ export class PdfPurcharseListComponent implements OnInit {
     }
 
 
+
+
+
+
+    estatusPurcharse() 
+    {
+      //this.condo.condominums_description = localStorage.getItem('condominums');
+      //this.teha.tenants_name = localStorage.getItem('inquilino');
+      this.generalService.getEmployeeListStatusPurcharse().subscribe(
+        data => {
+          console.log(data);
+          this.statuspur= this.generalService.getEmployeeListStatusPurcharse();
+        },
+        error => {
+          console.log(error);
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = error['statusText'];          
+          }
+        }
+      );      
+    }
+
+
     onSubmit() 
     {
       
@@ -90,7 +113,8 @@ export class PdfPurcharseListComponent implements OnInit {
 
     getsbusqueda()
     {
-      if(this.filter.created_date !=null || this.filter.purcharse_status !=null){
+    
+      if(this.filter.created_date !=null || this.filter.id_status_purcharse !=null){
       this.reloadDatas();
       
     }

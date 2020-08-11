@@ -11,18 +11,34 @@
 
       <form class="form-inline waves-light" mdbWavesEffect (ngSubmit)="onSubmit()">
         <div class="md-form mt-0" >
+  
 
-          <input [(ngModel)]="filter.created_date"
-          id="created_date"   name="created_date"
-          class="form-control mr-sm-2" type="date" placeholder="Search">
 
-          <select class="form-control mr-sm-2" [(ngModel)]="filter.purcharse_status"
+         
+
+
+  <input [(ngModel)]="filter.created_date"
+  id="created_date"   name="created_date"
+  class="form-control mr-sm-2" type="date" placeholder="Search">
+
+  <label for="exampleFormControlSelect1">Status </label>
+  <select  class="custom-select"  id="id_status_purcharse" required [(ngModel)]="filter.id_status_purcharse" name="id_status_purcharse" >
+  <option *ngFor="let address of statuspur | async" value="{{address.id_status_purcharse}}">{{address.status_name_purcharse}}</option>
+   </select>
+
+
+         
+
+         <!--
+<select class="form-control mr-sm-2" [(ngModel)]="filter.purcharse_status"
           id="purcharse_status"   name="purcharse_status"
           >
             
             <option value="1">Activos</option>
             <option value="2">Desactivos</option>
           </select>
+
+         --> 
           <button type="submit" class="btn btn-outline-success">Buscar</button>    
           <button type="button"  (click)="reloadData()" class="btn btn-outline-info" style="margin-left: 10px">Refrescar</button>  
         </div>
