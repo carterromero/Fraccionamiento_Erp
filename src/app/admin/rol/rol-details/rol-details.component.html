@@ -5,14 +5,14 @@
 
           <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
           <div>
-            <label><b>Nombre del rol: </b></label> {{employee.rol_description}}
+            <label><b>Nombre del rol: </b></label> <br>{{employee.rol_description}}
           </div>
           
           <div>
             <label><b>Estatus:  </b></label>
           <div class="custom-control custom-switch">
             <input type="checkbox" class="custom-control-input"  id="rol_status" disabled  name="rol_status"   style="margin-left: 10px" [checked]="employee.rol_status == 'true'">
-            <label class="custom-control-label" for="rol_status">Active</label>
+            <label class="custom-control-label" for="rol_status">Activo</label>
          </div>
         </div>
         </div>

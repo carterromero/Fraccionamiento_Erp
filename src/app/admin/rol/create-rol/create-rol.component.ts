@@ -30,7 +30,7 @@ export class CreateRolComponent implements OnInit {
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto el rol correctamente";
+          this.alertMessages ="Se creo el rol correctamente";
           this.employee= new Rol();
         }, 
       error => {
@@ -38,7 +38,7 @@ export class CreateRolComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = "El rol esta duplicado, no se puede agregar";          
+          this.alertMessage = "El rol esta duplicado, no se puede crear";          
         }      
       });
   }
@@ -51,7 +51,7 @@ export class CreateRolComponent implements OnInit {
 
   if(this.employee.rol_description =="" ||  this.employee.rol_description ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Nombre de rol incompleto, este atributo es obligatorio";          
+    this.alertMessage = "El Atributo Nombre de rol es Obligatorio";          
   }
 
  
