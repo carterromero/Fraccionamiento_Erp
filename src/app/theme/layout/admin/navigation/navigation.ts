@@ -516,7 +516,7 @@ const NavigationItemss = [
     children: [
       {
         id: 'po-catalog',
-        title: 'Catalogos',
+        title: 'Catálogos',
         type: 'collapse',
         icon: 'feather icon-monitor',
         children: [
@@ -606,20 +606,20 @@ const NavigationItemss = [
     children: [
       {
         id: 'categories',
-        title: 'Catalogos',
+        title: 'Catálogos',
         type: 'collapse',
         icon: 'feather icon-monitor',
         children: [
           {
             id: 'categories',
-            title: 'Categorias',
+            title: 'Categorías',
             type: 'item',            
             url: '/categories-list'
             
           },                    
           {
             id: 'sub_categories',
-            title: 'Sub Categorias',
+            title: 'Sub Categorías',
             type: 'item',            
             url: '/sub_categories-list'
             
@@ -633,7 +633,7 @@ const NavigationItemss = [
           },
           {
             id: 'sub_inventarys',
-            title: 'Sub Inventarios',
+            title: 'Subinventarios',
             type: 'item',            
             url: '/sub_inventarys-list'
             
@@ -647,7 +647,7 @@ const NavigationItemss = [
           }, 
           {
             id: 'status',
-            title: 'Estatus Articulos',
+            title: 'Estatus Artículos',
             type: 'item',            
             url: '/status-articles-list'
             
@@ -669,7 +669,7 @@ const NavigationItemss = [
         children: [
           {
             id: 'articles',
-            title: 'Articulos',
+            title: 'Artículos',
             type: 'item',            
             url: '/Articles-list'
             
@@ -1416,7 +1416,7 @@ export class NavigationItem
         children: [
           {
             id: 'po-catalog',
-            title: 'Catalogos',
+            title: 'Catálogos',
             type: 'collapse',
             icon: 'feather icon-monitor',
             children: [
@@ -1507,20 +1507,20 @@ export class NavigationItem
         children: [
           {
             id: 'categories',
-            title: 'Catalogos',
+            title: 'Catálogos',
             type: 'collapse',
             icon: 'feather icon-monitor',
             children: [
               {
                 id: 'categories',
-                title: 'Categorias',
+                title: 'Categorías',
                 type: 'item',            
                 url: '/categories-list'
                 
               },                    
               {
                 id: 'sub_categories',
-                title: 'Sub Categorias',
+                title: 'Subcategorías',
                 type: 'item',            
                 url: '/sub_categories-list'
                 
@@ -1548,7 +1548,7 @@ export class NavigationItem
               }, 
               {
                 id: 'status',
-                title: 'Estatus Articulos',
+                title: 'Estatus Artículos',
                 type: 'item',            
                 url: '/status-articles-list'
                 
@@ -1570,7 +1570,7 @@ export class NavigationItem
             children: [
               {
                 id: 'articles',
-                title: 'Articulos',
+                title: 'Artículos',
                 type: 'item',            
                 url: '/Articles-list'
                 

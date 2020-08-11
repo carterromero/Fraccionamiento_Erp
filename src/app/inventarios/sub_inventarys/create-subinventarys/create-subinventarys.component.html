@@ -21,7 +21,7 @@
 
 
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Maestro Inventario</label>
+              <label for="exampleFormControlSelect1">Inventario Maestro </label>
               <select  class="custom-select" id="master_inventarys_id" required [(ngModel)]="employee.master_inventarys_id" name="master_inventarys_id"  >
               <option *ngFor="let master1 of master | async" value="{{master1.master_inventarys_id}}">{{master1.master_inventarys_name_inventary}}</option>
               </select>
