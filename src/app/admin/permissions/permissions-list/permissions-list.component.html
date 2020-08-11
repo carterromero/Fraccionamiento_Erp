@@ -9,8 +9,8 @@
           <table class="table">
             <thead>
             <tr>
-              <th>Descripción</th>
               <th>Rol</th>
+              <th>Descripción</th>            
               <th>Compras</th>
               <th>Cuentas por pagar</th>
               <th>Nomina</th>
@@ -24,102 +24,102 @@
               <th>Control accesos</th>
               <th>Proveedores</th>
               <th>Estatus</th>
+              <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let general of general | async">
-                    <td>{{general.permissions_description}}</td>
                     <td>{{general.rol_description}}</td>
-                    
+                    <td>{{general.permissions_description}}</td>
                       <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_compras == 'true'">
-                          <label class="custom-control-label" for="permissions_compras">Active</label>
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_compras== 'Activo'">
+                          <label class="custom-control-label" for="permissions_compras">{{general.permissions_compras}}</label>
                        </div>
                       </td>
                       <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_cxp == 'true'">
-                          <label class="custom-control-label" for="permissions_cxp">Active</label>
-                       </div>
-                      </td>
-
-                      <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_nomina == 'true'">
-                          <label class="custom-control-label" for="permissions_nomina">Active</label>
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_cxp == 'Activo'">
+                          <label class="custom-control-label" for="permissions_cxp">{{general.permissions_cxp}}</label>
                        </div>
                       </td>
 
                       <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_tesoreria == 'true'">
-                          <label class="custom-control-label" for="permissions_tesoreria">Active</label>
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_nomina == 'Activo'">
+                          <label class="custom-control-label" for="permissions_nomina">{{general.permissions_nomina}}</label>
                        </div>
                       </td>
 
-
                       <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_contabilidad == 'true'">
-                          <label class="custom-control-label" for="permissions_contabilidad">Active</label>
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_tesoreria == 'Activo'">
+                          <label class="custom-control-label" for="permissions_tesoreria">{{general.permissions_tesoreria}}</label>
                        </div>
                       </td>
 
 
                       <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_cxc == 'true'">
-                          <label class="custom-control-label" for="permissions_cxc">Active</label>
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_contabilidad == 'Activo'">
+                          <label class="custom-control-label" for="permissions_contabilidad">{{general.permissions_contabilidad}}</label>
+                       </div>
+                      </td>
+
+
+                      <td>
+                        <div class="custom-control custom-switch">
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_cxc == 'Activo'">
+                          <label class="custom-control-label" for="permissions_cxc">{{general.permissions_cxc}}</label>
                        </div>
                       </td>
 
                       <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_inventario == 'true'">
-                          <label class="custom-control-label" for="permissions_inventario">Active</label>
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_inventario == 'Activo'">
+                          <label class="custom-control-label" for="permissions_inventario">{{general.permissions_inventario}}</label>
                        </div>
                       </td>
 
                       <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_rh == 'true'">
-                          <label class="custom-control-label" for="permissions_rh">Active</label>
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_rh == 'Activo'">
+                          <label class="custom-control-label" for="permissions_rh">{{general.permissions_rh}}</label>
                        </div>
                       </td>
 
                       <td>
                         <div class="custom-control custom-switch">
                           <input type="checkbox" class="custom-control-input" [checked]="general.permissions_inquilino == 'true'">
-                          <label class="custom-control-label" for="permissions_inquilino">Active</label>
+                          <label class="custom-control-label" for="permissions_inquilino">{{general.permissions_inquilino}}</label>
                        </div>
                       </td>
 
                       <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_admin == 'true'">
-                          <label class="custom-control-label" for="permissions_admin">Active</label>
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_admin == 'Activo'">
+                          <label class="custom-control-label" for="permissions_admin">{{general.permissions_admin}}</label>
                        </div>
                       </td>
 
                       <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_control == 'true'">
-                          <label class="custom-control-label" for="permissions_control">Active</label>
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_control == 'Activo'">
+                          <label class="custom-control-label" for="permissions_control">{{general.permissions_control}}</label>
                        </div>
                       </td>
 
                       <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_proveedor == 'true'">
-                          <label class="custom-control-label" for="permissions_proveedor">Active</label>
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_proveedor == 'Activo'">
+                          <label class="custom-control-label" for="permissions_proveedor">{{general.permissions_proveedor}}</label>
                        </div>
                       </td>
 
                       <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_status == 'true'">
-                          <label class="custom-control-label" for="permissions_status">Active</label>
+                          <input type="checkbox" class="custom-control-input" [checked]="general.permissions_status == 'Activo'">
+                          <label class="custom-control-label" for="permissions_status">{{general.permissions_status}}</label>
                        </div>
                       </td>
                     <td>
