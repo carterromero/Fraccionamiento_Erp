@@ -31,8 +31,10 @@ export class ChatRoomComponent implements OnInit {
   //     msg: 'Que bien!'
   //   }
   // ];
-  currentUser = localStorage.getItem('id');
+  //Token = localStorage.getItem('token');
+  currentUser = localStorage.getItem('name');
   mensaje: string = "";
+  respuesta: string = "";
   public chats: Mensaje[] = [];
   elemento;
   tkn: string = "";
@@ -42,16 +44,22 @@ export class ChatRoomComponent implements OnInit {
 
   title = 'push-notification';
   message: Observable<Mensaje[]>;
-  constructor(private messagingService: MessagingService,public _cs: ChatService) { 
+  constructor(
+    private messagingService: MessagingService,
+    public _cs: ChatService) { 
     // this.messagingService.currentMessage;
   }
 
   ngOnInit() {
+    console.log(this.tkn);
+    
     // this.elemento = document.getElementById('app-mensajes');
 
     // this.messagingService.requestPermission()
+    this.message = JSON.parse(localStorage.getItem("chat"));
     this.messagingService.receiveMessage();
     this.message = this.messagingService.currentMessage
+    
     // .subscribe( data =>{
     //   if(data !== null){
     //     // this.msgs.push(JSON.parse(data['data']['param']));
@@ -79,7 +87,7 @@ export class ChatRoomComponent implements OnInit {
       data:{
         param:{
           metodo: 1,
-          nombreUsuario: localStorage.getItem('id'),
+          nombreUsuario: localStorage.getItem('name'),
           msg: this.mensaje
         }
       },

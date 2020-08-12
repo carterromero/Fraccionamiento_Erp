@@ -12,7 +12,7 @@
         <table class="table">
           <thead>
           <tr>         
-            
+            <th>id</th>
             <th>FOLIO  </th>
         
             <th>ARTICULO </th>
@@ -36,6 +36,7 @@
           </thead>
           <tbody>
               <tr *ngFor="let general of general | async">
+                <td>{{general.purcharse_id}}</td> 
                 <td>{{general.purcharse_folio}}</td> 
              
                 <td>{{general.articles_name_article}}</td>
@@ -52,7 +53,11 @@
 
 
                   <td>
+
                     <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()">Cancelar</button>
+
+                      <button  class="btn btn-outline-danger" (click)="createPeriodsDialog.show()">Eliminar</button>
+
                       <button (click)="updateGeneral(general.purcharse_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
                       <button (click)="generalDetails(general.purcharse_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
 
@@ -67,7 +72,11 @@
                         </div>
                         <div class="app-modal-footer">
                         <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
+
                        <button type="button" class="btn btn-danger" (click)="updateEmployees(general.purcharse_id)"   (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Eliminar</button>
+
+                        <button type="submit" class="btn btn-danger" (click)="updateEmployee(general.purcharse_id)" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Eliminar</button>
+
                         </div>
                     </app-ui-modal>
                   </td>
