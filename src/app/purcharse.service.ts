@@ -11,8 +11,8 @@ export class PurcharseService {
 
  
   private baseUrl = 'https://dtipruebas-idt2tecbgzl5-ia.integration.ocp.oraclecloud.com:443/';
-  private username='abdiel.romero@dti-consultores.com';
-  private password='Ingenieroars7';
+  private username='victor.garcia@dti-consultores.com';
+  private password='KaledKeyter236kf';
   
 
   constructor(private http: HttpClient) { }
@@ -95,9 +95,12 @@ export class PurcharseService {
 
 
 
+
+
+
   updateStatusPurchar(id: number, value: any): Observable<Object> {
     const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
-    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_UPDATE_STATUS_PURCHA/1.0/status_purcharse/${id}`, value,{headers});
+    return this.http.put(`${this.baseUrl}/ic/api/integration/v1/flows/rest/ERP_PO_UPDAT_STATU_PURCH_2/1.0/status_purcharse/${id}`, value,{headers});
   }
 
   

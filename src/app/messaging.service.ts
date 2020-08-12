@@ -45,15 +45,15 @@ export class MessagingService {
           this.currentMessage.next(payload);
           this.showCustomNotification(payload);
 
-          // if(payload !== null){
-          //   this.chat.push(JSON.parse(payload['data']['param']))
-          //   localStorage.setItem('chats',JSON.stringify(this.chat));
-          // }
+           if(payload !== null){
+            this.chat.push(JSON.parse(payload['data']['param']))
+            localStorage.setItem('chats',JSON.stringify(this.chat));
+           }
 
-          // let chatG = JSON.parse(payload['data']['param']);
+           let chatG = JSON.parse(payload['data']['param']);
 
-          // this.chat = chatG;
-          // console.log(this.chat);
+           this.chat = chatG;
+           console.log(this.chat);
         })
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PurcharseService } from 'src/app/purcharse.service';
 import { Purcharse } from 'src/app/purcharse';
 import { Tenants } from 'src/app/tenants';
@@ -8,6 +8,7 @@ import { TenantsService } from 'src/app/tenants.service';
 import { Condominums } from 'src/app/services/admin/condominums';
 import { CondominumsService } from 'src/app/services/admin/condominums.service';
 import { User } from 'src/app/services/admin/user';
+
 
 @Component({
   selector: 'app-purcharse-list',
@@ -22,6 +23,7 @@ export class PurcharseListComponent implements OnInit {
   generals: Purcharse = new Purcharse();
   gen: Purcharse;
   id: number;
+  p_id : number;
   user: User = new User();
   userss: Observable<User[]>;
   alertDisable = true;
@@ -33,12 +35,14 @@ export class PurcharseListComponent implements OnInit {
   constructor(private generalService: PurcharseService, 
     private thaService :  TenantsService,
     private conService :CondominumsService,
-    private router: Router) { }
+    private route: ActivatedRoute,
+    private router: Router,) { }
 
   ngOnInit(): void {
       
       this.reloadData();
       this.users();
+      //console.log(this.updateEmployee(this.id));
   }
 
 
@@ -112,17 +116,23 @@ export class PurcharseListComponent implements OnInit {
 
   updateEmployee(id: number) {
 
-   // this.generals.userid="4";
-    console.log(this.generalService.updateStatusPurchar);
-    
-    this.generalService.updateStatusPurchar(this.id, this.generals)
-      .subscribe(data => {console.log(data);
+    //this.gen.id_status_purcharse=4;
+    this.generalService.updateStatusPurchar(id, this.gen)
+    .subscribe(
+      data => {
+        console.log(data);
+        this.alertDisables = false;
+        this.alertMessages ="Actualizado";
         this.gotoList();  
-      }, 
-      error => {
-        console.log(error);
-        
-      });
+      },
+      error => {console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      }
+    );
     
   
   }
