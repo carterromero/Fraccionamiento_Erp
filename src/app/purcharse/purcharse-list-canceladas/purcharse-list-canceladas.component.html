@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Ordenes de Compra Canceladas " blockClass="table-border-style">      
+       
+        <button [routerLink]="['/create-purcharse']" class="btn btn-outline-primary">Crear Ordenes</button><br>
+      
+      <form>
+  
+  
+        <div>
+          <button [routerLink]="['/purchase_orders-list']" class="btn btn-outline-primary">Regresar</button><br>
+    
+        </div>
+      </form>
+        
+     
+        <br>
+        <div class="table-responsive">
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
+          <table class="table">
+            <thead>
+            <tr>         
+              
+              <th>FOLIO  </th>
+          
+              <th>ARTICULO </th>
+              <th>Descripcion Articulo </th>
+              <th> Precio Articulos </th>
+              <th> SKU </th>
+              <th>Proveedor</th>
+              <th>Termino de pago</th>
+              <th> Cantidad de articulos </th>
+              <th>Total de orden</th>
+            
+              <th>FECHA DE CREACION</th>
+             
+              <th>Estatus</th>
+          
+              
+              
+              
+              
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                  <td>{{general.purcharse_folio}}</td> 
+               
+                  <td>{{general.articles_name_article}}</td>
+                  <td>{{general.articles_description}}</td>
+                  <td>{{general.articles_articles_price}}</td>
+                  <td>{{general.articulo_sku}}</td>
+                  <td>{{general.supplier_name}}</td>
+                  <td>{{general.payment_description}}</td>
+                  <td>{{general.purcharse_quantity_items}}</td>
+                  
+                  <td>{{general.purcharse_order_total}}</td>
+                  <td>{{general.purcharse_address}}</td>
+                  <td>{{general. status_name_purcharse}}</td>
+  
+  
+                    
+                </tr>
+            </tbody>
+          </table>
+        </div>
+    
+      </app-card>
+    </div>
+  </div>
+  
+ 

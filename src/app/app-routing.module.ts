@@ -317,6 +317,7 @@ import { ReporteARListComponent } from './AR/ResporteAR/reporte-ar-list/resporte
 import { SaldovaListComponent } from './gl/report/saldova/saldova-list/saldova-list.component';
 import { CreateEntrysComponent } from './inventarios/transactions_entrys/create-entrys/create-entrys.component';
 import { CreateSalidasComponent } from './inventarios/transactions_entrys/create-salidas/create-salidas.component';
+import { PurcharseListCanceladasComponent } from './purcharse/purcharse-list-canceladas/purcharse-list-canceladas.component';
 //import { CreateTransactionsEntrysComponent } from './inventarios/transactions_entrys/create-transactions-entrys/create-transactions-entrys.component';
 
 
@@ -2796,7 +2797,24 @@ const routes: Routes = [
             loadChildren: () => import('./purcharse/purcharse-list/purcharse-list.module').then(module => module.PurcharseListModule)
           }
         ]
-      }, {
+      },
+      
+      
+      ///Order-lis- canceladas
+
+      {
+        path: '',
+        component: PurcharseListCanceladasComponent,
+        children: [
+          {
+            path: 'purchase_canceladas-list',
+            loadChildren: () => import('./purcharse/purcharse-list-canceladas/purcharse-list.canceladas.module').then(module => module.PurcharseListCanceladasModule)
+          }
+        ]
+      }
+
+,
+      {
         path: '',
         component: CreatePurcharseComponent,
         children: [
