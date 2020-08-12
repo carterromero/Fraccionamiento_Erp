@@ -48,6 +48,6 @@ export class Purcharse {
     name_sta : string;
     id_status_purcharse : number;
     status_name_purcharse : string;
-
+    
    
 }

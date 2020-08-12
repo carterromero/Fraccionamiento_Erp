@@ -92,6 +92,14 @@ export class PurcharseService {
   }
 
 
+
+
+
+  updateStatusPurchar(id: number, value: any): Observable<Object> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.put(`${this.baseUrl}ic/api/integration/v1/flows/rest/ERP_PO_UPDATE_STATUS_PURCHA/1.0/status_purcharse/${id}`, value,{headers});
+  }
+
   
 
 }

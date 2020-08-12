@@ -19,6 +19,8 @@ export class PurcharseListComponent implements OnInit {
   teha: Tenants = new Tenants(); 
   tha: Observable<Tenants[]>; 
   general: Observable<Purcharse[]>;
+  generals: Purcharse = new Purcharse();
+  gen: Purcharse;
   id: number;
   user: User = new User();
   userss: Observable<User[]>;
@@ -86,14 +88,14 @@ export class PurcharseListComponent implements OnInit {
       
   }
 
-  deleteGeneral(id: number) {
-    this.generalService.deleteEmployee(id)
+ /* deleteGeneral(id: number) {
+    this.generalService.updateStatusPurchar(this.id, this.general)
       .subscribe(
         data => {
           console.log(data);
           this.reloadData();
           this.alertDisables = false;
-          this.alertMessages ="El fraccionamiento se a eliminado correctamente";
+          this.alertMessages =" se cancelo correctamente";
         },
         error => {console.log(error);
           let coins = [];
@@ -103,8 +105,57 @@ export class PurcharseListComponent implements OnInit {
           }
         }
       );
+  }*/
+
+
+
+
+  updateEmployee(id: number) {
+
+   // this.generals.userid="4";
+    console.log(this.generalService.updateStatusPurchar);
+    
+    this.generalService.updateStatusPurchar(this.id, this.generals)
+      .subscribe(data => {console.log(data);
+        this.gotoList();  
+      }, 
+      error => {
+        console.log(error);
+        
+      });
+    
+  
   }
 
+
+  gotoList() {
+    this.router.navigate(['purchase_orders-list']);
+  }
+
+  /*deleteGeneral(id: number) 
+  {
+
+   
+    console.log(this.generals)
+    this.gen.id_status_purcharse="4"
+    this.generalService.updateStatusPurchar(this.id, this.gen)
+      .subscribe(data => {
+        console.log(data);
+        this.alertDisables = false;
+        this.alertMessages ="Se Cancelo Correctamente";  
+      }, 
+      error => 
+      {
+        console.log(error);
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      });
+  }
+
+*/
   generalDetails(id: number){
     this.router.navigate(['purcharse-details', id]);
   }
