@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PurcharseService } from 'src/app/purcharse.service';
 import { Purcharse } from 'src/app/purcharse';
 import { Tenants } from 'src/app/tenants';
@@ -22,6 +22,7 @@ export class PurcharseListComponent implements OnInit {
   generals: Purcharse = new Purcharse();
   gen: Purcharse;
   id: number;
+  genn=new Purcharse();
   user: User = new User();
   userss: Observable<User[]>;
   alertDisable = true;
@@ -30,13 +31,14 @@ export class PurcharseListComponent implements OnInit {
   alertMessages = "null";
   Condo: Observable<Condominums[]>;
 
-  constructor(private generalService: PurcharseService, 
+  constructor(private route: ActivatedRoute,private router: Router,
+    private generalService: PurcharseService, 
     private thaService :  TenantsService,
     private conService :CondominumsService,
-    private router: Router) { }
+    ) { }
 
   ngOnInit(): void {
-      
+    this.id = this.route.firstChild.snapshot.params['id']
       this.reloadData();
       this.users();
   }
@@ -109,23 +111,23 @@ export class PurcharseListComponent implements OnInit {
 
 
 
+  updateEmployees(ids:number) {
 
-  updateEmployee(id: number) {
-
-   // this.generals.userid="4";
-    console.log(this.generalService.updateStatusPurchar);
-    
-    this.generalService.updateStatusPurchar(this.id, this.generals)
+    //this.gen.userid="3";
+   // console.log(this.genn.status_name_purcharse);
+    console.log(ids);
+    this.generalService.updateStatusPurchar(ids)
       .subscribe(data => {console.log(data);
-        this.gotoList();  
+        this.reloadData(); 
       }, 
       error => {
         console.log(error);
         
       });
     
-  
+
   }
+
 
 
   gotoList() {
@@ -162,6 +164,14 @@ export class PurcharseListComponent implements OnInit {
 
   updateGeneral(id: number){
     this.router.navigate(['update-purcharse', id]);
+  }
+
+
+ 
+
+
+  onSubmit() {
+   // this.updateEmployees(t);    
   }
 
 
