@@ -8,7 +8,8 @@ import { ReservationsService } from 'src/app/reservations.service';
 import { ArticlesService } from "src/app/articles.service";
 import { Articles } from "src/app/articles";
 import * as moment from 'moment';
-
+import { CalendarOptions } from '@fullcalendar/angular'; 
+import esLocale from '@fullcalendar/core/locales/es';
 
 @Component({
   selector: 'app-create-reservations',
@@ -28,7 +29,9 @@ export class CreateReservationsComponent implements OnInit {
   alertMessage = "null";
   alertMessages = "null";
   id: number;
-
+  data1 = [];
+  data2 = [];
+  titlee = [];
   constructor(private tenantsService:TenantsService, private route: ActivatedRoute,
   private reservationsService: ReservationsService,  private articlesService : ArticlesService, private router: Router) { }
 
@@ -38,18 +41,55 @@ export class CreateReservationsComponent implements OnInit {
     this.reloadData();
     
     }
-
-
-  reloadDataList() {
-    this.reservationsService.getReservationListR(this.reservation.articles_sku).subscribe(
-      data => {
-        console.log(data);
-        this.reservations = this.reservationsService.getReservationListR(this.reservation.articles_sku);
+    reloadDataList() {
+      this.reservationsService.getReservationListR(this.reservation.articles_sku).subscribe(
+        data => {
+          console.log(data);
+          this.reservations = this.reservationsService.getReservationListR(this.reservation.articles_sku);
+          for (let key in data) {
+            var dats = data[key];
+            console.log(dats);
+            this.titlee.push(
+              [dats['articles_name_article']]);
+              this.data1.push(
+                [dats['reservations_start']]);
+                this.data2.push(
+                  [dats['reservations_end']]);
+                  console.log(this.titlee);
+                  console.log(this.data1);
+                  console.log(this.data2);
+          }
+        },
+        error => {
+          console.log(error);   
+        });
+    } 
+   
+    calendarOptions: CalendarOptions = {
+      headerToolbar: {
+        left: 'prev,next',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
       },
-      error => {
-        console.log(error);   
-      });
-  } 
+      initialView: 'dayGridMonth',
+      themeSystem:'Flatly',
+      locale: esLocale,
+   // dateClick: this.handleDateClick.bind(this), // bind is important!
+   events:   [
+     {
+    title: this.titlee[0],
+    start: this.data1[0],
+    end:this.data1[0]
+}
+]
+    };
+   /* handleDateClick(arg) {
+      alert('date click! ' + arg.dateStr)
+    }*/
+  
+
+
+ 
 
   javq(event){
  

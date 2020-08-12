@@ -1,25 +1,8 @@
-<div class="table-responsive">
-  <table class="tableList">
-    <thead>
-    <tr>           
-      <th>Ubicacion</th>
-      <th>Fecha y hora inicial</th>
-      <th>Fecha y hora final</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let reservation of reservations | async">
-            <td>{{reservation.articles_name_article}}</td>
-            <td>{{reservation.reservations_start}}</td>
-            <td>{{reservation.reservations_end}}</td>
-        </tr>
-    </tbody>
-  </table>
-</div>
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <div class="col-md-6">
         <app-card cardTitle="Crear reservacion" [options]="false">
+          <full-calendar [options]="calendarOptions"></full-calendar>
           <form (ngSubmit)="onSubmit()">
             <div class="form-group">
               <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
