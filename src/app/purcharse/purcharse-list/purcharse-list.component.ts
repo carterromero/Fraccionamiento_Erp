@@ -21,9 +21,8 @@ export class PurcharseListComponent implements OnInit {
   general: Observable<Purcharse[]>;
   generals: Purcharse = new Purcharse();
   gen: Purcharse;
-
-
   facturadas: Observable<Purcharse[]>;
+  recibidas : Observable<Purcharse[]>;
   id: number;
   genn=new Purcharse();
   user: User = new User();
@@ -45,6 +44,7 @@ export class PurcharseListComponent implements OnInit {
       this.reloadData();
       this.users();
       this.reloadDatafAC();
+      //this.reloadDataRecibidas();
   }
 
 
@@ -120,6 +120,35 @@ reloadDatafAC() {
 
     
 }
+
+
+
+//Recibidas
+
+
+/*reloadDataRecibidas() {
+  this.condo.condominums_description = localStorage.getItem('condominums');
+  this.teha.tenants_name = localStorage.getItem('inquilino');
+  this.generalService.getEmployeeLisRecibidas(parseInt(localStorage.getItem('condominums'))).subscribe(
+    data => {
+      console.log(data);
+      this.recibidas = this.generalService.getEmployeeLisRecibidas(1);
+    },
+    error => {
+      console.log(error);   
+      let coins = [];
+      for (let key in error) {
+        this.alertDisable = false;
+        this.alertMessage = error['statusText'];      
+     
+        this.alertDisable = false;
+        this.alertMessage = error['statusText'];     
+      }
+    });
+
+    
+}
+*/
   
  /* deleteGeneral(id: number) {
     this.generalService.updateStatusPurchar(this.id, this.general)
