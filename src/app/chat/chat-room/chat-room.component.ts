@@ -15,23 +15,8 @@ export class ChatRoomComponent implements OnInit {
   @ViewChild('content') content: ElementRef;
 
   msgs = [];
-  //   {
-  //     user: 'Administrador',
-  //     createdAt: 1554090856000,
-  //     msg: 'Que haces?'
-  //   },
-  //   {
-  //     user: 'Residente',
-  //     createdAt: 1554090956000,
-  //     msg: 'Estoy trabajando'
-  //   },
-  //   {
-  //     user: 'Administrador',
-  //     createdAt: 1554091056000,
-  //     msg: 'Que bien!'
-  //   }
-  // ];
-  //Token = localStorage.getItem('token');
+  //users = [];
+
   currentUser = localStorage.getItem('name');
   mensaje: string = "";
   respuesta: string = "";
@@ -57,6 +42,7 @@ export class ChatRoomComponent implements OnInit {
 
     // this.messagingService.requestPermission()
     this.message = JSON.parse(localStorage.getItem("chat"));
+    this.messagingService.requestPermission();
     this.messagingService.receiveMessage();
     this.message = this.messagingService.currentMessage
     
@@ -86,7 +72,7 @@ export class ChatRoomComponent implements OnInit {
       },
       data:{
         param:{
-          metodo: 1,
+          metodo: 2,
           nombreUsuario: localStorage.getItem('name'),
           msg: this.mensaje
         }
