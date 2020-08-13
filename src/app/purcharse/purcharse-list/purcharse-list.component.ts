@@ -44,7 +44,7 @@ export class PurcharseListComponent implements OnInit {
       this.reloadData();
       this.users();
       this.reloadDatafAC();
-      //this.reloadDataRecibidas();
+     this.reloadDataRecibidas();
   }
 
 
@@ -124,9 +124,7 @@ reloadDatafAC() {
 
 
 //Recibidas
-
-
-/*reloadDataRecibidas() {
+reloadDataRecibidas() {
   this.condo.condominums_description = localStorage.getItem('condominums');
   this.teha.tenants_name = localStorage.getItem('inquilino');
   this.generalService.getEmployeeLisRecibidas(parseInt(localStorage.getItem('condominums'))).subscribe(
@@ -148,7 +146,7 @@ reloadDatafAC() {
 
     
 }
-*/
+
   
  /* deleteGeneral(id: number) {
     this.generalService.updateStatusPurchar(this.id, this.general)
