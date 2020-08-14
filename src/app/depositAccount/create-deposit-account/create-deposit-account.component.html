@@ -35,9 +35,28 @@
               [(ngModel)]="employee.deposit_account_card" name="deposit_account_card" required>
           </div>
           <div class="form-group">
-            <label for="name"> Clave</label>
-            <input type="text" class="form-control" id="deposit_account_key" [(ngModel)]="employee.deposit_account_key"
-              name="deposit_account_key" required>
+            <label for="name">Clave</label>
+            <input type="text" class="form-control" id="deposit_account_key"  [(ngModel)]="employee.deposit_account_key" name="deposit_account_key" required>
+          </div>  
+          <div class="form-group">
+            <label for="name"> Método de pago</label>
+            <input type="text" class="form-control" id="deposit_account_method_payment" [(ngModel)]="employee.deposit_account_method_payment"
+              name="deposit_account_method_payment" required>
+          </div>
+          <div class="form-group">
+            <label for="name"> ID</label>
+            <input type="text" class="form-control" id="deposit_account_additional_id" [(ngModel)]="employee.deposit_account_additional_id"
+              name="deposit_account_additional_id" required>
+          </div>
+          <div class="form-group">
+            <label for="name"> Llave privada</label>
+            <input type="text" class="form-control" id="deposit_account_private_key" [(ngModel)]="employee.deposit_account_private_key"
+              name="deposit_account_private_key" required>
+          </div>
+          <div class="form-group">
+            <label for="name"> Afiliación</label>
+            <input type="text" class="form-control" id="deposit_account_affiliation" [(ngModel)]="employee.deposit_account_affiliation"
+              name="deposit_account_affiliation" required>
           </div>
           <div class="form-group">
             <label for="name">CollectionConceptss</label>

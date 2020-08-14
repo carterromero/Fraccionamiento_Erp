@@ -1,17 +1,25 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
+      <div class="row justify-content-center">
+        
+      </div>  
       <div class="col-md-6">
         <app-card cardTitle="Crear reservacion" [options]="false">
-          <full-calendar [options]="calendarOptions"></full-calendar>
+
+          <select class="custom-select"  id="articles_sku" required [(ngModel)]="reservation.articles_sku" name="articles_sku"   
+     >
+              <option  *ngFor="let article of articles | async" value="{{article.articles_sku}}" >{{article.articles_name_article}}</option>
+              </select>
+              <button (click)="toggleWeekends()">toggle weekends</button>
+              <full-calendar [options]="calendarOptions"></full-calendar>
           <form (ngSubmit)="onSubmit()">
             <div class="form-group">
               <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
               <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
               <label for="exampleFormControlSelect1">Lugar</label>
-              <select class="custom-select"  id="articles_sku" required [(ngModel)]="reservation.articles_sku" name="articles_sku"   (ngModelChange)="javq($event)"  >
-              <option  *ngFor="let article of articles | async" value="{{article.articles_sku}}" >{{article.articles_name_article}}</option>
-              </select>
-          </div>             
+                  
+          </div>         
+         
               <div class="form-group">
                 <label for="name">Fecha y hora de inicio</label>
                 <input type="datetime-local" class="form-control" id="reservations_start" required [(ngModel)]="reservation.reservations_start" name="reservations_start" >
