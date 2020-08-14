@@ -12,12 +12,13 @@ export class MessagingService {
   chat = [];
   currentMessage = new BehaviorSubject(null);
   constructor(private angularFireMessaging: AngularFireMessaging) {
-    // this.angularFireMessaging.messaging.subscribe(
-    //   (_messaging) => {
-    //     _messaging.onMessage = _messaging.onMessage.bind(_messaging);
-    //     _messaging.onTokenRefresh = _messaging.onTokenRefresh.bind(_messaging);
-    //   }
-    // )
+    /*
+    this.angularFireMessaging.messaging.subscribe( //El error lo da en este método
+      (_messaging) => {
+      _messaging.onMessage = _messaging.onMessage.bind(_messaging);
+      _messaging.onTokenRefresh = _messaging.onTokenRefresh.bind(_messaging);
+       })
+    */
   }
 
   requestPermission() {
@@ -31,6 +32,8 @@ export class MessagingService {
     );
   }
 
+  
+
   receiveMessage() {
     // this.angularFireMessaging.messages.pipe(map(
     //   (payload) => {
@@ -39,18 +42,18 @@ export class MessagingService {
     //     this.showCustomNotification(payload);
     //   }))
       this.angularFireMessaging.messages.subscribe(
-        (payload) => {
-          console.log("new message received. ", payload);
+        (msg) => {
+          console.log("new message received. ", msg);
           
-          this.currentMessage.next(payload);
-          this.showCustomNotification(payload);
+          this.currentMessage.next(msg);
+          this.showCustomNotification(msg);
 
-           if(payload !== null){
-            this.chat.push(JSON.parse(payload['data']['param']))
+           if(msg !== null){
+            this.chat.push(JSON.parse(msg['data']['param']))
             localStorage.setItem('chats',JSON.stringify(this.chat));
            }
 
-           let chatG = JSON.parse(payload['data']['param']);
+           let chatG = JSON.parse(msg['data']['param']);
 
            this.chat = chatG;
            console.log(this.chat);
