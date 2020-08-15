@@ -12,7 +12,7 @@
               </select>
               </div>   
               <button (click)="toggleWeekends()">Ver reservaciones</button>
-              <full-calendar class="form-group" [options]="calendarOptions"  ></full-calendar>
+              <full-calendar id="calendar" class="form-group" [options]="calendarOptions"  ></full-calendar>
           <form (ngSubmit)="onSubmit()">
             <div class="form-group">
               <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 

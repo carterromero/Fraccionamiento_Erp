@@ -133,6 +133,7 @@ export class CreateReservationsComponent implements OnInit {
   
     toggleWeekends() {
   // this.calendarOptions.eventRemove = null;
+      this.calendarOptions.eventSources = [];
       var events = [];
       var dats = [];
       this.titlee =[];
@@ -152,8 +153,8 @@ export class CreateReservationsComponent implements OnInit {
                 [dats['reservations_start']]);
                 this.data2.push(
                   [dats['reservations_end']]); 
-                  console.log(this.titlee[key]);
-   events.push({ title: this.titlee[key], start:formatDate(this.data1[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','GMT-5'), end: formatDate(this.data2[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','GMT-5') });
+                 // console.log(this.titlee[key]);
+   events.push({ title: this.titlee[0], start:formatDate(this.data1[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','GMT-5'), end: formatDate(this.data2[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','GMT-5') });
       this.calendarOptions.eventSources = [events];
      // this.calendarOptions.select({start, end: formatDate(this.data2[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','+0530') });
 
@@ -163,7 +164,7 @@ export class CreateReservationsComponent implements OnInit {
           console.log(error);   
         });
    
-    
+      
     
     }
 
@@ -196,6 +197,7 @@ export class CreateReservationsComponent implements OnInit {
   save() {
     this.alertDisable = true;
     this.alertDisables = true;
+    console.log(this.reservation.articles_sku);
     moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
     moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
     this.reservation.reservations_start = new Date(this.reservation.reservations_start);
