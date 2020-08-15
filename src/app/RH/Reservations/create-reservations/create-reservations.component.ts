@@ -8,9 +8,11 @@ import { ReservationsService } from 'src/app/reservations.service';
 import { ArticlesService } from "src/app/articles.service";
 import { Articles } from "src/app/articles";
 import * as moment from 'moment';
-import { CalendarOptions, EventApi, DateSelectArg, EventClickArg, FullCalendarComponent } from '@fullcalendar/angular'; 
+import { CalendarOptions} from '@fullcalendar/angular'; 
 import esLocale from '@fullcalendar/core/locales/es';
-import { EventInput } from '@fullcalendar/angular';
+import {formatDate } from '@angular/common';
+
+
 
 @Component({
   selector: 'app-create-reservations',
@@ -62,7 +64,7 @@ export class CreateReservationsComponent implements OnInit {
     }
 
 
-    reloadDataList() {
+  /*  reloadDataList() {
      
    console.log("Te activas");
       this.reservationsService.getReservationListR(this.reservation.articles_sku).subscribe(
@@ -83,7 +85,7 @@ export class CreateReservationsComponent implements OnInit {
                   this.ds=moment(this.ds).format('2020-08-24T18:00:00Z'); 
                   this.de=this.data2[];
                   console.log(this.ds);*/
-                  console.log(this.titlee[0]);
+               /*   console.log(this.titlee[0]);
                   console.log(this.data1[0]);
                   console.log(this.data2[0]);
                   
@@ -92,10 +94,10 @@ export class CreateReservationsComponent implements OnInit {
         error => {
           console.log(error);   
         });
-    } 
+    }*/
    
 
-  /*  calendarOptions: CalendarOptions = {
+ /* calendarOptions: CalendarOptions = {
       headerToolbar: {
         left: 'prev,next',
         center: 'title',
@@ -108,19 +110,29 @@ export class CreateReservationsComponent implements OnInit {
    events: [
     { title: 'PRUEBA', start:'2020-08-13T18:00:00Z', end:this.ds }
   ]
-    };
-*/
+    };*/
+
 
     calendarOptions: CalendarOptions = {
       initialView: 'dayGridMonth',
-      weekends: false, // initial value
-      
+  //    weekends: false, // initial value
+  //plugins: [ interactionPlugin ],
+ // editable: true,
+     selectable: true,
+
+      headerToolbar: {
+        left: 'today,prev,next',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      },
+      themeSystem:'Flatly',
+      locale: esLocale,
+      eventColor: '#36294F',
+      height: 600,
     };
   
     toggleWeekends() {
-
-      
-      console.log("Te activas");
+      var events = [];
       this.reservationsService.getReservationListR(this.reservation.articles_sku).subscribe(
         data => {
           console.log(data);
@@ -135,13 +147,12 @@ export class CreateReservationsComponent implements OnInit {
                 [dats['reservations_start']]);
                 this.data2.push(
                   [dats['reservations_end']]); 
-                  this.ds=this.data2[0];
-                  console.log(this.ds);
-                  this.calendarOptions.events = [
-        { title: this.titlee[key], start:moment(this.data1[key]).format('2020-08-04T11:00:00'), end:moment(this.data2[key]).toDate() }
-      ]
-                  
-          }
+                  console.log(this.titlee[key]);
+   events.push({ title: this.titlee[key], start:formatDate(this.data1[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','+0530'), end: formatDate(this.data2[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','+0530') });
+      this.calendarOptions.eventSources = [events];
+    }//end for
+
+
         },
         error => {
           console.log(error);   
@@ -155,32 +166,9 @@ export class CreateReservationsComponent implements OnInit {
    
     
 
-  javq(event){
- 
-    event =  this.reloadDataList();
-  
-   
-   }
+
 
   
-
-  /*reloadDatas() 
-  {
-
-    this.articlesService.getListCommons().subscribe(
-      data => {
-        console.log(data);
-        this.articles = this.articlesService.getListCommons();
-      },
-      error => {
-        console.log(error);
-        let coins = [];
-        for (let key in error) {
-          this.alertMessage = error['statusText'];          
-        }
-      }
-    );      
-  }*/
 
   reloadData() 
   {
