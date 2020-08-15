@@ -119,7 +119,7 @@ export class CreateReservationsComponent implements OnInit {
   //plugins: [ interactionPlugin ],
  // editable: true,
      selectable: true,
-
+     navLinks: true,
       headerToolbar: {
         left: 'today,prev,next',
         center: 'title',
@@ -132,14 +132,19 @@ export class CreateReservationsComponent implements OnInit {
     };
   
     toggleWeekends() {
+  // this.calendarOptions.eventRemove = null;
       var events = [];
+      var dats = [];
+      this.titlee =[];
+      this.data1=[];
+      this.data2=[];
       this.reservationsService.getReservationListR(this.reservation.articles_sku).subscribe(
         data => {
           console.log(data);
           this.reservations = this.reservationsService.getReservationListR(this.reservation.articles_sku);
        //   let calendarApi = this.reservationsService.getReservationListR(this.reservation.articles_sku);
           for (let key in data) {
-            var dats = data[key];
+            dats = data[key];
             //console.log(dats);
             this.titlee.push(
               [dats['articles_name_article']]);
@@ -148,11 +153,11 @@ export class CreateReservationsComponent implements OnInit {
                 this.data2.push(
                   [dats['reservations_end']]); 
                   console.log(this.titlee[key]);
-   events.push({ title: this.titlee[key], start:formatDate(this.data1[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','+0530'), end: formatDate(this.data2[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','+0530') });
+   events.push({ title: this.titlee[key], start:formatDate(this.data1[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','GMT-5'), end: formatDate(this.data2[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','GMT-5') });
       this.calendarOptions.eventSources = [events];
+     // this.calendarOptions.select({start, end: formatDate(this.data2[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','+0530') });
+
     }//end for
-
-
         },
         error => {
           console.log(error);   
