@@ -22,14 +22,8 @@
                     <td>{{reservation.reservations_start}}</td>
                     <td>{{reservation.reservations_end}}</td>
                     <td>{{reservation.tenants_name}} {{reservation.tenants_father_surname}} {{reservation.tenants_mother_surname}}</td>
-
+                    <td>{{reservation.reservations_status}}</td> 
                     <td>
-                        <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="reservation.reservations_status == 'true'">
-                          <label class="custom-control-label" for="reservations_status">Active</label>
-                       </div>
-                      </td>
-                      <td>                 
                         <button (click)="deleteReservation(reservation.reservations_id)" class="btn btn-outline-danger">Eliminar</button>
                         <button (click)="updateReservation(reservation.reservations_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
                         <button (click)="reservationDetails(reservation.reservations_id)" class="btn btn-outline-primary" style="margin-left: 10px">Detalles</button>
