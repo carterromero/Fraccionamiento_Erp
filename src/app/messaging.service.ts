@@ -24,15 +24,16 @@ export class MessagingService {
   requestPermission() {
     this.angularFireMessaging.requestToken.subscribe(
       (token) => {
-        console.log(token);
+      //console.log(token);
+      localStorage.setItem("Token", token);
+      console.log(localStorage.getItem("Token"));
+      //localStorage.setItem('Token', this.token.toString());
       },
       (err) => {
-        console.error('Unable to get permission to notify.', err);
+      console.error('Unable to get permission to notify.', err);
       }
-    );
-  }
-
-  
+      );
+    }
 
   receiveMessage() {
     // this.angularFireMessaging.messages.pipe(map(
@@ -42,24 +43,32 @@ export class MessagingService {
     //     this.showCustomNotification(payload);
     //   }))
       this.angularFireMessaging.messages.subscribe(
-        (msg) => {
-          console.log("new message received. ", msg);
+        (payload) => {
+          console.log("new message received. ", payload);
           
-          this.currentMessage.next(msg);
-          this.showCustomNotification(msg);
+          this.currentMessage.next(payload);
+          
+        })
+      
+      }
 
-           if(msg !== null){
-            this.chat.push(JSON.parse(msg['data']['param']))
+          /*
+          this.showCustomNotification(payload);
+
+           if(payload !== null){
+            this.chat.push(JSON.parse(payload['data']['param']))
             localStorage.setItem('chats',JSON.stringify(this.chat));
            }
 
-           let chatG = JSON.parse(msg['data']['param']);
+           let chatG = JSON.parse(payload['data']['param']);
 
            this.chat = chatG;
            console.log(this.chat);
         })
   }
+  */
 
+  /*
   showCustomNotification(payload: any){
     let notify_data = payload['notification'];
     let title = notify_data['title'];
@@ -77,5 +86,5 @@ export class MessagingService {
       // window.location.href = '';
     }
   }
-
+  */
 }
