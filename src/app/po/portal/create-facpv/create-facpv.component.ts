@@ -212,6 +212,10 @@ reloadData6() {
     };
 }
 
+
+
+  
+
 /*
 loadXML() {  
   this.employee.bi_archivo = this.datos.replace("data:application/pdf;base64,","")

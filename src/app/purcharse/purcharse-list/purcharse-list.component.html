@@ -116,10 +116,15 @@
           <th>FECHA DE CREACION</th>
          
           <th>Estatus</th>
+
+
+
+
+          
       
           
           
-          
+         
           
         </tr>
         </thead>
@@ -139,9 +144,17 @@
               <td>{{general.purcharse_address}}</td>
               <td>{{general. status_name_purcharse}}</td>
 
-
+              <td>
+           
+                <button (click)="generalDetailss(general.purcharse_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
+  
+              
+            </td>
                 
             </tr>
+
+            
+      
         </tbody>
       </table>
     </div>
@@ -200,7 +213,12 @@
             <td>{{general.purcharse_order_total}}</td>
             <td>{{general.purcharse_address}}</td>
             <td>{{general. status_name_purcharse}}</td>
+            <td>
+           
+              <button (click)="generalDetailss(general.purcharse_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    
 
+            
+          </td>
 
               
           </tr>
