@@ -3,17 +3,24 @@ import { Observable } from 'rxjs';
 import { ChatService } from '../services/chat.service';
 import { Mensaje } from '../interfaces/mensaje.interface';
 import { MessagingService } from '../../messaging.service';
+import { UserService } from 'src/app/services/admin/user.service';
+import { User } from 'src/app/services/admin/user';
 //import { Mensaje } from '../models/mensaje';
 
 @Component({
   selector: 'app-chat-room',
   templateUrl: './chat-room.component.html',
   styleUrls: ['./chat-room.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChatRoomComponent implements OnInit {
   @ViewChild('content') content: ElementRef;
 
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
+  general: Observable<User[]>;
   msgs = [];
   //users = [];
 
@@ -31,11 +38,16 @@ export class ChatRoomComponent implements OnInit {
   message: Observable<Mensaje[]>;
   constructor(
     private messagingService: MessagingService,
-    public _cs: ChatService) { 
+    public _cs: ChatService,
+    private generalService: UserService) { 
     // this.messagingService.currentMessage;
   }
 
   ngOnInit() {
+
+    this.reloadData();
+
+
     console.log(this.tkn);
     
     // this.elemento = document.getElementById('app-mensajes');
@@ -59,6 +71,23 @@ export class ChatRoomComponent implements OnInit {
     // });
     this.loadMessage();
     this.getMessages();
+  }
+
+  reloadData() {
+    
+    this.generalService.listUserWithToken().subscribe(
+      data => {
+        console.log(data);
+        this.general = this.generalService.listUserWithToken();
+      },
+      error => {
+        console.log(error);   
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      });
   }
 
   

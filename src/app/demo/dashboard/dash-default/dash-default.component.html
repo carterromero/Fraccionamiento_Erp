@@ -1,7 +1,10 @@
+
 <div class="row">
   <!-- table card start -->
   <div class="col-md-12 col-xl-4">
+    <!---->
     <app-card [hidHeader]="true" cardClass="flat-card" blockClass="p-0">
+
       <div class="row-table">
         <div class="col-sm-6 card-body br">
           <div class="row">
@@ -461,6 +464,8 @@
       </div>
     </div>
   </div>
+
+
   <div class="col-lg-4 col-md-12">
     <app-card cardTitle="Chat" cardClass="chat-card">
       <div class="row m-b-20 m-t-20 received-chat">
@@ -606,5 +611,52 @@
       </div>
     </div>
   </div>
+
   <!-- latest customers end -->
+</div>
+
+
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container">
+	<div class="row">
+	    <div class="chatbox chatbox22 chatbox--tray">
+    <div class="chatbox__title">
+        <h5><a href="javascript:void()">Contactos conectados</a></h5>
+        <!--<button class="chatbox__title__tray">
+            <span></span>
+        </button>-->
+        <button class="chatbox__title__close">
+            <span>
+                <svg viewBox="0 0 12 12" width="12px" height="12px">
+                    <line stroke="#FFFFFF" x1="11.75" y1="0.25" x2="0.25" y2="11.75"></line>
+                    <line stroke="#FFFFFF" x1="11.75" y1="11.75" x2="0.25" y2="0.25"></line>
+                </svg>
+            </span>
+        </button>
+    </div>
+    <div class="chatbox__body">
+        <div *ngFor="let general of gen" class="chatbox__body__message chatbox__body__message--left">
+          <img src="assets/images/user/man.png" alt="Picture">
+          <div class="clearfix"></div>
+          <div class="ul_section_full">
+          <ul class="ul_msg"> 
+            <li>
+              <button style="border:none;" type="button" class="list-group-item list-group-item-action"><strong> {{general}}</strong></button>
+            </li>
+          </ul>
+			 
+        </div>
+    </div>
+</div>
+	    
+	</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </div>

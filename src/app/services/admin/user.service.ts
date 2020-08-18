@@ -54,4 +54,9 @@ export class UserService {
     return this.http.post(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVI_ERP_ERP_ADMI_USER_RESE_PWD_/1.0/resetPWD`, employee,{headers});
   }
 
+  listUserWithToken(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVIS_ERP_ADMIN_USERS_SESSI_LEO/1.0/usersName`,{headers});
+  }
+
 }
