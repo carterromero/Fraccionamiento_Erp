@@ -1,10 +1,8 @@
 <div class="row justify-content-center">
     <div class="col-sm-12">
       <div class="col-md-6">
-        <app-card cardTitle="Actualizar Fraccionamiento" [options]="false">
+        <app-card cardTitle="Actualizar transacciones" [options]="false">
           <form (ngSubmit)="onSubmit()">  
-
-          
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Empresa</label>
                 <select disabled class="custom-select" id="module_id" required [(ngModel)]="employee.module_id" name="module_id"  >
@@ -14,49 +12,35 @@
             <div class="form-group">
                 <label for="name">Consultar</label>
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input"  id="transaction_consult"  [(ngModel)]="employee.transaction_consult"     name="transaction_consult"   style="margin-left: 10px">
-                    <label class="custom-control-label" for="transaction_consult">Active</label>
+                    <input type="checkbox" class="custom-control-input"  id="transaction_consult"  [(ngModel)]="employee.transaction_consult"    [checked]="employee.transaction_consult == 'Activo'" name="transaction_consult"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="transaction_consult">{{employee.transaction_consult}}</label>
                  </div>
             </div>
 
             <div class="form-group">
-                <label for="name">Insertar</label>
+                <label for="name">Agregar</label>
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input"  id="transaction_insert"  [(ngModel)]="employee.transaction_insert"     name="transaction_insert"   style="margin-left: 10px">
-                    <label class="custom-control-label" for="transaction_insert">Active</label>
+                    <input type="checkbox" class="custom-control-input"  id="transaction_insert"  [(ngModel)]="employee.transaction_insert"  [checked]="employee.transaction_insert == 'Activo'"    name="transaction_insert"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="transaction_insert">{{employee.transaction_insert}}</label>
                  </div>
             </div>
             <div class="form-group">
                 <label for="name">Actualizar</label>
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input"  id="transaction_update"  [(ngModel)]="employee.transaction_update"     name="transaction_update"   style="margin-left: 10px">
-                    <label class="custom-control-label" for="transaction_update">Active</label>
+                    <input type="checkbox" class="custom-control-input"  id="transaction_update"  [(ngModel)]="employee.transaction_update" [checked]="employee.transaction_update == 'Activo'"    name="transaction_update"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="transaction_update">{{employee.transaction_update}}</label>
                  </div>
             </div>
             <div class="form-group">
                 <label for="name">Eliminar</label>
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input"  id="transaction_delete"  [(ngModel)]="employee.transaction_delete"     name="transaction_delete"   style="margin-left: 10px">
-                    <label class="custom-control-label" for="transaction_delete">Active</label>
+                    <input type="checkbox" class="custom-control-input"  id="transaction_delete"  [(ngModel)]="employee.transaction_delete"  [checked]="employee.transaction_delete == 'Activo'"   name="transaction_delete"   style="margin-left: 10px">
+                    <label class="custom-control-label" for="transaction_delete">{{employee.transaction_delete}}</label>
                  </div>
             </div>
-
             <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
             <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert> 
-            <app-ui-modal #createPeriodsDialog dialogClass="modal-dialog-centered">
-              <div class="app-modal-header">
-              <h5 class="modal-title">Actualizar Modulo Transacción</h5>
-              <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="createPeriodsDialog.hide()"><span aria-hidden="true">&times;</span></button>
-              </div>
-              <div class="app-modal-body">
-              <p>Esta seguro de actualizar el Modulo de Transacción</p>
-              </div>
-              <div class="app-modal-footer">
-              <button type="button" class="btn btn-secondary"   style="margin-left: 10px"   data-dismiss="modal" (click)="createPeriodsDialog.hide()">Cerrar</button>
-              <button type="submit" class="btn btn-success" (click)="createPeriodsDialog.hide()"  style="margin-left: 10px">Guardar</button>
-              </div>
-          </app-ui-modal>
-          <button type="button"  class="btn btn-outline-primary" data-toggle="modal" (click)="createPeriodsDialog.show()">Guardar</button>                   
+          <button type="submit"  class="btn btn-outline-primary">Guardar</button>                   
           <button (click)="gotoList(employee.permissions_id)" class="btn btn-outline-info" style="margin-left: 10px">Regresar</button>    
           </form>
         </app-card>

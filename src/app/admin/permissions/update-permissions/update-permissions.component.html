@@ -5,13 +5,13 @@
           <form (ngSubmit)="onSubmit()" >
 
             <div class="form-group">
-              <label for="name">Descripción</label>
+              <label for="name">*Descripción:</label>
               <input type="text" class="form-control" id="permissions_description"  [(ngModel)]="employee.permissions_description" name="permissions_description" required> 
             </div>          
 
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Rol</label>
-                <select  class="custom-select"  id="rol_id" required [(ngModel)]="employee.rol_id" name="rol_id" >
+                <select  class="custom-select" disabled  id="rol_id" required [(ngModel)]="employee.rol_id" name="rol_id" >
                 <option *ngFor="let address of addresses | async" value="{{address.rol_id}}">{{address.rol_description}}</option>
                 </select>
             </div>

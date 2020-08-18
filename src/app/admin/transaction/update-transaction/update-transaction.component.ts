@@ -38,10 +38,10 @@ export class UpdateTransactionComponent implements OnInit {
         {
         console.log(data);
         this.employee = data;
-        this.employee.transaction_consult = (String(this.employee.transaction_consult) == "false") ? null:"true";
-        this.employee.transaction_insert = (String(this.employee.transaction_insert) == "false") ? null:"true";
-        this.employee.transaction_update = (String(this.employee.transaction_update) == "false") ? null:"true";
-        this.employee.transaction_delete = (String(this.employee.transaction_delete) == "false") ? null:"true";
+        this.employee.transaction_consult = (String(this.employee.transaction_consult) == "Inactivo") ? null:"Activo";
+        this.employee.transaction_insert = (String(this.employee.transaction_insert) == "Inactivo") ? null:"Activo";
+        this.employee.transaction_update = (String(this.employee.transaction_update) == "Inactivo") ? null:"Activo";
+        this.employee.transaction_delete = (String(this.employee.transaction_delete) == "Inactivo") ? null:"Activo";
     
         },
        error => {
@@ -61,14 +61,14 @@ export class UpdateTransactionComponent implements OnInit {
   updateEmployee() 
   {
 
-    this.employee.userid="3";
+    this.employee.userid = localStorage.getItem('id');
     console.log(this.employee)
     
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {
         console.log(data);
         this.alertDisables = false;
-        this.alertMessages ="Se actualizo las transacciones del modulo correctamente";  
+        this.alertMessages ="Se actualizarón las transacciones del módulo correctamente";  
       }, 
       error => 
       {
@@ -76,7 +76,7 @@ export class UpdateTransactionComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = "No se logro actualizar el módulo, vuelva a intentarlo";         
         }
       });
   }

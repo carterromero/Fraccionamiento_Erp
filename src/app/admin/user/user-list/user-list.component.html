@@ -9,12 +9,12 @@
           <table class="table">
             <thead>
             <tr>              
-              <th>Name</th>
-              <th>Email</th>
+              <th>Nombre</th>
+              <th>Correo</th>
               <th>Fraccionamiento</th>
               <th>Rol</th>
               <th>Estatus </th>
-              <th>#</th>
+              <th>Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -25,13 +25,13 @@
                     <td>{{general.rol_description}}</td>                   
                     <td>
                         <div class="custom-control custom-switch">
-                          <input type="checkbox" class="custom-control-input" [checked]="general.user_status == 'true'">
-                          <label class="custom-control-label" for="user_status">Active</label>
+                          <input type="checkbox" disabled class="custom-control-input" [checked]="general.user_status == 'Activo'">
+                          <label class="custom-control-label" for="user_status">{{general.user_status}}</label>
                        </div>
                       </td>
 
                     <td>
-                      <button (click)="userdashboard(general.user_id)" class="btn btn-outline-info" style="margin-left: 10px">Dashboard</button>
+                      <button (click)="userdashboard(general.user_id)" class="btn btn-outline-info" style="margin-left: 10px">Tablero</button>
                       <button  class="btn btn-outline-danger"  (click)="createPeriodsDialog.show()" style="margin-left: 10px" >Eliminar</button>
                         <button (click)="updateGeneral(general.user_id)" class="btn btn-outline-info" style="margin-left: 10px">Actualizar</button>
                         <button (click)="generalDetails(general.user_id)" class="btn btn-outline-info" style="margin-left: 10px">Detalles</button>    

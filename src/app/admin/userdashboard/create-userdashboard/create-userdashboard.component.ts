@@ -82,7 +82,7 @@ export class CreateUserdashboardComponent implements OnInit {
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto la asignacion de dashboard correctamente";
+          this.alertMessages ="Se agrego la asignacion de dashboard correctamente";
           this.employee  = new UserDashboard();
         }, 
       error => {

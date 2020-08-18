@@ -40,7 +40,7 @@ export class UpdateUserComponent implements OnInit {
         {
         console.log(data);
         this.employee = data;
-        this.employee.user_status = (String(this.employee.user_status) == "false") ? null:"true";
+        this.employee.user_status = (String(this.employee.user_status) == "Inactivo") ? null:"Activo";
         },
        error => {
         console.log(error);
@@ -104,7 +104,7 @@ export class UpdateUserComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.alertDisables = false;
-        this.alertMessages ="Se actualizo la empresa correctamente";  
+        this.alertMessages ="Se actualizo el usuario correctamente";  
       }, 
       error => 
       {
@@ -112,7 +112,7 @@ export class UpdateUserComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = "No se puedo actualizar el usuario";      
         }
       });
   }
@@ -121,29 +121,28 @@ export class UpdateUserComponent implements OnInit {
     this.alertDisable = true;
     this.alertDisables = true;
   
-    if(this.employee.user_name =="" ||  this.employee.user_name ==null ){
+    if(this.employee.user_name=="" ||  this.employee.user_name ==null )
+    {
       this.alertDisable = false;
-      this.alertMessage = "Nombre Incompleto";          
+      this.alertMessage = "El Atributo Nombre es Obligatorio";          
     }
-  
     else if(this.employee.user_password =="" ||  this.employee.user_password ==null ){
       this.alertDisable = false;
-      this.alertMessage = "Dirección Incompleta";          
+      this.alertMessage = "El Atributo Contraseña es Obligatorio";          
     }
-
     else if(this.employee.user_email =="" ||  this.employee.user_email ==null ){
       this.alertDisable = false;
-      this.alertMessage = "Dirección Incompleta";          
+      this.alertMessage = "El Atributo Correo es Obligatorio";          
     }
+  
     else if(this.employee.condominums_id =="" ||  this.employee.condominums_id ==null ){
       this.alertDisable = false;
-      this.alertMessage = "Dirección Incompleta";          
+      this.alertMessage = "El Atributo Fraccionamiento es Obligatorio";          
     }
     else if(this.employee.rol_id =="" ||  this.employee.rol_id ==null ){
       this.alertDisable = false;
-      this.alertMessage = "Dirección Incompleta";          
-    }
-  
+      this.alertMessage = "El Atributo Rol es Obligatorio";          
+    }  
     else{
       this.updateEmployee();    
     }
