@@ -220,6 +220,11 @@ reloadDataRecibidas() {
     this.router.navigate(['purcharse-details', id]);
   }
 
+
+  generalDetailss(id: number){
+    this.router.navigate(['purcharse-details', id]);
+  }
+
   updateGeneral(id: number){
     this.router.navigate(['update-purcharse', id]);
   }

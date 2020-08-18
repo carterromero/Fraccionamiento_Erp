@@ -731,6 +731,21 @@ const NavigationItemss = [
             
           }
         ]
+      },
+      {
+        id: 'configmainte',
+        title: 'Operacion',
+        type: 'collapse',
+        icon: 'feather icon-monitor',
+        children: [
+          {
+            id: 'configmainte',
+            title: 'Clave Cuentas',
+            type: 'item',            
+            url: '/key-list'
+            
+          }
+        ]
       }
     ]
   },
@@ -1622,6 +1637,29 @@ export class NavigationItem
           {
             id: 'configmainte',
             title: 'Catalogos',
+            type: 'collapse',
+            icon: 'feather icon-monitor',
+            children: [
+              {
+                id: 'configmainte',
+                title: 'Configuración y Mantenimiento',
+                type: 'item',            
+                url: '/config-Maintenlist'
+                
+              },
+             
+                {
+                  id: 'configmainte',
+                  title: 'Claves y Conceptos',
+                  type: 'item',            
+                  url: '/key-list'
+                  
+                }
+            ]
+          },
+          {
+            id: 'configmainte',
+            title: 'Operacion',
             type: 'collapse',
             icon: 'feather icon-monitor',
             children: [

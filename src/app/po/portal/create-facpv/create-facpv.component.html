@@ -70,6 +70,10 @@
         <div class="custom-file">
           <input type="file" alife-file-to-base  (change)="handleUpload2($event)" class="custom-file-input"  id="employee.bi_archivo"   name="bilitoplay_arch">
           <label class="custom-file-label" for="validatedCustomFile">Elegir Archivo XML ...</label>
+          <input type="file" id="importFile" mg-model="aclFile"/>
+<input type="button" class="btn green" ng-click="uploadAclFile(aclFile)" value="Import" />
+          
+          
           <div class="invalid-feedback">invalid custom file </div>
         </div>
        
@@ -113,5 +117,13 @@
           <button [routerLink]="['/facpv-list']" class="btn btn-outline-secondary" style="margin-left: 10px">Regresar</button>
         </form>
       </app-card>
+   
+   <script>
+  $scope.uploadAclFile = function(xmlData) {
+        alert("xmlData: " + doc);
+        }
+   
+   </script>
+    
     </div>
   </div>
