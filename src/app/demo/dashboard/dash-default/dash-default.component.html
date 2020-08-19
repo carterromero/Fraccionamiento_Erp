@@ -640,13 +640,14 @@
         </button>
     </div>
     <div class="chatbox__body">
-        <div *ngFor="let general of gen" class="chatbox__body__message chatbox__body__message--left">
+        <div *ngFor="let general of general | async" class="chatbox__body__message chatbox__body__message--left">
+        <!--<div *ngFor="let general of gen" class="chatbox__body__message chatbox__body__message--left">-->
           <img src="assets/images/user/man.png" alt="Picture">
           <div class="clearfix"></div>
           <div class="ul_section_full">
           <ul class="ul_msg"> 
             <li>
-              <button style="border:none;" type="button" class="list-group-item list-group-item-action"><strong> {{general}}</strong></button>
+              <button (click)="chat(general.user_id)" style="border:none;" type="button" class="list-group-item list-group-item-action"><strong> {{general.user_name}}</strong></button>
             </li>
           </ul>
 			 

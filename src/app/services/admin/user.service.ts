@@ -59,4 +59,19 @@ export class UserService {
     return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVIS_ERP_ADMIN_USERS_SESSI_LEO/1.0/usersName`,{headers});
   }
 
+  listUserWithToken2(): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVIS_ERP_ADMIN_USERS_SESSI_EHP/1.0/usersSessions`,{headers});
+  }
+
+  getUserTokens(id: number): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.get(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVI_ERP_ADMI_USER_SESS_ID_EHP/1.0/userSession/${id}`,{headers});
+  }
+
+  deleteToken(token: string): Observable<any> {
+    const headers=new HttpHeaders({Authorization:'Basic ' + btoa(this.username+ ':' +this.password)})
+    return this.http.delete(`${this.baseUrl}ic/api/integration/v1/flows/rest/ARVIS_ERP_DELET_TOKEN_APP_EHP/1.0/deleteToken/${token}`, { responseType: 'text', headers});
+  }
+
 }

@@ -11,6 +11,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { UserService } from 'src/app/services/admin/user.service';
 import { User } from 'src/app/services/admin/user';
+import { Router } from '@angular/router';
 declare var jQuery: any;
 
 
@@ -41,6 +42,7 @@ export class DashDefaultComponent implements OnInit {
   heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
 
   constructor(public sanitizer: DomSanitizer,
+    private router: Router,
     private generalService: UserService) {
     this.supportChartData1 = SupportChartData1.supportChartData;
     this.supportChartData2 = SupportChartData2.supportChartData;
@@ -55,6 +57,7 @@ export class DashDefaultComponent implements OnInit {
   ngOnInit() {
     //console.log(this.generalService.listUserWithToken());
     this.reloadData();
+    this.reloadDatas();
     (function($) {
       $(document).ready(function() {
           var $chatbox = $('.chatbox'),
@@ -96,6 +99,25 @@ export class DashDefaultComponent implements OnInit {
       });
   }
 
+  reloadDatas() {
+
+    this.generalService.listUserWithToken2().subscribe(
+      data => {
+        //this.general = this.generalService.listUserWithToken();
+        this.general = this.generalService.listUserWithToken2();
+        console.log(this.general);
+        //console.log(this.general);
+      },
+      error => {
+        console.log(error);   
+        let coins = [];
+        for (let key in error) {
+          this.alertDisable = false;
+          this.alertMessage = error['statusText'];          
+        }
+      });
+  }
+
   openModal(id: string) {
     
     this.modalService.open(id);
@@ -107,6 +129,13 @@ export class DashDefaultComponent implements OnInit {
 
   closeModal(id: string) {
     this.modalService.close(id);
+  }
+
+  chat(id: number){
+    //localStorage.setItem("User_Name_Token",);
+    //console.log(localStorage.getItem("User_Name_Token"));
+    this.router.navigate(['chat-room',id]);
+    
   }
 
 }

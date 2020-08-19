@@ -3577,7 +3577,7 @@ const routes: Routes = [
         component: ChatRoomComponent,
         children: [
           {
-            path: 'chat-room',
+            path: 'chat-room/:id',
             loadChildren: () => import('./chat/chat-room/chat-room.module').then(module => module.ChatRoomModule)
 
           }
