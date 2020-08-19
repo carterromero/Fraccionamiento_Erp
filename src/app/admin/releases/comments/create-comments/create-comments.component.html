@@ -4,11 +4,11 @@
         <app-card cardTitle="Agregar Comentario" [options]="false">
           <form (ngSubmit)="onSubmit()">  
             <div class="form-group">
-                <label for="name">Comentario: *</label>
+                <label for="name">*Comentario:</label>
                 <input type="text" class="form-control" id="releases_comments"  [(ngModel)]="comment.releases_comments" name="releases_comments" required> 
               </div>          
             <div class="form-group">
-                <label for="name">Estatus: *</label>
+                <label for="name">Estatus:</label>
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input"  id="releasesC_status"  [(ngModel)]="comment.releasesC_status"     name="releasesC_status"   style="margin-left: 10px">
                     <label class="custom-control-label" for="releasesC_status">Active</label>

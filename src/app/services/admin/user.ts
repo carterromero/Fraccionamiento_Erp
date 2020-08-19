@@ -16,4 +16,5 @@ export class User
   condominums_id : string;
   rol_id:string;
   fcm_key : string;
+  full_name : string;
 }

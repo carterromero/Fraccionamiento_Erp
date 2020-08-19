@@ -83,7 +83,7 @@ export class CreateUserComponent implements OnInit {
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto el usuario correctamente";
+          this.alertMessages ="Se agrego el usuario correctamente";
           this.employee  = new User();
         }, 
       error => {
@@ -91,7 +91,7 @@ export class CreateUserComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertMessage = "El usuario no se puede agregar, está duplicado";          
         }    
       });
   }
@@ -103,24 +103,24 @@ export class CreateUserComponent implements OnInit {
   if(this.employee.user_name=="" ||  this.employee.user_name ==null )
   {
     this.alertDisable = false;
-    this.alertMessage = "Nombre Incompleto";          
+    this.alertMessage = "El Atributo Nombre es Obligatorio";          
   }
   else if(this.employee.user_password =="" ||  this.employee.user_password ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Contraseña Incompleta";          
+    this.alertMessage = "El Atributo Contraseña es Obligatorio";          
   }
   else if(this.employee.user_email =="" ||  this.employee.user_email ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Email Incompleto";          
+    this.alertMessage = "El Atributo Correo es Obligatorio";          
   }
 
   else if(this.employee.condominums_id =="" ||  this.employee.condominums_id ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Fraccionamiento Incompleto";          
+    this.alertMessage = "El Atributo Fraccionamiento es Obligatorio";          
   }
   else if(this.employee.rol_id =="" ||  this.employee.rol_id ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Rol Incompleto";          
+    this.alertMessage = "El Atributo Rol es Obligatorio";          
   }
   else
   {

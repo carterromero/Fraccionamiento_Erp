@@ -38,16 +38,16 @@ export class UpdatePermissionsComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.employee = data;
-        this.employee.permissions_compras = (String(this.employee.permissions_compras) == "false") ? null:"true";
-        this.employee.permissions_cxp = (String(this.employee.permissions_cxp) == "false") ? null:"true";
-        this.employee.permissions_nomina = (String(this.employee.permissions_nomina) == "false") ? null:"true";
-        this.employee.permissions_tesoreria = (String(this.employee.permissions_tesoreria) == "false") ? null:"true";
-        this.employee.permissions_contabilidad = (String(this.employee.permissions_contabilidad) == "false") ? null:"true";
-        this.employee.permissions_cxc = (String(this.employee.permissions_cxc) == "false") ? null:"true";
-        this.employee.permissions_inventario = (String(this.employee.permissions_inventario) == "false") ? null:"true";
-        this.employee.permissions_rh = (String(this.employee.permissions_rh) == "false") ? null:"true";
-        this.employee.permissions_admin = (String(this.employee.permissions_admin) == "false") ? null:"true";
-        this.employee.permissions_status = (String(this.employee.permissions_status) == "false") ? null:"true";
+        this.employee.permissions_compras = (String(this.employee.permissions_compras) == "Inactivo") ? null:"Activo";
+        this.employee.permissions_cxp = (String(this.employee.permissions_cxp) == "Inactivo") ? null:"Activo";
+        this.employee.permissions_nomina = (String(this.employee.permissions_nomina) == "Inactivo") ? null:"Activo";
+        this.employee.permissions_tesoreria = (String(this.employee.permissions_tesoreria) == "Inactivo") ? null:"Activo";
+        this.employee.permissions_contabilidad = (String(this.employee.permissions_contabilidad) == "Inactivo") ? null:"Activo";
+        this.employee.permissions_cxc = (String(this.employee.permissions_cxc) == "Inactivo") ? null:"Activo";
+        this.employee.permissions_inventario = (String(this.employee.permissions_inventario) == "Inactivo") ? null:"Activo";
+        this.employee.permissions_rh = (String(this.employee.permissions_rh) == "Inactivo") ? null:"Activo";
+        this.employee.permissions_admin = (String(this.employee.permissions_admin) == "Inactivo") ? null:"Activo";
+        this.employee.permissions_status = (String(this.employee.permissions_status) == "Inactivo") ? null:"Activo";
 
 
 

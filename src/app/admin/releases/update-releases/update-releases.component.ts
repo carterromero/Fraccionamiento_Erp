@@ -17,7 +17,7 @@ export class UpdateReleasesComponent implements OnInit {
   id: number;
 
   release: Observable<Releases[]>;
-  releases: Releases = new Releases();
+  releases: Releases;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -31,9 +31,14 @@ export class UpdateReleasesComponent implements OnInit {
     
     this.id = this.route.firstChild.snapshot.params['id']
     this.releaseService.getRelease(this.id).subscribe(data => {
-        console.log(data);
-        this.release = data;
-        this.releases.releases_status = (String(this.releases.releases_status) == "false") ? null:"false";
+      console.log(data);
+      this.releases = new Releases();
+      this.releases = data;
+      console.log(this.releases.releases_subject);
+        this.releases.releases_status = (String(this.releases.releases_status) == "Inactivo") ? null:"Activo";
+
+   //this.releases.releases_date = new Date(this.releases.releases_date);
+   //   this.reservation.reservations_end=new Date(this.reservation.reservations_end);
         console.log(this.releases.releases_status);
       }, error => {
         console.log(error);
@@ -73,9 +78,22 @@ export class UpdateReleasesComponent implements OnInit {
 
 
   onSubmit() {
-  
+    {
+      this.alertDisable = true;
+      this.alertDisables = true;
+if(this.releases.releases_subject =="" ||  this.releases.releases_subject ==null ){
+      this.alertDisable = false;
+      this.alertMessage = "El Atributo Asunto es Obligatorio";          
+  }
+  if(this.releases.releases_date ==null ){
+    this.alertDisable = false;
+    this.alertMessage = "El Atributo Fecha es Obligatorio";          
+}
+  else{
+    this.updateReservation();    
+  } 
    
-      this.updateReservation(); 
+}  
   
 
   }

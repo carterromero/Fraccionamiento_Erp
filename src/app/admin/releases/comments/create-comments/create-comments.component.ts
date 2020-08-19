@@ -37,7 +37,7 @@ export class CreateCommentsComponent implements OnInit {
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto el comentario correctamente";
+          this.alertMessages ="Se agrego el comentario correctamente";
           this.comment  = new Comments();
         }, 
       error => {
@@ -54,17 +54,14 @@ export class CreateCommentsComponent implements OnInit {
       {
             this.alertDisable = true;
             this.alertDisables = true;
-      /*  if(this.employee.condominums_description =="" ||  this.employee.condominums_description ==null ){
+       if(this.comment.releases_comments =="" ||  this.comment.releases_comments ==null ){
             this.alertDisable = false;
-            this.alertMessage = "El Atributo Descripción es Obligatorio";          
+            this.alertMessage = "El Atributo Comentario es Obligatorio";          
         }
-        else if(this.employee.legals_id =="" ||  this.employee.legals_id ==null ){
-            this.alertDisable = false;
-            this.alertMessage = "El Atributo empresa es Obligatorio";          
-        }
-        else{*/
+
+        else{
             this.save();    
-        // } 
+        } 
     }
 
 

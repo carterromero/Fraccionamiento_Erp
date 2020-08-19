@@ -53,7 +53,7 @@ export class CreatePermissionsComponent implements OnInit {
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto el permiso correctamente";
+          this.alertMessages ="Se agrego el permiso correctamente";
           this.employee= new Permissions();
         }, 
       error => {
@@ -61,7 +61,7 @@ export class CreatePermissionsComponent implements OnInit {
         let coins = [];
         for (let key in error) {
           this.alertDisable = false;
-          this.alertMessage = error['statusText'];          
+          this.alertMessage ="Permiso duplicado";        
         }      
       });
   }
@@ -74,11 +74,11 @@ export class CreatePermissionsComponent implements OnInit {
 
   if(this.employee.permissions_description =="" ||  this.employee.permissions_description ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Descripcion Incompleto";          
+    this.alertMessage = "El Atributo Descripción es Obigatorio";          
   }
   else if(this.employee.rol_id =="" ||  this.employee.rol_id ==null ){
     this.alertDisable = false;
-    this.alertMessage = "Rol Incompleto";          
+    this.alertMessage = "El Atributo Rol es Obigatorio";          
   }
 
 
