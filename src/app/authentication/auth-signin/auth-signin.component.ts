@@ -49,6 +49,7 @@ export class AuthSigninComponent implements OnInit {
     }
     this.authentication.user_email;
     this.authentication.user_password;
+    this.authentication.fcm_key = localStorage.getItem("Token");
 
   }
 
@@ -76,6 +77,8 @@ export class AuthSigninComponent implements OnInit {
           localStorage.getItem('correo');
           localStorage.setItem('correo', "");
           localStorage.setItem('correo', this.authentication.user_email);
+          //localStorage.setItem('Token', this.authentication.fcm_key);
+          //this.authentication.fcm_key = localStorage.getItem("Token");
           this.permisions.rol_id = localStorage.getItem("rol");
           this.generalService.getEmployeeP(this.permisions)
             .subscribe(data => {

@@ -7,8 +7,8 @@
           <table class="table">
             <thead>
             <tr>
-              <th>Fecha</th>
               <th>Asunto</th>
+              <th>Fecha</th>
               <th>Adjunto</th>
               <th>Estatus</th>
               <th>Acciones</th>
@@ -16,14 +16,19 @@
             </thead>
             <tbody>
                 <tr *ngFor="let release of releases | async">
-                    <td>{{release.releases_date | date:'medium'}}</td>
                     <td>{{release.releases_subject}}</td>
-                    <td><img [src]="release.releases_attached"></td>
-                    <td>{{release.releases_status}}</td>
+                    <td>{{release.releases_date | date:'medium'}}</td>
+                    <td><img [src]="release.releases_attached" width="50" height="50"></td>
+                    <td> <div>
+                      <div class="custom-control custom-switch">
+                          <input type="checkbox" disabled class="custom-control-input"  id="releases_status"       name="releases_status"   style="margin-left: 10px" [checked]="release.releases_status == 'Activo'">
+                          <label class="custom-control-label" for="releases_status">{{release.releases_status}}</label>
+                       </div>
+                        </div></td>
                     <td>              
-                      <button (click)="deleteRelease(release.releases_id)" class="btn btn-danger">Delete</button>
-                      <button (click)="updateRelease(release.releases_id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-                      <button (click)="releaseDetails(release.releases_id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                      <button (click)="deleteRelease(release.releases_id)" class="btn btn-danger">Eliminar</button>
+                      <button (click)="updateRelease(release.releases_id)" class="btn btn-info" style="margin-left: 10px">Actualizar</button>
+                      <button (click)="releaseDetails(release.releases_id)" class="btn btn-info" style="margin-left: 10px">Detalles</button>
                     
                     </td>
                 </tr>

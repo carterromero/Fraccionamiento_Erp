@@ -75,7 +75,7 @@ export class CreateReleasesComponent implements OnInit {
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto el aviso correctamente";
+          this.alertMessages ="Se agrego el aviso correctamente";
           this.release  = new Releases();
         }, 
       error => {
@@ -92,17 +92,13 @@ export class CreateReleasesComponent implements OnInit {
       {
             this.alertDisable = true;
             this.alertDisables = true;
-      /*  if(this.employee.condominums_description =="" ||  this.employee.condominums_description ==null ){
+      if(this.release.releases_subject =="" ||  this.release.releases_subject ==null ){
             this.alertDisable = false;
-            this.alertMessage = "El Atributo Descripción es Obligatorio";          
+            this.alertMessage = "El Atributo Asunto es Obligatorio";          
         }
-        else if(this.employee.legals_id =="" ||  this.employee.legals_id ==null ){
-            this.alertDisable = false;
-            this.alertMessage = "El Atributo empresa es Obligatorio";          
-        }
-        else{*/
+        else{
            this.save();    
-       // } 
+        } 
   }
 
   gotoList() 

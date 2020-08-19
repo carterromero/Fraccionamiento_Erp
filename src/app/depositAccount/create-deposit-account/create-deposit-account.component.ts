@@ -46,7 +46,7 @@ export class CreateDepositAccountComponent implements OnInit {
         {
           console.log(data);
           this.alertDisables = false;
-          this.alertMessages ="Se inserto la transacion correctamente";
+          this.alertMessages ="Se inserto la transación correctamente";
           this.employee= new DepositAccount();
         }, 
       error => {

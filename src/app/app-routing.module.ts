@@ -318,6 +318,8 @@ import { SaldovaListComponent } from './gl/report/saldova/saldova-list/saldova-l
 import { CreateEntrysComponent } from './inventarios/transactions_entrys/create-entrys/create-entrys.component';
 import { CreateSalidasComponent } from './inventarios/transactions_entrys/create-salidas/create-salidas.component';
 import { PurcharseListCanceladasComponent } from './purcharse/purcharse-list-canceladas/purcharse-list-canceladas.component';
+import { PayrrollkeysListComponent } from './Payrrolll/payrrollkeys-list/payrrollkeys-list.component';
+
 //import { CreateTransactionsEntrysComponent } from './inventarios/transactions_entrys/create-transactions-entrys/create-transactions-entrys.component';
 
 
@@ -2772,6 +2774,17 @@ const routes: Routes = [
             loadChildren: () => import('./admin/user/user-list/user-list.module').then(module => module.UserListModule)
           }
         ]
+      },
+      //concepto -clave
+      {
+        path: '',
+        component: PayrrollkeysListComponent,
+        children: [
+          {
+            path: 'key-list',
+            loadChildren: () => import('./Payrrolll/payrrollkeys-list/payrrollkeys-list.module').then(module => module.PayrrollkeysListModule)
+          }
+        ]
       }
 
 
@@ -3426,6 +3439,8 @@ const routes: Routes = [
         ]
 
       },
+      //Payrroll-list-key
+      
       {
         path: '',
         component: AcVisitorsDetailsComponent,
@@ -3562,7 +3577,7 @@ const routes: Routes = [
         component: ChatRoomComponent,
         children: [
           {
-            path: 'chat-room',
+            path: 'chat-room/:id',
             loadChildren: () => import('./chat/chat-room/chat-room.module').then(module => module.ChatRoomModule)
 
           }

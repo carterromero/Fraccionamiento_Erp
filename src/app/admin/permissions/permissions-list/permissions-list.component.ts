@@ -53,13 +53,13 @@ export class PermissionsListComponent implements OnInit
           console.log(data);
           this.reloadData();
           this.alertDisables = false;
-          this.alertMessages ="El permiso se a eliminado correctamente";
+          this.alertMessages ="El permiso se ha eliminado correctamente";
         },
         error => {
           let coins = [];
           for (let key in error) {
             this.alertDisable = false;
-            this.alertMessage = error['statusText'];          
+            this.alertMessage = "No se puede eliminar, el permiso esta asignado";         
           }  
         }
       );

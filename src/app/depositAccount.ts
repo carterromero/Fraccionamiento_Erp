@@ -7,6 +7,10 @@ export class DepositAccount {
     deposit_account_bill: string;
     deposit_account_card: number;
     deposit_account_key: number;
+    deposit_account_method_payment: string;
+    deposit_account_private_key: string;
+    deposit_account_affiliation: number;
+    deposit_account_additional_id: string;
     deposit_account_status: string;
     condominums_id: number;
     created_by: number;

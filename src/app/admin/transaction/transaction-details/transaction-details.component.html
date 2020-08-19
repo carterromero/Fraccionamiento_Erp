@@ -15,36 +15,34 @@
           <div>
             <label><b>Consultar:  </b></label>
           <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input"  id="transaction_consult"  name="transaction_consult"   style="margin-left: 10px" [checked]="employee.transaction_consult == 'true'">
-            <label class="custom-control-label" for="transaction_consult">Active</label>
+            <input type="checkbox" disabled class="custom-control-input"   id="transaction_consult"  name="transaction_consult"   style="margin-left: 10px" [checked]="employee.transaction_consult == 'Activo'">
+            <label class="custom-control-label" for="transaction_consult">{{employee.transaction_consult}}</label>
          </div>
         </div>
 
         <div>
           <label><b>Insertar:  </b></label>
         <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input"  id="transaction_insert"  name="transaction_insert"   style="margin-left: 10px" [checked]="employee.transaction_insert == 'true'">
-          <label class="custom-control-label" for="transaction_insert">Active</label>
+          <input type="checkbox" disabled class="custom-control-input"  id="transaction_insert"  name="transaction_insert"   style="margin-left: 10px" [checked]="employee.transaction_insert == 'Activo'">
+          <label class="custom-control-label" for="transaction_insert">{{employee.transaction_insert}}</label>
        </div>
       </div>
 
       <div>
         <label><b>Actualizar:  </b></label>
       <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input"  id="transaction_update"  name="transaction_update"   style="margin-left: 10px" [checked]="employee.transaction_update == 'true'">
-        <label class="custom-control-label" for="transaction_update">Active</label>
+        <input type="checkbox" disabled class="custom-control-input"  id="transaction_update"  name="transaction_update"   style="margin-left: 10px" [checked]="employee.transaction_update == 'Activo'">
+        <label class="custom-control-label" for="transaction_update">{{employee.transaction_update}}</label>
      </div>
     </div>
 
     <div>
       <label><b>Eliminar:  </b></label>
     <div class="custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input"  id="transaction_delete"  name="transaction_delete"   style="margin-left: 10px" [checked]="employee.transaction_delete == 'true'">
-      <label class="custom-control-label" for="transaction_delete">Active</label>
+      <input type="checkbox" disabled class="custom-control-input"  id="transaction_delete"  name="transaction_delete"   style="margin-left: 10px" [checked]="employee.transaction_delete == 'Activo'">
+      <label class="custom-control-label" for="transaction_delete">{{employee.transaction_delete}}</label>
    </div>
   </div>
-
-
 
         </div>
         <br>

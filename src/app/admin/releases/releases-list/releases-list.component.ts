@@ -69,7 +69,7 @@ export class ReleasesListComponent implements OnInit {
           let coins = [];
           for (let key in error) {
             this.alertDisable = false;
-            this.alertMessage = error['statusText'];          
+            this.alertMessage = "No se puede eliminar el aviso, tiene comentarios";    
           }
         }
       );

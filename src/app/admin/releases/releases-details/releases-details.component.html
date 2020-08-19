@@ -5,19 +5,19 @@
         <button class="btn btn-outline-primary"  (click)="enviarAviso()">Enviar</button>    
         <div *ngIf="release">
           <div>
-            <label><b>Fecha: </b></label> {{release.releases_date| date:'medium' }}
+            <label><b>Fecha: </b></label> <br> {{release.releases_date| date:'medium' }}
           </div>         
           <div>
-            <label><b>Asunto</b></label> {{release.releases_subject}}
+            <label><b>Asunto</b></label> <br> {{release.releases_subject}}
           </div>
           <div>
-            <label><b>Adjunto: </b></label><img [src]="release.releases_attached" width="50" height="50">
+            <label><b>Adjunto: </b></label><br><img [src]="release.releases_attached" width="50" height="50">
            </div>
           <div>
             <label><b>Estatus:  </b></label>
             <div class="custom-control custom-switch">
-                <input type="checkbox" disabled class="custom-control-input"  id="releases_status"       name="releases_status"   style="margin-left: 10px" [checked]="release.releases_status == 'true'">
-                <label class="custom-control-label" for="releases_status">Activo</label>
+                <input type="checkbox" disabled class="custom-control-input"  id="releases_status"       name="releases_status"   style="margin-left: 10px" [checked]="release.releases_status == 'Activo'">
+                <label class="custom-control-label" for="releases_status">{{release.releases_status}}</label>
              </div>
               </div>
               <button (click)="createComments(release.releases_id)" class="btn btn-info">Comentar</button>   

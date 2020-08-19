@@ -4,15 +4,31 @@
         <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
 
          <div class="form-group">
-            <label for="name">Nombre:</label>
-            {{employee.purcharse_name}}
+            <label for="name">Folio:</label>
+            {{employee.purcharse_folio}}
            </div>
 
            <div class="form-group">
-            <label for="name">Nombre del solicitante:</label>
-            {{employee.applicant_name}}
+            <label for="name">Nombre del Articulo:</label>
+            {{employee.articles_name_article}}
            </div>
            
+
+           <div class="form-group">
+            <label for="name">Descripcion Articulo:</label>
+            {{employee.articles_description}}
+           </div>
+
+
+           <div class="form-group">
+            <label for="name">Precio Articulo:</label>
+            {{employee.articles_articles_price}}
+           </div>
+
+           <div class="form-group">
+            <label for="name">SKU:</label>
+            {{employee.articulo_sku}}
+           </div>
            
           
            <div class="form-group">
