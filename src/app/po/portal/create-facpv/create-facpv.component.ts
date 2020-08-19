@@ -264,15 +264,22 @@ parseXML(data) {
 handleUpload2(event) {
   const file = event.target.files[0];
   const reader = new FileReader();
+  const encodedData = window.btoa('Hello, world'); // encode a string
   
   reader.readAsDataURL(file);
   reader.onload = () => {
-
+    //windo
+    var windo = window.open("", "fac"); 
+    //console
+    console.log(atob(this.employee.bi_archivo))
       this.datos = reader.result.toString();
       this.employee.bi_archivo = this.datos.replace("data:text/xml;base64,","")
-
+      //windo
+      const decodedData = windo.atob(this.employee.bi_archivo);
       this.datoss = reader.result.toString();
-      this.employee.bi_archivo = this.datoss.replace("data:application/xml;base64,","")
+      //this.employee.bi_archivo = this.datoss.replace("data:application/xml;base64,","")
+      this.employee.bi_archivo = this.datoss.replace("data:text/xml;base64,","")
+      console.log(this.employee.bi_archivo);
 
     /*  this.employee.employees_contract = this.datos.replace("data:application/pdf;base64,","")*/
       event = this.employee.bi_archivo;
