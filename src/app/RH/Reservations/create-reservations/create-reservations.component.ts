@@ -129,7 +129,7 @@ export class CreateReservationsComponent implements OnInit {
        arg = "";
     }
 
-    agregarFechaI(event){
+    agregarFechaI(){
     //  this.calendarOptions.dateClick = null;
     console.log("entro a agregar fecha inicial");
     this.calendarOptions.dateClick= this.handleDateClick.bind(this);
