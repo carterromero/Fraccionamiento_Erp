@@ -63,38 +63,6 @@ export class CreateReservationsComponent implements OnInit {
 
     }
 
-
-  /*  reloadDataList() {
-     
-   console.log("Te activas");
-      this.reservationsService.getReservationListR(this.reservation.articles_sku).subscribe(
-        data => {
-          console.log(data);
-          this.reservations = this.reservationsService.getReservationListR(this.reservation.articles_sku);
-       //   let calendarApi = this.reservationsService.getReservationListR(this.reservation.articles_sku);
-          for (let key in data) {
-            var dats = data[key];
-            console.log(dats);
-            this.titlee.push(
-              [dats['articles_name_article']]);
-              this.data1.push(
-                [dats['reservations_start']]);
-                this.data2.push(
-                  [dats['reservations_end']]); 
-                /*  this.ds=this.data1[key];
-                  this.ds=moment(this.ds).format('2020-08-24T18:00:00Z'); 
-                  this.de=this.data2[];
-                  console.log(this.ds);*/
-               /*   console.log(this.titlee[0]);
-                  console.log(this.data1[0]);
-                  console.log(this.data2[0]);
-                  
-          }
-        },
-        error => {
-          console.log(error);   
-        });
-    }*/
    
 
  /* calendarOptions: CalendarOptions = {
@@ -115,9 +83,7 @@ export class CreateReservationsComponent implements OnInit {
 
     calendarOptions: CalendarOptions = {
       initialView: 'dayGridMonth',
-  //    weekends: false, // initial value
-  //plugins: [ interactionPlugin ],
- // editable: true,
+      droppable: true,
      selectable: true,
      navLinks: true,
       headerToolbar: {
