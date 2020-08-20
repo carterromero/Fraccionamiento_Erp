@@ -64,6 +64,10 @@ export class CreateReservationsComponent implements OnInit {
     }
 
    
+   /* eventSelect(event){
+      console.log(event.start,event.end);
+       }*/
+
 
  /* calendarOptions: CalendarOptions = {
       headerToolbar: {
@@ -86,16 +90,64 @@ export class CreateReservationsComponent implements OnInit {
       droppable: true,
      selectable: true,
      navLinks: true,
+     timeZone: 'UTC',
+   //  dateClick: this.handleDateClick.bind(this), // bind is important!
+   /*  dateClick : function(info) {
+      if (info.allDay) {
+        $('#reservations_start').val(info.dateStr);
+        $('#reservations_end').val(info.dateStr);
+      } else {
+        let fechaHora = info.dateStr.split("T");
+        $('#reservations_start').val(fechaHora[0]);
+        $('#reservations_end').val(fechaHora[0]);
+      //  $('#HoraInicio').val(fechaHora[1].substring(0, 5));
+      }
+    },*/
       headerToolbar: {
         left: 'today,prev,next',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
       },
+ 
       themeSystem:'Flatly',
       locale: esLocale,
       eventColor: '#36294F',
       height: 600,
     };
+
+    handleDateClick(arg) {
+      this.reservation.reservations_start = arg.dateStr;
+      formatDate(this.reservation.reservations_start, 'yyyy-MM-ddThh:mm:ss', 'en-US','GMT-5');
+      console.log( this.reservation.reservations_start);
+      arg = "";
+    }
+
+    handleDateClickF(arg) {
+       this.reservation.reservations_end= arg.dateStr;
+       formatDate(this.reservation.reservations_end, 'yyyy-MM-ddThh:mm:ss', 'en-US','GMT-5');
+       console.log( this.reservation.reservations_end);
+       arg = "";
+    }
+
+    agregarFechaI(event){
+    //  this.calendarOptions.dateClick = null;
+    console.log("entro a agregar fecha inicial");
+    this.calendarOptions.dateClick= this.handleDateClick.bind(this);
+    console.log(this.reservation.reservations_start);
+ //   this.calendarOptions.dateClick = null;
+    
+    }
+    
+ agregarFechaF(){
+     
+      console.log("entro a agregar fecha final");
+      this.calendarOptions.dateClick= this.handleDateClickF.bind(this);
+      console.log(this.reservation.reservations_end);
+     // this.calendarOptions.dateClick = null;
+    }
+
+
+
   
     toggleWeekends() {
   // this.calendarOptions.eventRemove = null;
@@ -122,6 +174,7 @@ export class CreateReservationsComponent implements OnInit {
                  // console.log(this.titlee[key]);
    events.push({ title: this.titlee[0], start:formatDate(this.data1[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','GMT-5'), end: formatDate(this.data2[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','GMT-5') });
       this.calendarOptions.eventSources = [events];
+    
      // this.calendarOptions.select({start, end: formatDate(this.data2[key], 'yyyy-MM-ddThh:mm:ss', 'en-US','+0530') });
 
     }//end for
@@ -164,8 +217,8 @@ export class CreateReservationsComponent implements OnInit {
     this.alertDisable = true;
     this.alertDisables = true;
     console.log(this.reservation.articles_sku);
-    moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
-    moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
+   // moment('2020-07-24T00:00:00 z',this.reservation.reservations_start.toString());
+    //moment('2020-07-24T00:00:00 z',this.reservation.reservations_end.toString());
     this.reservation.reservations_start = new Date(this.reservation.reservations_start);
     this.reservation.reservations_end=new Date(this.reservation.reservations_end);
     this.reservation.create_by=Number(localStorage.getItem('id'));
@@ -189,7 +242,8 @@ export class CreateReservationsComponent implements OnInit {
     this.submitted = true;
     this.alertDisable = true;
     this.alertDisables = true;
-  
+   console.log(this.reservation.reservations_start);
+   console.log(this.reservation.reservations_end);
     if(this.reservation.reservations_start >= this.reservation.reservations_end ){
       this.alertDisable = false;
       this.alertMessage = "La fecha y hora inicial no puede ser mayor o igual a la fecha final "; 

@@ -11,22 +11,17 @@
               <option  *ngFor="let article of articles | async" value="{{article.articles_sku}}" >{{article.articles_name_article}}</option>
               </select>
               </div>   
-              <button (click)="toggleWeekends()">Ver reservaciones</button>
-              <full-calendar id="calendar" class="form-group" [options]="calendarOptions"  ></full-calendar>
-          <form (ngSubmit)="onSubmit()">
+              <button (click)="toggleWeekends()">Ver reservaciones</button> 
+              <button (onchange)="agregarFechaI()" >Agregar fecha inicial</button>
+              <button (click)="agregarFechaF()">Agregar fecha final</button>
+              <full-calendar id="calendar"   deepChangeDetection="true" class="form-group" [options]="calendarOptions" ></full-calendar>
+          <form >
             <div class="form-group">
               <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
               <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>  
           </div>         
-         
-              <div class="form-group">
-                <label for="name">Fecha y hora de inicio</label>
-                <input type="datetime-local" class="form-control" id="reservations_start" required [(ngModel)]="reservation.reservations_start" name="reservations_start" >
-              </div>    
-              <div class="form-group">
-                <label for="name">Fecha y hora de fin</label>
-                <input type="datetime-local" class="form-control" value="dateClick" id="reservations_end" required [(ngModel)]="reservation.reservations_end" name="reservations_end">
-              </div>    
+  
+            
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Residente</label>
                 <select class="custom-select"  id="tenants_id" required [(ngModel)]="reservation.tenants_id" name="tenants_id" >
@@ -40,7 +35,7 @@
                     <label class="custom-control-label" for="reservations_status">Active</label>
                  </div>
             </div>
-            <button type="submit" class="btn btn-success">Guardar</button>          
+            <button type="button" (click)="onSubmit()" class="btn btn-success">Guardar</button>          
             <button [routerLink]="['/reservations-list']" class="btn btn-danger" style="margin-left: 10px">Cancelar</button>
           </form>
         </app-card>
