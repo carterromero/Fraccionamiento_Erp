@@ -84,10 +84,4 @@ export class ReleasesListComponent implements OnInit {
   }
 
 
-  
-  
-
-
-
 }
-
