@@ -5,17 +5,22 @@ import { Mensaje } from '../interfaces/mensaje.interface';
 import { MessagingService } from '../../messaging.service';
 import { UserService } from 'src/app/services/admin/user.service';
 import { User } from 'src/app/services/admin/user';
+import { ActivatedRoute, Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+
 //import { Mensaje } from '../models/mensaje';
 
 @Component({
   selector: 'app-chat-room',
   templateUrl: './chat-room.component.html',
   styleUrls: ['./chat-room.component.scss'],
-  //changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChatRoomComponent implements OnInit {
   @ViewChild('content') content: ElementRef;
 
+  id: number;
+  user_name: string;
   alertDisable = true;
   alertDisables = true;
   alertMessage = "null";
@@ -30,6 +35,10 @@ export class ChatRoomComponent implements OnInit {
   public chats: Mensaje[] = [];
   elemento;
   tkn: string = "";
+  tkn2: User[] = [];
+  token1: string;
+  tokens: any;
+  
 
   datos: Observable<Mensaje[]>;
   datos2: string[];
@@ -37,22 +46,25 @@ export class ChatRoomComponent implements OnInit {
   title = 'push-notification';
   message: Observable<Mensaje[]>;
   constructor(
+    private router: Router,
     private messagingService: MessagingService,
     public _cs: ChatService,
-    private generalService: UserService) { 
-    // this.messagingService.currentMessage;
+    private generalService: UserService,
+    private route: ActivatedRoute) { 
+    this.messagingService.currentMessage;
   }
 
   ngOnInit() {
 
-    this.reloadData();
+    this.reloadDatas  ();
 
 
-    console.log(this.tkn);
+    //console.log(this.tkn);
     
     // this.elemento = document.getElementById('app-mensajes');
 
     // this.messagingService.requestPermission()
+    //this.id = this.route.firstChild.snapshot.params['id'];
     this.message = JSON.parse(localStorage.getItem("chat"));
     this.messagingService.requestPermission();
     this.messagingService.receiveMessage();
@@ -74,11 +86,14 @@ export class ChatRoomComponent implements OnInit {
   }
 
   reloadData() {
-    
-    this.generalService.listUserWithToken().subscribe(
+    let tkn3=[];
+    this.id = this.route.firstChild.snapshot.params['id'];
+    this.generalService.getTokens(this.id).subscribe(
       data => {
         console.log(data);
-        this.general = this.generalService.listUserWithToken();
+        this.general = this.generalService.getTokens(this.id);
+        console.log(this.general);
+        //this.tkn3 = this.general;
       },
       error => {
         console.log(error);   
@@ -90,8 +105,45 @@ export class ChatRoomComponent implements OnInit {
       });
   }
 
+  reloadDatas() {
+    let tkn3=[];
+    this.id = this.route.firstChild.snapshot.params['id'];
+    this.generalService.getUserTokens(this.id).subscribe(
+      data => {
+        this.tokens = data;
+        console.log(this.tokens);
+        let coins = [];
+        for (let key in data) {
+          var dats = data[key];
+        } 
+      },
+      (error: HttpErrorResponse) => {
+        console.error("Ha ocurrido un error: " + error);
+        console.error(error.status);
+      },
+      () => {
+        console.info("Peticion finalizada1");
+        for (let key in this.tokens) {
+          var dats = this.tokens[key];
+          this.token1 = dats['fcm_key'];
+          console.info("1-------------1");
+          console.log(this.token1);
+          tkn3.push(dats['fcm_key']);
+          this.token1 = dats['fcm_key'];
+          //this.tkn2 = token1;
+          //console.log(tkn3);
+        } 
+        //console.info("-------------");
+      }
+      );
+      
+  }
+
   
   sendMessage(){
+    console.info("2-------------2");
+    console.log(this.token1);
+    
     let msg: Mensaje = {
       notification: {
         title: 'Administrador',
@@ -106,7 +158,8 @@ export class ChatRoomComponent implements OnInit {
           msg: this.mensaje
         }
       },
-      to: this.tkn
+      to: this.token1
+      
     };
 
     // this.msgs.push(msg.data.param);

@@ -68,7 +68,7 @@ export class MessagingService {
   }
   */
 
-  /*
+  
   showCustomNotification(payload: any){
     let notify_data = payload['notification'];
     let title = notify_data['title'];
@@ -86,5 +86,5 @@ export class MessagingService {
       // window.location.href = '';
     }
   }
-  */
+  
 }
