@@ -4,6 +4,9 @@ import { NextConfig } from '../../../../../app-config';
 import { Location } from '@angular/common';
 import { AuthenticationService } from '../../../../../authentication.service';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/admin/user.service';
+import { User } from 'src/app/services/admin/user';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-nav-content',
@@ -20,13 +23,24 @@ export class NavContentComponent implements OnInit, AfterViewInit {
   public scrollWidth: any;
   public windowWidth: number;
   public isNavProfile: boolean;
+  general: Observable<User[]>;
+  alertDisable = true;
+  alertDisables = true;
+  alertMessage = "null";
+  alertMessages = "null";
+  token : string;
 
   @Output() onNavMobCollapse = new EventEmitter();
 
   @ViewChild('navbarContent') navbarContent: ElementRef;
   @ViewChild('navbarWrapper') navbarWrapper: ElementRef;
 
-  constructor(public nav: NavigationItem, private zone: NgZone, private location: Location, private authenticationService: AuthenticationService, private router: Router) {
+  constructor(public nav: NavigationItem, 
+    private zone: NgZone, 
+    private location: Location, 
+    private authenticationService: AuthenticationService, 
+    private generalService: UserService,
+    private router: Router) {
     this.flatConfig = NextConfig.config;
     this.windowWidth = window.innerWidth;
 
@@ -150,12 +164,32 @@ export class NavContentComponent implements OnInit, AfterViewInit {
 
   
   logout() {
-    
     localStorage.setItem('id','0');
     localStorage.setItem('rol', '0');
     localStorage.setItem('condominums', '0');
     this.router.navigate(['auth/signin']);
-            
+    this.deleteGeneral();        
+  }
+
+  deleteGeneral() {
+    this.token = localStorage.getItem("Token")
+    this.generalService.deleteToken(this.token)
+      .subscribe(
+        data => {
+          console.log(data);
+          console.log(this.token);
+          //this.reloadData();
+          this.alertDisables = false;
+          this.alertMessages ="El token eliminado correctamente";
+        },
+        error => {console.log(error);
+          let coins = [];
+          for (let key in error) {
+            this.alertDisable = false;
+            this.alertMessage = error['statusText'];          
+          }
+        }
+      );
   }
 
 }
