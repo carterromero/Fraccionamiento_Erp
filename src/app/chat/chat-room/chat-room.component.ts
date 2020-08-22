@@ -38,6 +38,7 @@ export class ChatRoomComponent implements OnInit {
   tkn2: User[] = [];
   token1: string;
   tokens: any;
+  tkns4 = [];
   
 
   datos: Observable<Mensaje[]>;
@@ -125,13 +126,18 @@ export class ChatRoomComponent implements OnInit {
         console.info("Peticion finalizada1");
         for (let key in this.tokens) {
           var dats = this.tokens[key];
-          this.token1 = dats['fcm_key'];
-          console.info("1-------------1");
-          console.log(this.token1);
+          //Ciclo
+          //this.token1 = dats['fcm_key'];
+              //this.tkns4 = dats['fcm_key'];
+              //console.info("1-------------1");
+              //console.log(this.tkns4);
+          /*
+          //console.log(this.tkns4);
           tkn3.push(dats['fcm_key']);
-          this.token1 = dats['fcm_key'];
-          //this.tkn2 = token1;
-          //console.log(tkn3);
+          //this.token1 = dats['fcm_key'];
+          this.tkns4 = tkn3;
+          console.log(this.tkns4);
+          */
         } 
         //console.info("-------------");
       }
@@ -141,9 +147,12 @@ export class ChatRoomComponent implements OnInit {
 
   
   sendMessage(){
-    console.info("2-------------2");
-    console.log(this.token1);
     
+    for (let key in this.tokens) {
+      var dats = this.tokens[key];
+      this.tkns4 = dats['fcm_key'];
+          console.info("1-------------1");
+          console.log(this.tkns4);
     let msg: Mensaje = {
       notification: {
         title: 'Administrador',
@@ -158,16 +167,17 @@ export class ChatRoomComponent implements OnInit {
           msg: this.mensaje
         }
       },
-      to: this.token1
+      
+      to: dats['fcm_key']
       
     };
-
+    
     // this.msgs.push(msg.data.param);
     this.addMessage(msg.data.param);
     console.log(msg);
 
     console.log(this.msgs);
-
+  
     this._cs.sendNotification(msg)
     .subscribe( data => {
                   // console.log(data)
@@ -184,14 +194,18 @@ export class ChatRoomComponent implements OnInit {
                   }
                 },
                 error => console.log(error));
-    this.mensaje = "";
+    //this.mensaje = "";
 
     this.elemento = document.getElementById('content');
     setTimeout( () => {
       
       this.elemento.scrollTop = this.elemento.scrollHeight;
     });
+  
   }
+    
+}
+
 
   addMessage(list){
     this.msgs.push(list);
@@ -223,6 +237,7 @@ export class ChatRoomComponent implements OnInit {
       }
     });
   }
+  
   // constructor(/*db:AngularFirestore, public _cs: ChatService*/) {
   //   // this.chats = db.collection('chats').valueChanges(); 
   //   // this._cs.cargarMensajes().subscribe(
