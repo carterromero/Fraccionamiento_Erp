@@ -1,4 +1,4 @@
-export interface Mensaje{
+export interface Mensaje2{
     notification: {
         title: string;
         body: string;
