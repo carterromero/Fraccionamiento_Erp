@@ -11,9 +11,9 @@
               <option  *ngFor="let article of articles | async" value="{{article.articles_sku}}" >{{article.articles_name_article}}</option>
               </select>
               </div>   
-              <button class="btn btn-info" (click)="toggleWeekends()">Ver reservaciones</button> 
-              <button class="btn btn-info" (click)="agregarFechaI()" >Agregar fecha inicial</button>
-              <button class="btn btn-info" (click)="agregarFechaF()">Agregar fecha final</button>
+              <button class="btn btn-info" (click)="toggleWeekends()">Ver reservaciones</button>      &nbsp;&nbsp;
+              <button class="btn btn-info" (click)="agregarFechaI()" >Agregar fecha inicial</button>  &nbsp;&nbsp;    
+              <button class="btn btn-info" (click)="agregarFechaF()">Agregar fecha final</button>    
               <full-calendar id="calendar"   deepChangeDetection="true" class="form-group" [options]="calendarOptions" ></full-calendar>
           <form >
             <div class="form-group">

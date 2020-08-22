@@ -119,14 +119,12 @@ export class CreateReservationsComponent implements OnInit {
       this.reservation.reservations_start = arg.dateStr;
       formatDate(this.reservation.reservations_start, 'yyyy-MM-ddThh:mm:ss', 'en-US','GMT-5');
       console.log( this.reservation.reservations_start);
-      arg = "";
     }
 
     handleDateClickF(arg) {
        this.reservation.reservations_end= arg.dateStr;
        formatDate(this.reservation.reservations_end, 'yyyy-MM-ddThh:mm:ss', 'en-US','GMT-5');
        console.log( this.reservation.reservations_end);
-       arg = "";
     }
 
     agregarFechaI(){
