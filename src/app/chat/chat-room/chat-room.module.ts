@@ -5,7 +5,9 @@ import { ChatRoomRoutingModule } from './chat-room-routing.module';
 import { ChatRoomComponent } from './chat-room.component';
 import {SharedModule} from 'src/app/theme/shared/shared.module';
 import {AsyncPipe} from '@angular/common';
-//import {AngularFireMessangingModule} from '@angular/fire/messaging';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
+
+
 
 @NgModule({
   declarations: [ ChatRoomComponent],
@@ -13,7 +15,9 @@ import {AsyncPipe} from '@angular/common';
     CommonModule,
     ChatRoomRoutingModule,
     SharedModule,
+    PickerModule
   ],
   providers: [AsyncPipe]
 })
+
 export class ChatRoomModule { }

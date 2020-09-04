@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 import { BehaviorSubject } from 'rxjs'
-import { map } from 'rxjs/operators'; 
+import { map } from 'rxjs/operators';
 import { Mensaje } from './chat/interfaces/mensaje.interface';
 
 @Injectable({
@@ -45,11 +45,11 @@ export class MessagingService {
       this.angularFireMessaging.messages.subscribe(
         (payload) => {
           console.log("new message received. ", payload);
-          
+
           this.currentMessage.next(payload);
-          
+
         })
-      
+
       }
 
           /*
@@ -68,7 +68,7 @@ export class MessagingService {
   }
   */
 
-  
+
   showCustomNotification(payload: any){
     let notify_data = payload['notification'];
     let title = notify_data['title'];
@@ -86,5 +86,5 @@ export class MessagingService {
       // window.location.href = '';
     }
   }
-  
+
 }
