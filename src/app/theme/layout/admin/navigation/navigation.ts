@@ -29,7 +29,7 @@ export interface Navigation extends NavigationItem {
 
 const NavigationItemss = [
   {
-    
+
     id: 'navigation',
     title: 'Principal',
     type: 'group',
@@ -45,7 +45,7 @@ const NavigationItemss = [
       }
     ]
   },
-  {    
+  {
     id: 'admin-main',
     title: 'Administración',
     type: 'group',
@@ -60,22 +60,22 @@ const NavigationItemss = [
           {
             id: 'legals',
             title: 'Empresas',
-            type: 'item',            
+            type: 'item',
             url: '/legals-list'
-            
+
           },
 
           {
             id: 'condominus',
             title: 'Fraccionamientos',
-            type: 'item',            
+            type: 'item',
             url: '/condominus-list'
-            
-          }                 
+
+          }
         ]
       },
 
-      
+
 
       {
         id: 'security-catalog',
@@ -86,23 +86,23 @@ const NavigationItemss = [
           {
             id: 'rols',
             title: 'Roles',
-            type: 'item',            
+            type: 'item',
             url: '/rols-list'
-            
+
           },
 
           {
             id: 'permisos',
             title: 'Permisos',
-            type: 'item',            
+            type: 'item',
             url: '/permissions-list'
-            
+
           },
           {
             id: 'usuarios',
             title: 'Usuarios',
-            type: 'item',            
-            url: '/usuarios-list' 
+            type: 'item',
+            url: '/usuarios-list'
           }
         ]
       }
@@ -122,27 +122,27 @@ const NavigationItemss = [
           {
             id: 'periods-list',
             title: 'Periodos',
-            type: 'item',            
+            type: 'item',
             url: '/periods-list'
-            
-          }   , 
+
+          }   ,
           {
             id: 'accounts-list',
             title: 'Contablilidad Cuentas',
-            type: 'item',            
+            type: 'item',
             url: '/accounts-list'
-            
-          }, 
+
+          },
           {
             id: 'journals-list',
             title: 'polizas',
-            type: 'item',            
+            type: 'item',
             url: '/journals-list'
-            
-          }              
+
+          }
         ]
       },
-     
+
       {
         id: 'gl_reports',
         title: 'Reportes',
@@ -152,16 +152,16 @@ const NavigationItemss = [
           {
             id: 'transl-list',
             title: 'Reporte transacciones',
-            type: 'item',            
+            type: 'item',
             url: '/transl-list'
-            
-          }                   
+
+          }
         ]
       }
-    ] 
+    ]
   }
   ,
-  {    
+  {
     id: 'AP-main',
     title: 'Cuentas por pagar ',
     type: 'group',
@@ -176,19 +176,19 @@ const NavigationItemss = [
           {
             id: 'creditor',
             title: 'Acreedor',
-            type: 'item',            
+            type: 'item',
             url: '/creditor-list'
-            
+
           },
-          
+
           {
             id: 'crear_cuenta',
             title: 'Crear una factura ',
-            type: 'item',            
-            url: '/billtopay-list' 
-            
+            type: 'item',
+            url: '/billtopay-list'
+
           }
-                              
+
         ]
       }, {
         id: 'ap-catalog',
@@ -196,24 +196,24 @@ const NavigationItemss = [
         type: 'collapse',
         icon: 'feather icon-file-text',
         children: [
-  
+
 
           {
             id: 'cuenta_pagar',
             title: 'Registro de pago ',
-            type: 'item',            
-            url: '/payment-record-list' 
-            
+            type: 'item',
+            url: '/payment-record-list'
+
           },
-          
+
           {
             id: 'conciliacion_id',
             title: 'conciliacion',
-            type: 'item',            
-            url: '/conciliacion-list' 
-            
+            type: 'item',
+            url: '/conciliacion-list'
+
           }
-                              
+
         ]
       },
       {
@@ -222,23 +222,23 @@ const NavigationItemss = [
         type: 'collapse',
         icon: 'feather icon-server',
         children: [
-  
+
 
           {
             id: 'repore_contable',
             title: 'Reporte contable  ',
-            type: 'item',            
+            type: 'item',
             url: '/repo-cred-pay-list'
-            
+
           },
           {
             id: 'reporte_vencidos',
             title: ' reporte pagos vencidos ',
-            type: 'item',            
+            type: 'item',
             url: '/repo-cred-pay-nocont-list'
-            
+
           }
-                              
+
         ]
       },
 
@@ -246,7 +246,7 @@ const NavigationItemss = [
   },
 
 
-  {    
+  {
     id: 'Treasury-main',
     title: 'Tesoreria',
     type: 'group',
@@ -261,40 +261,40 @@ const NavigationItemss = [
           {
             id: 'bankCodes',
             title: 'Codigos Bancarios',
-            type: 'item',            
+            type: 'item',
             url: '/bank-codes-list'
-            
+
           },
 
           {
             id: 'banks',
             title: 'Gestionar Bancos',
-            type: 'item',            
+            type: 'item',
             url: '/manage-banks-list'
-            
+
           },
           {
             id: 'bankAccounts',
             title: 'Cuentas Bancarias',
-            type: 'item',            
+            type: 'item',
             url: '/bank-accounts-list'
-            
+
           },
           {
             id: 'transfers',
             title: 'Transferencias',
-            type: 'item',            
+            type: 'item',
             url: '/transfers-list'
-            
+
           },
           {
             id: 'paymentDocuments',
             title: 'Documentos de Pago',
-            type: 'item',            
+            type: 'item',
             url: '/payment-documents-list'
-            
+
           }
-                                
+
         ]
       },
       {
@@ -303,30 +303,30 @@ const NavigationItemss = [
         type: 'collapse',
         icon: 'feather icon-file-text',
         children: [
-  
+
 
           {
             id: 'account_statements',
             title: 'Estado de Cuenta',
-            type: 'item',            
+            type: 'item',
             url: '/account-statements-list'
-            
+
           },
           {
             id: 'automaticConciliation',
             title: 'Conciliación Automática',
-            type: 'item',            
+            type: 'item',
             url: '/automatic-conciliation-list'
-            
+
           },
           {
             id: 'manualConciliation',
             title: 'Conciliación Manual',
-            type: 'item',            
+            type: 'item',
             url: '/manual-conciliation-list'
-            
+
           }
-                              
+
         ]
       },
     ]
@@ -346,64 +346,64 @@ const NavigationItemss = [
             {
               id: 'customer',
               title: 'Administrar Residentes / clientes',
-              type: 'item',            
+              type: 'item',
               url: '/customer-list'
-              
+
             },
             {
               id: 'Direction',
               title: 'Direccion de remison',
-              type: 'item',            
+              type: 'item',
               url: '/referral-address-list'
-              
+
             },
             {
               id: 'paymentsterms',
               title: 'Terminos de pago',
-              type: 'item',            
+              type: 'item',
               url: '/payment-terms-list'
-              
+
             },
             {
               id: 'colllectionconcepts',
               title: 'Conceptos de Cobro',
-              type: 'item',            
+              type: 'item',
               url: '/collectionconcepts-list'
-              
+
             },
             {
               id: 'transactiontypes',
               title: 'Tipo de transaccion',
-              type: 'item',            
+              type: 'item',
               url: '/transactiontypes-list'
-              
+
             },
             {
               id: 'deposittaccountt',
               title: 'Cuenta de deposito',
-              type: 'item',            
+              type: 'item',
               url: '/deposit-account-list'
-              
+
             },
             {
               id: 'collection',
               title: 'Cobro',
-              type: 'item',            
+              type: 'item',
               url: '/collection-list'
-              
+
             },
             {
               id: 'paymentsar',
               title: 'Pago',
-              type: 'item',            
+              type: 'item',
               url: '/payments-ar-list'
-              
+
             },
-                                  
+
           ]
         },
       ]
-      },{    
+      },{
         id: 'RH-main',
         title: 'Recursos Humanos ',
         type: 'group',
@@ -418,17 +418,17 @@ const NavigationItemss = [
               {
                 id: 'departments',
                 title: 'Departamentos',
-                type: 'item',            
+                type: 'item',
                 url: '/departments-list'
-                
+
               },
               {
                 id: 'workplaces',
                 title: 'Puestos',
-                type: 'item',            
+                type: 'item',
                 url: '/workplaces-list'
-                
-              }                      
+
+              }
             ]
           },
           {
@@ -440,15 +440,15 @@ const NavigationItemss = [
               {
                  id: 'rh-employee',
                 title: 'Empleados',
-                type: 'item',            
+                type: 'item',
                 url: '/employee-list'
               }    ,
               {
                 id: 'rh-contacts',
                title: 'Contacto',
-               type: 'item',            
+               type: 'item',
                url: '/contacts-list'
-             }                
+             }
             ]
           },
           {
@@ -460,9 +460,9 @@ const NavigationItemss = [
               {
                  id: 'rh-tenant',
                 title: 'Registro residentes',
-                type: 'item',            
+                type: 'item',
                 url: '/tenants-list'
-              }               
+              }
             ]
         },
         {
@@ -488,27 +488,27 @@ const NavigationItemss = [
               {
                  id: 'rh-reports',
                 title: 'Reporte viviendas',
-                type: 'item',            
+                type: 'item',
                 url: '/reservationsR-list'
               },
               {
                 id: 'rh-reports',
                title: 'Reporte empleados',
-               type: 'item',            
+               type: 'item',
                url: '/reportemployee-list'
              },
              {
               id: 'rh-reports',
              title: 'Reporte departamento',
-             type: 'item',            
+             type: 'item',
              url: '/departmentsr-list'
-           }                           
+           }
             ]
           },
-          
+
         ]
-      },    
-{    
+      },
+{
     id: 'po-main',
     title: 'Compras',
     type: 'group',
@@ -523,18 +523,18 @@ const NavigationItemss = [
           {
             id: 'supplier',
             title: 'Provedores',
-            type: 'item',            
+            type: 'item',
             url: '/supplier-list'
-            
+
           },
 
           {
             id: 'payment_terms',
             title: 'Terminos de Pago',
-            type: 'item',            
+            type: 'item',
             url: '/payment_terms-list'
-            
-          }           
+
+          }
         ]
       },
 
@@ -547,11 +547,11 @@ const NavigationItemss = [
           {
             id: 'purchase_orders',
             title: 'Ordenes de Compra',
-            type: 'item',            
+            type: 'item',
             url: '/purchase_orders-list'
-            
+
           }
-                                
+
         ]
       },
       {
@@ -563,11 +563,11 @@ const NavigationItemss = [
           {
             id: 'por',
             title: 'Portal Proveedor',
-            type: 'item',            
+            type: 'item',
             url: '/facpv-list'
-            
+
           }
-                                
+
         ]
       },
       {
@@ -579,26 +579,26 @@ const NavigationItemss = [
           {
             id: 'Reports',
             title: 'Proveedores',
-            type: 'item',            
+            type: 'item',
             url: '/supplier_repor-list'
-            
+
           },
           {
             id: 'Reportss',
             title: 'Ordenes de Compra',
-            type: 'item',            
+            type: 'item',
             url: '/pdf-purchase_orders-list'
-            
+
           }
 
-                                
+
         ]
       }
 
 
     ]
   },
-  {    
+  {
     id: 'categories_main',
     title: 'Inventarios',
     type: 'group',
@@ -613,51 +613,51 @@ const NavigationItemss = [
           {
             id: 'categories',
             title: 'Categorías',
-            type: 'item',            
+            type: 'item',
             url: '/categories-list'
-            
-          },                    
+
+          },
           {
             id: 'sub_categories',
             title: 'Sub Categorías',
-            type: 'item',            
+            type: 'item',
             url: '/sub_categories-list'
-            
+
           },
           {
             id: 'unit_of_measures',
             title: 'Unidad Medidas',
-            type: 'item',            
+            type: 'item',
             url: '/unitofmeasures-list'
-            
+
           },
           {
             id: 'sub_inventarys',
             title: 'Subinventarios',
-            type: 'item',            
+            type: 'item',
             url: '/sub_inventarys-list'
-            
+
           },
           {
             id: 'master_inventarys',
             title: 'Maestro Inventarios',
-            type: 'item',            
+            type: 'item',
             url: '/master_inventarys-list'
-            
-          }, 
+
+          },
           {
             id: 'status',
             title: 'Estatus Artículos',
-            type: 'item',            
+            type: 'item',
             url: '/status-articles-list'
-            
+
           },
           {
             id: 'precios',
             title: 'Precios',
-            type: 'item',            
+            type: 'item',
             url: '/status-precios-list'
-            
+
           }
         ]
       },
@@ -670,21 +670,21 @@ const NavigationItemss = [
           {
             id: 'articles',
             title: 'Artículos',
-            type: 'item',            
+            type: 'item',
             url: '/Articles-list'
-            
+
           },
           {
             id: 'transactions_entrys',
             title: 'Entradas Transacciones',
-            type: 'item',            
+            type: 'item',
             url: '/transactions-entrys-list'
-            
+
           }
 
-                                
+
         ]
-      }, 
+      },
       {
         id: 'report',
         title: 'Reportes',
@@ -694,24 +694,24 @@ const NavigationItemss = [
           {
             id: 'report',
             title: 'Reporte Articulo General',
-            type: 'item',            
+            type: 'item',
             url: '/report-list'
-            
+
           },
           {
             id: 'report',
             title: 'Reporte Historial Articulo',
-            type: 'item',            
+            type: 'item',
             url: '/report-list'
-            
-          }                           
+
+          }
         ]
       },
     ]
   }
 
   ,
-  {    
+  {
     id: 'Nomina_main',
     title: 'Nómina',
     type: 'group',
@@ -726,9 +726,9 @@ const NavigationItemss = [
           {
             id: 'configmainte',
             title: 'Configuración y Mantenimiento',
-            type: 'item',            
+            type: 'item',
             url: '/config-Maintenlist'
-            
+
           }
         ]
       },
@@ -741,15 +741,15 @@ const NavigationItemss = [
           {
             id: 'configmainte',
             title: 'Clave Cuentas',
-            type: 'item',            
+            type: 'item',
             url: '/key-list'
-            
+
           }
         ]
       }
     ]
   },
-  {    
+  {
     id: 'AC_main',
     title: 'Control de Accesos',
     type: 'group',
@@ -764,9 +764,9 @@ const NavigationItemss = [
           {
             id: 'ac-tenant',
             title: 'Acceso Residentes',
-            type: 'item',            
+            type: 'item',
             url: '/ac-tenants-list'
-            
+
           }
         ]
       },
@@ -779,9 +779,9 @@ const NavigationItemss = [
           {
             id: 'ac-tenant',
             title: 'Acceso Visitantes',
-            type: 'item',            
+            type: 'item',
             url: '/ac-visitors-list'
-            
+
           }
         ]
       },
@@ -809,16 +809,16 @@ const NavigationItemss = [
           {
             id: 'ac-tags',
             title: 'Tags activos registrados',
-            type: 'item',            
+            type: 'item',
             url: '/ac-tags-list'
-            
+
           },
           {
             id: 'ac-tags',
             title: 'Tags Inactivos registrados',
-            type: 'item',            
+            type: 'item',
             url: '/ac-inactive-tags-list'
-            
+
           }
         ]
       },
@@ -831,33 +831,33 @@ const NavigationItemss = [
           {
             id: 'ac-internal',
             title: 'Tags viviendas',
-            type: 'item',            
+            type: 'item',
             url: '/ac-reports-internal'
-            
+
           },
           {
             id: 'ac-people',
             title: 'Ingreso de Personas',
-            type: 'item',            
+            type: 'item',
             url: '/ac-reports-people'
-            
+
           }
         ]
       }
     ]
   }
-   
+
 
 ];
 
 
 @Injectable()
-export class NavigationItem 
+export class NavigationItem
 {
-  
-  
 
-  public get() 
+
+
+  public get()
   {
 
     var dashboard = {};
@@ -876,7 +876,7 @@ export class NavigationItem
 
 
     dashboard= {
-    
+
       id: 'navigation',
       title: 'Principal',
       type: 'group',
@@ -890,13 +890,13 @@ export class NavigationItem
           classes: 'nav-item',
           icon: 'feather icon-home'
         }
-      ]      
+      ]
     };
 
 
 
     if(localStorage.getItem("admin") == 'true'){
-      admin = {    
+      admin = {
         id: 'admin-main',
         title: 'Administración',
         type: 'group',
@@ -911,23 +911,17 @@ export class NavigationItem
               {
                 id: 'legals',
                 title: 'Empresas',
-                type: 'item',            
-                url: '/legals-list'
-                
+                type: 'item',
+                url: '/legals-list',
               },
-    
               {
                 id: 'condominus',
                 title: 'Fraccionamientos',
-                type: 'item',            
-                url: '/condominus-list'
-                
-              }                 
+                type: 'item',
+                url: '/condominus-list',
+              },
             ]
           },
-    
-          
-    
           {
             id: 'security-catalog',
             title: 'Seguridad',
@@ -937,30 +931,40 @@ export class NavigationItem
               {
                 id: 'rols',
                 title: 'Roles',
-                type: 'item',            
-                url: '/rols-list'
-                
+                type: 'item',
+                url: '/rols-list',
               },
-    
               {
                 id: 'permisos',
                 title: 'Permisos',
-                type: 'item',            
-                url: '/permissions-list'
-                
+                type: 'item',
+                url: '/permissions-list',
               },
-    
               {
                 id: 'usuarios',
                 title: 'Usuarios',
-                type: 'item',            
-                url: '/usuarios-list' 
+                type: 'item',
+                url: '/usuarios-list',
               },
               {
                 id: 'Avisos',
                 title: 'Aviso',
-                type: 'item',            
-                url: '/list-releases' 
+                type: 'item',
+                url: '/list-releases',
+              }
+            ]
+          },
+          {
+            id: 'admin-camaras',
+            title: 'Cámaras de seguridad',
+            type: 'collapse',
+            icon: 'feather icon-camera',
+            children: [
+              {
+                id: 'Cameras',
+                title: 'Videos Render',
+                type: 'item',
+                url: '/condominums-cameras-list',
               }
             ]
           }
@@ -968,7 +972,7 @@ export class NavigationItem
       };
     };
      if (localStorage.getItem("contabilidad") == 'true'){
-  
+
   contabilidad = {
     id: 'gl_main',
     title: 'Contabilidad',
@@ -984,27 +988,27 @@ export class NavigationItem
           {
             id: 'periods-list',
             title: 'Periodos',
-            type: 'item',            
+            type: 'item',
             url: '/periods-list'
-            
-          }   , 
+
+          }   ,
           {
             id: 'accounts-list',
             title: 'Cuentas',
-            type: 'item',            
+            type: 'item',
             url: '/accounts-list'
-            
-          }, 
+
+          },
           {
             id: 'journals-list',
             title: 'polizas',
-            type: 'item',            
+            type: 'item',
             url: '/journals-list'
-            
-          }              
+
+          }
         ]
       },
-     
+
       {
         id: 'gl_reports',
         title: 'Reportes',
@@ -1014,33 +1018,33 @@ export class NavigationItem
           //{
           //  id: 'transl-list',
           //  title: 'Reporte transacciones',
-          //  type: 'item',            
+          //  type: 'item',
           //  url: '/transl-list'
-            
+
          // } ,
-         
+
           {
             id: 'consi-list',
             title: 'Reporte transacciones',
-            type: 'item',            
+            type: 'item',
             url: '/consi-list'
-            
+
           } ,
           {
             id: 'saldova-list',
             title: 'Reporte saldo balanza',
-            type: 'item',            
+            type: 'item',
             url: '/saldova-list'
-            
-          }                    
+
+          }
         ]
       }
-    ] 
+    ]
   };
   };
    if (localStorage.getItem("cxp") == 'true'){
-  
-  cuentasporpagar = {    
+
+  cuentasporpagar = {
     id: 'AP-main',
     title: 'Cuentas por pagar ',
     type: 'group',
@@ -1052,23 +1056,23 @@ export class NavigationItem
         type: 'collapse',
         icon: 'feather icon-layout',
         children: [
-        
+
           {
             id: 'cliente',
             title: 'Unidad Operativa',
-            type: 'item',            
+            type: 'item',
             url: '/client-list'
-            
+
           },
-          
+
           {
             id: 'crear_cuenta',
             title: 'Crear una factura ',
-            type: 'item',            
-            url: '/billtopay-list' 
-            
+            type: 'item',
+            url: '/billtopay-list'
+
           }
-                              
+
         ]
       }, {
         id: 'ap-catalog',
@@ -1076,16 +1080,16 @@ export class NavigationItem
         type: 'collapse',
         icon: 'feather icon-file-text',
         children: [
-  
-  
+
+
           {
             id: 'cuenta_pagar',
             title: 'Registro de pago ',
-            type: 'item',            
-            url: '/payment-record-list' 
-            
+            type: 'item',
+            url: '/payment-record-list'
+
           }
-                              
+
         ]
       },
       {
@@ -1094,32 +1098,32 @@ export class NavigationItem
         type: 'collapse',
         icon: 'feather icon-server',
         children: [
-  
-  
+
+
           {
             id: 'repore_contable',
             title: 'Reporte contable  ',
-            type: 'item',            
+            type: 'item',
             url: '/repo-cred-pay-list'
-            
+
           },
           {
             id: 'reporte_vencidos',
             title: ' reporte pagos vencidos ',
-            type: 'item',            
+            type: 'item',
             url: '/repo-cred-pay-nocont-list'
-            
+
           }
-                              
+
         ]
       },
-  
+
     ]
   };
   };
    if (localStorage.getItem("tesoreria") == 'true'){
-  
-  tesoreria =  {    
+
+  tesoreria =  {
     id: 'Treasury-main',
     title: 'Tesoreria',
     type: 'group',
@@ -1134,40 +1138,40 @@ export class NavigationItem
           {
             id: 'bankCodes',
             title: 'Codigos Bancarios',
-            type: 'item',            
+            type: 'item',
             url: '/bank-codes-list'
-            
+
           },
-  
+
           {
             id: 'banks',
             title: 'Gestionar Bancos',
-            type: 'item',            
+            type: 'item',
             url: '/manage-banks-list'
-            
+
           },
           {
             id: 'bankAccounts',
             title: 'Cuentas Bancarias',
-            type: 'item',            
+            type: 'item',
             url: '/bank-accounts-list'
-            
+
           },
           {
             id: 'transfers',
             title: 'Transferencias',
-            type: 'item',            
+            type: 'item',
             url: '/transfers-list'
-            
+
           },
           {
             id: 'paymentDocuments',
             title: 'Documentos de Pago',
-            type: 'item',            
+            type: 'item',
             url: '/payment-documents-list'
-            
+
           }
-                                
+
         ]
       },
       {
@@ -1176,44 +1180,44 @@ export class NavigationItem
         type: 'collapse',
         icon: 'feather icon-file-text',
         children: [
-  
-  
+
+
           {
             id: 'account_statements',
             title: 'Estado de Cuenta',
-            type: 'item',            
+            type: 'item',
             url: '/account-statements-list'
-            
+
           },
           {
             id: 'automaticConciliation',
             title: 'Conciliación Automática',
-            type: 'item',            
+            type: 'item',
             url: '/automatic-conciliation-list'
-            
+
           },
           {
             id: 'manualConciliation',
             title: 'Conciliación Manual',
-            type: 'item',            
+            type: 'item',
             url: '/manual-conciliation-list'
-            
+
           }
-                              
+
         ]
       },
     ]
   };
   };
   if (localStorage.getItem("cxc") == 'true'){
-  
+
    cuentasporcobrar ={
     id: 'AR-main',
       title: 'Cuentas por cobrar',
       type: 'group',
       icon: 'feather icon-monitor',
       children: [
-      
+
         {
           id: 'AR-catalog',
           title: 'Catalogos',
@@ -1223,53 +1227,53 @@ export class NavigationItem
             {
               id: 'customer',
               title: 'Administrar Residentes / clientes',
-              type: 'item',            
+              type: 'item',
               url: '/customer-list'
-              
+
             },
             {
               id: 'Direction',
               title: 'Direccion de Facturacion',
-              type: 'item',            
+              type: 'item',
               url: '/referral-address-list'
-              
+
             },
             {
               id: 'paymentsterms',
               title: 'Terminos de Pago',
-              type: 'item',            
+              type: 'item',
               url: '/payment-terms-list'
-              
+
             },
             {
               id: 'concepts',
               title: 'Conceptos de Cobro',
-              type: 'item',            
+              type: 'item',
               url: '/collectionconcepts-list'
-              
+
             },
             {
               id: 'transactiontypes',
               title: 'Tipo de Transaccion',
-              type: 'item',            
+              type: 'item',
               url: '/transactiontypes-list'
-              
+
             },
             {
               id: 'depositaccount',
               title: 'Cuenta de Deposito ',
-              type: 'item',            
+              type: 'item',
               url: '/deposit-account-list'
-              
+
             },
-            
-            
-            
-                                  
+
+
+
+
           ]
-          
-          
-          
+
+
+
         },
         {      id: 'AR-operation',
           title: 'Operación',
@@ -1279,18 +1283,18 @@ export class NavigationItem
           {
             id: 'collection',
             title: 'Cobro',
-            type: 'item',            
+            type: 'item',
             url: '/collection-list'
-            
+
           },
           {
             id: 'paymentsar',
             title: 'Pago',
-            type: 'item',            
+            type: 'item',
             url: '/payments-ar-list'
-            
+
           },
-  
+
         ]
       },
       { id: 'AR-report',
@@ -1301,21 +1305,21 @@ export class NavigationItem
           {
             id: 'Report',
             title: 'Reporte cliente',
-            type: 'item',            
+            type: 'item',
             url: '/resporte-ar-list'
-            
+
           },
-  
+
         ]
       },
-        
+
       ]
       };
     };
      if (localStorage.getItem("rh") == 'true')
      {
-     
-      recursoshumanos =  {    
+
+      recursoshumanos =  {
         id: 'RH-main',
         title: 'Recursos Humanos ',
         type: 'group',
@@ -1330,18 +1334,18 @@ export class NavigationItem
               {
                 id: 'departments',
                 title: 'Departamentos',
-                type: 'item',            
+                type: 'item',
                 url: '/departments-list'
-                
+
               },
-    
+
               {
                 id: 'workplaces',
                 title: 'Puestos',
-                type: 'item',            
+                type: 'item',
                 url: '/workplaces-list'
-                
-              }                      
+
+              }
             ]
           },
           {
@@ -1353,9 +1357,9 @@ export class NavigationItem
               {
                  id: 'rh-employee',
                 title: 'Empleados',
-                type: 'item',            
+                type: 'item',
                 url: '/employee-list'
-              } 
+              }
             ]
           },
           {
@@ -1367,7 +1371,7 @@ export class NavigationItem
           {
             id: 'rh-tenant',
             title: 'Registro de residentes',
-            type: 'item',            
+            type: 'item',
             url: '/tenants-list'
           }
         ]
@@ -1395,35 +1399,35 @@ export class NavigationItem
               {
                  id: 'rh-reports',
                 title: 'Reporte Reservaciones',
-                type: 'item',            
+                type: 'item',
                 url: '/reservationsR-list'
               },
               {
                 id: 'rh-reports',
                title: 'Reporte empleados',
-               type: 'item',            
+               type: 'item',
                url: '/reportemployee-list'
              },
              {
               id: 'rh-reports',
              title: 'Reporte departamento',
-             type: 'item',            
+             type: 'item',
              url: '/departmentsr-list'
            }   ,
            {
             id: 'rh-reports',
            title: 'Reporte Viviendas',
-           type: 'item',            
+           type: 'item',
            url: '/tagvivienda-list'
-         }                               
+         }
             ]
           },
         ]
       };
     };
      if (localStorage.getItem("compras") == 'true'){
-  
-      compras = {    
+
+      compras = {
         id: 'po-main',
         title: 'Compras',
         type: 'group',
@@ -1438,21 +1442,21 @@ export class NavigationItem
               {
                 id: 'supplier',
                 title: 'Provedores',
-                type: 'item',            
+                type: 'item',
                 url: '/supplier-list'
-                
+
               },
-    
+
               {
                 id: 'payment_terms',
                 title: 'Terminos de Pago',
-                type: 'item',            
+                type: 'item',
                 url: '/payment_terms-list'
-                
-              }           
+
+              }
             ]
           },
-    
+
           {
             id: 'po-opercion',
             title: 'Operacion',
@@ -1462,12 +1466,12 @@ export class NavigationItem
               {
                 id: 'purchase_orders',
                 title: 'Ordenes de Compra',
-                type: 'item',            
+                type: 'item',
                 url: '/purchase_orders-list'
-                
+
               }
-    
-                                    
+
+
             ]
           },
 
@@ -1480,11 +1484,11 @@ export class NavigationItem
               {
                 id: 'por',
                 title: 'Portal Proveedor',
-                type: 'item',            
+                type: 'item',
                 url: '/facpv-list'
-                
+
               }
-                                    
+
             ]
           },
           {
@@ -1496,25 +1500,25 @@ export class NavigationItem
               {
                 id: 'Reports',
                 title: 'Proveedores',
-                type: 'item',            
+                type: 'item',
                 url: '/supplier_repor-list'
-                
+
               },
               {
                 id: 'Reportss',
                 title: 'Ordenes de Compra',
-                type: 'item',            
+                type: 'item',
                 url: '/pdf-purchase_orders-list'
               }
-                           
+
             ]
           }
         ]
       };
     };
      if(localStorage.getItem("inventario") == 'true'){
-  
-      inventarios = {    
+
+      inventarios = {
         id: 'categories_main',
         title: 'Inventarios',
         type: 'group',
@@ -1529,51 +1533,51 @@ export class NavigationItem
               {
                 id: 'categories',
                 title: 'Categorías',
-                type: 'item',            
+                type: 'item',
                 url: '/categories-list'
-                
-              },                    
+
+              },
               {
                 id: 'sub_categories',
                 title: 'Subcategorías',
-                type: 'item',            
+                type: 'item',
                 url: '/sub_categories-list'
-                
+
               },
               {
                 id: 'unit_of_measures',
                 title: 'Unidad Medidas',
-                type: 'item',            
+                type: 'item',
                 url: '/unitofmeasures-list'
-                
+
               },
               {
                 id: 'sub_inventarys',
                 title: 'Sub Inventarios',
-                type: 'item',            
+                type: 'item',
                 url: '/sub_inventarys-list'
-                
+
               },
               {
                 id: 'master_inventarys',
                 title: 'Maestro Inventarios',
-                type: 'item',            
+                type: 'item',
                 url: '/master_inventarys-list'
-                
-              }, 
+
+              },
               {
                 id: 'status',
                 title: 'Estatus Artículos',
-                type: 'item',            
+                type: 'item',
                 url: '/status-articles-list'
-                
+
               },
               {
                 id: 'precios',
                 title: 'Precios',
-                type: 'item',            
+                type: 'item',
                 url: '/status-precios-list'
-                
+
               }
             ]
           },
@@ -1586,21 +1590,21 @@ export class NavigationItem
               {
                 id: 'articles',
                 title: 'Artículos',
-                type: 'item',            
+                type: 'item',
                 url: '/Articles-list'
-                
+
               },
               {
                 id: 'transactions_entrys',
                 title: 'Entradas Transacciones',
-                type: 'item',            
+                type: 'item',
                 url: '/transactions-entrys-list'
-                
+
               }
-    
-                                    
+
+
             ]
-          }, 
+          },
           {
             id: 'report',
             title: 'Reportes',
@@ -1610,17 +1614,17 @@ export class NavigationItem
               {
                 id: 'reports',
                 title: 'Reporte Articulo General',
-                type: 'item',            
+                type: 'item',
                 url: '/report-articulog-list'
-                
+
               },
               {
                 id: 'reportss',
                 title: 'Reporte Historial Articulo',
-                type: 'item',            
+                type: 'item',
                 url: '/report-historial-list'
-                
-              }                           
+
+              }
             ]
           },
         ]
@@ -1628,7 +1632,7 @@ export class NavigationItem
     };
 
      if(localStorage.getItem("nomina") == 'true'){
-      nomina ={    
+      nomina ={
         id: 'Nomina_main',
         title: 'Nómina',
         type: 'group',
@@ -1643,17 +1647,17 @@ export class NavigationItem
               {
                 id: 'configmainte',
                 title: 'Configuración y Mantenimiento',
-                type: 'item',            
+                type: 'item',
                 url: '/config-Maintenlist'
-                
+
               },
-             
+
                 {
                   id: 'configmainte',
                   title: 'Claves y Conceptos',
-                  type: 'item',            
+                  type: 'item',
                   url: '/key-list'
-                  
+
                 }
             ]
           },
@@ -1666,9 +1670,9 @@ export class NavigationItem
               {
                 id: 'configmainte',
                 title: 'Configuración y Mantenimiento',
-                type: 'item',            
+                type: 'item',
                 url: '/config-Maintenlist'
-                
+
               }
             ]
           }
@@ -1682,16 +1686,16 @@ export class NavigationItem
           type: 'collapse',
           icon: 'feather icon-monitor',
           children: [
-            
+
             {
               id: 'por',
               title: 'Portal Proveedor',
-              type: 'item',            
+              type: 'item',
               url: '/facpv-list'
             }
-                                
+
           ]
-          
+
       }, {
         id: 'portal',
         title: 'Portal Proveedor',
@@ -1701,17 +1705,17 @@ export class NavigationItem
           {
             id: 'por',
             title: 'Portal Proveedor',
-            type: 'item',            
+            type: 'item',
             url: '/facpv-list'
-            
+
           }
-                                
+
         ]
       };
     };
     if(localStorage.getItem("inquilino") == 'true'){
       inquilino =
-      {    
+      {
           id: 'r-main',
           title: 'Reservaciones',
           type: 'group',
@@ -1720,15 +1724,15 @@ export class NavigationItem
             {
               id: 'rh-reservation',
               title: 'Reservaciones',
-              type: 'item',            
+              type: 'item',
               url: '/reservations-list'
-            }               
+            }
           ]
       };
     };
     if(localStorage.getItem("control") == 'true'){
       inquilino =
-      {    
+      {
         id: 'AC_main',
         title: 'Control de Accesos',
         type: 'group',
@@ -1743,9 +1747,9 @@ export class NavigationItem
               {
                 id: 'ac-tenant',
                 title: 'Acceso Residentes',
-                type: 'item',            
+                type: 'item',
                 url: '/ac-tenants-list'
-                
+
               }
             ]
           },
@@ -1758,9 +1762,9 @@ export class NavigationItem
               {
                 id: 'ac-tenant',
                 title: 'Acceso Visitantes',
-                type: 'item',            
+                type: 'item',
                 url: '/ac-visitors-list'
-                
+
               }
             ]
           },
@@ -1773,16 +1777,16 @@ export class NavigationItem
               {
                 id: 'ac-tags',
                 title: 'Tags activos registrados',
-                type: 'item',            
+                type: 'item',
                 url: '/ac-tags-list'
-                
+
               },
               {
                 id: 'ac-tags',
                 title: 'Tags Inactivos registrados',
-                type: 'item',            
+                type: 'item',
                 url: '/ac-inactive-tags-list'
-                
+
               }
             ]
           },
@@ -1795,30 +1799,30 @@ export class NavigationItem
               {
                 id: 'ac-internal',
                 title: 'Tags viviendas',
-                type: 'item',            
+                type: 'item',
                 url: '/ac-reports-internal'
-                
+
               },
               {
                 id: 'ac-people',
                 title: 'Ingreso de Personas',
-                type: 'item',            
-                
-                
+                type: 'item',
+
+
                 url: '/ac-reports-people'
-                
+
               }
             ]
           }
         ]
       };
     };
-      
-     
 
-    const permisoss=[dashboard,admin,contabilidad,cuentasporpagar,tesoreria,cuentasporcobrar,recursoshumanos,compras,inventarios,nomina,inquilino,control,proveedor];       
+
+
+    const permisoss=[dashboard,admin,contabilidad,cuentasporpagar,tesoreria,cuentasporcobrar,recursoshumanos,compras,inventarios,nomina,inquilino,control,proveedor];
     return permisoss;
-      
-      
+
+
   }
 }

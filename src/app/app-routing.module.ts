@@ -320,6 +320,11 @@ import { CreateSalidasComponent } from './inventarios/transactions_entrys/create
 import { PurcharseListCanceladasComponent } from './purcharse/purcharse-list-canceladas/purcharse-list-canceladas.component';
 import { PayrrollkeysListComponent } from './Payrrolll/payrrollkeys-list/payrrollkeys-list.component';
 
+import { CondominumsListComponent1 } from './admin/camaras/condominums-list/condominums-list.component';
+import { CamaraListComponent } from './admin/camaras/camera-list/camara-list.component';
+
+// import { CamaraListComponent } from './admin/camaras/camera-list/camara-list.component';
+
 //import { CreateTransactionsEntrysComponent } from './inventarios/transactions_entrys/create-transactions-entrys/create-transactions-entrys.component';
 
 
@@ -488,7 +493,28 @@ const routes: Routes = [
         children: [
           {
             path: 'update-contacts/:id',
+            // tslint:disable-next-line: max-line-length
             loadChildren: () => import('src/app/RH/contact/update-contacts/update-contacts.module').then(module => module.UpdateContactsModule)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CondominumsListComponent1,
+        children: [
+          {
+            path: 'condominums-cameras-list',
+            loadChildren: () => import('./admin/camaras/condominums-list/condominums-list.module').then(module => module.CondominumsListModule1)
+          }
+        ]
+      },
+      {
+        path: '',
+        component: CamaraListComponent,
+        children: [
+          {
+            path: 'security-cameras-list/:id',
+            loadChildren: () => import('./admin/camaras/camera-list/camara-list.module').then(module => module.CamaraListModule)
           }
         ]
       },
@@ -2208,7 +2234,7 @@ const routes: Routes = [
           }
         ]
       },
-    
+
       {
         path: '',
         component: TransactionsentrysListComponent,
@@ -2811,8 +2837,8 @@ const routes: Routes = [
           }
         ]
       },
-      
-      
+
+
       ///Order-lis- canceladas
 
       {
@@ -2850,12 +2876,12 @@ const routes: Routes = [
           }
         ]
       }
-      
+
       ,
 
 
-     
-    
+
+
       {
         path: '',
         component: CreateSalidasComponent ,
@@ -2866,7 +2892,7 @@ const routes: Routes = [
           }
         ]
       }
-      
+
       ,
 
       {
@@ -3104,7 +3130,7 @@ const routes: Routes = [
           }
         ]
       },
-      /// 
+      ///
       {
         path: '',
         component: PdfPurcharseListComponent,
@@ -3440,7 +3466,7 @@ const routes: Routes = [
 
       },
       //Payrroll-list-key
-      
+
       {
         path: '',
         component: AcVisitorsDetailsComponent,

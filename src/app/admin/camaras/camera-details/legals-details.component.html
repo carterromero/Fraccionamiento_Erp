@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-sm-12">
+      <app-card cardTitle="Detalle Empresa" [options]="false">
+        <div *ngIf="employee">
+
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert> 
+          <div>
+            <label><b>Empresa: </b></label> {{employee.legals_name}}
+          </div>
+          <div>
+            <label><b>Dirección: </b></label> {{employee.legals_address}}
+          </div>
+          <div>
+            <label><b>Descripción: </b></label> {{employee.legals_description}}
+          </div>
+          <div>
+            <label><b>RFC: </b></label> {{employee.legals_rfc}}
+          </div>
+
+          <div>
+            <label><b>Registro Patronal: </b></label> {{employee.legals_employer_registration}}
+          </div>
+
+          <div>
+            <label><b>Regimen Fiscal: </b></label> {{employee.legals_tax_regime}}
+          </div>
+
+
+          <div>
+            <label><b>Estatus:  </b></label>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" disabled class="custom-control-input"  id="legals_status"  name="legals_status"   style="margin-left: 10px" [checked]="employee.legals_status == 'true'">
+            <label class="custom-control-label" for="legals_status">Active</label>
+         </div>
+        </div>
+        </div>
+        <br>
+        <button [routerLink]="['/legals-list']" class="btn btn-outline-primary">Regresar</button><br>
+      </app-card>
+      </div>
+  </div>

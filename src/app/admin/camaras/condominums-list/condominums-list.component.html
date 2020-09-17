@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-xl-12">
+      <app-card cardTitle="Lista de Fraccionamientos" blockClass="table-border-style" [options]="false">
+        <div class="table-responsive">
+          <app-alert type="danger" [hidden]="alertDisable">{{alertMessage}}</app-alert>
+          <app-alert type="success" [hidden]="alertDisables">{{alertMessages}}</app-alert>
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Fracionamiento</th>
+              <th>Descripción</th>
+              <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let general of general | async">
+                    <td>{{general.legals_name}}</td>
+                    <td>{{general.condominums_description}}</td>
+                    <td>
+                        <button (click)="generalDetails(general.condominums_id)" class="btn btn-info" style="margin-left: 10px"><i class="feather icon-eye"></i> Ver cámaras</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </app-card>
+    </div>
+  </div>
